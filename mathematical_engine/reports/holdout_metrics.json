@@ -1,0 +1,44 @@
+{
+  "holdout_metrics": {
+    "uncalibrated": {
+      "log_loss": 0.6586571335792542,
+      "brier": 0.2329515665769577,
+      "auc": 0.6396648044692737,
+      "accuracy": 0.6199376947040498
+    },
+    "sigmoid": {
+      "log_loss": 0.6610237783563593,
+      "brier": 0.23383471505981057,
+      "auc": 0.6396648044692737,
+      "accuracy": 0.6261682242990654
+    },
+    "isotonic": {
+      "log_loss": 0.674030190950527,
+      "brier": 0.23927664717224623,
+      "auc": 0.6324848532535998,
+      "accuracy": 0.6074766355140186
+    }
+  },
+  "baselines": {
+    "always_home_accuracy": 0.557632398753894,
+    "base_rate_log_loss": 0.68656714235853
+  },
+  "better_calibration_on_holdout": "sigmoid",
+  "global_shap_top": {
+    "elo_diff": 0.21046355366706848,
+    "bt_diff": 0.15313711762428284,
+    "pythag10_diff": 0.10677820444107056,
+    "form5_points_against_diff": 0.09273814409971237,
+    "form5_all_run_metres_diff": 0.0704454630613327,
+    "mom5_penalty_gap_seconds_diff": 0.039271727204322815,
+    "form3_errors_diff": 0.03831864148378372,
+    "form3_support_plays_diff": 0.02709348313510418,
+    "form3_all_run_metres_diff": 0.026622174307703972,
+    "form3_play_the_ball_speed_diff": 0.024143896996974945,
+    "form5_possession_pct_diff": 0.023311477154493332,
+    "ctx_rest_days_diff": 0.018199633806943893,
+    "form5_effective_tackle_pct_diff": 0.01688268408179283,
+    "form3_line_breaks_diff": 0.016645612195134163,
+    "form5_missed_tackles_diff": 0.01661164127290249
+  }
+}

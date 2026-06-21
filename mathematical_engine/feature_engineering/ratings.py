@@ -117,9 +117,14 @@ def _fit_bradley_terry(
 
 
 def compute_bradley_terry(df: pd.DataFrame) -> pd.DataFrame:
-    """Pre-match Bradley-Terry log-strength, refit before each round.
+    """Pre-match Bradley-Terry log-strength, refit before each kickoff time.
 
-    Matches are weighted by recency: weight = 0.5 ** (age_days / half_life).
+    Strictly pre-match: every match at kickoff time T is rated using only
+    matches that finished before T (all matches sharing a kickoff time get
+    the same fit). Refitting at kickoff granularity - rather than per round -
+    keeps this feature consistent with Elo/form and lets the upcoming-fixture
+    inference path reproduce it exactly. Matches are recency-weighted:
+    weight = 0.5 ** (age_days / half_life).
     """
     team_ids = sorted(set(df["home_team_id"]) | set(df["away_team_id"]))
     team_index = {t: i for i, t in enumerate(team_ids)}
@@ -133,14 +138,13 @@ def compute_bradley_terry(df: pd.DataFrame) -> pd.DataFrame:
     bt_home = np.full(len(df), np.nan)
     bt_away = np.full(len(df), np.nan)
 
-    # Refit once per (season, round) block using all earlier matches.
-    block_ids = df.groupby(["season", "round_number"], sort=False).ngroup().to_numpy()
-    block_starts = np.flatnonzero(np.r_[True, np.diff(block_ids) != 0])
+    # One fit per distinct kickoff time, using all strictly-earlier matches.
+    block_starts = np.flatnonzero(np.r_[True, times[1:] != times[:-1]])
 
     for b, start in enumerate(block_starts):
         end = block_starts[b + 1] if b + 1 < len(block_starts) else len(df)
         if start == 0:
-            continue  # no history before the very first round
+            continue  # no history before the earliest kickoff
         age_days = (times[start] - times[:start]) / np.timedelta64(1, "D")
         weights = 0.5 ** (age_days / BT_HALF_LIFE_DAYS)
         strengths = _fit_bradley_terry(

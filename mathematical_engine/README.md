@@ -10,8 +10,11 @@ The deterministic prediction core of the Sports Prediction Agent. See
 | `nrl_scraping/` | Shared scraping toolkit (HTTP session, match-centre extractor). Used by both ETL jobs. |
 | `historical_data_backfill_etl/` | Job A: one-off backfill of all raw match data, 2015-present. Run once. |
 | `data_lake/` | Raw, untransformed match JSON only. |
-| `feature_engineering/` | Phase 2: flattens raw JSON and builds the leakage-free training dataset. |
+| `feature_engineering/` | Phase 2: flattens raw JSON and builds the leakage-free training dataset. Also `inference.py` (Phase 3): builds features for upcoming fixtures. |
 | `feature_store/` | Transformed Parquet output (`matches_flat.parquet`, `training_dataset.parquet`). |
+| `model/` | Phase 3: tune, train, calibrate, evaluate, explain, and predict. |
+| `models/` | Trained artifacts (gitignored): `model.ubj`, `calibrator.pkl`, `best_params.json`, `feature_columns.json`, `metrics.json`. |
+| `reports/` | Evaluation outputs: calibration curve, SHAP summary, holdout metrics. |
 | `reference_files/` | Original prototype scripts and a sample payload. Not source code. |
 
 See [Feature_Dictionary.md](Feature_Dictionary.md) for every feature in the
@@ -77,3 +80,35 @@ Outputs land in `feature_store/`. Draws and phantom COVID games are
 excluded; era-missing telemetry stays NaN (never imputed). Unknown venues
 print a warning and should be added to `VENUE_TO_STATE` in
 `feature_engineering/flatten.py`.
+
+## Phase 3: The Mathematical Core (model + SHAP + predictor)
+
+A tuned, probability-calibrated XGBoost classifier with a SHAP explainer and
+a CLI that predicts upcoming fixtures. Full design rationale in
+[model/Architecture.md](model/Architecture.md).
+
+```bash
+# Occasional: Optuna hyperparameter search -> models/best_params.json (~95s)
+uv run python -m model.tune
+
+# Weekly: fit + calibrate the production model -> models/ (seconds)
+uv run python -m model.train
+
+# Honest backtest on the untouched 2025-2026 holdout, + plots -> reports/
+uv run python -m model.evaluate
+
+# Prove train/inference feature consistency
+uv run python -m feature_engineering.inference
+
+# Predict an upcoming fixture (prints the Overview-format JSON payload)
+uv run python -m model.predict --home Broncos --away Storm \
+    --venue "Suncorp Stadium" --date 2026-07-04T09:30:00Z
+```
+
+The tuning/training split is deliberate: hyperparameters track the dataset's
+shape (re-tune occasionally), while training reuses the saved params and is
+fast enough to re-run every round. Validation uses expanding-window
+chronological folds with 2025-2026 held out, so reported metrics (holdout
+AUC ~0.64, accuracy ~63% vs 56% always-home baseline) reflect genuine future
+performance. FastAPI and the weekly ETL job build on these artifacts in
+Phase 4.

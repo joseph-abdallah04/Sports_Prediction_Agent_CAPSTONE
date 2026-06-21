@@ -184,8 +184,92 @@ only after that.
 
 ## DD-16: Generated data stays out of git
 
-**Decision.** `data_lake/` and `feature_store/` are gitignored.
+**Decision.** `data_lake/`, `feature_store/`, and `models/` are gitignored.
 
-**Why.** 313 MB of regenerable artifacts don't belong in version control;
-code, configuration, and documentation do. Everything in those folders is
-reproducible from the pipelines (`backfill.py`, `build_dataset.py`).
+**Why.** Hundreds of MB of regenerable artifacts don't belong in version
+control; code, configuration, and documentation do. Everything in those
+folders is reproducible from the pipelines (`backfill.py`,
+`build_dataset.py`, `train.py`).
+
+## DD-17: Log loss as the tuning objective (not accuracy)
+
+**Decision.** Optuna minimises mean log loss across folds.
+
+**Alternatives.** Maximise accuracy or AUC.
+
+**Why.** Log loss is a proper scoring rule that rewards well-calibrated
+probabilities. The LLM Orchestrator reasons with the probability itself
+(e.g. "74% home win"), not just the binary pick, so probability quality is
+the thing to optimise. Accuracy ignores confidence; AUC ignores calibration.
+
+## DD-18: Expanding-window chronological cross-validation
+
+**Decision.** Tuning/calibration validate with expanding windows (train
+through season S, validate on S+1, for S+1 in 2021-2024); 2025-2026 is a
+final untouched holdout.
+
+**Alternatives.** Random k-fold cross-validation.
+
+**Why.** Random folds let the model validate on matches that occurred before
+others in its training set - future leaking into past - producing
+optimistic, unrealistic scores. Expanding windows replicate production: only
+the past is known. The holdout being untouched makes the reported 2025-2026
+numbers an honest estimate of next-season performance.
+
+## DD-19: Tune occasionally, train weekly
+
+**Decision.** Hyperparameter search is a manual, occasional job; weekly
+retraining reuses the saved `best_params.json`.
+
+**Why.** Best hyperparameters reflect the dataset's shape (~2,300 rows, 49
+features, NRL noise), which one new round of ~8 matches does not change.
+Re-tuning weekly would burn compute to rediscover near-identical settings
+and could introduce week-to-week instability. Re-tune each off-season or
+after significant feature changes.
+
+## DD-20: Two model fits - served model on all data, evaluation model on a holdout
+
+**Decision.** `train.py` fits the production model on ALL data (2015-2026);
+`evaluate.py` separately fits on development data (<=2024) to score the
+untouched 2025-2026 holdout.
+
+**Why.** These serve different goals. The deployed model should be maximally
+informed (use every match). Honest generalisation metrics require data the
+model never saw. Conflating them either cripples the served model or inflates
+the reported numbers. Two purposes, two fits.
+
+## DD-21: Sigmoid (Platt) calibration as default
+
+**Decision.** Default probability calibration is sigmoid; isotonic is
+available and compared in `evaluate.py`.
+
+**Why.** Isotonic regression is more flexible but overfits small calibration
+sets (~500 out-of-time points here). On the 2025-2026 holdout sigmoid beat
+isotonic on both Brier (0.234 vs 0.239) and log loss (0.661 vs 0.674),
+confirming the theoretical expectation.
+
+## DD-22: Bradley-Terry refit per kickoff time, not per round
+
+**Decision.** Changed BT to refit at each distinct kickoff time using all
+strictly-earlier matches (was: one fit per season-round block).
+
+**Why.** The per-round version gave every match in a round the same BT
+snapshot from before the round started. When the inference path rebuilds a
+mid-round fixture "as of its exact kickoff", earlier same-round matches are
+now visible, so the rebuilt `bt_diff` diverged from the stored training value
+- the parity test caught this (2/5 mismatches on `bt_diff`). Refitting per
+kickoff makes BT strictly pre-match like Elo and form, so training and
+inference are provably identical (parity test passes 5/5). Cost: dataset
+rebuild rose from ~4s to ~22s - acceptable for an occasional job.
+
+## DD-23: Upcoming-fixture features via a synthetic row through Stage 2
+
+**Decision.** `inference.py` predicts future games by appending one
+synthetic, unplayed row to the historical flat table and running the
+existing Stage 2 feature code, rather than reimplementing feature math for
+serving.
+
+**Why.** A second feature implementation for inference is the classic source
+of train/serve skew. Reusing the exact training code path makes drift
+impossible by construction, and a parity test asserts equality on historical
+fixtures (passes 5/5).

@@ -168,3 +168,90 @@ rather than as a single yes/no flag.
 (home-win rate at a venue with 4 recorded games), blend it with a prior
 assumption (55%) so small samples can't produce wild values. The prior's
 influence fades as real observations accumulate.
+
+## Phase 3 terms (model, tuning, calibration)
+
+**Hyperparameter.** A setting of the *learning process itself* that isn't
+learned from the data and must be chosen in advance — e.g. how many trees to
+build, how deep each tree can grow, the learning rate. Contrast with model
+*parameters* (the split thresholds inside the trees), which training learns.
+
+**Hyperparameter tuning.** Systematically trying combinations of
+hyperparameters and keeping the set that scores best on held-out data.
+
+**Optuna.** The library we use to automate tuning. We define the search
+space, the scoring function, and the trial budget once; Optuna intelligently
+decides which combinations to try next (focusing on promising regions). "We
+build the exam; Optuna sits it 200 times."
+
+**TPE (Tree-structured Parzen Estimator).** Optuna's default search strategy.
+It models which regions of the search space tend to score well and samples
+new trials from there, rather than searching blindly.
+
+**Objective function.** The single number a tuner tries to minimise (or
+maximise). Ours is mean log loss across the validation folds.
+
+**Log loss (logistic / cross-entropy loss).** A score for *probabilistic*
+predictions: it punishes confident wrong answers harshly and rewards
+confident right ones. Lower is better. It is a "proper scoring rule", meaning
+it is optimised only by reporting your true probabilities — which is why we
+tune on it rather than accuracy. A coin-flip (always 0.5) scores ~0.693;
+predicting the base rate scores ~0.687 here.
+
+**Brier score.** The mean squared error between predicted probabilities and
+outcomes (0/1). Like log loss it measures probability quality, but penalises
+errors less severely. Lower is better; we use it to compare calibration
+methods.
+
+**Calibration.** Adjusting a model's probabilities so they mean what they
+say — if it outputs 0.70 across many games, the home team should win about
+70% of them. Raw tree-ensemble probabilities are often mis-scaled.
+
+**Platt scaling (sigmoid calibration).** A calibration method that fits a
+logistic (S-shaped) curve mapping raw scores to calibrated probabilities.
+Robust with limited data; our default.
+
+**Isotonic regression.** A calibration method that fits a free
+(non-parametric) increasing step function. More flexible than Platt but needs
+more data and can overfit small calibration sets.
+
+**Calibration curve (reliability diagram).** A plot of predicted probability
+(x) vs observed frequency (y). A perfectly calibrated model lies on the
+diagonal.
+
+**Expanding-window validation.** A time-aware cross-validation where each
+fold trains on all seasons before a target season and validates on that
+season — then the window expands to include it for the next fold. Prevents
+the model from "seeing the future".
+
+**Holdout set.** Data deliberately set aside and never used during tuning or
+calibration, reserved to estimate real future performance (ours: 2025-2026).
+
+**Out-of-time (OOF) predictions.** Predictions made on data the model did not
+train on, generated via the validation folds. We fit the calibrator on these
+so calibration generalises rather than memorising the training set.
+
+**SHAP (SHapley Additive exPlanations).** A method, grounded in cooperative
+game theory, that attributes a single prediction across its input features —
+how much each feature pushed the prediction up or down, and in which
+direction. It is what turns the model from a black box into the reasoning
+payload the LLM Orchestrator consumes.
+
+**Model artifact.** A saved output of training that can be reloaded to make
+predictions without retraining — here the booster (`model.ubj`), the
+calibrator (`calibrator.pkl`), and the feature/metadata files in `models/`.
+
+**Parity test (train/serve consistency).** A check that features built for a
+*future* fixture via the inference path exactly equal the features the model
+trained on for the same (historical) match. Guards against "train/serve
+skew", where a model is fed differently-computed features in production than
+in training.
+
+**Baseline.** A trivial reference a real model must beat — e.g.
+always-pick-home accuracy (55.8%) or always-predict-the-base-rate log loss
+(0.687). Beating the baseline is the minimum bar for "the model learned
+something".
+
+**AUC (Area Under the ROC Curve).** Defined in the metrics section above; in
+Phase 3 it is unchanged by calibration because calibration is monotonic (it
+re-labels probabilities without reordering matches).

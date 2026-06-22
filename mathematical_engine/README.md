@@ -9,6 +9,7 @@ The deterministic prediction core of the Sports Prediction Agent. See
 | --- | --- |
 | `nrl_scraping/` | Shared scraping toolkit (HTTP session, match-centre extractor). Used by both ETL jobs. |
 | `historical_data_backfill_etl/` | Job A: one-off backfill of all raw match data, 2015-present. Run once. |
+| `weekly_incremental_etl/` | Job B: weekly pipeline — scrape new matches, rebuild features, retrain model. |
 | `data_lake/` | Raw, untransformed match JSON only. |
 | `feature_engineering/` | Phase 2: flattens raw JSON and builds the leakage-free training dataset. Also `inference.py` (Phase 3): builds features for upcoming fixtures. |
 | `feature_store/` | Transformed Parquet output (`matches_flat.parquet`, `training_dataset.parquet`). |
@@ -112,3 +113,16 @@ chronological folds with 2025-2026 held out, so reported metrics (holdout
 AUC ~0.64, accuracy ~63% vs 56% always-home baseline) reflect genuine future
 performance. FastAPI and the weekly ETL job build on these artifacts in
 Phase 4.
+
+## Job B: Weekly incremental ETL
+
+Run once after each NRL round completes to pull new results, refresh the
+feature store, and retrain the model. See the project root
+[README.md](../README.md#weekly-etl-run-this-after-each-round) for the
+operator runbook.
+
+```bash
+uv run python -m weekly_incremental_etl.run              # default: current season
+uv run python -m weekly_incremental_etl.run --season 2026
+uv run python -m weekly_incremental_etl.run --dry-run    # preview pending scrapes
+```

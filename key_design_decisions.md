@@ -273,3 +273,16 @@ serving.
 of train/serve skew. Reusing the exact training code path makes drift
 impossible by construction, and a parity test asserts equality on historical
 fixtures (passes 5/5).
+
+## DD-24: Weekly ETL (Job B) as a separate orchestrator package
+
+**Decision.** `weekly_incremental_etl/run.py` discovers completed matches from
+nrl.com draw pages, scrapes only URLs not already in the data lake (dedup via
+backfill + weekly manifests and on-disk `nrl_match_{id}.json` files), then
+full-rebuilds features and calls `model.train`. Does not touch
+`backfill_manifest.json` or run `model.tune`.
+
+**Why.** Same separation rationale as DD-03: one-off backfill vs ongoing
+weekly job. Draw-page auto-discovery replaces the Overview's manual URL feed.
+Full rebuild per DD-15 keeps stateful features correct. A single CLI is the
+operator runbook for each round.

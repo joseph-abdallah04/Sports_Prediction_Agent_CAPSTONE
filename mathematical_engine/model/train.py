@@ -81,13 +81,8 @@ def out_of_time_predictions(dev, feature_cols, params):
     return np.concatenate(oof_proba), np.concatenate(oof_y)
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Train + calibrate the production model")
-    parser.add_argument("--calibration", choices=["sigmoid", "isotonic"], default="sigmoid")
-    args = parser.parse_args()
-
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-
+def train_production(calibration: str = "sigmoid") -> int:
+    """Fit + calibrate the production model and save artifacts."""
     df = load_dataset()
     feature_cols = get_feature_columns(df)
     params = load_params()
@@ -95,7 +90,7 @@ def main() -> int:
 
     # Step 2: OOF predictions -> calibrator.
     oof_proba, oof_y = out_of_time_predictions(dev, feature_cols, params)
-    calibrator = ProbabilityCalibrator(method=args.calibration).fit(oof_proba, oof_y)
+    calibrator = ProbabilityCalibrator(method=calibration).fit(oof_proba, oof_y)
     cal_proba = calibrator.transform(oof_proba)
 
     oof_metrics = {
@@ -108,7 +103,7 @@ def main() -> int:
         "OOF log loss %.4f -> %.4f, Brier %.4f -> %.4f (after %s calibration)",
         oof_metrics["log_loss_uncalibrated"], oof_metrics["log_loss_calibrated"],
         oof_metrics["brier_uncalibrated"], oof_metrics["brier_calibrated"],
-        args.calibration,
+        calibration,
     )
 
     # Step 3: refit base model on ALL matches (production model is maximally informed).
@@ -118,7 +113,7 @@ def main() -> int:
     # Step 4: persist artifacts.
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     model.save_model(MODEL_PATH)
-    joblib.dump({"calibrator": calibrator, "method": args.calibration}, CALIBRATOR_PATH)
+    joblib.dump({"calibrator": calibrator, "method": calibration}, CALIBRATOR_PATH)
 
     categorical = {}
     if "ctx_weather" in df.columns:
@@ -130,7 +125,7 @@ def main() -> int:
         "trained_at": datetime.now(timezone.utc).isoformat(),
         "n_training_rows": int(len(df)),
         "training_seasons": [int(df["season"].min()), int(df["season"].max())],
-        "calibration_method": args.calibration,
+        "calibration_method": calibration,
         "hyperparameters": params,
         "oof_metrics": oof_metrics,
     }
@@ -141,6 +136,15 @@ def main() -> int:
     logger.info("Production model trained on %d matches (seasons %d-%d)",
                 len(df), df["season"].min(), df["season"].max())
     return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Train + calibrate the production model")
+    parser.add_argument("--calibration", choices=["sigmoid", "isotonic"], default="sigmoid")
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    return train_production(calibration=args.calibration)
 
 
 if __name__ == "__main__":

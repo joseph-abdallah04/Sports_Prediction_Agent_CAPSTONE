@@ -3,6 +3,9 @@
 The deterministic prediction core of the Sports Prediction Agent. See
 [Overview.md](Overview.md) for the full architecture rationale.
 
+**Operator commands (when/why for every command):** see the project root
+[README.md](../README.md#command-reference).
+
 ## Layout
 
 | Path | Purpose |

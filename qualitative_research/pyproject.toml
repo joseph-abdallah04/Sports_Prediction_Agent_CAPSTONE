@@ -1,0 +1,21 @@
+[project]
+name = "qualitative-research"
+version = "0.1.0"
+description = "Zero-cost multi-channel qualitative research tool for NRL fixture facts"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32",
+    "beautifulsoup4>=4.12",
+    "ddgs>=9.0",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "feedparser>=6.0",
+    "googlenewsdecoder>=0.1.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["research", "api"]

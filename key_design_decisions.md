@@ -286,3 +286,21 @@ full-rebuilds features and calls `model.train`. Does not touch
 weekly job. Draw-page auto-discovery replaces the Overview's manual URL feed.
 Full rebuild per DD-15 keeps stateful features correct. A single CLI is the
 operator runbook for each round.
+
+## DD-25: HTTP serving as a thin wrapper with artifact hot-reload
+
+**Decision.** The FastAPI layer (`api/`) calls the same `predict_fixture()`
+in `model/serving.py` that the CLI uses, and hot-reloads model artifacts by
+watching the modification time of `models/metrics.json` before each request.
+The API never triggers scraping, feature rebuilds, or retraining.
+
+**Alternatives.** Separate HTTP prediction code; restarting the server after
+each weekly ETL; an API endpoint that triggers the ETL.
+
+**Why.** One shared code path means CLI and HTTP predictions can never
+diverge (the same anti-drift philosophy as DD-23). Watching `metrics.json` —
+written *last* by `train.py` — makes the weekly artifact swap effectively
+atomic, so the server keeps running across ETL runs with zero operator
+intervention. Keeping the ETL out of the API preserves the agreed
+decoupling: the endpoint serves whatever is in `models/`; the operator
+refreshes it on their own schedule.

@@ -10,6 +10,7 @@ reasoning for the Agent to weigh in its final call.
 | Path | Purpose |
 | --- | --- |
 | [`mathematical_engine/`](mathematical_engine/README.md) | The deterministic prediction core: data ETL, feature engineering, and the trained/calibrated XGBoost model with SHAP explanations. |
+| [`qualitative_research/`](qualitative_research/README.md) | Facts-only multi-channel research tool (nrl.com, DDG, Google News RSS, Reddit) with FastAPI `POST /research` + CLI. |
 | [`Glossary.md`](Glossary.md) | Plain-English definitions of the ML and data-engineering terms used throughout. |
 | [`key_design_decisions.md`](key_design_decisions.md) | Log of architectural crossroads and the reasoning behind each choice. |
 
@@ -19,7 +20,8 @@ reasoning for the Agent to weigh in its final call.
 - **Phase 2 — Feature engineering:** done. Leakage-free 49-feature training dataset.
 - **Phase 3 — Mathematical core:** done. Optuna-tuned, calibrated XGBoost + SHAP explainer + upcoming-fixture predictor CLI.
 - **Phase 4a — Weekly ETL:** done. Scrape new matches, rebuild features, retrain model.
-- **Phase 4b — Serving:** planned. FastAPI endpoint for the LLM Agent.
+- **Phase 4b — Serving:** done. FastAPI endpoint (`POST /predict`, `GET /health`) with model hot-reload.
+- **Module 1 — Qualitative research:** done. FastAPI `POST /research` + CLI; ledger-ready facts for the Orchestrator.
 
 ---
 
@@ -312,20 +314,41 @@ uv run python -m feature_engineering.flatten
 
 ---
 
-### Coming in Phase 4b
+### Serving the LLM Agent (Phase 4b)
 
-#### FastAPI prediction endpoint
+#### `uvicorn api.main:app` — start the prediction API
 
-**When:** Once Phase 4b is built — the LLM Agent will call this instead of
-`model.predict` on the command line.
+**When:** Whenever the LLM Orchestrator needs to call the engine as a tool.
+Start it once and leave it running — it automatically picks up new models
+after each weekly ETL (no restart needed).
 
-**Why:** Serves the same JSON payload over HTTP. Loads `models/` artifacts;
-does **not** run the weekly ETL.
+**Why:** Serves the same JSON payload as `model.predict` over HTTP. Loads
+`models/` artifacts; does **not** run the weekly ETL. Full design in
+[`mathematical_engine/api/Architecture.md`](mathematical_engine/api/Architecture.md).
 
 ```bash
-# Not yet implemented — placeholder
-uv run uvicorn api.main:app --reload
+uv run uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
+
+Test it (from another terminal):
+
+```bash
+# Is it up, and which model is it serving?
+curl -s http://127.0.0.1:8000/health
+
+# A prediction (~25s — feature building dominates)
+curl -s -X POST http://127.0.0.1:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "home_team": "Broncos",
+    "away_team": "Storm",
+    "venue": "Suncorp Stadium",
+    "kickoff": "2026-07-04T09:30:00Z"
+  }'
+```
+
+Interactive docs (fire test requests from the browser):
+<http://127.0.0.1:8000/docs>
 
 The weekly ETL and the API are decoupled: run the ETL to refresh data and
 the model; the API only serves whatever is already in `models/`.
@@ -337,7 +360,8 @@ the model; the API only serves whatever is already in `models/`.
 | Command | Frequency | Purpose |
 | --- | --- | --- |
 | `weekly_incremental_etl.run` | **Weekly** | Scrape new games + rebuild features + retrain model |
-| `model.predict` | **As needed** | Get prediction JSON for an upcoming fixture |
+| `uvicorn api.main:app` | **Leave running** | HTTP API the LLM Agent calls (`POST /predict`) |
+| `model.predict` | **As needed** | Get prediction JSON for an upcoming fixture (CLI) |
 | `model.evaluate` | Occasional | Refresh holdout metrics and `reports/` plots |
 | `model.tune` | Rare | Search for better hyperparameters |
 | `model.train` | Rare* | Retrain model only (*weekly ETL does this) |
@@ -371,9 +395,32 @@ uv run python -m model.predict \
 
 ---
 
+## Qualitative research tool
+
+Facts-only multi-channel research for an upcoming fixture (no LLM). Run from
+`qualitative_research/`:
+
+```bash
+cd qualitative_research
+uv sync
+
+uv run python -m research.cli \
+  --home Eels --away Panthers \
+  --kickoff 2026-07-25T19:30:00+10:00 --round 21
+
+# API (separate from math engine port)
+uv run uvicorn api.main:app --host 127.0.0.1 --port 8001
+# POST /research  GET /health
+```
+
+See [`qualitative_research/README.md`](qualitative_research/README.md) and
+[`qualitative_research/Architecture.md`](qualitative_research/Architecture.md).
+
+---
+
 ## Important notes
 
-- **Working directory:** always `mathematical_engine/` for `uv run python -m ...`.
+- **Working directory:** always `mathematical_engine/` for math `uv run python -m ...`; use `qualitative_research/` for research.
 - **No duplicates:** weekly ETL skips matches already in the data lake.
 - **Model replacement:** each weekly run fully overwrites `models/model.ubj`.
 - **No tuning weekly:** hyperparameters come from `models/best_params.json`.
@@ -386,5 +433,6 @@ uv run python -m model.predict \
 - [`mathematical_engine/README.md`](mathematical_engine/README.md) — engine layout and technical detail.
 - [`mathematical_engine/Overview.md`](mathematical_engine/Overview.md) — system architecture.
 - [`mathematical_engine/model/Architecture.md`](mathematical_engine/model/Architecture.md) — model training and evaluation design.
+- [`qualitative_research/Architecture.md`](qualitative_research/Architecture.md) — research channels, filters, ledger contract.
 - [`plans/phase_4a_weekly_etl.plan.md`](plans/phase_4a_weekly_etl.plan.md) — weekly ETL design document.
 - [`Glossary.md`](Glossary.md) — definitions for AUC, log loss, SHAP, etc.

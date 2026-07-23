@@ -16,7 +16,8 @@ The deterministic prediction core of the Sports Prediction Agent. See
 | `data_lake/` | Raw, untransformed match JSON only. |
 | `feature_engineering/` | Phase 2: flattens raw JSON and builds the leakage-free training dataset. Also `inference.py` (Phase 3): builds features for upcoming fixtures. |
 | `feature_store/` | Transformed Parquet output (`matches_flat.parquet`, `training_dataset.parquet`). |
-| `model/` | Phase 3: tune, train, calibrate, evaluate, explain, and predict. |
+| `model/` | Phase 3: tune, train, calibrate, evaluate, explain, and predict. Also `serving.py`: shared prediction layer used by both the CLI and the API. |
+| `api/` | Phase 4b: FastAPI endpoint (`POST /predict`, `GET /health`) for the LLM Agent. See `api/Architecture.md`. |
 | `models/` | Trained artifacts (gitignored): `model.ubj`, `calibrator.pkl`, `best_params.json`, `feature_columns.json`, `metrics.json`. |
 | `reports/` | Evaluation outputs: calibration curve, SHAP summary, holdout metrics. |
 | `reference_files/` | Original prototype scripts and a sample payload. Not source code. |
@@ -128,4 +129,16 @@ operator runbook.
 uv run python -m weekly_incremental_etl.run              # default: current season
 uv run python -m weekly_incremental_etl.run --season 2026
 uv run python -m weekly_incremental_etl.run --dry-run    # preview pending scrapes
+```
+
+## Phase 4b: FastAPI serving layer
+
+Exposes the engine as an HTTP tool for the LLM Orchestrator. Serves the same
+JSON as `model.predict`; hot-reloads artifacts after each weekly ETL run
+(no restart needed). Full design in [api/Architecture.md](api/Architecture.md).
+
+```bash
+uv run uvicorn api.main:app --host 127.0.0.1 --port 8000
+curl -s http://127.0.0.1:8000/health
+# interactive docs: http://127.0.0.1:8000/docs
 ```

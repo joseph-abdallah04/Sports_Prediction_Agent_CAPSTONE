@@ -12,12 +12,12 @@ useful (loading into Parquet files). Our backfill and weekly pipelines are
 both ETL jobs.
 
 **Data lake.** A storage area holding raw, untouched data in its original
-form. Ours is `mathematical_engine/data_lake/` — 2,324 match JSON files
+form. Ours is `tools/mathematical_engine/data_lake/` — 2,324 match JSON files
 exactly as nrl.com served them. Keeping the raw form means we can always
 re-derive everything else if we change our minds about transformations.
 
 **Feature store.** Where the *transformed*, model-ready data lives —
-`mathematical_engine/feature_store/`. Separate from the data lake so raw
+`tools/mathematical_engine/feature_store/`. Separate from the data lake so raw
 facts and derived features never get mixed up.
 
 **Parquet.** A file format for tables (like CSV, but compressed, faster,

@@ -9,8 +9,12 @@ reasoning for the Agent to weigh in its final call.
 
 | Path | Purpose |
 | --- | --- |
-| [`mathematical_engine/`](mathematical_engine/README.md) | The deterministic prediction core: data ETL, feature engineering, and the trained/calibrated XGBoost model with SHAP explanations. |
-| [`qualitative_research/`](qualitative_research/README.md) | Facts-only multi-channel research tool (nrl.com, DDG, Google News RSS, Reddit) with FastAPI `POST /research` + CLI. |
+| [`tools/`](tools/README.md) | Fact tools (math, scene, research) + MCP gateway. |
+| [`tools/mathematical_engine/`](tools/mathematical_engine/README.md) | The deterministic prediction core: data ETL, feature engineering, and the trained/calibrated XGBoost model with SHAP explanations (CLI). |
+| [`tools/qualitative_research/`](tools/qualitative_research/README.md) | Facts-only multi-channel research tool (nrl.com, DDG, Google News RSS, Reddit) with CLI. |
+| [`tools/fixture_scene/`](tools/fixture_scene/README.md) | First-pipeline scene setter: nrl.com draw/match centre + Open-Meteo weather (CLI). |
+| [`tools/mcp_gateway/`](tools/mcp_gateway/README.md) | MCP server exposing scene / research / math tools to an agent client. |
+| [`agent/`](agent/README.md) | Constrained-pipeline LLM Orchestrator (query plan, judgement, verifier loops, ledger). |
 | [`Glossary.md`](Glossary.md) | Plain-English definitions of the ML and data-engineering terms used throughout. |
 | [`key_design_decisions.md`](key_design_decisions.md) | Log of architectural crossroads and the reasoning behind each choice. |
 
@@ -20,18 +24,21 @@ reasoning for the Agent to weigh in its final call.
 - **Phase 2 — Feature engineering:** done. Leakage-free 49-feature training dataset.
 - **Phase 3 — Mathematical core:** done. Optuna-tuned, calibrated XGBoost + SHAP explainer + upcoming-fixture predictor CLI.
 - **Phase 4a — Weekly ETL:** done. Scrape new matches, rebuild features, retrain model.
-- **Phase 4b — Serving:** done. FastAPI endpoint (`POST /predict`, `GET /health`) with model hot-reload.
-- **Module 1 — Qualitative research:** done. FastAPI `POST /research` + CLI; ledger-ready facts for the Orchestrator.
+- **Phase 4b — Serving:** superseded. Shared `predict_fixture()` remains; agent access is via MCP (see `tools/mcp_gateway/`), not per-tool FastAPI.
+- **Module 1 — Qualitative research:** done. CLI + MCP tool `research_fixture_news`.
+- **Module — Fixture scene:** done. CLI + MCP tool `set_fixture_scene`.
+- **MCP gateway:** done. One stdio MCP server for all fact tools.
+- **Agent Orchestrator:** done. Scene → research queries → predict → judgement → verifier (see `agent/`).
 
 ---
 
 ## Before you run anything
 
-All commands below are run from the **`mathematical_engine/`** directory —
+All commands below are run from the **`tools/mathematical_engine/`** directory —
 not the repo root, and not from `models/` inside it.
 
 ```bash
-cd mathematical_engine
+cd tools/mathematical_engine
 ```
 
 ### One-time setup (new machine or fresh clone)
@@ -42,7 +49,7 @@ cd mathematical_engine
 | `brew install libomp` | Once on macOS | XGBoost needs the OpenMP runtime on Mac |
 
 ```bash
-cd mathematical_engine
+cd tools/mathematical_engine
 uv sync
 brew install libomp   # macOS only
 ```
@@ -58,7 +65,7 @@ If `data_lake/raw_historical/` is empty, run the backfill command in the
 During the NRL season, this is all you normally need:
 
 ```bash
-cd mathematical_engine
+cd tools/mathematical_engine
 
 # 1. After each round finishes (e.g. Monday morning)
 uv run python -m weekly_incremental_etl.run
@@ -314,44 +321,51 @@ uv run python -m feature_engineering.flatten
 
 ---
 
-### Serving the LLM Agent (Phase 4b)
+### Agent tool access (MCP)
 
-#### `uvicorn api.main:app` — start the prediction API
-
-**When:** Whenever the LLM Orchestrator needs to call the engine as a tool.
-Start it once and leave it running — it automatically picks up new models
-after each weekly ETL (no restart needed).
-
-**Why:** Serves the same JSON payload as `model.predict` over HTTP. Loads
-`models/` artifacts; does **not** run the weekly ETL. Full design in
-[`mathematical_engine/api/Architecture.md`](mathematical_engine/api/Architecture.md).
+Per-tool FastAPI servers were removed. The agent (and any MCP host) talks to
+one gateway that calls the same library functions as the CLIs.
 
 ```bash
-uv run uvicorn api.main:app --host 127.0.0.1 --port 8000
+cd tools/mcp_gateway
+uv sync
+uv run python -m gateway
 ```
 
-Test it (from another terminal):
+| MCP tool | Backing package |
+| --- | --- |
+| `set_fixture_scene` | `fixture_scene` |
+| `research_fixture_news` | `qualitative_research` |
+| `predict_match` | `mathematical_engine` |
+| `tools_health` | gateway |
+
+Human debugging stays on CLIs (`scene.cli`, `research.cli`, `model.predict`).
+Design: [`tools/mcp_gateway/Architecture.md`](tools/mcp_gateway/Architecture.md).
+
+Smoke (no MCP host required):
 
 ```bash
-# Is it up, and which model is it serving?
-curl -s http://127.0.0.1:8000/health
-
-# A prediction (~25s — feature building dominates)
-curl -s -X POST http://127.0.0.1:8000/predict \
-  -H "Content-Type: application/json" \
-  -d '{
-    "home_team": "Broncos",
-    "away_team": "Storm",
-    "venue": "Suncorp Stadium",
-    "kickoff": "2026-07-04T09:30:00Z"
-  }'
+cd tools/mcp_gateway && uv run python scripts/smoke_tools.py
 ```
 
-Interactive docs (fire test requests from the browser):
-<http://127.0.0.1:8000/docs>
+---
 
-The weekly ETL and the API are decoupled: run the ETL to refresh data and
-the model; the API only serves whatever is already in `models/`.
+### Prediction agent (Orchestrator)
+
+Constrained pipeline over the same fact tools (in-process; MCP remains available
+for other hosts). Design: [`agent/Architecture.md`](agent/Architecture.md) ·
+ADRs: [`agent/adrs/`](agent/adrs/).
+
+```bash
+cd agent
+uv sync
+cp .env.example .env   # LLM_PROVIDER=ollama, LLM_MODEL=gemma4:31b, …
+
+uv run python -m agent_app.cli --home Eels --away Panthers
+```
+
+Writes `agent_runs/<run_id>/ledger.json`. Loops: research refine ≤1; verifier
+recalibrate ≤1 (same judgement session, no new tools).
 
 ---
 
@@ -360,7 +374,8 @@ the model; the API only serves whatever is already in `models/`.
 | Command | Frequency | Purpose |
 | --- | --- | --- |
 | `weekly_incremental_etl.run` | **Weekly** | Scrape new games + rebuild features + retrain model |
-| `uvicorn api.main:app` | **Leave running** | HTTP API the LLM Agent calls (`POST /predict`) |
+| `python -m gateway` (in `tools/mcp_gateway/`) | **When exposing tools via MCP** | MCP server for fact tools |
+| `python -m agent_app.cli` (in `agent/`) | **When running a full prediction** | Orchestrator + ledger |
 | `model.predict` | **As needed** | Get prediction JSON for an upcoming fixture (CLI) |
 | `model.evaluate` | Occasional | Refresh holdout metrics and `reports/` plots |
 | `model.tune` | Rare | Search for better hyperparameters |
@@ -371,6 +386,41 @@ the model; the API only serves whatever is already in `models/`.
 | `feature_engineering.inference` | Dev only | Parity test |
 | `feature_engineering.smoke_test` | Dev only | Dataset learnability check |
 | `uv sync` | Setup | Install dependencies |
+
+### Official NRL nickNames (use these in CLI flags)
+
+Pass **exactly** the nickName column below to `--home` / `--away` (case-insensitive).
+The scene tool matches them to nrl.com draw data — each Premiership club has a
+unique nickName, so `Titans` is always the Gold Coast Titans (there is no
+`Gold Coast` flag and you should not type the full club name).
+
+| Club | nickName to type |
+| --- | --- |
+| Brisbane Broncos | `Broncos` |
+| Canberra Raiders | `Raiders` |
+| Canterbury-Bankstown Bulldogs | `Bulldogs` |
+| Cronulla-Sutherland Sharks | `Sharks` |
+| Dolphins | `Dolphins` |
+| Gold Coast Titans | `Titans` |
+| Manly Warringah Sea Eagles | `Sea Eagles` |
+| Melbourne Storm | `Storm` |
+| Newcastle Knights | `Knights` |
+| North Queensland Cowboys | `Cowboys` |
+| Parramatta Eels | `Eels` |
+| Penrith Panthers | `Panthers` |
+| South Sydney Rabbitohs | `Rabbitohs` |
+| St. George Illawarra Dragons | `Dragons` |
+| Sydney Roosters | `Roosters` |
+| New Zealand Warriors | `Warriors` |
+| Wests Tigers | `Wests Tigers` |
+
+Home team is first (left) on the nrl.com match card. For Thursday’s Titans vs
+Cowboys at Cbus Super Stadium:
+
+```bash
+cd agent
+uv run python -m agent_app.cli --home Titans --away Cowboys
+```
 
 ---
 
@@ -398,29 +448,46 @@ uv run python -m model.predict \
 ## Qualitative research tool
 
 Facts-only multi-channel research for an upcoming fixture (no LLM). Run from
-`qualitative_research/`:
+`tools/qualitative_research/`:
 
 ```bash
-cd qualitative_research
+cd tools/qualitative_research
 uv sync
 
 uv run python -m research.cli \
   --home Eels --away Panthers \
   --kickoff 2026-07-25T19:30:00+10:00 --round 21
 
-# API (separate from math engine port)
-uv run uvicorn api.main:app --host 127.0.0.1 --port 8001
-# POST /research  GET /health
+# Agent access: via mcp_gateway tool research_fixture_news
 ```
 
-See [`qualitative_research/README.md`](qualitative_research/README.md) and
-[`qualitative_research/Architecture.md`](qualitative_research/Architecture.md).
+See [`tools/qualitative_research/README.md`](tools/qualitative_research/README.md) and
+[`tools/qualitative_research/Architecture.md`](tools/qualitative_research/Architecture.md).
+
+---
+
+## Fixture scene tool
+
+Compulsory first tool: resolve an upcoming fixture from nrl.com and attach
+Open-Meteo kickoff weather. Run from `tools/fixture_scene/`:
+
+```bash
+cd tools/fixture_scene
+uv sync
+
+uv run python -m scene.cli --home Eels --away Panthers
+
+# Agent access: via mcp_gateway tool set_fixture_scene
+```
+
+See [`tools/fixture_scene/README.md`](tools/fixture_scene/README.md) and
+[`tools/fixture_scene/Architecture.md`](tools/fixture_scene/Architecture.md).
 
 ---
 
 ## Important notes
 
-- **Working directory:** always `mathematical_engine/` for math `uv run python -m ...`; use `qualitative_research/` for research.
+- **Working directory:** always `tools/mathematical_engine/` for math `uv run python -m ...`; use `tools/qualitative_research/` for research; use `tools/fixture_scene/` for scene; use `tools/mcp_gateway/` for the MCP server; use `agent/` for the Orchestrator.
 - **No duplicates:** weekly ETL skips matches already in the data lake.
 - **Model replacement:** each weekly run fully overwrites `models/model.ubj`.
 - **No tuning weekly:** hyperparameters come from `models/best_params.json`.
@@ -430,9 +497,12 @@ See [`qualitative_research/README.md`](qualitative_research/README.md) and
 
 ## Further reading
 
-- [`mathematical_engine/README.md`](mathematical_engine/README.md) — engine layout and technical detail.
-- [`mathematical_engine/Overview.md`](mathematical_engine/Overview.md) — system architecture.
-- [`mathematical_engine/model/Architecture.md`](mathematical_engine/model/Architecture.md) — model training and evaluation design.
-- [`qualitative_research/Architecture.md`](qualitative_research/Architecture.md) — research channels, filters, ledger contract.
-- [`plans/phase_4a_weekly_etl.plan.md`](plans/phase_4a_weekly_etl.plan.md) — weekly ETL design document.
+- [`agent/Architecture.md`](agent/Architecture.md) — Orchestrator control loop and agency.
+- [`tools/mathematical_engine/README.md`](tools/mathematical_engine/README.md) — engine layout and technical detail.
+- [`tools/mathematical_engine/Overview.md`](tools/mathematical_engine/Overview.md) — system architecture.
+- [`tools/mathematical_engine/model/Architecture.md`](tools/mathematical_engine/model/Architecture.md) — model training and evaluation design.
+- [`tools/qualitative_research/Architecture.md`](tools/qualitative_research/Architecture.md) — research channels, filters, ledger contract.
+- [`tools/fixture_scene/Architecture.md`](tools/fixture_scene/Architecture.md) — scene tool Orchestrator contract and sources.
+- [`tools/mcp_gateway/Architecture.md`](tools/mcp_gateway/Architecture.md) — MCP tool gateway (agent integration).
+- [`plans/math_engine_plans/phase_4a_weekly_etl.plan.md`](plans/math_engine_plans/phase_4a_weekly_etl.plan.md) — weekly ETL design document.
 - [`Glossary.md`](Glossary.md) — definitions for AUC, log loss, SHAP, etc.

@@ -1,0 +1,32 @@
+[project]
+name = "nrl-prediction-agent"
+version = "0.1.0"
+description = "Constrained-pipeline NRL prediction Orchestrator (fact tools + LLM judgement)"
+requires-python = ">=3.12"
+dependencies = [
+    "litellm>=1.55,<1.80",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0",
+    "fixture-scene",
+    "qualitative-research",
+    "mathematical-engine",
+]
+
+[project.scripts]
+nrl-agent = "agent_app.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_app"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/agent_app" = "agent_app"
+
+[tool.uv.sources]
+fixture-scene = { path = "../tools/fixture_scene", editable = true }
+qualitative-research = { path = "../tools/qualitative_research", editable = true }
+mathematical-engine = { path = "../tools/mathematical_engine", editable = true }

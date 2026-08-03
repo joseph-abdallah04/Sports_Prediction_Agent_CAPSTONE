@@ -29,7 +29,7 @@ and parsed with a single JSON decode instead of fragile HTML traversal.
 **Why.** Advanced telemetry (post-contact metres, play-the-ball speed) is
 only reliably present from ~2015. Older seasons would add rows but with
 mostly-missing features, diluting exactly the granular signal the
-Mathematical Engine is built around (see `mathematical_engine/Overview.md`).
+Mathematical Engine is built around (see `tools/mathematical_engine/Overview.md`).
 
 ## DD-03: One-off backfill and weekly pipeline as separate jobs sharing a scraping toolkit
 
@@ -72,7 +72,7 @@ walking strictly chronologically.
 **Why.** The stage boundary IS the leakage boundary, making the no-leakage
 guarantee structural and auditable rather than scattered through the code.
 Verified with explicit checks (Elo flip test, hand recomputation).
-Details: `mathematical_engine/feature_engineering/Architecture.md`.
+Details: `tools/mathematical_engine/feature_engineering/Architecture.md`.
 
 ## DD-07: The NaN rule — never impute missing data
 
@@ -287,20 +287,47 @@ weekly job. Draw-page auto-discovery replaces the Overview's manual URL feed.
 Full rebuild per DD-15 keeps stateful features correct. A single CLI is the
 operator runbook for each round.
 
-## DD-25: HTTP serving as a thin wrapper with artifact hot-reload
+## DD-25: Shared `predict_fixture()` with artifact hot-reload
 
-**Decision.** The FastAPI layer (`api/`) calls the same `predict_fixture()`
-in `model/serving.py` that the CLI uses, and hot-reloads model artifacts by
-watching the modification time of `models/metrics.json` before each request.
-The API never triggers scraping, feature rebuilds, or retraining.
+**Decision.** Both the `model.predict` CLI and the MCP gateway tool
+`predict_match` call the same `predict_fixture()` in `model/serving.py`.
+That layer hot-reloads model artifacts by watching the modification time of
+`models/metrics.json` before each prediction. Serving never triggers
+scraping, feature rebuilds, or retraining.
 
-**Alternatives.** Separate HTTP prediction code; restarting the server after
-each weekly ETL; an API endpoint that triggers the ETL.
+**Alternatives.** Separate prediction code per interface; restarting a
+long-lived process after each weekly ETL; an endpoint that triggers the ETL.
 
-**Why.** One shared code path means CLI and HTTP predictions can never
-diverge (the same anti-drift philosophy as DD-23). Watching `metrics.json` —
-written *last* by `train.py` — makes the weekly artifact swap effectively
-atomic, so the server keeps running across ETL runs with zero operator
-intervention. Keeping the ETL out of the API preserves the agreed
-decoupling: the endpoint serves whatever is in `models/`; the operator
-refreshes it on their own schedule.
+**Why.** One shared code path means CLI and agent predictions cannot diverge
+(same anti-drift philosophy as DD-23). Watching `metrics.json` — written
+*last* by `train.py` — makes the weekly artifact swap effectively atomic.
+Keeping the ETL out of the serving path preserves decoupling: tools serve
+whatever is in `models/`; the operator refreshes it on their own schedule.
+
+## DD-26: MCP gateway instead of per-tool FastAPI
+
+**Decision.** Expose scene, research, and math through one local MCP server
+(`tools/mcp_gateway/`) that calls library entrypoints in-process. Remove per-tool
+FastAPI apps (`:8000` / `:8001` / `:8002`). Keep CLIs for human testing and
+demos.
+
+**Alternatives.** Keep three FastAPI servers; agent shells out to CLIs;
+HTTP-only gateway without MCP.
+
+**Why.** The agent needs one discovery surface and typed tools; three HTTP
+ports duplicated CLI behaviour and added ops overhead once MCP was chosen.
+CLIs remain the operator path. Historical Phase 4b FastAPI notes remain under
+`plans/math_engine_plans/phase_4b_fastapi_endpoint.plan.md` as superseded
+context.
+
+
+## DD-27: Fact tools under `tools/`
+
+**Decision.** Place `mathematical_engine/`, `fixture_scene/`, `qualitative_research/`,
+and `mcp_gateway/` under a top-level `tools/` directory.
+
+**Alternatives.** Leave packages at repo root; nest only the MCP gateway.
+
+**Why.** Tidier Capstone layout: fact tools vs future `agent/` at the root.
+Sibling path deps inside `tools/` stay simple; operator commands use
+`cd tools/<package>`.

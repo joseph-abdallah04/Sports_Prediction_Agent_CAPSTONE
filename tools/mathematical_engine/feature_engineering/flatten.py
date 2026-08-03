@@ -105,6 +105,7 @@ VENUE_TO_STATE = {
     "Forsyth Barr Stadium": "NZ",
     "Christchurch Stadium": "NZ",
     "Apollo Projects Stadium": "NZ",
+    "One NZ Stadium": "NZ",  # Te Kaha, Christchurch (opened 2026)
     # International one-offs
     "Allegiant Stadium": "USA",
     "The Mend-A-Hose Jungle": "UK",
@@ -129,6 +130,106 @@ TEAM_HOME_STATE = {
     500031: "NSW",  # Eels
     500032: "NZ",   # Warriors
     500723: "QLD",  # Dolphins
+}
+
+# Approximate stadium coordinates (WGS84), used for travel-distance features.
+# Kept alongside VENUE_TO_STATE so all venue metadata lives in one place;
+# fixture_scene maintains its own copy for weather lookups (separate package).
+VENUE_TO_COORDS = {
+    # NSW
+    "Accor Stadium": (-33.8474, 151.0632),
+    "ANZ Stadium": (-33.8474, 151.0632),
+    "Stadium Australia": (-33.8474, 151.0632),
+    "CommBank Stadium": (-33.8081, 150.9996),
+    "Allianz Stadium": (-33.8890, 151.2254),
+    "Sydney Cricket Ground": (-33.8915, 151.2247),
+    "4 Pines Park": (-33.7880, 151.2860),
+    "Lottoland": (-33.7880, 151.2860),
+    "BlueBet Stadium": (-33.7590, 150.7090),
+    "Penrith Park": (-33.7590, 150.7090),
+    "PointsBet Stadium": (-34.0420, 151.1420),
+    "Sharks Stadium": (-34.0420, 151.1420),
+    "Southern Cross Stadium": (-34.0420, 151.1420),
+    "Netstrata Jubilee Stadium": (-33.9720, 151.1290),
+    "Jubilee Stadium": (-33.9720, 151.1290),
+    "St George Venues Jubilee Stadium": (-33.9720, 151.1290),
+    "Ocean Protect Stadium": (-33.9720, 151.1290),
+    "Belmore Sports Ground": (-33.9180, 151.0880),
+    "Leichhardt Oval": (-33.8740, 151.1540),
+    "Campbelltown Sports Stadium": (-34.0640, 150.8040),
+    "Campbelltown Stadium": (-34.0640, 150.8040),
+    "McDonald Jones Stadium": (-32.9180, 151.7280),
+    "WIN Stadium": (-34.4270, 150.8950),
+    "Central Coast Stadium": (-33.4280, 151.3420),
+    "Industree Group Stadium": (-33.4280, 151.3420),
+    "Polytec Stadium": (-33.4280, 151.3420),
+    "Carrington Park": (-33.4190, 149.5800),
+    "Scully Park": (-31.0900, 150.9300),
+    "Glen Willow Oval": (-32.3850, 149.5800),
+    "Apex Oval": (-32.2450, 148.6000),
+    "McDonalds Park": (-35.1250, 147.3700),
+    "Geohex Park": (-35.1250, 147.3700),
+    "C.ex Coffs International Stadium": (-30.3100, 153.1200),
+    # QLD
+    "Suncorp Stadium": (-27.4649, 153.0095),
+    "The Gabba": (-27.4858, 153.0381),
+    "Cbus Super Stadium": (-28.0670, 153.3780),
+    "Kayo Stadium": (-27.2700, 153.0200),
+    "Moreton Daily Stadium": (-27.2700, 153.0200),
+    "Queensland Country Bank Stadium": (-19.3160, 146.7620),
+    "1300SMILES Stadium": (-19.3160, 146.7620),
+    "Sunshine Coast Stadium": (-26.6900, 153.1000),
+    "Barlow Park": (-16.9300, 145.7700),
+    "BB Print Stadium": (-21.1500, 149.1800),
+    "Browne Park": (-23.3800, 150.5100),
+    "Salter Oval": (-24.8700, 152.3500),
+    "Marley Brown Oval": (-23.8600, 151.2600),
+    "Clive Berghofer Stadium": (-27.5600, 151.9500),
+    # VIC / ACT / SA / WA / NT
+    "AAMI Park": (-37.8250, 144.9830),
+    "Marvel Stadium": (-37.8160, 144.9470),
+    "GIO Stadium": (-35.2500, 149.1020),
+    "Adelaide Oval": (-34.9150, 138.5960),
+    "Optus Stadium": (-31.9510, 115.8890),
+    "HBF Park": (-31.9450, 115.8700),
+    "TIO Stadium": (-12.3990, 130.8870),
+    # New Zealand
+    "Go Media Stadium": (-36.9160, 174.8120),
+    "Mt Smart Stadium": (-36.9160, 174.8120),
+    "Sky Stadium": (-41.2730, 174.7870),
+    "Hnry Stadium": (-41.1400, 174.8400),
+    "FMG Stadium Waikato": (-37.7830, 175.2740),
+    "McLean Park": (-39.4900, 176.9100),
+    "Yarrow Stadium": (-39.0640, 174.0700),
+    "Forsyth Barr Stadium": (-45.8690, 170.5140),
+    "Christchurch Stadium": (-43.5400, 172.6400),
+    "Apollo Projects Stadium": (-43.5400, 172.6400),
+    "One NZ Stadium": (-43.5350, 172.6430),
+    # International one-offs
+    "Allegiant Stadium": (36.0900, -115.1830),
+    "The Mend-A-Hose Jungle": (53.7180, -1.6300),
+}
+
+# Each franchise's home base, keyed by stable NRL teamId. Static rather than
+# derived from history so it cannot leak information from future fixtures.
+TEAM_HOME_COORDS = {
+    500001: (-33.8890, 151.2254),  # Roosters   - Allianz Stadium
+    500002: (-33.7880, 151.2860),  # Sea Eagles - 4 Pines Park
+    500003: (-32.9180, 151.7280),  # Knights    - McDonald Jones Stadium
+    500004: (-28.0670, 153.3780),  # Titans     - Cbus Super Stadium
+    500005: (-33.8474, 151.0632),  # Rabbitohs  - Accor Stadium
+    500010: (-33.8474, 151.0632),  # Bulldogs   - Accor Stadium
+    500011: (-27.4649, 153.0095),  # Broncos    - Suncorp Stadium
+    500012: (-19.3160, 146.7620),  # Cowboys    - Queensland Country Bank
+    500013: (-35.2500, 149.1020),  # Raiders    - GIO Stadium
+    500014: (-33.7590, 150.7090),  # Panthers   - BlueBet Stadium
+    500021: (-37.8250, 144.9830),  # Storm      - AAMI Park
+    500022: (-33.9720, 151.1290),  # Dragons    - Jubilee Stadium
+    500023: (-33.8740, 151.1540),  # Wests Tigers - Leichhardt Oval
+    500028: (-34.0420, 151.1420),  # Sharks     - PointsBet Stadium
+    500031: (-33.8081, 150.9996),  # Eels       - CommBank Stadium
+    500032: (-36.9160, 174.8120),  # Warriors   - Go Media Stadium
+    500723: (-27.2700, 153.0200),  # Dolphins   - Kayo Stadium
 }
 
 # Team stat titles (stats.groups) -> column names. Anything not listed is

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from . import TOOL_NAME, TOOL_VERSION
 from .article_fetch import attach_article_bodies
@@ -13,7 +13,13 @@ from .channels.google_news_rss import fetch_google_news_rss
 from .channels.nrl_news import fetch_nrl_news
 from .channels.reddit import fetch_reddit
 from .debug_log import write_dropped_sources
-from .filter import dedupe_by_canonical_url, dedupe_by_url, filter_items
+from .filter import (
+    dedupe_by_canonical_url,
+    dedupe_by_url,
+    filter_items,
+    promote_deferred_with_bodies,
+    sort_key,
+)
 from .http_client import RateLimitedHttpClient
 from .queries import sanitize_custom_queries
 from .timestamps import parse_published
@@ -45,12 +51,22 @@ def research_fixture(
     force_refresh: bool = False,
     max_age_days: int = 10,
     max_items: int = 25,
+    max_deferred_body_fetches: int = 15,
     queries: list[str] | None = None,
+    include_reddit: bool = False,
 ) -> dict:
     """Run all channels, filter, optionally cache, return ResearchResponse dict.
 
-    If ``queries`` is provided (agent path), DDG/Google News use those strings
-    instead of the default templates. CLI callers omit ``queries``.
+    If ``queries`` is provided (agent path), DDG/Google News merge those strings
+    with the default templates. CLI callers omit ``queries``.
+
+    Relevance runs in two passes: a title/snippet pass, then a second pass over
+    deferred items once article bodies have been fetched, so articles that only
+    name the fixture in their body are recovered rather than dropped.
+
+    Reddit is off by default (DD-34): it contributes ~0 usable items per fixture
+    and its search endpoint is blocked to unauthenticated clients. Pass
+    ``include_reddit=True`` to run it anyway.
     """
     custom = sanitize_custom_queries(queries)
     request = {
@@ -77,7 +93,11 @@ def research_fixture(
     kickoff_dt = _kickoff_datetime(kickoff)
     now = datetime.now(timezone.utc)
 
-    nrl = fetch_nrl_news(client, home_team, away_team, now=now)
+    window_start = kickoff_dt - timedelta(days=max_age_days)
+
+    nrl = fetch_nrl_news(
+        client, home_team, away_team, now=now, window_start=window_start
+    )
     ddg = fetch_duckduckgo(
         home_team,
         away_team,
@@ -93,23 +113,22 @@ def research_fixture(
         custom_queries=custom,
         now=now,
     )
-    reddit = fetch_reddit(
-        client, home_team, away_team, round_number=round_number, now=now
-    )
-
     channels = {
         "nrl_news": nrl,
         "duckduckgo": ddg,
         "google_news_rss": gnews,
-        "reddit": reddit,
     }
+    if include_reddit:
+        channels["reddit"] = fetch_reddit(
+            client, home_team, away_team, round_number=round_number, now=now
+        )
 
     all_items = []
     for ch in channels.values():
         all_items.extend(ch.items)
     all_items = dedupe_by_url(all_items)
 
-    kept, filter_summary, dropped = filter_items(
+    kept, filter_summary, dropped, deferred = filter_items(
         all_items,
         home_team=home_team,
         away_team=away_team,
@@ -119,7 +138,24 @@ def research_fixture(
         now=now,
     )
     kept = kept[:max_items]
-    attach_article_bodies(client, kept, max_unique_fetches=30)
+
+    # Second relevance pass: give the best deferred candidates a body, then
+    # re-test them for fixture relevance.
+    deferred = deferred[:max_deferred_body_fetches]
+    attach_article_bodies(
+        client, kept + deferred, max_unique_fetches=30 + len(deferred)
+    )
+    promoted, deferred_drops = promote_deferred_with_bodies(
+        deferred,
+        home_team=home_team,
+        away_team=away_team,
+        round_number=round_number,
+    )
+    dropped.extend(deferred_drops)
+    filter_summary["promoted_after_body"] = len(promoted)
+    filter_summary["dropped_irrelevant"] += len(deferred_drops)
+    if promoted:
+        kept = sorted([*kept, *promoted], key=sort_key)[:max_items]
 
     # Collapse identical publisher URLs (e.g. nrl_news + Google → same nrl.com)
     kept, dup_drops = dedupe_by_canonical_url(kept)

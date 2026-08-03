@@ -113,7 +113,7 @@ The tuning/training split is deliberate: hyperparameters track the dataset's
 shape (re-tune occasionally), while training reuses the saved params and is
 fast enough to re-run every round. Validation uses expanding-window
 chronological folds with 2025-2026 held out, so reported metrics (holdout
-AUC ~0.64, accuracy ~63% vs 56% always-home baseline) reflect genuine future
+AUC 0.651, accuracy 62.8% vs 56.7% always-home baseline) reflect genuine future
 performance. The MCP gateway and the weekly ETL job build on these artifacts in
 Phase 4.
 

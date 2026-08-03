@@ -15,13 +15,17 @@ reasoning for the Agent to weigh in its final call.
 | [`tools/fixture_scene/`](tools/fixture_scene/README.md) | First-pipeline scene setter: nrl.com draw/match centre + Open-Meteo weather (CLI). |
 | [`tools/mcp_gateway/`](tools/mcp_gateway/README.md) | MCP server exposing scene / research / math tools to an agent client. |
 | [`agent/`](agent/README.md) | Constrained-pipeline LLM Orchestrator (query plan, judgement, verifier loops, ledger). |
-| [`Glossary.md`](Glossary.md) | Plain-English definitions of the ML and data-engineering terms used throughout. |
+| [`Architecture.md`](Architecture.md) | System, agent control loop, and data-flow diagrams — start here. |
+| [`config.toml`](config.toml) | One place to switch LLM provider and model (Ollama, OpenAI, Anthropic, Gemini, Bedrock). |
+| [`Glossary.md`](Glossary.md) | Plain-English definitions of the ML, data-engineering and agent terms used throughout. |
 | [`key_design_decisions.md`](key_design_decisions.md) | Log of architectural crossroads and the reasoning behind each choice. |
+| [`Limitations.md`](Limitations.md) | Honest account of accuracy, the 70% question, and what the system cannot do. |
+| [`agent_runs/README.md`](agent_runs/README.md) | Where results are written and how to read a run ledger. |
 
 ## Build status
 
 - **Phase 1 — Data acquisition (ETL backfill):** done. Raw NRL match JSON, 2015–present.
-- **Phase 2 — Feature engineering:** done. Leakage-free 49-feature training dataset.
+- **Phase 2 — Feature engineering:** done. Leakage-free 61-feature training dataset.
 - **Phase 3 — Mathematical core:** done. Optuna-tuned, calibrated XGBoost + SHAP explainer + upcoming-fixture predictor CLI.
 - **Phase 4a — Weekly ETL:** done. Scrape new matches, rebuild features, retrain model.
 - **Phase 4b — Serving:** superseded. Shared `predict_fixture()` remains; agent access is via MCP (see `tools/mcp_gateway/`), not per-tool FastAPI.
@@ -359,13 +363,45 @@ ADRs: [`agent/adrs/`](agent/adrs/).
 ```bash
 cd agent
 uv sync
-cp .env.example .env   # LLM_PROVIDER=ollama, LLM_MODEL=gemma4:31b, …
+cp .env.example .env   # API keys only — not needed for local Ollama
 
 uv run python -m agent_app.cli --home Eels --away Panthers
 ```
 
-Writes `agent_runs/<run_id>/ledger.json`. Loops: research refine ≤1; verifier
-recalibrate ≤1 (same judgement session, no new tools).
+Provider and model come from [`config.toml`](config.toml) at the repo root, not
+from `.env` — one committed file, one line to change, `--provider` / `--model`
+to override for a single run (DD-36).
+
+Each run writes `summary.md` (readable) and `ledger.json` (complete) to
+`agent_runs/fixtures/<season>-R<round>_<Home>-v-<Away>/<timestamp>/`; see
+[`agent_runs/README.md`](agent_runs/README.md). Loops: research refine ≤1;
+verifier recalibrate ≤1 (same judgement session, no new tools).
+
+Expect 6–10 minutes per run on local Ollama, well under a minute on a hosted
+provider.
+
+Team names must be official NRL nickNames — see
+[Official NRL nickNames](#official-nrl-nicknames) below.
+
+#### Measuring the agent over a full round
+
+A single fixture proves nothing. `agent_app.harness` predicts every game in a
+round before kickoff, then scores the agent, the raw math model, and the
+always-back-the-home-team baseline once the results are in
+([ADR 0007](agent/adrs/0007-round-results-harness.md)).
+
+```bash
+cd agent
+
+# before the round — writes agent_runs/rounds/2026-R23/predictions.json
+uv run python -m agent_app.harness run --season 2026 --round 23
+
+# after the last game — accuracy, Brier score, log loss for each predictor
+uv run python -m agent_app.harness score --season 2026 --round 23
+```
+
+Predictions are written before the games and scored by a separate command, so
+they cannot be back-fitted.
 
 ---
 
@@ -376,8 +412,10 @@ recalibrate ≤1 (same judgement session, no new tools).
 | `weekly_incremental_etl.run` | **Weekly** | Scrape new games + rebuild features + retrain model |
 | `python -m gateway` (in `tools/mcp_gateway/`) | **When exposing tools via MCP** | MCP server for fact tools |
 | `python -m agent_app.cli` (in `agent/`) | **When running a full prediction** | Orchestrator + ledger |
+| `python -m agent_app.harness` (in `agent/`) | **Weekly, around a round** | Batch-run a whole round, then score it against actuals |
 | `model.predict` | **As needed** | Get prediction JSON for an upcoming fixture (CLI) |
 | `model.evaluate` | Occasional | Refresh holdout metrics and `reports/` plots |
+| `model.feature_ab` | When adding features | A/B candidate features against the shipped set on the holdout |
 | `model.tune` | Rare | Search for better hyperparameters |
 | `model.train` | Rare* | Retrain model only (*weekly ETL does this) |
 | `historical_data_backfill_etl.backfill` | Once | Build initial raw data lake |
@@ -497,7 +535,10 @@ See [`tools/fixture_scene/README.md`](tools/fixture_scene/README.md) and
 
 ## Further reading
 
+- [`Architecture.md`](Architecture.md) — system, control-loop and data-flow diagrams.
+- [`Limitations.md`](Limitations.md) — measured accuracy ceiling, what would move it, and what the agent cannot do.
 - [`agent/Architecture.md`](agent/Architecture.md) — Orchestrator control loop and agency.
+- [`agent/adrs/`](agent/adrs/) — the eight agent design decisions, one file each ([index](agent/README.md#design-decisions)).
 - [`tools/mathematical_engine/README.md`](tools/mathematical_engine/README.md) — engine layout and technical detail.
 - [`tools/mathematical_engine/Overview.md`](tools/mathematical_engine/Overview.md) — system architecture.
 - [`tools/mathematical_engine/model/Architecture.md`](tools/mathematical_engine/model/Architecture.md) — model training and evaluation design.

@@ -18,20 +18,55 @@ _SRC = Path(__file__).resolve().parents[1]
 if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
-from agent_app.config import get_settings
+from agent_app.config import (
+    PROVIDERS,
+    describe_settings,
+    get_settings,
+    missing_credentials,
+)
 from agent_app.orchestrator import run_prediction
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="NRL Capstone prediction agent")
-    parser.add_argument("--home", required=True)
-    parser.add_argument("--away", required=True)
+    parser = argparse.ArgumentParser(
+        description="NRL Capstone prediction agent",
+        epilog="Defaults come from config.toml at the repo root.",
+    )
+    parser.add_argument("--home")
+    parser.add_argument("--away")
     parser.add_argument("--question", default=None, help="Optional user question")
     parser.add_argument("--season", type=int, default=None)
     parser.add_argument("--round", type=int, default=None, dest="round_number")
     parser.add_argument("--force-refresh", action="store_true")
+    parser.add_argument(
+        "--provider",
+        choices=PROVIDERS,
+        default=None,
+        help="Override config.toml for this run only",
+    )
+    parser.add_argument(
+        "--model", default=None, help="Override the provider's model for this run only"
+    )
+    parser.add_argument(
+        "--show-config",
+        action="store_true",
+        help="Print the resolved configuration and exit",
+    )
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
+
+    overrides: dict[str, str] = {}
+    if args.provider:
+        overrides["llm_provider"] = args.provider
+    if args.model:
+        overrides["llm_model"] = args.model
+
+    if args.show_config:
+        print(describe_settings(get_settings(**overrides)))
+        return 0
+
+    if not args.home or not args.away:
+        parser.error("--home and --away are required (or use --show-config)")
 
     logging.basicConfig(
         level=logging.DEBUG if args.verbose else logging.INFO,
@@ -52,7 +87,12 @@ def main() -> int:
         ):
             logging.getLogger(noisy).setLevel(logging.WARNING)
 
-    settings = get_settings()
+    settings = get_settings(**overrides)
+    warning = missing_credentials(settings)
+    if warning:
+        logging.getLogger("agent_app.cli").error("%s", warning)
+        return 2
+
     result = run_prediction(
         args.home,
         args.away,

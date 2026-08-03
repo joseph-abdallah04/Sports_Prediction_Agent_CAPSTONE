@@ -31,7 +31,7 @@ def fetch_google_news_rss(
     *,
     round_number: int | None = None,
     custom_queries: list[str] | None = None,
-    max_results_per_query: int = 5,
+    max_results_per_query: int = 12,
     now: datetime | None = None,
 ) -> ChannelResult:
     now = now or datetime.now(timezone.utc)

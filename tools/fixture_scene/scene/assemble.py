@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 from . import TOOL_NAME, TOOL_VERSION
 from .cache import cache_key, load as cache_load, save as cache_save
-from .draw import FixtureNotFoundError, find_upcoming_fixture
+from .draw import find_upcoming_fixture
 from .http_client import RateLimitedHttpClient
 from .match_centre import MatchDataNotFoundError, enrich_from_match_centre
 from .weather import fetch_kickoff_weather

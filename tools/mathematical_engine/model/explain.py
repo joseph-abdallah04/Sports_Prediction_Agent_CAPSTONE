@@ -26,6 +26,25 @@ _DRIVER_LABELS = {
     "ctx_rest_days_home": ("Home rest", lambda v: f"{v:.1f} days"),
     "ctx_rest_days_away": ("Away rest", lambda v: f"{v:.1f} days"),
     "ctx_travel_away": ("Away interstate travel", lambda v: "yes" if v else "no"),
+    "ctx_short_turnaround_home": ("Home on a short turnaround", lambda v: "yes" if v else "no"),
+    "ctx_short_turnaround_away": ("Away on a short turnaround", lambda v: "yes" if v else "no"),
+    "ctx_short_turnaround_diff": (
+        "Short-turnaround imbalance",
+        lambda v: "home only" if v > 0 else ("away only" if v < 0 else "neither"),
+    ),
+    "ctx_travel_km_home": ("Home travel to venue", lambda v: f"{v:,.0f} km"),
+    "ctx_travel_km_away": ("Away travel to venue", lambda v: f"{v:,.0f} km"),
+    "ctx_travel_km_diff": ("Travel-distance advantage", lambda v: f"{-v:+,.0f} km for away"),
+    "ctx_weather": ("Match-day weather", lambda v: str(v)),
+    "ladder_win_pct_diff": ("Season win-rate advantage", lambda v: f"{v:+.0%}"),
+    "ladder_pts_per_game_diff": (
+        "Ladder points differential per game",
+        lambda v: f"{v:+.1f} points",
+    ),
+    "ladder_pos_diff": ("Ladder position advantage", lambda v: f"{v:+.0f} places"),
+    "h2h5_win_rate": ("Head-to-head record (last 5)", lambda v: f"{v:.0%} to the home side"),
+    "h2h5_margin_avg": ("Head-to-head average margin (last 5)", lambda v: f"{v:+.1f} points"),
+    "h2h5_games": ("Head-to-head meetings on record", lambda v: f"{v:.0f} of last 5"),
 }
 
 _FAMILY_HINTS = {

@@ -255,3 +255,73 @@ something".
 **AUC (Area Under the ROC Curve).** Defined in the metrics section above; in
 Phase 3 it is unchanged by calibration because calibration is monotonic (it
 re-labels probabilities without reordering matches).
+
+## The agent side
+
+**LLM (Large Language Model).** A model that predicts the next chunk of text
+given the text so far. Ours reads tool outputs and writes a prediction in
+words. It knows nothing about this weekend's NRL beyond what we put in front
+of it, which is why every fact reaches it through a tool.
+
+**Agent.** A program that lets an LLM take actions (call tools) rather than
+only produce text. Ours is deliberately a *constrained* agent: the code decides
+which tools run and in what order, and the LLM supplies judgement at fixed
+points (DD-22).
+
+**ReAct (Reason + Act).** The common agent pattern where the LLM freely decides
+its next tool call in a loop until it declares itself finished. We rejected it
+for this project — see the Orchestrator ADR 0001 — because a marking rubric
+needs a reproducible trace, not a different tool sequence every run.
+
+**Tool call.** A structured function invocation with typed arguments and a
+JSON result — here `set_fixture_scene`, `research_fixture_news`, and
+`predict_match`. Tools return *facts only*; none of them picks a winner.
+
+**MCP (Model Context Protocol).** An open standard for exposing tools to LLM
+clients, so the same three tools work from our own orchestrator and from an
+external client like Claude Desktop without being rewritten.
+
+**Prompt (system / user).** The instructions and data given to the LLM for one
+call. The system prompt sets the role and the rules; the user prompt carries
+the payload. Our prompts live in `agent/src/agent_app/prompts/`.
+
+**Temperature.** How much randomness the LLM is allowed when choosing words.
+Near 0 gives repeatable, conservative output; we run judgement at 0.2 and the
+verifier at 0.1 because we want consistency, not creativity.
+
+**Context window.** The maximum amount of text an LLM can consider at once.
+Everything must fit — which is why the ledger is abridged before being sent to
+the verifier, and why *what we cut out* turned out to matter (ADR 0008).
+
+**Hallucination.** An LLM stating something specific and plausible that is not
+true and not in its inputs. The defence here is architectural: facts arrive
+only via tools, and the verifier checks each claim back against the tool output
+that supposedly supports it.
+
+**Grounding.** Requiring a claim to trace to a specific piece of supplied
+evidence. "The Cowboys are missing Bateman" is grounded only if an article in
+the ledger says so.
+
+**Ledger.** The full JSON record of one run — every tool request and response,
+every LLM step, both loops, and the final judgement — written to
+`agent_runs/fixtures/<fixture>/<run>/ledger.json`. It is what makes the agent
+auditable rather than merely plausible, and both bugs found in ADR 0006 and
+ADR 0008 were invisible in the answer and obvious in the ledger.
+
+**Orchestrator.** The code that runs the fixed six-stage sequence: scene →
+query plan → research ∥ math → judgement → verifier → done.
+
+**Research gate.** A coded (non-LLM) check on whether the research results are
+good enough to reason from: enough items with body text, at least one official
+or availability source, and not every wide-net channel failing empty.
+
+**Verifier.** A second LLM pass that audits the judgement against the ledger
+and can send it back once for recalibration. It cannot call tools — its job is
+to check reasoning, not to gather more evidence.
+
+**Recalibration loop.** The single permitted re-judge after the verifier
+objects, run in the same session with no new tool calls (ADR 0004).
+
+**Confidence anchoring.** Requiring the LLM's stated confidence to stay within
+a set distance of the calibrated model probability, so the number reported to a
+user is tied to measured accuracy rather than the LLM's tone (DD-31).

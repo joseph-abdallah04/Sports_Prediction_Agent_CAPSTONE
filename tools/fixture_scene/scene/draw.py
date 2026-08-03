@@ -106,11 +106,13 @@ def extract_fixture_card(fixture: dict, *, season: int, round_number: int, draw_
     centre = fixture.get("matchCentreUrl") or fixture.get("url") or ""
     if centre and centre.startswith("/"):
         centre = NRL_BASE + centre
+    clock = fixture.get("clock") if isinstance(fixture.get("clock"), dict) else {}
     kickoff = (
-        fixture.get("clock", {}).get("kickOffTime")
-        if isinstance(fixture.get("clock"), dict)
-        else None
-    ) or fixture.get("startTime") or fixture.get("kickOffTime")
+        clock.get("kickOffTimeLong")
+        or clock.get("kickOffTime")
+        or fixture.get("startTime")
+        or fixture.get("kickOffTime")
+    )
     return {
         "season": season,
         "round_number": round_number,
@@ -125,6 +127,49 @@ def extract_fixture_card(fixture: dict, *, season: int, round_number: int, draw_
         "match_id": fixture.get("matchId") or fixture.get("gameId"),
         "draw_url": draw_url,
         "fixture_card": fixture,
+    }
+
+
+def list_round_fixtures(
+    client: RateLimitedHttpClient,
+    season: int,
+    round_number: int,
+) -> list[dict[str, Any]]:
+    """Every Premiership fixture in one round, in draw order.
+
+    Used by the batch results harness to evaluate a whole round at once rather
+    than naming each fixture by hand.
+    """
+    payload, draw_url = fetch_draw_payload(client, season, round_number)
+    return [
+        extract_fixture_card(
+            fixture, season=season, round_number=round_number, draw_url=draw_url
+        )
+        for fixture in payload.get("fixtures", [])
+        if fixture.get("type") == "Match"
+    ]
+
+
+def fixture_result(fixture_card: dict[str, Any]) -> dict[str, Any] | None:
+    """Final score from a fixture card, or None if the match is not complete."""
+    fixture = fixture_card.get("fixture_card") or {}
+    if (fixture.get("matchState") or "").strip() != "FullTime":
+        return None
+    home_score = (fixture.get("homeTeam") or {}).get("score")
+    away_score = (fixture.get("awayTeam") or {}).get("score")
+    if home_score is None or away_score is None:
+        return None
+    home_score, away_score = int(home_score), int(away_score)
+    return {
+        "home_score": home_score,
+        "away_score": away_score,
+        "margin": home_score - away_score,
+        # Draws are rare but real; the model only predicts home/away.
+        "winner": (
+            "home" if home_score > away_score
+            else "away" if away_score > home_score
+            else "draw"
+        ),
     }
 
 
@@ -198,7 +243,19 @@ def find_upcoming_fixture(
                 card["note"] = "Fixture found but matchMode is not Pre/Live"
                 return card
 
-    raise FixtureNotFoundError(
+    message = (
         f"No fixture found for {home_team} v {away_team} in season {season}"
         + (f" round {round_number}" if round_number is not None else "")
     )
+    # Usually a wrong round or a home/away swap, both of which the draw answers.
+    if round_number is not None:
+        try:
+            listing = ", ".join(
+                f"{c['home_team']} v {c['away_team']}"
+                for c in list_round_fixtures(client, season, round_number)
+            )
+        except Exception:
+            listing = ""
+        if listing:
+            message += f". Round {round_number} is: {listing}"
+    raise FixtureNotFoundError(message)

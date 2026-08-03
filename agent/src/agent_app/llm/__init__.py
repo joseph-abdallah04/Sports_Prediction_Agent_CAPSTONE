@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import time
 from typing import Any
 
 from agent_app.config import Settings, litellm_model_id
@@ -45,14 +46,29 @@ def chat_completion(
         "model": model,
         "messages": messages,
         "temperature": temperature,
+        "timeout": settings.llm_timeout_seconds,
+        "num_retries": settings.llm_max_retries,
     }
     provider = settings.llm_provider.strip().lower()
     if provider == "ollama":
         kwargs["api_base"] = settings.ollama_api_base
+    elif provider == "bedrock" and settings.aws_region_name:
+        kwargs["aws_region_name"] = settings.aws_region_name
 
-    logger.info("LLM complete model=%s messages=%d", model, len(messages))
+    prompt_chars = sum(len(m.get("content") or "") for m in messages)
+    logger.info(
+        "LLM complete model=%s messages=%d prompt_chars=%d timeout=%.0fs",
+        model,
+        len(messages),
+        prompt_chars,
+        settings.llm_timeout_seconds,
+    )
+    started = time.monotonic()
     response = litellm.completion(**kwargs)
     content = response.choices[0].message.content or ""
+    logger.info(
+        "LLM responded in %.1fs (%d chars)", time.monotonic() - started, len(content)
+    )
     return content.strip()
 
 

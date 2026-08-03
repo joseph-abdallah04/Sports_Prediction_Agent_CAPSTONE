@@ -10,7 +10,7 @@ probability, so we optimise probability quality (proper scoring rule), not
 just whether the argmax was right.
 
 Why tune occasionally: the best hyperparameters reflect the dataset's shape
-(~2,300 rows, 49 features, NRL noise), which adding one round of matches
+(~2,400 rows, 61 features, NRL noise), which adding one round of matches
 does not change. Weekly retraining reuses these saved params; re-tune each
 off-season or after significant feature changes.
 

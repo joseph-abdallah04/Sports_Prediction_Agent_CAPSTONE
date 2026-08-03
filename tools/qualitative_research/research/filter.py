@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from .models import ResearchItem
-from .queries import TEAM_SLUGS
+from .queries import REGION_ALIAS_TO_NICKNAME, TEAM_SLUGS, region_aliases
 from .timestamps import parse_published
 
 _ROUND_RE = re.compile(r"\bround\s+(\d+)\b", re.I)
@@ -19,17 +19,27 @@ _NOISE_CATEGORY = {
     "highlights",
 }
 _HISTORICAL_YEAR = re.compile(r"\b(19\d{2}|20[0-1]\d)\b")
-_NFL_NOISE = re.compile(
-    r"\b(nfl|super bowl|carolina panthers|training camp|nflpa)\b",
+# US sports share nicknames with NRL clubs (Dallas Cowboys, Carolina Panthers).
+# Only applied when the headline has no rugby league marker.
+_US_SPORTS_NOISE = re.compile(
+    r"\b("
+    r"nfl|nflpa|super bowl|training camp|"
+    r"nba|wnba|mlb|nhl|ncaa|"
+    r"dallas cowboys|carolina panthers"
+    r")\b",
     re.I,
 )
+_LEAGUE_MARKER = re.compile(r"\b(nrl|rugby league|premiership|telstra)\b", re.I)
+# Paths that only appear on rugby league coverage, for outlets that also cover
+# other codes (foxsports.com.au/nrl/…, smh.com.au/sport/nrl/…).
+_LEAGUE_URL = re.compile(r"(^|[/._-])(nrl|rugby-?league)([/._-]|$)", re.I)
 
-# Canonical NRL club tokens (longest first) for robust "X v Y" parsing
+# Canonical NRL club tokens (longest first) for robust "X v Y" parsing.
+# Includes city/region names so "Gold Coast v North Queensland" is recognised.
 _CLUB_CANONICAL: list[str] = sorted(
     {
         *TEAM_SLUGS.keys(),
-        "manly",  # Sea Eagles alias often used in headlines
-        "tigers",
+        *REGION_ALIAS_TO_NICKNAME.keys(),
     },
     key=len,
     reverse=True,
@@ -84,9 +94,8 @@ def _team_aliases(team: str) -> set[str]:
     if parts:
         aliases.add(parts[-1])
     if t == "wests tigers":
-        aliases.update({"tigers", "wests tigers", "w.tigers"})
-    if t == "sea eagles":
-        aliases.update({"sea eagles", "eagles", "manly"})
+        aliases.add("w.tigers")
+    aliases.update(region_aliases(t))
     return aliases
 
 
@@ -95,13 +104,26 @@ def _mentions_team(text: str, team: str) -> bool:
     return any(a in blob for a in _team_aliases(team) if len(a) > 2)
 
 
+def _has_league_signal(item: ResearchItem, text_blob: str) -> bool:
+    """True if anything about this item says 'rugby league' rather than a nickname.
+
+    Half the NRL's nicknames belong to other clubs in other codes — Tennessee
+    Titans, Dallas Cowboys, Carolina Panthers — and one belongs to a film. A
+    nickname match alone is not evidence, so we look for a league marker in the
+    text, in the URL path, or in the provenance of the item itself.
+    """
+    if item.channel == "nrl_news" or item.source_tier == "official":
+        return True
+    if _LEAGUE_MARKER.search(text_blob):
+        return True
+    return bool(_LEAGUE_URL.search(item.url or ""))
+
+
 def _canonical_club(token: str) -> str:
     t = _norm(token)
     if t in {"tigers", "w.tigers"}:
         return "wests tigers"
-    if t in {"eagles", "manly"}:
-        return "sea eagles"
-    return t
+    return REGION_ALIAS_TO_NICKNAME.get(t, t)
 
 
 def _is_other_fixture_preview(title: str, home: str, away: str) -> bool:
@@ -235,10 +257,15 @@ def filter_items(
     round_number: int | None = None,
     max_age_days: int = 10,
     now: datetime | None = None,
-) -> tuple[list[ResearchItem], dict[str, int], list[dict[str, Any]]]:
+) -> tuple[
+    list[ResearchItem], dict[str, int], list[dict[str, Any]], list[ResearchItem]
+]:
     """Keep items relevant to this fixture / round within the time window.
 
-    Also returns dropped source records for local debug logging only.
+    Returns (kept, stats, dropped, deferred). ``deferred`` items passed every
+    structural gate but showed no fixture team in the text available before
+    body fetch; pass them to :func:`promote_deferred_with_bodies` afterwards.
+    ``dropped`` records are for local debug logging only.
     """
     now = now or datetime.now(timezone.utc)
     window_start = kickoff.astimezone(timezone.utc) - timedelta(days=max_age_days)
@@ -253,6 +280,7 @@ def filter_items(
     }
     kept: list[ResearchItem] = []
     dropped: list[dict[str, Any]] = []
+    deferred: list[ResearchItem] = []
 
     for item in items:
         reasons: list[str] = []
@@ -278,10 +306,10 @@ def filter_items(
             dropped.append(_drop_record(item, "dropped_noise_nrlw"))
             continue
 
-        # NFL / US sports colliding on "Panthers"
-        if _NFL_NOISE.search(title_l) and "nrl" not in title_l:
+        # US sports colliding on shared nicknames ("Cowboys", "Panthers")
+        if _US_SPORTS_NOISE.search(title_l) and not _LEAGUE_MARKER.search(title_l):
             stats["dropped_noise"] += 1
-            dropped.append(_drop_record(item, "dropped_noise_nfl"))
+            dropped.append(_drop_record(item, "dropped_noise_us_sports"))
             continue
 
         if _is_other_fixture_preview(item.title or "", home_team, away_team):
@@ -318,59 +346,163 @@ def filter_items(
             reasons.append(f"round_{round_number}_match")
             item.relevance_score += 3.0
 
-        mentions_home = _mentions_team(text_blob, home_team)
-        mentions_away = _mentions_team(text_blob, away_team)
-        is_league_wide = any(
-            k in title_l for k in ("late mail", "casualty ward", "team list")
-        ) or _is_league_round_roundup(item.title or "", round_number)
-
-        if item.channel == "nrl_news":
-            if is_league_wide:
-                reasons.append("nrl_official_roundup")
-                item.relevance_score += 2.5
-            elif mentions_home and mentions_away:
-                reasons.append("nrl_mentions_both")
-                item.relevance_score += 2.0
-            elif mentions_home or mentions_away:
-                if any(k in title_l for k in ("as it happened", "live blog", "match report")):
-                    if not (mentions_home and mentions_away):
-                        stats["dropped_irrelevant"] += 1
-                        dropped.append(_drop_record(item, "dropped_irrelevant_other_game_recap"))
-                        continue
-                reasons.append("nrl_club_news")
-                item.relevance_score += 1.0
-            else:
-                stats["dropped_irrelevant"] += 1
-                dropped.append(_drop_record(item, "dropped_irrelevant_no_team"))
-                continue
-        else:
-            if not (mentions_home or mentions_away or is_league_wide):
-                stats["dropped_irrelevant"] += 1
-                dropped.append(_drop_record(item, "dropped_irrelevant_no_team"))
-                continue
-            if is_league_wide and not (mentions_home or mentions_away):
-                reasons.append("league_round_roundup")
-            else:
-                reasons.append("mentions_fixture_team")
-
-        if mentions_home and mentions_away:
-            item.relevance_score += 2.0
-            reasons.append("mentions_both_teams")
-        if any(k in title_l for k in ("late mail", "casualty", "injury", "team list")):
-            item.relevance_score += 1.5
-            reasons.append("injury_or_team_list")
-        if any(k in title_l or k in (item.snippet or "").lower() for k in _CONTEXT_CUES):
-            item.relevance_score += 1.0
-            reasons.append("contextual_factor")
-
-        if item.source_tier == "official":
-            item.relevance_score += 1.0
-        elif item.source_tier == "unverified_community":
-            item.relevance_score -= 0.5
+        verdict, drop_reason = _apply_relevance(
+            item,
+            text_blob=text_blob,
+            title_l=title_l,
+            home_team=home_team,
+            away_team=away_team,
+            round_number=round_number,
+            reasons=reasons,
+        )
+        if verdict == "drop":
+            stats["dropped_irrelevant"] += 1
+            dropped.append(_drop_record(item, drop_reason))
+            continue
+        if verdict == "defer":
+            # Team names frequently appear only in the article body, which has
+            # not been fetched at this point. Hold the item for a second pass
+            # once bodies exist rather than discarding it on the title alone.
+            item.keep_reasons = reasons
+            deferred.append(item)
+            continue
 
         item.keep_reasons = reasons
         kept.append(item)
         stats["kept"] += 1
 
-    kept.sort(key=lambda x: (-x.relevance_score, x.age_hours if x.age_hours is not None else 9999))
-    return kept, stats, dropped
+    stats["deferred_pending_body"] = len(deferred)
+    kept.sort(key=sort_key)
+    deferred.sort(key=sort_key)
+    return kept, stats, dropped, deferred
+
+
+def sort_key(item: ResearchItem) -> tuple:
+    return (
+        -item.relevance_score,
+        item.age_hours if item.age_hours is not None else 9999,
+    )
+
+
+def _apply_relevance(
+    item: ResearchItem,
+    *,
+    text_blob: str,
+    title_l: str,
+    home_team: str,
+    away_team: str,
+    round_number: int | None,
+    reasons: list[str],
+) -> tuple[str, str]:
+    """Team-relevance gate plus relevance scoring.
+
+    Returns (verdict, drop_reason) where verdict is keep / defer / drop.
+    "defer" means the item looks structurally fine but no fixture team was
+    found in the text available so far.
+    """
+    if not _has_league_signal(item, text_blob):
+        # Defer rather than drop on the first pass: the title and snippet are
+        # often too thin to carry a league marker that the body does carry.
+        if (item.body_excerpt or "").strip():
+            return "drop", "dropped_irrelevant_not_rugby_league"
+        return "defer", ""
+
+    mentions_home = _mentions_team(text_blob, home_team)
+    mentions_away = _mentions_team(text_blob, away_team)
+    is_league_wide = any(
+        k in title_l for k in ("late mail", "casualty ward", "team list")
+    ) or _is_league_round_roundup(item.title or "", round_number)
+
+    if item.channel == "nrl_news":
+        if is_league_wide:
+            reasons.append("nrl_official_roundup")
+            item.relevance_score += 2.5
+        elif mentions_home and mentions_away:
+            reasons.append("nrl_mentions_both")
+            item.relevance_score += 2.0
+        elif mentions_home or mentions_away:
+            if any(k in title_l for k in ("as it happened", "live blog", "match report")):
+                if not (mentions_home and mentions_away):
+                    return "drop", "dropped_irrelevant_other_game_recap"
+            reasons.append("nrl_club_news")
+            item.relevance_score += 1.0
+        else:
+            return "defer", ""
+    else:
+        if not (mentions_home or mentions_away or is_league_wide):
+            return "defer", ""
+        if is_league_wide and not (mentions_home or mentions_away):
+            reasons.append("league_round_roundup")
+        else:
+            reasons.append("mentions_fixture_team")
+
+    if mentions_home and mentions_away:
+        item.relevance_score += 2.0
+        reasons.append("mentions_both_teams")
+    if any(k in title_l for k in ("late mail", "casualty", "injury", "team list")):
+        item.relevance_score += 1.5
+        reasons.append("injury_or_team_list")
+    if any(k in title_l or k in (item.snippet or "").lower() for k in _CONTEXT_CUES):
+        item.relevance_score += 1.0
+        reasons.append("contextual_factor")
+
+    if item.source_tier == "official":
+        item.relevance_score += 1.0
+    elif item.source_tier == "unverified_community":
+        item.relevance_score -= 0.5
+
+    return "keep", ""
+
+
+def promote_deferred_with_bodies(
+    deferred: list[ResearchItem],
+    *,
+    home_team: str,
+    away_team: str,
+    round_number: int | None = None,
+) -> tuple[list[ResearchItem], list[dict[str, Any]]]:
+    """Second relevance pass for deferred items, now that bodies are attached.
+
+    An article that only names the fixture teams in its body (common for
+    official club pages and round wraps) is recovered here instead of being
+    lost to a title-only relevance check.
+    """
+    promoted: list[ResearchItem] = []
+    dropped: list[dict[str, Any]] = []
+
+    for item in deferred:
+        if not (item.body_excerpt or "").strip():
+            dropped.append(_drop_record(item, "dropped_irrelevant_no_team"))
+            continue
+        text_blob = " ".join(
+            filter(
+                None,
+                [
+                    item.title,
+                    item.snippet or "",
+                    item.body_excerpt or "",
+                    item.category or "",
+                ],
+            )
+        )
+        reasons = list(item.keep_reasons or [])
+        verdict, drop_reason = _apply_relevance(
+            item,
+            text_blob=text_blob,
+            title_l=(item.title or "").lower(),
+            home_team=home_team,
+            away_team=away_team,
+            round_number=round_number,
+            reasons=reasons,
+        )
+        if verdict != "keep":
+            dropped.append(
+                _drop_record(item, drop_reason or "dropped_irrelevant_no_team")
+            )
+            continue
+        reasons.append("promoted_after_body_fetch")
+        item.keep_reasons = reasons
+        promoted.append(item)
+
+    promoted.sort(key=sort_key)
+    return promoted, dropped

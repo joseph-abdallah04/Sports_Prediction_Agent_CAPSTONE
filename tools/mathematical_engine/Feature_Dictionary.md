@@ -15,13 +15,17 @@ and its measured univariate signal on the full dataset.
   values natively at each tree split, learning the best default direction.
 - **Univariate AUC** below is the area under the ROC curve using that single
   feature alone to rank matches by home-win likelihood (0.50 = no signal,
-  measured on all 2,311 matches). It understates a feature's value inside
+  measured on all 2,366 matches). It understates a feature's value inside
   the full model, where interactions matter, but it is honest evidence of
   standalone predictive power for the report.
 
-Dataset: 2,311 matches (2015-2026), 49 features. Label: `home_win` (1/0),
-base rate 0.563. Draws (9) and phantom COVID games (4) are excluded at
+Dataset: 2,366 matches (2015-2026), 61 features. Label: `home_win` (1/0),
+base rate 0.564. Draws (9) and phantom COVID games (4) are excluded at
 Stage 1.
+
+Pillars A-E were the original 49 features. Pillar F and the additional
+Pillar B columns were added later and shipped only after an A/B on the
+untouched holdout (DD-30); their AUCs are measured on the current dataset.
 
 ## Identifier columns (not model features)
 
@@ -154,11 +158,51 @@ standalone signal than the home side's (0.503) — consistent with rest
 compounding travel fatigue. Kept as three columns so XGBoost can use
 either absolute fatigue or the mismatch.
 
+### `ctx_short_turnaround_home` / `_away` / `_diff` — AUC 0.508 / 0.503 / 0.504
+
+**Definition.** 1 if that side is backing up on fewer than six days' rest,
+plus the home-minus-away difference. NaN for a team's first ever match, so a
+missing rest value is never silently read as "well rested". Triggers for 13.5%
+of home sides and 12.2% of away sides.
+
+**What it indicates.** The recognised short break in the NRL draw — a Sunday
+game followed by the next Friday. Coaches, players and media treat six days as
+the line at which recovery becomes a genuine problem.
+
+**Justification.** `ctx_rest_days_*` already carries the raw number, and a tree
+can in principle discover the threshold itself. The explicit flag makes that
+threshold learnable from far fewer examples on a 2,366-row dataset, and it
+keeps the SHAP explanation legible: "Away on a short turnaround: yes" reads
+better in a prediction rationale than "away rest 5.0 days". Standalone AUC is
+near chance, as expected for a flag that fires on ~13% of rows; its value is in
+interactions with travel and form (DD-13).
+
+### `ctx_travel_km_home` / `_away` / `_diff` — AUC 0.479 / 0.493 / 0.496
+
+**Definition.** Great-circle distance in kilometres from each club's home base
+to the match venue, and the home-minus-away difference. Computed in Stage 2
+from two static tables in `flatten.py` (`VENUE_TO_COORDS`, `TEAM_HOME_COORDS`).
+Away travel averages 762 km, median 668 km, maximum 16,954 km (Las Vegas).
+
+**What it indicates.** How far each side actually travelled. The binary
+`ctx_travel_away` flag treats a cross-town Sydney derby and a
+Townsville-to-Auckland haul as the same event; distance separates them. It also
+captures "home" games played away from a club's own ground — Magic Round, Las
+Vegas, regional fixtures — where the nominal home side travels too.
+
+**Justification.** `ctx_travel_km_home` sitting *below* 0.50 is the expected
+direction, not a defect: a home side with travel on the clock is playing at a
+neutral or borrowed venue, which erodes the home edge. Like the flag it
+supersedes, standalone AUC is weak because travel correlates with team identity
+(Storm, Raiders and Warriors dominate the long distances) and the rating
+features already absorb identity. `ctx_travel_km_away` ranked 15th by global
+SHAP in the shipped model, so the interactions do get used.
+
 ### `ctx_travel_away` — univariate AUC 0.505
 
 **Definition.** 1 if the venue's state/country differs from the away
 team's home state. Computed in Stage 1 from a hardcoded venue-to-state
-dictionary covering all 66 venue names in the data (NSW, QLD, VIC, ACT,
+dictionary covering all 67 venue names in the data (NSW, QLD, VIC, ACT,
 SA, WA, NT, NZ, USA, UK — including legacy/sponsor renames such as ANZ →
 Accor Stadium, 1300SMILES Stadium, Lottoland).
 
@@ -343,6 +387,85 @@ the tackle version (attacking workload concentrates on key forwards;
 tackle workload is structurally spread by defensive systems). Like the
 context features, these are interaction fodder more than standalone
 predictors.
+
+---
+
+## Pillar F: Competition standing and matchup history
+
+Added after the v1 model shipped (DD-30). These encode what a human reads off
+the ladder before kickoff: who is higher, who is scoring more than they
+concede, and how this specific pairing has recently gone. Ratings (Pillar A)
+approximate strength; the ladder is the thing clubs are actually playing for,
+and it resets every season in a way Elo deliberately does not.
+
+Computed in `standings.py`, strictly pre-match: every value reflects the table
+and meeting history *before* that match, built only from earlier matches.
+
+### `ladder_pts_per_game_diff` — univariate AUC 0.671
+
+**Definition.** Season-to-date points differential per game (points for minus
+points against, divided by games played), home minus away. NaN for a team's
+first match of a season (4% of rows).
+
+**What it indicates.** How comprehensively a team has been winning or losing
+this season, normalised for games played.
+
+**Justification.** The strongest of the new features and the second strongest
+in the entire dataset behind `elo_diff` (0.682), essentially level with
+`bt_diff` (0.673). It ranked **first by global SHAP** in the shipped model.
+It is not redundant with the ratings: Elo and Bradley-Terry carry strength
+across seasons with only partial regression, whereas this resets each March,
+so it reacts far faster to a squad that has genuinely changed. Margin-based
+rather than results-based, so a team grinding out four one-point wins is not
+mistaken for a dominant one.
+
+### `ladder_pos_diff` — univariate AUC 0.660
+
+**Definition.** Away ladder position minus home ladder position, so positive
+favours the home side (lower position number is better). Ranked by NRL
+ordering: competition points first, then for-and-against. Range -15 to +16.
+
+**What it indicates.** The literal ladder gap — an 8th-versus-2nd matchup.
+
+**Justification.** A rank is coarser than a rating but it is what the
+competition actually rewards, and it compresses outliers: a team 400 Elo points
+clear is still just one ladder place ahead. Kept alongside the continuous
+measures so the model can use either the gap or the ordering.
+
+### `ladder_win_pct_diff` — univariate AUC 0.648
+
+**Definition.** Season-to-date win rate, home minus away.
+
+**Justification.** The results-based counterpart to the margin-based feature
+above. Correlated with it by construction, but the disagreements are the
+signal — a team with a strong win rate and a weak differential is winning
+close games, which historically does not persist.
+
+### `h2h5_margin_avg` — univariate AUC 0.612
+### `h2h5_win_rate` — univariate AUC 0.605
+
+**Definition.** Average margin and win rate across the last 5 meetings between
+these two clubs, from the current home team's perspective, at any venue and
+across seasons. NaN when the pair has never met (6% of rows).
+
+**What it indicates.** The "bogey team" effect that commentary talks about
+constantly and ratings cannot express: a specific pairing where one side
+consistently troubles another regardless of form.
+
+**Justification.** Both clear 0.60 standalone, which is respectable for a
+feature the power ratings cannot represent at all — Elo knows Team A is
+stronger than Team B, but not that Team B has won four of the last five
+meetings. The honest caveat is that five meetings spans two to three seasons of
+roster turnover, so some of this is stale; the model is left to discount it.
+
+### `h2h5_games` — univariate AUC 0.507
+
+**Definition.** How many of the last 5 meetings actually exist (0-5). 71% of
+rows have the full 5; 6% have none.
+
+**Justification.** Not a predictor and not meant to be — it tells the model how
+much to trust the two features above. Without it, "0% head-to-head win rate
+from one meeting" and "0% from five" look identical.
 
 ---
 

@@ -1,8 +1,15 @@
 """Reddit r/nrl channel — unverified community tier.
 
-Reddit blocks unauthenticated `.json` scraping with HTTP 403 (bot wall).
-The public Atom RSS feed (`/r/nrl/new/.rss`) still works without OAuth, so
-we use that and filter posts locally for the fixture keywords.
+Reddit blocks unauthenticated `.json` scraping with HTTP 403 (bot wall). The
+public Atom feeds still work without OAuth, so we read two kinds:
+
+- `/r/nrl/new/.rss` — the 25 most recent posts, for anything breaking.
+- `/r/nrl/search.rss?q=...` — targeted at this fixture, because a specific
+  match is rarely in the newest 25 posts.
+
+Search is rate-limited hard and unpredictably, so each feed is optional: a 429
+skips that feed rather than failing the channel, and no feed is retried more
+than once (the backoff costs more than the content is worth at this tier).
 """
 
 from __future__ import annotations
@@ -11,12 +18,13 @@ import logging
 import re
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
+from urllib.parse import quote_plus
 
 import feedparser
 
 from ..http_client import RateLimitedHttpClient
 from ..models import ChannelResult, ResearchItem, item_id
-from ..queries import reddit_queries
+from ..queries import reddit_queries, region_aliases
 from ..timestamps import to_iso
 
 logger = logging.getLogger(__name__)
@@ -27,6 +35,18 @@ REDDIT_GUIDANCE = (
 
 # Prefer RSS — JSON endpoints are routinely 403'd without OAuth.
 RSS_NEW = "https://www.reddit.com/r/nrl/new/.rss"
+RSS_SEARCH = (
+    "https://www.reddit.com/r/nrl/search.rss"
+    "?q={query}&restrict_sr=1&sort=new&t=week"
+)
+
+# Recurring r/nrl threads that carry availability news without naming a club in
+# the title. Dropping these on a team-name test is how the channel ended up
+# returning nothing useful.
+_AVAILABILITY_TITLE = re.compile(
+    r"\b(team list|late mail|injur|judiciary|suspend|casualty|line[- ]?up)\b",
+    re.I,
+)
 
 
 def _parse_entry_published(entry) -> datetime | None:
@@ -86,14 +106,33 @@ def _entry_to_item(entry) -> ResearchItem | None:
     )
 
 
-def _keywords_from_queries(queries: list[str]) -> set[str]:
-    stop = {"and", "the", "for", "nrl", "or", "round"}
-    words: set[str] = set()
-    for q in queries:
-        for w in re.findall(r"[A-Za-z0-9']+", q.lower()):
-            if len(w) > 2 and w not in stop:
-                words.add(w)
-    return words
+def _team_terms(home_team: str, away_team: str) -> set[str]:
+    """Club nickNames plus their city/region aliases, lowercased."""
+    terms: set[str] = set()
+    for team in (home_team, away_team):
+        t = team.strip().lower()
+        if not t:
+            continue
+        terms.add(t)
+        terms.update(region_aliases(t))
+        parts = t.split()
+        if parts:
+            terms.add(parts[-1])
+    return terms
+
+
+def _is_relevant(item: ResearchItem, team_terms: set[str]) -> bool:
+    """Keep a post if it names either club, or is an availability thread.
+
+    The second arm matters: r/nrl's "Team List Tuesday" and Late Mail threads
+    carry exactly the availability detail this tool exists to find, and none of
+    them mention a club in the title. Anything kept here still has to clear the
+    main relevance filter afterwards, so being generous is cheap.
+    """
+    blob = f"{item.title} {item.snippet or ''}".lower()
+    if any(term in blob for term in team_terms):
+        return True
+    return bool(_AVAILABILITY_TITLE.search(item.title))
 
 
 def fetch_reddit(
@@ -117,11 +156,18 @@ def fetch_reddit(
         "Accept": "application/atom+xml, application/rss+xml, application/xml, text/xml, */*",
     }
 
+    feed_urls = [RSS_NEW]
+    for team in (home_team, away_team):
+        feed_urls.append(RSS_SEARCH.format(query=quote_plus(f"{team} NRL")))
+
     feeds_ok = 0
-    try:
-        # Single RSS listing — Reddit rate-limits aggressively; avoid search.rss extras.
+    last_error: str | None = None
+    rate_limited = False
+    for url in feed_urls:
         try:
-            xml = client.get_text(RSS_NEW, headers=headers)
+            # One attempt only: reddit's 429 backoff costs more time than this
+            # low-reliability tier is worth, and the other feeds may still work.
+            xml = client.get_text(url, headers=headers, max_retries=1)
             feed = feedparser.parse(xml)
             for entry in feed.entries or []:
                 item = _entry_to_item(entry)
@@ -129,19 +175,12 @@ def fetch_reddit(
                     items.append(item)
             feeds_ok += 1
         except Exception as e:
-            status = getattr(getattr(e, "response", None), "status_code", None)
-            if status == 429:
-                result.status = "rate_limited"
-                result.error = str(e)
-            else:
-                result.status = "error"
-                result.error = str(e)
-            logger.warning("Reddit RSS listing failed: %s", e)
-    except Exception as e:
-        status = "rate_limited" if "429" in str(e) else "error"
-        return ChannelResult(name="reddit", status=status, error=str(e), queries=queries)
+            last_error = str(e)
+            if "429" in last_error:
+                rate_limited = True
+            logger.info("Reddit feed unavailable (%s): %s", url, e)
 
-    keywords = _keywords_from_queries(queries)
+    team_terms = _team_terms(home_team, away_team)
     filtered: list[ResearchItem] = []
     seen: set[str] = set()
     for item in items:
@@ -149,8 +188,7 @@ def fetch_reddit(
         if key in seen:
             continue
         seen.add(key)
-        blob = f"{item.title} {item.snippet or ''}".lower()
-        if keywords and not any(k in blob for k in keywords):
+        if not _is_relevant(item, team_terms):
             continue
         filtered.append(item)
 
@@ -158,7 +196,11 @@ def fetch_reddit(
     if result.items:
         result.status = "ok"
         result.error = None
-    elif feeds_ok == 0 and result.status == "ok":
-        result.status = "error"
-        result.error = result.error or "Reddit RSS unavailable"
+    elif feeds_ok == 0:
+        result.status = "rate_limited" if rate_limited else "error"
+        result.error = last_error or "Reddit RSS unavailable"
+    logger.info(
+        "Reddit: %d/%d feeds ok, %d posts seen, %d kept",
+        feeds_ok, len(feed_urls), len(items), len(result.items),
+    )
     return result

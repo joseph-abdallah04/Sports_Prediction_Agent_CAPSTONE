@@ -10,6 +10,32 @@ from agent_app.llm import ChatSession, parse_json_object
 from agent_app.prompts import JUDGEMENT_SYSTEM, RECALIBRATE_USER_TEMPLATE
 
 
+def label_shap_drivers(
+    shap: Any,
+    home_team: str | None,
+    away_team: str | None,
+) -> Any:
+    """Rename positive/negative driver groups to the club they actually favour.
+
+    The math tool speaks in terms of the label: positive pushes P(home win) up.
+    An LLM reads "positive_drivers" as "points my way" and, when the model picks
+    the away side, cheerfully attributes home-favouring drivers to the away team
+    (ADR 0008). Naming the club removes the ambiguity.
+    """
+    if not isinstance(shap, dict):
+        return shap
+    home = home_team or "home team"
+    away = away_team or "away team"
+    labelled = {
+        f"favouring_{home}_home_win": shap.get("positive_drivers") or [],
+        f"favouring_{away}_away_win": shap.get("negative_drivers") or [],
+    }
+    for key, value in shap.items():
+        if key not in ("positive_drivers", "negative_drivers"):
+            labelled[key] = value
+    return labelled
+
+
 def _slim_research(research: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
     items = []
     for i in (research.get("items") or [])[:limit]:
@@ -60,7 +86,11 @@ def start_judgement_session(
             "prediction": math.get("prediction"),
             "home_win_probability": math.get("home_win_probability"),
             "probability": math.get("probability"),
-            "shap_explanations": math.get("shap_explanations"),
+            "shap_drivers": label_shap_drivers(
+                math.get("shap_explanations"),
+                fixture.get("home_team"),
+                fixture.get("away_team"),
+            ),
             "error": math.get("error"),
         },
         "research": {

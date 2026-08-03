@@ -71,26 +71,65 @@ Rules (`research/filter.py`):
 3. Drop clear other-fixture previews using **known NRL club nicknames** only
    (`Eels vs Panthers Preview` is kept; `Eels v Warriors` is dropped)
 4. Drop Fantasy / Tipping / Highlights, historical-year noise, NRLW, NFL collisions
-5. Require mention of home/away **or** league-wide Late Mail / Casualty / Team Lists
-   **or** same-round league roundups (tips / teams / odds / line-ups)
-6. Prefer absolute timestamps; fall back to “2 hours ago” / Yesterday; reject ISO durations (`PT4M47S`)
-7. Each kept item carries `published_at`, `age_hours`, `keep_reasons`
-8. Contextual cues (travel, form, suspension, judiciary, …) get a small
+5. Require a **rugby-league signal** — a league marker in the text, `nrl` or
+   `rugby-league` in the URL path, or official provenance. Roughly half the
+   NRL's nicknames belong to clubs in other codes, so "Titans" alone has
+   previously admitted a Tennessee Titans report and a *Remember the Titans*
+   celebrity story (DD-37)
+6. Require mention of home/away **or** league-wide Late Mail / Casualty / Team Lists
+   **or** same-round league roundups (tips / teams / odds / line-ups). Team
+   matching accepts city/region names as well as nickNames, so
+   "Gold Coast" resolves to Titans and "North Queensland" to Cowboys
+   (`TEAM_REGION_ALIASES` in `research/queries.py`)
+7. Prefer absolute timestamps; fall back to “2 hours ago” / Yesterday; reject ISO durations (`PT4M47S`)
+8. Each kept item carries `published_at`, `age_hours`, `keep_reasons`
+9. Contextual cues (travel, form, suspension, judiciary, …) get a small
    relevance boost when kept. Weather / venue / referee are **not** boosted —
    those facts come from `fixture_scene`.
 
-Article bodies are fetched **after** filtering (up to ~30 unique publisher URLs,
-deduped). Extraction reads headings, paragraphs, lists, tables, and compact
-widget text (team-list UIs), not only `<p>` tags, and strips Acknowledgement /
-subscribe boilerplate. Google News RSS links are decoded to publisher URLs for
-every kept item. Per-article soft-fail if a publisher blocks scraping.
+### Two-pass relevance (DD-28)
 
-Wide-net queries: match pairing + per-team injury/Late Mail/suspension +
+Rules 5 and 6 can only see the title, snippet and category, because bodies are
+fetched later. An article that names the fixture, or the code, *only in its
+text* — routine for official club pages and round wraps — would be lost on the
+title alone.
+
+So an item that fails only those two rules is **deferred**, not dropped:
+
+```
+pass 1  filter_items()                → kept + deferred + dropped
+        attach_article_bodies(kept + deferred[:15])
+pass 2  promote_deferred_with_bodies()→ promoted (merged into kept) or dropped
+```
+
+Every other rule (noise, staleness, wrong round, other-fixture) still drops
+immediately, so the second pass only ever reconsiders whether the article is
+about rugby league and about this fixture. Deferred
+body fetches are capped at 15 to bound the extra latency.
+`filter_summary` reports `deferred_pending_body` and `promoted_after_body`.
+
+Body extraction reads headings, paragraphs, lists, tables, and compact widget
+text (team-list UIs), not only `<p>` tags, and strips Acknowledgement /
+subscribe boilerplate. Google News RSS links are decoded to publisher URLs.
+Per-article soft-fail if a publisher blocks scraping.
+
+### Queries
+
+Default templates: match pairing + per-team injury/Late Mail/suspension +
 form/preview (+ optional round). **Not** searched here (owned by
 [`fixture_scene`](../fixture_scene/Architecture.md)): weather, venue forecast,
 kickoff, match officials. Optional API `venue` is still accepted for request
-echo / future use but does not drive search. Agent callers may pass
-`queries: list[str]` (max 6) to override templates; CLI omits → defaults.
+echo / future use but does not drive search.
+
+Agent callers may pass `queries: list[str]` (max 6). These are **merged with**
+the defaults, not substituted for them (DD-29), capped at 10 total, agent
+queries first. Replacement used to let a weak LLM query plan silently disable
+the tuned availability coverage the research gate depends on.
+
+Each channel takes up to 12 results per query. DuckDuckGo retries a failed
+query twice with backoff (its news endpoint intermittently 403s) and reports
+`status: error` only if every query failed.
+
 `queries_run` is deduped in the response (DDG and Google News share templates).
 Cache key includes a hash of custom queries when provided.
 

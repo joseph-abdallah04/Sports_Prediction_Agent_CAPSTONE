@@ -30,7 +30,8 @@ flowchart LR
 
 1. Call `set_fixture_scene` first (kickoff / venue / weather / officials).
 2. Pass scene fields into `research_fixture_news` and `predict_match`.
-3. Optional `queries` on `research_fixture_news` — agent-authored list (max 6);
+3. Optional `queries` on `research_fixture_news` — agent-authored list (max 6),
+   **merged with** the built-in templates rather than replacing them (DD-29);
    omit for CLI/default templates. Do not re-search weather/venue/officials.
 4. Wire `predict_match` `weather` from `scene.weather.math_weather_label`.
 5. Tools return **facts only** — winner judgement stays in the agent.

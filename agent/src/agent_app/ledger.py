@@ -78,10 +78,79 @@ def append_agent_step(
     touch(ledger)
 
 
+SCHEMA_VERSION = 2
+
+# Read order, most-summarised first. Anything not listed is appended, so a new
+# key can never be silently dropped from the record.
+_KEY_ORDER = (
+    "schema_version",
+    "run_id",
+    "at_a_glance",
+    "created_at",
+    "updated_at",
+    "request",
+    "error",
+    "final_judgement",
+    "research_loop",
+    "verifier_loop",
+    "agent_steps",
+    "tool_calls",
+)
+
+
+def _at_a_glance(ledger: dict[str, Any]) -> dict[str, Any]:
+    """A few lines answering 'what happened' without scrolling.
+
+    Purely derived from data already in the ledger — it summarises, it never
+    replaces, so the record stays complete for auditing.
+    """
+    request = ledger.get("request") or {}
+    judgement = ledger.get("final_judgement") or {}
+    responses = {
+        call.get("tool_name"): (call.get("response") or {})
+        for call in ledger.get("tool_calls") or []
+        if isinstance(call.get("response"), dict)
+    }
+    scene = responses.get("set_fixture_scene", {})
+    fixture = scene.get("fixture") or {}
+    math = responses.get("predict_match", {})
+    research = responses.get("research_fixture_news", {})
+    verifier = ledger.get("verifier_loop") or {}
+
+    winner = judgement.get("winner")
+    return {
+        "fixture": f"{request.get('home_team')} v {request.get('away_team')}",
+        "round": fixture.get("round_number"),
+        "kickoff": fixture.get("kickoff"),
+        "venue": fixture.get("venue"),
+        "predicted_winner": (
+            request.get("home_team") if winner == "home"
+            else request.get("away_team") if winner == "away"
+            else None
+        ),
+        "confidence": judgement.get("confidence"),
+        "model_home_win_probability": math.get("home_win_probability"),
+        "model_prediction": math.get("prediction"),
+        "research_items_kept": len(research.get("items") or []),
+        "research_refine_triggered": (ledger.get("research_loop") or {}).get("triggered"),
+        "verifier_checklist_pass": (verifier.get("checklist") or {}).get("pass"),
+        "verifier_audit_pass": (verifier.get("llm_audit") or {}).get("pass"),
+        "recalibrated": bool(verifier.get("triggered")),
+        "llm": f"{request.get('llm_provider')}/{request.get('llm_model')}",
+        "failed": bool(ledger.get("error")),
+    }
+
+
 def save_ledger(path: Path, ledger: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     touch(ledger)
+    ledger["schema_version"] = SCHEMA_VERSION
+    ledger["at_a_glance"] = _at_a_glance(ledger)
+    ordered = {k: ledger[k] for k in _KEY_ORDER if k in ledger}
+    ordered.update({k: v for k, v in ledger.items() if k not in ordered})
+
     tmp = path.with_suffix(".tmp")
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(ledger, f, indent=2, default=str)
+        json.dump(ordered, f, indent=2, default=str, ensure_ascii=False)
+        f.write("\n")
     tmp.replace(path)

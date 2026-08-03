@@ -7,8 +7,9 @@ Orchestrator.
 Full design: [Architecture.md](Architecture.md).
 
 Agent access: MCP tool `research_fixture_news` via [`mcp_gateway/`](../mcp_gateway/README.md).
-Optional `queries: list[str]` overrides default search templates (agent path;
-CLI omits and keeps built-in templates; capped at 6).
+Optional `queries: list[str]` (max 6, agent path) is **merged with** the default
+search templates rather than replacing them, capped at 10 queries total. The CLI
+omits it and runs the templates alone.
 
 ## Setup
 

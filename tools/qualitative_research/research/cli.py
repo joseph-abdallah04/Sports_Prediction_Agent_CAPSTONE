@@ -36,6 +36,11 @@ def main() -> int:
     parser.add_argument("--force-refresh", action="store_true")
     parser.add_argument("--max-age-days", type=int, default=10)
     parser.add_argument(
+        "--reddit",
+        action="store_true",
+        help="Also query r/nrl (off by default: near-zero usable items, see DD-34)",
+    )
+    parser.add_argument(
         "--write-ledger",
         default=None,
         help="Append this tool call to a ledger JSON path",
@@ -56,6 +61,7 @@ def main() -> int:
         "venue": args.venue,
         "force_refresh": args.force_refresh,
         "max_age_days": args.max_age_days,
+        "include_reddit": args.reddit,
     }
     started = datetime.now(timezone.utc)
     error = None
@@ -69,6 +75,7 @@ def main() -> int:
             venue=args.venue,
             force_refresh=args.force_refresh,
             max_age_days=args.max_age_days,
+            include_reddit=args.reddit,
         )
     except Exception as e:
         error = str(e)

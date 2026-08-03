@@ -126,10 +126,17 @@ def fetch_nrl_news(
     home_team: str,
     away_team: str,
     *,
-    max_list_items: int = 40,
+    max_list_items: int = 60,
     now: datetime | None = None,
+    window_start: datetime | None = None,
 ) -> ChannelResult:
-    """List official nrl.com cards (bodies attached later after filtering)."""
+    """List official nrl.com cards (bodies attached later after filtering).
+
+    ``window_start`` drops dated cards published before the fixture's recency
+    window at the channel boundary. Topic and club hubs surface months of
+    archive; without this the downstream filter spends its budget rejecting
+    stale cards and genuinely recent items get crowded out of the listing cap.
+    """
     now = now or datetime.now(timezone.utc)
     result = ChannelResult(name="nrl_news", status="ok")
     raw_cards: list[dict] = []
@@ -164,6 +171,9 @@ def fetch_nrl_news(
         if year_m and int(year_m.group(1)) < now.year:
             continue
         pub = parse_published(card.get("published_raw"), now=now)
+        # Undated cards survive here; the main filter decides those on title.
+        if pub is not None and window_start is not None and pub < window_start:
+            continue
         # Never store ISO durations / unparseable junk as published_at
         published_at = to_iso(pub)
         items.append(

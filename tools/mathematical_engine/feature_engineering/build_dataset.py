@@ -12,6 +12,7 @@ Usage:
 import argparse
 import logging
 import sys
+from pathlib import Path
 
 import pandas as pd
 
@@ -19,6 +20,7 @@ from .context import add_context_features
 from .flatten import FEATURE_STORE_DIR, OUTPUT_PATH as FLAT_PATH, build_flat_table
 from .ratings import add_rating_features
 from .rolling_form import build_team_perspective, add_rolling_features
+from .standings import add_standings_features
 
 logger = logging.getLogger("build_dataset")
 
@@ -33,6 +35,21 @@ RATING_FEATURES = ["elo_diff", "pythag10_diff", "bt_diff"]
 CONTEXT_FEATURES = [
     "ctx_venue_hga", "ctx_rest_days_home", "ctx_rest_days_away",
     "ctx_rest_days_diff", "ctx_travel_away", "ctx_weather",
+    "ctx_short_turnaround_home", "ctx_short_turnaround_away",
+    "ctx_short_turnaround_diff",
+    "ctx_travel_km_home", "ctx_travel_km_away", "ctx_travel_km_diff",
+]
+STANDINGS_FEATURES = [
+    "ladder_win_pct_diff", "ladder_pts_per_game_diff", "ladder_pos_diff",
+    "h2h5_win_rate", "h2h5_margin_avg", "h2h5_games",
+]
+
+# Feature groups added after the v1 model shipped. Passing --baseline-features
+# rebuilds the exact v1 column set so a retrain can be compared like-for-like.
+CANDIDATE_FEATURES = STANDINGS_FEATURES + [
+    "ctx_short_turnaround_home", "ctx_short_turnaround_away",
+    "ctx_short_turnaround_diff",
+    "ctx_travel_km_home", "ctx_travel_km_away", "ctx_travel_km_diff",
 ]
 
 
@@ -44,7 +61,9 @@ def games_played_before(df: pd.DataFrame) -> pd.DataFrame:
     return counts.rename(columns={"home": "home_prior_games", "away": "away_prior_games"})
 
 
-def build(min_history: int, reflatten: bool) -> pd.DataFrame:
+def build(
+    min_history: int, reflatten: bool, baseline_features: bool = False
+) -> pd.DataFrame:
     if reflatten or not FLAT_PATH.exists():
         logger.info("Running Stage 1 flatten...")
         flat = build_flat_table()
@@ -57,12 +76,18 @@ def build(min_history: int, reflatten: bool) -> pd.DataFrame:
 
     df = add_rating_features(flat)
     df = add_context_features(df)
+    df = add_standings_features(df)
     df = add_rolling_features(df)
 
     rolling_features = [c for c in df.columns if c.endswith("_diff") and (
         c.startswith(("form3_", "form5_", "mom5_", "wl5_"))
     )]
-    feature_columns = RATING_FEATURES + CONTEXT_FEATURES + rolling_features
+    feature_columns = (
+        RATING_FEATURES + CONTEXT_FEATURES + STANDINGS_FEATURES + rolling_features
+    )
+    if baseline_features:
+        feature_columns = [c for c in feature_columns if c not in CANDIDATE_FEATURES]
+        logger.info("Baseline feature set: %d columns", len(feature_columns))
 
     dataset = df[ID_COLUMNS + [LABEL_COLUMN] + feature_columns].copy()
 
@@ -99,14 +124,19 @@ def main() -> int:
     parser.add_argument("--reflatten", action="store_true", help="re-run Stage 1 first")
     parser.add_argument("--min-history", type=int, default=0,
                         help="drop rows where either team has fewer prior games")
+    parser.add_argument("--baseline-features", action="store_true",
+                        help="exclude post-v1 candidate features (for A/B retrains)")
+    parser.add_argument("--out", type=str, default=None,
+                        help="output parquet path (default: training_dataset.parquet)")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-    dataset = build(args.min_history, args.reflatten)
+    dataset = build(args.min_history, args.reflatten, args.baseline_features)
     FEATURE_STORE_DIR.mkdir(parents=True, exist_ok=True)
-    dataset.to_parquet(DATASET_PATH, index=False)
-    logger.info("Wrote %d rows x %d cols to %s", len(dataset), dataset.shape[1], DATASET_PATH)
+    out_path = Path(args.out) if args.out else DATASET_PATH
+    dataset.to_parquet(out_path, index=False)
+    logger.info("Wrote %d rows x %d cols to %s", len(dataset), dataset.shape[1], out_path)
     print_coverage(dataset)
     return 0
 

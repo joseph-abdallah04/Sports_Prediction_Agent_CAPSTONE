@@ -16,7 +16,7 @@ weekly ETL (Phase 4) will refresh.
 
 ```mermaid
 flowchart TD
-    dataset["feature_store/training_dataset.parquet\n2,311 matches x 49 features"]
+    dataset["feature_store/training_dataset.parquet\n2,366 matches x 61 features"]
     tune["tune.py - Optuna search\n(occasional)"]
     train["train.py - fit + calibrate\n(weekly, fast)"]
     params["models/best_params.json"]
@@ -39,9 +39,9 @@ flowchart TD
 The single most important design choice is how data is split, because it
 determines whether reported numbers reflect real future performance.
 
-- **Final holdout: seasons 2025-2026 (321 matches), never touched during
-  tuning or calibration.** It is used only by `evaluate.py` to report honest
-  generalisation.
+- **Final holdout: seasons 2025-2026 (376 matches), never touched during
+  tuning or calibration.** It is used only by `evaluate.py` and
+  `feature_ab.py` to report honest generalisation.
 - **Development data: 2015-2024 (1,990 matches).** Tuning and calibration
   operate here using **expanding-window chronological folds**: train through
   season S, validate on S+1, for S+1 in {2021, 2022, 2023, 2024}. This
@@ -71,7 +71,7 @@ Best mean cross-validated log loss: **0.607**. Winners are written to
 `models/best_params.json`.
 
 **Tune occasionally, not weekly:** the best hyperparameters reflect the
-dataset's *shape* (~2,300 rows, 49 features, NRL noise), which one new round
+dataset's *shape* (~2,400 rows, 61 features, NRL noise), which one new round
 does not change. Re-tune each off-season or after significant feature changes.
 
 ## 4. Training + calibration (`train.py`) - run weekly
@@ -120,17 +120,42 @@ untouched 2025-2026 holdout.
 
 | Variant | Log loss | Brier | AUC | Accuracy |
 | --- | --- | --- | --- | --- |
-| Uncalibrated | 0.659 | 0.233 | 0.640 | 0.620 |
-| Sigmoid | 0.661 | 0.234 | 0.640 | 0.626 |
-| Isotonic | 0.674 | 0.239 | 0.632 | 0.608 |
+| Uncalibrated | 0.652 | 0.230 | 0.651 | 0.630 |
+| Sigmoid | 0.651 | 0.230 | 0.651 | 0.628 |
+| Isotonic | 0.662 | 0.233 | 0.650 | 0.614 |
 
-Baselines: always-pick-home accuracy 0.558; base-rate log loss 0.687.
+Baselines: always-pick-home accuracy 0.567; base-rate log loss 0.684.
 
 Reading the results:
 
-- **AUC 0.640** on a true future holdout, matching the Phase 2 smoke-test
+- **AUC 0.651** on a true future holdout, above the Phase 2 smoke-test
   reference and within the 0.60-0.67 band of published NRL/AFL models.
-- **Accuracy 62.6%** vs the 55.8% always-home baseline (+6.8 points).
+- **Accuracy 62.8%** vs the 56.7% always-home baseline (+6.1 points).
+
+Previous 49-feature model, for comparison: AUC 0.640, log loss 0.659,
+accuracy 62.6%. The Pillar F standings and matchup features plus the
+kilometre-scale travel and short-turnaround columns were added afterwards and
+shipped only because `model.feature_ab` showed a holdout gain (DD-30).
+
+### Adding features: `feature_ab.py`
+
+`model.feature_ab` trains the same architecture twice — once on the columns the
+production model already uses, once with the candidates added — and scores both
+on the holdout, averaged over N random seeds:
+
+```bash
+uv run python -m model.feature_ab --seeds 8
+```
+
+Hyperparameters, splits and seeds are identical between arms, so the feature
+set is the only thing that varies. Averaging matters: a single XGBoost fit on
+~2.4k rows moves by roughly ±0.003 AUC on seed alone, the same order as the
+effect usually being measured. The candidate set that shipped scored +0.006 AUC
+and −0.004 log loss over 8 seeds.
+
+Note that holdout *accuracy* fell slightly in one arm while AUC and log loss
+both improved. Consistent with the tuning objective (log loss, a proper scoring
+rule), the probability metrics are the ones that decide.
 - **Log loss 0.661 < 0.687** base-rate baseline - the probabilities carry
   genuine information.
 - **Sigmoid beats isotonic** on Brier and log loss, exactly as theory

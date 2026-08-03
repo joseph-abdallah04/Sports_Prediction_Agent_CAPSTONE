@@ -108,9 +108,10 @@ def research_fixture_news(
         round_number / venue: Optional context from scene.
         force_refresh: Bypass day cache.
         max_age_days: Recency window before kickoff.
-        queries: Optional agent-authored search strings (max 6). When omitted,
-            built-in templates are used. Prefer injuries / Late Mail / form —
-            not weather or referee queries.
+        queries: Optional agent-authored search strings (max 6). These are
+            merged with the built-in templates, not substituted for them, so
+            injury / Late Mail coverage is guaranteed either way. Prefer
+            injuries / Late Mail / form — not weather or referee queries.
 
     Returns JSON with channels, items (with body_excerpt), queries_run,
     filter_summary. Soft-fails individual channels.

@@ -10,7 +10,7 @@ Design: [Architecture.md](Architecture.md).
 | MCP tool | Package | Role |
 | --- | --- | --- |
 | `set_fixture_scene` | `fixture_scene` | Kickoff, venue, officials, team lists, weather label |
-| `research_fixture_news` | `qualitative_research` | Injuries / Late Mail / form (optional `queries`) |
+| `research_fixture_news` | `qualitative_research` | Injuries / Late Mail / form (optional `queries`, merged with defaults) |
 | `predict_match` | `mathematical_engine` | Calibrated P(home win) + SHAP |
 | `tools_health` | gateway | Readiness / model artifact status |
 

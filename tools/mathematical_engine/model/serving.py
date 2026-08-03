@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 import joblib
 from xgboost import XGBClassifier
 
-from feature_engineering.inference import FixtureError, build_fixture_features
+from feature_engineering.inference import build_fixture_features
 from . import CALIBRATOR_PATH, FEATURE_COLUMNS_PATH, METRICS_PATH, MODEL_PATH
 from .explain import explain_prediction
 

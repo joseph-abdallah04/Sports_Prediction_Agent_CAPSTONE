@@ -1,0 +1,74 @@
+# ============================================================================
+#  Sports Prediction Agent — project configuration
+# ============================================================================
+#
+#  This is the one place to change how the agent runs. Everything here is
+#  non-secret and safe to commit. API keys and AWS credentials do NOT belong
+#  in this file — put those in `agent/.env` (git-ignored). See `agent/.env.example`.
+#
+#  Precedence, lowest to highest:
+#      built-in defaults  <  this file  <  agent/.env  <  environment variables
+#
+#  So a one-off override still works without editing anything:
+#      LLM_PROVIDER=openai uv run python -m agent_app.cli --home Titans --away Cowboys
+#
+#  Check what is actually in effect at any time:
+#      cd agent && uv run python -m agent_app.cli --show-config
+# ============================================================================
+
+[llm]
+# Which provider to use. Switch models by changing this one line to match a
+# [llm.presets.*] key below: ollama | openai | anthropic | gemini | bedrock
+provider = "ollama"
+
+# Bound every LLM call. A local Ollama server can drop a connection and leave
+# the client waiting forever, which stalls the whole run.
+timeout_seconds = 300
+max_retries = 2
+
+
+# ----------------------------------------------------------------------------
+#  Presets — the model used for the provider selected above.
+#  Only the selected provider's preset is read; the rest are kept as a menu.
+# ----------------------------------------------------------------------------
+
+[llm.presets.ollama]
+# Local, free, private. Slowest: expect 8-10 minutes for a full run.
+model = "gemma4:31b"
+api_base = "http://127.0.0.1:11434"
+
+[llm.presets.openai]
+# Needs OPENAI_API_KEY in agent/.env
+model = "gpt-4o-mini"
+
+[llm.presets.anthropic]
+# Needs ANTHROPIC_API_KEY in agent/.env
+model = "claude-sonnet-4-20250514"
+
+[llm.presets.gemini]
+# Needs GEMINI_API_KEY in agent/.env
+model = "gemini-2.0-flash"
+
+[llm.presets.bedrock]
+# Needs AWS credentials in agent/.env (or a configured AWS profile).
+# Model IDs are region-specific — check the Bedrock console for what your
+# account has access to before switching to this provider.
+model = "anthropic.claude-3-5-sonnet-20241022-v2:0"
+aws_region = "us-east-1"
+
+
+# ----------------------------------------------------------------------------
+#  Agent control loop. Raising the loop caps costs time and money without
+#  clearly improving predictions — see agent/adrs/0001 and 0004.
+# ----------------------------------------------------------------------------
+
+[agent]
+verifier_enabled = true
+max_research_loops = 1
+max_verifier_loops = 1
+max_agent_queries = 6
+
+
+[paths]
+# Where run ledgers and round results are written, relative to the repo root.
+runs_dir = "agent_runs"

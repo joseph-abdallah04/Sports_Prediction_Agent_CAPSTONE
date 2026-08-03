@@ -3,7 +3,7 @@
 The Phase 2 pipeline only computes features for matches that have already
 been played (they live in the data lake as JSON). To predict a FUTURE
 fixture - one with no result, no stats, no JSON - we still need the same
-49 pre-match features the model trained on.
+pre-match feature vector the model trained on.
 
 This module builds that feature vector by appending a single synthetic,
 unplayed row (scores and telemetry left as NaN) to the historical flat
@@ -28,6 +28,7 @@ from .context import add_context_features
 from .flatten import FEATURE_STORE_DIR, OUTPUT_PATH as FLAT_PATH, VENUE_TO_STATE, TEAM_HOME_STATE
 from .ratings import add_rating_features
 from .rolling_form import add_rolling_features
+from .standings import add_standings_features
 
 logger = logging.getLogger("inference")
 
@@ -135,6 +136,7 @@ def build_fixture_features(
 
     combined = add_rating_features(combined)
     combined = add_context_features(combined)
+    combined = add_standings_features(combined)
     combined = add_rolling_features(combined)
 
     fixture_row = combined[combined["match_id"] == SYNTHETIC_MATCH_ID].iloc[0]

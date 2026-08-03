@@ -27,9 +27,9 @@ serves two non-negotiables:
 ```mermaid
 flowchart LR
     rawLake["data_lake/raw_historical/\n2,324 raw JSONs"] --> stage1["Stage 1: flatten.py\nPOST-match facts\n(what happened)"]
-    stage1 --> flatParquet["feature_store/\nmatches_flat.parquet\n2,311 rows x 103 cols"]
+    stage1 --> flatParquet["feature_store/\nmatches_flat.parquet\n2,366 rows x 103 cols"]
     flatParquet --> stage2["Stage 2: build_dataset.py\nchronological pass\nPRE-match features\n(what was knowable)"]
-    stage2 --> trainParquet["feature_store/\ntraining_dataset.parquet\n2,311 rows x 57 cols"]
+    stage2 --> trainParquet["feature_store/\ntraining_dataset.parquet\n2,366 rows x 69 cols"]
     trainParquet --> smoke["smoke_test.py\ntime-split XGBoost\nsanity check"]
 ```
 
@@ -124,7 +124,7 @@ Sydney clubs 36-47%).
 
 Dropped before writing: 4 phantom COVID fixtures (0-0 "FullTime" pages
 with empty stats) and 9 genuine draws (strictly binary classification).
-2,324 raw files → 2,311 rows. Accepted trade-off: drawn games also vanish
+2,382 raw files → 2,366 rows. Accepted trade-off: drawn games also vanish
 from rating/form history in Stage 2 (~1% of games).
 
 ## 4. Stage 2: feature construction
@@ -169,12 +169,33 @@ to be current as of each round.
   `(wins + 0.55 * 10) / (games + 10)`. The 0.55 prior is a fixed constant
   (long-run rugby league home rate), deliberately *not* estimated from this
   dataset so the feature cannot leak global information backward in time.
+- **Short turnaround**: rest days below six, as a flag per side plus the
+  differential. NaN-preserving, so a team's first ever match is not read as
+  well rested.
+- **Travel distance**: great-circle kilometres from each club's home base to
+  the venue, via `VENUE_TO_COORDS` and `TEAM_HOME_COORDS` in `flatten.py`.
+  Computed in Stage 2 rather than Stage 1 so the inference path derives it
+  from the synthetic row's venue automatically.
 - **Weather**: raw strings normalised to five categories (fine / cloudy /
   rain / indoor / unknown), stored as a pandas category for XGBoost's
   native categorical handling. `unknown` is an explicit, honest category
   for the ~36% of matches with no recorded weather.
 
-### 4.3 `rolling_form.py` — Pillars C, D, E
+### 4.3 `standings.py` — Pillar F
+
+- **Ladder**: a per-season, per-team running record (games, wins, points for,
+  points against). Each row reads the table as it stood *before* that match,
+  producing win rate, points differential per game, and ladder position
+  (NRL ordering: competition points, then for-and-against). Unplayed rows
+  contribute nothing to the running record, which is what lets the inference
+  path append a synthetic fixture safely.
+- **Head-to-head**: a `(team_a, team_b)` meeting log keyed on the sorted ID
+  pair, giving win rate, average margin and sample size over the last 5
+  meetings from the current home side's perspective. Margins are stored
+  relative to the lower team ID and sign-flipped on read, so the same log
+  serves both fixture orientations.
+
+### 4.4 `rolling_form.py` — Pillars C, D, E
 
 The core trick is a perspective flip: each match becomes **two rows**
 (one per team, with that team's stats, opponent-relative momentum values,
@@ -189,14 +210,20 @@ momentum and workload use 5. The rolled per-team values are then merged
 back to matches by side and reduced to home-minus-away differentials
 (42 rolling features).
 
-### 4.4 Assembly
+### 4.5 Assembly
 
-The final table = identifiers + label + 3 rating features + 6 context
-features + 42 rolling differentials = 57 columns, 49 model features.
+The final table = identifiers + label + 3 rating features + 12 context
+features + 6 standings/matchup features + 42 rolling differentials =
+69 columns, 61 model features.
 `build_dataset.py` prints per-season null-coverage diagnostics on every
 run, and `--min-history N` optionally drops rows where either team has
 fewer than N prior games (default: keep everything, let XGBoost route the
 NaNs).
+
+`--baseline-features` rebuilds the original 49-column set by excluding
+`CANDIDATE_FEATURES`, so a retrain can be compared like-for-like against the
+v1 model. `model.feature_ab` uses the same list to A/B both arms in one
+process without touching the shipped dataset.
 
 ## 5. Correctness evidence
 
@@ -247,7 +274,7 @@ domain expectations, another soft correctness signal.
 | Off-season Elo regression 30% | Full reset / no reset | Reset discards real multi-season quality; no reset overrates last season's roster. 30% follows the Overview spec |
 | Windows 3 and 5 (telemetry), 5 (momentum/workload) | Single window | Two windows let the model see form *trajectory*; momentum events are too sparse per game for a 3-window |
 | Era-consistent discipline stream (Penalty + SetRestart + RuckInfringement) | Penalties only | The 2020 six-again rule moved ruck discipline out of formal penalties; merging keeps the conceded-infringement stream comparable across the rule change |
-| Differentials only (home minus away) | Keep both absolute columns | Halves dimensionality on 2,311 rows; the matchup contrast is the signal. Absolutes remain available in `matches_flat.parquet` |
+| Differentials only (home minus away) | Keep both absolute columns | Halves dimensionality on ~2,400 rows; the matchup contrast is the signal. Absolutes remain available in `matches_flat.parquet` |
 | Keep weak features (AUC 0.51-0.54) | Prune now | Univariate AUC ignores interactions; pruning is a Phase 3 decision with proper validation and SHAP evidence |
 | Drop `decoy_runs` | Keep as planned | The source field is zero in 100% of matches — objectively dead |
 

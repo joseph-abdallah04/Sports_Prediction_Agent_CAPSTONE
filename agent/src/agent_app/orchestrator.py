@@ -13,7 +13,9 @@ from agent_app import ledger as ledger_mod
 from agent_app import tools_bridge
 from agent_app.judgement import recalibrate_judgement, start_judgement_session
 from agent_app.query_planner import plan_queries, refine_queries
+from agent_app.report import render_run_summary
 from agent_app.research_gate import research_ok
+from agent_app.run_paths import fixture_run_dir
 from agent_app.verifier import checklist_verify, llm_audit, should_recalibrate
 
 logger = logging.getLogger(__name__)
@@ -59,12 +61,23 @@ def run_prediction(
         "llm_model": settings.llm_model,
     }
     ledger = ledger_mod.create_ledger(run_id, request)
-    ledger_path = Path(settings.agent_runs_dir) / run_id / "ledger.json"
+    # Provisional: refined once the scene reports the real season and round, so
+    # the folder name says which fixture it was even when the CLI wasn't told.
+    run_dir = fixture_run_dir(
+        Path(settings.agent_runs_dir), run_id, home_team, away_team, season, round_number
+    )
+    ledger_path = run_dir / "ledger.json"
     total = 6
     run_t0 = _now()
 
     def persist() -> None:
         ledger_mod.save_ledger(ledger_path, ledger)
+        try:
+            (ledger_path.parent / "summary.md").write_text(
+                render_run_summary(ledger), encoding="utf-8"
+            )
+        except Exception as e:  # a broken summary must never lose the ledger
+            logger.debug("Could not write summary.md: %s", e)
 
     logger.info(
         "=== Agent run start run_id=%s model=%s/%s ===",
@@ -101,6 +114,16 @@ def run_prediction(
             finished_at=t1,
             error=scene.get("error"),
         )
+        scene_fixture = scene.get("fixture") or {}
+        run_dir = fixture_run_dir(
+            Path(settings.agent_runs_dir),
+            run_id,
+            home_team,
+            away_team,
+            scene_fixture.get("season") or season,
+            scene_fixture.get("round_number") or round_number,
+        )
+        ledger_path = run_dir / "ledger.json"
         persist()
         if scene.get("error"):
             logger.error("Scene failed: %s", scene)

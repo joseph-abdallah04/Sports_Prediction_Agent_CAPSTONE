@@ -372,13 +372,20 @@ Provider and model come from [`config.toml`](config.toml) at the repo root, not
 from `.env` — one committed file, one line to change, `--provider` / `--model`
 to override for a single run (DD-36).
 
-Each run writes `summary.md` (readable) and `ledger.json` (complete) to
-`agent_runs/fixtures/<season>-R<round>_<Home>-v-<Away>/<timestamp>/`; see
-[`agent_runs/README.md`](agent_runs/README.md). Loops: research refine ≤1;
-verifier recalibrate ≤1 (same judgement session, no new tools).
+Each run writes `summary.md` (readable), `record.json` (the numbers, flattened)
+and `ledger.json` (complete) to
+`agent_runs/fixtures/<season>-R<round>_<Home>-v-<Away>/<timestamp>/`, and appends
+one row to `agent_runs/predictions_log.csv` — the append-only table every metric
+is calculated from (DD-42). See [`agent_runs/README.md`](agent_runs/README.md).
+Loops: research refine ≤1; verifier recalibrate ≤1 (same judgement session, no
+new tools).
 
 Expect 6–10 minutes per run on local Ollama, well under a minute on a hosted
-provider.
+provider. Check the loop is sound first — two seconds, no network, no LLM:
+
+```bash
+uv run python scripts/smoke_orchestrator.py
+```
 
 Team names must be official NRL nickNames — see
 [Official NRL nickNames](#official-nrl-nicknames) below.
@@ -393,7 +400,10 @@ always-back-the-home-team baseline once the results are in
 ```bash
 cd agent
 
-# before the round — writes agent_runs/rounds/2026-R23/predictions.json
+# what is still ahead of kickoff, and when
+uv run python -m agent_app.harness run --season 2026 --round 23 --dry-run
+
+# predict what is left — writes agent_runs/rounds/2026-R23/predictions.json
 uv run python -m agent_app.harness run --season 2026 --round 23
 
 # after the last game — accuracy, Brier score, log loss for each predictor
@@ -401,7 +411,10 @@ uv run python -m agent_app.harness score --season 2026 --round 23
 ```
 
 Predictions are written before the games and scored by a separate command, so
-they cannot be back-fitted.
+they cannot be back-fitted. Because a round spans Thursday to Sunday, `run` is
+incremental — it appends, skips what it has already done, and refuses a fixture
+whose kickoff has passed — so you can predict each game on its match day with
+fresh team lists (DD-40).
 
 ---
 
@@ -425,9 +438,10 @@ they cannot be back-fitted.
 | `feature_engineering.smoke_test` | Dev only | Dataset learnability check |
 | `uv sync` | Setup | Install dependencies |
 
-### Official NRL nickNames (use these in CLI flags)
+### Official NRL nickNames
 
-Pass **exactly** the nickName column below to `--home` / `--away` (case-insensitive).
+Use these in CLI flags. Pass **exactly** the nickName column below to
+`--home` / `--away` (case-insensitive).
 The scene tool matches them to nrl.com draw data — each Premiership club has a
 unique nickName, so `Titans` is always the Gold Coast Titans (there is no
 `Gold Coast` flag and you should not type the full club name).
@@ -535,6 +549,7 @@ See [`tools/fixture_scene/README.md`](tools/fixture_scene/README.md) and
 
 ## Further reading
 
+- [`HOWTOUSE.md`](HOWTOUSE.md) — **step-by-step operating guide**: every command and flag, where results are written, and what is recorded.
 - [`Architecture.md`](Architecture.md) — system, control-loop and data-flow diagrams.
 - [`Limitations.md`](Limitations.md) — measured accuracy ceiling, what would move it, and what the agent cannot do.
 - [`agent/Architecture.md`](agent/Architecture.md) — Orchestrator control loop and agency.

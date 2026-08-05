@@ -22,8 +22,9 @@
 provider = "ollama"
 
 # Bound every LLM call. A local Ollama server can drop a connection and leave
-# the client waiting forever, which stalls the whole run.
-timeout_seconds = 300
+# the client waiting forever, which stalls the whole run. 420s leaves headroom
+# for the verifier (eight checks, large abridged ledger) on gemma4:31b.
+timeout_seconds = 420
 max_retries = 2
 
 

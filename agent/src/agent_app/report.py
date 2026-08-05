@@ -176,13 +176,35 @@ def _render_loops(ledger: dict[str, Any]) -> list[str]:
     issues = list(checklist.get("issues") or []) + list(audit.get("issues") or [])
     for issue in issues:
         lines.append(f"    - {issue}")
-    if verifier.get("triggered"):
+    if verifier.get("recalibration_triggered"):
         before = (verifier.get("judgement_before") or {})
         after = (verifier.get("judgement_after") or {})
         lines.append(
             f"    - recalibrated: {before.get('winner')} "
             f"{before.get('confidence')} → {after.get('winner')} "
             f"{after.get('confidence')}"
+        )
+    elif verifier:
+        lines.append("    - no recalibration needed, so the judgement stands as first written")
+    lines.append("")
+    lines += _render_audit_checks(audit)
+    return lines
+
+
+def _render_audit_checks(audit: dict[str, Any]) -> list[str]:
+    """What the LLM audit examined, pass or fail.
+
+    A verdict on its own is not reviewable, and a passing audit is exactly when
+    you most want to know what was actually looked at.
+    """
+    checks = [c for c in (audit.get("checks") or []) if isinstance(c, dict)]
+    if not checks:
+        return []
+    lines = ["### What the verifier checked", "", "| Check | Verdict | Evidence |", "| --- | --- | --- |"]
+    for c in checks:
+        evidence = (c.get("evidence") or "").replace("|", "\\|").replace("\n", " ")
+        lines.append(
+            f"| `{c.get('check')}` | {c.get('verdict')} | {evidence} |"
         )
     lines.append("")
     return lines

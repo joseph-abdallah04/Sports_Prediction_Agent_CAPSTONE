@@ -392,6 +392,14 @@ quality is the objective, not threshold accuracy.
 
 ## DD-31: Judgement confidence is anchored to the calibrated model probability
 
+> **Superseded in part by DD-41** (confidence anchoring), and the weather coded
+> check was later dropped: it is a semantic rule and belongs to the LLM audit's
+> `weather_not_headline`, not a keyword scan. The research-use rule still stands
+> in code. Kept here because the reasoning was sound for prediction quality and
+> only wrong for measurement on the confidence side — and the weather false
+> positive ("hamstring strain" ⊂ `rain`) later showed the same lesson about
+> coded checks that are not actually decidable from structure.
+
 **Decision.** The judge must set confidence within 0.10 of the model's
 probability for the side it picks, never above 0.85, and never above 0.60 when
 picking against the model. A deterministic check in `verifier.py` enforces
@@ -563,3 +571,149 @@ is deferred rather than dropped, and is judged again after its body is fetched
 genuine league piece would have to omit "NRL" and "rugby league" from its
 headline, its summary, its URL *and* its body to be lost, which no article in
 any run so far has done.
+
+## DD-38: A passing check must say what it checked
+
+**Decision.** The LLM audit returns a `checks` array — one entry per rule, with
+a verdict and the evidence it matched — and the ledger keeps it whether the
+audit passed or failed. The verifier also records `verifier_ran` separately from
+`recalibration_triggered`.
+
+**Why.** A clean audit used to serialise as `{"pass": true, "issues": [],
+"instruction": ""}`. That is a verdict with nothing behind it: it cannot be
+reviewed, it cannot be compared between runs, and it is indistinguishable from a
+verifier that answered "fine" without looking. Given that the verifier had
+already been caught getting a call wrong for want of evidence (DD-33), taking
+its word for the clean runs was the one case we had least reason to trust.
+
+Asking for per-check evidence also changes the model's behaviour, not just the
+record. Having to write down what it matched for `sourced_claims` is a weaker
+version of showing its work, and "unable" is now an available verdict, so a
+check it could not perform stops being reported as a pass.
+
+**Naming.** `verifier_loop.triggered` meant *recalibration fired*, but read as
+*the verifier ran*, so a clean run looked like a skipped one — as it did to the
+first person to open a ledger. The two facts are now two fields. Cheaper than
+any amount of documentation explaining the old one.
+
+**Cost.** Roughly 400 extra output tokens per audit, and a longer prompt
+contract for a local model to satisfy. `_clean_checks()` normalises whatever
+comes back and an absent `checks` array degrades to the old behaviour rather
+than failing the run.
+
+## DD-39: An offline smoke test of the whole control loop
+
+**Decision.** `agent/scripts/smoke_orchestrator.py` runs `run_prediction` with
+the fact tools and the LLM replaced by stubs, asserting that every stage
+executed and wrote what it should. It takes about two seconds and needs no
+network.
+
+**Why.** A mistyped function name — `append_step` for `append_agent_step` —
+crashed a live run at stage five, after eleven minutes of local inference had
+already been spent on the research, judgement and audit calls. Nothing before
+stage five could have caught it, and nothing static would have either, since it
+was an attribute lookup on a module.
+
+That is an expensive way to find a typo when a round is eight fixtures and about
+an hour. The stubbed run exercises the same code path in two seconds.
+
+**What it covers that a real run does not.** A healthy run never fires the
+recalibration loop, so the branch that re-judges in-session was, until this
+existed, only ever exercised by accident. The smoke test drives it deliberately
+by having the stub judge return a 0.95 confidence against a 0.51 model
+probability, and checks the judgement comes back within the ceiling.
+
+**What it deliberately does not cover.** Stubs assert nothing about whether
+nrl.com still serves the same JSON, whether the model file loads, or whether the
+LLM can follow the prompt contract. Those are what
+`tools/mcp_gateway/scripts/smoke_tools.py` and a real run are for. This one
+answers a narrower question: given working tools, does the loop still hold
+together.
+
+## DD-40: The round harness is incremental, because a round is four days long
+
+**Decision.** `harness run` merges into `predictions.json` rather than replacing
+it, skips fixtures already predicted, and refuses to predict a fixture whose
+kickoff has passed. Each prediction carries its own `predicted_at`.
+
+**Why.** Round 23 runs Thursday 19:50 to Sunday 16:05. The harness originally
+predicted all eight fixtures in one pass and overwrote the file, which forced a
+choice between two bad options. Run once on Wednesday and the Sunday games are
+judged on Wednesday's team lists, four days before the late mail that decides
+them. Run again later and the second pass erases the record of what was
+predicted for Thursday's game before it was played.
+
+The second failure is the dangerous one, because it is silent: the scorecard
+would still compute, still report accuracy, and be measuring predictions made
+after the results were known. The separation of prediction from scoring
+(DD-32) only guarantees honesty if the prediction file is append-only in
+practice.
+
+Refusing a played fixture is the same argument in code. A prediction made after
+kickoff is not a prediction, and the check means that fact does not depend on
+the operator remembering it at 8pm on a Saturday.
+
+**Alternatives.** A single pre-round run, accepting stale research for the late
+games — rejected because availability news is the agent's main edge over the
+model, and it is worth least when it is four days old. Timestamped prediction
+files per run — rejected as it makes scoring pick a file, which is exactly the
+discretion the design removes.
+
+**Also added.** `--dry-run` prints the round with kickoff times, hours
+remaining, and what a real run would do, in about two seconds. Deciding when to
+run should not cost an hour of inference to work out.
+
+## DD-41: The agent's confidence is its own number
+
+**Decision.** Nothing ties the judge's confidence to the model's probability.
+The ±0.10 anchor and the 0.60 cap for picking against the model are gone, along
+with their checks (`confidence_detached_from_model`, `confidence_anchored`).
+Overconfidence is handled by frequency framing, explicit bands, and a pre-mortem
+in the prompt. Two bounds remain in code: a floor of 0.50 and a ceiling of 0.95,
+neither derived from the model. See ADR 0009, which supersedes the confidence
+rule in DD-31.
+
+**Why.** The anchor was good for prediction quality and fatal for measurement. A
+prediction's Brier score is a function of its probability, so constraining the
+agent's probability to within 0.10 of the model's makes the agent's Brier score a
+restatement of the model's. On the fixtures where the two agree — most of them —
+they are nearly the same number. The comparative evaluation would then report
+that the agent's probabilistic reliability was indistinguishable from the
+deterministic tool's, and that "finding" would be a property of the prompt, not
+of the system. The research question asks whether the semantic layer improves
+reliability; a constraint that makes the reliability metric uninformative deletes
+the answer.
+
+The 0.50 floor is a data-integrity guard rather than a calibration rule.
+Confidence is in the side the judge picked, so a value below 0.50 contradicts its
+own `winner`, and the conversion to P(home win) would silently score it as a pick
+for the *other* side. The prompt already said "never go below 0.50" and nothing
+enforced it.
+
+**Cost.** The agent's calibration is now free to be worse than the model's, and
+on a local model it probably will be. That is the honest measurement, and the
+model's probability sits beside the agent's in every record, so the gap is
+observable rather than hidden by a clamp.
+
+## DD-42: A short record beside every ledger, and one running log
+
+**Decision.** Each run writes `record.json` next to `ledger.json` — a flat
+projection of the prediction, the model's probability, the research used, the
+verifier's verdicts and the timing — and appends one row to
+`agent_runs/predictions_log.csv`. The CSV is append-only and ends in columns the
+agent never writes, for the manual half of the evaluation. See ADR 0010.
+
+**Why.** The ledger is complete, which is what makes it unusable for reading one
+number out of at pace: the prediction, the model probability, the research titles
+and the verifier verdict live in four different places in it. `summary.md` reads
+well but prose cannot be totalled across five rounds. The evaluation is done by
+hand against two manually-sourced control systems, and that work needs a table
+whose hand-typed cells the machine will never overwrite.
+
+Writing on every exit path — including failures — matters because a prediction
+missing from the log is indistinguishable from a round nobody ran.
+
+**Cost.** `record.json` is a projection and can drift from the ledger's shape if
+the tools change their field names; the smoke test guards this by stubbing the
+tools with their real key names, so a rename fails offline in two seconds rather
+than silently emptying a column for a whole round.

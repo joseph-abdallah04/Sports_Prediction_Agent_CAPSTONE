@@ -59,20 +59,39 @@ AND (official/nrl_news OR availability keywords)
 AND NOT all wide-net channels failed empty
 ```
 
-## Judgement grounding and confidence
+## Judgement grounding
 
-Three rules, stated in the prompt and enforced deterministically in
-`verifier.py` because the verifier LLM is as fallible as the judge
-(ADR 0006):
+Rules stated in the prompt, with coded enforcement only where the ledger makes
+the answer structural rather than semantic (ADR 0006):
 
-- Weather is not a valid key factor unless a weather feature appears in the
-  SHAP drivers the math tool returned.
 - At least one key factor must come from research whenever research returned
-  usable items.
-- Confidence sits within 0.10 of the model probability for the picked side,
-  never above 0.85, and never above 0.60 when picking against the model.
+  usable items — enforced in the checklist.
+- Weather is not a valid key factor unless a weather feature appears in the
+  SHAP drivers — prompt + LLM audit `weather_not_headline` only. A coded
+  keyword scan once flagged "hamstring strain" as weather (`rain` ⊂ `strain`)
+  and triggered a useless recalibration; the audit had already passed correctly.
 
-Violations become checklist issues and feed the recalibration loop.
+Research-use violations become checklist issues and feed the recalibration loop.
+Weather violations do the same, but only when the audit fails them.
+
+## Confidence
+
+The judge's confidence is its own number. Nothing compares it to the model
+probability, because a prediction's Brier score is a function of its probability:
+tie the two and the agent's Brier score becomes a restatement of the model's, so
+the comparative evaluation cannot distinguish them however the system performs
+(ADR 0009).
+
+Overconfidence is handled in the prompt — the number is framed as a frequency
+claim, given explicit bands, and preceded by naming the strongest reason the pick
+could lose. Two bounds are enforced in code, neither derived from the model: a
+floor of 0.50, below which the judge has contradicted its own `winner` and the
+conversion to P(home win) would score it as a pick for the other side, and a
+ceiling of 0.95 as a backstop.
+
+The model probability travels beside the agent's confidence in `record.json` and
+`predictions_log.csv`, so the two are scored independently and the gap between
+them is itself an observation.
 
 ## What the verifier can see
 

@@ -115,11 +115,17 @@ Both loops are capped at one iteration. Two things are worth noticing:
 - **The gate is code, not the LLM.** Whether research is good enough is decided
   by counting items and checking sources, so it cannot be talked around.
 - **The checklist runs before the LLM audit.** Anything decidable from the
-  ledger — confidence within 0.10 of the model probability, no weather claim
-  without a weather SHAP driver, at least one research-sourced factor — is
-  checked in code, because the verifier LLM is exactly as fallible as the judge
+  ledger — at least one research-sourced factor, confidence inside its bounds —
+  is checked in code, because the verifier LLM is exactly as fallible as the
+  judge on structural facts
   ([ADR 0006](agent/adrs/0006-grounded-judgement-and-confidence.md),
-  [ADR 0008](agent/adrs/0008-verifier-sees-the-evidence.md)).
+  [ADR 0008](agent/adrs/0008-verifier-sees-the-evidence.md)). Semantic rules
+  such as weather-as-headline stay with the audit: a keyword scan once treated
+  "hamstring strain" as weather and burned a recalibration for nothing.
+- **Confidence is not one of the things compared to the model.** The judge sets
+  its own number, deliberately, so that the agent's Brier score is an independent
+  measurement rather than a restatement of the model's
+  ([ADR 0009](agent/adrs/0009-confidence-is-the-agents-own-number.md)).
 
 ---
 

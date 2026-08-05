@@ -322,6 +322,22 @@ to check reasoning, not to gather more evidence.
 **Recalibration loop.** The single permitted re-judge after the verifier
 objects, run in the same session with no new tool calls (ADR 0004).
 
-**Confidence anchoring.** Requiring the LLM's stated confidence to stay within
-a set distance of the calibrated model probability, so the number reported to a
-user is tied to measured accuracy rather than the LLM's tone (DD-31).
+**Confidence anchoring.** Requiring the LLM's stated confidence to stay within a
+set distance of the calibrated model probability. This system used to do it and
+deliberately no longer does: anchoring makes the agent's Brier score a
+restatement of the model's, so the comparative evaluation cannot tell them apart
+whatever the system actually does (DD-41). Confidence is now the agent's own
+number, kept honest by prompt-level bands rather than by the model.
+
+**Circular evaluation.** Measuring a system with a metric its own design forces
+to a particular answer. The anchored-confidence case is the example this project
+had to fix: the Brier comparison would have reported "no difference" as a finding
+when it was a property of the prompt.
+
+**Record file.** `record.json`, written beside each ledger — a small flat
+projection of the run's numbers so a write-up does not require reading several
+hundred lines of ledger to find a confidence score (ADR 0010).
+
+**Running log.** `agent_runs/predictions_log.csv`, one appended row per
+prediction ever made, ending in columns the agent never writes so the manual half
+of the evaluation lives in the same table (ADR 0010).

@@ -13,12 +13,11 @@ from agent_app.prompts import VERIFIER_SYSTEM
 
 logger = logging.getLogger(__name__)
 
-# Judgement confidence must track the model probability for the picked side.
-CONFIDENCE_TOLERANCE = 0.10
-CONFIDENCE_CEILING = 0.85
-CONFIDENCE_CEILING_AGAINST_MODEL = 0.60
-
-_WEATHER_WORDS = ("weather", "rain", "wet", "wind", "humid", "heat", "temperature")
+# Confidence bounds, deliberately NOT tied to the model probability (DD-41).
+# The floor is definitional rather than a calibration rule: confidence is in the
+# side the judge picked, so below 0.50 it has contradicted its own winner.
+CONFIDENCE_FLOOR = 0.50
+CONFIDENCE_CEILING = 0.95
 
 # Evidence budget for the audit packet. The verifier must see the same article
 # text the judge saw, bounded so the prompt stays well inside context.
@@ -27,35 +26,19 @@ _VERIFIER_BODY_CHARS = 900
 _VERIFIER_PROMPT_CHARS = 40000
 
 
-def _weather_supported_by_shap(shap_explanations: Any) -> bool:
-    """True if any SHAP driver string actually references weather."""
-    if not isinstance(shap_explanations, dict):
-        return False
-    for drivers in shap_explanations.values():
-        for driver in drivers or []:
-            if any(w in str(driver).lower() for w in _WEATHER_WORDS):
-                return True
-    return False
-
-
 def _check_judgement_grounding(
     judgement: dict[str, Any],
-    math_resp: dict[str, Any] | None,
     research_resp: dict[str, Any] | None,
 ) -> list[str]:
-    """Evidence-grounding rules that can be decided in code, not by an LLM."""
+    """Evidence-grounding rules that can be decided in code, not by an LLM.
+
+    Weather-as-a-headline is *not* checked here. That is a semantic question, and
+    a keyword scan once flagged "hamstring strain" as weather because `rain` is
+    a substring of `strain`. The LLM audit's `weather_not_headline` check owns
+    that rule instead; the checklist sticks to facts decidable from structure.
+    """
     issues: list[str] = []
     factors = [f for f in (judgement.get("key_factors") or []) if isinstance(f, dict)]
-
-    # Weather may only be a key factor when SHAP actually surfaced it. The model
-    # finds match-day weather near-irrelevant, but the scene reports it, and the
-    # judge has a standing habit of promoting it to a headline reason.
-    if math_resp and not math_resp.get("error"):
-        if not _weather_supported_by_shap(math_resp.get("shap_explanations")):
-            for factor in factors:
-                if any(w in str(factor.get("detail", "")).lower() for w in _WEATHER_WORDS):
-                    issues.append("weather_cited_without_shap_support")
-                    break
 
     # If research produced usable items, the judgement must actually use one.
     if research_resp and not research_resp.get("error"):
@@ -63,25 +46,21 @@ def _check_judgement_grounding(
         if items and not any(f.get("source") == "research" for f in factors):
             issues.append("no_research_key_factor_despite_items")
 
-    # Confidence must stay anchored to the calibrated model probability.
+    # Confidence is the judge's own number and is deliberately not compared with
+    # the model probability: anchoring the two makes the agent's Brier score a
+    # restatement of the model's, which would make the comparison circular
+    # (DD-41). Only the two bounds are enforced.
     confidence = judgement.get("confidence")
-    home_prob = (math_resp or {}).get("home_win_probability")
-    winner = judgement.get("winner")
-    if (
-        isinstance(confidence, (int, float))
-        and isinstance(home_prob, (int, float))
-        and winner in ("home", "away")
-    ):
-        model_prob = home_prob if winner == "home" else 1.0 - home_prob
-        against_model = model_prob < 0.5
-        ceiling = (
-            CONFIDENCE_CEILING_AGAINST_MODEL if against_model else CONFIDENCE_CEILING
-        )
-        if confidence > ceiling:
-            issues.append(f"confidence_above_ceiling:{confidence:.2f}>{ceiling:.2f}")
-        elif not against_model and abs(confidence - model_prob) > CONFIDENCE_TOLERANCE:
+    if isinstance(confidence, (int, float)):
+        if confidence < CONFIDENCE_FLOOR:
+            # Below the floor the judge has contradicted its own winner, and the
+            # harness would convert it into a probability for the other side.
             issues.append(
-                f"confidence_detached_from_model:{confidence:.2f}_vs_{model_prob:.2f}"
+                f"confidence_below_floor:{confidence:.2f}<{CONFIDENCE_FLOOR:.2f}"
+            )
+        elif confidence > CONFIDENCE_CEILING:
+            issues.append(
+                f"confidence_above_ceiling:{confidence:.2f}>{CONFIDENCE_CEILING:.2f}"
             )
     return issues
 
@@ -96,15 +75,12 @@ def checklist_verify(ledger: dict[str, Any]) -> dict[str, Any]:
 
     scene_resp = None
     predict_req = None
-    math_resp = None
     research_resp = None
     for t in ledger.get("tool_calls") or []:
         if t.get("tool_name") == "set_fixture_scene" and t.get("response"):
             scene_resp = t["response"]
         if t.get("tool_name") == "predict_match":
             predict_req = t.get("request") or {}
-            if isinstance(t.get("response"), dict):
-                math_resp = t["response"]
         if t.get("tool_name") == "research_fixture_news":
             if isinstance(t.get("response"), dict):
                 research_resp = t["response"]
@@ -134,7 +110,7 @@ def checklist_verify(ledger: dict[str, Any]) -> dict[str, Any]:
                 issues.append(f"key_factor_empty:{i}")
 
     if judgement:
-        issues.extend(_check_judgement_grounding(judgement, math_resp, research_resp))
+        issues.extend(_check_judgement_grounding(judgement, research_resp))
 
     return {"pass": len(issues) == 0, "issues": issues}
 
@@ -201,17 +177,44 @@ def llm_audit(settings: Settings, ledger: dict[str, Any]) -> dict[str, Any]:
         except Exception as e2:
             logger.warning("Verifier LLM JSON parse failed after retry: %s", e2)
             return {
+                "ran": True,
                 "pass": True,
+                "checks": [],
                 "issues": [],
                 "instruction": "",
                 "parse_error": str(e2),
                 "raw": raw[:1000],
             }
     return {
+        "ran": True,
         "pass": bool(data.get("pass", True)),
+        # What the audit examined, kept whether it passed or failed: a verdict
+        # with no record of what was checked cannot be reviewed later.
+        "checks": _clean_checks(data.get("checks")),
         "issues": list(data.get("issues") or []),
         "instruction": str(data.get("instruction") or ""),
     }
+
+
+def _clean_checks(checks: Any) -> list[dict[str, str]]:
+    """Normalise the audit's per-check report, tolerating a sloppy model."""
+    if not isinstance(checks, list):
+        return []
+    out: list[dict[str, str]] = []
+    for entry in checks:
+        if not isinstance(entry, dict):
+            continue
+        name = str(entry.get("check") or "").strip()
+        if not name:
+            continue
+        out.append(
+            {
+                "check": name,
+                "verdict": str(entry.get("verdict") or "").strip().lower() or "unknown",
+                "evidence": str(entry.get("evidence") or "").strip()[:600],
+            }
+        )
+    return out
 
 
 def _snip_response(

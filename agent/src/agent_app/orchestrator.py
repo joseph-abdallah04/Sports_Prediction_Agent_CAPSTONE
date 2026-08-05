@@ -10,6 +10,7 @@ from typing import Any
 
 from agent_app.config import Settings, get_settings
 from agent_app import ledger as ledger_mod
+from agent_app import record as record_mod
 from agent_app import tools_bridge
 from agent_app.judgement import recalibrate_judgement, start_judgement_session
 from agent_app.query_planner import plan_queries, refine_queries
@@ -70,6 +71,8 @@ def run_prediction(
     total = 6
     run_t0 = _now()
 
+    recorded = False
+
     def persist() -> None:
         ledger_mod.save_ledger(ledger_path, ledger)
         try:
@@ -78,6 +81,26 @@ def run_prediction(
             )
         except Exception as e:  # a broken summary must never lose the ledger
             logger.debug("Could not write summary.md: %s", e)
+
+    def finalise() -> None:
+        """Write record.json and append one row to the running log.
+
+        Called on every exit path but only ever acts once, so a run that dies at
+        the scene still leaves a row saying so — a prediction missing from the
+        log is indistinguishable from a round nobody ran.
+        """
+        nonlocal recorded
+        if recorded:
+            return
+        recorded = True
+        try:
+            record_mod.write_record(
+                ledger_path,
+                ledger,
+                log_path=Path(settings.agent_runs_dir) / record_mod.LOG_FILENAME,
+            )
+        except Exception as e:  # never lose a completed run over its summary row
+            logger.warning("Could not write record.json or log row: %s", e)
 
     logger.info(
         "=== Agent run start run_id=%s model=%s/%s ===",
@@ -129,6 +152,7 @@ def run_prediction(
             logger.error("Scene failed: %s", scene)
             ledger["error"] = scene
             persist()
+            finalise()
             return {"run_id": run_id, "ledger_path": str(ledger_path), "error": scene}
 
         fixture = scene.get("fixture") or {}
@@ -148,6 +172,7 @@ def run_prediction(
             err = {"error": "scene_incomplete", "detail": "Missing kickoff or venue"}
             ledger["error"] = err
             persist()
+            finalise()
             return {"run_id": run_id, "ledger_path": str(ledger_path), "error": err}
 
         # 2) Query plan
@@ -405,7 +430,13 @@ def run_prediction(
         audit = (
             llm_audit(settings, ledger)
             if settings.verifier_enabled
-            else {"pass": True, "issues": [], "instruction": ""}
+            else {
+                "ran": False,
+                "pass": True,
+                "checks": [],
+                "issues": [],
+                "instruction": "",
+            }
         )
         logger.info(
             "LLM audit: pass=%s issues=%s instruction=%r",
@@ -413,9 +444,26 @@ def run_prediction(
             audit.get("issues") or [],
             (audit.get("instruction") or "")[:120],
         )
+        for check in audit.get("checks") or []:
+            logger.info(
+                "  check %-24s %-15s %s",
+                check.get("check"),
+                check.get("verdict"),
+                (check.get("evidence") or "")[:100],
+            )
+        ledger_mod.append_agent_step(
+            ledger,
+            step="verifier_audit",
+            payload={"checklist": checklist, "llm_audit": audit},
+        )
         fail, issues, instruction = should_recalibrate(checklist, audit)
         verifier_loop: dict[str, Any] = {
-            "triggered": False,
+            # "verifier_ran" is whether the checks happened;
+            # "recalibration_triggered" is whether they sent the judge back.
+            # A clean run is ran=True, triggered=False — the common case, and
+            # easy to misread as "the verifier never ran" if it has one flag.
+            "verifier_ran": bool(settings.verifier_enabled),
+            "recalibration_triggered": False,
             "checklist": checklist,
             "llm_audit": audit,
             "instruction": instruction,
@@ -431,7 +479,7 @@ def run_prediction(
             ledger["final_judgement"] = judgement
             verifier_loop.update(
                 {
-                    "triggered": True,
+                    "recalibration_triggered": True,
                     "issues": issues,
                     "judgement_after": judgement,
                 }
@@ -457,19 +505,26 @@ def run_prediction(
             logger.info("Verifier recalibrate: skipped (audit/checklist passed)")
         ledger["verifier_loop"] = verifier_loop
         persist()
+        finalise()
 
         _stage(6, total, "Done")
         logger.info(
-            "=== Final: winner=%s confidence=%s | total %.1fs | ledger=%s ===",
+            "=== Final: winner=%s confidence=%s | total %.1fs ===",
             judgement.get("winner"),
             judgement.get("confidence"),
             _secs(run_t0),
-            ledger_path,
+        )
+        logger.info("  ledger  %s", ledger_path)
+        logger.info("  summary %s", ledger_path.with_name("summary.md"))
+        logger.info("  record  %s", ledger_path.with_name("record.json"))
+        logger.info(
+            "  log     %s", Path(settings.agent_runs_dir) / record_mod.LOG_FILENAME
         )
 
         return {
             "run_id": run_id,
             "ledger_path": str(ledger_path),
+            "record_path": str(ledger_path.with_name("record.json")),
             "final_judgement": judgement,
             "research_loop": research_loop,
             "verifier_loop": verifier_loop,
@@ -486,6 +541,7 @@ def run_prediction(
         logger.exception("Agent run failed")
         ledger["error"] = {"error": "agent_failed", "detail": str(e)}
         persist()
+        finalise()
         return {
             "run_id": run_id,
             "ledger_path": str(ledger_path),

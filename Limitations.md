@@ -38,11 +38,24 @@ seeds:
 | 0.70 + | 30.3% | 71.9% |
 
 Predicted confidence tracks realised accuracy closely at every level. That is
-the property that matters most for this project: when the system says 52% it
+the property that matters most for this project: when the model says 52% it
 really is a coin flip, and when it says 75% it is right about 72% of the time.
-A model that was wrong *and* confident would be far more dangerous than one
-that is modestly accurate and honest, and it is what justifies anchoring the
-agent's stated confidence to this number (DD-31).
+A model that was wrong *and* confident would be far more dangerous than one that
+is modestly accurate and honest.
+
+These are also the numbers behind the confidence bands the agent is asked to work
+in (ADR 0009). Note the top row: nothing the model produces realises much above
+72%, which is why the prompt treats 0.75–0.85 as rare and forbids anything above
+0.85. The agent is free to exceed the model — it sees team news the model cannot
+— but a confidence the *sport* does not support is overconfidence regardless of
+where it came from.
+
+The agent's own confidence is deliberately **not** anchored to this number
+(DD-41). Anchoring produced better-looking calibration at the cost of making the
+Brier comparison circular, and a metric that cannot come out badly measures
+nothing. Expect the agent's calibration to be the weaker half of the results, and
+report the gap between its confidence and `math_home_win_prob` rather than
+hiding it.
 
 It also shows where the accuracy actually goes: **over a third of NRL matches
 are near coin flips** on these features. The system is not failing on those

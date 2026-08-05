@@ -133,9 +133,11 @@ def _at_a_glance(ledger: dict[str, Any]) -> dict[str, Any]:
         "model_prediction": math.get("prediction"),
         "research_items_kept": len(research.get("items") or []),
         "research_refine_triggered": (ledger.get("research_loop") or {}).get("triggered"),
+        "verifier_ran": verifier.get("verifier_ran"),
         "verifier_checklist_pass": (verifier.get("checklist") or {}).get("pass"),
         "verifier_audit_pass": (verifier.get("llm_audit") or {}).get("pass"),
-        "recalibrated": bool(verifier.get("triggered")),
+        "verifier_checks_reported": len((verifier.get("llm_audit") or {}).get("checks") or []),
+        "recalibrated": bool(verifier.get("recalibration_triggered")),
         "llm": f"{request.get('llm_provider')}/{request.get('llm_model')}",
         "failed": bool(ledger.get("error")),
     }

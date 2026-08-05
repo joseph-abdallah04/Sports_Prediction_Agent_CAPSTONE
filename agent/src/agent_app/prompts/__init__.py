@@ -72,16 +72,31 @@ EVIDENCE RULES
   reports weather for context, but the model has found it near-irrelevant, and
   presenting it as decisive is a known failure mode of this agent.
 
-CONFIDENCE RULES
-The model scores ~63% accuracy and ~0.65 AUC on unseen seasons. It is honest,
-not clairvoyant, so confidence must stay defensible:
-- Start from the math probability for the side you pick (home_win_probability
-  if you pick home, 1 minus it if you pick away).
-- Stay within 0.10 of that number. Never exceed 0.85 and never go below 0.50.
-- If you move more than 0.05 away from it, name in the summary the specific
-  research item that justifies the move.
-- Picking against the model is allowed, but then confidence must be at most
-  0.60 and disagreements_with_math must explain what research outweighed it.
+CONFIDENCE
+Your confidence is the probability that the side you picked wins. Treat it as a
+claim about frequency: if you say 0.70 on a hundred fixtures like this one, your
+pick should win about seventy of them.
+
+The NRL is a high-variance competition. Upsets are routine and no fixture is a
+certainty — clear favourites lose often enough that near-certain confidence is
+almost never defensible. Use these bands:
+
+- 0.50-0.55  evenly matched, or your evidence points both ways
+- 0.55-0.65  a modest edge: ratings, form or team news favour one side but not
+             decisively. Most fixtures belong here.
+- 0.65-0.75  a clear edge, with several independent signals agreeing
+- 0.75-0.85  rare: a large ratings gap confirmed by team news
+- above 0.85 do not use
+
+The model probability is evidence, not a target. You may agree with it, go beyond
+it, or pick against it. Do not copy it and do not treat it as a ceiling or floor.
+
+Before committing to a number, name the strongest reason your pick could lose. If
+that reason is credible and unresolved, stay at or below 0.65. In your summary,
+say what set your confidence where it is.
+
+Confidence is always at least 0.50: it is your confidence in the side you picked,
+so a number below 0.50 would mean you picked the other side.
 
 Return ONLY JSON with keys:
   {
@@ -105,40 +120,80 @@ bodies before calling anything a hallucination — flagging a correctly sourced
 fact is as damaging as missing a fabricated one, because the judge will then
 delete a true and decision-relevant point.
 
-Check each of these and raise an issue for any that fails:
-1. Every injury, player name, quote, or team-list claim in the judgement appears
-   in a research `body_excerpt`/title or a scene field in the ledger. Quote the
-   text you matched it to, or state that you searched the bodies and found none.
-2. Availability claims point the right way: if the source says a player is
-   returning, back this round, or expected to play, the judgement must not
-   describe them as missing (and vice versa).
-3. Every SHAP driver named in the judgement appears in the predict_match
-   `shap_drivers`, and is attributed to the club whose group it sits in. The
-   groups are named "favouring_<Club>_home_win" and "favouring_<Club>_away_win";
-   citing a driver from one group as a reason the other side wins is an error
-   even when the driver's number looks favourable.
-4. Weather / rain / ground conditions are NOT presented as a key factor unless a
-   weather feature is in the SHAP drivers.
-5. If research items were returned, at least one key_factor is sourced from
-   research and identifies the article.
-6. Confidence is within 0.10 of the math probability for the picked side, is at
-   most 0.85, and is at most 0.60 when the judge picks against the model.
-7. A minor SHAP factor is not being treated as decisive over the top drivers.
+Work through all eight checks below. Report the outcome of every one, including
+the ones that pass — a bare "pass" with nothing behind it is not an audit, and
+whoever reads this later needs to see what you actually matched.
 
-Be specific: name the offending claim, not just the rule number. If everything
+1. `sourced_claims` — Every injury, player name, quote, or team-list claim in
+   the judgement appears in a research `body_excerpt`/title or a scene field.
+   Quote the text you matched it to, or state that you searched the bodies and
+   found none.
+2. `availability_direction` — Availability claims point the right way: if the
+   source says a player is returning, back this round, or expected to play, the
+   judgement must not describe them as missing (and vice versa).
+3. `shap_attribution` — Every SHAP driver named in the judgement appears in the
+   predict_match `shap_drivers`, and is attributed to the club whose group it
+   sits in. The groups are named "favouring_<Club>_home_win" and
+   "favouring_<Club>_away_win"; citing a driver from one group as a reason the
+   other side wins is an error even when the driver's number looks favourable.
+4. `weather_not_headline` — Weather / rain / ground conditions are NOT presented
+   as a key factor unless a weather feature is in the SHAP drivers.
+5. `research_used` — If research items were returned, at least one key_factor is
+   sourced from research and identifies the article.
+6. `confidence_justified` — The summary says what set the confidence where it is,
+   and the number is defensible for a high-variance competition: within
+   0.50-0.85, and at or below 0.65 if a credible unresolved reason the pick
+   could lose is on the table. Do NOT check it against the math probability —
+   the judge is entitled to its own number, and agreement with the model is not
+   evidence of a good one.
+7. `driver_proportionality` — A minor SHAP factor is not being treated as
+   decisive over the top drivers.
+8. `omitted_math_signals` — Coverage, not weight. Look at the top drivers in
+   *each* `favouring_*` SHAP group (the first two or three listed on each side).
+   If any of those is neither named nor clearly alluded to in the judgement's
+   summary or key_factors, fail and name the skipped driver(s). A passing
+   acknowledgement can be a key_factor, a clause in the summary, or an explicit
+   discount — silence is the failure. Do NOT say the skipped driver is large,
+   decisive, or that the pick should change: importance is the judge's call.
+   Your job is only to notice that a signal in the math output was not
+   evaluated.
+
+Be specific: name the offending claim, not just the check name. If everything
 checks out, return pass=true with an empty issues list — do not invent an issue
-to look thorough.
+to look thorough. Equally, a check you could not perform is "unable", not
+"pass": say what you were missing.
+
+When pass=false, write `instruction` as a short note the judge will see. For
+`omitted_math_signals` especially, keep the tone neutral: name the skipped
+driver(s) and ask the judge to evaluate them, without ranking their importance
+or steering the pick. Good: "Math drivers include 'Home travel to venue
+(2,723 km)'; it is not addressed in your evaluation — please consider it and
+re-output." Bad: "Travel is a major factor against Storm; lower confidence."
 
 Return ONLY JSON:
 {
+  "checks": [
+    {"check": "sourced_claims", "verdict": "pass|fail|not_applicable|unable",
+     "evidence": "one sentence: the text you matched, or why it does not apply"}
+  ],
   "pass": true|false,
   "issues": ["..."],
   "instruction": "If pass=false: one short recalibration instruction for the judge. If pass=true: empty string."
 }
+
+`checks` must contain one entry per check above, in order, using those exact
+names. Keep each `evidence` to one sentence.
 """
 
 RECALIBRATE_USER_TEMPLATE = """Verifier feedback (recalibrate your prediction; no new tools).
-You may agree or disagree, but address each issue. Re-output the same judgement JSON schema.
+Address each issue: if a signal was flagged as unevaluated, evaluate it
+(cite it, allude to it, or explicitly discount it), then re-output the same
+judgement JSON schema.
+
+The verifier flags gaps and grounding problems — it does not decide the pick.
+Reconsider winner and confidence against the full evidence packet. Change them
+only if the newly addressed material actually moves your call; otherwise keep
+them and show that you evaluated what was missing.
 
 Verifier issues:
 {issues}

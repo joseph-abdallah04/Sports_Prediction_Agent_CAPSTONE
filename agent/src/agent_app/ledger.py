@@ -26,6 +26,7 @@ def create_ledger(run_id: str, request: dict[str, Any]) -> dict[str, Any]:
         "request": request,
         "tool_calls": [],
         "agent_steps": [],
+        "thinking_trace": [],
         "research_loop": None,
         "verifier_loop": None,
         "final_judgement": None,
@@ -93,6 +94,7 @@ _KEY_ORDER = (
     "final_judgement",
     "research_loop",
     "verifier_loop",
+    "thinking_trace",
     "agent_steps",
     "tool_calls",
 )

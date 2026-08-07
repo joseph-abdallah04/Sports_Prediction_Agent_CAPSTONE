@@ -20,7 +20,7 @@ committed and reviewable rather than hidden in a git-ignored dotfile
 (DD-36). Local Ollama is the default:
 
 ```bash
-ollama pull gemma4:31b   # must already be pulled
+ollama pull gemma4:31b-mlx   # must already be pulled
 # and make sure `ollama serve` is running
 ```
 
@@ -35,19 +35,21 @@ uv run python -m agent_app.cli --home Eels --away Panthers \
   --question "Who wins tonight and why?" -v
 ```
 
-Each run writes three files, and appends a row to one more:
+Each run writes four files, and appends a row to one more:
 
 ```
 agent_runs/
 ├── fixtures/2026-R23_Titans-v-Cowboys/20260803T093203Z/
 │   ├── ledger.json    complete record — every tool request and response
 │   ├── record.json    the run's numbers, flattened for a write-up
-│   └── summary.md     the same run, readable
+│   ├── summary.md     the same run, readable
+│   └── thinking.md    model scratchpad (real thinking, when available)
 └── predictions_log.csv   one appended row per prediction, ever
 ```
 
-Read `summary.md` first, take numbers from `predictions_log.csv`, and drop to
-`ledger.json` for the raw evidence. Layout and ledger structure are documented in
+Read `summary.md` first, take numbers from `predictions_log.csv`, open
+`thinking.md` for the model's scratchpad, and drop to `ledger.json` for the
+raw evidence. Layout and ledger structure are documented in
 [`agent_runs/README.md`](../agent_runs/README.md); the full operating guide is
 [`HOWTOUSE.md`](../HOWTOUSE.md).
 
@@ -58,12 +60,14 @@ the round's actual fixtures listed in the error, so you can correct it without
 looking anything up.
 
 **Expect a slow run on local Ollama.** A judgement or verifier call against
-`gemma4:31b` takes roughly 3 minutes on a 16k-character prompt, so a full run
-is typically 6-10 minutes end to end. It is working, not hung — the stage
+`gemma4:31b-mlx` takes roughly 3–5 minutes on a 16k-character prompt with
+thinking enabled, so a full run
+is typically 10–20 minutes end to end. It is working, not hung — the stage
 banners and `LLM responded in …s` lines show progress. A hosted provider
 (`LLM_PROVIDER=openai`, etc.) cuts this to well under a minute. Every LLM call
-is bounded by `LLM_TIMEOUT_SECONDS` (default 300) with `LLM_MAX_RETRIES`
-retries, so a dropped connection fails loudly instead of stalling forever.
+is bounded by `LLM_TIMEOUT_SECONDS` (default 600 in `config.toml`) with
+`LLM_MAX_RETRIES` retries, so a dropped connection fails loudly instead of
+stalling forever.
 
 ## Measure a whole round
 

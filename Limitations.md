@@ -162,10 +162,10 @@ would be false precision — but it does mean the qualitative half is currently
 worth less than it could be. Lineup-strength features in the model are the
 prerequisite for relaxing it.
 
-**Local inference is slow.** A full run on `gemma4:31b` takes 8–10 minutes,
-almost entirely in the judgement and verifier calls. A round of eight fixtures
-is roughly an hour. A hosted provider removes this, at the cost of an API key
-(see `config.toml`).
+**Local inference is slow.** A full run on `gemma4:31b-mlx` with thinking
+enabled often takes 10–20 minutes, almost entirely in the judgement and
+verifier calls. A round of eight fixtures is a long sitting. A hosted provider
+removes this, at the cost of an API key (see `config.toml`).
 
 ---
 

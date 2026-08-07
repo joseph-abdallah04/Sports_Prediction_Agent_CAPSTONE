@@ -188,6 +188,7 @@ def build_record(ledger: dict[str, Any], ledger_path: Path | None = None) -> dic
             "kickoff_local": _local(fixture.get("kickoff")),
             "weather": (scene.get("weather") or {}).get("math_weather_label"),
         },
+        "standings": scene.get("standings"),
         "prediction": {
             "predicted_winner": (
                 home_team if side == "home" else away_team if side == "away" else None

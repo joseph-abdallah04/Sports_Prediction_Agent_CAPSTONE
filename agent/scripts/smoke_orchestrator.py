@@ -40,6 +40,35 @@ SCENE = {
     },
     "weather": {"math_weather_label": "Fine"},
     "venue_profile": {"venue": VENUE},
+    "standings": {
+        "available": True,
+        "as_at_round": 23,
+        "home": {
+            "team": "Titans",
+            "position": 14,
+            "played": 19,
+            "wins": 6,
+            "lost": 13,
+            "points_difference": -122,
+            "points_difference_per_game": -6.42,
+        },
+        "away": {
+            "team": "Cowboys",
+            "position": 9,
+            "played": 20,
+            "wins": 11,
+            "lost": 9,
+            "points_difference": -98,
+            "points_difference_per_game": -4.9,
+        },
+        "comparison": {
+            "higher_on_ladder": "Cowboys",
+            "ladder_positions_gap": -5,
+            "points_difference_per_game_gap": -1.52,
+            "points_difference_favours": "Cowboys",
+        },
+        "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23",
+    },
 }
 
 # Field names mirror what the research tool really returns (published_at, not
@@ -219,6 +248,8 @@ def main() -> int:
             ("verifier_audit is an agent step", "verifier_audit" in steps, str(steps)),
             ("summary.md written",
              (ledger_path.parent / "summary.md").exists(), ""),
+            ("thinking.md written",
+             (ledger_path.parent / "thinking.md").exists(), ""),
             ("summary shows the checks table",
              "What the verifier checked"
              in (ledger_path.parent / "summary.md").read_text(), ""),

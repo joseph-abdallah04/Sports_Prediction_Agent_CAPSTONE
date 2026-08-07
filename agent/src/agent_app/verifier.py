@@ -154,7 +154,7 @@ def llm_audit(settings: Settings, ledger: dict[str, Any]) -> dict[str, Any]:
             + json.dumps(abridged, default=str)[:_VERIFIER_PROMPT_CHARS],
         },
     ]
-    raw = chat_completion(settings, messages, temperature=0.1)
+    raw = chat_completion(settings, messages, temperature=0.1, step="verifier_audit")
     try:
         data = parse_json_object(raw)
     except Exception as e:
@@ -171,7 +171,9 @@ def llm_audit(settings: Settings, ledger: dict[str, Any]) -> dict[str, Any]:
                 ),
             },
         ]
-        raw = chat_completion(settings, messages, temperature=0.1)
+        raw = chat_completion(
+            settings, messages, temperature=0.1, step="verifier_audit_retry"
+        )
         try:
             data = parse_json_object(raw)
         except Exception as e2:
@@ -228,10 +230,15 @@ def _snip_response(
         return {"error": response.get("error"), "detail": response.get("detail")}
     if tool_name == "set_fixture_scene":
         f = response.get("fixture") or {}
+        standings = response.get("standings") or {}
         return {
             "kickoff": f.get("kickoff"),
             "venue": f.get("venue"),
             "math_weather_label": (response.get("weather") or {}).get("math_weather_label"),
+            "standings": standings if standings.get("available") else {
+                "available": False,
+                "error": standings.get("error"),
+            },
         }
     if tool_name == "predict_match":
         return {

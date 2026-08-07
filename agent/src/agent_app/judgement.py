@@ -3,11 +3,18 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from agent_app.config import Settings
 from agent_app.llm import ChatSession, parse_json_object
 from agent_app.prompts import JUDGEMENT_SYSTEM, RECALIBRATE_USER_TEMPLATE
+
+_PRICE_RE = re.compile(r"\$\d{1,2}\.\d{2}")
+_MARKETISH_RE = re.compile(
+    r"\b(odds|favourite|favorite|priced|pricing|\$\d{1,2}\.\d{2})\b",
+    re.IGNORECASE,
+)
 
 
 def label_shap_drivers(
@@ -34,6 +41,34 @@ def label_shap_drivers(
         if key not in ("positive_drivers", "negative_drivers"):
             labelled[key] = value
     return labelled
+
+
+def extract_market_mentions(
+    research: dict[str, Any], *, limit: int = 6
+) -> list[dict[str, Any]]:
+    """Pull bookie-ish snippets + $prices from research excerpts (no new tools)."""
+    mentions: list[dict[str, Any]] = []
+    for item in research.get("items") or []:
+        if not isinstance(item, dict):
+            continue
+        title = str(item.get("title") or "")
+        body = str(item.get("body_excerpt") or "")
+        blob = f"{title}\n{body}"
+        if not _MARKETISH_RE.search(blob):
+            continue
+        prices = _PRICE_RE.findall(blob)
+        mentions.append(
+            {
+                "title": title,
+                "url": item.get("url"),
+                "source_tier": item.get("source_tier"),
+                "prices_found": prices[:8],
+                "snippet": body[:400],
+            }
+        )
+        if len(mentions) >= limit:
+            break
+    return mentions
 
 
 def _slim_research(research: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
@@ -65,6 +100,7 @@ def start_judgement_session(
     session.add_system(JUDGEMENT_SYSTEM)
     fixture = scene.get("fixture") or {}
     weather = scene.get("weather") or {}
+    standings = scene.get("standings")
     packet = {
         "user_question": user_question,
         "scene": {
@@ -81,6 +117,9 @@ def start_judgement_session(
                 )
             },
             "math_weather_label": weather.get("math_weather_label"),
+            # Official ladder rows for both clubs (from nrl.com). Lets the judge
+            # sanity-check ladder SHAP drivers against readable PD / position.
+            "standings": standings,
         },
         "math": {
             "prediction": math.get("prediction"),
@@ -99,12 +138,16 @@ def start_judgement_session(
             "filter_summary": research.get("filter_summary"),
             "items": _slim_research(research),
         },
+        # Bookie pages often lose prices behind paywalls; when $x.xx survives in
+        # an excerpt, surface it explicitly so the judge can compare without
+        # hunting. Empty list is fine — then there is nothing to acknowledge.
+        "market_mentions": extract_market_mentions(research),
     }
     session.add_user(
         "Produce your prediction JSON from this evidence:\n"
         + json.dumps(packet, default=str)
     )
-    raw = session.complete()
+    raw = session.complete(step="judgement")
     session.add_assistant(raw)
     judgement = parse_json_object(raw)
     return session, judgement
@@ -122,6 +165,6 @@ def recalibrate_judgement(
             instruction=instruction or "Reconsider weighting; re-output judgement JSON.",
         )
     )
-    raw = session.complete()
+    raw = session.complete(step="verifier_recalibrate")
     session.add_assistant(raw)
     return parse_json_object(raw)

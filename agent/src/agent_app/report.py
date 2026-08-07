@@ -103,6 +103,31 @@ def render_run_summary(ledger: dict[str, Any]) -> str:
                 f"| {pos[i] if i < len(pos) else ''} | {neg[i] if i < len(neg) else ''} |"
             )
         lines.append("")
+        balance = shap.get("attribution_balance") or {}
+        if balance:
+            lines.append(
+                f"- Attribution balance: leans **{balance.get('leans') or '—'}** "
+                f"(home {balance.get('total_toward_home')}, "
+                f"away {balance.get('total_toward_away')})"
+            )
+        conflicts = shap.get("value_contribution_conflicts") or []
+        if conflicts:
+            lines.append("- Value/contribution conflicts:")
+            for c in conflicts:
+                lines.append(f"  - {c}")
+        if balance or conflicts:
+            lines.append("")
+
+    standings = scene.get("standings") or {}
+    if standings.get("available"):
+        lines += _render_standings_section(standings, home, away)
+    elif standings:
+        lines += [
+            "## Ladder standings",
+            "",
+            f"Unavailable: {standings.get('error') or 'unknown error'}",
+            "",
+        ]
 
     summary = research.get("filter_summary") or {}
     lines += [
@@ -134,6 +159,43 @@ def render_run_summary(ledger: dict[str, Any]) -> str:
         "`ledger.json` beside this file. Nothing is omitted there.",
     ]
     return "\n".join(lines)
+
+
+def _standing_row(team: dict[str, Any] | None) -> str:
+    if not isinstance(team, dict):
+        return "—"
+    pos = team.get("position")
+    pd = team.get("points_difference")
+    pd_g = team.get("points_difference_per_game")
+    w, d, l = team.get("wins"), team.get("drawn"), team.get("lost")
+    record = f"{w}-{d}-{l}" if None not in (w, d, l) else "—"
+    pd_txt = f"{pd:+d}" if isinstance(pd, int) else str(pd)
+    per = f" ({pd_g:+.2f}/g)" if isinstance(pd_g, (int, float)) else ""
+    return f"**{team.get('team') or '?'}** — {pos}th · {record} · PD {pd_txt}{per}"
+
+
+def _render_standings_section(
+    standings: dict[str, Any], home: str, away: str
+) -> list[str]:
+    """Readable ladder block for summary.md (same facts the judge sees)."""
+    home_row = standings.get("home") or {}
+    away_row = standings.get("away") or {}
+    cmp_ = standings.get("comparison") or {}
+    lines = [
+        "## Ladder standings",
+        "",
+        f"As at round {standings.get('as_at_round') or '—'} "
+        f"([nrl.com]({standings.get('source_url') or '#'})).",
+        "",
+        f"- {_standing_row(home_row)}",
+        f"- {_standing_row(away_row)}",
+        "",
+        f"- Higher on ladder: **{cmp_.get('higher_on_ladder') or '—'}**",
+        f"- Points-difference favours: **{cmp_.get('points_difference_favours') or '—'}** "
+        f"(home−away PD/game gap: {cmp_.get('points_difference_per_game_gap')})",
+        "",
+    ]
+    return lines
 
 
 def _drop_line(summary: dict[str, Any]) -> str:
@@ -260,4 +322,53 @@ def render_round_summary(report: dict[str, Any]) -> str:
             f"| {f'{math_prob:.2f}' if isinstance(math_prob, (int, float)) else '—'} |"
         )
     lines.append("")
+    return "\n".join(lines)
+
+
+def render_thinking(ledger: dict[str, Any]) -> str:
+    """Markdown of the model's real scratchpad for each LLM step.
+
+    This is the Ollama `message.thinking` channel (or a hosted model's
+    reasoning field), not the structured JSON verdict. Empty sections mean the
+    provider returned no thinking for that call.
+    """
+    request = ledger.get("request") or {}
+    lines: list[str] = [
+        f"# Agent thinking — {ledger.get('run_id') or '?'}",
+        "",
+        f"- **Model**: {request.get('llm_provider')}/{request.get('llm_model')}",
+        f"- **When**: {ledger.get('created_at') or '—'}",
+        "",
+        "This file is the model's private reasoning channel when available "
+        "(Ollama Gemma 4: `message.thinking` with `think=true`). The structured "
+        "prediction still lives in `summary.md` / `ledger.json`.",
+        "",
+    ]
+    trace = ledger.get("thinking_trace") or []
+    if not trace:
+        lines += [
+            "_(No thinking captured yet — either the run has not reached an "
+            "LLM step, or the provider did not return a thinking channel.)_",
+            "",
+        ]
+        return "\n".join(lines)
+
+    for entry in trace:
+        if not isinstance(entry, dict):
+            continue
+        step = entry.get("step") or "unknown"
+        chars = entry.get("chars")
+        at = entry.get("at") or "—"
+        thinking = (entry.get("thinking") or "").strip()
+        lines += [
+            f"## {step}",
+            "",
+            f"_at {at}"
+            + (f" · {chars} chars_" if isinstance(chars, int) else "_"),
+            "",
+        ]
+        if thinking:
+            lines += [thinking, ""]
+        else:
+            lines += ["_(no thinking returned for this step)_", ""]
     return "\n".join(lines)

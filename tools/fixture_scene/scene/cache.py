@@ -9,6 +9,8 @@ from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from . import TOOL_VERSION
+
 logger = logging.getLogger(__name__)
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
@@ -22,8 +24,10 @@ def cache_key(
     season: int | None,
     round_number: int | None,
 ) -> str:
+    # Versioned so a response-shape change never serves a stale-shaped hit.
     raw = "|".join(
         [
+            TOOL_VERSION,
             home_team.strip().lower(),
             away_team.strip().lower(),
             str(season if season is not None else ""),

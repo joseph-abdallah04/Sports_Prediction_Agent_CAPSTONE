@@ -10,11 +10,12 @@ from typing import Any
 
 from agent_app.config import Settings, get_settings
 from agent_app import ledger as ledger_mod
+from agent_app import llm as llm_mod
 from agent_app import record as record_mod
 from agent_app import tools_bridge
 from agent_app.judgement import recalibrate_judgement, start_judgement_session
 from agent_app.query_planner import plan_queries, refine_queries
-from agent_app.report import render_run_summary
+from agent_app.report import render_run_summary, render_thinking
 from agent_app.research_gate import research_ok
 from agent_app.run_paths import fixture_run_dir
 from agent_app.verifier import checklist_verify, llm_audit, should_recalibrate
@@ -62,6 +63,10 @@ def run_prediction(
         "llm_model": settings.llm_model,
     }
     ledger = ledger_mod.create_ledger(run_id, request)
+    # Same list object the LLM client appends to — rewritten into thinking.md
+    # on every persist so a mid-run open shows scratchpads so far.
+    thinking_trace: list[dict[str, Any]] = ledger["thinking_trace"]
+    thinking_token = llm_mod.bind_thinking_trace(thinking_trace)
     # Provisional: refined once the scene reports the real season and round, so
     # the folder name says which fixture it was even when the CLI wasn't told.
     run_dir = fixture_run_dir(
@@ -81,6 +86,12 @@ def run_prediction(
             )
         except Exception as e:  # a broken summary must never lose the ledger
             logger.debug("Could not write summary.md: %s", e)
+        try:
+            (ledger_path.parent / "thinking.md").write_text(
+                render_thinking(ledger), encoding="utf-8"
+            )
+        except Exception as e:
+            logger.debug("Could not write thinking.md: %s", e)
 
     def finalise() -> None:
         """Write record.json and append one row to the running log.
@@ -516,6 +527,7 @@ def run_prediction(
         )
         logger.info("  ledger  %s", ledger_path)
         logger.info("  summary %s", ledger_path.with_name("summary.md"))
+        logger.info("  thinking %s", ledger_path.with_name("thinking.md"))
         logger.info("  record  %s", ledger_path.with_name("record.json"))
         logger.info(
             "  log     %s", Path(settings.agent_runs_dir) / record_mod.LOG_FILENAME
@@ -525,6 +537,7 @@ def run_prediction(
             "run_id": run_id,
             "ledger_path": str(ledger_path),
             "record_path": str(ledger_path.with_name("record.json")),
+            "thinking_path": str(ledger_path.with_name("thinking.md")),
             "final_judgement": judgement,
             "research_loop": research_loop,
             "verifier_loop": verifier_loop,
@@ -545,5 +558,8 @@ def run_prediction(
         return {
             "run_id": run_id,
             "ledger_path": str(ledger_path),
+            "thinking_path": str(ledger_path.with_name("thinking.md")),
             "error": ledger["error"],
         }
+    finally:
+        llm_mod.unbind_thinking_trace(thinking_token)

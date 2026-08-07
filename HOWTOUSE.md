@@ -2,7 +2,7 @@
 
 A practical guide to running the agent and finding everything it produces.
 Written for someone who has not run it before and needs to be running it
-reliably by Thursday.
+reliably for the testing window.
 
 Every command below is copy-pasteable. Every file path is real. If something
 here disagrees with what you see on your machine, the machine is right and this
@@ -40,13 +40,13 @@ The agent talks to a local LLM by default, so Ollama has to be running with the
 model pulled:
 
 ```bash
-ollama pull gemma4:31b     # ~19 GB, one time
+ollama pull gemma4:31b-mlx # Apple Silicon MLX build; ~18 GB, one time
 ollama serve               # leave this running in its own terminal
 ```
 
 You do **not** need to create or edit `.env` for local running. Provider and
 model live in [`config.toml`](config.toml) at the repo root, which is already
-set to Ollama and `gemma4:31b`.
+set to Ollama and `gemma4:31b-mlx`.
 
 Confirm the whole thing is wired up:
 
@@ -58,9 +58,9 @@ uv run python -m agent_app.cli --show-config
 ```
 config file      /…/Sports_Prediction_Agent_CAPSTONE/config.toml
 provider         ollama
-model            gemma4:31b
-litellm model id ollama/gemma4:31b
-timeout          300s, 2 retries
+model            gemma4:31b-mlx
+litellm model id ollama/gemma4:31b-mlx
+timeout          600s, 2 retries
 verifier         on
 loops            research<=1, verifier<=1, queries<=6
 runs dir         /…/Sports_Prediction_Agent_CAPSTONE/agent_runs
@@ -68,7 +68,9 @@ credentials      openai=- anthropic=- gemini=- aws_region=-
 ```
 
 `credentials  …=-` just means no API keys are set, which is correct for local
-Ollama.
+Ollama. The 600s timeout is deliberate: Gemma 4 with thinking enabled emits a
+scratchpad before the JSON, and the verifier packs eight checks into a large
+abridged ledger.
 
 > **All agent commands run from the `agent/` directory.** If you get
 > `No module named agent_app`, you are in the wrong folder.
@@ -86,9 +88,10 @@ uv run python scripts/smoke_orchestrator.py
 ```
 
 It runs the entire control loop with the fact tools and the LLM replaced by
-stubs, and asserts 22 things about what came out — every stage executed, both
-output files written, the verifier recorded its checks, the round harness
-appends instead of overwriting. You want the last line to read:
+stubs, and asserts dozens of properties about what came out — every stage
+executed, both output files written, the verifier recorded its eight checks,
+the round harness appends instead of overwriting. You want the last line to
+read:
 
 ```
 SMOKE_OK
@@ -133,8 +136,10 @@ predicting a fixture you did not mean.
 
 ### What you will see while it runs
 
-Expect **6–10 minutes** on local Ollama. It is not hung; the judgement and
-verifier calls take about three minutes each. The terminal reports each stage:
+Expect **8–15 minutes** on local Ollama. It is not hung; the judgement and
+verifier calls each take about three to five minutes. **Run one fixture at a
+time** — two concurrent `gemma4:31b-mlx` pipelines on a 48 GB machine thrash memory
+and often time out the verifier. The terminal reports each stage:
 
 ```
 [1/6] Scene: fixture, venue, weather
@@ -163,9 +168,20 @@ Verifier recalibrate: skipped (audit/checklist passed)
 === Final: winner=home confidence=0.54 | total 615.3s ===
   ledger  agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260803T132405Z/ledger.json
   summary agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260803T132405Z/summary.md
+  thinking agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260803T132405Z/thinking.md
   record  agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260803T132405Z/record.json
   log     agent_runs/predictions_log.csv
 ```
+
+The query planner always asks for an **odds / favourite** search as well as
+availability and preview. Prices that survive in article excerpts are
+regex-lifted into a `market_mentions` block for the judge — acknowledge the
+market, do not copy it.
+
+The scene tool also scrapes the official [NRL ladder](https://www.nrl.com/ladder/)
+into a `standings` block (position, W-D-L, PF/PA, points difference). That
+reaches the judge and appears in `summary.md`, so ladder SHAP drivers can be
+checked against readable numbers (e.g. Titans PD −122 vs Cowboys −98).
 
 Then it prints a JSON summary and exits `0`. Exit code `1` means the run failed,
 `2` means a configuration problem (missing API key) and it never started.
@@ -178,6 +194,7 @@ The last four lines of the terminal output give you every path:
 agent_runs/
 ├── fixtures/2026-R23_Titans-v-Cowboys/20260803T132405Z/
 │   ├── summary.md      ← read this first: what it predicted and why
+│   ├── thinking.md     ← the model's real scratchpad (when the provider returns one)
 │   ├── record.json     ← the numbers for your calculations
 │   └── ledger.json     ← everything, unabridged
 └── predictions_log.csv ← one row appended per prediction, ever
@@ -233,8 +250,9 @@ Note the plain `run` on Friday: it works out for itself that Thursday's game is
 already predicted and Friday's two are not. `--only` is only needed when you
 want *fewer* fixtures than that.
 
-Budget **6–10 minutes per fixture** on local Ollama. The run must *finish*
-before kickoff to count, so start with room to spare.
+Budget **8–15 minutes per fixture** on local Ollama, and keep fixtures
+sequential (one process at a time). The run must *finish* before kickoff to
+count, so start with room to spare.
 
 Everything lands in one place per round:
 
@@ -302,6 +320,7 @@ Sports_Prediction_Agent_CAPSTONE/
 │   │   └── 2026-R23_Titans-v-Cowboys/       one folder per fixture
 │   │       ├── 20260803T100112Z/            one folder per run of it
 │   │       │   ├── summary.md               ← start here
+│   │       │   ├── thinking.md              ← model scratchpad (real thinking)
 │   │       │   ├── record.json              ← the numbers, extracted
 │   │       │   └── ledger.json              ← the complete record
 │   │       └── 20260806T090500Z/            a later run of the same game
@@ -338,6 +357,7 @@ generate will show up in a commit.
 | **The numbers, for my own calculations** | **`predictions_log.csv`** |
 | The numbers for one run, without the CSV | `fixtures/<fixture>/<run>/record.json` |
 | What did it predict, and why? | `fixtures/<fixture>/<run>/summary.md` |
+| What was the model *thinking*? | `fixtures/<fixture>/<run>/thinking.md` |
 | Exactly what did each tool return? | `fixtures/<fixture>/<run>/ledger.json` |
 | What did the verifier actually check? | `summary.md`, section "What the verifier checked" |
 | How long did each stage take? | `ledger.json` → `tool_calls[].duration_ms` |
@@ -358,6 +378,7 @@ the level above does not answer the question.
 | `predictions_log.csv` | every prediction ever made | your accuracy, reliability and Brier calculations |
 | `record.json` | one run | the numbers for that run, without the ledger |
 | `summary.md` | one run | reading what it decided and why |
+| `thinking.md` | one run | the model's real scratchpad per LLM step (when available) |
 | `ledger.json` | one run | the unabridged evidence behind any of the above |
 
 ### `predictions_log.csv` — the one you will actually use
@@ -433,6 +454,7 @@ Top-level keys, in the order they appear (summary first, detail last):
 | `final_judgement` | The prediction the agent settled on |
 | `research_loop` | Gate diagnostics, and queries before/after any refine |
 | `verifier_loop` | Checklist, LLM audit with per-check evidence, judgement before/after |
+| `thinking_trace` | Raw thinking text per LLM step (same content as `thinking.md`) |
 | `agent_steps` | Every LLM step in order, with its full payload |
 | `tool_calls` | Every tool request and complete response, with timings |
 
@@ -455,9 +477,9 @@ The answer to "what happened" without scrolling:
   "verifier_ran": true,
   "verifier_checklist_pass": true,
   "verifier_audit_pass": true,
-  "verifier_checks_reported": 7,
+  "verifier_checks_reported": 8,
   "recalibrated": false,
-  "llm": "ollama/gemma4:31b",
+  "llm": "ollama/gemma4:31b-mlx",
   "failed": false
 }
 ```
@@ -565,7 +587,11 @@ judgement back to be redone. A healthy run is `true` then `false` — the verifi
 looked and found nothing to fix. That is not a skipped verifier.
 
 `judgement_after` is `null` when no recalibration was needed. When one happens,
-both versions are kept so you can see exactly what changed and why.
+both versions are kept so you can see exactly what changed and why. Recalibration
+asks the judge to address the flagged gaps against the full evidence packet; it
+may change the pick or confidence if that material actually moves the call, and
+it often keeps both numbers while expanding the write-up (especially on
+`omitted_math_signals`, which is coverage rather than a weight instruction).
 
 The eight audit checks:
 
@@ -590,7 +616,9 @@ already passed.
 `omitted_math_signals` is the coverage half of the SHAP audit. The other SHAP
 checks stop fabrication and overweighting; this one stops the judge from quietly
 ignoring a driver that was in the math packet. If it fails, recalibration asks
-the judge to *evaluate* the skipped signal — not to treat it as decisive.
+the judge to *evaluate* the skipped signal. The verifier must not steer the pick
+("travel is decisive; lower confidence"); any number change is the judge's call
+after reconsidering the full packet.
 
 Note what `confidence_justified` deliberately does **not** do: compare the
 confidence to the maths probability. The agent is entitled to its own number, and
@@ -713,7 +741,7 @@ provider = "openai"     # ollama | openai | anthropic | gemini | bedrock
 
 Each provider has a `[llm.presets.*]` block with its model, so switching
 provider brings the right model with it. A hosted provider takes a run from
-6–10 minutes to well under one. Verify with `--show-config`, which redacts the
+8–15 minutes to well under one. Verify with `--show-config`, which redacts the
 key itself.
 
 Precedence, lowest to highest: built-in defaults, `config.toml`, `agent/.env`,
@@ -730,7 +758,8 @@ environment variables, CLI flags.
 | `scene_failed: All retries failed for https://www.nrl.com/draw/…` | No network, or nrl.com is unreachable. Retry |
 | `fixture_not_found` | Wrong pairing, wrong home/away order, or wrong round. The error lists the round's real fixtures — copy from it |
 | `model_not_trained` | The model artifact is missing. Retrain: `cd tools/mathematical_engine && uv run python -m model.train` |
-| Nothing happens for three minutes | Normal. A judgement or verifier call on `gemma4:31b` takes about that long. The stage banners show progress; every call is bounded by a 300-second timeout |
+| Nothing happens for three to five minutes | Normal. A judgement or verifier call on `gemma4:31b-mlx` (with thinking) takes about that long. The stage banners show progress; every call is bounded by a 600-second timeout |
+| Verifier times out / hangs near the end | Usually two agent runs fighting over the same local model. Wait for the first to finish, confirm `ollama ps` is idle, then retry one fixture |
 | Connection refused on `127.0.0.1:11434` | `ollama serve` is not running |
 | Run failed partway | The ledger is still written, with `error` naming the stage that failed and every completed tool call preserved. Open it before rerunning |
 | Research kept an irrelevant article | Its `keep_reasons` in the ledger says which rule admitted it |

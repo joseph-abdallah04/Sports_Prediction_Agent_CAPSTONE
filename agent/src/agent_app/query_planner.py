@@ -40,6 +40,7 @@ def plan_queries(
             {"role": "system", "content": QUERY_PLAN_SYSTEM},
             {"role": "user", "content": user},
         ],
+        step="query_plan",
     )
     data = parse_json_object(raw)
     queries = data.get("queries") or []
@@ -70,6 +71,7 @@ def refine_queries(
             {"role": "system", "content": QUERY_REFINE_SYSTEM},
             {"role": "user", "content": user},
         ],
+        step="research_refine",
     )
     data = parse_json_object(raw)
     queries = data.get("queries") or []

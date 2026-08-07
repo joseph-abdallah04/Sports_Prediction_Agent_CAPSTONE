@@ -22,9 +22,9 @@
 provider = "ollama"
 
 # Bound every LLM call. A local Ollama server can drop a connection and leave
-# the client waiting forever, which stalls the whole run. 420s leaves headroom
-# for the verifier (eight checks, large abridged ledger) on gemma4:31b.
-timeout_seconds = 420
+# the client waiting forever, which stalls the whole run. 600s leaves headroom
+# for Gemma 4 with thinking enabled (scratchpad + eight-check verifier).
+timeout_seconds = 600
 max_retries = 2
 
 
@@ -34,8 +34,8 @@ max_retries = 2
 # ----------------------------------------------------------------------------
 
 [llm.presets.ollama]
-# Local, free, private. Slowest: expect 8-10 minutes for a full run.
-model = "gemma4:31b"
+# Local MLX build on Apple Silicon. Thinking is captured via /api/chat think=true.
+model = "gemma4:31b-mlx"
 api_base = "http://127.0.0.1:11434"
 
 [llm.presets.openai]

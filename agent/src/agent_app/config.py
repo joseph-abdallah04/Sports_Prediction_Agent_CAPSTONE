@@ -100,7 +100,7 @@ class Settings(BaseSettings):
     )
 
     llm_provider: str = Field(default="ollama", alias="LLM_PROVIDER")
-    llm_model: str = Field(default="gemma4:31b", alias="LLM_MODEL")
+    llm_model: str = Field(default="gemma4:31b-mlx", alias="LLM_MODEL")
     # Ollama OpenAI-compatible base (LiteLLM)
     ollama_api_base: str = Field(default="http://127.0.0.1:11434", alias="OLLAMA_API_BASE")
 
@@ -111,7 +111,7 @@ class Settings(BaseSettings):
 
     # A local Ollama server can drop a connection and leave the client waiting
     # forever, which stalls the whole run. Always bound the call.
-    llm_timeout_seconds: float = Field(default=300.0, alias="LLM_TIMEOUT_SECONDS")
+    llm_timeout_seconds: float = Field(default=600.0, alias="LLM_TIMEOUT_SECONDS")
     llm_max_retries: int = Field(default=2, alias="LLM_MAX_RETRIES")
 
     verifier_enabled: bool = Field(default=True, alias="VERIFIER_ENABLED")

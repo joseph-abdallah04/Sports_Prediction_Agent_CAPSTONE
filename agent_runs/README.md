@@ -13,7 +13,8 @@ agent_runs/
 │       ├── 20260803T093203Z/              one folder per run of that fixture
 │       │   ├── ledger.json                complete, unabridged record
 │       │   ├── record.json                the run's numbers, flattened
-│       │   └── summary.md                 the same run, readable
+│       │   ├── summary.md                 the same run, readable
+│       │   └── thinking.md                model scratchpad (real thinking)
 │       └── 20260803T101500Z/              a later run of the same game
 ├── rounds/
 │   └── 2026-R23/
@@ -36,6 +37,7 @@ is indistinguishable from a round nobody ran.
 | **The numbers, for calculating metrics by hand** | **`predictions_log.csv`** |
 | The same numbers for a single run | `fixtures/<fixture>/<run>/record.json` |
 | What did it predict, and why? | `fixtures/<fixture>/<run>/summary.md` |
+| What was the model thinking? | `fixtures/<fixture>/<run>/thinking.md` |
 | Exactly what did each tool return? | `fixtures/<fixture>/<run>/ledger.json` |
 | Did the agent beat the model this round? | `rounds/<round>/summary.md` |
 | What was predicted before kickoff? | `rounds/<round>/predictions.json` |

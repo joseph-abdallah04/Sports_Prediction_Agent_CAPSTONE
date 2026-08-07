@@ -10,6 +10,7 @@ from . import TOOL_NAME, TOOL_VERSION
 from .cache import cache_key, load as cache_load, save as cache_save
 from .draw import find_upcoming_fixture
 from .http_client import RateLimitedHttpClient
+from .ladder import build_standings
 from .match_centre import MatchDataNotFoundError, enrich_from_match_centre
 from .weather import fetch_kickoff_weather
 
@@ -114,6 +115,14 @@ def research_scene(
     if match_error:
         fixture["match_centre_error"] = match_error
 
+    standings = build_standings(
+        client,
+        home_team=fixture["home_team"],
+        away_team=fixture["away_team"],
+        season=fixture["season"] or now.astimezone(AU_TZ).year,
+        round_number=fixture["round_number"],
+    )
+
     if kickoff:
         weather = fetch_kickoff_weather(
             client,
@@ -137,11 +146,13 @@ def research_scene(
         "retrieved_at": now.isoformat(),
         "cache_hit": False,
         "fixture": fixture,
+        "standings": standings,
         "weather": weather,
         "sources": {
             "draw_url": card.get("draw_url"),
             "match_centre_url": fixture.get("match_centre_url"),
             "weather_url": weather.get("source_url"),
+            "ladder_url": standings.get("source_url"),
         },
     }
     cache_save(key, response)

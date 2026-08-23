@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "run_id": "20260823T034140Z-9d999b11",
+  "run": {
+    "predicted_at_utc": "2026-08-23T03:52:06.532815+00:00",
+    "predicted_at_local": "2026-08-23T13:52:06.532815+10:00",
+    "started_at_utc": "2026-08-23T03:41:40.235227+00:00",
+    "wall_seconds": 626.3,
+    "hours_before_kickoff": 0.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Titans",
+    "away_team": "Sharks",
+    "venue": "Cbus Super Stadium",
+    "kickoff": "2026-08-23T14:00:00+10:00",
+    "kickoff_local": "2026-08-23T14:00:00+10:00",
+    "weather": "Rain"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Titans",
+      "position": 16,
+      "played": 21,
+      "wins": 6,
+      "drawn": 0,
+      "lost": 15,
+      "competition_points": 18,
+      "points_for": 413,
+      "points_against": 567,
+      "points_difference": -154,
+      "points_difference_per_game": -7.33,
+      "recent_form_last_4": "2 - 3",
+      "streak": "3L",
+      "home_record": "3 - 6",
+      "away_record": "3 - 9"
+    },
+    "away": {
+      "team": "Sharks",
+      "position": 5,
+      "played": 21,
+      "wins": 13,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 32,
+      "points_for": 604,
+      "points_against": 439,
+      "points_difference": 165,
+      "points_difference_per_game": 7.86,
+      "recent_form_last_4": "3 - 2",
+      "streak": "2L",
+      "home_record": "8 - 3",
+      "away_record": "5 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Sharks",
+      "ladder_positions_gap": -11,
+      "points_difference_per_game_gap": -15.19,
+      "points_difference_favours": "Sharks"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Sharks",
+    "predicted_side": "away",
+    "confidence": 0.73,
+    "home_win_probability": 0.27
+  },
+  "math_model": {
+    "home_win_probability": 0.2703,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Home travel to venue (0 km) — contribution 0.021 (1% of total)",
+        "5-game form: kicking metres (-23.20) — contribution 0.013 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "3-game form: kicking metres (-79.00) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "5-game form: completion rate (-3.20) — contribution 0.011 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "5-game momentum: penalty cluster rate (+0.60) — contribution 0.011 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+      ],
+      "negative_drivers": [
+        "Elo rating advantage (-211 points) — contribution 0.324 (21% of total)",
+        "Ladder points differential per game (-15.2 points) — contribution 0.321 (21% of total)",
+        "Bradley-Terry strength advantage (-1.43 log-strength) — contribution 0.248 (16% of total)",
+        "Pythagorean form (last 10) (-47% expected-win gap) — contribution 0.115 (7% of total)",
+        "3-game form: points against (+14.67) — contribution 0.070 (5% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: kicking metres (-23.20)",
+        "3-game form: kicking metres (-79.00)",
+        "5-game form: completion rate (-3.20)",
+        "5-game momentum: penalty cluster rate (+0.60)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Titans vs Sharks NRL round 25 preview",
+      "Titans Sharks NRL odds OR price OR favourite",
+      "Titans Sharks NRL finals race OR ladder stakes",
+      "Titans Sharks NRL",
+      "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Titans Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Titans OR Sharks"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 25 - Teddy out again",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-23T02:35:27+00:00",
+        "age_hours": 1.1150371991666668,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 117.69781497694446,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "NRL Late Mail: Round 25 v Titans - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-23T02:27:00+00:00",
+        "age_hours": 1.2558705325000001,
+        "url": "https://www.sharks.com.au/news/2026/08/23/nrl-late-mail-round-25-v-titans/"
+      },
+      {
+        "title": "NRL Team List: Round 25 v Titans - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:58:00+00:00",
+        "age_hours": 117.73920386583335,
+        "url": "https://www.sharks.com.au/news/2026/08/18/nrl-team-list-round-25-v-titans/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report Round 25 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T03:14:30+00:00",
+        "age_hours": 120.46420386583334,
+        "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers-nrl-injury-report-round-25/"
+      },
+      {
+        "title": "Dragons v Cowboys: Forwards shuffled; Roache boost for backline",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-22T05:51:03+00:00",
+        "age_hours": 21.855037199166667,
+        "url": "https://www.nrl.com/news/2026/08/19/dragons-v-cowboys-forwards-shuffled-fui-in-doubt-roache-boost-for-backline/"
+      },
+      {
+        "title": "Gold Coast Titans vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T03:12:39+00:00",
+        "age_hours": 72.49503719916666,
+        "url": "https://www.sportsnews.com.au/nrl/gold-coast-titans-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-25-2026/609975"
+      },
+      {
+        "title": "NRL Sunday: Titans v Sharks; Roosters v Wests Tigers Presented by 19 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-23T03:22:49+00:00",
+        "age_hours": 0.32559275472222227,
+        "url": "https://www.nrl.com/news/2026/08/23/nrl-sunday-titans-v-sharks-roosters-v-wests-tigers/"
+      },
+      {
+        "title": "Match Preview Titans v Sharks: Bai's time at lock; AFB props up pack",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-23T02:36:44+00:00",
+        "age_hours": 1.0936483102777779,
+        "url": "https://www.nrl.com/news/2026/08/18/titans-v-sharks-bais-time-at-lock-afb-props-up-pack/"
+      },
+      {
+        "title": "NRL Casualty Ward: Koula injures ankle; Tedesco still hobbled",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-22T12:54:28+00:00",
+        "age_hours": 14.798092754722221,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Titans vs Sharks Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T07:28:12+00:00",
+        "age_hours": 20.235870532499998,
+        "url": "https://www.beforeyoubet.com.au/titans-vs-sharks-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "NRL Match Preview: Round 25 v Titans - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T04:00:00+00:00",
+        "age_hours": 23.7058705325,
+        "url": "https://www.sharks.com.au/news/2026/08/22/nrl-match-preview-round-25-v-titans/"
+      },
+      {
+        "title": "Titans v Sharks: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:39:36+00:00",
+        "age_hours": 94.0458705325,
+        "url": "https://www.nrl.com/news/2026/08/19/titans-v-sharks-round-25/"
+      },
+      {
+        "title": "Round 25 team: Hau good for Sharks showdown as Kini celebrates half century - titans.com.au",
+        "source": "titans.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:59:01+00:00",
+        "age_hours": 117.7222594213889,
+        "url": "https://www.titans.com.au/news/2026/08/18/round-25-team-hau-good-for-sharks-showdown-as-kini-celebrates-half-century/"
+      },
+      {
+        "title": "NRL News /",
+        "source": "nrl.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-22T22:58:00+00:00",
+        "age_hours": 4.739203865833333,
+        "url": "https://www.nrl.com/news/topic/nrl-news/"
+      },
+      {
+        "title": "Roosters vs Tigers Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T07:58:13+00:00",
+        "age_hours": 19.735592754722223,
+        "url": "https://www.beforeyoubet.com.au/roosters-vs-tigers-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T10:18:00+00:00",
+        "age_hours": 41.405870532499996,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb"
+      },
+      {
+        "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:28:23+00:00",
+        "age_hours": 94.23281497694445,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "All claims (standings, Trindall injury, Fonua-Blake return, Titans' points conceded, and market favorites) are found in the fixture scene or research body excerpts."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Trindall is correctly described as missing and Fonua-Blake as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks' win probability."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors cite beforeyoubet.com.au and sharks.com.au."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.73 is justified by the significant ladder gap (5th vs 16th) and is within the 0.50-0.85 range."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the high-weight drivers (Elo and ladder differential)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers 'Home travel to venue (0 km)' (Titans) and 'Bradley-Terry strength advantage' (Sharks) are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.73
+  },
+  "reasoning": {
+    "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. A significant gap in team strength, evidenced by the Bradley-Terry and Elo ratings, outweighs the Titans' negligible home-ground advantage. The Sharks are further bolstered by the return of Addin Fonua-Blake and a strong motivation to secure a top-four finish.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry strength advantage (16% contribution) and Elo rating advantage (21% contribution) favouring the Sharks."
+      },
+      {
+        "source": "research",
+        "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Titans-v-Sharks/20260823T034140Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Titans-v-Sharks/20260823T034140Z/summary.md"
+  }
+}

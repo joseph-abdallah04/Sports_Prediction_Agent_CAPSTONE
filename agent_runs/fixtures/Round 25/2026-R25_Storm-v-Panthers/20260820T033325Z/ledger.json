@@ -1,0 +1,1282 @@
+{
+  "schema_version": 2,
+  "run_id": "20260820T033325Z-7e761a86",
+  "at_a_glance": {
+    "fixture": "Storm v Panthers",
+    "round": 25,
+    "kickoff": "2026-08-20T19:50:00+10:00",
+    "venue": "AAMI Park",
+    "predicted_winner": "Panthers",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.4027,
+    "model_prediction": "Away Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-20T03:33:25.081229+00:00",
+  "updated_at": "2026-08-20T03:43:05.083344+00:00",
+  "request": {
+    "home_team": "Storm",
+    "away_team": "Panthers",
+    "season": 2026,
+    "round_number": 25,
+    "force_refresh": true,
+    "user_question": "Who wins Storm vs Panthers?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Storm",
+    "away_team": "Panthers",
+    "confidence": 0.6,
+    "summary": "The Panthers maintain a strong statistical advantage via Elo and Bradley-Terry strength ratings, despite entering the match on a two-game losing streak. While Storm benefit from captain Harry Grant's return and a slight historical head-to-head edge, Penrith's overall season dominance in points differential remains the primary driver. The result is expected to be competitive given Penrith's recent vulnerability.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favors the Panthers based on ladder points differential per game (contribution 0.287) and Bradley-Terry strength advantage (contribution 0.134)."
+      },
+      {
+        "source": "research",
+        "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+      },
+      {
+        "source": "math",
+        "detail": "The head-to-head record for the last five games slightly favors Storm (60% win rate), though its contribution is minimal at 3% of the total model weight."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers have recently relinquished top spot after consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 6
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Storm vs Panthers NRL round 25 preview",
+      "Storm Panthers NRL odds OR price OR favourite",
+      "Storm Panthers NRL ladder stakes OR finals race"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Harry Grant's return is sourced from 'NRL Late Mail: Round 25' and Panthers' losses are sourced from 'Match Preview Storm v Panthers'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source states Harry Grant returns; judgement describes him as returning."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Ladder differential and Elo rating are correctly attributed to the Panthers from the 'favouring_Panthers_away_win' group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors identify 'NRL Late Mail: Round 25' and 'Match Preview Storm v Panthers'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is within the allowed range and justified by the conflict between statistical dominance and recent losing form."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The most significant drivers (Ladder differential, Elo) are treated as the primary factors."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Head-to-head record (last 5)' for Storm and 'Bradley-Terry strength advantage' for Panthers are not addressed."
+        }
+      ],
+      "issues": [
+        "Omitted math signals: Head-to-head record (last 5) and Bradley-Terry strength advantage were not evaluated."
+      ],
+      "instruction": "Math drivers include 'Head-to-head record (last 5)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Head-to-head record (last 5)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Storm",
+      "away_team": "Panthers",
+      "confidence": 0.6,
+      "summary": "The Panthers hold a dominant statistical edge in Elo and ladder differential, though they enter this match on a two-game losing streak. Storm receive a significant boost with captain Harry Grant returning from injury, but the gap in season performance remains substantial. While market prices suggest a competitive game, Penrith's overall strength makes them the favorites.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favors the Panthers based on their ladder points differential per game (contribution 0.287) and Elo rating advantage."
+        },
+        {
+          "source": "research",
+          "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+        },
+        {
+          "source": "research",
+          "detail": "The Panthers have lost their grip on top spot following consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Storm",
+      "away_team": "Panthers",
+      "confidence": 0.6,
+      "summary": "The Panthers maintain a strong statistical advantage via Elo and Bradley-Terry strength ratings, despite entering the match on a two-game losing streak. While Storm benefit from captain Harry Grant's return and a slight historical head-to-head edge, Penrith's overall season dominance in points differential remains the primary driver. The result is expected to be competitive given Penrith's recent vulnerability.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favors the Panthers based on ladder points differential per game (contribution 0.287) and Bradley-Terry strength advantage (contribution 0.134)."
+        },
+        {
+          "source": "research",
+          "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+        },
+        {
+          "source": "math",
+          "detail": "The head-to-head record for the last five games slightly favors Storm (60% win rate), though its contribution is minimal at 3% of the total model weight."
+        },
+        {
+          "source": "research",
+          "detail": "Panthers have recently relinquished top spot after consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Omitted math signals: Head-to-head record (last 5) and Bradley-Terry strength advantage were not evaluated."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-20T03:34:03.293126+00:00",
+      "thinking": "*   Home Team: Storm\n    *   Away Team: Panthers\n    *   Round Number: 25\n    *   Goal: Determine who wins (predictive/research).\n\n    1.  Home team availability (Storm)\n    2.  Away team availability (Panthers)\n    3.  Fixture preview (Storm vs Panthers Round 25)\n    4.  Market prices (Odds/Favorite)\n    5.  Specific angle (Form, ladder stakes, key players).\n\n    *   Query 1: `Storm NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Query 2: `Panthers NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Query 3: `Storm vs Panthers NRL round 25 preview`\n    *   Query 4: `Storm Panthers NRL odds OR price OR favourite`\n    *   Query 5 (Angle): Since it's Round 25, the finals race/ladder stakes are critical. `Storm Panthers NRL ladder stakes OR finals race`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Exact nicknames used? Yes (Storm, Panthers).\n    *   JSON format? Yes.\n    *   Excluded weather/venue/referee? Yes.",
+      "chars": 988
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-20T03:38:57.672555+00:00",
+      "thinking": "*   Home Team: Storm (11th position)\n    *   Away Team: Panthers (2nd position)\n    *   Venue: AAMI Park (Storm's home ground)\n    *   Round: 25\n\n    *   Prediction: Away Win (Panthers)\n    *   Probability: 0.5973\n    *   Key Drivers for Panthers: Ladder points differential per game (24%), Elo rating advantage (14%), Bradley-Terry strength (11%).\n    *   Key Drivers for Storm: Head-to-head record (3%), Home travel/advantage (4% combined), Rest-day advantage (1%).\n    *   Attribution Balance: Leans heavily away (0.9463 vs 0.2466).\n\n    *   Storm Position: 11th, Wins: 9, Lost: 12, Points Diff per game: -0.19.\n    *   Panthers Position: 2nd, Wins: 15, Lost: 6, Points Diff per game: 13.62.\n    *   Gap: Panthers are significantly higher on the ladder with a massive points differential advantage (confirmed by SHAP).\n\n    *   Storm: Harry Grant is confirmed to return from a hamstring injury (\"NRL Late Mail: Round 25\"). This is a major boost as he's their captain and top-rated hooker.\n    *   Panthers: Casey McLean is \"back on deck\" (confirmed in preview titles). Mitch Kenny is listed with an expected return of \"Finals\", meaning he is missing this game.\n    *   Form: Panthers have lost two consecutive games (\"Losses to the Warriors and Roosters in consecutive weeks\"). Storm snapped a losing streak recently (1W streak).\n\n    *   Ladbrokes snippet mentions prices $1.90 and $16.31. Usually, the lower price is the favourite. $1.90 suggests a close game but likely favours one side slightly (likely Panthers given ladder position, though Storm are home). The snippet says \"knocking over stumbling Penrith\", implying Penrith might be the slight market favorite or it's very tight.\n\n    *   The math model strongly favors the Panthers based on season-long metrics (Elo, Ladder Diff, Bradley-Terry).\n    *   Research shows Panthers are in a slump (2L streak) and have lost their grip on top spot.\n    *   Storm get Harry Grant back, which is a significant positive for them.\n    *   However, the gap in class/season performance (2nd vs 11th) is huge. A points differential per game difference of ~13.8 is massive.\n    *   The model's probability is ~60%.\n\n    *   Winner: Panthers (Away).\n    *   Confidence: The math says 0.60. Research shows Panthers are \"stumbling\" and Storm get Grant back. This reduces confidence from a \"clear edge\" to a \"modest edge\". I'll set it around 0.58-0.62. Let's go with 0.60.\n    *   Strongest reason for loss: Panthers are on a two-game losing streak and Storm are at home with Harry Grant returning.\n\n    *   `winner`: \"away\"\n    *   `home_team`: \"Storm\"\n    *   `away_team`: \"Panthers\"\n    *   `confidence`: 0.60\n    *   `summary`: Panthers hold a significant statistical advantage in Elo and ladder differential, though they enter the match on a two-game losing streak. Storm receive a major boost with captain Harry Grant returning from injury, but the overall class gap remains wide. The market suggests a competitive fixture, but Penrith's season-long dominance makes them the likely winners.\n    *   `key_factors`:\n        1.  Math: Ladder points differential per game (contribution 0.287).\n        2.  Research: Harry Grant returning for Storm (\"NRL Late Mail: Round 25\").\n        3.  Research: Panthers' recent form slump with two consecutive losses (\"Match Preview Storm v Panthers\").\n    *   `disagreements_with_math`: null (I agree with the away win, just adjusting confidence slightly due to research on form/injuries).\n\n    *   No invented stats? Checked.\n    *   Math model as prior? Yes.\n    *   Research quoted? Yes (\"NRL Late Mail: Round 25\", \"Match Preview Storm v Panthers\").\n    *   SHAP drivers cited correctly? Yes (Ladder points differential per game).\n    *   Standings checked? Yes (Panthers 2nd, Storm 11th).\n    *   Availability direction correct? Grant is returning = available. McLean is back = available. Kenny is Finals = missing. Correct.\n    *   Weather ignored? Yes.\n    *   Market acknowledged? Yes ($1.90 mentioned).\n    *   Confidence band: 0.60 (modest edge).\n\n    Wait, let me double check the SHAP drivers for \"Ladder points differential per game\". It is in `favouring_Panthers_away_win` with a contribution of 0.287. Correct.\n    Check attribution balance: Leans away. Correct.",
+      "chars": 4261
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-20T03:42:04.371013+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home Team: Storm\n    *   Away Team: Panthers\n    *   Season: 2026, Round 25\n    *   Venue: AAMI Park\n    *   Weather: Fine (from `predict_match` request)\n\n    *   `sourced_claims`: Check if all claims in the judgement are backed by research or scene.\n        *   Claim 1: \"Panthers hold a dominant statistical edge in Elo and ladder differential\" -> Math drivers list \"Ladder points differential per game\" and \"Elo rating advantage\". (Pass)\n        *   Claim 2: \"they enter this match on a two-game losing streak\" -> `set_fixture_scene` response snippet for Panthers says `streak: \"2L\"`. (Pass)\n        *   Claim 3: \"Storm receive a significant boost with captain Harry Grant returning from injury\" -> Research item \"NRL Late Mail: Round 25 - Harry good to go; Trell touch and go\" body excerpt: \"Storm captain Harry Grant is a confirmed starter... returns to lead the side\". (Pass)\n        *   Claim 4: \"Panthers have lost their grip on top spot following consecutive losses to the Warriors and Roosters\" -> Research item \"Match Preview Storm v Panthers: Wild about Harry; McLean back on deck\" body excerpt: \"After holding on to top spot since Round 4, the Panthers finally relinquished their grip last weekend... Losses to the Warriors and Roosters in consecutive weeks\". (Pass)\n\n    *   `availability_direction`:\n        *   Harry Grant is returning/confirmed starter. Judgement says he's returning. (Pass)\n\n    *   `shap_attribution`:\n        *   \"ladder points differential per game\" -> `favouring_Panthers_away_win`. Attributed to Panthers in judgement. (Pass)\n        *   \"Elo rating advantage\" -> `favouring_Panthers_away_win`. Attributed to Panthers in judgement. (Pass)\n\n    *   `weather_not_headline`:\n        *   Weather is \"Fine\". Not mentioned as a key factor in the judgement. (Pass)\n\n    *   `research_used`:\n        *   Key factors include Harry Grant's return and Panthers' recent losses, both sourced from research articles (\"NRL Late Mail: Round 25\" and \"Match Preview Storm v Panthers\"). (Pass)\n\n    *   `confidence_justified`:\n        *   Confidence is 0.6. Summary mentions the statistical edge vs the two-game losing streak and Harry Grant's return. This justifies a moderate confidence level (below 0.65 because of the \"credible unresolved reason\" - Panthers' current form/losing streak). Range is 0.50-0.85. (Pass)\n\n    *   `driver_proportionality`:\n        *   Top drivers are Ladder differential (0.287) and Elo (0.165). These are the ones highlighted. No minor driver treated as decisive. (Pass)\n\n    *   `omitted_math_signals`:\n        *   Favouring Storm: \"Head-to-head record (last 5)\" (0.036), \"Home travel to venue\" (0.021). Neither is mentioned in the summary or key factors.\n        *   Favouring Panthers: \"Ladder points differential per game\" (0.287) - Mentioned. \"Elo rating advantage\" (0.165) - Mentioned. \"Bradley-Terry strength advantage\" (0.134) - Not mentioned. \"5-game form: all run metres\" (0.080) - Not mentioned.\n        *   Wait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n        *   Storm's top driver: \"Head-to-head record (last 5)\". Not mentioned.\n        *   Panthers' top drivers: Ladder diff and Elo are mentioned. Bradley-Terry is not.\n        *   Failure here.\n\n    *   `sourced_claims`: Pass. Evidence: Harry Grant return in \"NRL Late Mail\", Panthers losses in \"Match Preview Storm v Panthers\".\n    *   `availability_direction`: Pass. Evidence: Source says Grant returns, judgement says he's returning.\n    *   `shap_attribution`: Pass. Evidence: Ladder diff and Elo are correctly attributed to Panthers from `favouring_Panthers_away_win`.\n    *   `weather_not_headline`: Pass. Evidence: Weather not mentioned as a factor.\n    *   `research_used`: Pass. Evidence: Key factors cite \"NRL Late Mail\" and \"Match Preview Storm v Panthers\".\n    *   `confidence_justified`: Pass. Evidence: 0.6 is within range and reflects the tension between stats and recent form.\n    *   `driver_proportionality`: Pass. Evidence: Top drivers (Ladder diff, Elo) are given priority.\n    *   `omitted_math_signals`: Fail. Evidence: \"Head-to-head record (last 5)\" for Storm and \"Bradley-Terry strength advantage\" for Panthers were not addressed.\n\n    *   Instruction: \"Math drivers include 'Head-to-head record (last 5)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 4667
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-20T03:43:05.082445+00:00",
+      "thinking": "*   Match: Storm vs Panthers.\n    *   Current Pick: Away (Panthers).\n    *   Confidence: 0.60.\n    *   Verifier Issues: Omitted math signals ('Head-to-head record (last 5)' and 'Bradley-Terry strength advantage').\n\n    *   `favouring_Storm_home_win`: \"Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (3% of total)\".\n    *   `favouring_Panthers_away_win`: \"Bradley-Terry strength advantage (-0.39 log-strength) — contribution 0.134 (11% of total)\".\n\n    *   Head-to-head record: Favours Storm slightly (60% win rate in last 5), but the contribution is very small (3%).\n    *   Bradley-Terry strength: Strongly favours Panthers (contribution 11%), aligning with Elo and ladder differential.\n\n    *   The Bradley-Terry signal reinforces the pick for the Panthers.\n    *   The Head-to-head signal provides a minor edge to Storm but is outweighed by the broader statistical superiority of Penrith.\n    *   Research: Harry Grant's return (Storm) vs. Panthers' recent form slump (2L).\n    *   Standings: Panthers are 2nd, Storm are 11th. Points diff gap is huge (-13.81 per game).\n\n    *   Winner remains \"away\" (Panthers).\n    *   Confidence: The Bradley-Terry signal adds to the clear edge, but the recent form slump and Harry Grant's return keep it in the modest range. 0.60 is still appropriate given the variance of NRL and Penrith's current streak.\n\n    *   Update summary/key factors to include these signals.\n    *   Ensure all evidence rules are followed (no invented stats, cite research).",
+      "chars": 1517
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-20T03:34:03.304856+00:00",
+      "payload": {
+        "queries": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Storm vs Panthers NRL round 25 preview",
+          "Storm Panthers NRL odds OR price OR favourite",
+          "Storm Panthers NRL ladder stakes OR finals race"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-20T03:38:57.672811+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "confidence": 0.6,
+          "summary": "The Panthers hold a dominant statistical edge in Elo and ladder differential, though they enter this match on a two-game losing streak. Storm receive a significant boost with captain Harry Grant returning from injury, but the gap in season performance remains substantial. While market prices suggest a competitive game, Penrith's overall strength makes them the favorites.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favors the Panthers based on their ladder points differential per game (contribution 0.287) and Elo rating advantage."
+            },
+            {
+              "source": "research",
+              "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+            },
+            {
+              "source": "research",
+              "detail": "The Panthers have lost their grip on top spot following consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-20T03:42:04.372558+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Harry Grant's return is sourced from 'NRL Late Mail: Round 25' and Panthers' losses are sourced from 'Match Preview Storm v Panthers'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source states Harry Grant returns; judgement describes him as returning."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Ladder differential and Elo rating are correctly attributed to the Panthers from the 'favouring_Panthers_away_win' group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors identify 'NRL Late Mail: Round 25' and 'Match Preview Storm v Panthers'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is within the allowed range and justified by the conflict between statistical dominance and recent losing form."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The most significant drivers (Ladder differential, Elo) are treated as the primary factors."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Head-to-head record (last 5)' for Storm and 'Bradley-Terry strength advantage' for Panthers are not addressed."
+            }
+          ],
+          "issues": [
+            "Omitted math signals: Head-to-head record (last 5) and Bradley-Terry strength advantage were not evaluated."
+          ],
+          "instruction": "Math drivers include 'Head-to-head record (last 5)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-20T03:43:05.083006+00:00",
+      "payload": {
+        "issues": [
+          "Omitted math signals: Head-to-head record (last 5) and Bradley-Terry strength advantage were not evaluated."
+        ],
+        "instruction": "Math drivers include 'Head-to-head record (last 5)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "confidence": 0.6,
+          "summary": "The Panthers hold a dominant statistical edge in Elo and ladder differential, though they enter this match on a two-game losing streak. Storm receive a significant boost with captain Harry Grant returning from injury, but the gap in season performance remains substantial. While market prices suggest a competitive game, Penrith's overall strength makes them the favorites.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favors the Panthers based on their ladder points differential per game (contribution 0.287) and Elo rating advantage."
+            },
+            {
+              "source": "research",
+              "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+            },
+            {
+              "source": "research",
+              "detail": "The Panthers have lost their grip on top spot following consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "confidence": 0.6,
+          "summary": "The Panthers maintain a strong statistical advantage via Elo and Bradley-Terry strength ratings, despite entering the match on a two-game losing streak. While Storm benefit from captain Harry Grant's return and a slight historical head-to-head edge, Penrith's overall season dominance in points differential remains the primary driver. The result is expected to be competitive given Penrith's recent vulnerability.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favors the Panthers based on ladder points differential per game (contribution 0.287) and Bradley-Terry strength advantage (contribution 0.134)."
+            },
+            {
+              "source": "research",
+              "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+            },
+            {
+              "source": "math",
+              "detail": "The head-to-head record for the last five games slightly favors Storm (60% win rate), though its contribution is minimal at 3% of the total model weight."
+            },
+            {
+              "source": "research",
+              "detail": "Panthers have recently relinquished top spot after consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "8653346eff22",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-20T03:33:25.081375+00:00",
+      "finished_at": "2026-08-20T03:33:28.817853+00:00",
+      "duration_ms": 3736,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Panthers",
+        "season": 2026,
+        "round_number": 25,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "season": 2026,
+          "round_number": 25
+        },
+        "retrieved_at": "2026-08-20T03:33:25.081442+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 25,
+          "round_title": "Round 25",
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "kickoff": "2026-08-20T19:50:00+10:00",
+          "venue": "AAMI Park",
+          "venue_city": "Melbourne",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/storm-v-panthers/",
+          "match_mode": "Pre",
+          "match_id": "20261112510",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Grant Atkins"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Wyatt Raymond"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Sualauvi Faalogo",
+                "position": "Fullback",
+                "player_id": 100006297
+              },
+              {
+                "number": 2,
+                "name": "Siulagi Tuimalatu-Brown",
+                "position": "Winger",
+                "player_id": 100011324
+              },
+              {
+                "number": 3,
+                "name": "Jack Howarth",
+                "position": "Centre",
+                "player_id": 100004865
+              },
+              {
+                "number": 4,
+                "name": "Nick Meaney",
+                "position": "Centre",
+                "player_id": 505537
+              },
+              {
+                "number": 5,
+                "name": "Moses Leo",
+                "position": "Winger",
+                "player_id": 100018554
+              },
+              {
+                "number": 6,
+                "name": "Cameron Munster",
+                "position": "Five-Eighth",
+                "player_id": 501459
+              },
+              {
+                "number": 7,
+                "name": "Trent Toelau",
+                "position": "Halfback",
+                "player_id": 508341
+              },
+              {
+                "number": 8,
+                "name": "Stefano Utoikamanu",
+                "position": "Prop",
+                "player_id": 505628
+              },
+              {
+                "number": 9,
+                "name": "Harry Grant",
+                "position": "Hooker",
+                "player_id": 505904
+              },
+              {
+                "number": 10,
+                "name": "Josh King",
+                "position": "Prop",
+                "player_id": 501247
+              },
+              {
+                "number": 11,
+                "name": "Shawn Blore",
+                "position": "2nd Row",
+                "player_id": 504788
+              },
+              {
+                "number": 12,
+                "name": "Oryn Keeley",
+                "position": "2nd Row",
+                "player_id": 510366
+              },
+              {
+                "number": 13,
+                "name": "Trent Loiero",
+                "position": "Lock",
+                "player_id": 100001560
+              },
+              {
+                "number": 14,
+                "name": "Tyran Wishart",
+                "position": "Interchange",
+                "player_id": 507680
+              },
+              {
+                "number": 15,
+                "name": "Alec MacDonald",
+                "position": "Interchange",
+                "player_id": 100007566
+              },
+              {
+                "number": 16,
+                "name": "Angus Hinchey",
+                "position": "Interchange",
+                "player_id": 100009124
+              },
+              {
+                "number": 17,
+                "name": "Cooper Clarke",
+                "position": "Interchange",
+                "player_id": 100013815
+              },
+              {
+                "number": 18,
+                "name": "Joe Chan",
+                "position": "Interchange",
+                "player_id": 100008216
+              },
+              {
+                "number": 21,
+                "name": "Jack Hetherington",
+                "position": "Interchange",
+                "player_id": 503336
+              },
+              {
+                "number": 22,
+                "name": "Hayden Watson",
+                "position": "Reserve",
+                "player_id": 100014714
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Dylan Edwards",
+                "position": "Fullback",
+                "player_id": 503340
+              },
+              {
+                "number": 2,
+                "name": "Thomas Jenkins",
+                "position": "Winger",
+                "player_id": 100007927
+              },
+              {
+                "number": 3,
+                "name": "Izack Tago",
+                "position": "Centre",
+                "player_id": 509467
+              },
+              {
+                "number": 4,
+                "name": "Casey McLean",
+                "position": "Centre",
+                "player_id": 100011678
+              },
+              {
+                "number": 5,
+                "name": "Brian To'o",
+                "position": "Winger",
+                "player_id": 505410
+              },
+              {
+                "number": 6,
+                "name": "Jack Cogger",
+                "position": "Five-Eighth",
+                "player_id": 502695
+              },
+              {
+                "number": 7,
+                "name": "Nathan Cleary",
+                "position": "Halfback",
+                "player_id": 504120
+              },
+              {
+                "number": 8,
+                "name": "Moses Leota",
+                "position": "Prop",
+                "player_id": 501461
+              },
+              {
+                "number": 9,
+                "name": "Freddy Lussick",
+                "position": "Hooker",
+                "player_id": 504830
+              },
+              {
+                "number": 10,
+                "name": "Liam Henry",
+                "position": "Prop",
+                "player_id": 100007929
+              },
+              {
+                "number": 11,
+                "name": "Isaiah Papali'i",
+                "position": "2nd Row",
+                "player_id": 505976
+              },
+              {
+                "number": 12,
+                "name": "Liam Martin",
+                "position": "2nd Row",
+                "player_id": 504125
+              },
+              {
+                "number": 13,
+                "name": "Lindsay Smith",
+                "position": "Lock",
+                "player_id": 505555
+              },
+              {
+                "number": 14,
+                "name": "Billy Scott",
+                "position": "Interchange",
+                "player_id": 100006259
+              },
+              {
+                "number": 15,
+                "name": "Scott Sorensen",
+                "position": "Interchange",
+                "player_id": 500852
+              },
+              {
+                "number": 16,
+                "name": "Luron Patea",
+                "position": "Interchange",
+                "player_id": 100006263
+              },
+              {
+                "number": 17,
+                "name": "Billy Phillips",
+                "position": "Interchange",
+                "player_id": 100008487
+              },
+              {
+                "number": 18,
+                "name": "Jack Cole",
+                "position": "Interchange",
+                "player_id": 100003896
+              },
+              {
+                "number": 19,
+                "name": "Blaize Talagi",
+                "position": "Interchange",
+                "player_id": 100006848
+              },
+              {
+                "number": 21,
+                "name": "Luke Garner",
+                "position": "Reserve",
+                "player_id": 501271
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 25,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Storm",
+            "position": 11,
+            "played": 21,
+            "wins": 9,
+            "drawn": 0,
+            "lost": 12,
+            "competition_points": 24,
+            "points_for": 510,
+            "points_against": 514,
+            "points_difference": -4,
+            "points_difference_per_game": -0.19,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1W",
+            "home_record": "7 - 4",
+            "away_record": "2 - 8"
+          },
+          "away": {
+            "team": "Panthers",
+            "position": 2,
+            "played": 21,
+            "wins": 15,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 36,
+            "points_for": 599,
+            "points_against": 313,
+            "points_difference": 286,
+            "points_difference_per_game": 13.62,
+            "recent_form_last_4": "2 - 3",
+            "streak": "2L",
+            "home_record": "8 - 2",
+            "away_record": "7 - 4"
+          },
+          "comparison": {
+            "higher_on_ladder": "Panthers",
+            "ladder_positions_gap": -9,
+            "points_difference_per_game_gap": -13.81,
+            "points_difference_favours": "Panthers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-20T19:00",
+            "temperature_c": 13.6,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 2,
+            "wind_speed_kmh": 13.6,
+            "weather_code": 3,
+            "summary": "Overcast",
+            "latitude": -37.825,
+            "longitude": 144.983,
+            "venue": "AAMI Park",
+            "venue_city": "Melbourne"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-37.825&longitude=144.983&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-20T03:33:28.812048+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=25&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/storm-v-panthers/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-37.825&longitude=144.983&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "a5af2a827793",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-20T03:34:03.325966+00:00",
+      "finished_at": "2026-08-20T03:35:27.592234+00:00",
+      "duration_ms": 84266,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Panthers",
+        "kickoff": "2026-08-20T19:50:00+10:00",
+        "round_number": 25,
+        "venue": "AAMI Park",
+        "queries": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Storm vs Panthers NRL round 25 preview",
+          "Storm Panthers NRL odds OR price OR favourite",
+          "Storm Panthers NRL ladder stakes OR finals race"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "kickoff": "2026-08-20T19:50:00+10:00",
+          "round_number": 25,
+          "venue": "AAMI Park",
+          "queries": [
+            "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Storm vs Panthers NRL round 25 preview",
+            "Storm Panthers NRL odds OR price OR favourite",
+            "Storm Panthers NRL ladder stakes OR finals race"
+          ]
+        },
+        "retrieved_at": "2026-08-20T03:34:03.355170+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "fcfe094bee404c00",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 25 - Harry good to go; Trell touch and go",
+            "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/",
+            "published_at": "2026-08-19T09:59:26+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 - Harry good to go; Trell touch and go\nStorm captain Harry Grant is a confirmed starter for Thursday night's clash against the Panthers.\nGrant has missed two games with a hamstring injury but returns to lead the side in a rematch of the 2024 g",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 - Harry good to go; Trell touch and go\nStorm captain Harry Grant is a confirmed starter for Thursday night's clash against the Panthers.\nGrant has missed two games with a hamstring injury but returns to lead the side in a rematch of the 2024 grand final.\nAll eyes will be on Latrell Mitchell ahead of the Bunnies' Saturday night clash with as the superstar centre looks to get back on the field before the finals.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has affected his leg and calf, the Bunnies winning six and losing five in his absence.\nIf Mitchell does get a call-up it could well be off the bench to allow him time to ease back into the fray.\nSee all the late mail, official team news and updates for Round 25 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 25\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 7 Trent Toelau 7 Halfback for Panthers is number 7 Nathan Cleary\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 14 Tyran Wishart 14 Interchange for Panthers is number 14 Billy Scott\n14\nInterchange for Storm is number 15 Alec MacDonald 15 Interchange for Panthers is number 15 Scott Sorensen\n15\nInterchange for Storm is number 16 Angus Hinchey 16 Interchange for Panthers is number 16 Luron Patea\n16\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\nInterchange for Storm is number 18 Joe Chan 18 Interchange for Panthers is number 18 Jack Cole\n18\nInterchange for Storm is number 21 Jack Hetherington 21 19 Interchange for Panthers is number 19 Blaize Talagi\n21 19\nReserves\nReserve for Storm is number 22 Hayden Watson 22 21 Reserve for Panthers is number 21 Luke Garner\n22 21\nStorm Ins\nAlec MacDonald\nHarry Grant\nJack Howarth\nPanthers Ins\nCasey McLean\nJack Cole\nLuke Garner\nStorm Outs\nDavvy Moale\nManaia Waitere\nJaxen Edgar\nPaul Alamoti\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/19/2026 9:48:14 AM\nStorm: Captain Harry Grant has come through Wednesday's final training session and will line up against the Panthers. Tyran Wishart moves to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Jack Hetherington has been added to the six-man interchange in the 24-hour update.\nPanthers: Young gun Casey McLean lines up for his first game since Round 22 having overcome a hand injury. The 20-year-old's return comes at an opportune time with Paul Alamoti suffering a hamstring injury against the Roosters. Back",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.57704310277778,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f6a7e8a2b1c5da45",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 25",
+            "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/",
+            "published_at": "2026-08-18T06:00:29+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Th",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 7 Trent Toelau 7 Halfback for Panthers is number 7 Nathan Cleary\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 14 Tyran Wishart 14 Interchange for Panthers is number 14 Billy Scott\n14\nInterchange for Storm is number 15 Alec MacDonald 15 Interchange for Panthers is number 15 Scott Sorensen\n15\nInterchange for Storm is number 16 Angus Hinchey 16 Interchange for Panthers is number 16 Luron Patea\n16\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\nInterchange for Storm is number 18 Joe Chan 18 Interchange for Panthers is number 18 Jack Cole\n18\nInterchange for Storm is number 21 Jack Hetherington 21 19 Interchange for Panthers is number 19 Blaize Talagi\n21 19\nReserves\nReserve for Storm is number 22 Hayden Watson 22 21 Reserve for Panthers is number 21 Luke Garner\n22 21\nStorm Ins\nAlec MacDonald\nHarry Grant\nJack Howarth\nPanthers Ins\nCasey McLean\nJack Cole\nLuke Garner\nStorm Outs\nDavvy Moale\nManaia Waitere\nJaxen Edgar\nPaul Alamoti\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/19/2026 9:48:14 AM\nStorm: Captain Harry Grant is back from a hamstring injury so Tyran Wishart slides to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Alec MacDonald is back from concussion and joins the interchange. Jack Hetherington and Davvy Moale drop to the reserves.\nPanthers: Young gun Casey McLean returns from a hand injury and takes over in the centres from Paul Alamoti (hamstring). Jack Cole has been added to the interchange in place of Jaxen Edgar.\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nRaiders\nBroncos\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nProp for Raiders",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 45.55954310277777,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Mitchell eyes comeback; Surgery for Doueihi, Walsh",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-19T10:05:34+00:00",
+            "snippet": "NRL Casualty Ward: Mitchell eyes comeback; Surgery for Doueihi, Walsh\nSouth Sydney star Latrell Mitchell is in the mix to return from a nerve injury that has kept him sidelined since Round 11 for Saturday's showdown with the Warriors.\nThe centre has missed 11 games with the injur",
+            "body_excerpt": "NRL Casualty Ward: Mitchell eyes comeback; Surgery for Doueihi, Walsh\nSouth Sydney star Latrell Mitchell is in the mix to return from a nerve injury that has kept him sidelined since Round 11 for Saturday's showdown with the Warriors.\nThe centre has missed 11 games with the injury but has been named in the extended squad for this weekend's match at Accor Stadium.\nMitchell trained on Monday and has been running more freely as he builds up to a highly-anticipated return.\nThe Rabbitohs have lost Adam Elliott to a groin injury, with the veteran expected to miss two to three weeks with a strained adductor.\nMeanwhile, Warriors halfback Luke Metcalf will miss the remainder of the regular season after suffering a hamstring injury in last week's win over Brisbane.\nThe playmaker is set to return in the opening week of the finals.\nMetcalf, who returned last week from a four-month lay-off with a hamstring injury, clutched at the back of his right leg after a shot at goal.\nHe came from the field and Warriors medical staff immediately strapped ice to the back of his leg.\nWith Te Maire Martin still another week away from returning from a hamstring injury, rookie Luke Hanson will step into the halves for Saturday's clash with the Rabbitohs.\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delayed surgery in an attempt to kickstart the Tigers finals campaign.\nThe 28-year-old returned to the field in Round 17 but fresh scans have shown Doueihi requires immediate surgery, with the halfback to go under the knife later this week.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers head of high performance Peter Moussa said.\nMeanwhile, Tigers five-eighth Latu Fainu has suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension, but will now be sidelined for 1-2 weeks with his latest injury.\nIn positive news, Sunia Turuva has been named on the six-man bench despite suffering a knee injury last week, while Alex Twal is set to return after missing Round 24 due to illness.\nThe Roosters will also welcome back James Tedesco from an ankle injury for Sunday's clash against the Tigers at Allianz Stadium.\nThe Melbourne Storm will welcome back Harry Grant from a hamstring strain for Thursday's clash with the Panthers.\nThe hooker suffered the injury in the Round 21 loss to the Rabbitohs and is on track to return this week alongside centre Jack Howarth (shoulder) and forward Alec MacDonald (concussion).\nLess positive news for Jahrome Hughes , who remains sidelined with a hamstring injury.\nMixed news on the injury front for Penrith, with gun centre Casey McLean back on deck from a broken hand, however Paul Alamoti has been ruled out with a hamstring injury.\nBroncos superstar Reece Walsh has had surgery on his ankle and is facing an eight-week recovery time.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nWalsh had scans on Sunday which confirmed he had sustained a high-grade syndesmosis injury during the loss to the Warriors on Saturday night.\nWarriors fullback Charnze Nicoll-Klokstad was sin binned for a hip drop tackle on Walsh and has subsequently been banned for two games.\nWith Australia's World Cup opener against the Kiwis set down for Thursday, October 15 it appears Walsh's chances of representing the Kangaroos are gone.\nBrisbane will take on Canberra on Friday night, with Raiders centre Simi Sasagi returning from a shoulder injury. Morgan Smithies will miss the match after he was placed in the concussion protocol last weekend.\nDolphins forward Connelly Lemuelu will miss his side's clash with",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.474820880555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6c96f202ee147989",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "NRL News",
+            "title": "Match Preview Storm v Panthers: Wild about Harry; McLean back on deck",
+            "url": "https://www.nrl.com/news/2026/08/18/storm-v-panthers-wild-about-harry-mclean-back-on-deck/",
+            "published_at": "2026-08-19T10:00:37+00:00",
+            "snippet": "Presented By\nStorm v Panthers: Wild about Harry; McLean back on deck\nAfter holding on to top spot since Round 4, the Panthers finally relinquished their grip last weekend and will be out to bounce back against the Storm.\nLosses to the Warriors and Roosters in consecutive weeks ha",
+            "body_excerpt": "Presented By\nStorm v Panthers: Wild about Harry; McLean back on deck\nAfter holding on to top spot since Round 4, the Panthers finally relinquished their grip last weekend and will be out to bounce back against the Storm.\nLosses to the Warriors and Roosters in consecutive weeks have left the Panthers vulnerable to potentially even dropping out of the top four if results go against them.\nThe Cowboys' loss to the Eels has left the door slightly ajar for the Storm, who face a torrid run home against the Panthers, Broncos and Sharks but won't be simply rolling over in the run to the finish.\nWith so much at stake for both clubs this promises to be a cracking encounter at AAMI Park as the Storm play their last game on home turf for 2026.\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\n11th Position\naway Team\nPanthers\n2nd Position\nVenue: AAMI Park, Melbourne\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nStorm: Captain Harry Grant has come through Wednesday's final training session and will line up against the Panthers. Tyran Wishart moves to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Jack Hetherington has been added to the six-man interchange in the 24-hour update.\nPanthers: Young gun Casey McLean lines up for his first game since Round 22 having overcome a hand injury. The 20-year-old's return comes at an opportune time with Paul Alamoti suffering a hamstring injury against the Roosters. Back-rower Luke Garner remained in the squad in Wednesday's 24-hour update and is line for a call-up to the bench having made his return to action through NSW Cup last weekend. Jack Cole has been added to the interchange in place of Jaxen Edgar.\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 7 Trent Toelau 7 Halfback for Panthers is number 7 Nathan Cleary\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 14 Tyran Wishart 14 Interchange for Panthers is number 14 Billy Scott\n14\nInterchange for Storm is number 15 Alec MacDonald 15 Interchange for Panthers is number 15 Scott Sorensen\n15\nInterchange for Storm is number 16 Angus Hinchey 16 Interchange for Panthers is number 16 Luron Patea\n16\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\nInterchange for Storm is number 18 Joe Chan 18 Interchange for Panthers is number 18 Jack Cole\n18\nInterchange for Storm is number 21 Jack Hetherington 21 19 Interchange for Panthers is number 19 Blaize Talagi\n21 19\nReserves\nReserve for Storm is number 22 Hayden Watson 22 21 Reserve for Panthers is number 21 Luke Garner\n22 21\nStorm Ins\nAlec MacDonald\nHarry Grant\nJack Howarth\nPanthers Ins\nCasey McLean\nJack Cole\nLuke Garner\nStorm Outs\nDavvy Moale\nManaia Waitere\nJaxen Edgar\nPaul Alam",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.557320880555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f7112657a801a93d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm vs Panthers Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/storm-vs-panthers-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-19T08:15:02+00:00",
+            "snippet": "Storm vs Panthers Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Storm vs Panthers Preview & Betting Tips: NRL Round 25 2026\nAugust 19 th 2026, 6:11pm , By: Scooby\nThere are just 3 regular season rounds remaining and this ensures the intensity in NRL matches is going to be at an all-time high for season 2026. Round 25 begins in Melbourne this week as the Storm host the Panthers . Most would’ve anticipated this to be an early Finals preview, but the fortunes of the host team have abandoned that thought. Still, with quality remaining, a blockbuster contest waits for two capable teams to do battle.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nStorm vs Panthers Predictions & Tips: NRL Round 25 2026\nSpirited Storm at their peak\nThis season has seen a decline in the performance of the Storm but there were positive signs in Round 23 as they dismantled the Sea Eagles in their 42-20 victory as the ‘home’ team in Perth. Going behind early in the first half but fighting back to trail 14-12 at HT, the Storm kicked into another gear in the second half and their opponents were powerless to stop them. In the end, they had 52% possession, a 77% completion rate, ran for 8.2m per carry, and made 446 PCM’s. Their defence was improved too, missing just 23 tackles and resembling teams that have gone before them in previous years.\nKnocked off top spot\nThe Panthers were defeated 12-6 on the road last week by the Roosters, a loss which has also seen them drop to 2nd on the competition ladder. It a tight game which mirrored a Finals intensity, the Panthers were lacking an edge. Expected to struggle with key players absent and other underdone, they must be better should they aim to be at their best. In the end, they had 52% possession but completed at just 73%, made just 7.6m per carry, and created only 3 line breaks. The biggest concern surrounds their defence and the fact that they missed 44 tackles. This area must be improved heading into the Finals.\nStats that matter\n- These two sides met in Round 5 where the Panthers prevailed 50-10. They hate traveling south though, winning just 10% (once) of games at this ground (Storm 76%). The Storm have also won 4 of the past 6 games between these two sides.\n- In the past 5 games between them, the average margin of victory is 12 points, with 4 games decided by 8 points or less. The total points is low also, averaging just 46ppg.\n- It is no surprise that the Panthers are the superior team on both sides of the ball this season. They average 28ppg in attack and concede just 14ppg defensively. The Storm average 24ppg for both attack and defence in 2026.\nMore to play for\nEach side has key inclusions ahead of this game with Grant (Storm) and McLean (Panthers) back from injury; each player has a positive impact on their team’s performance each week. With the Finals approaching, this is a game which could be tricky for the visitors as the Storm are a dangerous team at home; the Panthers also have a horrendous record here. Yet, with more to play for, one would think that the visitors will be too strong. The loss last week might have come at a good time as it refocuses them ahead of the next few weeks. It also shows that they have areas of improvement within their game which must be addressed. Still down on kay players, they will do well to overcome the Storm convincingly.\nNothing would please the home side more than disrupting the momentum of a Finals bound opponent. That being said, a lot would still have to go right for them over 80 minutes to cause an upset. With the Panthers defence remaining strong, they should have what it takes to cover the line in this match and grab a vital victory.\nPanthers -7.5\n$1.90 (2 Units)\nStorm vs Panthers Same Game Multi\nLeg 1 = Total points over 42.5 – see above for justification.\nLeg 2 = McLean to score – returning from injury, he would’ve had this game circled in the calendar as he h",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.317043102777777,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5b2521cf33ff141e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm v Panthers: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/19/storm-v-panthers-round-25/",
+            "published_at": "2026-08-19T06:01:31+00:00",
+            "snippet": "Storm v Panthers: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:22 Eels v Cowboys: Round 24\nEels v Cowboys: Round 24\n02:59 Broncos v Warriors: Round 24\nBroncos v Warriors: Round 24\n02:29 Knights v Titans: Round 24\nKnights v Titans:",
+            "body_excerpt": "Storm v Panthers: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:22 Eels v Cowboys: Round 24\nEels v Cowboys: Round 24\n02:59 Broncos v Warriors: Round 24\nBroncos v Warriors: Round 24\n02:29 Knights v Titans: Round 24\nKnights v Titans: Round 24\n02:59 Wests Tigers v Dragons: Round 24\nWests Tigers v Dragons: Round 24\n03:14 Bulldogs v Rabbitohs: Round 24\nBulldogs v Rabbitohs: Round 24\nRelated /\nMeet the unheralded halves ready to deliver on the big stage\nMatch Preview\nStorm v Panthers: Wild about Harry; McLean back on deck\nStorm\nKeeley reflects on his time so far in Melbourne\nFantasy\nFirst take: Storm v Panthers\nMunster previews Panthers clash\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.542320880555554,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "eb351b33e066bba8",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm vs Panthers - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/storm-panthers-round-25-2026-mc10396524-237071/",
+            "published_at": "2026-08-16T19:11:19+00:00",
+            "snippet": "Storm vs Panthers - Round 25, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 25, 2026 STORM V PANTHERS KICK OFF AAMI Park #NRLStormPanthers 2026-08-20T09:50:00Z Preview\nSTORM\nPANTHERS\nPreview\nStorm vs Panthers – Round 25, 2026\nThe Melbourne Storm face the Penrith Panthers in Round 25 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at AAMI Park. Ladder Position Injury Report Storm NAME REASON EXPECTED RETURN Eliesa Katoa Medical Episode Indefinite Will Warbrick Achilles Next Season Xavier Coates Achilles Next Season Harry Grant Hamstring Round 25 Jack Howarth Shoulder Round 25 Ativalu Lisati Ankle TBC Tui Kamikamica Medical Episode TBC Jahrome Hughes Hamstring TBC Panthers NAME REASON EXPECTED RETURN Mitch Kenny Leg Finals Casey McLean Hand Round 25 Paul Alamoti Hamstring TBC Isaah Yeo Pectoral TBC Previous 5 Games Storm DATE OPP RESULT 8/8/26 Sea Eagles W 42 - 20 31/7/26 Bulldogs L 22 - 36 24/7/26 Rabbitohs L 28 - 26 17/7/26 Roosters L 14 - 6 12/7/26 Titans W 22 - 18 Panthers DATE OPP RESULT 13/8/26 Roosters L 6 - 12 7/8/26 Warriors L 28 - 12 1/8/26 Raiders W 42 - 18 23/7/26 Eels W 18 - 24 16/7/26 Broncos L 12 - 14\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nEliesa Katoa\nMedical Episode\nIndefinite\nWill Warbrick\nAchilles\nNext Season\nXavier Coates\nHarry Grant\nHamstring\nRound 25\nJack Howarth\nShoulder\nAtivalu Lisati\nAnkle\nTBC\nTui Kamikamica\nJahrome Hughes\nMitch Kenny\nLeg\nFinals\nCasey McLean\nHand\nPaul Alamoti\nIsaah Yeo\nPectoral\nPrevious 5 Games\nDATE\nOPP\nRESULT\n8/8/26\nSea Eagles\nW 42 - 20\n31/7/26\nBulldogs\nL 22 - 36\n24/7/26\nRabbitohs\nL 28 - 26\n17/7/26\nRoosters\nL 14 - 6\n12/7/26\nTitans\nW 22 - 18\n13/8/26\nL 6 - 12\n7/8/26\nWarriors\nL 28 - 12\n1/8/26\nRaiders\nW 42 - 18\n23/7/26\nEels\nW 18 - 24\n16/7/26\nBroncos\nL 12 - 14\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nSua Fa'alogo Sua Fa'alogo\nS. Tuimalatu-Brown Siulagi Tuimalatu-Brown\nJack Howarth Jack Howarth\nNick Meaney Nick Meaney\nMoses Leo Moses Leo\nCameron Munster Cameron Munster\nTrent Toelau Trent Toelau\nStefano Utoikamanu Stefano Utoikamanu\nHarry Grant Harry Grant\n10\nJosh King Josh King\n11\nShawn Blore Shawn Blore\n12\nOryn Keeley Oryn Keeley\n13\nTrent Loiero Trent Loiero\nINTERCHANGE\n14\nTyran Wishart Tyran Wishart\n15\nAlec MacDonald Alec MacDonald\n16\nAngus Hinchey Angus Hinchey\n17\nCooper Clarke Cooper Clarke\n18\nJoe Chan Joe Chan\n21\nJack Hetherington Jack Hetherington\nRESERVES\n22\nHayden Watson Hayden Watson\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nDylan Edwards Dylan Edwards\nThomas Jenkins Thomas Jenkins\nIzack Tago Izack Tago\nCasey McLean Casey McLean\nBrian To'o Brian To'o\nJack Cogger Jack Cogger\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\nLiam Henry Liam Henry\nIsaiah Papali'i Isaiah Papali'i\nLiam Martin Liam Martin\nLindsay Smith Lindsay Smith\nBilly Scott Billy Scott\nScott Sorensen Scott Sorensen\nLuron Patea Luron Patea\nBilly Phillips Billy Phillips\nJack Cole Jack Cole\nBlaize Talagi Blaize Talagi\n19\nLuke Garner Luke Garner",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 80.37898754722222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "292e8e74571e484b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Updated Team List: Round 25 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/08/19/nrl-updated-team-list-round-25/",
+            "published_at": "2026-08-19T09:49:00+00:00",
+            "snippet": "NRL Updated Team List: Round 25\nPanthers Head Coach Ivan Cleary has updated his squad for Thursday’s clash with the Melbourne Storm at AAMI Park.\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\n11th Position\naway Team\nPanthers\n2nd Position\nVenue: AAM",
+            "body_excerpt": "NRL Updated Team List: Round 25\nPanthers Head Coach Ivan Cleary has updated his squad for Thursday’s clash with the Melbourne Storm at AAMI Park.\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\n11th Position\naway Team\nPanthers\n2nd Position\nVenue: AAMI Park, Melbourne\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nPanthers v Storm: McLean back on deck; Wild about Harry\nPlayer Media\nSorensen: We've got a group that's focused and wants to do well on Thursday\nEdwards on regrouping in Yeo’s absence\nPatea praises Yeo's leadership\nTeam Lists\nNRL Team List: Round 25",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.75093199166667,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e2a659f8937ea29f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Lone Scout's Fantasy team list analysis: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/18/lone-scouts-fantasy-team-list-analysis-round-25/",
+            "published_at": "2026-08-19T02:59:24+00:00",
+            "snippet": "Presented By\nLone Scout's Fantasy team list analysis: Round 25\nFinally some good news with a number of Fantasy studs returning for this week, just hope for our coaches sakes it is the ones we held and not the ones we sold.\nStill a few big names missing and more than a couple more",
+            "body_excerpt": "Presented By\nLone Scout's Fantasy team list analysis: Round 25\nFinally some good news with a number of Fantasy studs returning for this week, just hope for our coaches sakes it is the ones we held and not the ones we sold.\nStill a few big names missing and more than a couple more have joined the Casualty Ward so let’s get stuck into the analysis.\nCleary: It’s pretty clear to us what we need to do to improve\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nStorm: Harry Grant returns for Melbourne in a big boost for their side and Fantasy owners who held the top rated HOK in the game. However, he comes in at the expense of Tyran Wishart with Trent Toelau named in the No.7 and Wishart only found amongst the interchange. There could be switch-ups on game day, especially with Hayden Watson relegated to the extended reserves, but Wishart could be one to set in the looping position to start your round. Also returning but less relevant for Fantasy are Jack Howarth in the centres and Alec MacDonald on the bench.\nFirst take: Storm v Panthers\nPanthers: Dylan Edwards made his long-awaited return at fullback last week and is named there again. Casey McLean is the important cog in the wheel that comes back this time around but it is a trade for the now injured Paul Alamoti. Luke Garner has been named in the extended squad after returning from a hamstring injury through NSW Cup last week.\nJosh Papalii announces retirement\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nRaiders: Canberra get a couple of integral players back this week as they still have a slight chance of playing finals football providing other results continue to go their way. Simi Sasagi is the most important one for Fantasy coaches as he is named in the centres while Corey Horsburgh comes back in via the interchange. Josh Papali’i will start in the middle third with Morgan Smithies in concussion protocols for now.\nFirst take: Raiders v Broncos\nBroncos: Another key player went down hurt for the defending premiers Brisbane last week in Reece Walsh, which will have many Fantasy owners spending their last trade on moving him out. Hayze Perham will deputise in the No.1 while Ben Hunt replaces Tom Duffy at halfback, although Duffy can still be found in the 19. Va’a Semu is the other returnee for Brisbane who will be desperate to find a victory having not tasted success since Round 20.\nKatoa: My role is to control the team and lead our mindset\nDolphins v Eels, Friday 8.00pm at Suncorp Stadium\nDolphins: Connolly Lemuelu went down with a hamstring injury last Friday so Max Plath slides over to the edge position to accommodate. Hopefully Lemuelu owners from earlier in the season already upgraded him before this news. The rest of the Dolphins squad is fairly settled but keep an eye on Herbie Farnworth who copped a knock two weeks ago and ever since has not been able to put up his usual Fantasy numbers. He could even be worth looping if you have a strong 21 this week.\nFirst take: Dolphins v Eels\nEels: Parramatta welcome back Jack De Belin who was a late withdrawal last weekend which pops Saxon Pryke back to the bench. Dylan Walker is out with a wrist injury. Not much else to report on the victorious Eels who continue to try and play giant slayers as they round out their 2026 season.\nMarzhew gets two\nKnights v Sea Eagles, Saturday 3.00pm at MacDonald Jones Stadium\nKnights: A devastating team list for those who recently plumped for gun rookie edge Francis Manuleleua, who is out with concussion, veteran Tyson Frizell is listed on the edge. The Knights have also lost Dane Gagai for this encounter but do name Bradman Best once more after he was a late out last weekend. Jacob Saifiti makes his long-awaited return form injury just in time to get some match fitness before the finals. Cody Hopwood makes way but can still be found riding the pine.\nFirst take: Knights v Sea Eagles\nSea Eagles: Brilliant news with Tom Trbojevic and brother Ben Trbojevic both named to return from their respective inj",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 24.577598658333333,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9def6ad083f8a18c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 25 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb",
+            "published_at": "2026-08-18T06:28:31+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 25 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Every club's confirmed lineup for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is beginning to take shape.\nRound 25 kicks off in Melbourne as the Storm face the Panthers .\nThe Knights then welcome the Sea Eagles on Saturday afternoon before the Rabbitohs face the Warriors at Accor Stadium and the Bulldogs take on the Dragons in a must-win clash at Allianz.\nThe 8th-placed Cowboys have the bye and move automatically up to 30 points.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 25\nMelbourne Storm vs. Penrith Panthers\n(Thursday, August 20 at AAMI Park , 7:50pm AEST)\nMelbourne team:\n1. Sua Fa’alogo 2. Suilagi Tuimalatu-Brown 3. Jack Howarth 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Trent Toelau 8. Stefano Utoikamanu 9. Harry Grant (c) 10. Josh King 11. Shawn Blore 12. Oryn Keeley 13. Trent Loiero\n14. Tyran Wishart 15. Alec MacDonald 16. Angus Hinchey 17. Cooper Clark 18. Joe Chan 21. Jack Hetherington\nStorm team news:\nFresh off the bye skipper Harry Grant (hamstring) has been named in welcome news for the Storm. Jack Howarth (shoulder) hasn't played since Round 21 but also returns but Ativalu Lisati (ankle) and Jahrome Hughes (hamstring) both remain out. Trent Toelau has been named at halfback with Hayden Watson on the extended reserves.\nPenrith team:\n1. Dylan Edwards 2. Thomas Jenkins 3. Izack Tago 4. Casey McLean 5. Brian To'o 6. Jack Cogger 7. Nathan Cleary (c) 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali'i 12. Liam Martin 13. Lindsay Smith\n14. Billy Scott 15. Scott Sorensen 16. Luron Patea 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi\nPanthers team news:\nRep centre Casey McLean is back after hand surgery which is just as well given Paul Alamoti limped off with a hamstring injury in the loss to the Roosters and will miss 2-3 weeks. A return date for Mitch Kenny (leg) remains unclear.\nCanberra Raiders vs. Brisbane Broncos\n(Friday, August 21 at GIO Stadium , 6:00pm AEST)\nCanberra team:\n1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Ethan Sanders 8. Josh Papalii 9. Owen Pattie 10. Joe Tapine (c) 11. Zac Hosking 12. Matty Nicholson 13. Ata Mariota\n14. Tom Starling 15. Joe Roddy 16. Corey Bursburgh 17. Daine Laurie 18. Vena Patuki-Case 19. Savelio Tamale\nRaiders team news:\nSimi Sasagi returns to the centres pushing Savelio Tamale to the bench. With Morgan Smithies in concussion protocols Ata Mariota shifts to lock with Josh Papalii named to start in the front row as runs out for his final home game for the Green Machine. Corey Horsburgh earns a recall on the bench while Noah Martin (quad) is out at least another week.\nBrisbane team:\n1. Hayze Perham 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Ben Hunt 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Pat Carrigan (c)\n14. Blake Mozer 15. Aublix Tawha 16. Jack Gosiewski 17. Va'a Semu 18. Tom Duffy 19. Gehamat Shibasaki\nBroncos team news:\nThe Broncos were embarrassed at home by the Warriors but there are only a couple of changes. Reece Walsh (ankle) is replaced by Hayze Perham while Ezra Mam has survived despite missing a whopping nine tackles last week with Tom Duffy making way for Ben Hunt at No.7.\nDolphins vs. Parramatta Eels\n(Friday, August 21 at Suncorp Stadium , 8:00pm AEST)\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Ray Stone 15. Francis Molo 16. Felise Kaufusi 17. Brian Pouniu 18. Brad Schneider 19. Jake Averillo\nDolphins team news:\nKurt Donoghoe missed Roun",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.092320880555555,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b97abdbb54c4f4af",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 25 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/08/18/nrl-team-list-round-25/",
+            "published_at": "2026-08-18T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 25\nPanthers Head Coach Ivan Cleary has named his squad for Thursday’s clash with the Melbourne Storm at AAMI Park, the Panthers final away game of the regular season.\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\n1",
+            "body_excerpt": "Presented By\nNRL Team List: Round 25\nPanthers Head Coach Ivan Cleary has named his squad for Thursday’s clash with the Melbourne Storm at AAMI Park, the Panthers final away game of the regular season.\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\n11th Position\naway Team\nPanthers\n2nd Position\nVenue: AAMI Park, Melbourne\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nPanthers v Storm: McLean back on deck; Wild about Harry\nTeam Lists\nNRL Updated Team List: Round 25\nPlayer Media\nSorensen: We've got a group that's focused and wants to do well on Thursday\nEdwards on regrouping in Yeo’s absence\nPatea praises Yeo's leadership",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.584265325,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "77dc1401a3e53656",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Brutal extent of Tigers star’s injury revealed; Madge turns heads with curious call: Teams Analysis - foxsports.com.au",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-latrell-mitchell-named-in-round-25-team-lists-ins-and-outs-injury-updates-sunia-turuva-dropped-ben-hunt-at-halfback/news-story/c7ce045929ed5144647f5aca4a7606ae",
+            "published_at": "2026-08-20T02:00:28+00:00",
+            "snippet": "Brutal extent of Tigers star’s injury revealed; Madge turns heads with curious call: Teams Analysis &nbsp;&nbsp; foxsports.com.au",
+            "body_excerpt": "Brutal extent of Tigers star’s injury revealed; Madge turns heads with curious call: Teams Analysis\nLook who’s back.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nLatrell Mitchell has been named on the reserves as he targets a return for South Sydney, while Benji Marshall and Michael Maguire have swung the axe.\nRead on for Round 25 NRL Teams!\nTHURSDAY AUGUST 20\nMelbourne Storm vs Penrith Panthers @ AAMI Park, 7.50pm\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 3. Jack Howarth 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Trent Toelau 8. Stefano Utoikamanu 9. Harry Grant 10. Josh King 11. Shawn Blore 12. Oryn Keeley 13. Trent Loiero 14. Tyran Wishart 15. Alec MacDonald 16. Angus Hinchey 17. Cooper Clarke 18. Joe Chan 19. Manaia Waitere 20. Davvy Moale 21. Jack Hetherington 22. Hayden Watson\nANALYSIS: The Storm have received a double boost for this week’s match with Harry Grant (hamstring) and Jack Howarth (shoulder) both returning from injury. Grant’s inclusion sees Tyran Wishart slide to the six-man bench and Trent Toelau move to the halves in favour of rookie Hayden Watson (named in the reserves). Meanwhile, Howarth will slot straight into the back-line with Joe Chan moving back to the bench. Alec MacDonald (concussion) will also make his return and will come off the interchange bench.\nPanthers team: 1. Dylan Edwards 2. Thomas Jenkins 3. Izack Tago 4. Casey McLean 5. Brian To’o 6. Jack Cogger 7. Nathan Cleary 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali’i 12. Liam Martin 13. Lindsay Smith 14. Billy Scott 15. Scott Sorensen 16. Luron Patea 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi 20. Jaxen Edgar 21. Luke Garner 22. Jesse McLean\nANALYSIS: The Panthers may have lost Paul Alamoti (hamstring) due to injury, but they have received a massive boost to the outside backs with NSW Blues star and New Zealand international Casey McLean (hand) making his triumphant return to the field. In other team news, Jack Cole replaces rookie fullback Jaxen Edgar on the six-man bench, while Luke Garner has been named among the reserves after making a successful return via NSW Cup last week after a lengthy stint on the sidelines due to concussion. Elsewhere, Blaize Talagi remains on the extended bench with Jack Cogger the favoured option despite last week’s uninspiring performance in attack. The Panthers continue to look a much better defensive unit with Cogger in the line-up though and with Talagi currently not named in NSW Cup, he may struggle in the interim to impress coach Ivan Cleary enough to earn a recall.\nFRIDAY AUGUST 21\nCanberra Raiders vs Brisbane Broncos @ GIO Stadium, 6pm\nRaiders team: 1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Ethan Sanders 8. Josh Papali’i 9. Owen Pattie 10. Joseph Tapine 11. Zac Hosking 12. Matt Nicholson 13. Ata Mariota 14. Tom Starling 15. Joseph Roddy 16. Corey Horsburgh 17. Daine Laurie 18. Vena Patuki-Case 19. Savelio Tamale 20. Coby Black 21. Sebastian Kris 22. Jayden Brailey\nANALYSIS: Simi Sasagi (shoulder) returns to the line-up as the Raiders look to stay alive in the finals race and replaces Savelio Tamale in the centres who has been dropped back to the six-man bench. Sasagi has been playing through a shoulder injury that should have ended his season, but coach Rciky Stuart previously said the centre wanted to line up one final time this season for Josh Papalii’s farewell game at home. The loss of English international Morgan Smithies (concussion) means former QLD Maroons forward Corey Horsburgh has earned a recall. Set to join the Perth Bears from next season onwards, Horsburgh was on the end of a heated Stuart press conference a couple of weeks ago when he cost the side the win against the Knights. Papalii has been named in the starting front-row in the final ho",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.5598208805555556,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4b9bbf56f9afbfb2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Melbourne Storm vs Penrith Panthers Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/20/melbourne-storm-vs-penrith-panthers-predictions/",
+            "published_at": "2026-08-19T19:08:11+00:00",
+            "snippet": "Melbourne Storm vs Penrith Panthers Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Melbourne Storm host Penrith Panthers in Round 25 of the 2026 NRL season at AAMI Park on Thursday, 20th August at 7:50 PM AEST. Read on for our full match preview, insider NRL betting tips , and best Rugby League odds .\nThe finals ship has all but sailed for Melbourne, but knocking over stumbling Penrith in their last home game of the season will provide ample motivation.\nFORM: The Storm snapped a three-game losing run to trounce the Sea Eagles 42-20 in Perth in Round 23, after trailing at halftime. They had the bye last weekend.\nThe Panthers lost their grip on top spot courtesy of a 12-6 loss to the Roosters – their fifth loss in eight games.\nINS AND OUTS: Melbourne gets a further boost with Harry Grant and Jack Howarth returning, which sees Tyran Wishart and Joe Chan revert to the bench. Trent Toelau will partner Cam Munster in the halves this week.\nCasey McLean is a back in a timely lift for the Panthers, with Paul Alamoti (hamstring) ruled out.\nKEY MATCH-UP: Different jersey numbers, but Origin adversaries and Test teammates Munster and Nathan Cleary will guide their teams’ fortunes.\nHISTORY: The Storm have won four of their last six against the Panthers but crashed to a 50-10 loss at CommBank Stadium in Round 5.\nKEY STAT: The Panthers have a 1-9 record at AAMI Park.\nVERDICT: The two biggest heavyweights of the 2020s renew a fierce rivalry, though at a very different juncture than the out-of-contention Storm are used to. But the injury-ravaged side has been gallant in recent defeats and the win over Manly was well-deserved reward.\nThere’s plenty at stake for the Panthers, who could drop out of the top two with a loss and need to recover some momentum over the closing three rounds.\nThe Storm are a tempting option with a 7.5-point start after winning five of their last six at home, but the over appeals more with seven of 10 games at AAMI Park producing 52-plus points this season.\nPredictions: Back Over 42.5 Total Points @ $1.90\nSGM: STORM +7.5 / OVER 7.5 TOTAL TRIES / TOM JENKINS ANYTIME TRYSCORER / NICK MEANEY ANYTIME TRYSCORER @ $16.31\nMelbourne Storm vs Penrith Panthers Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Melbourne Storm vs Penrith Panthers matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nAAMI Park • Thursday 20th Aug\nTeam\nOdds\nPenrith Panthers (-7.5)\n1.83\nBet Now\nMelbourne Storm (7.5)\n1.98\nNRL odds correct as of 20/08/2026 and subject to change. Event scheduled to start at 20/08/2026 7:50pm AEST.\nThomas Jenkins (Penrith Panthers)\n6.80\nBrian To'o (Penrith Panthers)\n8.25\nCasey McLean (Penrith Panthers)\n10.00\nSualauvi Faalogo (Melbourne Storm)\n11.50\nMoses Leo (Melbourne Storm)\n12.00\nDylan Edwards (Penrith Panthers)\n13.00\nSiulagi Tuimalatu-Brown (Melbourne Storm)\n14.00\nNathan Cleary (Penrith Panthers)\n15.00\nIzack Tago (Penrith Panthers)\nLiam Martin (Penrith Panthers)\n19.00\nJack Howarth (Melbourne Storm)\n21.00\nNick Meaney (Melbourne Storm)\nCameron Munster (Melbourne Storm)\n23.00\nHarry Grant (Melbourne Storm)\nOryn Keeley (Melbourne Storm)\nJack Cogger (Penrith Panthers)\n26.00\nIsaiah Papali'i (Penrith Panthers)\nBilly Scott (Penrith Panthers)\n34.00\nAngus Hinchey (Melbourne Storm)\nFreddy Lussick (Penrith Panthers)\nTyran Wishart (Melbourne Storm)\nTrent Toelau (Melbourne Storm)\nLuron Patea (Penrith Panthers)\n41.00\nLiam Henry (Penrith Panthers)\nScott Sorensen (Penrith Panthers)\nShawn Blore (Melbourne Storm)\nBilly Phillips (Penrith Panthers)\n51.00\nCooper Clarke (Melbourne Storm)\nMoses Leota (Penrith Panthers)\nLindsay Smith (Penrith Panthers)\nStefano Utoikamanu (Melbourne Storm)\nTrent Loiero (Melbourne Storm)\n67.00\nAlec MacDonald (Melbourne Storm)\nJosh King (Melbourne Storm)\nNo Scorer\n1001.00\nSydney Roosters vs Wests Tigers Prediction, Tips & Odds 20 Aug 2026\nGold Coast Titans vs Cronulla Sharks Prediction, Tips & Odds 20 Aug 2026\nSt George Illawarra Dragons vs Canterbury Bulldogs Prediction, Tips & Odds 20 Aug 2026\nS",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 8.431209769444445,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "470a727268c50e87",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Tips: The one factor stopping Joey from locking in wild upset - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/tips-round-25-expert-predictions-andrew-johns-brad-fittler-20260730-p60k2c.html",
+            "published_at": "2026-08-20T02:58:13+00:00",
+            "snippet": "Tips: The one factor stopping Joey from locking in wild upset &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Andrew Johns expects the Panthers to bring a halt to their two-game losing streak on Thursday night , but only due to one key Storm player’s absence.\nJohns is concerned about Ivan Cleary ’s all-conquering team on the eve of September, with Penrith’s buffer atop the ladder evaporating thanks to a run of three losses in their last five games.\nNathan Cleary stares into space in the Panthers dressing room after losing to the Roosters. Nine\nThe losses have been compounded by significant injury issues, with inspirational captain Isaah Yeo sidelined by a pec injury that might yet end his season and centre Paul Alamoti out with a hand injury. Gun hooker Mitch Kenny, meanwhile, is still to return from a long layoff with a leg injury.\nAs a result of the rough trot, the Panthers have slid from minor premiers-in-waiting to equal second spot. Two home finals are far from guaranteed and there’s an outside chance they could slip out of the top four by the end of round 27.\nIt’s with that context in mind that Johns and Brad Fittler expect a tight contest in Melbourne on Thursday night, even against a Storm side out of finals contention in 11th spot and having also lost three of their last five games.\nThe one factor stopping Johns from tipping a wild upset is Jahrome Hughes , who has had an injury interrupted season and is still unavailable due to a hamstring issue.\nStorm coach Craig Bellamy has named Trent Toelau to partner Cameron Munster in the halves on Thursday night.\nRead more\nStorm grand final star retires months after suffering stroke\n“Panther just for mine,” Johns told Wide World of Sports’ NRL Tips as he predicted the winner of Thursday night’s clash.\n“If Jahrome Hughes was playing for the Storm I’d tip them.”\n“Yeah, that’s a big loss for them,” replied Fittler.\nJohns added that he liked the look of the Storm’s middle forwards better than the Panthers and also preferred the make-up of their bench, which includes Tyran Wishart, Alec MacDonald, Angus Hinchey, Cooper Clarke, Joe Chan and Jack Hetherington.\nThe return of skipper Harry Grant from a low-grade hamstring strain gives Melbourne its strongest looking team in the past month, but the Panthers will be desperate to arrest their slide and stay in front of the third placed Warriors , who only trail them due to an inferior for and against.\nSpeaking on Wednesday, senior Panthers forward Scott Sorensen was adamant they weren’t far off a confidence boosting victory.\nScott Sorensen of the Panthers. nna\\bglover\n“It’s just about being a bit sharper and a bit smarter with our decisions and, I guess, icing our opportunities, so hopefully we can do that and it can lead to the result that we want,” Sorensen said.\nScroll below for round 25 tips by all Nine’s expert tipsters!\nMaroons great keen to replace Slater despite ‘pressure cooker’ admission\nFolau knocked back secret offer after being blocked by NRL\nOne man ‘flipped the script’ that could end 30-year Warriors pain",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.5973208805555555,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "2e5c4768b33ff52c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm grand final star retires months after suffering stroke - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-tui-kamikamica-retires-medical-grounds-melbourne-storm-grand-final-hero-20260820-p60pzz.html",
+            "published_at": "2026-08-20T01:49:53+00:00",
+            "snippet": "Storm grand final star retires months after suffering stroke &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Melbourne Storm ’s Tui Kamikamica has announced that he will retire effective immediately on medical grounds.\nKamikamica, who was a vital part of the Storm’s grand final team in 2025, had a stroke in March and has not played a game since.\nTui Kamikamica will retire immediately. Getty\nHe finishes his career with 142 NRL appearances for Melbourne Storm and 23 Test matches for Fiji, who he captained.\n“I’m incredibly proud of everything I’ve been able to achieve in the game, representing Storm and captaining my country,” Kamikamica said.\n“Melbourne Storm has been a huge part of my life for the past 10 years. I’m so grateful to the club, my teammates, coaches, staff and everyone who has supported me and my family throughout my rugby league career.\n“To play for Storm and captain Fiji are memories I’ll cherish forever. I want to thank everyone at Storm for believing in me and giving me the opportunity to play at the highest level.\n“Melbourne will always be a special place for me and my family and I’m looking forward to my next chapter in life.”\nRead more\nCheika’s NRL ambitions over as unlikely return confirmed\nKamikamica hasn’t played a game since March 28 after the Storm lost to the North Queensland Cowboys . Two days after that game he suffered a stroke.\nAfter receiving treatment at Royal Melbourne Hospital and being discharged a week later, the 32-year-old’s future was under a cloud.\nThe prop has been a mainstay member of Craig Bellamy ’s side since 2017, and was part of the grand final teams in 2017 and 2020.\n“Tui has given an enormous amount to Melbourne Storm over the past decade and leaves the club with the respect and admiration of everyone who has had the privilege of working alongside him,” said Storm CEO Justin Rodski.\n“His contribution to our two premiership teams in 2017 and 2020, his leadership within our playing group and his commitment to representing Fiji are all testament to the character of the man.”\nMelbourne is currently sitting in 11th place on the NRL ladder, and will miss the finals for only the second time in Bellamy’s coaching career. They play Penrith on Thursday night.\nStorm grand final star retires months after suffering stroke\nMaroons great keen to replace Slater despite ‘pressure cooker’ admission\nFolau knocked back secret offer after being blocked by NRL\nOne man ‘flipped the script’ that could end 30-year Warriors pain",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.7362097694444445,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "cffc83288f2ffd2d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "World Cup",
+            "title": "'Memories I'll cherish forever': Tui's Bati pride",
+            "url": "https://www.nrl.com/news/2026/08/16/memories-ill-cherish-forever-tuis-bati-pride/",
+            "published_at": "2026-08-20T01:25:16+00:00",
+            "snippet": "'Memories I'll cherish forever': Tui's Bati pride\nTui Kamikamica has described his pride at captaining Fiji as announced his immediate retirement on medical grounds after suffering a stroke earlier this year.\nKamikamica, who has not played since Melbourne Storm's Round 4 match ag",
+            "body_excerpt": "'Memories I'll cherish forever': Tui's Bati pride\nTui Kamikamica has described his pride at captaining Fiji as announced his immediate retirement on medical grounds after suffering a stroke earlier this year.\nKamikamica, who has not played since Melbourne Storm's Round 4 match against the Cowboys on March 28, had hoped to be able to lead Fiji at Rugby League World Cup 2026.\nHowever, the 32 year-old prop announced his retirement on Thursday.\nA respected leader on and off the field, Kamikamica leaves an enduring legacy with Fiji Bati, having captained his country since 2023, with 23 International appearances to his name.\nViliame Kikau hopes to play in a third World Cup with Fiji captain Tui Kamikamica. ©Scott Davis/NRL Photos\nReflecting on his career, Kamikamica said he was proud to finish his playing journey as a Melbourne Storm player and Fijian captain.\n“I’m incredibly proud of everything I’ve been able to achieve in the game, representing Storm and captaining my country,\" Kamikamica said.\n“To play for Storm and captain Fiji are memories I’ll cherish forever.\"\nViliame Kikau and Api Koroisau are the main captaincy contenders for Fiji’s matches against Cook Islands in Newcastle on October 18, Australia in Townsville on October 25 and New Zealand on Gold Coast on October 31.\n“He means a lot, he's captained the side and ... the boys love how he leads. He leads with his actions,\" Kikau said.\n\"He's one of probably only two or three of us who were born and bred and raised in Fiji and didn’t come to Australia until we were 18 or 19.\n“It is obviously unfortunate what happened to him.”\nFiji backs Sunia Turuva and Jahream Bula said the Bati players remain in close contact during the season and were in shock when they learned that Kamikamica had suffered a stroke.\n\"I will always remember this, bro...\" Kikau reflects on his journey from watching the Bati through strangers’ windows to representing Fiji on the Ultimate Stage 🤝 Read the chat 👉 https://t.co/YLmGfbKOL1 #RLWC26 tickets on sale NOW 🎟️ pic.twitter.com/EQAd1SU3U3\n“He is our skipper and I remember as soon as it happened, Jahream was the first person I called,” Turuva said.\n“It is obviously unfortunate what happened to him and just to see what he went through, it would have been pretty crazy for his partner and his kid as well.\n“He is definitely our leader, and we have a couple of big dogs there with Api and Kiks and Maika Sivo, as well so we believe we can do things in this World Cup like Samoa and Tonga have done.”\nKamikamica has played 23 Tests for Fiji and 142 NRL matches for the Storm and Bula said he was a role model for younger players in the Bati camp.\nMatch: Fiji v Cook Islands\nRound 1 - Round 1 - Sunday 18 Oct\nhome Team\nFiji\naway Team\nCook Islands\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nChannel 7\n“He is a good bloke, like you can hang out with him and he will take you under his wing,” Bula said.\n“For me, just seeing what he is like off the field, he is someone I definitely look up to. He is very professional, he is always stretching every time you go into the team room, he doesn’t eat bad, he looks after his body, so he practices what he preaches.”\nKamikamica was awarded life membership of the Storm earlier this week after returning from a tour of the Papua New Guinea Highlands with former team-mate and Kumuls great Justin Olam.\n“Melbourne Storm has been a huge part of my life for the past 10 years. I’m so grateful to the club, my teammates, coaches, staff and everyone who has supported me and my family throughout my rugby league career.\nMatch: Australia v Fiji\nRound 2 - Round 2 - Sunday 25 Oct\nAustralia\nVenue: Suncorp Stadium, Brisbane\n\"I want to thank everyone at Storm for believing in me and giving me the opportunity to play at the highest level. Melbourne will always be a special place for me and my family and I’m looking forward to my next chapter in life.”\nHooker Api Koroisau, who is one of up to seven Wests Tigers players with Fijian heritage, r",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 2.1464875472222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "00f70f8eef8a316f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘F*** that’: Theory on why Madge finally snapped; shock call on Panthers ‘experiment’ - foxsports.com.au",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-talking-points-and-analysis-why-michael-maguire-snapped-in-brisbane-broncos-press-conference-blaize-talagi-dropped-braydon-trindall-injury/news-story/11fae5d63d4d9ba2da6667cdfc19d106",
+            "published_at": "2026-08-19T20:04:15+00:00",
+            "snippet": "‘F*** that’: Theory on why Madge finally snapped; shock call on Panthers ‘experiment’ &nbsp;&nbsp; foxsports.com.au",
+            "body_excerpt": "‘F*** that’: Theory on why Madge finally snapped; shock call on Panthers ‘experiment’ — NRL Talking Points\nThe Brisbane Broncos have been on the slide for weeks now but up until last round’s loss to the Warriors, Michael Maguire had been surprisingly calm and up-beat.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nThen that suddenly changed. Why, and what does it mean for the Broncos moving forward?\nThere is one theory.\nPlus, Matty Johns has made a surprise call on a Panthers “experiment” while one of the potential premiership contenders is facing an “earth-shattering” blow.\nRead on for Round 25 Talking Points!\nBIG CALL ON PANTHERS ‘EXPERIMENT’\nPenrith Panthers v Melbourne Storm, Thursday 8pm, AAMI Park\nMatty Johns believes Penrith’s “experiment” with Blaize Talagi at five-eighth could be nearing an end as the Panthers prepare for a crucial Thursday night clash against the Storm.\nTalagi has once again been named on the extended bench, with no guarantee that the dynamic five-eighth will return to Penrith’s starting line-up for the finals.\nJack Cogger has been solid since filling in for Talagi and is a definite improvement in defence, although Penrith’s uninspiring performance in attack last week had potentially opened the door for coach Ivan Cleary to look for spark and recall Talagi.\nThat will not be the case and in many ways it would have been an over-reaction given Penrith’s clunky execution last week may have said more about Isaah Yeo’s absence rather than Cogger, while you also have to give plenty of credit to the Roosters’ defence.\n“I thought their attack lacked variation when they were attacking the line,” Johns said on ‘Matty and Cronk’.\n“There is no doubt he (Nathan Cleary) missed Isaah. He’s got to because they’ve worked as a partnership for just so long, right through the run of success.”\nOne of the notes Johns had coming out of the game was that Cogger needed to offer Cleary more, which prompted Cooper Cronk to question whether his co-host had changed his mind after initially saying he thought Penrith were better suited with a steady hand at five-eighth ahead of Talagi.\nCronk did admit he “expected a more significant impact” from Talagi when he was injected into the game late for Freddy Lussick, with the 21-year-old throwing an errant pass that was intercepted as Penrith attacked the line.\nJohns though questioned if the Panthers are realising, even early in Talagi’s career, that five-eighth may not be the position for him.\n“I sort of get the feeling, and look I’m only guessing here, I’m starting to get the sense that the Blaize at six experiment — if you want to call it that or the want to turn him into a top-class six — is evaporating,” Johns said.\n“I think they’re starting to think we might not get there, and they might be sitting on a bloke who is a world-class fullback or centre or somewhere else and maybe now it’s start time to push him somewhere else.”\nThat may not happen this year, especially with Casey McLean returning this week which means the Panthers don’t need to find a replacement elsewhere for the injured Paul Alamoti.\nBut it is an interesting subplot to monitor as Penrith looks to bounce back from two-straight losses to the Roosters and Warriors this week.\nThe Panthers will be better for the run without Yeo, and both Cronk and Johns agreed his replacement Lindsay Smith really warmed into last week’s game against the Roosters during his second stint.\nBlaize Talagi has been pushed back to the six-man bench. Picture: NRL images Source: News Sport Network\n“Although Lindsay won’t give the same service and doesn’t quite have the same vision of Isaah, I think he showed enough the other night to show he can play a role similar,” Johns said.\n“I thought his first stint was pretty good. I thought his second stint was just outstanding.”\n“His first stint was probably ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 7.496765324999999,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "bd06b39eaeacdf36",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "NRL News",
+            "title": "Meet the unheralded halves ready to deliver on the big stage",
+            "url": "https://www.nrl.com/news/2026/08/20/meet-the-unheralded-halves-ready-to-deliver-on-the-big-stage/",
+            "published_at": "2026-08-19T20:01:21+00:00",
+            "snippet": "Meet the unheralded halves ready to deliver on the big stage\nA collection of unheralded playmakers is set to be thrust into the spotlight after a dramatic couple of weeks turned the NRL premiership race on its head.\nAt first glance it may seem little connects Niwhai Puru, Jayden ",
+            "body_excerpt": "Meet the unheralded halves ready to deliver on the big stage\nA collection of unheralded playmakers is set to be thrust into the spotlight after a dramatic couple of weeks turned the NRL premiership race on its head.\nAt first glance it may seem little connects Niwhai Puru, Jayden Sullivan, Jack Cogger and Luke Hanson but a deeper look reveals they have instantly become some of the most important players in the race to the finals.\nA mix of steady backups and young guns, the playmakers have been thrust on to the big stage at short notice following injuries to a host of big names, including Braydon Trindall and Luke Metcalf.\nMetcalf leaves the field\nWith their club's finals fate resting in their hands, premiership winning halfback Chad Townsend said it's a golden opportunity to deliver in a big moment.\n\"First and foremost, it's a great opportunity for all of them,\" Townsend told NRL.com. \"All these guys have been around the squad and played some games here and there. They should be familiar with their role in the team and what's expected of them.\n\"When you come into these games at the end of the year, you need to narrow your focus into a couple of things. For me in the big games, it was 'kick well and make your tackles'. There's a lot of things as a half that you can get caught up in but for me it was always about how do I narrow my focus and do my job.\n\"The bigger the games got, the more important it is to home in on the specifics of a simplified role within the footy team. If you do that, the rest of your game flows off it.\"\nTrindall dislocates shoulder while scoring try\nWhile there are similarities among the group, each player finds themselves in a unique position.\nPuru is set to replace Braydon Trindall after the Sharks five-eighth dislocated his shoulder in last week's loss to the Raiders.\nTrindall hopes to return in time for the finals, but Puru has been tasked with quickly gelling with Nicho Hynes and helping lead Cronulla back into the top four.\nAn Indigenous All Star, Puru made his NRL debut earlier this year while Hynes was injured and was solid in three appearances. The Penrith junior has impressed in reserve grade, leading the Newtown Jets to the 2024 NSW Cup premiership and has signed with the Perth Bears for their inaugural season.\nA premiership winner with the Sharks, Townsend has watched Puru's progress closely throughout the last couple of years and is confident the 24-year-old is ready to step up.\n\"I really like his kicking game,\" Townsend said. \"That's a big factor of Niwhai that I've enjoyed in his progression. He's continued to be more comfortable in his role the more he's played.\n\"He's a great runner of the football and he has good control of the game. From where he was 12 months ago to where he is today, he's taken a lot of steps forward.\nRelated Rabbitohs\nHow Bud's Bunny buddies helped rekindle his love for the game\n\"The Sharks are losing him next year to Perth but now he gets a good opportunity at the back-end of this year. We're not sure when Tricky will be back but for Niwhai it's focusing on one week at a time, simplifying his role and going out there and getting his job done.\"\nSullivan was thrust into the Rabbitohs No.7 jumper last week after Ashton Ward went down with a season-ending hamstring injury and Jamie Humphreys succumbed to an ankle issue.\nThe playmaker stepped up to lead South Sydney past Canterbury and will look to do it again in Saturday's showdown with the Warriors.\nBulldogs v Rabbitohs – Round 24, 2026\nA junior star out of the fertile Illawarra nursery, Sullivan's career has had plenty of twists and turns but few have doubted his talent.\nRabbitohs forward Euan Aitken is a fellow Wollongong product who lined up alongside Sullivan when the highly touted junior made his NRL debut for the Dragons back in 2020.\nThe pair reconnected at South Sydney last year and Aitken is confident the playmaker's best is still to come.\nRabbitohs v Warriors: Round 25\n\"Bud's a good kid,\" Aitken said. \"With the ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 7.545098658333333,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Storm vs Panthers NRL round 25 preview",
+          "Storm Panthers NRL odds OR price OR favourite",
+          "Storm Panthers NRL ladder stakes OR finals race",
+          "Storm Panthers NRL",
+          "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Storm Panthers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 25 Storm OR Panthers"
+        ],
+        "filter_summary": {
+          "dropped_stale": 54,
+          "dropped_wrong_round": 2,
+          "dropped_noise": 13,
+          "dropped_irrelevant": 9,
+          "kept": 18,
+          "deferred_pending_body": 79,
+          "promoted_after_body": 8,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "2d877d2d2412",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-20T03:34:03.325968+00:00",
+      "finished_at": "2026-08-20T03:35:27.592235+00:00",
+      "duration_ms": 84266,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Panthers",
+        "venue": "AAMI Park",
+        "kickoff": "2026-08-20T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.5973,
+        "home_win_probability": 0.4027,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (3% of total)",
+            "Home travel to venue (0 km) — contribution 0.021 (2% of total)",
+            "Venue home advantage (75% historical home rate) — contribution 0.020 (2% of total)",
+            "Rest-day advantage (+5.2 days) — contribution 0.017 (1% of total)",
+            "5-game workload: top3 tackle share (-0.01) — contribution 0.016 (1% of total)"
+          ],
+          "negative_drivers": [
+            "Ladder points differential per game (-13.8 points) — contribution 0.287 (24% of total)",
+            "Elo rating advantage (-91 points) — contribution 0.165 (14% of total)",
+            "Bradley-Terry strength advantage (-0.39 log-strength) — contribution 0.134 (11% of total)",
+            "5-game form: all run metres (-149.60) — contribution 0.080 (7% of total)",
+            "Pythagorean form (last 10) (-22% expected-win gap) — contribution 0.071 (6% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2466,
+            "total_toward_away": 0.9463,
+            "net": -0.6997,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": []
+        },
+        "fixture": {
+          "home_team": "Storm",
+          "away_team": "Panthers",
+          "venue": "AAMI Park",
+          "kickoff": "2026-08-20T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

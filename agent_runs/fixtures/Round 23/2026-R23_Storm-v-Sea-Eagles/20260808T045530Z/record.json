@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "run_id": "20260808T045530Z-134a1247",
+  "run": {
+    "predicted_at_utc": "2026-08-08T05:06:13.670214+00:00",
+    "predicted_at_local": "2026-08-08T15:06:13.670214+10:00",
+    "started_at_utc": "2026-08-08T04:55:30.112049+00:00",
+    "wall_seconds": 643.6,
+    "hours_before_kickoff": -0.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 23,
+    "home_team": "Storm",
+    "away_team": "Sea Eagles",
+    "venue": "HBF Park",
+    "kickoff": "2026-08-08T15:00:00+10:00",
+    "kickoff_local": "2026-08-08T15:00:00+10:00",
+    "weather": "Rain"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 23,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Storm",
+      "position": 12,
+      "played": 20,
+      "wins": 8,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 20,
+      "points_for": 468,
+      "points_against": 494,
+      "points_difference": -26,
+      "points_difference_per_game": -1.3,
+      "recent_form_last_4": "1 - 3",
+      "streak": "3L",
+      "home_record": "6 - 4",
+      "away_record": "2 - 8"
+    },
+    "away": {
+      "team": "Sea Eagles",
+      "position": 10,
+      "played": 19,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 24,
+      "points_for": 485,
+      "points_against": 395,
+      "points_difference": 90,
+      "points_difference_per_game": 4.74,
+      "recent_form_last_4": "0 - 4",
+      "streak": "4L",
+      "home_record": "5 - 5",
+      "away_record": "4 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Sea Eagles",
+      "ladder_positions_gap": -2,
+      "points_difference_per_game_gap": -6.04,
+      "points_difference_favours": "Sea Eagles"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+  },
+  "prediction": {
+    "predicted_winner": "Storm",
+    "predicted_side": "home",
+    "confidence": 0.57,
+    "home_win_probability": 0.57
+  },
+  "math_model": {
+    "home_win_probability": 0.5584,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.46 log-strength) — contribution 0.149 (17% of total)",
+        "Elo rating advantage (+23 points) — contribution 0.067 (8% of total)",
+        "5-game workload: top3 tackle share (-0.02) — contribution 0.028 (3% of total)",
+        "5-game form: effective tackle pct (+2.48) — contribution 0.024 (3% of total)",
+        "3-game form: missed tackles (-3.67) — contribution 0.017 (2% of total)"
+      ],
+      "negative_drivers": [
+        "Home travel to venue (2,723 km) — contribution 0.057 (7% of total)",
+        "Rest-day advantage (-5.2 days) — contribution 0.053 (6% of total)",
+        "Pythagorean form (last 10) (-1% expected-win gap) — contribution 0.044 (5% of total)",
+        "5-game form: all run metres (-50.40) — contribution 0.040 (5% of total)",
+        "Ladder points differential per game (-6.0 points) — contribution 0.034 (4% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": []
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Storm vs Sea Eagles NRL round 23 preview",
+      "Storm Sea Eagles NRL odds OR price OR favourite",
+      "Storm Sea Eagles NRL finals race OR ladder stakes",
+      "Storm Sea Eagles NRL",
+      "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Storm Sea Eagles NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 23 Storm OR Sea Eagles"
+    ],
+    "items_kept": 15,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined Presented by 49 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:06:17+00:00",
+        "age_hours": 0.8315091852777777,
+        "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Round 23",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-04T06:00:45+00:00",
+        "age_hours": 94.9237314075,
+        "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/"
+      },
+      {
+        "title": "Team List: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:00:00+00:00",
+        "age_hours": 94.9362314075,
+        "url": "https://www.seaeagles.com.au/news/2026/08/04/team-list-nrl-round-23-vs-storm/"
+      },
+      {
+        "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 18 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:38:02+00:00",
+        "age_hours": 0.3023425186111111,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Live Blog Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels Presented by 54 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:01:29+00:00",
+        "age_hours": 0.9115091852777778,
+        "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/"
+      },
+      {
+        "title": "Match Preview Storm v Sea Eagles: Munster back on deck; Laiafi to start",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T03:36:17+00:00",
+        "age_hours": 1.3315091852777778,
+        "url": "https://www.nrl.com/news/2026/08/04/storm-v-sea-eagles-munster-back-on-deck-wakeham-returns/"
+      },
+      {
+        "title": "Final Team: Round 23 vs Storm - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-08T03:29:26+00:00",
+        "age_hours": 1.4456758519444444,
+        "url": "https://www.seaeagles.com.au/news/2026/08/08/final-team-round-23-vs-storm/"
+      },
+      {
+        "title": "Storm vs Sea Eagles Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T05:28:04+00:00",
+        "age_hours": 23.468453629722223,
+        "url": "https://www.beforeyoubet.com.au/storm-vs-sea-eagles-preview-betting-tips-nrl-round-23-2026"
+      },
+      {
+        "title": "Team Update: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T05:01:21+00:00",
+        "age_hours": 23.913731407500002,
+        "url": "https://www.seaeagles.com.au/news/2026/08/07/team-update-nrl-round-23-vs-storm/"
+      },
+      {
+        "title": "Match Preview: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T05:54:11+00:00",
+        "age_hours": 71.03317585194445,
+        "url": "https://www.seaeagles.com.au/news/2026/08/05/match-preview-nrl-round-23-vs-storm/"
+      },
+      {
+        "title": "Storm v Sea Eagles: Round 23 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:06:09+00:00",
+        "age_hours": 72.8337314075,
+        "url": "https://www.nrl.com/news/2026/08/05/storm-v-sea-eagles-round-23/"
+      },
+      {
+        "title": "Team Announcement: Round 23 v Manly - Melbourne Storm",
+        "source": "melbournestorm.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:58:43+00:00",
+        "age_hours": 94.9576202963889,
+        "url": "https://www.melbournestorm.com.au/news/2026/08/04/team-announcement-round-23-v-manly/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T02:22:53+00:00",
+        "age_hours": 26.554842518611114,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242"
+      },
+      {
+        "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T23:57:46+00:00",
+        "age_hours": 76.97345362972223,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/"
+      },
+      {
+        "title": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T13:42:11+00:00",
+        "age_hours": 15.233175851944443,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Munster's return is sourced from nrl_news (\"Bellamy’s team has been bolstered by the return of five-eighth Cameron Munster\"), and points differential from set_fixture_scene."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Source states Munster is named to start; judgement describes him as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry strength advantage is correctly attributed to Storm from the favouring_Storm_home_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather (Rain) is not presented as a key factor in the judgement."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor regarding Cameron Munster's return identifies nrl_news."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.57 is within the 0.50-0.85 range and appropriately capped below 0.65 given the unresolved rest/differential advantages for Manly."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant driver (Bradley-Terry strength) is treated as the primary math factor."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "The top driver 'Elo rating advantage (+23 points)' for Storm is not mentioned or alluded to in the judgement."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.57
+  },
+  "reasoning": {
+    "summary": "The Storm are supported by superior strength metrics (Bradley-Terry and Elo) and the critical return of Cameron Munster. While the Sea Eagles hold a significant points differential advantage (+90 vs -26) and enter the match well-rested from a bye, the model's underlying ratings favor Melbourne. The neutral venue in Perth further balances the fixture.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Bradley-Terry strength advantage contributed 0.149 and an Elo rating advantage of +23 points contributed 0.067 to the home win probability."
+      },
+      {
+        "source": "research",
+        "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+      },
+      {
+        "source": "scene",
+        "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+      }
+    ],
+    "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Storm-v-Sea-Eagles/20260808T045530Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Storm-v-Sea-Eagles/20260808T045530Z/summary.md"
+  }
+}

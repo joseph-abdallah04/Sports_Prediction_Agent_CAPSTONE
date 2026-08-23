@@ -1,0 +1,1284 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T013835Z-4368793d",
+  "at_a_glance": {
+    "fixture": "Bulldogs v Rabbitohs",
+    "round": 24,
+    "kickoff": "2026-08-14T20:00:00+10:00",
+    "venue": "Accor Stadium",
+    "predicted_winner": "Bulldogs",
+    "confidence": 0.71,
+    "model_home_win_probability": 0.7382,
+    "model_prediction": "Home Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-14T01:38:35.527588+00:00",
+  "updated_at": "2026-08-14T01:49:21.664824+00:00",
+  "request": {
+    "home_team": "Bulldogs",
+    "away_team": "Rabbitohs",
+    "season": 2026,
+    "round_number": 24,
+    "force_refresh": true,
+    "user_question": "Who wins Bulldogs vs Rabbitohs?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Bulldogs",
+    "away_team": "Rabbitohs",
+    "confidence": 0.71,
+    "summary": "The Bulldogs are strong favourites based on a combination of an Elo advantage and superior recent defensive form, having conceded significantly fewer points over their last five games (math driver: -14.40). While the Rabbitohs benefit from substantial rest (12.2 days) and a better season-long points differential, they struggle away from home (3-7 record). The Bulldogs' momentum—winning six of eight according to sportsnews.com.au—outweighs South Sydney's recovery advantage.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+      },
+      {
+        "source": "math",
+        "detail": "Bulldogs show strong recent defensive trends with a 5-game 'points against' contribution of -14.40 favouring the home win."
+      },
+      {
+        "source": "research",
+        "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 4
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Bulldogs vs Rabbitohs NRL round 24 preview",
+      "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+      "Bulldogs Rabbitohs NRL finals race OR form guide"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Matched bookmaker favourites (sportsnews.com.au), 6/8 wins (sportsnews.com.au), ladder position and PD per game (set_fixture_scene), home/away records (set_fixture_scene), and Campbell Graham's return (nrl_news)."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source says Campbell Graham is 'on track to welcome back', judgement describes it as a 'return'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Pythagorean form and Elo advantage are correctly attributed to the Bulldogs (home side)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies sportsnews.com.au regarding recent win momentum."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.71 is within the allowed range and justified by citing Graham's return and scoring margins as tempering factors."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on high-contribution drivers like Pythagorean form and Elo rating."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top math drivers '5-game form: points against' (Bulldogs) and 'Away rest (12.2 days)' (Rabbitohs) were not addressed."
+        }
+      ],
+      "issues": [
+        "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in the evaluation."
+      ],
+      "instruction": "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Bulldogs",
+      "away_team": "Rabbitohs",
+      "confidence": 0.71,
+      "summary": "The Bulldogs enter as bookmaker favourites with strong support from the math model and recent form, having won six of their last eight matches according to sportsnews.com.au. While the Rabbitohs are higher on the official ladder and possess a superior points differential per game, the Bulldogs' dominant home record (7-3) and Elo advantage provide a clear edge. Confidence is tempered by South Sydney's return of winger Campbell Graham and their overall better season-long scoring margin.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+        },
+        {
+          "source": "research",
+          "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Bulldogs",
+      "away_team": "Rabbitohs",
+      "confidence": 0.71,
+      "summary": "The Bulldogs are strong favourites based on a combination of an Elo advantage and superior recent defensive form, having conceded significantly fewer points over their last five games (math driver: -14.40). While the Rabbitohs benefit from substantial rest (12.2 days) and a better season-long points differential, they struggle away from home (3-7 record). The Bulldogs' momentum—winning six of eight according to sportsnews.com.au—outweighs South Sydney's recovery advantage.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+        },
+        {
+          "source": "math",
+          "detail": "Bulldogs show strong recent defensive trends with a 5-game 'points against' contribution of -14.40 favouring the home win."
+        },
+        {
+          "source": "research",
+          "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-14T01:39:02.189619+00:00",
+      "thinking": "*   Home Team: Bulldogs\n    *   Away Team: Rabbitohs\n    *   Round Number: 24\n    *   Goal: Determine who wins (predictive/research).\n\n    1.  Home team availability (Bulldogs)\n    2.  Away team availability (Rabbitohs)\n    3.  Fixture preview (Bulldogs vs Rabbitohs Round 24)\n    4.  Market prices (Odds/Favorite)\n    5.  Specific context (Form, ladder stakes, etc.)\n\n    *   Query 1: `Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Query 2: `Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Query 3: `Bulldogs vs Rabbitohs NRL round 24 preview`\n    *   Query 4: `Bulldogs Rabbitohs NRL odds OR price OR favourite`\n    *   Query 5 (Context): Since it's Round 24, the finals race is usually critical. Let's go with \"finals race\" or \"form\". I'll use \"finals hopes\" as it's late in the season. `Bulldogs Rabbitohs NRL finals race OR form guide`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Correct order of importance? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Bulldogs, Rabbitohs).\n    *   JSON format only? Yes.",
+      "chars": 1138
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-14T01:44:40.211867+00:00",
+      "thinking": "*   Match: Bulldogs (Home) vs Rabbitohs (Away).\n    *   Venue: Accor Stadium.\n    *   Round: 24.\n\n        *   Prediction: Home Win.\n        *   Probability: 0.7382.\n        *   Key Drivers for Home (Bulldogs): Pythagorean form (+19% gap), 5-game points against (-14.40), Elo rating advantage (+46), Bradley-Terry strength advantage.\n        *   Key Drivers for Away (Rabbitohs): Ladder points differential per game (-5.6), Away rest, Travel distance.\n        *   Attribution Balance: Leans heavily home (0.8194 vs 0.1497).\n\n        *   Bulldogs: Position 9, Wins 10, Lost 10, Points Diff -46 (-2.3/game), Home Record 7-3.\n        *   Rabbitohs: Position 7, Wins 11, Lost 9, Points Diff +66 (+3.3/game), Away Record 3-7.\n        *   Comparison: Rabbitohs higher on ladder and better points differential per game.\n\n        *   Bulldogs: Won 6 of last 8 (sportsnews.com.au). Lost to Roosters recently after leading (nrl_news).\n        *   Rabbitohs: Escaped defeat against Parramatta (bulldogs.com.au). \"Prime for season-defining clash\" (nrl.com).\n        *   Availability: Campbell Graham is a \"certain starter\" returning from calf injury (nrl_news - \"NRL Late Mail: Round 24\").\n\n        *   Bulldogs are favourites with bookmakers (sportsnews.com.au). Prices mentioned range around $1.62 to $1.90 for the home side.\n\n    *   The math model strongly favours the Bulldogs (73.8% probability), driven by recent Pythagorean form and Elo ratings, despite the Rabbitohs being higher on the official ladder.\n    *   Research confirms the Bulldogs have been in strong form recently (6 of last 8 wins).\n    *   Rabbitohs get Campbell Graham back, which is a boost.\n    *   The market also favours the Bulldogs.\n\n    *   Winner: Home (Bulldogs).\n    *   Confidence: The model says 0.7382. Research supports recent form and market alignment. However, Rabbitohs are higher on the ladder and have a significantly better points differential per game (+3.3 vs -2.3), which is a credible reason they could win. This keeps confidence from being \"rare\" (above 0.75). I'll place it in the \"clear edge\" band (0.65-0.75) because multiple signals (Math, Market, Recent Form) align, but the ladder/points diff is a counter-signal.\n    *   Confidence Value: ~0.71 (aligning closely with model probability).\n\n    *   Key Factors:\n        1.  Math: Pythagorean form and Elo rating advantage for Bulldogs.\n        2.  Research: Recent form of 6 wins from last 8 games (sportsnews.com.au).\n        3.  Scene/Standings: Strong home record for Bulldogs (7-3).\n\n    *   Disagreements with math: None significant; the model accounts for the ladder gap but weights recent form and Elo higher.",
+      "chars": 2658
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-14T01:48:01.442973+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home Team: Bulldogs\n    *   Away Team: Rabbitohs\n    *   Season: 2026, Round 24\n    *   Venue: Accor Stadium\n    *   Weather: Fine (from `set_fixture_scene`)\n\n    *   `sourced_claims`:\n        *   \"bookmaker favourites\": Found in `sportsnews.com.au` body excerpt (\"Canterbury Bulldogs heading into the game as favourites with the bookmakers\"). -> Pass.\n        *   \"won six of their last eight matches\": Found in `sportsnews.com.au` body excerpt (\"The Bulldogs have won six of their past eight\"). -> Pass.\n        *   \"Rabbitohs are higher on the official ladder\": Found in `set_fixture_scene` (`comparison`: `higher_on_ladder`: \"Rabbitohs\"). -> Pass.\n        *   \"superior points differential per game\": Found in `set_fixture_scene` (`comparison`: `points_difference_per_game_gap`: -5.6, meaning Rabbitohs are +5.6 better). -> Pass.\n        *   \"Bulldogs' dominant home record (7-3)\": Found in `set_fixture_scene` (`home_record`: \"7 - 3\"). -> Pass.\n        *   \"Rabbitohs' poor away record of 3-7\": Found in `set_fixture_scene` (`away_record`: \"3 - 7\"). -> Pass.\n        *   \"return of winger Campbell Graham\": Found in `nrl_news` body excerpt (\"The Rabbitohs are on track to welcome back Campbell Graham from a calf injury\"). -> Pass.\n\n    *   `availability_direction`:\n        *   Campbell Graham: Source says \"on track to welcome back\", judgement says \"return of winger\". Correct direction. -> Pass.\n\n    *   `shap_attribution`:\n        *   \"Pythagorean form gap (+19%)\": In `favouring_Bulldogs_home_win`. Attributed to Bulldogs (implied by \"model strongly favours the home side\"). -> Pass.\n        *   \"Elo rating advantage (+46 points)\": In `favouring_Bulldogs_home_win`. Attributed to Bulldogs. -> Pass.\n\n    *   `weather_not_headline`:\n        *   Weather is not mentioned in summary or key factors. -> Pass.\n\n    *   `research_used`:\n        *   Key factor 2: \"The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)\". Sourced from research. -> Pass.\n\n    *   `confidence_justified`:\n        *   Confidence is 0.71. Summary says it's tempered by Graham's return and Rabbitohs' scoring margin. Range is 0.50-0.85. It's below 0.65? No, but the \"credible unresolved reason\" (Graham returning) justifies a slightly lower confidence than the math probability (0.73). Actually, it's within range and justified by specific factors mentioned in the summary. -> Pass.\n\n    *   `driver_proportionality`:\n        *   Top drivers for Bulldogs: Pythagorean form (13%), 5-game points against (10%).\n        *   Judgement focuses on Pythagorean form and Elo (+7%). It doesn't overstate a minor driver. -> Pass.\n\n    *   `omitted_math_signals`:\n        *   Top drivers for Bulldogs:\n            1.  Pythagorean form (last 10) - Mentioned.\n            2.  5-game form: points against (-14.40) - **NOT mentioned**.\n            3.  Away travel to venue (0 km) - Not mentioned.\n        *   Top drivers for Rabbitohs:\n            1.  Ladder points differential per game (-5.6 points) - Mentioned (\"superior points differential per game\").\n            2.  Away rest (12.2 days) - **NOT mentioned**.\n            3.  Travel-distance advantage (-0 km) - Not mentioned.\n\n    *   Wait, let's re-evaluate `omitted_math_signals`.\n        *   Bulldogs top drivers: Pythagorean form (mentioned), 5-game points against (not mentioned).\n        *   Rabbitohs top drivers: Ladder points differential per game (mentioned), Away rest (not mentioned).\n        *   The rule says \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n        *   Bulldogs: Driver 2 (\"5-game form: points against\") is missing.\n        *   Rabbitohs: Driver 2 (\"Away rest\") is missing.\n\n    *   `sourced_claims`: Pass. (Matched bookies, win record, ladder pos, PD per game, home/away records, Campbell Graham).\n    *   `availability_direction`: Pass. (Graham returning).\n    *   `shap_attribution`: Pass. (Pythagorean and Elo correctly attributed to Bulldogs).\n    *   `weather_not_headline`: Pass. (Not mentioned).\n    *   `research_used`: Pass. (sportsnews.com.au cited).\n    *   `confidence_justified`: Pass. (0.71 is reasonable, justified by Graham/scoring margin).\n    *   `driver_proportionality`: Pass.\n    *   `omitted_math_signals`: Fail. \"5-game form: points against\" and \"Away rest (12.2 days)\" are not addressed.\n\n    *   Instruction for `omitted_math_signals`: \"Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 4803
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-14T01:49:21.664601+00:00",
+      "thinking": "*   Match: Bulldogs vs Rabbitohs.\n    *   Current Prediction: Home Win (Bulldogs).\n    *   Confidence: 0.71.\n    *   Verifier Issues: '5-game form: points against' and 'Away rest (12.2 days)' from the math drivers were not addressed.\n\n    *   `favouring_Bulldogs_home_win`:\n        *   Pythagorean form (last 10) (+19% expected-win gap): contribution 0.130 (13%) - *Addressed*.\n        *   5-game form: points against (-14.40): contribution 0.095 (10%) - *NOT Addressed*. This means the Bulldogs have conceded significantly fewer points over their last five games compared to the Rabbitohs, indicating a strong defensive trend.\n        *   Away travel to venue (0 km): contribution 0.072 (7%).\n        *   Elo rating advantage (+46 points): contribution 0.064 (7%) - *Addressed*.\n        *   Bradley-Terry strength advantage (+0.19 log-strength): contribution 0.064 (7%).\n    *   `favouring_Rabbitohs_away_win`:\n        *   Ladder points differential per game (-5.6 points): contribution 0.037 (4%) - *Addressed*.\n        *   Away rest (12.2 days): contribution 0.030 (3%) - *NOT Addressed*. This means the Rabbitohs have had a significant amount of rest (over 12 days), which generally helps recovery and preparation.\n        *   Travel-distance advantage (-0 km for away): contribution 0.022 (2%).\n        *   5-game workload: top3 tackle share (+0.02): contribution 0.018 (2%).\n        *   5-game momentum: penalty cluster rate (-0.80): contribution 0.012 (1%); CONFLICT.\n\n    *   `5-game form: points against`: This is a strong signal for the Bulldogs (contribution 0.095). It suggests their defense has tightened up recently, which aligns with the \"winning six of eight\" narrative from research.\n    *   `Away rest (12.2 days)`: This is a positive for the Rabbitohs (contribution 0.030), but it's a relatively small contribution compared to the Bulldogs' defensive form and Elo advantage.\n\n    *   Winner: Still Home (Bulldogs).\n    *   Confidence: The defensive trend (`points against`) reinforces the pick, while the `away rest` provides a slight counter-balance for Souths. The net effect is still strongly in favor of the home side. 0.71 remains reasonable given the strong math lean and research on form.\n\n    *   Update summary to include these points.\n    *   Ensure key factors reflect the defensive strength (points against).",
+      "chars": 2339
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-14T01:39:02.190586+00:00",
+      "payload": {
+        "queries": [
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Bulldogs vs Rabbitohs NRL round 24 preview",
+          "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+          "Bulldogs Rabbitohs NRL finals race OR form guide"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-14T01:44:40.211984+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "confidence": 0.71,
+          "summary": "The Bulldogs enter as bookmaker favourites with strong support from the math model and recent form, having won six of their last eight matches according to sportsnews.com.au. While the Rabbitohs are higher on the official ladder and possess a superior points differential per game, the Bulldogs' dominant home record (7-3) and Elo advantage provide a clear edge. Confidence is tempered by South Sydney's return of winger Campbell Graham and their overall better season-long scoring margin.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-14T01:48:01.443491+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Matched bookmaker favourites (sportsnews.com.au), 6/8 wins (sportsnews.com.au), ladder position and PD per game (set_fixture_scene), home/away records (set_fixture_scene), and Campbell Graham's return (nrl_news)."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source says Campbell Graham is 'on track to welcome back', judgement describes it as a 'return'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Pythagorean form and Elo advantage are correctly attributed to the Bulldogs (home side)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies sportsnews.com.au regarding recent win momentum."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.71 is within the allowed range and justified by citing Graham's return and scoring margins as tempering factors."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on high-contribution drivers like Pythagorean form and Elo rating."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top math drivers '5-game form: points against' (Bulldogs) and 'Away rest (12.2 days)' (Rabbitohs) were not addressed."
+            }
+          ],
+          "issues": [
+            "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in the evaluation."
+          ],
+          "instruction": "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-14T01:49:21.664717+00:00",
+      "payload": {
+        "issues": [
+          "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in the evaluation."
+        ],
+        "instruction": "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "confidence": 0.71,
+          "summary": "The Bulldogs enter as bookmaker favourites with strong support from the math model and recent form, having won six of their last eight matches according to sportsnews.com.au. While the Rabbitohs are higher on the official ladder and possess a superior points differential per game, the Bulldogs' dominant home record (7-3) and Elo advantage provide a clear edge. Confidence is tempered by South Sydney's return of winger Campbell Graham and their overall better season-long scoring margin.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "confidence": 0.71,
+          "summary": "The Bulldogs are strong favourites based on a combination of an Elo advantage and superior recent defensive form, having conceded significantly fewer points over their last five games (math driver: -14.40). While the Rabbitohs benefit from substantial rest (12.2 days) and a better season-long points differential, they struggle away from home (3-7 record). The Bulldogs' momentum—winning six of eight according to sportsnews.com.au—outweighs South Sydney's recovery advantage.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+            },
+            {
+              "source": "math",
+              "detail": "Bulldogs show strong recent defensive trends with a 5-game 'points against' contribution of -14.40 favouring the home win."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "31a41dc8b086",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-14T01:38:35.527728+00:00",
+      "finished_at": "2026-08-14T01:38:38.966605+00:00",
+      "duration_ms": 3438,
+      "request": {
+        "home_team": "Bulldogs",
+        "away_team": "Rabbitohs",
+        "season": 2026,
+        "round_number": 24,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "season": 2026,
+          "round_number": 24
+        },
+        "retrieved_at": "2026-08-14T01:38:35.527788+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 24,
+          "round_title": "Round 24",
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "kickoff": "2026-08-14T20:00:00+10:00",
+          "venue": "Accor Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/bulldogs-v-rabbitohs/",
+          "match_mode": "Pre",
+          "match_id": "20261112430",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Jon Stone"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Connor Tracey",
+                "position": "Fullback",
+                "player_id": 502015
+              },
+              {
+                "number": 2,
+                "name": "Jacob Kiraz",
+                "position": "Winger",
+                "player_id": 100004133
+              },
+              {
+                "number": 3,
+                "name": "Matt Burton",
+                "position": "Centre",
+                "player_id": 509397
+              },
+              {
+                "number": 4,
+                "name": "Enari Tuala",
+                "position": "Centre",
+                "player_id": 504372
+              },
+              {
+                "number": 5,
+                "name": "Jethro Rinakama",
+                "position": "Winger",
+                "player_id": 100013980
+              },
+              {
+                "number": 6,
+                "name": "Stephen Crichton",
+                "position": "Five-Eighth",
+                "player_id": 508062
+              },
+              {
+                "number": 7,
+                "name": "Lachlan Galvin",
+                "position": "Halfback",
+                "player_id": 100007336
+              },
+              {
+                "number": 8,
+                "name": "Max King",
+                "position": "Prop",
+                "player_id": 504397
+              },
+              {
+                "number": 9,
+                "name": "Bailey Hayward",
+                "position": "Hooker",
+                "player_id": 505864
+              },
+              {
+                "number": 10,
+                "name": "Leo Thompson",
+                "position": "Prop",
+                "player_id": 100007572
+              },
+              {
+                "number": 11,
+                "name": "Viliame Kikau",
+                "position": "2nd Row",
+                "player_id": 500408
+              },
+              {
+                "number": 12,
+                "name": "Jacob Preston",
+                "position": "2nd Row",
+                "player_id": 507878
+              },
+              {
+                "number": 13,
+                "name": "Jaeman Salmon",
+                "position": "Lock",
+                "player_id": 504301
+              },
+              {
+                "number": 14,
+                "name": "Kurt Mann",
+                "position": "Interchange",
+                "player_id": 500601
+              },
+              {
+                "number": 15,
+                "name": "Josh Curran",
+                "position": "Interchange",
+                "player_id": 504712
+              },
+              {
+                "number": 16,
+                "name": "Harry Hayes",
+                "position": "Interchange",
+                "player_id": 100006687
+              },
+              {
+                "number": 17,
+                "name": "Alekolasimi Jones",
+                "position": "Interchange",
+                "player_id": 100013762
+              },
+              {
+                "number": 19,
+                "name": "Bronson Xerri",
+                "position": "Interchange",
+                "player_id": 504714
+              },
+              {
+                "number": 20,
+                "name": "Jake Turpin",
+                "position": "Interchange",
+                "player_id": 501280
+              },
+              {
+                "number": 22,
+                "name": "Sean O'Sullivan",
+                "position": "Reserve",
+                "player_id": 504842
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Matthew Dufty",
+                "position": "Fullback",
+                "player_id": 500448
+              },
+              {
+                "number": 2,
+                "name": "Alex Johnston",
+                "position": "Winger",
+                "player_id": 500108
+              },
+              {
+                "number": 3,
+                "name": "Tallis Duncan",
+                "position": "Centre",
+                "player_id": 509529
+              },
+              {
+                "number": 4,
+                "name": "Jack Wighton",
+                "position": "Centre",
+                "player_id": 500339
+              },
+              {
+                "number": 5,
+                "name": "Campbell Graham",
+                "position": "Winger",
+                "player_id": 504294
+              },
+              {
+                "number": 6,
+                "name": "Cody Walker",
+                "position": "Five-Eighth",
+                "player_id": 500611
+              },
+              {
+                "number": 7,
+                "name": "Jayden Sullivan",
+                "position": "Halfback",
+                "player_id": 507928
+              },
+              {
+                "number": 8,
+                "name": "Tevita Tatola",
+                "position": "Prop",
+                "player_id": 503450
+              },
+              {
+                "number": 9,
+                "name": "Brandon Smith",
+                "position": "Hooker",
+                "player_id": 503419
+              },
+              {
+                "number": 10,
+                "name": "Keaon Koloamatangi",
+                "position": "Prop",
+                "player_id": 504174
+              },
+              {
+                "number": 11,
+                "name": "David Fifita",
+                "position": "2nd Row",
+                "player_id": 506482
+              },
+              {
+                "number": 12,
+                "name": "Adam Elliott",
+                "position": "2nd Row",
+                "player_id": 500128
+              },
+              {
+                "number": 13,
+                "name": "Cameron Murray",
+                "position": "Lock",
+                "player_id": 504176
+              },
+              {
+                "number": 14,
+                "name": "Jye Gray",
+                "position": "Interchange",
+                "player_id": 100009148
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Hubner",
+                "position": "Interchange",
+                "player_id": 506446
+              },
+              {
+                "number": 16,
+                "name": "Sean Keppie",
+                "position": "Interchange",
+                "player_id": 504265
+              },
+              {
+                "number": 17,
+                "name": "Euan Aitken",
+                "position": "Interchange",
+                "player_id": 500441
+              },
+              {
+                "number": 18,
+                "name": "Peter Mamouzelos",
+                "position": "Interchange",
+                "player_id": 507833
+              },
+              {
+                "number": 19,
+                "name": "Edward Kosi",
+                "position": "Interchange",
+                "player_id": 509842
+              },
+              {
+                "number": 20,
+                "name": "Jonah Glover",
+                "position": "Reserve",
+                "player_id": 100007790
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 24,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Bulldogs",
+            "position": 9,
+            "played": 20,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 26,
+            "points_for": 396,
+            "points_against": 442,
+            "points_difference": -46,
+            "points_difference_per_game": -2.3,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1L",
+            "home_record": "7 - 3",
+            "away_record": "3 - 7"
+          },
+          "away": {
+            "team": "Rabbitohs",
+            "position": 7,
+            "played": 20,
+            "wins": 11,
+            "drawn": 0,
+            "lost": 9,
+            "competition_points": 28,
+            "points_for": 554,
+            "points_against": 488,
+            "points_difference": 66,
+            "points_difference_per_game": 3.3,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "8 - 2",
+            "away_record": "3 - 7"
+          },
+          "comparison": {
+            "higher_on_ladder": "Rabbitohs",
+            "ladder_positions_gap": -2,
+            "points_difference_per_game_gap": -5.6,
+            "points_difference_favours": "Rabbitohs"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-14T20:00",
+            "temperature_c": 13.0,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 1.2,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8474,
+            "longitude": 151.0632,
+            "venue": "Accor Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-14T01:38:38.965329+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=24&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/bulldogs-v-rabbitohs/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "b47e4dc6f7e6",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-14T01:39:02.192785+00:00",
+      "finished_at": "2026-08-14T01:41:19.182497+00:00",
+      "duration_ms": 136989,
+      "request": {
+        "home_team": "Bulldogs",
+        "away_team": "Rabbitohs",
+        "kickoff": "2026-08-14T20:00:00+10:00",
+        "round_number": 24,
+        "venue": "Accor Stadium",
+        "queries": [
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Bulldogs vs Rabbitohs NRL round 24 preview",
+          "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+          "Bulldogs Rabbitohs NRL finals race OR form guide"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "kickoff": "2026-08-14T20:00:00+10:00",
+          "round_number": 24,
+          "venue": "Accor Stadium",
+          "queries": [
+            "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Bulldogs vs Rabbitohs NRL round 24 preview",
+            "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+            "Bulldogs Rabbitohs NRL finals race OR form guide"
+          ]
+        },
+        "retrieved_at": "2026-08-14T01:39:02.195285+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "5e8b5ad69f60bb6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 24 - Graham nears return",
+            "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/",
+            "published_at": "2026-08-13T10:04:21+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 - Graham nears return\nThe Rabbitohs are on track to welcome back Campbell Graham from a calf injury in Friday night's clash with the Bulldogs.\nSouth Sydney coach Wayne Bennett has declared the winger a certain starter in a much-needed boost to",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 - Graham nears return\nThe Rabbitohs are on track to welcome back Campbell Graham from a calf injury in Friday night's clash with the Bulldogs.\nSouth Sydney coach Wayne Bennett has declared the winger a certain starter in a much-needed boost to the squad for a game in which both teams will be desperate to improve their finals chances.\nSee all the late mail, official team news and updates for Round 24 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Team Lists: Round 24\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nSea Eagles\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dolphins is number 10 Francis Molo\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dolphins is number 11 Connelly Lemuelu\n11\n2nd Row for Sea Eagles is number 12 Corey Waddell 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Sea Eagles is number 14 Jake Simpkin 14 Interchange for Dolphins is number 14 Max Plath\n14\nInterchange for Sea Eagles is number 15 Nicholas Lenaz 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Sea Eagles is number 16 Fletcher Baker 16 Interchange for Dolphins is number 16 Tom Gilbert\n16\nInterchange for Sea Eagles is number 17 Jackson Shereb 17 Interchange for Dolphins is number 17 Felise Kaufusi\n17\nInterchange for Sea Eagles is number 18 Josh Feledy 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Sea Eagles is number 19 Hugo Hart 19 21 Interchange for Dolphins is number 21 Tevita Naufahu\n19 21\nReserves\nReserve for Sea Eagles is number 20 Onitoni Large 20 22 Reserve for Dolphins is number 22 Brian Pouniu\n20 22\nSea Eagles Ins\nClayton Faulalo\nHugo Hart\nOnitoni Large\nDolphins Ins\nRay Stone\nTevita Naufahu\nSea Eagles Outs\nBlake Wilson\nTaniela Paseka\nKurt Donoghoe\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Dave Munro\nSenior Review Official: Wyatt Raymond\nLast updated: 8/14/2026 12:06:14 AM\nSea Eagles: Still no Tom Trbojevic (hamstring) so Clayton Faulalo takes the No.1 jersey as he returns from a hamstring injury of his own. Lehi Hopoate moves to the wing. Nathan Brown starts at prop in place of Taniela Paseka (knee) and rising prop Hugo Hart joins the bench for his NRL debut. Caleb Navale and Blake Wilson dropped out in Thursday's 24-hour update.\nDolphins: Speedster Jake Averillo has dropped out of the squad on Thursday after initially being named for his first NRL appearance since Round 19. Tevita Naufahu has been added to the bench. Ray Stone is back from a neck injury to fill the hole left by Kurt Donoghoe (thumb). Winger Selwyn Cobbo has scored 11 tries in his last eight games.\nBulldogs v Rabbitohs, Friday 8.00pm at Accor Stadium\nMatch: Bulldogs v Rabbitohs\nBulldogs\nRabbitohs\nFullback for Bulldogs is number 1 Connor Trac",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.578109801388889,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90ca980be2320f59",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 24",
+            "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/",
+            "published_at": "2026-08-11T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 20 Dylan Edwards 20 18 Fullback for Roosters is number 18 Cody Ramsey\n20 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Roosters is number 15 Lindsay Collins\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Roosters is number 16 Nat Butcher\n17 16\nInterchange for Panthers is number 19 Blaize Talagi 19\n19\nReserve for Panthers is number 1 Jaxen Edgar 1 17 Reserve for Roosters is number 17 Egan Butcher\n1 17\nReserve for Panthers is number 14 Billy Scott 14 19 Reserve for Roosters is number 19 Tommy Talau\n14 19\n20 Reserve for Roosters is number 20 Rex Bassingthwaighte\n20\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/13/2026 11:50:35 PM\nPanthers: Gun fullback Dylan Edwards is listed among the reserves as he looks to return from a shoulder injury. Edwards' last match was Round 20 against the Broncos. Lindsay Smith shifts from prop to lock to take over from skipper Isaah Yeo (pectoral) while Liam Henry starts in the front row. Jack Cogger will wear the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife. Jack Cole goes back to the bench as a result.\nRoosters: Skipper James Tedesco is back in the No.1 jersey after sitting out the Bulldogs game with an ankle injury. Cody Ramsey gets a spot in the six-man interchange after filling in at fullback last week. Spencer Leniu has again been named to start in the front row but could make a late switch back to the bench as he did last week when Nat Butcher started.\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nSea Eagles\nDolphins\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 67.66727646805555,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "05ee46f173fbd628",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Canterbury Bulldogs vs South Sydney Rabbitohs Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/canterbury-bulldogs-vs-south-sydney-rabbitohs-tips-odds-teams-predictions-nrl-round-24-2026/609872",
+            "published_at": "2026-08-13T03:53:52+00:00",
+            "snippet": "Canterbury Bulldogs vs South Sydney Rabbitohs Tips, Odds, Teams & Predictions – NRL Round 24 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Accor Stadium will play host to Friday's Round 24 NRL game between Canterbury Bulldogs and South Sydney Rabbitohs. The game kicks off at 8:00 pm with Canterbury Bulldogs heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Canterbury Bulldogs vs. South Sydney Rabbitohs game and give you our free tips and bets.\nWhen: Friday August 14, 2026 at 8:00 pm\nWhere: Accor Stadium\nBet 💰: Bet On This Match HERE\nCanterbury Bulldogs vs South Sydney Rabbitohs Odds\nCanterbury Bulldogs vs South Sydney Rabbitohs Preview\nCanterbury and South Sydney meet in a pivotal contest between clubs crowded around the finals cut-off. The Bulldogs have won six of their past eight but let an important opportunity slip when the Roosters recovered to beat them 20-18. Souths maintained seventh place with a 28-24 victory over Parramatta, although their alternating win-loss sequence points to uneven form. The Rabbitohs must replace injured halfback Ashton Ward with Jayden Sullivan, while Campbell Graham’s return adds experience out wide and pushes Jye Gray to the bench. Canterbury makes one change after Sitili Tupouniua suffered another hamstring injury, with Alekolasimi Jones joining the interchange. Souths won the Round 5 meeting 32-24, but Canterbury’s recent consistency and stronger defensive platform give it an important edge in what should feel like a finals match.\nHead To Head Bet\nWe're tipping Canterbury Bulldogs to win at $1.62 odds.\nFirst Try Scorer\nFirst Try Scorer: Alex Johnston at $7.75 .\nCanterbury Bulldogs vs South Sydney Rabbitohs Teams\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 19. Bronson Xerri 20. Jake Turpin 21. Jack Underhill 22. Sean O’Sullivan 23. Jonathan Sua\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Euan Aitken 18. Peter Mamouzelos 19. Edward Kosi 20. Jonah Glover 21. Liam Le Blanc 22. John Radel",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.75283202361111,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-13T12:56:55+00:00",
+            "snippet": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knoc",
+            "body_excerpt": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knock in the Round 22 loss to the Knights and the latest setback puts his hopes of playing out his final season before retiring at the end of the year at risk.\nIn a statement, the Broncos said Reynolds will be assessed on a weekly basis to determine a return to play.\n\"Scans at the Clive Berghofer Centre’s Qscan facility confirmed that Broncos captain Adam Reynolds sustained a grade 1 soleus strain on his right calf at training yesterday,\" the club said.\n\"His return-to-play timeline will be determined on a week-by-week basis.\"\nCronulla Jesse Ramien has also played his final game for the club with the centre undergoing season-ending pectoral surgery on Thursday.\nRamien suffered the injury in the second half of last week's loss to St George Illawarra and will depart the Sharks at the end of the season to join the Cowboys.\n\"A big blow for the Sharks with Jesse Ramien ruled out for the remainder of the 2026 season after undergoing pectoral repair surgery today,\" the club said in a statement.\n\"The star centre hurt himself in the second half against the Dragons on Sunday afternoon; he then went for scans on Monday, but after seeing a specialist, it was decided the best course of action was surgery.\"\nGun fullback James Tedesco has fallen short in his bid to return from ankle injury for Thursday's top-of-the-table showdown between the Roosters and Panthers.\nThe Rooster was named to return after missing last week's win over the Bulldogs but was ruled out of the CommBank Stadium clash on Wednesday night.\nThe Panthers are missing captain Isaah Yeo due to a pectoral injury suffered in last week's loss to the Warriors.\nThe NSW and Australian skipper received some positive news on Monday, with scans revealing he does not need season-ending surgery and could return at the start of the finals series.\nThe Panthers have one injury concern out of their 12-6 loss to the Roosters, with Paul Alamoti leaving the field in the 75th minute.\nPanthers coach Ivan Cleary said post-match the centre suffered a leg injury and would go for scans,\nThe Roosters remain without representative stars Angus Crichton (foot) and Daniel Tupou (shoulder).\nIn an update at his weekly press conference, coach Trent Robinson said he hopes the pair will be back before the end of the regular season.\n\"They’re a few weeks away still,\" Robinson said. \"Toups is back running well, with his shoulder injury so that’s still a few weeks away.\n\"Gussie had a medical appointment on Monday. There’s some good progression there and he’s starting to get back into some more movement. Again, it’s not within the next week or two but it’d be nice [to have him back] before the end of the regular season as well.\"\nThere's mixed news for the Rabbitohs ahead of their crucial clash with the Bulldogs, with winger Campbell Graham named to return from a calf injury.\nThe Australian representative was a late withdrawal from last week's win over the Eels.\nIn less positive news, South Sydney will be without halfback Ashton Ward for the remainder of the season after he suffered a high-grade hamstring tear while kicking in last week's win over Parramatta.\nJamie Humphreys is also sidelined with an ankle injury. The Rabbitohs have said he is a week-to-week proposition with a chronic ankle issue.\nCronulla have been dealt a blow ahead of their date with the Raiders, with centre Jesse Ramien ruled out due to a pectoral injury.\nThe Indigenous star is set to see a specialist later this week to determine the severity of the injury.\nIn positive news, Mawene Hiroti and Braydon Trindall have been cleared to play despite battling through issues in last Sunday's loss to St George Illawarra, while KL Iro has been named to return from a concussion and Sifa ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 12.701998690277778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7ab05c5e7b7eaf22",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Bulldogs vs Rabbitohs Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/bulldogs-vs-rabbitohs-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-13T03:16:40+00:00",
+            "snippet": "Bulldogs vs Rabbitohs Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Bulldogs vs Rabbitohs Preview & Betting Tips: NRL Round 24 2026\nAugust 13 th 2026, 1:24pm , By: Scooby\nThe second game of NRL action on Friday night will take place in Sydney as the Bulldogs host the Rabbitohs . With both teams flirting with the edge of the Top 8, this game is worth more than just the two competition points as the winner could be set on a path towards the NRL Finals. This ensures that a thrilling contest awaits, and fans will be on the edge of their seats for this match. Before You Bet is here with a detailed look at what is ahead in this contest.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nBulldogs vs Rabbitohs Predictions & Tips: NRL Round 24 2026\nComing up short\nThe Bulldogs needed a win last week against the Roosters but failed to demonstrate experience and poise when it mattered most. Trailing 8-2 at HT, they pulled their way back into the match to lead 18-8 with 15 minutes remaining. The fast finish of their opponents meant they were unable to halt their momentum, as a horror completion rate (66%), lack of power (7.8m per carry), and 31 missed tackles hurt their momentum. Despite their poor finish, they can take positives away from the match as their attack continued to improve and pressured the Roosters in areas other teams haven’t been able to achieve.\nScraping home (in style)\nUp 28-nil at HT against the Eels, the Rabbitohs were flying and looked every bit a quality team that could cause headaches for other teams inside the Top 8. Unfortunately, their scoring stopped, and they came out a vastly different team in the second half, eventually prevailing 28-24. The win saw them only control 46% possession and complete at 80%, continually making mistakes in the second half to give their opponents key territory. The finish shouldn’t eliminate the positives either. Their 10.1m per carry, 11 line breaks, and just 24 missed tackles are positive points to build upon in coming weeks.\nStats that matter\n- These two sides met in Round 5 where the Rabbitohs were victorious 32-24. They have a slightly better record at this ground, winning 57% of matches compared to the Bulldogs 54%.\n- In the past 5 matches, 4 games have been decided by 8 points or less. The average margin is still high (10.8 points) courtesy of a blowout 32-point win. The average total points in the same games is 46.8 points.\n- The Rabbitohs have the superior attacking this season compared to the Bulldogs (19ppg vs 27ppg) but the Bulldogs are stronger defensively (22pg vs 24ppg) by allowing fewer points.\nA close call\nThere is more than just 2 competition points on the line in this game, with a spot in the Finals likely decided upon this result. The Bulldogs have an edge and are listed as favourites. Their resurgence in positive form has many overlooking their shortcomings. While good last week, they gave up a winning chance. If they can produce that same standard here, they are a strong winning hope. The Rabbitohs have numerous flaws but seem to get ‘up’ for bigger matches. Their depth will be further challenged ahead of this match as Ward is replaced by Sullivan at halfback; the return of Graham boosts their edge and their bench, as Gray moves back there.\nThis game will go down to the wire. The Rabbitohs can bring a defensive pressure when needed and the Bulldogs will relish this challenge. Providing they can eliminate their mistakes, the Rabbitohs are a chance of winning this contest. So too are the Bulldogs but their recent form has reduced the attention on their shortcomings. The odds should have the two teams closer than what they are but rather than chase an upset victory, play it safe and invest on this game to be a thrilling contest that is only decided in the remaining few minutes.\nEither team by 10.5 points or less\n$1.83 (2 units)\nBulldogs vs Rabbitohs Same Game Multi\nLeg 1 = To",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.37283202361111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "630dce792e9c5411",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Bulldogs v Rabbitohs: Round 24 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/12/bulldogs-v-rabbitohs-round-24/",
+            "published_at": "2026-08-12T05:03:43+00:00",
+            "snippet": "Bulldogs v Rabbitohs: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:13 Panthers v Roosters: Round 24\nPanthers v Roosters: Round 24\n03:18 Sharks v Raiders: Round 24\nSharks v Raiders: Round 24\n03:08 Sea Eagles v Dolphins: Round 24\nSe",
+            "body_excerpt": "Bulldogs v Rabbitohs: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:13 Panthers v Roosters: Round 24\nPanthers v Roosters: Round 24\n03:18 Sharks v Raiders: Round 24\nSharks v Raiders: Round 24\n03:08 Sea Eagles v Dolphins: Round 24\nSea Eagles v Dolphins: Round 24\nRelated /\n'We can beat anyone': Rabbitohs primed for season-defining clash\nBulldogs\nDogs sound air raid alert ahead of Bunnies blockbuster\nMatch Preview\nBulldogs v Rabbitohs: Jones steps up; Sullivan steers ship\nRoosters v Bulldogs: Tedesco sidelined; Tupouniua back on deck\nRoosters v Bulldogs: Round 23\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 44.588665356944446,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "343216602548c4c4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Bulldogs v Rabbitohs: Round 24 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/bulldogs-v-rabbitohs-round-24-1975481/",
+            "published_at": "2026-08-12T05:03:43+00:00",
+            "snippet": "Bulldogs v Rabbitohs: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTelstra Premiership\n2026 / Round 24\nPanthers v Roosters: Round 24",
+            "body_excerpt": "Bulldogs v Rabbitohs: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTelstra Premiership\n2026 / Round 24\nPanthers v Roosters: Round 24\nSea Eagles v Dolphins: Round 24\nSharks v Raiders: Round 24\nWests Tigers v Dragons: Round 24\nKnights v Titans: Round 24",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 44.588665356944446,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "74de7b12011e3c7d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "NRL News",
+            "title": "Match Preview Bulldogs v Rabbitohs: Jones steps up; Sullivan steers ship",
+            "url": "https://www.nrl.com/news/2026/08/11/bulldogs-v-rabbitohs-jones-steps-up-sullivan-steers-ship/",
+            "published_at": "2026-08-11T08:00:32+00:00",
+            "snippet": "Presented By\nBulldogs v Rabbitohs: Jones steps up; Sullivan steers ship\nThe Bulldogs and Rabbitohs renew their fierce rivalry at Accor Stadium, the venue of their 2014 grand final clash and the infamous 2015 Good Friday showdown.\nPlenty of water has flowed under the bridge since ",
+            "body_excerpt": "Presented By\nBulldogs v Rabbitohs: Jones steps up; Sullivan steers ship\nThe Bulldogs and Rabbitohs renew their fierce rivalry at Accor Stadium, the venue of their 2014 grand final clash and the infamous 2015 Good Friday showdown.\nPlenty of water has flowed under the bridge since then but history tells us the Bulldogs have not been back to a grand final since 2014 and the Rabbitohs only once, when they lost to Penrith in 2021.\nThe Bulldogs were riding high heading into last week's clash with the Roosters and will be left to rue the one that got away after they led 18-8 with 15 minutes to play.\nThe Rabbitohs raced to a big lead of their own on Saturday night against the Eels (28-0) before falling in a hole and almost allowing the biggest comeback in NRL history to play out.\nIn the end it took a miraculous 40-20 kick from Cody Walker in the 79th minute to ensure the Bunnies would hold on to seventh spot with four games to play.\nMatch: Bulldogs v Rabbitohs\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nBulldogs\n9th Position\naway Team\nRabbitohs\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nBulldogs: Just the one change for Cameron Ciraldo after barnstorming back-rower Sitili Tupouniua suffering another hamstring injury last week. He is replaced on the bench by Alekolasimi Jones in his fourth NRL game and first Round 16. No changes to the top 19 in the Thursday squad update, with Sean O'Sullivan retained as 20th man.\nRabbitohs: The loss of halfback Ashton Ward to a season-ending hamstring injury brings Jayden Sullivan in at halfback for just his third game in the starting side in 2026. Winger Campbell Graham (calf) is back on deck so Jye Gray slides to the bench. Jamie Humphreys is out with an ankle injury. The new faces on the bench are Euan Aitken, Ed Kosi and Peter Mamouzelos. The Rabbitohs made no changes in Thursday's 24-hour squad update, with Jonah Glover remaining in the No. 20.\nTeam Lists\nBacks\nFullback for Bulldogs is number 1 Connor Tracey 1 Fullback for Rabbitohs is number 1 Matthew Dufty\nWinger for Bulldogs is number 2 Jacob Kiraz 2 Winger for Rabbitohs is number 2 Alex Johnston\nCentre for Bulldogs is number 3 Matt Burton 3 Centre for Rabbitohs is number 3 Tallis Duncan\nCentre for Bulldogs is number 4 Enari Tuala 4 Centre for Rabbitohs is number 4 Jack Wighton\nWinger for Bulldogs is number 5 Jethro Rinakama 5 Winger for Rabbitohs is number 5 Campbell Graham\nFive-Eighth for Bulldogs is number 6 Stephen Crichton 6 Five-Eighth for Rabbitohs is number 6 Cody Walker\nHalfback for Bulldogs is number 7 Lachlan Galvin 7 Halfback for Rabbitohs is number 7 Jayden Sullivan\nForwards\nProp for Bulldogs is number 8 Max King 8 Prop for Rabbitohs is number 8 Tevita Tatola\nHooker for Bulldogs is number 9 Bailey Hayward 9 Hooker for Rabbitohs is number 9 Brandon Smith\nProp for Bulldogs is number 10 Leo Thompson 10 Prop for Rabbitohs is number 10 Keaon Koloamatangi\n10\n2nd Row for Bulldogs is number 11 Viliame Kikau 11 2nd Row for Rabbitohs is number 11 David Fifita\n11\n2nd Row for Bulldogs is number 12 Jacob Preston 12 2nd Row for Rabbitohs is number 12 Adam Elliott\n12\nLock for Bulldogs is number 13 Jaeman Salmon 13 Lock for Rabbitohs is number 13 Cameron Murray\n13\nInterchange\nInterchange for Bulldogs is number 14 Kurt Mann 14 Interchange for Rabbitohs is number 14 Jye Gray\n14\nInterchange for Bulldogs is number 15 Josh Curran 15 Interchange for Rabbitohs is number 15 Lachlan Hubner\n15\nInterchange for Bulldogs is number 16 Harry Hayes 16 Interchange for Rabbitohs is number 16 Sean Keppie\n16\nInterchange for Bulldogs is number 17 Alekolasimi Jones 17 Interchange for Rabbitohs is number 17 Euan Aitken\n17\nInterchange for Bulldogs is number 19 Bronson Xerri 19 18 Interchange for Rabbitohs is number 18 Peter Mamouzelos\n19 18\nInterchange for Bulldogs is number 20 Jake Turpin 20 19 Interchange for Rabbitohs is number 19 Edward Kosi\n20 19\nReserves\nReserve for Bulldogs is number 22 Sean O'Sulli",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 65.64172091249999,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "a0cb4fb636f38eac",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Bulldogs vs Rabbitohs - Round 24, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/bulldogs-rabbitohs-round-24-2026-mc10397669-236788/",
+            "published_at": "2026-08-09T17:57:18+00:00",
+            "snippet": "Bulldogs vs Rabbitohs - Round 24, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 24, 2026 BULLDOGS V RABBITOHS KICK OFF Accor Stadium #NRLBulldogsSouths 2026-08-14T10:00:00Z Preview\nBULLDOGS\nRABBITOHS\nPreview\nBulldogs vs Rabbitohs – Round 24, 2026\nThe Canterbury-Bankstown Bulldogs face the South Sydney Rabbitohs in Round 24 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Accor Stadium. Ladder Position Injury Report Bulldogs NAME REASON EXPECTED RETURN Sitili Tupouniua Hamstring TBC Samuel Hughes Neck TBC Rabbitohs NAME REASON EXPECTED RETURN Ashton Ward Hamstring Next Season Jamie Humphreys Ankle Round 25 Talanoa Penitani Hamstring Round 26 Latrell Mitchell Calf TBC Dayne Jennings Knee TBC Previous 5 Games Bulldogs DATE OPP RESULT 7/8/26 Roosters L 20 - 18 31/7/26 Storm W 22 - 36 25/7/26 Warriors W 18 - 6 18/7/26 Wests Tigers W 32 - 0 11/7/26 Raiders L 16 - 40 Rabbitohs DATE OPP RESULT 8/8/26 Eels W 28 - 24 2/8/26 Sharks L 32 - 16 24/7/26 Storm W 28 - 26 18/7/26 Raiders L 34 - 24 12/7/26 Knights W 26 - 24\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nSitili Tupouniua\nHamstring\nTBC\nSamuel Hughes\nNeck\nAshton Ward\nNext Season\nJamie Humphreys\nAnkle\nRound 25\nTalanoa Penitani\nRound 26\nLatrell Mitchell\nCalf\nDayne Jennings\nKnee\nPrevious 5 Games\nDATE\nOPP\nRESULT\n7/8/26\nRoosters\nL 20 - 18\n31/7/26\nStorm\nW 22 - 36\n25/7/26\nWarriors\nW 18 - 6\n18/7/26\nWests Tigers\nW 32 - 0\n11/7/26\nRaiders\nL 16 - 40\n8/8/26\nEels\nW 28 - 24\n2/8/26\nSharks\nL 32 - 16\n24/7/26\nW 28 - 26\nL 34 - 24\n12/7/26\nKnights\nW 26 - 24\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nEnari Tuala Enari Tuala\nJethro Rinakama Jethro Rinakama\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\n10\nLeo Thompson Leo Thompson\n11\nViliame Kikau Viliame Kikau\n12\nJacob Preston Jacob Preston\n13\nJaeman Salmon Jaeman Salmon\nINTERCHANGE\n14\nKurt Mann Kurt Mann\n15\nJosh Curran Josh Curran\n16\nHarry Hayes Harry Hayes\n17\nAlekolasimi Jones Alekolasimi Jones\n19\nBronson Xerri Bronson Xerri\n20\nJake Turpin Jake Turpin\nRESERVES\n22\nSean O'Sullivan Sean O'Sullivan\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nMatt Dufty Matt Dufty\nAlex Johnston Alex Johnston\nTallis Duncan Tallis Duncan\nJack Wighton Jack Wighton\nCampbell Graham Campbell Graham\nCody Walker Cody Walker\nJayden Sullivan Jayden Sullivan\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\nKeaon Koloamatangi Keaon Koloamatangi\nDavid Fifita David Fifita\nAdam Elliott Adam Elliott\nCameron Murray Cameron Murray\nJye Gray Jye Gray\nLachlan Hubner Lachlan Hubner\nSean Keppie Sean Keppie\nEuan Aitken Euan Aitken\nPeter Mamouzelos Peter Mamouzelos\n18\nEdward Kosi Edward Kosi\nJonah Glover Jonah Glover",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 103.6956098013889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "f636fc8ccd184617",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Round 24 Match Preview: A Colossal Battle Awaits",
+            "url": "https://www.bulldogs.com.au/news/2026/08/14/nrl-round-24-match-preview-a-colossal-battle-awaits/",
+            "published_at": "2026-08-09T01:39:20+00:00",
+            "snippet": "The Bulldogs and the Rabbitohs share arguably one of the most underrated rivalries in Australian Rugby League. Tonight, that rivalry is set to fuel another thrilling contest - with everything on the ...",
+            "body_excerpt": "NRL Round 24 Match Preview: A Colossal Battle Awaits\nThe Bulldogs and the Rabbitohs share arguably one of the most underrated rivalries in Australian Rugby League. Tonight, that rivalry is set to fuel another thrilling contest - with everything on the line for both teams.\nThe Bulldogs will be licking their wounds after a thrilling contest with the first-placed Roosters last week, while the Rabbitohs escaped from the clutches of defeat against Parramatta.\nIt's not too late to bring the Friday Crew around! To celebrate the NRL's Indigenous Round, you can get 4 tickets for the price of 2!\nSimply enter FRIDAYCREW into the checkout to access this offer and get your Round 24 Tickets here!\nDownload Your 2026 NRL Team Poster here!\nMatch: Bulldogs v Rabbitohs\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nBulldogs\n9th Position\naway Team\nRabbitohs\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nAs usual, there is plenty of team news, stats and info to unpack in our Round 24 Match Preview.\nTeamlists and Team News\nHistory vs Rabbitohs and Last Time Out\nKey Match Up\nWhat They Said\nStat Attack\nWhere to Watch\nJust the one change for Cameron Ciraldo after barnstorming back-rower Sitili Tupouniua suffering another hamstring injury last week. He is replaced on the bench by Alekolasimi Jones in his fourth NRL game and first Round 16.\nTeam Lists\nBacks\nFullback for Bulldogs is number 1 Connor Tracey 1 Fullback for Rabbitohs is number 1 Matthew Dufty\nWinger for Bulldogs is number 2 Jacob Kiraz 2 Winger for Rabbitohs is number 2 Alex Johnston\nCentre for Bulldogs is number 3 Matt Burton 3 Centre for Rabbitohs is number 3 Tallis Duncan\nCentre for Bulldogs is number 4 Enari Tuala 4 Centre for Rabbitohs is number 4 Jack Wighton\nWinger for Bulldogs is number 5 Jethro Rinakama 5 Winger for Rabbitohs is number 5 Campbell Graham\nFive-Eighth for Bulldogs is number 6 Stephen Crichton 6 Five-Eighth for Rabbitohs is number 6 Cody Walker\nHalfback for Bulldogs is number 7 Lachlan Galvin 7 Halfback for Rabbitohs is number 7 Jayden Sullivan\nForwards\nProp for Bulldogs is number 8 Max King 8 Prop for Rabbitohs is number 8 Tevita Tatola\nHooker for Bulldogs is number 9 Bailey Hayward 9 Hooker for Rabbitohs is number 9 Brandon Smith\nProp for Bulldogs is number 10 Leo Thompson 10 Prop for Rabbitohs is number 10 Keaon Koloamatangi\n10\n2nd Row for Bulldogs is number 11 Viliame Kikau 11 2nd Row for Rabbitohs is number 11 David Fifita\n11\n2nd Row for Bulldogs is number 12 Jacob Preston 12 2nd Row for Rabbitohs is number 12 Adam Elliott\n12\nLock for Bulldogs is number 13 Jaeman Salmon 13 Lock for Rabbitohs is number 13 Cameron Murray\n13\nInterchange\nInterchange for Bulldogs is number 14 Kurt Mann 14 Interchange for Rabbitohs is number 14 Jye Gray\n14\nInterchange for Bulldogs is number 15 Josh Curran 15 Interchange for Rabbitohs is number 15 Lachlan Hubner\n15\nInterchange for Bulldogs is number 16 Harry Hayes 16 Interchange for Rabbitohs is number 16 Sean Keppie\n16\nInterchange for Bulldogs is number 17 Alekolasimi Jones 17 Interchange for Rabbitohs is number 17 Euan Aitken\n17\nInterchange for Bulldogs is number 19 Bronson Xerri 19 18 Interchange for Rabbitohs is number 18 Peter Mamouzelos\n19 18\nInterchange for Bulldogs is number 20 Jake Turpin 20 19 Interchange for Rabbitohs is number 19 Edward Kosi\n20 19\nReserves\nReserve for Bulldogs is number 22 Sean O'Sullivan 22 20 Reserve for Rabbitohs is number 20 Jonah Glover\n22 20\nBulldogs Ins\nAlekolasimi Jones\nSean O'Sullivan\nRabbitohs Ins\nCampbell Graham\nEdward Kosi\nEuan Aitken\nJonah Glover\nPeter Mamouzelos\nBulldogs Outs\nSitili Tupouniua\nAshton Ward\nJamie Humphreys\nMoala Graham-Taufa\nThomas Fletcher\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/13/2026 9:58:05 AM\nThe loss of halfback Ashton Ward to a season-ending hamstring injury brings Jayden Sullivan in at halfback for just his third game in the starting side in 2026. Winger",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 119.99505424583334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0ddf348039d0b4f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529",
+            "published_at": "2026-08-12T10:08:15+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Confirmed lineups, results for Round 24\nPeter Maniaty\nGetty Images\nRound 24 began with a potential grand final preview as the Roosters took down the Panthers 12-6.\nManly tackle the Dolphins in the early Friday game before the Bulldogs and Rabbitohs clash at Accor Stadium in a match with massive finals implications for both clubs.\nThe Broncos and Warriors square off in Brisbane on Saturday night, before the Tigers and Dragons close things out on Sunday.\nThe Storm have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 24\nManly Sea Eagles vs. Dolphins\n(Friday, August 14 at 4 Pines Park , 6:00pm AEST)\nManly team:\n1. Clayton Faulalo 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart\nSea Eagles team news:\nSkipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) both missed the trip to Perth and remain out. In better news Clayton Faulalo (hamstring) returns at fullback with Lehi Hopoate moving back to the wing. Kobe Hetherington (bicep) is out for the season while Ethan Bullemor suffered a head knock at training last week and is in NRL concussion protocols. Prop Taniela Paseka (knee) is unlikely to be available for several weeks and has been replaced up front by Nathan Brown.\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 21. Tevita Naufahu\nDolphins team news:\nThe Dolphins are cooking in attack, but their defence remains a worry heading into the finals. Kristian Woolf has stuck firm, but Kurt Donoghoe (broken thumb) has had minor surgery and is expected to miss two matches. Jake Averillo was originally named on the been but has been replaced by Tevita Naufahu.\nCanterbury Bulldogs vs. South Sydney Rabbitohs\n(Friday, August 14 at Accor Stadium , 8:00pm AEST)\nCanterbury team:\n1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton (c) 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon\n14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 18. Bronson Xerri 19. Jake Turpin\nBulldogs team news:\nSitili Tupouniua re-injured his hamstring in his first match since Round 16 and there are fears his season could be over. The starting 13 remains unchanged this week.\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray (c)\n14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Euan Aitken 18. Peter Mamouzelos 19. Ed Kosi\nRabbitohs team news:\nIt remains unclear if and when Latrell Mitchell (nerve) will be available again this season. Campbell Graham (calf) was a late withdrawal in Round 23 and while initial fears were for a 2-3 week absence he has been named to play. Ashton Ward suffered a high-grade hamstring injury while goal kicking and is out for the season, with Jayden Sullivan taking his place in the No.7. Jamie Humphreys is out altogether with an ankle issue. Euan Aitken returns on the bench.\nCronulla Sharks vs. Canberra Raiders\n(Saturday, August 15 at Ocean Protect Stadium , 3:00pm AEST)\nCronulla team:\n1. Will Kennedy 2. Sione Katoa 3. Mawene Hiroti 4. KL Iro 5. Ronaldo Mul",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 39.513109801388886,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "114931de2fc15946",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 24 v Raiders - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/11/nrl-team-list-round-24-v-raiders/",
+            "published_at": "2026-08-11T05:57:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 24 v Raiders\nThe Sharks have lost Jesse Ramien and Addin Fonua-Blake in the fallout from Sunday's loss to local rivals St George.\nRamien suffered a pectoral injury but is waiting to see a specialist later in the week, where he'll find out the ful",
+            "body_excerpt": "Presented By\nNRL Team List: Round 24 v Raiders\nThe Sharks have lost Jesse Ramien and Addin Fonua-Blake in the fallout from Sunday's loss to local rivals St George.\nRamien suffered a pectoral injury but is waiting to see a specialist later in the week, where he'll find out the full extent and the expected time he'll be sidelined.\nFonua-Blake entered an early guilty plea today for a high shot, which sees him suspended for 1 game.\nOregon Kaufusi starts in his place, lining up alongside Jesse Colquhoun in the engine room.\nIn positive news, Cronulla get KL Iro back from concussion; he joins Mawene Hiroti as the centre pairing for this Saturday's game against the Raiders.\nSiosifa Talakai has been named on the bench to return from a bicep injury suffered in his 150th NRL game against the Rabbitohs two weeks ago.\nThe Sharks will celebrate Indigenous Round at home this week when they take on the Raiders at Ocean Protect Stadium from 3:00pm on Saturday.\nGates open at 12:30pm with a curtain-raiser between the Jersey Flegg Sharks and Raiders before the NRL game gets underway.\nSee the following two team lists below.\nMatch: Sharks v Raiders\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSharks\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Sharks is number 3 Mawene Hiroti 3 Centre for Raiders is number 3 Savelio Tamale\nCentre for Sharks is number 4 KL Iro 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Raiders is number 7 Ethan Sanders\nForwards\nProp for Sharks is number 8 Oregon Kaufusi 8 Prop for Raiders is number 8 Ata Mariota\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Raiders is number 11 Zac Hosking\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Raiders is number 13 Morgan Smithies\n13\nInterchange\nInterchange for Sharks is number 14 Hohepa Puru 14 Interchange for Raiders is number 14 Tom Starling\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Sharks is number 16 Siosifa Talakai 16 Interchange for Raiders is number 16 Josh Papalii\n16\nInterchange for Sharks is number 17 Thomas Hazelton 17 Interchange for Raiders is number 17 Daine Laurie\n17\nInterchange for Sharks is number 18 Michael Gabrael 18 Interchange for Raiders is number 18 Vena Patuki-Case\n18\nInterchange for Sharks is number 19 Braden Uele 19 Interchange for Raiders is number 19 Sebastian Kris\n19\nReserves\nReserve for Sharks is number 20 Niwhai Puru 20 Reserve for Raiders is number 20 Coby Black\n20\nReserve for Sharks is number 21 Samuel Stonestreet 21 Reserve for Raiders is number 21 Sione Finau\n21\nReserve for Sharks is number 22 Tuku Hau Tapuha 22 Reserve for Raiders is number 22 Jordan Uta\n22\nSharks Ins\nKL Iro\nNiwhai Puru\nSamuel Stonestreet\nSiosifa Talakai\nTuku Hau Tapuha\nRaiders Ins\nCoby Black\nJordan Uta\nSebastian Kris\nSione Finau\nVena Patuki-Case\nSharks Outs\nAddin Fonua-Blake\nJesse Ramien\nCorey Horsburgh\nSimi Sasagi\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Drew Oultram\nSenior Review Official: Adam Gee\nLast updated: 8/12/2026 11:46:04 PM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Mawene Hiroti - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Braydon Tr",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.7006098013889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9df6c063a8cade87",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Round 24 late mail: Jesse Ramien undergoes season-ending surgery, James Tedesco out of top-two blockbuster",
+            "url": "https://www.dailytelegraph.com.au/sport/nrl/supercoach-news/nrl-round-24-late-mail-james-tedesco-dylan-edwards-in-some-doubt-for-roosters-v-panthers-clash/news-story/ea1aec1675b19c39080798fddaf39728",
+            "published_at": "2026-08-05T01:39:17+00:00",
+            "snippet": "Roosters fullback James Tedesco has been ruled out of his side’s clash against Penrith after failing a fitness test on ...",
+            "body_excerpt": "Late Mail: Season-ending surgery for Sharks gun\nSydney Roosters captain James Tedesco has been ruled out of the top of the table clash, as Penrith sweats on the fitness of their own superstar fullback. See the latest team news.\nAll your news for a great price\nUnlock this story and more with your subscription\nFull Digital Access\nUnlimited articles on app & web\nSubscriber-exclusive newsletters\nA digital version of Today’s Paper\nA refreshed puzzle experience\nPay As You Go\nNo lock-in contract\nFull Digital Access $16 charged every 4 weeks for a duration of 12 weeks, after which it automatically renews at $32 charged every 4 weeks. Renewals occur unless cancelled as per full Terms and Conditions. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. New customers only. Prices after any early discounted periods may be varied as per full Terms and Conditions.See www.dailytelegraph.com.au/subscriptionterms for full details.\n12 Month Plan\nLock in and save $108 over 12 months^\nFull Digital Access 12 Month Plan costs $260 (min. cost) for the first 12 months, charged as $20 every 4 weeks. This automatically renews after the first 12 months to be charged as $20 (min. cost) every 4 weeks. Renewals occur unless cancelled as per full Terms and Conditions. No cancellations during the first 12 months. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. Prices after the first 12 months may be varied as per full Terms and Conditions. See www.dailytelegraph.com.au/subscriptionterms for full details.\nOther subscription options\nStudent Subscription\nVerified journalism. Expert analysis.\nStudy smarter and stay informed with a student subscription\nSorry, we are unable to process your request at this time. Please try again later.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 215.99588757916666,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9208c066a5c6083a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Reynolds’ scans results in; season over for Sharks star — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-24-early-mail-news-teams-ins-and-outs-james-tedesco-in-doubt-dylan-edwards-pushing-to-play/news-story/ed6f741082a0959e49bf6a7f245bde8c",
+            "published_at": "2026-08-13T14:56:33+00:00",
+            "snippet": "Reynolds’ scans results in; season over for Sharks star — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Reynolds’ scans results in; season over for Sharks star — Late Mail\nAdam Reynolds may have played his last NRL game as the Broncos halfback provided a cryptic reply on his potential return to the field while the South Sydney Rabbitohs have been dealt a crushing blow.\nElsewhere, a Sharks gun is out for the season.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nRead on for all of the Late Mail ahead of Round 24!\nFRIDAY AUGUST 14\nManly Sea Eagles vs. Dolphins, 6pm @ 4 Pines Park\nSea Eagles team: 1. Clayton Faulalo 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart 20. Onitoni Large\nPlayers cut: 21. Caleb Navale 22. Blake Wilson\nLate Mail: Manly coach Kieran Foran revealed Tom Trbojevic was close to making a comeback for this game. “It was touch and go for this week. There wasn’t much in it, but with a guy like that you don’t want any sort of risk at all,” Foran said.\n“We’re taking out time with him. We want to make sure he comes back at full fitness and he’s not feeling any hesitation there. We’re hopeful of getting him back before the ends of the year.” Trbojevic’s replacement this week is Clayton Faulalo who is returning from a hamstring injury suffered in Round 18. “Clayton is ready to go, he’s fully fit and there’s no hesitation around him re-injuring his hamstring. We’ve got all the confidence in the world and are really excited about having Clay back,” Foran said. Taniela Paseka (knee) is out which means Hugo Hart joins the bench for his NRL debut.\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 21. Tevita Naufahu 22. Brian Pouniu\nPlayers cut: 19. Jake Averillo 20. Sebastian Su’a\nLate Mail: Kurt Donoghoe (thumb) is out but has a top replacemnt in Ray Stone who is back from a neck injury, much to coach Kristian Woolf’s excitement.\n“He’s going to come off the bench and tackle everything and run hard. We love having him in the team,” Woolf said. Jake Averillo in on the bench after being out with a rib problem.\nCanterbury Bulldogs vs. South Sydney Rabbitohs, 8pm @ Accor Stadium\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 19. Bronson Xerri 20. Jake Turpin 22. Sean O’Sullivan\nPlayers cut: 21. Jack Underhill 23. Jonathan Sua\nLate Mail: Alekolasimi Jones comes in for his fourth NRL game in place of Sitili Tupouniua , who suffered a hamstring injury in his comeback game against the Roosters. Bulldogs coach Cameron Ciraldo said Tupouniua’s season may not yet be over. “We’re just making sure he gets through is first few weeks of rehab then anything can happen after that,” Ciraldo said. Bulldogs captain Stephen Crichton has scored 11 tries in 14 games against the Rabbitohs. Bulldogs centre Matt Burton requires three points for 700 career points.\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Euan Aitken 18. Peter Mamouzelos 19. Edward Kosi 20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 10.70810980138889,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c80e4209fa1b6fb4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/broncos-vs-warriors-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-13T17:32:04+00:00",
+            "snippet": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026\nAugust 14 th 2026, 1:13am , By: Scooby\nThe final game on NRL Super Saturday heads to Brisbane this week with the Broncos hosting the Warriors . Playing for pride, the Broncos will want to avoid conceding this contest as the Warriors look to consolidate their spot inside the Top 4. This sets the stage for an intriguing match. The intensity inside this stadium will only add to the spectacle and Before You Bet is here assist with a comprehensive look at what is ahead in this contest.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nBroncos vs Warriors Predictions & Tips: NRL Round 24 2026\nA team of two halves\nFans would’ve hope that the Broncos could repeat their first half effort against the Dolphins in Round 23 which saw them score 5 tries in thrilling fashion. That was short-lived though, as the Dolphins powered home to prevail 40-32 against a blundering Broncos outfit. With just 46% possession and a 79% completion rate, they couldn’t turn their 9.6m per carry into more points. While they set a strong platform in attack, they were loose defensively, allowing 7 line breaks and missing 27 tackles. Ultimately, the power of their opponents was too much. In previous years, this could’ve been a game they closed out but this is further evidence of their decline.\nMaking a statement\nWelcoming the table-toping Panthers to Auckland, the Warriors needed to make a statement with a strong performance. They did just that as they powered their way to a comprehensive 28-12 victory. Leading 18-nil at HT, they continued their dominance in the second half. They controlled the speed of the game with 53% possession and an 83% completion rate, which allowed them to run for 9.9m per carry, make 624 PCM’s, and create 8 line breaks. Despite missing 35 tackles, they scrambled well defensively. This is another chance for them to prove how far they have come in a tricky road match.\nStats that matter\n- These two sides met in Round 11 where the Warriors were victorious 42-12. The home team has won 8 out of the past 9 games played.\n- The past 5 games between these two sides has seen blowout victories. The average winning margin is 18.4 points. They have been relatively low scoring matches, with the average total points sitting at 46.4.\n- Given their struggles this season, it is no surprise to see the Broncos trail the Warriors on both sides of the ball. The home team averages just 18ppg in attack while conceding 27ppg defensively. The Warriors allow just 16ppg while scoring 28ppg.\nQuality and execution to determine the winner\nThe Broncos have been flattered with the odds that are posted, and the value immediately rests with the Warriors. Their performance last week highlights their capabilities, and the Broncos have proven at several points this season that they are lacking consistency. There is no doubt that they will be motivated ahead of this contest but the relentless pressure the Warriors build in their play should expose the lack of maturity the Broncos possess.\nLook for the Warriors to generate momentum in the middle of the field first, allowing their crafty outside backs to pressure the Broncos on the edge. This has been an issue for the home side throughout 2026 and while capable enough, consistency still eludes them. Once the Warriors gather enough momentum, they should pull away from their opponents to comfortably cover the line and consolidate their position in the Top 4 on the competition ladder.\nWarriors -7.5\n$1.90 (1.5 units)\nBroncos vs Warriors Same Game Multi\nLeg 1 = Total points over 46.5 – see above for justification.\nLeg 2 = Watene-Zelezniak to score – he cannot help but score when playing the Broncos. He has crossed for a try in his past 5 games against them with a total of 8 tries.\nLeg 3 = Halasima to score – he was i",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 8.116165356944444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "2fdcd22592e37cfc",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Canterbury Bulldogs vs South Sydney Rabbitohs Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/13/canterbury-bulldogs-vs-south-sydney-rabbitohs-predictions/",
+            "published_at": "2026-08-12T15:27:16+00:00",
+            "snippet": "Canterbury Bulldogs vs South Sydney Rabbitohs Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Canterbury Bulldogs host South Sydney Rabbitohs in Round 24 of the 2026 NRL season at Accor Stadium on Friday, 14th August at 8:00 PM AEST. Read on for our full match preview, insider NRL betting tips , and best footy odds .\nThe ninth-placed Bulldogs and seventh-placed Rabbitohs are fighting for their finals’ lives.\nFORM: The Bulldogs have won six of their last eight but let a crucial win slip against the Roosters, losing 20-18 from 10 points up in the second half.\nThe Rabbitohs have been stuck in a win-loss pattern for seven weeks, outlasting the Eels 28-24 in unconvincing style last week.\nINS AND OUTS: The Bulldogs’ only change sees Alekolasimi Jones come onto the bench for Sitili Tupouniua, who has succumbed to another hamstring injury.\nJayden Sullivan replaces injured Souths halfback Ashton Ward, while Campbell Graham returns on the wing, so Jye Gray goes to the interchange.\nKEY MATCH-UP: The front-row battle between Canterbury duo Max King and Leo Thompson and Souths pair Tevita Tatola and Keaon Koloamatagi will set the tone.\nHISTORY: The archrivals have split their last six encounters. The Bulldogs won both clashes in 2025, but the Rabbitohs bounced back 32-24 on Good Friday this year.\nKEY STAT: Alex Johnston has scored 13 tries in his last 11 games against the Bulldogs.\nVERDICT: Though ruing the result, last week’s narrow loss was another step forward in the Bulldogs’ late-season resurgence and there’s no question they are far better form than the Rabbitohs.\nThough some of the cavalry has returned, the ongoing absence of Latrell Mitchell and now another enforced change in the halves makes it hard to get behind Souths in this one. Expect finals-like intensity from the Bulldogs – a level the Rabbitohs have rarely reached this season.\nPrediction: Back the Bulldogs the Cover the Line (-3.5) @ $1.90\nSGM: BULLDOGS WIN / RABBITOHS UNDER 19.5 TOTAL POINTS / ALEX JOHNSTON ANYTIME TRYSCORER / MATT BURTON ANYTIME TRYSCORER @ $12.14\nCanterbury Bulldogs vs South Sydney Rabbitohs Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Canterbury Bulldogs vs South Sydney Rabbitohs matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nAccor Stadium • Friday 14th Aug\nTeam\nOdds\nSouth Sydney Rabbitohs (3.5)\n1.96\nBet Now\nCanterbury Bulldogs (-3.5)\n1.85\nNRL odds correct as of 13/08/2026 and subject to change. Event scheduled to start at 14/08/2026 8:00pm AEST.\nJacob Kiraz (Canterbury Bulldogs)\n8.50\nAlex Johnston (South Sydney Rabbitohs)\n7.75\nJethro Rinakama (Canterbury Bulldogs)\n8.75\nCampbell Graham (South Sydney Rabbitohs)\n10.50\nMatt Burton (Canterbury Bulldogs)\n14.00\nJye Gray (South Sydney Rabbitohs)\n15.00\nStephen Crichton (Canterbury Bulldogs)\n16.00\nJacob Preston (Canterbury Bulldogs)\n17.00\nTallis Duncan (South Sydney Rabbitohs)\nEnari Tuala (Canterbury Bulldogs)\n19.00\nLachlan Galvin (Canterbury Bulldogs)\n21.00\nViliame Kikau (Canterbury Bulldogs)\nMatthew Dufty (South Sydney Rabbitohs)\nConnor Tracey (Canterbury Bulldogs)\nJosh Curran (Canterbury Bulldogs)\nDavid Fifita (South Sydney Rabbitohs)\nJack Wighton (South Sydney Rabbitohs)\n23.00\nCody Walker (South Sydney Rabbitohs)\nAlekolasimi Jones (Canterbury Bulldogs)\n31.00\nJayden Sullivan (South Sydney Rabbitohs)\n34.00\nHarry Hayes (Canterbury Bulldogs)\n41.00\nAdam Elliott (South Sydney Rabbitohs)\nEuan Aitken (South Sydney Rabbitohs)\nKurt Mann (Canterbury Bulldogs)\nBrandon Smith (South Sydney Rabbitohs)\nCameron Murray (South Sydney Rabbitohs)\nJaeman Salmon (Canterbury Bulldogs)\nLeo Thompson (Canterbury Bulldogs)\n51.00\nTevita Tatola (South Sydney Rabbitohs)\nKeaon Koloamatangi (South Sydney Rabbitohs)\nMax King (Canterbury Bulldogs)\nBailey Hayward (Canterbury Bulldogs)\nSean Keppie (South Sydney Rabbitohs)\n67.00\nLachlan Hubner (South Sydney Rabbitohs)\n81.00\nNo Scorer\n1001.00\nWests Tigers vs St George Illawarra Dragons Prediction, Tips & Odds 13 Aug 2026\nNewcastle Knights vs Gold Coast Titans Prediction, Tips ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 34.19616535694444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "68647918512c97f2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 24 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/12/2026-nrl-round-24-predictions/",
+            "published_at": "2026-08-12T05:02:46+00:00",
+            "snippet": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponent",
+            "body_excerpt": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponents in the bottom half – with the Souths-Canterbury showdown on Saturday shaping as being particularly pivotal.\nRead on for our complete NRL Round 24 predictions, preview and best bets to place on the footy this weekend!\nNRL\nCommBank Stadium • Thursday 13th Aug\nThe minor premiership could be decided in this 1 v 2 showdown at CommBank Stadium.\nFORM: The Panthers have now lost four of their last seven, following up a big win over Canberra with a convincing 28-12 defeat to the Warriors.\nThe Roosters have won eight straight, coming from 10 points down to see off the Bulldogs 20-18 last Friday.\nINS AND OUTS: Lindsay Smith moves to lock, and Liam Henry comes in at prop with Isaah Yeo sidelined for Penrith. Jack Cogger lines up at five-eighth after being a late scratching last week, while Dylan Edwards has been named in the reserves. James Tedesco returns for the Roosters.\nKEY MATCH-UP: It’s an Origin rematch as Nathan Cleary squares off against Sam Walker.\nHISTORY: The Panthers have won 12 of their last 13 against the Roosters, including a 40-4 rout in Round 3 this season.\nKEY STAT: The Panthers have scored 30-plus points in eight of their last 11 games against the Roosters.\nVERDICT: The favourites to meet in the grand final in seven weeks’ time, there’s plenty at stake with the winner likely to take out the minor premiership and the loser potentially facing a qualifying final trip to Auckland.\nThe Panthers have had a rough run and will be smarting from getting ambushed by the Warriors, but there’s arguably more pressure on the Roosters to buck the trend of horrendous results against the era’s preeminent team.\nThe Roosters remain unproven in heavyweight duels – though last week was a step in the right direction – and the Panthers look good value as a very narrow favourite.\nPrediction: Back the Panthers to Win @ $1.77\nSGM: PANTHERS BY 1-12 / UNDER 42.5 TOTAL POINTS / TOM JENKINS ANYTIME TRYSCORER / ROBERT TOIA ANYTIME TRYSCORER @ $31.56\n4 Pines Park • Friday 14th Aug\nThe Sea Eagles are spiralling ahead of this must-win home assignment against the fifth-placed Dolphins.\nFORM: Manly has lost five straight, conceding 128 points in their last three games against the Titans, Sharks and Storm.\nThe Dolphins have won three in a row, albeit somewhat patchily in the past fortnight against the Dragons (28-22) and Broncos (40-32) – trailing 24-0 in the latter.\nINS AND OUTS: Clayton Faulalo returns at fullback for Manly with Lehi Hopoate shifting to the wing and Blake Wilson dropping out. Taniela Paseka (knee) is out, so Nathan Brown starts at prop.\nThe Dolphins have lost Kurt Donoghoe to a thumb injury, but Ray Stone and Jake Averillo are back on the bench.\nKEY MATCH-UP: Blues teammates Jack Bostock and Tolu Koula are set for an absorbing centre duel.\nHISTORY: The Dolphins are 1-3 against the Sea Eagles and will have terrifying memories of their most recent meeting, when Manly powered to a 52-18 win in Redcliffe in Kieran Foran’s first match as interim coach.\nKEY STAT: These clubs’ four encounters all produced at least 54 points, with three of them seeing 70-plus points scored.\nVERDICT: Manly’s finals bid has completely unravelled under a heavy injury toll as interim-turned-fulltime coach Kieran Foran searches for answers. Their drop-off in defensive resolve has been the most alarming feature of their losing streak.\nThe Dolphins have all but sealed their maiden finals appearance, but they’ll be looking for a complete performance after struggling to put away a couple of also-rans in the past two weeks. Near enough to full-strength, however, the visitors’ firepower should have a tackle-shy Sea Eagles outfit very nervous.\nManly has a strong record at 4 Pines Park, but a heavy",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 44.60449869027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "a5070c62f303b8c4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 24 Team News: Friday Night Blockbuster - Bulldogs",
+            "url": "https://www.bulldogs.com.au/news/2026/08/11/nrl-round-24-team-news-friday-night-blockbuster/",
+            "published_at": "2026-08-11T05:46:15+00:00",
+            "snippet": "Presented By\nNRL Round 24 Team News: Friday Night Blockbuster\nThe Canterbury-Bankstown Bulldogs side to face the South Sydney Rabbitohs at Accor Stadium for the NRL's Indigenous Round has been named.\nThe Club can confirm that Sitili Tupouniua has re-injured his hamstring and will",
+            "body_excerpt": "Presented By\nNRL Round 24 Team News: Friday Night Blockbuster\nThe Canterbury-Bankstown Bulldogs side to face the South Sydney Rabbitohs at Accor Stadium for the NRL's Indigenous Round has been named.\nThe Club can confirm that Sitili Tupouniua has re-injured his hamstring and will be out for an extended period of time, with Alekolasimi Jones joining the interchange.\nRelated Bulldogs\nStrength & Resilience: Bulldogs Release 2026 Indigenous Jersey\nThis week it's time to bring round the Friday Crew - to celebrate the NRL's Indigenous Round, you can get 4 tickets for the price of 2!\nSimply enter FRIDAYCREW into the checkout to access this offer and get your Round 24 Tickets here!\nAll ticketed Memberships and game day tickets include travel to and from Accor Stadium on Sydney Trains.\nYou'll want to be at Accor Stadium against our cross-town rivals for a Friday-night blockbuster as we put on a show for Indigenous Round.\nDEM MOB to Perform at Accor Stadium for Indigenous Round!\nThe Bulldogs and Rabbitohs will exchange gifts before taking the field, with the Bulldogs offering hand-painted boots by renowned artist Daren Dunn.\nBulldogs Members and supporters will also be able to purchase the 2026 Indigenous Range , with a two-for-one sale on 2026 NRL Home and Away Jerseys as well!\nDownload your 2026 NRL Team Poster here!\nDate: Friday, August 14 Venue: Accor Stadium, Olympic Park, NSW Gates Open: 5:00pm Bulldogs vs Rabbitohs NSW Cup Kick-Off: 5:30pm Bulldogs vs Rabbitohs NRL Kick-Off: 8:00pm\nMatch: Bulldogs v Rabbitohs\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nBulldogs\n9th Position\naway Team\nRabbitohs\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nDon't let a bet take you away from the match.\nReclaim the Game, be gamble aware.\nThe Round 24 team presented by CBS Complete Building Solutions is as follows:\nNo.\nPlayer\nSponsor\nConnor Tracey\nPPC Moulding Services\nJacob Kiraz\nChemistworks\nMatt Burton\nPlatinum Rehabilitation Group\nEnari Tuala\nGuardian Venue Management\nJethro Rinakama\nSydney City Building Group\nStephen Crichton (c)\nWaterview in Bicentennial Park\nLachlan Galvin\nLeading Services Australia\nMax King\nPenny's Crispy Pork Crackling\nBailey Hayward\nBrushwood Engineering Group\n10\nLeo Thompson\nKogan.com\n11\nViliame Kikau\nLending Hub\n12\nJacob Preston\nIntello IT Solutions\n13\nJaeman Salmon\nAllied X\nInterchange\nSafety Partners\n14\nKurt Mann\nCorellian\n15\nJosh Curran\nG Class Luxury Car Hire\n16\nHarry Hayes\nKhalil Lawyers\n17\nAlekolasimi Jones\nDental On Evaline\n19\nBronson Xerri\n20\nJake Turpin\nReserves\n22\nSean O'Sullivan\nCoaching Staff\nName\nHead Coach\nCameron Ciraldo\nKumho Tyre\nRelated /\nNRL Round 24 Match Preview: A Colossal Battle Awaits\nGameday Guide: NRL Round 24\nTeam Lists\nRound 23 Team News: NRL Final Squad\nNRL Round 23 Team News: Heading East\nRound 22 Team News: NRL Final Squad",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.87977646805555,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Bulldogs vs Rabbitohs NRL round 24 preview",
+          "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+          "Bulldogs Rabbitohs NRL finals race OR form guide",
+          "Bulldogs Rabbitohs NRL",
+          "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Bulldogs Rabbitohs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 24 Bulldogs OR Rabbitohs"
+        ],
+        "filter_summary": {
+          "dropped_stale": 62,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 8,
+          "dropped_irrelevant": 15,
+          "kept": 18,
+          "deferred_pending_body": 59,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "6646d40664b0",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-14T01:39:02.192785+00:00",
+      "finished_at": "2026-08-14T01:41:19.182499+00:00",
+      "duration_ms": 136989,
+      "request": {
+        "home_team": "Bulldogs",
+        "away_team": "Rabbitohs",
+        "venue": "Accor Stadium",
+        "kickoff": "2026-08-14T20:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7382,
+        "home_win_probability": 0.7382,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Pythagorean form (last 10) (+19% expected-win gap) — contribution 0.130 (13% of total)",
+            "5-game form: points against (-14.40) — contribution 0.095 (10% of total)",
+            "Away travel to venue (0 km) — contribution 0.072 (7% of total)",
+            "Elo rating advantage (+46 points) — contribution 0.064 (7% of total)",
+            "Bradley-Terry strength advantage (+0.19 log-strength) — contribution 0.064 (7% of total)"
+          ],
+          "negative_drivers": [
+            "Ladder points differential per game (-5.6 points) — contribution 0.037 (4% of total)",
+            "Away rest (12.2 days) — contribution 0.030 (3% of total)",
+            "Travel-distance advantage (-0 km for away) — contribution 0.022 (2% of total)",
+            "5-game workload: top3 tackle share (+0.02) — contribution 0.018 (2% of total)",
+            "5-game momentum: penalty cluster rate (-0.80) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.8194,
+            "total_toward_away": 0.1497,
+            "net": 0.6696,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game momentum: penalty cluster rate (-0.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Bulldogs",
+          "away_team": "Rabbitohs",
+          "venue": "Accor Stadium",
+          "kickoff": "2026-08-14T20:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

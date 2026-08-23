@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "run_id": "20260822T011159Z-e7b3d151",
+  "run": {
+    "predicted_at_utc": "2026-08-22T01:23:45.134433+00:00",
+    "predicted_at_local": "2026-08-22T11:23:45.134433+10:00",
+    "started_at_utc": "2026-08-22T01:11:59.658228+00:00",
+    "wall_seconds": 705.5,
+    "hours_before_kickoff": 3.6,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Knights",
+    "away_team": "Sea Eagles",
+    "venue": "McDonald Jones Stadium",
+    "kickoff": "2026-08-22T15:00:00+10:00",
+    "kickoff_local": "2026-08-22T15:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Knights",
+      "position": 6,
+      "played": 22,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 32,
+      "points_for": 577,
+      "points_against": 501,
+      "points_difference": 76,
+      "points_difference_per_game": 3.45,
+      "recent_form_last_4": "3 - 2",
+      "streak": "3W",
+      "home_record": "8 - 3",
+      "away_record": "6 - 5"
+    },
+    "away": {
+      "team": "Sea Eagles",
+      "position": 10,
+      "played": 21,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 24,
+      "points_for": 505,
+      "points_against": 459,
+      "points_difference": 46,
+      "points_difference_per_game": 2.19,
+      "recent_form_last_4": "0 - 4",
+      "streak": "4L",
+      "home_record": "5 - 6",
+      "away_record": "4 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Knights",
+      "ladder_positions_gap": 4,
+      "points_difference_per_game_gap": 1.26,
+      "points_difference_favours": "Knights"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Knights",
+    "predicted_side": "home",
+    "confidence": 0.7,
+    "home_win_probability": 0.7
+  },
+  "math_model": {
+    "home_win_probability": 0.6933,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Pythagorean form (last 10) (+29% expected-win gap) — contribution 0.136 (14% of total)",
+        "Ladder points differential per game (+1.3 points) — contribution 0.089 (9% of total)",
+        "5-game form: points against (-14.00) — contribution 0.076 (8% of total)",
+        "Elo rating advantage (+75 points) — contribution 0.070 (7% of total)",
+        "5-game form: all run metres (+87.20) — contribution 0.034 (3% of total)"
+      ],
+      "negative_drivers": [
+        "5-game momentum: penalty cluster rate (-1.20) — contribution 0.076 (8% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: points for (+10.80) — contribution 0.049 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: errors (-2.00) — contribution 0.022 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: possession pct (+2.80) — contribution 0.018 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: errors (-2.00) — contribution 0.018 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game momentum: penalty cluster rate (-1.20)",
+        "5-game form: points for (+10.80)",
+        "3-game form: errors (-2.00)",
+        "5-game form: possession pct (+2.80)",
+        "5-game form: errors (-2.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Knights vs Sea Eagles NRL round 25 preview",
+      "Knights Sea Eagles NRL odds OR price OR favourite",
+      "Knights Sea Eagles NRL finals race OR ladder stakes",
+      "Knights Sea Eagles NRL",
+      "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Knights Sea Eagles NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Knights OR Sea Eagles"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 25 - Latrell on hold; Turbo on track",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-21T10:04:46+00:00",
+        "age_hours": 15.131567440555555,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 91.20295632944443,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:59:00+00:00",
+        "age_hours": 91.22767855166666,
+        "url": "https://www.seaeagles.com.au/news/2026/08/18/team-list-nrl-round-25-vs-knights/"
+      },
+      {
+        "title": "Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T02:58:58+00:00",
+        "age_hours": 46.22823410722223,
+        "url": "https://www.sportsnews.com.au/nrl/newcastle-knights-vs-manly-sea-eagles-tips-odds-teams-predictions-nrl-round-25-2026/609972/amp"
+      },
+      {
+        "title": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-21T09:34:49+00:00",
+        "age_hours": 15.63073410722222,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Knights v Sea Eagles: Best back on deck: Trbojevic returns",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-21T05:04:34+00:00",
+        "age_hours": 20.134900773888887,
+        "url": "https://www.nrl.com/news/2026/08/18/knights-v-sea-eagles-best-back-on-deck-trbojevic-returns/"
+      },
+      {
+        "title": "Team Update: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T05:01:21+00:00",
+        "age_hours": 20.188511885,
+        "url": "https://www.seaeagles.com.au/news/2026/08/21/team-update-nrl-round-25-vs-knights/"
+      },
+      {
+        "title": "24 Hour Update | Round 25 - Newcastle Knights",
+        "source": "newcastleknights.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T05:01:21+00:00",
+        "age_hours": 20.188511885,
+        "url": "https://www.newcastleknights.com.au/news/2026/08/18/nrl-team-list--round-25/"
+      },
+      {
+        "title": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T04:36:25+00:00",
+        "age_hours": 20.604067440555554,
+        "url": "https://www.beforeyoubet.com.au/knights-vs-sea-eagles-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Knights vs Sea Eagles - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-16T20:41:23+00:00",
+        "age_hours": 124.52128966277778,
+        "url": "https://www.zerotackle.com/knights-sea-eagles-round-25-2026-mc10396527-237065/"
+      },
+      {
+        "title": "NRL Round 25 team lists: Full squads + NRL Supercoach analysis - SC Playbook NRL",
+        "source": "scplaybook.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T06:26:31+00:00",
+        "age_hours": 90.76906744055555,
+        "url": "https://scplaybook.com.au/blog/2026/08/18/nrl-round-25-team-lists-full-squads-nrl-supercoach-analysis"
+      },
+      {
+        "title": "NRL Team List: Round 25 v Titans - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:58:00+00:00",
+        "age_hours": 91.24434521833332,
+        "url": "https://www.sharks.com.au/news/2026/08/18/nrl-team-list-round-25-v-titans/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report Round 25 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T03:14:30+00:00",
+        "age_hours": 93.96934521833333,
+        "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers-nrl-injury-report-round-25/"
+      },
+      {
+        "title": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T00:07:31+00:00",
+        "age_hours": 1.0857341072222222,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-latest-team-news-and-injury-updates-latrell-mitchell-clint-gutherson-tom-trbojevic/news-story/1362e2e046e9793d10ba74e544d57765"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T10:18:00+00:00",
+        "age_hours": 14.911011884999999,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb"
+      },
+      {
+        "title": "Dolphins v Eels - Round 25, 2026",
+        "source": "nrl.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-21T01:13:00+00:00",
+        "age_hours": 23.994345218333333,
+        "url": "https://www.nrl.com/watch/matches/telstra-premiership/2026/round-25/full-match-replay-dolphins-v-eels---round-25-2026/"
+      },
+      {
+        "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T06:04:37+00:00",
+        "age_hours": 43.13406744055556,
+        "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:28:23+00:00",
+        "age_hours": 67.73795632944444,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Hallucinated market price of $1.46.",
+      "Omitted top math signals: '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles)."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The claim that the market price is '$1.46' does not appear in any research body_excerpt or title."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims for Trbojevic (returning), Walsh (missing), and Best/Saifiti (returning) match the research excerpts."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Pythagorean form and ladder points differential are correctly attributed to the Knights."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors 2, 3, and 4 are sourced from research articles."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.7 is within the 0.50-0.85 range and justified by the form/ladder gap."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the highest contributing SHAP drivers."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles) were not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.7
+  },
+  "reasoning": {
+    "summary": "The Knights enter this match in strong form with a three-game winning streak and a significant ladder advantage (6th vs 10th). They are backed by strong recent defensive metrics, while the Sea Eagles are struggling with a four-game losing streak and the absence of five-eighth Joey Walsh. Although the Sea Eagles welcome back Tom Trbojevic, the Knights are the market favourites and hold the statistical edge.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model's prior is driven by Pythagorean form (14% contribution) and a strong 5-game defensive record in points against (8% contribution)."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights have won three consecutive games, scoring at least 30 points in each (sportsnews.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights receive a boost from the return of Bradman Best and Jacob Saifiti (newcastleknights.com.au), while the Sea Eagles are missing Joey Walsh due to a jaw fracture (seaeagles.com.au)."
+      },
+      {
+        "source": "math",
+        "detail": "The model attributes some weight to the Sea Eagles via the penalty cluster rate (8% contribution), although the raw value of this metric actually favours the Knights."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Knights-v-Sea-Eagles/20260822T011159Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Knights-v-Sea-Eagles/20260822T011159Z/summary.md"
+  }
+}

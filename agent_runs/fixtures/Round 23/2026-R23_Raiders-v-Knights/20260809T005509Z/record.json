@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "run_id": "20260809T005509Z-be2ac1aa",
+  "run": {
+    "predicted_at_utc": "2026-08-09T01:07:18.601345+00:00",
+    "predicted_at_local": "2026-08-09T11:07:18.601345+10:00",
+    "started_at_utc": "2026-08-09T00:55:09.849730+00:00",
+    "wall_seconds": 728.8,
+    "hours_before_kickoff": 2.9,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 23,
+    "home_team": "Raiders",
+    "away_team": "Knights",
+    "venue": "GIO Stadium",
+    "kickoff": "2026-08-09T14:00:00+10:00",
+    "kickoff_local": "2026-08-09T14:00:00+10:00",
+    "weather": "Rain"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 23,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Raiders",
+      "position": 12,
+      "played": 20,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 11,
+      "competition_points": 22,
+      "points_for": 453,
+      "points_against": 512,
+      "points_difference": -59,
+      "points_difference_per_game": -2.95,
+      "recent_form_last_4": "3 - 1",
+      "streak": "1L",
+      "home_record": "5 - 5",
+      "away_record": "4 - 6"
+    },
+    "away": {
+      "team": "Knights",
+      "position": 7,
+      "played": 20,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 28,
+      "points_for": 511,
+      "points_against": 451,
+      "points_difference": 60,
+      "points_difference_per_game": 3.0,
+      "recent_form_last_4": "2 - 3",
+      "streak": "1W",
+      "home_record": "7 - 3",
+      "away_record": "5 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Knights",
+      "ladder_positions_gap": -5,
+      "points_difference_per_game_gap": -5.95,
+      "points_difference_favours": "Knights"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+  },
+  "prediction": {
+    "predicted_winner": "Knights",
+    "predicted_side": "away",
+    "confidence": 0.6,
+    "home_win_probability": 0.4
+  },
+  "math_model": {
+    "home_win_probability": 0.5491,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.35 log-strength) — contribution 0.120 (16% of total)",
+        "Elo rating advantage (+19 points) — contribution 0.056 (8% of total)",
+        "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (5% of total)",
+        "Home travel to venue (0 km) — contribution 0.013 (2% of total)",
+        "5-game momentum: penalty cluster rate (+0.40) — contribution 0.012 (2% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+      ],
+      "negative_drivers": [
+        "Pythagorean form (last 10) (-12% expected-win gap) — contribution 0.060 (8% of total)",
+        "5-game form: points for (+13.00) — contribution 0.048 (7% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: errors (-1.67) — contribution 0.033 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Ladder points differential per game (-6.0 points) — contribution 0.024 (3% of total)",
+        "5-game form: all run metres (+11.80) — contribution 0.023 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game momentum: penalty cluster rate (+0.40)",
+        "5-game form: points for (+13.00)",
+        "3-game form: errors (-1.67)",
+        "5-game form: all run metres (+11.80)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Raiders vs Knights NRL round 23 preview",
+      "Raiders Knights NRL odds OR price OR favourite",
+      "Raiders Knights NRL finals race OR ladder stakes",
+      "Raiders Knights NRL",
+      "Raiders NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Raiders Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 23 Raiders OR Knights"
+    ],
+    "items_kept": 17,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 23 - Best sidelined",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T09:52:49+00:00",
+        "age_hours": 15.05125574861111,
+        "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Round 23",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-04T06:00:45+00:00",
+        "age_hours": 114.91903352638889,
+        "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/"
+      },
+      {
+        "title": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-08T12:22:04+00:00",
+        "age_hours": 12.563755748611111,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Raiders vs Knights Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T16:39:46+00:00",
+        "age_hours": 32.26875574861111,
+        "url": "https://www.beforeyoubet.com.au/raiders-vs-knights-preview-betting-tips-nrl-round-23-2026"
+      },
+      {
+        "title": "Raiders v Knights: Round 23 - nrl.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:05:26+00:00",
+        "age_hours": 92.84097797083334,
+        "url": "https://www.nrl.com/news/2026/08/05/raiders-v-knights-round-23/"
+      },
+      {
+        "title": "Raiders vs Knights - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-02T18:36:21+00:00",
+        "age_hours": 150.32570019305555,
+        "url": "https://www.zerotackle.com/raiders-knights-round-23-2026-mc10396512-236512/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 23 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-06T00:30:30+00:00",
+        "age_hours": 72.42320019305556,
+        "url": "https://www.weststigers.com.au/news/2026/08/06/Wests-Tigers-NRL-Injury-Report-Round-23/"
+      },
+      {
+        "title": "NRL Team List | Round 23 - Newcastle Knights",
+        "source": "newcastleknights.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:01:22+00:00",
+        "age_hours": 114.90875574861111,
+        "url": "https://www.newcastleknights.com.au/news/2026/08/04/nrl-team-list--round-23/"
+      },
+      {
+        "title": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:58:19+00:00",
+        "age_hours": 114.95958908194444,
+        "url": "https://www.zerotackle.com/round-23-team-lists-2026-236562/"
+      },
+      {
+        "title": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-08T08:41:42+00:00",
+        "age_hours": 16.23653352638889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66"
+      },
+      {
+        "title": "NRL Team List: Raiders v Knights - raiders.com.au",
+        "source": "raiders.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:56:16+00:00",
+        "age_hours": 114.99375574861112,
+        "url": "https://www.raiders.com.au/news/2026/08/04/nrl-team-list-raiders-v-knights/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-08T19:17:02+00:00",
+        "age_hours": 5.6476446375,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242"
+      },
+      {
+        "title": "NRL News /",
+        "source": "nrl.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-08T12:22:00+00:00",
+        "age_hours": 12.564866859722223,
+        "url": "https://www.nrl.com/news/topic/nrl-news/"
+      },
+      {
+        "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T23:57:46+00:00",
+        "age_hours": 96.96875574861112,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/"
+      },
+      {
+        "title": "Match Preview Dolphins v Broncos: Katoa ready to shine; Duffy steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T06:04:31+00:00",
+        "age_hours": 18.85625574861111,
+        "url": "https://www.nrl.com/news/2026/08/04/dolphins-v-broncos-katoa-ready-to-shine-duffy-steps-up/"
+      },
+      {
+        "title": "Knights cop unwanted blow with Bradman Best ruled out of Raiders clash - 7NEWS",
+        "source": "7news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-08T05:45:00+00:00",
+        "age_hours": 19.18153352638889,
+        "url": "https://7news.com.au/sport/rugby-league/knights-cop-unwanted-blow-with-bradman-best-ruled-out-of-raiders-clash-c-22695500"
+      },
+      {
+        "title": "Raiders v Knights: Sasagi returns; Frizell the milestone man - nrl.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-08T04:06:56+00:00",
+        "age_hours": 20.815977970833334,
+        "url": "https://www.nrl.com/news/2026/08/04/raiders-v-knights-sasagi-returns-frizell-the-milestone-man/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The top math signals favouring the Raiders (Bradley-Terry strength advantage and Elo rating advantage) were omitted from the analysis."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Standings/diff matched to set_fixture_scene; Bradman Best injury matched to nrl_news body excerpt; Brisbane win matched to google_news_rss excerpt."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Bradman Best is correctly described as missing based on research stating he is 'without' and suffered a calf strain."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Pythagorean form and ladder points differential are both listed in the favouring_Knights_away_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather (Rain) is not mentioned as a factor in the judgement."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor identifies Bradman Best's injury sourced from research (nrl.com)."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.6 is defensible given the disagreement with the model's prediction and the away-win nature of the pick."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the net attribution balance and top drivers (Pythagorean form) rather than minor factors."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top Raiders drivers 'Bradley-Terry strength advantage' and 'Elo rating advantage' are not named or alluded to in the evaluation."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.6
+  },
+  "reasoning": {
+    "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), supported by superior recent form including a dominant win over Brisbane. While math drivers such as Bradley-Terry strength and Elo ratings suggest a latent ability edge for the Raiders, the overall attribution balance leans toward Newcastle despite the loss of Bradman Best to injury.",
+    "key_factors": [
+      {
+        "source": "scene",
+        "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+      },
+      {
+        "source": "research",
+        "detail": "Newcastle enters following an emphatic 30-6 win over Brisbane, whereas Canberra was comprehensively beaten 42-18 by Penrith (BeforeYouBet); however, Newcastle will miss Bradman Best due to a calf strain (nrl.com)."
+      },
+      {
+        "source": "math",
+        "detail": "While the Bradley-Terry strength advantage (+0.35 log-strength) and Elo rating (+19 points) favor the Raiders, the total attribution balance leans away (-0.1353 net), favoring the Knights."
+      }
+    ],
+    "disagreements_with_math": "The model predicts a Home Win (0.5491), but I am picking Away because the official standings and recent form strongly outweigh the latent strength indicators (Elo/Bradley-Terry) cited by the model."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Raiders-v-Knights/20260809T005509Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Raiders-v-Knights/20260809T005509Z/summary.md"
+  }
+}

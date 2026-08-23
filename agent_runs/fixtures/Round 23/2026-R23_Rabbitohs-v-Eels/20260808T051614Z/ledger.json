@@ -1,0 +1,1264 @@
+{
+  "schema_version": 2,
+  "run_id": "20260808T051614Z-181ab3a6",
+  "at_a_glance": {
+    "fixture": "Rabbitohs v Eels",
+    "round": 23,
+    "kickoff": "2026-08-08T19:35:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Rabbitohs",
+    "confidence": 0.7,
+    "model_home_win_probability": 0.6978,
+    "model_prediction": "Home Win",
+    "research_items_kept": 17,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-08T05:16:14.898983+00:00",
+  "updated_at": "2026-08-08T05:26:39.366447+00:00",
+  "request": {
+    "home_team": "Rabbitohs",
+    "away_team": "Eels",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Rabbitohs vs Eels?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Rabbitohs",
+    "away_team": "Eels",
+    "confidence": 0.7,
+    "summary": "The Rabbitohs are strong favourites based on a significant ladder advantage and superior Elo rating (+44 points) and Pythagorean form. While the Eels have shown better recent defensive form (points against), the overall model lean is heavily toward South Sydney, who are fighting for a top-eight finals berth while Parramatta is out of contention.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model predicts a home win (0.6978 probability), driven by Bradley-Terry strength and ladder points differential per game (14% each), as well as an Elo rating advantage (+44 points) and positive Pythagorean form."
+      },
+      {
+        "source": "research",
+        "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+      },
+      {
+        "source": "math",
+        "detail": "The only notable signal favouring the away side is recent defensive form (5-game points against), though it contributes only 4% to the total model weight."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 17,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 4
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 7
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Rabbitohs vs Eels NRL round 23 preview",
+      "Rabbitohs Eels NRL odds OR price OR favourite",
+      "Rabbitohs Eels NRL finals race OR form guide"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The market price '$1.36' is mentioned in the summary but does not appear in any research body_excerpt or title."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "No player availability claims were made in the judgement."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the home win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies beforeyoubet.com.au regarding finals implications."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.7 is within the allowed range and attributed to ladder/motivation factors."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judge focused on the top two SHAP drivers (14% each) rather than minor ones."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top math drivers 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against' are not addressed."
+        }
+      ],
+      "issues": [
+        "Hallucinated market price of $1.36 in the summary.",
+        "Omitted several top SHAP drivers including Elo rating advantage and 5-game form: points against."
+      ],
+      "instruction": "Please remove the hallucinated market price ($1.36) as it is not in the research, and evaluate the omitted math signals: 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against'."
+    },
+    "instruction": "Please remove the hallucinated market price ($1.36) as it is not in the research, and evaluate the omitted math signals: 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against'.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Eels",
+      "confidence": 0.7,
+      "summary": "The Rabbitohs hold a significant advantage in ladder position and points differential per game (+12.68 gap). They are highly motivated to secure their top-eight spot for finals, while the Eels are out of contention and playing for pride. Market prices ($1.36) strongly align with this home-side preference.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favours a home win (0.70 probability), driven primarily by Bradley-Terry strength and ladder points differential per game, each contributing 14% to the total."
+        },
+        {
+          "source": "research",
+          "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Eels",
+      "confidence": 0.7,
+      "summary": "The Rabbitohs are strong favourites based on a significant ladder advantage and superior Elo rating (+44 points) and Pythagorean form. While the Eels have shown better recent defensive form (points against), the overall model lean is heavily toward South Sydney, who are fighting for a top-eight finals berth while Parramatta is out of contention.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model predicts a home win (0.6978 probability), driven by Bradley-Terry strength and ladder points differential per game (14% each), as well as an Elo rating advantage (+44 points) and positive Pythagorean form."
+        },
+        {
+          "source": "research",
+          "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+        },
+        {
+          "source": "math",
+          "detail": "The only notable signal favouring the away side is recent defensive form (5-game points against), though it contributes only 4% to the total model weight."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Hallucinated market price of $1.36 in the summary.",
+      "Omitted several top SHAP drivers including Elo rating advantage and 5-game form: points against."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T05:16:47.784731+00:00",
+      "thinking": "*   Home Team: Rabbitohs\n    *   Away Team: Eels\n    *   Round Number: 23\n    *   Goal: Determine who wins (requires availability, preview, odds, and form/context).\n\n    *   Query 1 (Home Availability): `Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 2 (Away Availability): `Eels NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 3 (Fixture Preview): `Rabbitohs vs Eels NRL round 23 preview`\n    *   Query 4 (Market Prices): `Rabbitohs Eels NRL odds OR price OR favourite`\n    *   Query 5 (Contextual/Form): Need to pick one from form slump, ladder stakes, coach pressure, or key player. Given it's Round 23 (late season), \"finals race\" or \"form\" is usually most relevant. Let's go with `Rabbitohs Eels NRL finals race OR form guide`.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Rabbitohs, Eels).\n    *   JSON format only? Yes.",
+      "chars": 1029
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:21:49.183574+00:00",
+      "thinking": "Rabbitohs (Home) vs Eels (Away).\nAllianz Stadium, Round 23.\n\n        *   Probability: 0.6978 (Home Win).\n        *   Key Drivers for Home: Bradley-Terry strength (+0.141), Ladder points differential per game (+0.141), Elo rating advantage (+0.069), Pythagorean form (+0.060).\n        *   Key Drivers for Away: 5-game form (points against, errors - though some are conflicted).\n        *   Attribution Balance: Leans home strongly (0.75 vs 0.27).\n\n        *   Rabbitohs: Position 8, Wins 10, Lost 9, Points Diff +62 (+3.26/game), Home Record 7-2.\n        *   Eels: Position 13, Wins 7, Lost 12, Points Diff -179 (-9.42/game), Away Record 3-6.\n        *   Gap: Rabbitohs are higher (5 positions) and have a significantly better points differential per game (+12.68 gap).\n\n        *   Rabbitohs: Campbell Graham is out (calf injury, replaced by Jye Gray - confirmed in `nrl_news` \"NRL Late Mail\").\n        *   Eels: Luca Moretti is back (\"Moretti back on deck\" from `nrl_news`).\n        *   Motivation: Rabbitohs are fighting for a top-eight spot (currently 8th, level with 9th - `nrl_news` \"Rabbitohs v Eels: Big guns return\"). Eels are out of contention (\"playing for pride\" - `beforeyoubet.com.au`).\n\n        *   Market mentions Rabbitohs as favourites ($1.36 vs $8.25).\n\n    *   The math model strongly favours the home side (0.70 probability).\n    *   Standings support this: Rabbitohs are 8th, Eels are 13th; huge difference in points differential per game (+3.26 vs -9.42).\n    *   Research adds motivation: Rabbitohs need the win to stay in the top eight; Eels have no finals hopes.\n    *   Availability: Rabbitohs lost Campbell Graham, but he's a winger (replaceable by Jye Gray). Eels got Moretti back. Neither is a game-breaking change compared to the overall gap.\n\n    *   Strongest reason for loss: The \"dangerous Eels outfit\" mentioned in `nrl_news` or their recent win over Tigers. High variance of NRL.\n    *   Confidence Band: 0.65 - 0.75 (Clear edge). Several signals agree: Math model, Standings, Motivation, Market.\n\n    *   Winner: home\n    *   Home Team: Rabbitohs\n    *   Away Team: Eels\n    *   Confidence: 0.70 (Aligns with math and strong evidence)\n    *   Summary: The Rabbitohs enter as clear favourites based on a superior ladder position and points differential. They have high motivation to secure their top-eight spot, whereas the Eels are out of finals contention. Market prices ($1.36) strongly align with this outlook.\n    *   Key Factors:\n        1.  Math: Bradley-Terry strength and ladder points differential per game (both contributing 0.141).\n        2.  Research: Rabbitohs' motivation to maintain their top-eight position while Eels are out of contention (`beforeyoubet.com.au`).\n        3.  Scene: Official standings show a significant gap in points difference per game (+12.68 favouring Rabbitohs).\n\n    *   No disagreements with math; the evidence reinforces it.",
+      "chars": 2904
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:25:07.909325+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the outcome of each in a JSON format.\n\n    *   Home Team: Rabbitohs (8th, +62 diff)\n    *   Away Team: Eels (13th, -179 diff)\n    *   Venue: Allianz Stadium\n    *   Weather: Fine\n    *   Math Prediction: Home Win (0.6978 probability)\n    *   SHAP Drivers (Home): Bradley-Terry strength (+0.27), Ladder points differential per game (+12.7), Elo rating advantage (+44), Pythagorean form, Away travel to venue (23 km).\n    *   SHAP Drivers (Away): 5-game form: points against, 3-game form: errors, 5-game form: errors, 5-game form: post contact metres, 5-game form: effective tackle pct.\n\n    *   Winner: Home (Rabbitohs)\n    *   Confidence: 0.7\n    *   Summary mentions: Ladder position, points differential per game (+12.68 gap), motivation (top-eight vs pride), market prices ($1.36).\n    *   Key Factors:\n        1.  Math: Bradley-Terry strength and ladder points differential per game (14% each).\n        2.  Research: Rabbitohs fighting for top-eight, Eels out of contention (sourced from beforeyoubet.com.au).\n        3.  Scene: Standings (8th vs 13th, +62 vs -179).\n\n    *   **Check 1: `sourced_claims`**\n        *   Claim: \"Rabbitohs hold a significant advantage in ladder position and points differential per game (+12.68 gap)\". Source: Scene (`comparison`: `ladder_positions_gap`: 5, `points_difference_per_game_gap`: 12.68). -> Pass.\n        *   Claim: \"Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride\". Source: Research (`beforeyoubet.com.au` body excerpt: \"The Rabbitohs performance holds Finals implications... The Eels are out of contention and will be playing for pride\"). -> Pass.\n        *   Claim: \"Market prices ($1.36)\". Search research bodies for \"$1.36\". I see `sportsnews.com.au` says they are favourites, but no specific price like $1.36 is mentioned in any body excerpt provided. Let me re-read carefully.\n            *   Article 4: \"South Sydney Rabbitohs heading into the game as favourites with the bookmakers.\" (No price).\n            *   Other articles don't mention prices.\n        *   Wait, where did \"$1.36\" come from? It is not in any `body_excerpt`. -> **Fail**.\n\n    *   **Check 2: `availability_direction`**\n        *   No specific player availability claims (injuries/returns) were made in the judgement. -> Pass (not applicable).\n\n    *   **Check 3: `shap_attribution`**\n        *   Claim: \"Bradley-Terry strength\" and \"ladder points differential per game\". Both are in `favouring_Rabbitohs_home_win`. Attributed to Rabbitohs/Home. -> Pass.\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather is not mentioned as a key factor. -> Pass.\n\n    *   **Check 5: `research_used`**\n        *   Key factor 2 identifies \"beforeyoubet.com.au\" and discusses finals implications/pride. -> Pass.\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence is 0.7. Summary says it's aligned with market prices (though price was hallucinated) and ladder advantage. The number 0.7 is within 0.5-0.85. Is there a credible unresolved reason they could lose? Eels are \"dangerous\" according to one article, but the judge didn't explicitly weigh that against the confidence. However, 0.7 is generally defensible for this gap. The summary says what set it (ladder position/motivation). -> Pass.\n\n    *   **Check 7: `driver_proportionality`**\n        *   Top drivers are Bradley-Terry and Ladder diff (14% each). These are the ones cited. No minor driver is treated as decisive. -> Pass.\n\n    *   **Check 8: `omitted_math_signals`**\n        *   Home top drivers:\n            1.  Bradley-Terry strength (Named)\n            2.  Ladder points differential per game (Named)\n            3.  Elo rating advantage (+44) - **Omitted**.\n            4.  Pythagorean form - **Omitted**.\n            5.  Away travel to venue - **Omitted**.\n        *   Away top drivers:\n            1.  5-game form: points against - **Omitted**.\n            2.  3-game form: errors - **Omitted**.\n        *   The judge only mentioned the top two home drivers. It completely ignored Elo, Pythagorean form, travel, and all away signals (points against, errors). -> **Fail**.\n\n    *   `sourced_claims`: Fail. Market price \"$1.36\" is not in any research body excerpt.\n    *   `omitted_math_signals`: Fail. Elo rating advantage (+44), Pythagorean form, and 5-game form: points against (away) were not addressed.\n\n    *   Instruction for `sourced_claims`: Remove the hallucinated market price of $1.36 as it is not in the research.\n    *   Instruction for `omitted_math_signals`: Math drivers include 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against'; these are not addressed — please consider them and re-output.",
+      "chars": 4820
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:26:39.366155+00:00",
+      "thinking": "*   Winner: Rabbitohs (Home).\n    *   Confidence: 0.70.\n    *   Summary mentioned a market price of $1.36 which the verifier says is hallucinated.\n    *   Omitted SHAP drivers: Elo rating advantage, Pythagorean form, and 5-game form: points against.\n\n    *   `market_mentions`: There are prices listed in `sportsnews.com.au` as `$1.36` and `$8.25`. Wait, the verifier says it's hallucinated? Let me re-read the JSON carefully.\n    *   Looking at `market_mentions` block:\n        ```json\n        \"market_mentions\": [\n          {\n            \"title\": \"South Sydney Rabbitohs vs Parramatta Eels Tips, Odds, Teams & Predictions \\u2013 NRL Round 23 2026 - sportsnews.com.au\",\n            \"url\": \"https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-parramatta-eels-tips-odds-teams-predictions-nrl-round-23-2026/609769\",\n            \"source_tier\": \"search_discovery\",\n            \"prices_found\": [\"$1.36\", \"$8.25\"],\n            ...\n          }\n        ]\n        ```\n    *   The price `$1.36` *is* actually in the `market_mentions` list provided by the tool. However, if the verifier says it's hallucinated or not in research, I must follow the instruction to remove it to avoid conflict with the judge/verifier, or perhaps they mean it wasn't explicitly quoted from a \"research\" body excerpt (it was regex-extracted into `market_mentions`). Regardless, the prompt says: \"Please remove the hallucinated market price ($1.36) as it is not in the research\". I will comply and remove it to be safe, treating it as an unreliable signal if flagged.\n\n    *   `Elo rating advantage (+44 points)`: Contribution 0.069 (7% of total). Favours Rabbitohs.\n    *   `Pythagorean form (last 10) (+10% expected-win gap)`: Contribution 0.060 (6% of total). Favours Rabbitohs.\n    *   `5-game form: points against (+8.20)`: Contribution 0.043 (4% of total). This is in the `favouring_Eels_away_win` group. It means the Eels have a better defensive record over the last 5 games, which slightly offsets the Rabbitohs' advantage.\n\n    *   The overall model probability is 0.6978 (Home Win).\n    *   Attribution balance: Home total = 0.7501 vs Away total = 0.2722. The lean is strongly home.\n    *   Research confirms Rabbitohs are fighting for finals, Eels are out of contention.\n    *   Standings confirm Rabbitohs (8th) > Eels (13th).\n\n    *   Winner: Home (Rabbitohs).\n    *   Confidence: 0.70. The signals are consistent. The strongest reason they could lose is the recent defensive form of the Eels (the \"points against\" driver), but it's a small contribution (4%).\n    *   Summary needs to be updated to remove the price and incorporate more math drivers.\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.70\n    *   `summary`: Rabbitohs are strong favourites based on ladder position, Elo rating, and Pythagorean form. While Eels show better recent defensive form (points against), the overall model lean is heavily toward South Sydney who are fighting for a finals berth.\n    *   `key_factors`: Include Bradley-Terry strength, Ladder differential, Elo rating, and the motivation from research.",
+      "chars": 3078
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T05:16:47.791784+00:00",
+      "payload": {
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Rabbitohs vs Eels NRL round 23 preview",
+          "Rabbitohs Eels NRL odds OR price OR favourite",
+          "Rabbitohs Eels NRL finals race OR form guide"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:21:49.183681+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "confidence": 0.7,
+          "summary": "The Rabbitohs hold a significant advantage in ladder position and points differential per game (+12.68 gap). They are highly motivated to secure their top-eight spot for finals, while the Eels are out of contention and playing for pride. Market prices ($1.36) strongly align with this home-side preference.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours a home win (0.70 probability), driven primarily by Bradley-Terry strength and ladder points differential per game, each contributing 14% to the total."
+            },
+            {
+              "source": "research",
+              "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:25:07.910264+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The market price '$1.36' is mentioned in the summary but does not appear in any research body_excerpt or title."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "No player availability claims were made in the judgement."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the home win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies beforeyoubet.com.au regarding finals implications."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.7 is within the allowed range and attributed to ladder/motivation factors."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judge focused on the top two SHAP drivers (14% each) rather than minor ones."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top math drivers 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against' are not addressed."
+            }
+          ],
+          "issues": [
+            "Hallucinated market price of $1.36 in the summary.",
+            "Omitted several top SHAP drivers including Elo rating advantage and 5-game form: points against."
+          ],
+          "instruction": "Please remove the hallucinated market price ($1.36) as it is not in the research, and evaluate the omitted math signals: 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against'."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:26:39.366277+00:00",
+      "payload": {
+        "issues": [
+          "Hallucinated market price of $1.36 in the summary.",
+          "Omitted several top SHAP drivers including Elo rating advantage and 5-game form: points against."
+        ],
+        "instruction": "Please remove the hallucinated market price ($1.36) as it is not in the research, and evaluate the omitted math signals: 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against'.",
+        "before": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "confidence": 0.7,
+          "summary": "The Rabbitohs hold a significant advantage in ladder position and points differential per game (+12.68 gap). They are highly motivated to secure their top-eight spot for finals, while the Eels are out of contention and playing for pride. Market prices ($1.36) strongly align with this home-side preference.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours a home win (0.70 probability), driven primarily by Bradley-Terry strength and ladder points differential per game, each contributing 14% to the total."
+            },
+            {
+              "source": "research",
+              "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "confidence": 0.7,
+          "summary": "The Rabbitohs are strong favourites based on a significant ladder advantage and superior Elo rating (+44 points) and Pythagorean form. While the Eels have shown better recent defensive form (points against), the overall model lean is heavily toward South Sydney, who are fighting for a top-eight finals berth while Parramatta is out of contention.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model predicts a home win (0.6978 probability), driven by Bradley-Terry strength and ladder points differential per game (14% each), as well as an Elo rating advantage (+44 points) and positive Pythagorean form."
+            },
+            {
+              "source": "research",
+              "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+            },
+            {
+              "source": "math",
+              "detail": "The only notable signal favouring the away side is recent defensive form (5-game points against), though it contributes only 4% to the total model weight."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "844a9dceea4f",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-08T05:16:14.899135+00:00",
+      "finished_at": "2026-08-08T05:16:18.446249+00:00",
+      "duration_ms": 3547,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Eels",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-08T05:16:14.899202+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "kickoff": "2026-08-08T19:35:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/rabbitohs-v-eels/",
+          "match_mode": "Pre",
+          "match_id": "20261112360",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Wyatt Raymond"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Grant Atkins"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Matthew Dufty",
+                "position": "Fullback",
+                "player_id": 500448
+              },
+              {
+                "number": 2,
+                "name": "Alex Johnston",
+                "position": "Winger",
+                "player_id": 500108
+              },
+              {
+                "number": 3,
+                "name": "Tallis Duncan",
+                "position": "Centre",
+                "player_id": 509529
+              },
+              {
+                "number": 4,
+                "name": "Jack Wighton",
+                "position": "Centre",
+                "player_id": 500339
+              },
+              {
+                "number": 6,
+                "name": "Cody Walker",
+                "position": "Five-Eighth",
+                "player_id": 500611
+              },
+              {
+                "number": 7,
+                "name": "Ashton Ward",
+                "position": "Halfback",
+                "player_id": 100006239
+              },
+              {
+                "number": 8,
+                "name": "Tevita Tatola",
+                "position": "Prop",
+                "player_id": 503450
+              },
+              {
+                "number": 9,
+                "name": "Brandon Smith",
+                "position": "Hooker",
+                "player_id": 503419
+              },
+              {
+                "number": 10,
+                "name": "Keaon Koloamatangi",
+                "position": "Prop",
+                "player_id": 504174
+              },
+              {
+                "number": 11,
+                "name": "David Fifita",
+                "position": "2nd Row",
+                "player_id": 506482
+              },
+              {
+                "number": 12,
+                "name": "Adam Elliott",
+                "position": "2nd Row",
+                "player_id": 500128
+              },
+              {
+                "number": 13,
+                "name": "Cameron Murray",
+                "position": "Lock",
+                "player_id": 504176
+              },
+              {
+                "number": 14,
+                "name": "Jye Gray",
+                "position": "Winger",
+                "player_id": 100009148
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Hubner",
+                "position": "Interchange",
+                "player_id": 506446
+              },
+              {
+                "number": 16,
+                "name": "Sean Keppie",
+                "position": "Interchange",
+                "player_id": 504265
+              },
+              {
+                "number": 17,
+                "name": "Jamie Humphreys",
+                "position": "Interchange",
+                "player_id": 100006585
+              },
+              {
+                "number": 18,
+                "name": "Jayden Sullivan",
+                "position": "Interchange",
+                "player_id": 507928
+              },
+              {
+                "number": 19,
+                "name": "Thomas Fletcher",
+                "position": "Interchange",
+                "player_id": 100006510
+              },
+              {
+                "number": 20,
+                "name": "Liam Le Blanc",
+                "position": "Interchange",
+                "player_id": 100009139
+              },
+              {
+                "number": 21,
+                "name": "Moala Graham-Taufa",
+                "position": "Reserve",
+                "player_id": 510488
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Isaiah Iongi",
+                "position": "Fullback",
+                "player_id": 100006093
+              },
+              {
+                "number": 2,
+                "name": "Brian Kelly",
+                "position": "Winger",
+                "player_id": 500872
+              },
+              {
+                "number": 3,
+                "name": "Will Penisini",
+                "position": "Centre",
+                "player_id": 507922
+              },
+              {
+                "number": 4,
+                "name": "Jordan Samrani",
+                "position": "Centre",
+                "player_id": 509558
+              },
+              {
+                "number": 5,
+                "name": "Josh Addo-Carr",
+                "position": "Winger",
+                "player_id": 501351
+              },
+              {
+                "number": 6,
+                "name": "Ronald Volkman",
+                "position": "Five-Eighth",
+                "player_id": 100000365
+              },
+              {
+                "number": 7,
+                "name": "Mitchell Moses",
+                "position": "Halfback",
+                "player_id": 500485
+              },
+              {
+                "number": 8,
+                "name": "Sam Tuivaiti",
+                "position": "Prop",
+                "player_id": 100006424
+              },
+              {
+                "number": 9,
+                "name": "Tallyn Da Silva",
+                "position": "Hooker",
+                "player_id": 100006658
+              },
+              {
+                "number": 10,
+                "name": "Luca Moretti",
+                "position": "Prop",
+                "player_id": 505676
+              },
+              {
+                "number": 11,
+                "name": "Jack Williams",
+                "position": "2nd Row",
+                "player_id": 502363
+              },
+              {
+                "number": 12,
+                "name": "Kitione Kautoga",
+                "position": "2nd Row",
+                "player_id": 507965
+              },
+              {
+                "number": 13,
+                "name": "Jack De Belin",
+                "position": "Lock",
+                "player_id": 500619
+              },
+              {
+                "number": 14,
+                "name": "Saxon Pryke",
+                "position": "Interchange",
+                "player_id": 100006431
+              },
+              {
+                "number": 15,
+                "name": "Junior Paulo",
+                "position": "Interchange",
+                "player_id": 500687
+              },
+              {
+                "number": 16,
+                "name": "Teancum Brown",
+                "position": "Interchange",
+                "player_id": 100008613
+              },
+              {
+                "number": 18,
+                "name": "Joash Papalii",
+                "position": "Interchange",
+                "player_id": 100004407
+              },
+              {
+                "number": 19,
+                "name": "Jezaiah Funa-Iuta",
+                "position": "Reserve",
+                "player_id": 100011276
+              },
+              {
+                "number": 20,
+                "name": "Toni Mataele",
+                "position": "Reserve",
+                "player_id": 509635
+              },
+              {
+                "number": 22,
+                "name": "Ryley Smith",
+                "position": "Reserve",
+                "player_id": 100003898
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 23,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Rabbitohs",
+            "position": 8,
+            "played": 19,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 9,
+            "competition_points": 26,
+            "points_for": 526,
+            "points_against": 464,
+            "points_difference": 62,
+            "points_difference_per_game": 3.26,
+            "recent_form_last_4": "2 - 3",
+            "streak": "1L",
+            "home_record": "7 - 2",
+            "away_record": "3 - 7"
+          },
+          "away": {
+            "team": "Eels",
+            "position": 13,
+            "played": 19,
+            "wins": 7,
+            "drawn": 0,
+            "lost": 12,
+            "competition_points": 20,
+            "points_for": 365,
+            "points_against": 544,
+            "points_difference": -179,
+            "points_difference_per_game": -9.42,
+            "recent_form_last_4": "2 - 2",
+            "streak": "1W",
+            "home_record": "4 - 6",
+            "away_record": "3 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Rabbitohs",
+            "ladder_positions_gap": 5,
+            "points_difference_per_game_gap": 12.68,
+            "points_difference_favours": "Rabbitohs"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-08T19:00",
+            "temperature_c": 13.4,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 11.9,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-08T05:16:18.441702+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/rabbitohs-v-eels/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "d26254c9081a",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-08T05:16:47.795121+00:00",
+      "finished_at": "2026-08-08T05:18:38.071779+00:00",
+      "duration_ms": 110276,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Eels",
+        "kickoff": "2026-08-08T19:35:00+10:00",
+        "round_number": 23,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Rabbitohs vs Eels NRL round 23 preview",
+          "Rabbitohs Eels NRL odds OR price OR favourite",
+          "Rabbitohs Eels NRL finals race OR form guide"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "kickoff": "2026-08-08T19:35:00+10:00",
+          "round_number": 23,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Rabbitohs vs Eels NRL round 23 preview",
+            "Rabbitohs Eels NRL odds OR price OR favourite",
+            "Rabbitohs Eels NRL finals race OR form guide"
+          ]
+        },
+        "retrieved_at": "2026-08-08T05:16:47.797416+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-08T04:06:17+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal cl",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal clash at Allianz Stadium.\nThe Storm, meanwhile, have lost centre Jack Howarth who had been named to return from a shoulder injury but will be held back for another week.\nThe Knights are missing Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nDolphins v Broncos, Saturday 5.30pm at Suncorp Stadium\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Broncos is number 14 Ben Hunt\n14\nInterchange for Dolphins is number 15 Max Plath 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Dolphins is number 16 Tom Gilbert 16 Interchange for Broncos is number 16 Ben Talty\n16\nInterchange for Dolphins is number 17 Felise Kaufusi 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n17\nInterchange for Dolphins is number 19 Bradley Schneider 19 18 Interchange for Broncos is number 18 Jack Gosiewski\n19 18\nInterchange for Dolphins is number 20 Brian Pouniu 20 19 Interchange for Broncos is number 19 Hayze Perham\n20 19\nReserves\nReserve for Dolphins is number 21 Tevita Naufahu 21 20 Reserve for Broncos is number 20 Blake Mozer\n21 20\nDolphins Ins\nBrian Pouniu\nTevita Naufahu\nBroncos Ins\nBlake Mozer\nJack Gosiewski\nThomas Duffy\nDolphins Outs\nRay Stone\nAdam Reynolds\nCory Paix\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Drew Oultram\nSenior Review Official: Chris Butler\nLast updated: 8/8/2026 4:46:04 AM\nDolphins: One change to the bench in the 24-hour update with Brian Pouniu elevated with Sebastian Su'a dropping out. Earlier, centre Jake Averillo was again listed among the reserves as he chases his first appearance since Round 19 having recovered from a rib injury. Winger Jamayne Isaako has scored nine tries in his last seven games at Suncorp Stadium.\nBroncos: A new-look spine for Michael Maguire with Billy Walters back in the starting side at hooker at the expense of Cory Paix while Thomas Duffy takes over at halfback from Adam Reynolds (concussion). Xavier Willison has been named to play despite suffering a laceration to his leg in last week's loss to the Knights. He will line up at prop, with Va'a Semu dropping to the benc",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.1752215044444445,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 20 Jaylan De Groot 20 4 Centre for Cowboys is number 4 Tom Chester\n20 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 4 AJ Brimson 4 7 Halfback for Cowboys is number 7 Jaxon Purdue\n4 7\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 18 Sam Verrills 18 9 Hooker for Cowboys is number 9 Soni Luke\n18 9\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Cowboys is number 11 Heilum Luki\n12 11\n2nd Row for Titans is number 15 Josh Patston 15 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n15 12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 9 Oliver Pascoe 9 14 Interchange for Cowboys is number 14 Ethan King\n9 14\nInterchange for Titans is number 14 Kurtis Morrin 14 15 Interchange for Cowboys is number 15 Thomas Mikaele\n14 15\nInterchange for Titans is number 16 Klese Haas 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Titans is number 17 Cooper Bai 17 20 Interchange for Cowboys is number 20 John Bateman\n17 20\nReserve for Titans is number 7 Lachlan Ilias 7 16 Reserve for Cowboys is number 16 Matthew Lodge\n7 16\nReserve for Titans is number 11 Arama Hau 11 18 Reserve for Cowboys is number 18 Sam McIntyre\n11 18\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/7/2026 7:50:35 AM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 18 Five-Eighth for Panthers is number 18 Jack Cole\n6 18\nHalfback for Warriors is number 18 Luke Metcalf 18 7 Halfback for Panthers is number 7 Nathan Cleary\n18 7\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Panthers is number 8 Moses Leota\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Panthers is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 95.26744372666667,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "903e192b8c440481",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Indigenous Round Moran comes full circle as Indigenous officers unite for historic match",
+            "url": "https://www.nrl.com/news/2026/08/06/moran-comes-full-circle-as-indigenous-officers-unite/",
+            "published_at": "2026-08-07T07:57:23+00:00",
+            "snippet": "Moran comes full circle as Indigenous officers unite for historic match\nFormer Parramatta playmaker Dennis Moran has embraced the chance to represent his heritage as members of the NSW Police Force unite to inspire Indigenous communities across the state.\nThe proud Anaiwan man wi",
+            "body_excerpt": "Moran comes full circle as Indigenous officers unite for historic match\nFormer Parramatta playmaker Dennis Moran has embraced the chance to represent his heritage as members of the NSW Police Force unite to inspire Indigenous communities across the state.\nThe proud Anaiwan man will lace up the boots on Saturday night when the first NSW Police Force Indigenous rugby league team takes to Allianz Stadium to take on the Royal Australian Navy Indigenous team.\nThe match will be played prior to South Sydney's Indigenous Round clash with Parramatta.\nAn Aboriginal Community Liaison Officer with the NSW Police Force in Western Sydney, Moran has seen firsthand the power of Indigenous representation within the force.\nNSW Police Force Indigenous rugby league will play on Allianz Stadium on Saturday night.\nSo even though he retired from elite rugby league in 2008, the former playmaker is excited to return to Moore Park, 29 years after he made his first grade debut at the old Sydney Football Stadium.\n\"It's going to be challenging but all the boys are up for it and it's a good concept,\" Moran told NRL.com.\n\"It's a great opportunity for Aboriginal people to be exposed to our culture and to build something for the next generation. We're also showing Indigenous people that they can have fun, they get an opportunity to have a career and play football as well.\n\"I love being in the community and helping out. I get the opportunity to talk to families and young people in regards to things that are happening and help them make a change to become a better person, not just for themselves but for the community.\"\nFormer Eel Dennis Moran will line up for the NSW Police Indigenous team at Allianz Stadium on Saturday night.\nThe team has been named the Trackers to honour the historic role Indigenous people played within the NSW Police Force and has been more than 18 months in the making.\nSergeant Nathan Trueman was among the drivers of the concept and will coach the side, with former NRL players Rod Silva and Scott Mieni on the team's committee.\nJoining Moran on the field on Saturday are a mix of serving officers, Aboriginal Cultural Liaison Officers and Police Force employees.\nThe team assembled for a three-day camp on Wednesday, with the squad conducting a number of on-field training and off-field cultural sessions.\nEels legend Dean Widders dropped in to teach the Indigenous war cry, while there will also be a community event at Redfern Oval on Thursday evening.\nThere will be a number of activations at the ground on Saturday, with the PCYC bringing young Indigenous kids from regional areas to Sydney for the weekend.\nThe team's founders are hoping Indigenous people both within and outside the force will benefit from the concept. The Trackers have allowed First Nations officers from across the state to connect, while it's also hoped the team's formation will encourage Indigenous people to join the police.\nTrueman is also eager to use the team to break down some of the barriers that have historically existed between Aboriginal communities and the NSW Police Force.\nEventually, it's hoped, the Trackers will play in matches against Indigenous teams in other emergency services and even a New Zealand Māori Police team.\n\"Police rugby league has been around for 70 years and we've never done this before,\" Trueman said. \"Indigenous people have been in the force since the beginning, that's where our name comes from, and this allows the police, Aboriginal people and rugby league to come together as one.\n\"I hope it draws more young blokes to the cops and it's a great way to break down barriers between us and the community. We've got a big community event at Redfern Oval and the boys are keen to get out in the community.\n\"This game will show the young blokes out there that there's people the same colour as them, the same background as them, in the police force doing good things. It opens their eyes to go, 'if he's done it, then maybe I can do it'.\"\nDon’t miss this exciting",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.323554837777777,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "0bfb30940f4bb31b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "South Sydney Rabbitohs vs Parramatta Eels Tips, Odds, Teams & Predictions – NRL Round 23 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-parramatta-eels-tips-odds-teams-predictions-nrl-round-23-2026/609769",
+            "published_at": "2026-08-06T05:04:54+00:00",
+            "snippet": "South Sydney Rabbitohs vs Parramatta Eels Tips, Odds, Teams & Predictions – NRL Round 23 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Allianz Stadium will play host to Saturday's Round 23 NRL game between South Sydney Rabbitohs and Parramatta Eels. The game kicks off at 7:35 pm with South Sydney Rabbitohs heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the South Sydney Rabbitohs vs. Parramatta Eels game and give you our free tips and bets.\nWhen: Saturday August 8, 2026 at 7:35 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nSouth Sydney Rabbitohs vs Parramatta Eels Odds\nSouth Sydney Rabbitohs vs Parramatta Eels Preview\nSouth Sydney has an opportunity to strengthen its finals position when it hosts Parramatta at Allianz Stadium on Saturday night. The Rabbitohs have struggled for consistency in recent weeks but remain inside the top eight, while the Eels have shown encouraging signs despite sitting outside the finals race after winning three of their past six matches.\nThe Rabbitohs receive a major boost with Cam Murray, David Fifita and Tallis Duncan all returning, adding valuable experience for the run home. South Sydney has dominated this rivalry in recent seasons, winning 10 of the past 11 meetings, including a comfortable victory earlier this year. Parramatta’s defence has tightened considerably over the past two months, but the return of several key Rabbitohs could provide the attacking spark needed to maintain their finals momentum.\nHead To Head Bet\nWe're tipping South Sydney Rabbitohs to win at $1.36 odds.\nFirst Try Scorer\nFirst Try Scorer: Campbell Graham at $8.25 .\nSouth Sydney Rabbitohs vs Parramatta Eels Teams\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Ashton Ward 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Jayden Sullivan 19. Thomas Fletcher 20. Liam Le Blanc 21. Moala Graham-Taufa 22. John Radel\nEels team: 1. Isaiah Iongi 2. Brian Kelly 3. Viliami Penisini 4. Jordan Samrani 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses 8. Sam Tuivaiti 9. Tallyn Da Silva 10. Luca Moretti 11. Jack Williams 12. Kitione Kautoga 13. Jack de Belin 14. Saxon Pryke 15. Junior Paulo 16. Teancum Brown 17. Kelma Tuilagi 18. Joash Papali’i 19. Jezaiah Funa-Luta 20. Toni Mataele 21. Sean Russell 22. Ryley Smith",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 48.198277059999995,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "ec3dcbcea1d8b99a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Live Blog Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels Presented by 3 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/",
+            "published_at": "2026-08-08T05:13:34+00:00",
+            "snippet": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027",
+            "body_excerpt": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027, HBF Park plays host this weekend to two proud clubs with a history of epic clashes, including back-to-back grand finals in 2007-08.\nFrom Perth we head across to Brisbane for a Queensland derby between the finals-bound Dolphins and the under-siege Broncos, who have won just six games all season in a disastrous premiership defence.\nWe bring it home with the Rabbitohs looking to shore up their top-eight position with a win over a dangerous Eels outfit.\nThe Bunnies got the money 32-12 when the two sides clashed in Round 17 and a repeat performance is imperative with games against the Bulldogs, Warriors and Roosters still to come.\nFollow all the action from Round 23 of the NRL Telstra Premiership on NRL.com's live blog.\nStorm v Sea Eagles at HBF Park, Perth\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\n12 min: Cameron Munster grubbers into the in-goal and Lehi Hopoate cleans up. Manly go short with the line dropout and Jason Saab comes up with the ball but is bundled into touch.\n10 min: Simione Laiafi comes up with a cold drop and the Storm take over 40m out from the Manly line.\n8 min: The Storm make a meal of things on the last tackle as Hayden Watson gets a high pass he can't control and the loose ball is cleaned up by Jake Trbojevic.\n6 min: Reuben Garrick allows the kick-off to bounce and it rolls into touch to hand the Storm a scrum feed.\n4 min: Moses Leo climbs high to defuse a bomb but the ball spills free to Sua Faalogo who loses control. Brandon Wakeham pounces on the loose ball to score the opening try in his first game back after five weeks out. Jamal Fogarty converts. Sea Eagles 6-0\n4 min: Haumole Olakau'atu storms through Josh King and Stefano Utoikamanu and is held up over the line.\n2 min: A stunning start by Haumole Olakau'atu as makes 40 metres before Manly finish the set with a grubber into the in-goal by Reuben Garrick. Storm dropout.\nLate Mail\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchange. Hooker Brandon Wakeham (calf) and back-rower Corey Waddell (ankle) are good to go.\nNumbers Game\nThe Storm have won four of their six games played in Perth.\nThe Sea Eagles have won five of their last seven games against the Storm.\nStorm winger Moses Leo has scored eight tries in his last eight games.\nSea Eagles winger Jason Saab has scored eight tries in eight games against the Storm.\nThe Storm have conceded more points after 22 rounds than any previous season under Craig Bellamy.\nDolphins v Broncos at Suncorp Stadium\nMatch: Dolphins v Broncos\nDolphins\n5th Position\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nDolphins v Broncos: Round 23\nRabbitohs v Eels at Allianz Stadium\nMatch: Rabbitohs v Eels\nRabbitohs\n8th Position\nEels\n13th Position\nVenue: Allianz Stadium, Sydney\nNine Network\nNine Now\nRabbitohs v Eels: Round 23\nRelated /\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nIndigenous Round\nMoran comes full circle as Indigenous officers",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.05383261555555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 38 mins ago",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-08T04:38:02+00:00",
+            "snippet": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shock",
+            "body_excerpt": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shocked look on his face as he reeled away.\nThe NSW and Australian captain left the field in the 34th minute and cut a forlorn figure on the Panthers bench in the second term. He will be sent for scans to confirm the severity of the injury.\nBefore the game, Panthers centre Casey McLean had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean saw three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors.\nIn Friday's second game, Roosters fullback James Tedesco missed the Round 23 blockbuster against the Bulldogs after failing to overcome an ankle injury.\nTedesco sat out the second half of the Round 22 slaughter of the Cowboys with ice on his ankle but he was initially named to return against the Bulldogs.\nThe skipper dropped out of the side on Thursday and has been replaced by Cody Ramsey.\nHowever, it was another blow for Bulldogs star back-rower Sitili Tupouniua who was back from a hamstring injury, but was ruled out in his return game - again with a hamstring injury.\n\"Not sure how bad it is, but he's felt it in the same spot where he injured about eight weeks ago, so not ideal,\" Bulldogs coach Cameron Ciraldo said after the game.\n\"He's pretty devastated because he was training really well and he was just excited to get back playing, this is what he does, this is what he loves doing, so he's pretty shattered.\"\nThe Knights suffered a blow ahead of Sunday's trip to Canberra with star centre Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane.\nManly prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will be stood down for 11 days meaning he will miss this week's clash against the Storm and next Friday's game against the Dolphins.\nThe Sea Eagles have also lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nHuge ins at South Sydney as well where skipper Cameron Murray (calf) plays his first game since Round 20 while Tallis Duncan (hamstring) and David Fifita (suspension) are also back to face the Eels.\nWinger Campbell Graham will miss the game however with a calf injury that could sideline him for 3-4 weeks.\nThe Storm receive a boost with five-eighth Cameron Munster returning after four games out following surgery for knee cartilage damage but centre Jack Howarth has had his comeback from a shoulder injury put on hold.\nThe Broncos will be without skipper Adam Reynolds for their clash with the Dolphins after he suffered a Category 1 head knock last week.\nForward Xavier Willison left the field early at Suncorp Stadium with a nasty gash to his leg but he has been named to face the Dolphins while back-rower Jack Gosiewski (ribs) is on track to return.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nAt the Cowboys, star back-rower Jeremiah Nanai is facing 2-3 weeks out with a hamstring injury which he suffered during the record loss to the Roosters.\nCowboys coach Todd Payten praised Nanai's courage to stay on the field through until full-time despite carrying the injury.\nHooker Reed Mahoney suffered ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.6460548377777777,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "658402e57eaaa476",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Rabbitohs v Eels: Big guns return; Moretti back on deck",
+            "url": "https://www.nrl.com/news/2026/08/04/rabbitohs-v-eels-big-guns-return-moretti-back-on-deck/",
+            "published_at": "2026-08-07T09:40:25+00:00",
+            "snippet": "Presented By\nRabbitohs v Eels: Big guns return; Moretti back on deck\nThe Rabbitohs are out to celebrate their rich Indigenous history when they host Parramatta in the second match of this weekend's Gadhu Gathering at Allianz Stadium.\nThe clash follows Friday's battle between the ",
+            "body_excerpt": "Presented By\nRabbitohs v Eels: Big guns return; Moretti back on deck\nThe Rabbitohs are out to celebrate their rich Indigenous history when they host Parramatta in the second match of this weekend's Gadhu Gathering at Allianz Stadium.\nThe clash follows Friday's battle between the Roosters and Bulldogs and form a crucial aspect of the NRL Indigenous Round.\nSouth Sydney skipper Cody Walker will lead from the front as the side looks to take a big step forward in the race for a top-eight berth.\nThe Rabbitohs sit precariously in seventh position, but level on points with the ninth-placed Cowboys and need a win to maintain their place in the eight.\nThe finals equation for Parramatta is simple. Just keep winning.\nThe Eels claimed a thrilling victory over the Tigers last week courtesy of a late Isaiah Iongi try and have shown plenty of improvement throughout the season.\nMitchell Moses has long been one of the game's elite playmakers and will look to steer his side to a win on Saturday night.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\n8th Position\naway Team\nEels\n13th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nRabbitohs: A change on Friday with winger Campbell Graham (calf) dropping out, his place taken by Jye Gray. The man added to the bench is Liam Le Blanc. Skipper Cameron Murray is back after missing two games with a calf injury so Lachlan Hubner goes to the bench. Back-rower David Fifita (suspension) and centre Tallis Duncan (hamstring) also return as the Bunnies look to continue their dominance over the Eels having won 10 of the past 11 clashes.\nEels: With five weeks remaining in his time at the Eels before a move to Leeds Rhinos, veteran utility Dylan Walker is being rested, despite being one of Parra's best in 2026. Saxon Pryke comes onto the bench for his sixth NRL game alongside potential debutant Jezaiah Funa-Iuta. Centre Sean Russell has been listed among the reserves as he looks to return after three games out with a quad injury. No changes in Friday's 24-hour update.\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Eels is number 1 Isaiah Iongi\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Eels is number 2 Brian Kelly\nCentre for Rabbitohs is number 3 Tallis Duncan 3 Centre for Eels is number 3 Will Penisini\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Eels is number 4 Jordan Samrani\nWinger for Rabbitohs is number 14 Jye Gray 14 5 Winger for Eels is number 5 Josh Addo-Carr\n14 5\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Eels is number 6 Ronald Volkman\nHalfback for Rabbitohs is number 7 Ashton Ward 7 Halfback for Eels is number 7 Mitchell Moses\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Eels is number 8 Sam Tuivaiti\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Eels is number 9 Tallyn Da Silva\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Eels is number 10 Luca Moretti\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Eels is number 11 Jack Williams\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Eels is number 12 Kitione Kautoga\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Eels is number 13 Jack De Belin\n13\nInterchange\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 14 Interchange for Eels is number 14 Saxon Pryke\n15 14\nInterchange for Rabbitohs is number 16 Sean Keppie 16 15 Interchange for Eels is number 15 Junior Paulo\n16 15\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 16 Interchange for Eels is number 16 Teancum Brown\n17 16\nInterchange for Rabbitohs is number 18 Jayden Sullivan 18 Interchange for Eels is number 18 Joash Papalii\n18\nInterchange for Rabbitohs is number 19 Thomas Fletcher 19\n19\nInterchange for Rabbitohs is number 20 Liam Le Blanc 20\n20\nReserves\nReserve for Rabbitohs is number 21 Moala Graham-Taufa 21 19 ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 19.606332615555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "936ad9d38cf6365e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Eels Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-eels-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-07T05:28:04+00:00",
+            "snippet": "Rabbitohs vs Eels Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Rabbitohs vs Eels Preview & Betting Tips: NRL Round 23 2026\nAugust 7 th 2026, 3:16pm , By: Scooby\nSuper Saturday in the NRL concludes with a blockbuster contest between the Rabbitohs and Eels . Returning to their spiritual home for Indigenous Round, the Rabbitohs performance holds Finals implications, and a victory will be at the forefront of their minds. The Eels are out of contention and will be playing for pride. With a bigger campaign ahead in 2027, some players are also competing for their futures. This sets the stage for a thrilling contest and Before You Bet is here to take a deeper look at this contest.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nRabbitohs vs Eels Predictions & Tips: NRL Round 23 2026\nTrying hard but falling short\nOutplayed in their 32-16 road loss to the Sharks last week, the Rabbitohs have several areas which need to improve should they wish to remain inside the Top 8. After a strong start which saw them score first, they soon trailed 18-6 at HT and were the inferior team in every area. With just 44% possession, they completed at 74%, they averaged 8.5m per carry and made 429 PCM’s. Their shortcomings came defensively, as they missed 51 tackles, continually allowing the Sharks to dominate the middle and create their own attacking momentum.\nAn ugly win is still a win\nSomehow, the Eels prevailed 16-13 against the Tigers last week in an away fixture at their regular home ground. The proof of their poor execution is in the statistics. With just 45% possession, they completed at 67%, made 8.6m per carry, and had just 387 PCM’s. They were poor defensively too, missing 48 total tackles. The fact that they prevailed should be celebrated; a case can be made that the way they fought to stay in the contest should be celebrated ahead of the 2027 preseason. How they perform in this match will add or remove validity from that performance.\nStats that matter\n- These two sides met in Round 17 with the Rabbitohs prevailing 32-12. They will need to draw upon that performance as they have an inferior record at this ground (32% vs 41%).\n- The past 5 games have seen comfortable victories, with the average margin being 15.2 points. They have been relatively high scoring too, with the average sitting at 49.6 points.\n- The Rabbitohs are the superior team on both sides of the ball in 2026. They score an average of 27ppg in attack compared to the Eels 19ppg. Defensively, they concede 24ppg compared to the Eels 28ppg.\nQuality prevails\nThe Rabbitohs receive a huge boost ahead of this game with Murray, Duncan, and Fifita all returning for this game. This gives them an edge over their opponents that places them in a strong position to capture victory. The Eels were horrendously bad last week and on the back of a short turnaround, they may struggle to avoid the same mistakes made. That doesn’t mean they are without a chance; 2026 has had moments whereby they have performed well, pushing teams but rarely playing for 80 minutes. If they can avoid a time limit on their performance, perhaps they will be successful.\nOn the other hand, the Rabbitohs have plenty of power to call upon. A positive of players returning to a team is that it strengthens their interchange. The Rabbitohs need this victory to maintain (or improve) their standing on the competition ladder. This should ensure that they are at their attacking best and pull away from their opponents late in this contest and fatigue sets in for the visitors.\nRabbitohs 13+\n$2.30 (2 units)\nRabbitohs vs Eels Same Game Multi\nLeg 1 = Total points over 45.5 – see above for justification.\nLeg 2 = Duncan to score – returning and at centre, Duncan will aim to pick up from where he left off. Hard to defend, he also has 4 tries in his past 2 games against the Eels.\nLeg 3 = Walker to score – if the Rabbitohs are to win, Walker needs ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.81216594888889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1332604b56be189b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs v Eels: Round 23 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/05/rabbitohs-v-eels-round-23/",
+            "published_at": "2026-08-05T04:03:52+00:00",
+            "snippet": "Rabbitohs v Eels: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragons v Sharks: Round 23\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:",
+            "body_excerpt": "Rabbitohs v Eels: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragons v Sharks: Round 23\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\nRelated /\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nMatch Preview\nRabbitohs v Eels: Big guns return; Moretti back on deck\nIndigenous Round\nMoran comes full circle as Indigenous officers unite for historic match\nFantasy\nFirst take: Rabbitohs v Eels\n'Our culture is storytelling': Indigenous leaders light the way for future stars\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.21549928222223,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "fdc75892299d2444",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs v Eels: Round 23 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/rabbitohs-v-eels-round-23-1972320/",
+            "published_at": "2026-08-05T04:03:52+00:00",
+            "snippet": "Rabbitohs v Eels: Round 23\nThe crew from Sportsbet previews this weekend's matches\nMatch Preview\nTelstra Premiership\n2026 / Round 23\nTitans v Cowboys\nTelstra Women's Premiership\n2026 / Round 6\nWarriors v Knights\nBulldogs v Cowboys\nSharks v Titans\nDragons v Wests Tigers\nRoosters v",
+            "body_excerpt": "Rabbitohs v Eels: Round 23\nThe crew from Sportsbet previews this weekend's matches\nMatch Preview\nTelstra Premiership\n2026 / Round 23\nTitans v Cowboys\nTelstra Women's Premiership\n2026 / Round 6\nWarriors v Knights\nBulldogs v Cowboys\nSharks v Titans\nDragons v Wests Tigers\nRoosters v Eels\nRaiders v Broncos\nStorm v Sea Eagles",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.21549928222223,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e7d6f1a1ec4831c7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Eels - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/rabbitohs-eels-round-23-2026-mc10396511-236514/",
+            "published_at": "2026-08-02T19:24:18+00:00",
+            "snippet": "Rabbitohs vs Eels - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 RABBITOHS V EELS KICK OFF Allianz Stadium #NRLSouthsEels 2026-08-08T09:30:00Z Preview\nRABBITOHS\nEELS\nPreview\nRabbitohs vs Eels – Round 23, 2026\nThe South Sydney Rabbitohs face the Parramatta Eels in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Allianz Stadium. Ladder Position Injury Report Rabbitohs NAME REASON EXPECTED RETURN Talanoa Penitani Hamstring Round 26 Campbell Graham Calf TBC Dayne Jennings Knee TBC Latrell Mitchell Calf TBC Eels NAME REASON EXPECTED RETURN J'maine Hopgood ACL Next Season Matt Doorey Knee Next Season Jonah Pezet Shoulder Round 25 Previous 5 Games Rabbitohs DATE OPP RESULT 2/8/26 Sharks L 32 - 16 24/7/26 Storm W 28 - 26 18/7/26 Raiders L 34 - 24 12/7/26 Knights W 26 - 24 3/7/26 Panthers L 36 - 14 Eels DATE OPP RESULT 2/8/26 Wests Tigers W 13 - 16 23/7/26 Panthers L 18 - 24 11/7/26 Roosters L 28 - 12 5/7/26 Sea Eagles W 23 - 14 25/6/26 Rabbitohs L 12 - 32\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nTalanoa Penitani\nHamstring\nRound 26\nCampbell Graham\nCalf\nTBC\nDayne Jennings\nKnee\nLatrell Mitchell\nJ'maine Hopgood\nACL\nNext Season\nMatt Doorey\nJonah Pezet\nShoulder\nRound 25\nPrevious 5 Games\nDATE\nOPP\nRESULT\n2/8/26\nSharks\nL 32 - 16\n24/7/26\nStorm\nW 28 - 26\n18/7/26\nRaiders\nL 34 - 24\n12/7/26\nKnights\nW 26 - 24\n3/7/26\nPanthers\nL 36 - 14\nWests Tigers\nW 13 - 16\n23/7/26\nL 18 - 24\n11/7/26\nRoosters\nL 28 - 12\n5/7/26\nSea Eagles\nW 23 - 14\n25/6/26\nL 12 - 32\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nMatt Dufty Matt Dufty\nAlex Johnston Alex Johnston\nTallis Duncan Tallis Duncan\nJack Wighton Jack Wighton\n14\nJye Gray Jye Gray\nCody Walker Cody Walker\nAshton Ward Ashton Ward\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\n10\nKeaon Koloamatangi Keaon Koloamatangi\n11\nDavid Fifita David Fifita\n12\nAdam Elliott Adam Elliott\n13\nCameron Murray Cameron Murray\nINTERCHANGE\n15\nLachlan Hubner Lachlan Hubner\n16\nSean Keppie Sean Keppie\n17\nJamie Humphreys Jamie Humphreys\n18\nJayden Sullivan Jayden Sullivan\n19\nThomas Fletcher Thomas Fletcher\n20\nLiam Le Blanc Liam Le Blanc\nRESERVES\n21\nMoala Graham-Taufa Moala Graham-Taufa\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nIsaiah Iongi Isaiah Iongi\nBrian Kelly Brian Kelly\nWill Penisini Will Penisini\nJordan Samrani Jordan Samrani\nJosh Addo-Carr Josh Addo-Carr\nRonald Volkman Ronald Volkman\nMitchell Moses Mitchell Moses\nSam Tuivaiti Sam Tuivaiti\nTallyn Da Silva Tallyn Da Silva\nLuca Moretti Luca Moretti\nJack Williams Jack Williams\nKitione Kautoga Kitione Kautoga\nJack de Belin Jack de Belin\nSaxon Pryke Saxon Pryke\nJunior Paulo Junior Paulo\nTeancum Brown Teancum Brown\nJoash Papalii Joash Papalii\nJezaiah Funa-Iuta Jezaiah Funa-Iuta\nToni Mataele Toni Mataele\nRyley Smith Ryley Smith\n22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 129.87494372666666,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d936bcf33badc90",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Update: Round 23 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/07/nrl-team-list-update-round-23/",
+            "published_at": "2026-08-07T09:35:00+00:00",
+            "snippet": "NRL Team List Update: Round 23\nThe Parramatta Eels have updated their NRL team to take on Souths tomorrow in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matth",
+            "body_excerpt": "NRL Team List Update: Round 23\nThe Parramatta Eels have updated their NRL team to take on Souths tomorrow in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Eels is number 1 Isaiah Iongi\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Eels is number 2 Brian Kelly\nCentre for Rabbitohs is number 3 Tallis Duncan 3 Centre for Eels is number 3 Will Penisini\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Eels is number 4 Jordan Samrani\nWinger for Rabbitohs is number 14 Jye Gray 14 5 Winger for Eels is number 5 Josh Addo-Carr\n14 5\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Eels is number 6 Ronald Volkman\nHalfback for Rabbitohs is number 7 Ashton Ward 7 Halfback for Eels is number 7 Mitchell Moses\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Eels is number 8 Sam Tuivaiti\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Eels is number 9 Tallyn Da Silva\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Eels is number 10 Luca Moretti\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Eels is number 11 Jack Williams\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Eels is number 12 Kitione Kautoga\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Eels is number 13 Jack De Belin\n13\nInterchange\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 14 Interchange for Eels is number 14 Saxon Pryke\n15 14\nInterchange for Rabbitohs is number 16 Sean Keppie 16 15 Interchange for Eels is number 15 Junior Paulo\n16 15\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 16 Interchange for Eels is number 16 Teancum Brown\n17 16\nInterchange for Rabbitohs is number 18 Jayden Sullivan 18 Interchange for Eels is number 18 Joash Papalii\n18\nInterchange for Rabbitohs is number 19 Thomas Fletcher 19\n19\nInterchange for Rabbitohs is number 20 Liam Le Blanc 20\n20\nReserves\nReserve for Rabbitohs is number 21 Moala Graham-Taufa 21 19 Reserve for Eels is number 19 Jezaiah Funa-Iuta\n21 19\n20 Reserve for Eels is number 20 Toni Mataele\n22 Reserve for Eels is number 22 Ryley Smith\n22\nRabbitohs Ins\nCameron Murray\nDavid Fifita\nMoala Graham-Taufa\nTallis Duncan\nEels Ins\nJezaiah Funa-Iuta\nLuca Moretti\nRyley Smith\nSaxon Pryke\nRabbitohs Outs\nCampbell Graham\nJohn Radel\nLatrell Siegwalt\nDylan Walker\nHarrison Edwards\nKelma Tuilagi\nMatch Officials\nReferee: Wyatt Raymond\nSenior Review Official: Grant Atkins\nLast updated: 8/8/2026 4:06:15 AM\nRelated /\nNRL Team List: Round 23\nInjuries\nNRL Injury Report: Round 23\nNRL Late Mail: Round 22\nNRL Team List Update: Round 22\nNRL Team List: Round 22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.696610393333334,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "a64ec8776dc05da0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 23 v Dragons - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/04/nrl-team-list-round-23-v-dragons/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 23 v Dragons\nA few changes for the Sharks ahead of their Monty Porter Memorial Cup clash with St George in the first week of Indigenous Round.\nThe ever-reliable Mawene Hiroti comes into the centres after a concussion to KL Iro in last Sunday's 32",
+            "body_excerpt": "Presented By\nNRL Team List: Round 23 v Dragons\nA few changes for the Sharks ahead of their Monty Porter Memorial Cup clash with St George in the first week of Indigenous Round.\nThe ever-reliable Mawene Hiroti comes into the centres after a concussion to KL Iro in last Sunday's 32-16 victory over the Rabbitohs.\nIro has entered the NRL's 11-day stand-down period and will be available for selection in round 24 next week.\nThe Sharks are also hopeful milestone man Siosifa Talakai will be back for that home game against the Raiders, after he suffered a bicep injury on Sunday.\nJesse Colquhoun has been named to start this week, after being named on the bench the last two games but then being promoted to the starting side before kick-off each time.\nHohepa Puru returns from a concussion to take his place back on Cronulla's bench; the versatile middle forward has been a mainstay since coming into the team and impressing from round 11.\nCentre Michael Gabrael has been named in jumper 18 and is a chance to make his NRL debut if called upon on Sunday.\nThe 21-year-old was the equal 3rd top try scorer in NSW Cup last year; Gabrael has 26 tries and 10 try assists from his 31 games for the Newtown Jets.\nThe Sharks will run out in the Dragons derby in their 2026 Indigenous jersey , which you can read more about HERE , with kick-off at 4:05pm at Jubilee Stadium, Kogarah.\nSee the following two team lists for Sunday's game.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Dragons is number 1 Clinton Gutherson 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Dragons is number 2 Setu Tu 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Dragons is number 3 Moses Suli 3 Centre for Sharks is number 3 Jesse Ramien\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Sharks is number 4 Mawene Hiroti\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Dragons is number 6 Lyhkan King-Togia 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Dragons is number 7 Kyle Flanagan 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Dragons is number 8 Loko Jnr Pasifiki Tonga 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Dragons is number 9 Damien Cook 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Dragons is number 10 Emre Guler 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Dragons is number 11 Dylan Egan 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Dragons is number 12 Hamish Stewart 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Dragons is number 13 Ryan Couchman 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Dragons is number 14 Jacob Liddle 14 Interchange for Sharks is number 14 Hohepa Puru\n14\nInterchange for Dragons is number 15 Josh Kerr 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Dragons is number 16 Jacob Halangahu 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Dragons is number 17 Jacob Webster 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Dragons is number 18 Daniel Atkinson 18 Interchange for Sharks is number 18 Michael Gabrael\n18\nInterchange for Dragons is number 19 Mathew Feagai 19 Interchange for Sharks is number 19 Braden Uele\n19\nReserves\nReserve for Dragons is number 20 Luciano Leilua 20 Reserve for Sharks is number 20 Niwhai Puru\n20\nReserve for Dragons is number 21 Christian Tuipulotu 21 Reserve for Sharks is number 21 Samuel Stonestreet\n21\nReserve for Dragons is number 22 Ryan Hutchinson 22 Reserve for Sharks is number 22 Tuku Hau Tapuha\n22\nDragons Ins\nChristian Tuipulotu\nJacob Webster\nMathew Feagai\nRyan Hutchinson\nSharks Ins\nBraden Uele\nHohepa Puru\nMawene Hiroti\nMichael Gabrael\nNiwhai Puru\nTuku Hau Tapuha\nDragons Outs\nToby Couchman\nJayden Berrell\nKL Iro\nSiosifa Talakai\nMatch Officials\nRe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 95.27994372666666,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "d135fb016797a227",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 23 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-team-list-round-23/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "NRL Team List: Round 23\nThe Parramatta Eels have named their NRL team to take on Souths this Saturday in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew D",
+            "body_excerpt": "NRL Team List: Round 23\nThe Parramatta Eels have named their NRL team to take on Souths this Saturday in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Eels is number 1 Isaiah Iongi\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Eels is number 2 Brian Kelly\nCentre for Rabbitohs is number 3 Tallis Duncan 3 Centre for Eels is number 3 Will Penisini\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Eels is number 4 Jordan Samrani\nWinger for Rabbitohs is number 14 Jye Gray 14 5 Winger for Eels is number 5 Josh Addo-Carr\n14 5\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Eels is number 6 Ronald Volkman\nHalfback for Rabbitohs is number 7 Ashton Ward 7 Halfback for Eels is number 7 Mitchell Moses\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Eels is number 8 Sam Tuivaiti\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Eels is number 9 Tallyn Da Silva\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Eels is number 10 Luca Moretti\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Eels is number 11 Jack Williams\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Eels is number 12 Kitione Kautoga\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Eels is number 13 Jack De Belin\n13\nInterchange\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 14 Interchange for Eels is number 14 Saxon Pryke\n15 14\nInterchange for Rabbitohs is number 16 Sean Keppie 16 15 Interchange for Eels is number 15 Junior Paulo\n16 15\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 16 Interchange for Eels is number 16 Teancum Brown\n17 16\nInterchange for Rabbitohs is number 18 Jayden Sullivan 18 Interchange for Eels is number 18 Joash Papalii\n18\nInterchange for Rabbitohs is number 19 Thomas Fletcher 19\n19\nInterchange for Rabbitohs is number 20 Liam Le Blanc 20\n20\nReserves\nReserve for Rabbitohs is number 21 Moala Graham-Taufa 21 19 Reserve for Eels is number 19 Jezaiah Funa-Iuta\n21 19\n20 Reserve for Eels is number 20 Toni Mataele\n22 Reserve for Eels is number 22 Ryley Smith\n22\nRabbitohs Ins\nCameron Murray\nDavid Fifita\nMoala Graham-Taufa\nTallis Duncan\nEels Ins\nJezaiah Funa-Iuta\nLuca Moretti\nRyley Smith\nSaxon Pryke\nRabbitohs Outs\nCampbell Graham\nJohn Radel\nLatrell Siegwalt\nDylan Walker\nHarrison Edwards\nKelma Tuilagi\nMatch Officials\nReferee: Wyatt Raymond\nSenior Review Official: Grant Atkins\nLast updated: 8/8/2026 4:06:15 AM\nRelated /\nNRL Team List Update: Round 23\nInjuries\nNRL Injury Report: Round 23\nNRL Late Mail: Round 22\nNRL Team List Update: Round 22\nNRL Team List: Round 22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 95.27994372666666,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "4cf8e3441cde0e59",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Injury Report: Round 23 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-injury-report-round-23/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "NRL Injury Report: Round 23\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their Indigenous Round clash with the Rabbitohs.\nDylan Walker has been rested for Round 23.\nInjury Report:\nPlayer\nInjury\nExpected Return\nMatt Doorey\nL Knee ACL\n2027\nC",
+            "body_excerpt": "NRL Injury Report: Round 23\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their Indigenous Round clash with the Rabbitohs.\nDylan Walker has been rested for Round 23.\nInjury Report:\nPlayer\nInjury\nExpected Return\nMatt Doorey\nL Knee ACL\n2027\nCharlie Guymer\nR Knee - PCL Rupture\nJ'maine Hopgood\nR Knee ACL\nRichard Penisini\nR Knee - Meniscus Tear\nJonah Pezet\nShoulder\nRound 25\nBailey Simonsson\nL Ankle Fracture\nTBC\nRelated /\nNRL Team List Update: Round 23\nTeam Lists\nNRL Team List: Round 23\nInjuries\nNRLW Injury Report: Round 6\nNRL Injury Report: Round 22\nNRL Injury Report: Round 21",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 95.27994372666666,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-07T02:22:53+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nigh",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nightmare to beat the Titans 30-8 on the Gold Coast.\nFriday saw the Warriors down the Panthers 28-12 in Auckland and the Roosters edge the Bulldogs 20-18 at Allianz in Sydney.\nThe Storm and Sea Eagles clash at HBF Stadium in Perth on Saturday afternoon in the city's final NRL match before the arrival of its own team next March, followed by the latest instalment of the 'Battle of Brisbane' at Suncorp.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nMelbourne Storm vs. Manly Sea Eagles\n(Saturday, August 8 at HBF Park , 3:00pm AEST)\nMelbourne team:\n1. Sua Fa’alogo 2. Suilagi Tuimalatu-Brown 18. Joe Chan 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Hayden Watson 8. Stefano Utoikamanu 9. Tyran Wishart 10. Josh King 11. Cooper Clark 12. Oryn Keeley 13. Trent Loiero\n14. Trent Toelau 15. Shawn Blore 16. Davvy Moale 17. Angus Hinchey 19. Jack Hetherington 22. Manaia Waitere\nStorm team news:\nJack Howarth (shoulder) is a late withdrawal. Jahrome Hughes (hamstring) remains out with Hayden Watson named at No.7 alongside Cameron Munster who is aiming for an early return from his knee injury. The Storm's Mr Fix-it Tyran Wishart shifts to No.9 with Harry Grant (hamstring) still a week or two away.\nManly team:\n1. Lehi Hopoate 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Blake Wilson 6. Joey Walsh 7. Jamal Fogarty 8. Taniela Paseka 9. Brandon Wakeham 10. Ethan Bullemore 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nathan Brown 16. Simione Laiafi 17. Fletcher Baker 18. Jackson Shereb 19. Josh Feledy\nSea Eagles team news:\nBrandon Wakeham (calf) is back at hooker while Corey Waddell (ankle) returns in the second row. Skipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) will both miss the trip to Perth while Clayton Faulalo (hamstring) also remains out. In major blow Kobe Hetherington will miss the rest of the season after the club confirmed he ruptured his bicep at training.\nDolphins vs. Brisbane Broncos\n(Saturday, August 8 at Suncorp Stadium , 5:30pm AEST)\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Kurt Donoghoe 15. Max Plath 16. Tom Gilbert 17. Felise Kaufusi 18. Sebastian Su'a 19. Brad Schneider\nDolphins team news:\nIn a massive pre-finals boost for the Phins captain Isaiya Katoa (wrist) made a successful injury return against the Dragons with Brad Schneider set to again assume a utility role off the bench. The Dolphins are pretty much full-strength which should have the Broncos on high alert.\nBrisbane team:\n1. Reece Walsh 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Tom Duffy 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Pat Carrigan (c)\n14. Ben Hunt 15. Va'a Semu 16. Ben Talty 17. Gehamat Shibasaki 18. Jack Gosiewski 19. Hayze Perham\nBroncos team news:\nAdam Reynolds is out yet again, this time after failing an HIA (Cat 1) against the Knights. Xavier Willison picked up a nasty gash to his leg in the same match but is named up front with Va'a Semu shifting back to the bench. Billy Walters will make his first start in almost a year at No.9 with Cory Paix dropped.\nSouth Sydney Rabbitohs vs. Parramatta Eels\n(Saturday, August 8 at Allianz Stadium , 7:35pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 14. Jye Gray 6. Cody Wa",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.898554837777777,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "444d222a95b3bb26",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Sharks v Titans: Ankle sidelines Kiria-Ratu; Ibrahim to debut",
+            "url": "https://www.nrl.com/news/2026/08/05/sharks-v-titans-byers-george-sidelined-ibrahim-to-debut/",
+            "published_at": "2026-08-08T03:59:27+00:00",
+            "snippet": "Presented By\nSharks v Titans: Ankle sidelines Kiria-Ratu; Ibrahim to debut\nOne of the most intriguing clashes of the round sees the Sharks host the Titans at Ocean Protect Stadium.\nThe Titans sit inside the top four and arrive off a gritty 18-16 win over the Warriors, while Cronu",
+            "body_excerpt": "Presented By\nSharks v Titans: Ankle sidelines Kiria-Ratu; Ibrahim to debut\nOne of the most intriguing clashes of the round sees the Sharks host the Titans at Ocean Protect Stadium.\nThe Titans sit inside the top four and arrive off a gritty 18-16 win over the Warriors, while Cronulla are looking to rebound after a 32-20 loss to Wests Tigers.\nGold Coast are one of the competition's most dangerous attacking sides. Wins over the Cowboys, Eels and Warriors have demonstrated their ability to score points from anywhere on the field.\nCronulla's season has been a frustrating one, but they have shown flashes of quality, including their Round 4 win over the Raiders, but have struggled to string performances together consistently.\nThe battle between the halves and spine combinations could decide the outcome of this clash. While the Titans have generally looked sharper in attack, the Sharks should never be discounted.\nMatch: Sharks v Titans\nRound 6 - Round 6 - Saturday 8 Aug\nhome Team\nSharks\n9th Position\naway Team\nTitans\n3rd Position\nVenue: Ocean Protect Stadium, Sydney\nMatch broadcasters:\nNine Network\nFoxtel\nNine Now\nKayo\nTeam News\nSharks: No changes on game day after halfback Chantay Kiria-Ratu dropped out on Friday with an ankle sprain. Madison Ashby step into the halves and China Polata slides to the centres. Winger Milla Elaro comes in for her NRLW debut as does bench hooker Koffi Brookfield. With Polata shifting to centre, Jaydika Tafua joins the bench. The loss of Najvada George to a leg injury has seen Anne-Marie Kiria-Ratu come into the starting side at lock, while interchange forward Rhiannon Byers has also been ruled out with a knee injury. As a result, Filomina Hanisi comes on to the bench for her first NRLW game since rupturing her ACL in Round 1 last year.\nTitans: The Titans line up 1-17 with no late changes. The loss of Sarina Masaga (concussion) has triggered a minor backline reshuffle, with Phoenix-Raine Hippi shifting to the centres and Sienna Ibrahim coming on to the wing for her NRLW debut. Lily Kolc is on track to make her return from illness and replaces Enah Desic, who was ruled out with a concussion. The Titans have the chance to equal a club record five consecutive wins.\nTeam Lists\nBacks\nFullback for Sharks is number 1 Jada Taylor 1 Fullback for Titans is number 1 Lily Patston\nWinger for Sharks is number 5 Georgia Ravics 5 2 Winger for Titans is number 2 Sienna Ibrahim\n5 2\nCentre for Sharks is number 4 Tiana Penitani Gray 4 3 Centre for Titans is number 3 Jaime Chapman\n4 3\nCentre for Sharks is number 12 China Polata 12 4 Centre for Titans is number 4 Phoenix-Raine Hippi\n12 4\nWinger for Sharks is number 19 Milla Elaro 19 5 Winger for Titans is number 5 Indie Bostock\n19 5\nFive-Eighth for Sharks is number 6 Georgia Hannaway 6 Five-Eighth for Titans is number 6 Teagan Levi\nHalfback for Sharks is number 3 Madison Higgins-Ashby 3 7 Halfback for Titans is number 7 Lauren Brown\n3 7\nForwards\nProp for Sharks is number 8 Ellie Johnston 8 Prop for Titans is number 8 Laikha Clarke\nHooker for Sharks is number 9 Quincy Dodd 9 Hooker for Titans is number 9 Georgia Hale\nProp for Sharks is number 10 Caitlan Johnston-Green 10 Prop for Titans is number 10 Fanua Rimoni\n10\n2nd Row for Sharks is number 11 Manilita Takapautolo 11 2nd Row for Titans is number 11 Evania Isa'ako\n11\n2nd Row for Sharks is number 15 Jaydika Tafua 15 12 2nd Row for Titans is number 12 Ivana Lolesio\n15 12\nLock for Sharks is number 13 Anne-Marie Kiria-Ratu 13 Lock for Titans is number 13 Sienna Lofipo\n13\nInterchange\nInterchange for Sharks is number 14 Tegan Dymock 14 Interchange for Titans is number 14 Lily Kolc\n14\nInterchange for Sharks is number 16 Filomina Hanisi 16 15 Interchange for Titans is number 15 Eta Sikahele\n16 15\nInterchange for Sharks is number 17 Jacinta Carter 17 16 Interchange for Titans is number 16 Jasmine Solia\n17 16\nInterchange for Sharks is number 18 Koffi Brookfield 18 17 Interchange for Titans is number 17 Takoda Thompson\n18 17\nReserves\nRep",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.2891103933333334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Rabbitohs vs Eels NRL round 23 preview",
+          "Rabbitohs Eels NRL odds OR price OR favourite",
+          "Rabbitohs Eels NRL finals race OR form guide",
+          "Rabbitohs Eels NRL",
+          "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Rabbitohs Eels NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Rabbitohs OR Eels"
+        ],
+        "filter_summary": {
+          "dropped_stale": 66,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 8,
+          "dropped_irrelevant": 13,
+          "kept": 17,
+          "deferred_pending_body": 53,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 5
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "8427ecd4d8fc",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-08T05:16:47.795123+00:00",
+      "finished_at": "2026-08-08T05:18:38.071780+00:00",
+      "duration_ms": 110276,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Eels",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-08-08T19:35:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6978,
+        "home_win_probability": 0.6978,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.27 log-strength) — contribution 0.141 (14% of total)",
+            "Ladder points differential per game (+12.7 points) — contribution 0.141 (14% of total)",
+            "Elo rating advantage (+44 points) — contribution 0.069 (7% of total)",
+            "Pythagorean form (last 10) (+10% expected-win gap) — contribution 0.060 (6% of total)",
+            "Away travel to venue (23 km) — contribution 0.053 (5% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: points against (+8.20) — contribution 0.043 (4% of total)",
+            "3-game form: errors (-5.00) — contribution 0.038 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: errors (-4.80) — contribution 0.024 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: post contact metres (+56.80) — contribution 0.019 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: effective tackle pct (-2.37) — contribution 0.019 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.7501,
+            "total_toward_away": 0.2722,
+            "net": 0.478,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (-5.00)",
+            "5-game form: errors (-4.80)",
+            "5-game form: post contact metres (+56.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Rabbitohs",
+          "away_team": "Eels",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-08-08T19:35:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

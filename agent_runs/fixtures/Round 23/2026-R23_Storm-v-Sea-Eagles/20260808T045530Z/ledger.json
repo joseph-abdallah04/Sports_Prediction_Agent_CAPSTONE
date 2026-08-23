@@ -1,0 +1,1190 @@
+{
+  "schema_version": 2,
+  "run_id": "20260808T045530Z-134a1247",
+  "at_a_glance": {
+    "fixture": "Storm v Sea Eagles",
+    "round": 23,
+    "kickoff": "2026-08-08T15:00:00+10:00",
+    "venue": "HBF Park",
+    "predicted_winner": "Storm",
+    "confidence": 0.57,
+    "model_home_win_probability": 0.5584,
+    "model_prediction": "Home Win",
+    "research_items_kept": 15,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-08T04:55:30.112049+00:00",
+  "updated_at": "2026-08-08T05:06:13.670214+00:00",
+  "request": {
+    "home_team": "Storm",
+    "away_team": "Sea Eagles",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Storm vs Sea Eagles?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Storm",
+    "away_team": "Sea Eagles",
+    "confidence": 0.57,
+    "summary": "The Storm are supported by superior strength metrics (Bradley-Terry and Elo) and the critical return of Cameron Munster. While the Sea Eagles hold a significant points differential advantage (+90 vs -26) and enter the match well-rested from a bye, the model's underlying ratings favor Melbourne. The neutral venue in Perth further balances the fixture.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Bradley-Terry strength advantage contributed 0.149 and an Elo rating advantage of +23 points contributed 0.067 to the home win probability."
+      },
+      {
+        "source": "research",
+        "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+      },
+      {
+        "source": "scene",
+        "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+      }
+    ],
+    "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 15,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Storm vs Sea Eagles NRL round 23 preview",
+      "Storm Sea Eagles NRL odds OR price OR favourite",
+      "Storm Sea Eagles NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Munster's return is sourced from nrl_news (\"Bellamy’s team has been bolstered by the return of five-eighth Cameron Munster\"), and points differential from set_fixture_scene."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source states Munster is named to start; judgement describes him as returning."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength advantage is correctly attributed to Storm from the favouring_Storm_home_win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather (Rain) is not presented as a key factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor regarding Cameron Munster's return identifies nrl_news."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.57 is within the 0.50-0.85 range and appropriately capped below 0.65 given the unresolved rest/differential advantages for Manly."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The most significant driver (Bradley-Terry strength) is treated as the primary math factor."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "The top driver 'Elo rating advantage (+23 points)' for Storm is not mentioned or alluded to in the judgement."
+        }
+      ],
+      "issues": [
+        "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation."
+      ],
+      "instruction": "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation — please consider it and re-output."
+    },
+    "instruction": "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation — please consider it and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Storm",
+      "away_team": "Sea Eagles",
+      "confidence": 0.57,
+      "summary": "The Storm are favored by the model's strength ratings and receive a significant boost from the return of Cameron Munster. However, the Sea Eagles hold a superior points differential (+90 vs -26) and enter the match well-rested following a bye. The neutral venue in Perth further mitigates traditional home-ground advantage.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Bradley-Terry strength advantage contributed 0.149 to the home win probability."
+        },
+        {
+          "source": "research",
+          "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+        },
+        {
+          "source": "scene",
+          "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+        }
+      ],
+      "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Storm",
+      "away_team": "Sea Eagles",
+      "confidence": 0.57,
+      "summary": "The Storm are supported by superior strength metrics (Bradley-Terry and Elo) and the critical return of Cameron Munster. While the Sea Eagles hold a significant points differential advantage (+90 vs -26) and enter the match well-rested from a bye, the model's underlying ratings favor Melbourne. The neutral venue in Perth further balances the fixture.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Bradley-Terry strength advantage contributed 0.149 and an Elo rating advantage of +23 points contributed 0.067 to the home win probability."
+        },
+        {
+          "source": "research",
+          "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+        },
+        {
+          "source": "scene",
+          "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+        }
+      ],
+      "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+    },
+    "issues": [
+      "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T04:56:10.392227+00:00",
+      "thinking": "*   Home Team: Storm\n    *   Away Team: Sea Eagles\n    *   Round Number: 23\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Storm)\n    *   Query 2: Away team availability (Sea Eagles)\n    *   Query 3: Fixture preview (Storm vs Sea Eagles Round 23)\n    *   Query 4: Market prices/odds (Storm vs Sea Eagles)\n    *   Query 5: Specific context (form, ladder, pressure, etc.)\n\n    *   Q1: `Storm NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q2: `Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q3: `Storm vs Sea Eagles NRL round 23 preview`\n    *   Q4: `Storm Sea Eagles NRL odds OR price OR favourite`\n    *   Q5 (Context): Storm and Sea Eagles are usually top contenders. I'll look for finals race or recent form. Let's go with \"finals race\" or \"form\". Given it's Round 23, the finals race is critical. `Storm Sea Eagles NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Storm, Sea Eagles).\n    *   JSON format? Yes.",
+      "chars": 1216
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:01:29.639021+00:00",
+      "thinking": "*   Fixture: Storm (Home) vs Sea Eagles (Away).\n    *   Venue: HBF Park, Perth.\n    *   Round: 23.\n\n        *   Prediction: Home Win.\n        *   Probability: 0.5584.\n        *   SHAP Drivers (Storm): Bradley-Terry strength (+0.149), Elo rating (+0.067), tackle share, effective tackle pct, missed tackles.\n        *   SHAP Drivers (Sea Eagles): Home travel distance (-0.057), Rest-day advantage (-0.053), Pythagorean form (-0.044), run metres (-0.040), Ladder points diff per game (-0.034).\n        *   Attribution Balance: Leans Away (Total Toward Home: 0.3855, Total Toward Away: 0.485). *Crucial note: The model predicts a home win despite the total SHAP weight leaning away.*\n\n        *   Storm: Position 12, Wins 8, Lost 12, Points Diff -26 (-1.3/game), Streak 3L.\n        *   Sea Eagles: Position 10, Wins 9, Lost 10, Points Diff +90 (+4.74/game), Streak 4L.\n        *   Comparison: Sea Eagles higher on ladder and significantly better points differential per game (-6.04 gap).\n\n        *   Storm: Cameron Munster returns (knee surgery) - \"Munster back on deck\" (nrl_news). Jack Howarth was named to return but is now held back for another week (\"lost centre Jack Howarth... will be held back for another week\" - nrl_news).\n        *   Sea Eagles: Coming off a bye (\"well-rested after last week's bye\" - nrl_news). Brandon Wakeham returns (calf) replacing Nic Lenaz as starting hooker (seaeagles.com.au). Kobe Hetherington suffered a season-ending injury (ruptured bicep).\n        *   Market: One mention of $1.91 for Storm (Before You Bet), suggesting they are slight favorites or near even money.\n\n    *   The math model predicts a Home Win (0.5584) based on Bradley-Terry strength and Elo, but the attribution balance actually leans toward the Sea Eagles due to travel distance, rest advantage (bye), and ladder/points differential.\n    *   Research shows Storm get Cameron Munster back, which is a huge boost. However, they lose Jack Howarth (late mail).\n    *   Sea Eagles are coming off a bye (rested) but have lost 4 in a row.\n    *   Storm have lost 3 in a row.\n    *   The venue is Perth (neutral-ish for both, though designated as \"home\" for Storm), and the travel distance is cited by the model as an advantage for Sea Eagles (which is odd, usually long travel hurts the away team, but here it's listed under `favouring_Sea Eagles_away_win` - wait, let me re-read).\n    *   SHAP Driver: \"Home travel to venue (2,723 km) — contribution 0.057\" is in the `favouring_Sea Eagles_away_win` group. This means the model thinks the distance/travel situation helps Manly or hurts Storm more.\n    *   The ladder strongly favors Sea Eagles (+90 diff vs -26).\n\n    *   Winner: Home (Storm) or Away (Sea Eagles)?\n    *   Model says Home (0.5584), but attribution leans Away.\n    *   Research highlights Munster's return for Storm, which is a game-changer.\n    *   Manly has the bye and better ladder stats but poor recent form (4L).\n    *   Storm have 3L.\n    *   The \"Home\" team is actually playing in Perth (neutral ground), so home-ground advantage is minimal.\n    *   Given Munster's return and the model's prior, I will lean Storm, but with low confidence because of the ladder gap and Manly's rest.\n\n    *   Strongest reason pick could lose: Sea Eagles have a significantly better points differential (+90 vs -26) and are coming off a bye (rested), while Storm are playing in Perth despite being the \"home\" team.\n    *   Confidence: The model is at 0.5584. Attribution leans away. Research provides one major positive for Storm (Munster) and one negative (Howarth). I'll set confidence around 0.56-0.60.\n\n    *   Winner: home\n    *   Home Team: Storm\n    *   Away Team: Sea Eagles\n    *   Confidence: 0.57 (Modest edge based on model and Munster return, tempered by ladder/rest).\n    *   Summary: The Storm are favored by the math model's strength ratings and bolstered by the return of Cameron Munster from knee surgery. However, the Sea Eagles hold a significant points differential advantage and enter the match well-rested following a bye. The neutral venue in Perth reduces traditional home-ground advantage.\n    *   Key Factors:\n        1.  Math: Bradley-Terry strength advantage (contribution 0.149).\n        2.  Research: Return of Cameron Munster (\"Munster back on deck\" - nrl_news).\n        3.  Scene/Standings: Sea Eagles' superior points differential (+90 vs -26) and ladder position (10th vs 12th).\n    *   Disagreements with math: The model predicts a home win, but the `attribution_balance` actually leans toward the away side (-0.0995 net), indicating that factors like travel and rest favor Manly.\n\n    *   Check SHAP drivers again. \"Bradley-Terry strength advantage (+0.46 log-strength) — contribution 0.149\" is in `favouring_Storm_home_win`. Correct.\n    *   Check research: Munster return confirmed by nrl_news and melbournestorm.com.au. Howarth late mail out (nrl_news). Wakeham return for Manly.\n    *   Market: $1.91 mentioned. This is close to 50/50, aligning with the model's 0.5584.\n\n    *   Confidence check: The strongest reason they lose is the ladder gap and rest advantage. That keeps it in the \"modest edge\" (0.55-0.65) range. I'll go with 0.57.",
+      "chars": 5187
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:04:52.083754+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and return the result in JSON format.\n\n    *   Home Team: Storm\n    *   Away Team: Sea Eagles\n    *   Venue: HBF Park (Perth) - Neutral venue.\n    *   Weather: Rain.\n    *   Standings: Sea Eagles 10th (+90 diff), Storm 12th (-26 diff).\n\n    *   `favouring_Storm_home_win`: Bradley-Terry strength advantage, Elo rating advantage, 5-game workload (tackle share), 5-game form (effective tackle pct), 3-game form (missed tackles).\n    *   `favouring_Sea Eagles_away_win`: Home travel to venue (2,723 km), Rest-day advantage (-5.2 days), Pythagorean form, 5-game form (run metres), Ladder points differential per game.\n\n    *   Winner: home (Storm)\n    *   Confidence: 0.57\n    *   Summary mentions: Strength ratings, Cameron Munster return, Sea Eagles points differential (+90 vs -26), well-rested from bye, neutral venue in Perth.\n    *   Key Factors: Bradley-Terry strength (math), Cameron Munster return (research), Points differential (scene).\n\n        *   Claim 1: \"Cameron Munster returns to the starting side following knee surgery\". Source: `nrl_news` (\"Munster back on deck; Laiafi to start\" and \"Bellamy’s team has been bolstered by the return of five-eighth Cameron Munster who has been named to start following his knee surgery\"). -> **Pass**.\n        *   Claim 2: \"Sea Eagles hold a superior points differential (+90 vs -26)\". Source: `set_fixture_scene` standings (`home`: -26, `away`: 90). -> **Pass**.\n        *   Claim 3: \"Sea Eagles... enter the match well-rested following a bye\". Source: `nrl_news` (\"Manly are well-rested after last week's bye\"). -> **Pass**.\n\n        *   Munster is returning/starting. Judgement says he returns. -> **Pass**.\n\n        *   \"Bradley-Terry strength advantage\" is in `favouring_Storm_home_win`. Attributed to Storm (Home). -> **Pass**.\n\n        *   Weather is \"Rain\". Summary does not mention weather as a key factor. -> **Pass**.\n\n        *   Key factor 2: Cameron Munster return sourced from `nrl_news`. -> **Pass**.\n\n        *   Confidence = 0.57.\n        *   Justification in summary: \"Storm are favored by the model's strength ratings... However, the Sea Eagles hold a superior points differential... and enter the match well-rested... neutral venue\". This explains why it's not higher (countervailing factors).\n        *   Range check: 0.57 is within 0.50-0.85. Since there are credible reasons for loss (points diff, rest), $\\le 0.65$ is appropriate. -> **Pass**.\n\n        *   Top driver for Storm: Bradley-Terry strength (0.149). This is the primary math factor cited.\n        *   Other drivers are smaller (0.067, etc.). No minor factor is treated as decisive over the top one. -> **Pass**.\n\n        *   `favouring_Storm_home_win`: Top drivers: Bradley-Terry strength (CITED), Elo rating advantage (NOT CITED).\n        *   `favouring_Sea Eagles_away_win`: Top drivers: Home travel to venue (Slightly alluded to via \"neutral venue in Perth\"), Rest-day advantage (CITED as \"well-rested following a bye\"), Pythagorean form (NOT CITED), 5-game run metres (NOT CITED), Ladder points differential per game (CITED).\n        *   Wait, let's look closer at the top drivers.\n            *   Storm: Bradley-Terry strength (Cited). Elo rating advantage (+23) is not mentioned.\n            *   Sea Eagles: Home travel to venue (Mentioned as \"neutral venue in Perth\"), Rest-day advantage (Cited), Pythagorean form (Not cited), 5-game run metres (Not cited), Ladder points differential per game (Cited).\n        *   Is Elo rating advantage (+23) a top driver? It's the second one for Storm. Is it clearly alluded to? No.\n        *   Are there others? Pythagorean form and Run Metres are in the top 5 for Sea Eagles, but usually, we check the first two or three.\n        *   Top 2 for Storm: Bradley-Terry (Yes), Elo (No).\n        *   Top 2 for Sea Eagles: Travel (Yes - neutral venue), Rest (Yes).\n        *   The \"Elo rating advantage\" is missing.\n\n    *   `sourced_claims`: Pass. Evidence: \"Bellamy’s team has been bolstered by the return of five-eighth Cameron Munster who has been named to start following his knee surgery\".\n    *   `availability_direction`: Pass. Evidence: Source says Munster returns, judgement says he returns.\n    *   `shap_attribution`: Pass. Evidence: Bradley-Terry strength is in `favouring_Storm_home_win`.\n    *   `weather_not_headline`: Pass. Evidence: Weather not mentioned as a key factor.\n    *   `research_used`: Pass. Evidence: Cameron Munster return sourced from `nrl_news`.\n    *   `confidence_justified`: Pass. Evidence: 0.57 is within range and justified by the balance of strength vs rest/differential.\n    *   `driver_proportionality`: Pass. Evidence: Bradley-Terry (top driver) is the primary math factor cited.\n    *   `omitted_math_signals`: Fail. Driver \"Elo rating advantage (+23 points)\" in `favouring_Storm_home_win` is not addressed.\n\n    *   Instruction: \"Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation — please consider it and re-output.\"",
+      "chars": 5081
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:06:13.669925+00:00",
+      "thinking": "*   Match: Storm (Home) vs Sea Eagles (Away).\n    *   Model Prediction: Home Win (0.5584 probability).\n    *   Math Drivers for Home: Bradley-Terry strength (+0.149), Elo rating advantage (+23 points, +0.067), etc.\n    *   Math Drivers for Away: Travel distance, Rest-day advantage, Pythagorean form, Run metres, Ladder points differential.\n    *   Attribution Balance: Leans away (-0.0995).\n    *   Standings: Sea Eagles (10th) > Storm (12th). Points diff: +90 vs -26.\n    *   Research: Cameron Munster returns for Storm. Brandon Wakeham returns for Sea Eagles. Jack Howarth is out (late mail from nrl_news). Manly coming off a bye.\n    *   Market: $1.91 mentioned (likely for Storm, though not explicitly stated as favorite, it's close to even).\n\n    *   The verifier noted that the 'Elo rating advantage (+23 points)' was not addressed in the previous evaluation.\n\n    *   Elo rating is a measure of relative strength based on win/loss history and opponent quality.\n    *   A +23 point advantage for Storm suggests they are fundamentally stronger than Manly despite their current ladder position (12th vs 10th).\n    *   This aligns with the Bradley-Terry strength advantage (+0.46 log-strength), which was already cited. Both are \"strength\" metrics favoring Storm.\n\n    *   Winner: Home (Storm).\n    *   Confidence: Previously 0.57. The Elo rating is a positive signal for Storm, but it's outweighed by the `attribution_balance` leaning away and the fact that Manly has better points differential and rest.\n    *   The return of Munster is a high-impact qualitative factor.\n    *   The loss of Jack Howarth (late mail) is a negative for Storm.\n    *   Manly's 4L streak vs Storm's 3L streak suggests both are struggling, but Manly has the bye advantage.\n\n    *   Elo rating (+23 points) supports the \"strength\" narrative favoring Storm.\n    *   Combined with Bradley-Terry and Munster's return, this provides a solid basis for picking Storm despite the ladder/points differential gap.\n    *   Confidence remains modest (0.57) because of the `attribution_balance` leaning away and Manly's rest advantage.\n\n    *   Winner: home\n    *   Home Team: Storm\n    *   Away Team: Sea Eagles\n    *   Confidence: 0.57 (or slightly adjusted? No, Elo is already baked into the model probability of 0.5584; it's just a driver). Let's keep it at 0.57 as it represents a modest edge.\n    *   Summary: Mention Munster and strength metrics (Elo/BT) vs Manly's rest and points diff.\n    *   Key Factors: Add Elo rating to the list.\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.57\n    *   `summary`: Storm are backed by superior strength ratings (Bradley-Terry and Elo) and the return of Cameron Munster. However, they face a well-rested Sea Eagles side with a significantly better points differential (+90 vs -26). The neutral Perth venue reduces home advantage, keeping confidence modest.\n    *   `key_factors`: [BT strength, Elo rating, Munster return, Points diff].",
+      "chars": 2956
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T04:56:10.398907+00:00",
+      "payload": {
+        "queries": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Storm vs Sea Eagles NRL round 23 preview",
+          "Storm Sea Eagles NRL odds OR price OR favourite",
+          "Storm Sea Eagles NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:01:29.639363+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "confidence": 0.57,
+          "summary": "The Storm are favored by the model's strength ratings and receive a significant boost from the return of Cameron Munster. However, the Sea Eagles hold a superior points differential (+90 vs -26) and enter the match well-rested following a bye. The neutral venue in Perth further mitigates traditional home-ground advantage.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Bradley-Terry strength advantage contributed 0.149 to the home win probability."
+            },
+            {
+              "source": "research",
+              "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+            }
+          ],
+          "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:04:52.084400+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Munster's return is sourced from nrl_news (\"Bellamy’s team has been bolstered by the return of five-eighth Cameron Munster\"), and points differential from set_fixture_scene."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source states Munster is named to start; judgement describes him as returning."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength advantage is correctly attributed to Storm from the favouring_Storm_home_win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather (Rain) is not presented as a key factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor regarding Cameron Munster's return identifies nrl_news."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.57 is within the 0.50-0.85 range and appropriately capped below 0.65 given the unresolved rest/differential advantages for Manly."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The most significant driver (Bradley-Terry strength) is treated as the primary math factor."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "The top driver 'Elo rating advantage (+23 points)' for Storm is not mentioned or alluded to in the judgement."
+            }
+          ],
+          "issues": [
+            "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation."
+          ],
+          "instruction": "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation — please consider it and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:06:13.670042+00:00",
+      "payload": {
+        "issues": [
+          "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation."
+        ],
+        "instruction": "Math drivers include 'Elo rating advantage (+23 points)'; it is not addressed in your evaluation — please consider it and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "confidence": 0.57,
+          "summary": "The Storm are favored by the model's strength ratings and receive a significant boost from the return of Cameron Munster. However, the Sea Eagles hold a superior points differential (+90 vs -26) and enter the match well-rested following a bye. The neutral venue in Perth further mitigates traditional home-ground advantage.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Bradley-Terry strength advantage contributed 0.149 to the home win probability."
+            },
+            {
+              "source": "research",
+              "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+            }
+          ],
+          "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "confidence": 0.57,
+          "summary": "The Storm are supported by superior strength metrics (Bradley-Terry and Elo) and the critical return of Cameron Munster. While the Sea Eagles hold a significant points differential advantage (+90 vs -26) and enter the match well-rested from a bye, the model's underlying ratings favor Melbourne. The neutral venue in Perth further balances the fixture.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Bradley-Terry strength advantage contributed 0.149 and an Elo rating advantage of +23 points contributed 0.067 to the home win probability."
+            },
+            {
+              "source": "research",
+              "detail": "Cameron Munster returns to the starting side following knee surgery (\"Munster back on deck\" - nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "Sea Eagles hold a significant points differential advantage of +90 compared to Storm's -26."
+            }
+          ],
+          "disagreements_with_math": "The model predicts a home win, but the attribution_balance leans toward the away side (-0.0995 net), reflecting Manly's rest advantage and better ladder standing."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "f8e4f3f2d59a",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-08T04:55:30.112201+00:00",
+      "finished_at": "2026-08-08T04:55:33.635805+00:00",
+      "duration_ms": 3523,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Sea Eagles",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-08T04:55:30.112277+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "kickoff": "2026-08-08T15:00:00+10:00",
+          "venue": "HBF Park",
+          "venue_city": "Perth",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/storm-v-sea-eagles/",
+          "match_mode": "Pre",
+          "match_id": "20261112340",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Showers",
+          "officials": [
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Liam Kennedy"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Sualauvi Faalogo",
+                "position": "Fullback",
+                "player_id": 100006297
+              },
+              {
+                "number": 2,
+                "name": "Siulagi Tuimalatu-Brown",
+                "position": "Winger",
+                "player_id": 100011324
+              },
+              {
+                "number": 4,
+                "name": "Nick Meaney",
+                "position": "Centre",
+                "player_id": 505537
+              },
+              {
+                "number": 5,
+                "name": "Moses Leo",
+                "position": "Winger",
+                "player_id": 100018554
+              },
+              {
+                "number": 6,
+                "name": "Cameron Munster",
+                "position": "Five-Eighth",
+                "player_id": 501459
+              },
+              {
+                "number": 7,
+                "name": "Hayden Watson",
+                "position": "Halfback",
+                "player_id": 100014714
+              },
+              {
+                "number": 8,
+                "name": "Stefano Utoikamanu",
+                "position": "Prop",
+                "player_id": 505628
+              },
+              {
+                "number": 9,
+                "name": "Tyran Wishart",
+                "position": "Hooker",
+                "player_id": 507680
+              },
+              {
+                "number": 10,
+                "name": "Josh King",
+                "position": "Prop",
+                "player_id": 501247
+              },
+              {
+                "number": 11,
+                "name": "Cooper Clarke",
+                "position": "Interchange",
+                "player_id": 100013815
+              },
+              {
+                "number": 12,
+                "name": "Oryn Keeley",
+                "position": "2nd Row",
+                "player_id": 510366
+              },
+              {
+                "number": 13,
+                "name": "Trent Loiero",
+                "position": "Lock",
+                "player_id": 100001560
+              },
+              {
+                "number": 14,
+                "name": "Trent Toelau",
+                "position": "Interchange",
+                "player_id": 508341
+              },
+              {
+                "number": 15,
+                "name": "Shawn Blore",
+                "position": "2nd Row",
+                "player_id": 504788
+              },
+              {
+                "number": 16,
+                "name": "Davvy Moale",
+                "position": "Interchange",
+                "player_id": 509444
+              },
+              {
+                "number": 17,
+                "name": "Angus Hinchey",
+                "position": "Interchange",
+                "player_id": 100009124
+              },
+              {
+                "number": 18,
+                "name": "Joe Chan",
+                "position": "Centre",
+                "player_id": 100008216
+              },
+              {
+                "number": 19,
+                "name": "Jack Hetherington",
+                "position": "Interchange",
+                "player_id": 503336
+              },
+              {
+                "number": 22,
+                "name": "Manaia Waitere",
+                "position": "Interchange",
+                "player_id": 509560
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Lehi Hopoate",
+                "position": "Fullback",
+                "player_id": 100011191
+              },
+              {
+                "number": 2,
+                "name": "Jason Saab",
+                "position": "Winger",
+                "player_id": 507670
+              },
+              {
+                "number": 3,
+                "name": "Tolutau Koula",
+                "position": "Centre",
+                "player_id": 509634
+              },
+              {
+                "number": 4,
+                "name": "Reuben Garrick",
+                "position": "Centre",
+                "player_id": 503443
+              },
+              {
+                "number": 5,
+                "name": "Blake Wilson",
+                "position": "Winger",
+                "player_id": 506375
+              },
+              {
+                "number": 6,
+                "name": "Joey Walsh",
+                "position": "Five-Eighth",
+                "player_id": 100011351
+              },
+              {
+                "number": 7,
+                "name": "Jamal Fogarty",
+                "position": "Halfback",
+                "player_id": 501175
+              },
+              {
+                "number": 8,
+                "name": "Taniela Paseka",
+                "position": "Prop",
+                "player_id": 504251
+              },
+              {
+                "number": 9,
+                "name": "Brandon Wakeham",
+                "position": "Hooker",
+                "player_id": 504307
+              },
+              {
+                "number": 11,
+                "name": "Haumole Olakau'atu",
+                "position": "2nd Row",
+                "player_id": 508033
+              },
+              {
+                "number": 12,
+                "name": "Corey Waddell",
+                "position": "2nd Row",
+                "player_id": 503341
+              },
+              {
+                "number": 13,
+                "name": "Jake Trbojevic",
+                "position": "Lock",
+                "player_id": 500751
+              },
+              {
+                "number": 14,
+                "name": "Jake Simpkin",
+                "position": "Interchange",
+                "player_id": 508629
+              },
+              {
+                "number": 15,
+                "name": "Nathan Brown",
+                "position": "Interchange",
+                "player_id": 500647
+              },
+              {
+                "number": 16,
+                "name": "Simione Laiafi",
+                "position": "Prop",
+                "player_id": 100011203
+              },
+              {
+                "number": 17,
+                "name": "Fletcher Baker",
+                "position": "Interchange",
+                "player_id": 509851
+              },
+              {
+                "number": 18,
+                "name": "Jackson Shereb",
+                "position": "Interchange",
+                "player_id": 509494
+              },
+              {
+                "number": 19,
+                "name": "Josh Feledy",
+                "position": "Interchange",
+                "player_id": 100006630
+              },
+              {
+                "number": 21,
+                "name": "Nicholas Lenaz",
+                "position": "Interchange",
+                "player_id": 100003907
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 23,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Storm",
+            "position": 12,
+            "played": 20,
+            "wins": 8,
+            "drawn": 0,
+            "lost": 12,
+            "competition_points": 20,
+            "points_for": 468,
+            "points_against": 494,
+            "points_difference": -26,
+            "points_difference_per_game": -1.3,
+            "recent_form_last_4": "1 - 3",
+            "streak": "3L",
+            "home_record": "6 - 4",
+            "away_record": "2 - 8"
+          },
+          "away": {
+            "team": "Sea Eagles",
+            "position": 10,
+            "played": 19,
+            "wins": 9,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 24,
+            "points_for": 485,
+            "points_against": 395,
+            "points_difference": 90,
+            "points_difference_per_game": 4.74,
+            "recent_form_last_4": "0 - 4",
+            "streak": "4L",
+            "home_record": "5 - 5",
+            "away_record": "4 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sea Eagles",
+            "ladder_positions_gap": -2,
+            "points_difference_per_game_gap": -6.04,
+            "points_difference_favours": "Sea Eagles"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-08T15:00",
+            "temperature_c": 11.2,
+            "precipitation_mm": 1.5,
+            "precipitation_probability_pct": 100,
+            "wind_speed_kmh": 13.4,
+            "weather_code": 80,
+            "summary": "Slight rain showers",
+            "latitude": -31.945,
+            "longitude": 115.87,
+            "venue": "HBF Park",
+            "venue_city": "Perth"
+          },
+          "math_weather_label": "Rain",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-31.945&longitude=115.87&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-08T04:55:33.631963+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/storm-v-sea-eagles/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-31.945&longitude=115.87&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "ffb33b3a24ce",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-08T04:56:10.412169+00:00",
+      "finished_at": "2026-08-08T04:57:37.578141+00:00",
+      "duration_ms": 87165,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Sea Eagles",
+        "kickoff": "2026-08-08T15:00:00+10:00",
+        "round_number": 23,
+        "venue": "HBF Park",
+        "queries": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Storm vs Sea Eagles NRL round 23 preview",
+          "Storm Sea Eagles NRL odds OR price OR favourite",
+          "Storm Sea Eagles NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "kickoff": "2026-08-08T15:00:00+10:00",
+          "round_number": 23,
+          "venue": "HBF Park",
+          "queries": [
+            "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Storm vs Sea Eagles NRL round 23 preview",
+            "Storm Sea Eagles NRL odds OR price OR favourite",
+            "Storm Sea Eagles NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-08T04:56:10.433067+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined Presented by 49 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-08T04:06:17+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal cl",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal clash at Allianz Stadium.\nThe Storm, meanwhile, have lost centre Jack Howarth who had been named to return from a shoulder injury but will be held back for another week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nStorm v Sea Eagles, Saturday 3.00pm (AEDT), 1.00pm (local time) at HBF Park, Perth\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Sea Eagles is number 1 Lehi Hopoate\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Storm is number 4 Nick Meaney 4 3 Centre for Sea Eagles is number 3 Tolutau Koula\n4 3\nCentre for Storm is number 18 Joe Chan 18 4 Centre for Sea Eagles is number 4 Reuben Garrick\n18 4\nWinger for Storm is number 5 Moses Leo 5 Winger for Sea Eagles is number 5 Blake Wilson\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Sea Eagles is number 6 Joey Walsh\nHalfback for Storm is number 7 Hayden Watson 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Sea Eagles is number 8 Taniela Paseka\nHooker for Storm is number 9 Tyran Wishart 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Storm is number 10 Josh King 10 16 Prop for Sea Eagles is number 16 Simione Laiafi\n10 16\n2nd Row for Storm is number 12 Oryn Keeley 12 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n12 11\n2nd Row for Storm is number 15 Shawn Blore 15 12 2nd Row for Sea Eagles is number 12 Corey Waddell\n15 12\nLock for Storm is number 13 Trent Loiero 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Storm is number 11 Cooper Clarke 11 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n11 14\nInterchange for Storm is number 14 Trent Toelau 14 15 Interchange for Sea Eagles is number 15 Nathan Brown\n14 15\nInterchange for Storm is number 16 Davvy Moale 16 17 Interchange for Sea Eagles is number 17 Fletcher Baker\n16 17\nInterchange for Storm is number 17 Angus Hinchey 17 18 Interchange for Sea Eagles is number 18 Jackson Shereb\n17 18\nInterchange for Storm is number 19 Jack Hetherington 19 Interchange for Sea Eagles is number 19 Josh Feledy\n19\nInterchange for Storm is number 22 Manaia Waitere 22 21 Interchange for Sea Eagles is number 21 Nicholas Lenaz\n22 21\nStorm Ins\nCameron Munster\nDavvy Moale\nSea Eagles Ins\nBrandon Wakeham\nCorey Waddell\nFletcher Baker\nJackson Shereb\nStorm Outs\nAlec MacDonald\nJai Bowden\nBen Trbojevic\nEthan Bullemor\nKobe Hetherington\nOnitoni Large\nMatch Officials\nTouch Judge: Phil Henderson\nSenior Review Official: Liam Kennedy\nLast updated: 8/8/2026 4:46:04 AM\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline. Young gun Hayden Watson remains at halfback so the versatile Tyran Wishart moves to hooker and Trent Toelau slides to the bench.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchan",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.8315091852777777,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 20 Jaylan De Groot 20 4 Centre for Cowboys is number 4 Tom Chester\n20 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 4 AJ Brimson 4 7 Halfback for Cowboys is number 7 Jaxon Purdue\n4 7\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 18 Sam Verrills 18 9 Hooker for Cowboys is number 9 Soni Luke\n18 9\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Cowboys is number 11 Heilum Luki\n12 11\n2nd Row for Titans is number 15 Josh Patston 15 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n15 12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 9 Oliver Pascoe 9 14 Interchange for Cowboys is number 14 Ethan King\n9 14\nInterchange for Titans is number 14 Kurtis Morrin 14 15 Interchange for Cowboys is number 15 Thomas Mikaele\n14 15\nInterchange for Titans is number 16 Klese Haas 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Titans is number 17 Cooper Bai 17 20 Interchange for Cowboys is number 20 John Bateman\n17 20\nReserve for Titans is number 7 Lachlan Ilias 7 16 Reserve for Cowboys is number 16 Matthew Lodge\n7 16\nReserve for Titans is number 11 Arama Hau 11 18 Reserve for Cowboys is number 18 Sam McIntyre\n11 18\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/7/2026 7:50:35 AM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 18 Five-Eighth for Panthers is number 18 Jack Cole\n6 18\nHalfback for Warriors is number 18 Luke Metcalf 18 7 Halfback for Panthers is number 7 Nathan Cleary\n18 7\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Panthers is number 8 Moses Leota\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Panthers is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 94.9237314075,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6f4a7649f75bd115",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/04/team-list-nrl-round-23-vs-storm/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 23 vs Storm\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s match against the Melbourne Storm in Round 23 of the NRL Telstra Premiership to be played at HBF Park, Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturd",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 23 vs Storm\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s match against the Melbourne Storm in Round 23 of the NRL Telstra Premiership to be played at HBF Park, Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nThere are a few changes to the team that was defeated by the Sharks in Round 21 with a couple of players back on deck and a season-ending injury to middle forward Kobe Hetherington.\nHetherington suffered a ruptured bicep in training yesterday and is scheduled to undergo surgery next week.\nBrandon Wakeham (calf) will play his first game since Round 16, replacing Nic Lenaz as the starting hooker.\nCorey Waddell returns from an ankle injury replacing Ben Trbojevic (head knock) in the second row.\nEthan Bullemor will start the match at prop with Simione Laiafi named on the interchange.\nAlso on the bench is Fletcher Baker who is a chance of making his Manly debut after joining the club from the Bulldogs mid-season.\nThere is just the one change to the backline. Blake Wilson is named on the wing for his third appearance of the season, with Tolu Koula reverting to the centres.\nTeam List: Round 23 vs Storm\nBrought to you by\n1.\nLehi Hopoate\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nBlake Wilson\n6.\nJoey Walsh\n7.\nJamal Fogarty\n8.\nTaniela Paseka\n9.\nBrandon Wakeham\n10.\nEthan Bullemor\n11.\nHaumole Olakau'atu\n12.\nCorey Waddell\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNathan Brown\n16.\nSimione Laiafi\n17.\nFletcher Baker\n18.\nJackson Shereb\n19.\nJosh Feledy\nReserves\n20.\nOnitoni Large\n21.\nNic Lenaz\n22.\nHugo Hart\nRelated /\nFinal Team: Round 23 vs Storm\nTeam Lists\nTeam Update: NRL Round 23 vs Storm\nGallery: Round 23 preparation\nMatch Report\nMatch Preview: NRL Round 23 vs Storm\nFinal Team: Round 21 vs Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.9362314075,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 18 mins ago",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-08T04:38:02+00:00",
+            "snippet": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shock",
+            "body_excerpt": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shocked look on his face as he reeled away.\nThe NSW and Australian captain left the field in the 34th minute and cut a forlorn figure on the Panthers bench in the second term. He will be sent for scans to confirm the severity of the injury.\nBefore the game, Panthers centre Casey McLean had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean saw three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors.\nIn Friday's second game, Roosters fullback James Tedesco missed the Round 23 blockbuster against the Bulldogs after failing to overcome an ankle injury.\nTedesco sat out the second half of the Round 22 slaughter of the Cowboys with ice on his ankle but he was initially named to return against the Bulldogs.\nThe skipper dropped out of the side on Thursday and has been replaced by Cody Ramsey.\nHowever, it was another blow for Bulldogs star back-rower Sitili Tupouniua who was back from a hamstring injury, but was ruled out in his return game - again with a hamstring injury.\n\"Not sure how bad it is, but he's felt it in the same spot where he injured about eight weeks ago, so not ideal,\" Bulldogs coach Cameron Ciraldo said after the game.\n\"He's pretty devastated because he was training really well and he was just excited to get back playing, this is what he does, this is what he loves doing, so he's pretty shattered.\"\nThe Knights suffered a blow ahead of Sunday's trip to Canberra with star centre Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane.\nManly prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will be stood down for 11 days meaning he will miss this week's clash against the Storm and next Friday's game against the Dolphins.\nThe Sea Eagles have also lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nHuge ins at South Sydney as well where skipper Cameron Murray (calf) plays his first game since Round 20 while Tallis Duncan (hamstring) and David Fifita (suspension) are also back to face the Eels.\nWinger Campbell Graham will miss the game however with a calf injury that could sideline him for 3-4 weeks.\nThe Storm receive a boost with five-eighth Cameron Munster returning after four games out following surgery for knee cartilage damage but centre Jack Howarth has had his comeback from a shoulder injury put on hold.\nThe Broncos will be without skipper Adam Reynolds for their clash with the Dolphins after he suffered a Category 1 head knock last week.\nForward Xavier Willison left the field early at Suncorp Stadium with a nasty gash to his leg but he has been named to face the Dolphins while back-rower Jack Gosiewski (ribs) is on track to return.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nAt the Cowboys, star back-rower Jeremiah Nanai is facing 2-3 weeks out with a hamstring injury which he suffered during the record loss to the Roosters.\nCowboys coach Todd Payten praised Nanai's courage to stay on the field through until full-time despite carrying the injury.\nHooker Reed Mahoney suffered ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.3023425186111111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ec3dcbcea1d8b99a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Live Blog Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels Presented by 54 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/",
+            "published_at": "2026-08-08T04:01:29+00:00",
+            "snippet": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027",
+            "body_excerpt": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027, HBF Park plays host this weekend to two proud clubs with a history of epic clashes, including back-to-back grand finals in 2007-08.\nFrom Perth we head across to Brisbane for a Queensland derby between the finals-bound Dolphins and the under-siege Broncos, who have won just six games all season in a disastrous premiership defence.\nWe bring it home with the Rabbitohs looking to shore up their top-eight position with a win over a dangerous Eels outfit.\nThe Bunnies got the money 32-12 when the two sides clashed in Round 17 and a repeat performance is imperative with games against the Bulldogs, Warriors and Roosters still to come.\nFollow all the action from Round 23 of the NRL Telstra Premiership on NRL.com's live blog.\nStorm v Sea Eagles at HBF Park, Perth\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nStorm v Sea Eagles: Round 23\nLate Mail\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchange. Hooker Brandon Wakeham (calf) and back-rower Corey Waddell (ankle) are good to go.\nNumbers Game\nThe Storm have won four of their six games played in Perth.\nThe Sea Eagles have won five of their last seven games against the Storm.\nStorm winger Moses Leo has scored eight tries in his last eight games.\nSea Eagles winger Jason Saab has scored eight tries in eight games against the Storm.\nThe Storm have conceded more points after 22 rounds than any previous season under Craig Bellamy.\nDolphins v Broncos at Suncorp Stadium\nMatch: Dolphins v Broncos\nDolphins\n5th Position\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nDolphins v Broncos: Round 23\nRabbitohs v Eels at Allianz Stadium\nMatch: Rabbitohs v Eels\nRabbitohs\n8th Position\nEels\n13th Position\nVenue: Allianz Stadium, Sydney\nNine Network\nNine Now\nRabbitohs v Eels: Round 23\nRelated /\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nIndigenous Round\nMoran comes full circle as Indigenous officers unite for historic match\nMatch Preview\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nLive Blog\nAs it happened: Eels outlast Wests Tigers; Sharks down Bunnies",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.9115091852777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "32a8d64bf7403aec",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Storm v Sea Eagles: Munster back on deck; Laiafi to start",
+            "url": "https://www.nrl.com/news/2026/08/04/storm-v-sea-eagles-munster-back-on-deck-wakeham-returns/",
+            "published_at": "2026-08-08T03:36:17+00:00",
+            "snippet": "Presented By\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nA new chapter is set to be written in one of the great rivalries of the modern era when Melbourne take on Manly on Saturday afternoon.\nThe teams will head across the Nullarbor to Perth's HBF Park for a crucial",
+            "body_excerpt": "Presented By\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nA new chapter is set to be written in one of the great rivalries of the modern era when Melbourne take on Manly on Saturday afternoon.\nThe teams will head across the Nullarbor to Perth's HBF Park for a crucial clash between two sides desperate to keep their finals hopes alive.\nManly are well-rested after last week's bye and eager to hit the ground running in their bid to climb back into the eight.\nThe Sea Eagles have lost four in a row but they have strike all across the park and can score points at will.\nDefence will be a key area of focus, with Manly struggling in that aspect of the game in recent times.\nMelbourne enter the clash battered and bruised after a tough few weeks that have seen Cam Munster, Harry Grant and Jahrome Hughes miss time with injuries.\nThe Storm currently sit 12th, six points outside the eight and they need to find form to keep a remarkable 15-year finals streak alive.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nTeam News\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline. Young gun Hayden Watson remains at halfback so the versatile Tyran Wishart moves to hooker and Trent Toelau slides to the bench.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchange. Hooker Brandon Wakeham (calf) and back-rower Corey Waddell (ankle) are good to go but Ben Trbojevic (concussion) misses the trip west. A blow for Kobe Hetherington who suffered a ruptured bicep in training this week and is headed for surgery.\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Sea Eagles is number 1 Lehi Hopoate\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Storm is number 4 Nick Meaney 4 3 Centre for Sea Eagles is number 3 Tolutau Koula\n4 3\nCentre for Storm is number 18 Joe Chan 18 4 Centre for Sea Eagles is number 4 Reuben Garrick\n18 4\nWinger for Storm is number 5 Moses Leo 5 Winger for Sea Eagles is number 5 Blake Wilson\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Sea Eagles is number 6 Joey Walsh\nHalfback for Storm is number 7 Hayden Watson 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Sea Eagles is number 8 Taniela Paseka\nHooker for Storm is number 9 Tyran Wishart 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Storm is number 10 Josh King 10 16 Prop for Sea Eagles is number 16 Simione Laiafi\n10 16\n2nd Row for Storm is number 12 Oryn Keeley 12 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n12 11\n2nd Row for Storm is number 15 Shawn Blore 15 12 2nd Row for Sea Eagles is number 12 Corey Waddell\n15 12\nLock for Storm is number 13 Trent Loiero 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Storm is number 11 Cooper Clarke 11 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n11 14\nInterchange for Storm is number 14 Trent Toelau 14 15 Interchange for Sea Eagles is number 15 Nathan Brown\n14 15\nInterchange for Storm is number 16 Davvy Moale 16 17 Interchange for Sea Eagles is number 17 Fletcher Baker\n16 17\nInterchange for Storm is number 17 Angus Hinchey 17 18 Interchange for Sea Ea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.3315091852777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "cfd6d06ed1880544",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Final Team: Round 23 vs Storm - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/08/final-team-round-23-vs-storm/",
+            "published_at": "2026-08-08T03:29:26+00:00",
+            "snippet": "Presented By\nFinal Team: Round 23 vs Storm\nSea Eagles coach Kieran Foran has locked in his team ahead of today's Round 23 match against the Melbourne Storm in Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n",
+            "body_excerpt": "Presented By\nFinal Team: Round 23 vs Storm\nSea Eagles coach Kieran Foran has locked in his team ahead of today's Round 23 match against the Melbourne Storm in Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nDropping out of the squad is Onitoni Large.\nSimione Laiafi moves into the starting side for Saturday’s match against the Storm with Jackson Shereb elevated into the 17.\nTeam List: Round 23 vs Storm\nBrought to you by\n1.\nLehi Hopoate\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nBlake Wilson\n6.\nJoey Walsh\n7.\nJamal Fogarty\n8.\nTaniela Paseka\n9.\nBrandon Wakeham\n16.\nSimione Laiafi\n11.\nHaumole Olakau'atu\n12.\nCorey Waddell\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNathan Brown\n18.\nJackson Shereb\n17.\nFletcher Baker\n19.\nJosh Feledy\n21.\nNic Lenaz\nRelated /\nTeam Update: NRL Round 23 vs Storm\nGallery: Round 23 preparation\nMatch Report\nMatch Preview: NRL Round 23 vs Storm\nTeam Lists\nTeam List: NRL Round 23 vs Storm\nFinal Team: Round 21 vs Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.4456758519444444,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "a559d07188a0096b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm vs Sea Eagles Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/storm-vs-sea-eagles-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-07T05:28:04+00:00",
+            "snippet": "Storm vs Sea Eagles Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Storm vs Sea Eagles Preview & Betting Tips: NRL Round 23 2026\nAugust 7 th 2026, 3:02pm , By: Scooby\nThe opening game on NRL Super Saturday heads to Perth this week with the Storm hosting the Sea Eagles . A bitter rivalry, each team will be aware that victory in this game means much more than the 2 competition points it is worth. Hopefully, the conditions create a fast, attacking match. This will have fans excited and Before You Bet is here to add to your enjoyment by previewing the fixture ahead with the aim of finding you a winner or two.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nStorm vs Sea Eagles Predictions & Tips: NRL Round 23 2026\nUnchartered territory\nThe Storm were defeated 36-22 at home by the Bulldogs last week, all but ending their hopes of participating in the NRL Finals. It is an unusual feeling for the Storm as it is the first time this has occurred for coach Bellamy outside of the salary cap drama. They were flat at times in that match too. With an equal share of possession and the same completion rate as their opponent (76%), they made just 7.6m per carry and created just 4 line breaks. Uncharacteristically, they were poor defensively as they allowed 9.5m per carry, 9 line breaks, and 535 PCM’s.\nA miserable week off\nThe Sea Eagles had a week out of the spotlight with the Bye following their embarrassing 48-12 loss at home to the Sharks. In a day to forget, they were left chasing the standard of their opponent for 80 minutes. The game was all but over as they trailed 30-6 at HT. with just 47% possession and a 77% completion rate, they averaged 8.8m per carry but only managed 1 line break. They were poor defensively also, missing 42 tackles and conceding 12 line breaks. If they are to climb back into the Top 8, they need to forget that performance and reset ahead of this contest.\nStats that matter\n- The Sea Eagles, who were at home, won their Round 17 match 30-4. This has seen the home team win 6 out of the past 8 matches between these two sides. Unfortunately, neither team has played at this ground previously.\n- There have been blowout victories in the past 5 matches between these two sides with the average margin at 15.2 points. Interestingly, the score has been low, with the average total at 43.2 points.\n- The Sea Eagles have been the better side when these two teams are compared in 2026 on both sides of the ball. They score an average of 25ppg in attack (Storm 23ppg) and concede 20ppg (Storm 24ppg).\nConfidence is low\nThe Storm receive a huge boost to their team this week with the return of Munster at 5/8. Despite dropping out of contention, this is an indication that they still wish to finish the season off on a positive. His return also allows Wishart to move to hooker. The Sea Eagles also receive positive news, with Wakeham and Waddell returning. Both capable teams, the one which can overcome their shortcomings in recent weeks will prevail in this contest. Unfortunately, the inconsistency in each team creates doubt on the ability of each to prevail in an 80-minute contest.\nCapable enough, each are a chance to win this match, but the odds should be far closer than what has been originally offered. Enjoying a healthy rivalry, the Storm will take pleasure in denting the Finals hopes of the Sea Eagles while their opponents will relish the chance to kick the Storm while they are down. This means that the recent trend of large margins between these two sides looks set to be broken. A close match is ahead, evident by the scoring and defensive patterns of each team so far in 2026.\nEither team by 10.5 points or less\n$1.91 (1.5 units)\nStorm vs Sea Eagles Same Game Multi\nLeg 1 = Total points under 48.5 – on top of the information above, it also looks set to be wet this weekend in the west.\nLeg 2 = Koula to score – electric as ever, his shift back to th",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.468453629722223,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "aa4b2ccb03a71cd4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team Update: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/07/team-update-nrl-round-23-vs-storm/",
+            "published_at": "2026-08-07T05:01:21+00:00",
+            "snippet": "Presented By\nTeam Update: NRL Round 23 vs Storm\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Saturday's Round 23 match against the Melbourne Storm in Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\n",
+            "body_excerpt": "Presented By\nTeam Update: NRL Round 23 vs Storm\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Saturday's Round 23 match against the Melbourne Storm in Perth.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nDropping out of the squad in the 24-hour update are Ethan Bullemor and Hugo Hart.\nBullemor suffered a head knock in training and will follow NRL concussion protocol. Ethan will be stood down for 11 days meaning he will also miss next Friday's game against the Dolphins at 4 Pines Park.\nSimione Laiafi moves into the starting side for Saturday’s match against the Storm with Jackson Shereb elevated into the 17.\nThe team to face the Storm will be reduced to 19 players 90 minutes before kick-off.\nTeam List: Round 23 vs Storm\nBrought to you by\n1.\nLehi Hopoate\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nBlake Wilson\n6.\nJoey Walsh\n7.\nJamal Fogarty\n8.\nTaniela Paseka\n9.\nBrandon Wakeham\n16.\nSimione Laiafi\n11.\nHaumole Olakau'atu\n12.\nCorey Waddell\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNathan Brown\n18.\nJackson Shereb\n17.\nFletcher Baker\n19.\nJosh Feledy\n21.\nNic Lenaz\nReserves\n20.\nOnitoni Large\nRelated /\nFinal Team: Round 23 vs Storm\nGallery: Round 23 preparation\nMatch Report\nMatch Preview: NRL Round 23 vs Storm\nTeam Lists\nTeam List: NRL Round 23 vs Storm\nFinal Team: Round 21 vs Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.913731407500002,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6a10586c45194189",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: NRL Round 23 vs Storm - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/05/match-preview-nrl-round-23-vs-storm/",
+            "published_at": "2026-08-05T05:54:11+00:00",
+            "snippet": "Presented By\nMatch Preview: NRL Round 23 vs Storm\nManly Warringah Sea Eagles head to Perth this weekend to face the Melbourne Storm in Round 23 of the NRL Telstra Premiership.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nS",
+            "body_excerpt": "Presented By\nMatch Preview: NRL Round 23 vs Storm\nManly Warringah Sea Eagles head to Perth this weekend to face the Melbourne Storm in Round 23 of the NRL Telstra Premiership.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nThis is a crucial game for Manly, as they now all are, with five rounds remaining in the regular season. Sitting tenth on the ladder and two points outside the top eight, the Sea Eagles desperately need to go on a run.\nManly is coming off the bye last weekend which followed a heavy loss at home to the Sharks in Round 22.\nThe Storm are four points behind Manly, with a bye in hand, and still mathematically a chance of playing finals footy.\nCameron Munster's most recent NRL game was against Manly at 4 Pines Park in Round 17\nIt has certainly been a disappointing season for a team that has set the benchmark for success and consistency over the past two decades.\nThey lost seven games on the trot and then won five from their next six before being heavily beaten by Manly (30-4) at 4 Pines Park in Round 17. The Storm have lost their past three games (Bulldogs, Rabbitohs and Roosters) and sit six points outside the eight.\nLehi Hopoate has scored 14 tries for Manly in his past 15 games\nIn teams news, Manly suffered a blow in the build-up to this game with Koby Hetherington suffering a season-ending ruptured pec in training. On the plus side Brandon Wakeham returns at hooker after missing five games with a calf injury. Corey Waddell is also back on deck after an ankle injury replacing Ben Trbojevic (concussion). Tolu Koula moves back to the centres, and Blake Wilson comes onto the wing.\nCameron Munster has been named to play just a few weeks after having knee surgery. His return sees Tyran Wishart move to hooker with Trent Toelau sliding to the bench. Centre Jack Howarth returns from a shoulder injury with Manly-bound middle, Davvy Moale replacing Alec MacDonald on the six-man bench.\nJason Saab has scored eight tries in eight games against the Storm.\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Sea Eagles is number 1 Lehi Hopoate\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Storm is number 4 Nick Meaney 4 3 Centre for Sea Eagles is number 3 Tolutau Koula\n4 3\nCentre for Storm is number 18 Joe Chan 18 4 Centre for Sea Eagles is number 4 Reuben Garrick\n18 4\nWinger for Storm is number 5 Moses Leo 5 Winger for Sea Eagles is number 5 Blake Wilson\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Sea Eagles is number 6 Joey Walsh\nHalfback for Storm is number 7 Hayden Watson 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Sea Eagles is number 8 Taniela Paseka\nHooker for Storm is number 9 Tyran Wishart 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Storm is number 10 Josh King 10 16 Prop for Sea Eagles is number 16 Simione Laiafi\n10 16\n2nd Row for Storm is number 12 Oryn Keeley 12 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n12 11\n2nd Row for Storm is number 15 Shawn Blore 15 12 2nd Row for Sea Eagles is number 12 Corey Waddell\n15 12\nLock for Storm is number 13 Trent Loiero 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Storm is number 11 Cooper Clarke 11 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n11 14\nInterchange for Storm is number 14 Trent Toelau 14 15 Interchange for Sea Eagles is number 15 Nathan Brown\n14 15\nInterchange for Storm is number 16 Davvy Moale 16 17 Interchange for Sea Eagles is number 17 Fletcher Baker\n16 17\nInterchange for Storm is number 17 Angus Hinchey 17 18 Interchange for Sea Eagles is number 18 Jackson Shereb\n17 18\nInterchange for Storm is number 19 Jack Hetherington 19 Interchange for Sea Eagles is number 19 Jo",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.03317585194445,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "268f625336a2b3fd",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Storm v Sea Eagles: Round 23 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/05/storm-v-sea-eagles-round-23/",
+            "published_at": "2026-08-05T04:06:09+00:00",
+            "snippet": "Storm v Sea Eagles: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:06 Rabbitohs v Eels: Round 23\nRabbitohs v Eels: Round 23\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragons v Sharks: Round 23\n0",
+            "body_excerpt": "Storm v Sea Eagles: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:06 Rabbitohs v Eels: Round 23\nRabbitohs v Eels: Round 23\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragons v Sharks: Round 23\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\nRelated /\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nMatch Preview\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nNRL News\nMunster returns as sold-out Perth clash offers glimpse into Bears era\nSea Eagles\n'No excuse': Refreshed Sea Eagles ready to launch top-eight charge\nFantasy\nFirst take: Storm v Sea Eagles\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.8337314075,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "be63a1bacb4f05ba",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team Announcement: Round 23 v Manly - Melbourne Storm",
+            "url": "https://www.melbournestorm.com.au/news/2026/08/04/team-announcement-round-23-v-manly/",
+            "published_at": "2026-08-04T05:58:43+00:00",
+            "snippet": "Presented By\nTeam Announcement: Round 23 v Manly\nCraig Bellamy has named his Melbourne Storm squad for Saturday’s Indigenous Round game against Manly at HBF Park in Perth.\nBellamy’s team has been bolstered by the return of five-eighth Cameron Munster who has been named to start f",
+            "body_excerpt": "Presented By\nTeam Announcement: Round 23 v Manly\nCraig Bellamy has named his Melbourne Storm squad for Saturday’s Indigenous Round game against Manly at HBF Park in Perth.\nBellamy’s team has been bolstered by the return of five-eighth Cameron Munster who has been named to start following his knee surgery, joining Hayden Watson in the halves.\nJack Howarth also returns to the number three jersey following his unavailability in Round 22 and will play his 50th Melbourne Storm game.\nTyran Wishart switches to hooker in place of Trent Toelau who shifts to the bench.\nAlec MacDonald misses the game due to Round 22 concussion protocols.\nThe extended reserves includes last week’s try-scorer and rookie forward Angus Hinchey, alongside a potential return for hooker Gabriel Satrick.\nMelbourne Storm will wear its 2026 Indigenous Round jersey, click here to learn more about the design, inspired by Gabriel Satrick's journey to the NRL.\nSaturday’s game kicks-off at 1pm (AWST), 3pm (AEST) with tickets available here .\nFans in Perth are encouraged to come along to Friday’s Open Training Session at HBF Park, with gates opening at 9:30am.\nThe game is supported by Tourism Western Australia, Venues West and Perth Bears.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Sea Eagles is number 1 Lehi Hopoate\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Storm is number 4 Nick Meaney 4 3 Centre for Sea Eagles is number 3 Tolutau Koula\n4 3\nCentre for Storm is number 18 Joe Chan 18 4 Centre for Sea Eagles is number 4 Reuben Garrick\n18 4\nWinger for Storm is number 5 Moses Leo 5 Winger for Sea Eagles is number 5 Blake Wilson\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Sea Eagles is number 6 Joey Walsh\nHalfback for Storm is number 7 Hayden Watson 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Sea Eagles is number 8 Taniela Paseka\nHooker for Storm is number 9 Tyran Wishart 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Storm is number 10 Josh King 10 16 Prop for Sea Eagles is number 16 Simione Laiafi\n10 16\n2nd Row for Storm is number 12 Oryn Keeley 12 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n12 11\n2nd Row for Storm is number 15 Shawn Blore 15 12 2nd Row for Sea Eagles is number 12 Corey Waddell\n15 12\nLock for Storm is number 13 Trent Loiero 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Storm is number 11 Cooper Clarke 11 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n11 14\nInterchange for Storm is number 14 Trent Toelau 14 15 Interchange for Sea Eagles is number 15 Nathan Brown\n14 15\nInterchange for Storm is number 16 Davvy Moale 16 17 Interchange for Sea Eagles is number 17 Fletcher Baker\n16 17\nInterchange for Storm is number 17 Angus Hinchey 17 18 Interchange for Sea Eagles is number 18 Jackson Shereb\n17 18\nInterchange for Storm is number 19 Jack Hetherington 19 Interchange for Sea Eagles is number 19 Josh Feledy\n19\nInterchange for Storm is number 22 Manaia Waitere 22 21 Interchange for Sea Eagles is number 21 Nicholas Lenaz\n22 21\nStorm Ins\nCameron Munster\nDavvy Moale\nSea Eagles Ins\nBrandon Wakeham\nCorey Waddell\nFletcher Baker\nJackson Shereb\nStorm Outs\nAlec MacDonald\nJai Bowden\nBen Trbojevic\nEthan Bullemor\nKobe Hetherington\nOnitoni Large\nMatch Officials\nTouch Judge: Phil Henderson\nSenior Review Official: Liam Kennedy\nLast updated: 8/8/2026 4:46:04 AM\nRelated /\nLate Mail: Round 23 v Manly\nStorm partner with Eastern Guruma Pty Ltd for Perth\nCoach Media\nCraig Bellamy Pre-Game Media: Round 23 v Manly\nTeam Update: Round 23 v Manly\nLate Mail: Round 22 v Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.9576202963889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-07T02:22:53+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nigh",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nightmare to beat the Titans 30-8 on the Gold Coast.\nFriday saw the Warriors down the Panthers 28-12 in Auckland and the Roosters edge the Bulldogs 20-18 at Allianz in Sydney.\nThe Storm and Sea Eagles clash at HBF Stadium in Perth on Saturday afternoon in the city's final NRL match before the arrival of its own team next March, followed by the latest instalment of the 'Battle of Brisbane' at Suncorp.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nMelbourne Storm vs. Manly Sea Eagles\n(Saturday, August 8 at HBF Park , 3:00pm AEST)\nMelbourne team:\n1. Sua Fa’alogo 2. Suilagi Tuimalatu-Brown 18. Joe Chan 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Hayden Watson 8. Stefano Utoikamanu 9. Tyran Wishart 10. Josh King 11. Cooper Clark 12. Oryn Keeley 13. Trent Loiero\n14. Trent Toelau 15. Shawn Blore 16. Davvy Moale 17. Angus Hinchey 19. Jack Hetherington 22. Manaia Waitere\nStorm team news:\nJack Howarth (shoulder) is a late withdrawal. Jahrome Hughes (hamstring) remains out with Hayden Watson named at No.7 alongside Cameron Munster who is aiming for an early return from his knee injury. The Storm's Mr Fix-it Tyran Wishart shifts to No.9 with Harry Grant (hamstring) still a week or two away.\nManly team:\n1. Lehi Hopoate 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Blake Wilson 6. Joey Walsh 7. Jamal Fogarty 8. Taniela Paseka 9. Brandon Wakeham 10. Ethan Bullemore 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nathan Brown 16. Simione Laiafi 17. Fletcher Baker 18. Jackson Shereb 19. Josh Feledy\nSea Eagles team news:\nBrandon Wakeham (calf) is back at hooker while Corey Waddell (ankle) returns in the second row. Skipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) will both miss the trip to Perth while Clayton Faulalo (hamstring) also remains out. In major blow Kobe Hetherington will miss the rest of the season after the club confirmed he ruptured his bicep at training.\nDolphins vs. Brisbane Broncos\n(Saturday, August 8 at Suncorp Stadium , 5:30pm AEST)\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Kurt Donoghoe 15. Max Plath 16. Tom Gilbert 17. Felise Kaufusi 18. Sebastian Su'a 19. Brad Schneider\nDolphins team news:\nIn a massive pre-finals boost for the Phins captain Isaiya Katoa (wrist) made a successful injury return against the Dragons with Brad Schneider set to again assume a utility role off the bench. The Dolphins are pretty much full-strength which should have the Broncos on high alert.\nBrisbane team:\n1. Reece Walsh 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Tom Duffy 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Pat Carrigan (c)\n14. Ben Hunt 15. Va'a Semu 16. Ben Talty 17. Gehamat Shibasaki 18. Jack Gosiewski 19. Hayze Perham\nBroncos team news:\nAdam Reynolds is out yet again, this time after failing an HIA (Cat 1) against the Knights. Xavier Willison picked up a nasty gash to his leg in the same match but is named up front with Va'a Semu shifting back to the bench. Billy Walters will make his first start in almost a year at No.9 with Cory Paix dropped.\nSouth Sydney Rabbitohs vs. Parramatta Eels\n(Saturday, August 8 at Allianz Stadium , 7:35pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 14. Jye Gray 6. Cody Wa",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.554842518611114,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "82a0c775ac413b0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/",
+            "published_at": "2026-08-04T23:57:46+00:00",
+            "snippet": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on oppone",
+            "body_excerpt": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on opponents currently languishing in the bottom seven spots.\nRead on for our complete 2026 NRL Round 23 predictions, tips and best bets and don’t forget to check out our exclusive NRL Round 23 betting specials open now!\nThese derby rivals lost their Round 22 home fixtures by a combined margin of 106 points – but it’s the still-in-contention Cowboys most under the microscope after last week’s historic loss.\nFORM: The Titans’ followed up their first back-to-back wins of the season – scoring 38 points against both Manly and St George Illawarra – with a crushing 42-6 home loss to the Warriors.\nThe Cowboys are in disarray after a record-shattering 82-12 loss to the Roosters, which came on the back of a 3-1 run that included wins over the Panthers, Sea Eagles and Broncos.\nINS AND OUTS: Zane Harrison’s season-ending injury sees Lachlan Ilias return in the Titans’ No.7 jersey. The Cowboys get Griffin Neame back from suspension, but Jeremiah Nanai has been ruled out with Kai O’Donnell coming in.\nKEY MATCH-UP: Keano Kini tried hard in a steamrolled team last week, but fellow fullback livewire Scott Drinkwater’s passive display against the Roosters rightly came under a harsh spotlight.\nHISTORY: The Cowboys have won their last three against the Titans, scoring 110 points in the process. They prevailed 30-16 in Townsville in Round 3.\nKEY STAT: The Titans have won four of their last six against the Cowboys at Cbus Super Stadium, averaging 23 points across those six encounters.\nScott Drinkwater has scored five tries in his last five games against the Titans.\nVERDICT: After a week of soul-searching, the Cowboys receive an ideal opportunity to reset and get their finals bid back on track. Four of 10 teams to conceded 50-plus points in 2026 have won their next game – and Todd Payten’s chastened side is still in the thick of the Top 8 race.\nThe Titans took a sizeable step back last week and Harrison’s injury is a bitter blow for a team that looked to be turning a corner. With both sides taking an optional attitude to defence, the over also holds plenty of appeal in this one.\nPrediction: Back Over 48.5 Total Points @ $1.90\nSGM: COWBOYS WIN / BOTH TEAMS SCORE 20+ POINTS / PHILLIP SAMI ANYTIME TRYSCORER / SCOTT DRINKWATER ANYTIME TRYSCORER / HEILUM LUKI ANYTIME TRYSCORER / JOJO FIFITA ANYTIME TRYSCORER @ $67.78\nA potential grand final preview got a major boost with the Warriors and Panthers both returning to form in emphatic fashion last week.\nFORM: The Warriors put some patchy form – including a disappointing 18-6 loss to the Bulldogs in Round 21 – behind them with a blistering 42-6 win over the Titans last Saturday.\nAfter winning only two of their previous five and having some trouble putting away Parramatta in Round 21, the Panthers returned to somewhere near their best in a 42-18 win over the Raiders in Mudgee.\nINS AND OUTS: Charnze Nicoll-Klokstad and Leka Halasima retain their backline spots, while Morgan Gannon is a surprise inclusion on the bench with Demitric Vaimauga remaining on the sidelines. Taine Tuaupiki is on the six-man bench.\nCasey McLean is a big out for the Panthers, replaced by Izack Tago, while Dylan Edwards is still out injured and Jack Cogger keeps his spot ahead of Blaize Talagi.\nKEY MATCH-UP: Nathan Cleary was rested from the clubs’ June epic, while he hasn’t lost to the Warriors since 2019. Te Maire Martin bounced back from a quiet fortnight in a two-try performance last week.\nHISTORY: The Panthers have won 11 of their last 12 against the Warriors, including a gripping 20-18 result at CommBank Stadium in Round 13 this year and a pair of wins in Auckland (28-18 in Round 16 and 24-8 in an elimination final) last season.\nKEY STAT: The Warriors have scored mo",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 76.97345362972223,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "0dbc07a78d490f0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66",
+            "published_at": "2026-08-07T13:42:11+00:00",
+            "snippet": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail\nThe Knights have lost a State of Origin representative ahead of Sunday’s crunch game agaisnt Canberra.\nWayne Bennett and South Sydney have suffered another blow with a key outside back going down.\nMichael Maguire has given a defiant answer after being asked whether the Brisbane Broncos would give up on their season with finals now out of reach, while also giving an update on Adam Reynolds.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nSATURDAY AUGUST 8\nMelbourne Storm vs. Manly Sea Eagles, 3pm @ HBF Park\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Hayden Watson 8. Stefano Utoikamanu 9. Tyran Wishart 10. Josh King 11. Cooper Clarke 12. Oryn Keeley 13. Trent Loiero 14. Trent Toelau 15. Shawn Blore 16. Davvy Moale 17. Angus Hinchey 18. Joe Chan 19. Jack Hetherington 22. Manaia Waitere 20. Gabriel Satrick\nPlayers cut: 3. Jack Howarth 21. Stanley Huen\nLate Mail: Joe Chan enters the starting team at centre to replace Jack Howarth (shoulder).\nSea Eagles team: 1. Lehi Hopoate 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Blake Wilson 6. Joey Walsh 7. Jamal Fogarty 8. Taniela Paseka 9. Brandon Wakeham 16. Simione Laiafi 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nathan Brown 17. Fletcher Baker 18. Jackson Shereb 19. Josh Feledy 20. Onitoni Large 21. Nicholas Lenaz\nPlayers cut: 10. Ethan Bullemor 22. Hugo Hart\nLate Mail: In a horror blow for the Sea Eagles, forward Kobe Hetherington (ruptured bicep) has been ruled out for the remainder of the season after suffering a training mishap on Monday. The middle forward will undergo surgery next week before commencing his rehabilitation process to get him ready for the 2027 season. Elsewhere, Ethan Bullemor is out after suffering a head knock at training and will also miss next Friday’s game given he has been stood down for 11 days. Simione Laiafi moves into the starting side.\nDolphins vs. Brisbane Broncos, 5.30pm @ Suncorp Stadium\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Max Plath 16. Tom Gilbert 17. Felise Kaufusi 19. Brad Schneider 20. Brian Pouniu 21. Tevita Naufahu\nPlayers cut: 18. Sebastian Su’a 22. Jake Averillo\nLate Mail: To come.\nBroncos team: 1. Reece Walsh 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Thomas Duffy 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan 14. Ben Hunt 15. Va’a Semu 16. Ben Talty 17. Gehamat Shibasaki 18. Jack Gosiewski 19. Hayze Perham 20. Blake Mozer\nPlayers cut: 21. Jesse Arthars 22. Aublix Tawha\nLate Mail: Broncos coach Michael Maguire has confirmed that Adam Reynolds (concussion) may be unavailable for more than just this week, meaning a good showing by rookie Thomas Duffy could see him remain in the No.7 jersey for a little longer. According to Code Sports, Reynolds is set to be ruled out of next Saturday’s clash with the Warriors. He is also set to be racing the clock to face the Raiders in Rouns 25. “That’s a week-to-week one. I’ve got to see how he is next week and it’s not just his concussion,” Maguire said. “He’s done everything possible to get what he can out of that body of his, so that’s a real credit when you think about what he’s done. I remember him being a young kid in Redfern, kicking a footy on the street down there and learning about his childhood coming through. You look at the greats of the club and Reyno will go down as one of those.” During the press-confere",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.233175851944443,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Storm vs Sea Eagles NRL round 23 preview",
+          "Storm Sea Eagles NRL odds OR price OR favourite",
+          "Storm Sea Eagles NRL finals race OR ladder stakes",
+          "Storm Sea Eagles NRL",
+          "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Storm Sea Eagles NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Storm OR Sea Eagles"
+        ],
+        "filter_summary": {
+          "dropped_stale": 58,
+          "dropped_wrong_round": 2,
+          "dropped_noise": 5,
+          "dropped_irrelevant": 15,
+          "kept": 15,
+          "deferred_pending_body": 55,
+          "promoted_after_body": 3,
+          "dropped_duplicate_url": 4,
+          "dropped_no_body": 6
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "5457c03eba82",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-08T04:56:10.412173+00:00",
+      "finished_at": "2026-08-08T04:57:37.578148+00:00",
+      "duration_ms": 87165,
+      "request": {
+        "home_team": "Storm",
+        "away_team": "Sea Eagles",
+        "venue": "HBF Park",
+        "kickoff": "2026-08-08T15:00:00+10:00",
+        "weather": "Rain"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5584,
+        "home_win_probability": 0.5584,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.46 log-strength) — contribution 0.149 (17% of total)",
+            "Elo rating advantage (+23 points) — contribution 0.067 (8% of total)",
+            "5-game workload: top3 tackle share (-0.02) — contribution 0.028 (3% of total)",
+            "5-game form: effective tackle pct (+2.48) — contribution 0.024 (3% of total)",
+            "3-game form: missed tackles (-3.67) — contribution 0.017 (2% of total)"
+          ],
+          "negative_drivers": [
+            "Home travel to venue (2,723 km) — contribution 0.057 (7% of total)",
+            "Rest-day advantage (-5.2 days) — contribution 0.053 (6% of total)",
+            "Pythagorean form (last 10) (-1% expected-win gap) — contribution 0.044 (5% of total)",
+            "5-game form: all run metres (-50.40) — contribution 0.040 (5% of total)",
+            "Ladder points differential per game (-6.0 points) — contribution 0.034 (4% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.3855,
+            "total_toward_away": 0.485,
+            "net": -0.0995,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": []
+        },
+        "fixture": {
+          "home_team": "Storm",
+          "away_team": "Sea Eagles",
+          "venue": "HBF Park",
+          "kickoff": "2026-08-08T15:00:00+10:00",
+          "weather": "Rain"
+        }
+      },
+      "error": null
+    }
+  ]
+}

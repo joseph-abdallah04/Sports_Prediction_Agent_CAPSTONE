@@ -1,0 +1,1308 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T012715Z-b5649b42",
+  "at_a_glance": {
+    "fixture": "Sea Eagles v Dolphins",
+    "round": 24,
+    "kickoff": "2026-08-14T18:00:00+10:00",
+    "venue": "4 Pines Park",
+    "predicted_winner": "Dolphins",
+    "confidence": 0.68,
+    "model_home_win_probability": 0.4886,
+    "model_prediction": "Away Win",
+    "research_items_kept": 19,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-14T01:27:15.128151+00:00",
+  "updated_at": "2026-08-14T01:38:33.238497+00:00",
+  "request": {
+    "home_team": "Sea Eagles",
+    "away_team": "Dolphins",
+    "season": 2026,
+    "round_number": 24,
+    "force_refresh": true,
+    "user_question": "Who wins Sea Eagles vs Dolphins?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Sea Eagles",
+    "away_team": "Dolphins",
+    "confidence": 0.68,
+    "summary": "The Dolphins hold a clear edge in current form and underlying strength, supported by an Elo advantage and superior Pythagorean form over the last ten games. While the Sea Eagles benefit from significant home rest (19.1 days), this is outweighed by their five-game losing streak and defensive decline compared to the Dolphins' three-game winning run.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model identifies a strong edge for the Dolphins via Elo rating (0.184 contribution) and Pythagorean form over the last 10 games (0.063 contribution), indicating superior underlying performance."
+      },
+      {
+        "source": "research",
+        "detail": "Dolphins have won three straight matches and secured a finals berth, while the Sea Eagles have lost five consecutive games, including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Dolphins sit 5th on the ladder compared to the Sea Eagles in 10th, with a higher points difference per game (4.9 vs 3.4)."
+      },
+      {
+        "source": "math",
+        "detail": "The home side receives a minor boost from significant rest (19.1 days), though this is offset by the Dolphins' overall strength drivers."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 19,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 5
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Sea Eagles vs Dolphins NRL round 24 preview",
+      "Sea Eagles Dolphins NRL odds OR price OR favourite",
+      "Sea Eagles Dolphins NRL finals race ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims regarding winning/losing streaks, finals berth, and H2H record are sourced from sportsnews.com.au and the Dolphins official website."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "No specific player availability claims were made in the judgement."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Dolphins (away win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies sportsnews.com.au for form and result data."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.68 is justified by the stark contrast in current form (3W vs 5L) and is within the allowed range."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the highest contributing SHAP drivers (Elo, BT)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Pythagorean form' (Dolphins) and 'Home rest' (Sea Eagles) are not addressed in the judgement."
+        }
+      ],
+      "issues": [
+        "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation."
+      ],
+      "instruction": "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Sea Eagles",
+      "away_team": "Dolphins",
+      "confidence": 0.68,
+      "summary": "The Dolphins enter this match in strong form with a three-game winning streak and a secured finals berth, whereas the Sea Eagles are struggling through a five-game losing streak. While Manly has a historical head-to-head advantage, their current defensive decline and poor run of form contrast sharply with the Dolphins' momentum.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies a significant Elo rating advantage for the Dolphins (contribution 0.184) and Bradley-Terry strength advantage (contribution 0.127)."
+        },
+        {
+          "source": "research",
+          "detail": "Dolphins have won three straight games, while the Sea Eagles have lost five consecutive matches including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Dolphins hold a significant ladder advantage, sitting 5th compared to the Sea Eagles in 10th, with a superior points difference per game (4.9 vs 3.4)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Sea Eagles",
+      "away_team": "Dolphins",
+      "confidence": 0.68,
+      "summary": "The Dolphins hold a clear edge in current form and underlying strength, supported by an Elo advantage and superior Pythagorean form over the last ten games. While the Sea Eagles benefit from significant home rest (19.1 days), this is outweighed by their five-game losing streak and defensive decline compared to the Dolphins' three-game winning run.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies a strong edge for the Dolphins via Elo rating (0.184 contribution) and Pythagorean form over the last 10 games (0.063 contribution), indicating superior underlying performance."
+        },
+        {
+          "source": "research",
+          "detail": "Dolphins have won three straight matches and secured a finals berth, while the Sea Eagles have lost five consecutive games, including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Dolphins sit 5th on the ladder compared to the Sea Eagles in 10th, with a higher points difference per game (4.9 vs 3.4)."
+        },
+        {
+          "source": "math",
+          "detail": "The home side receives a minor boost from significant rest (19.1 days), though this is offset by the Dolphins' overall strength drivers."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-14T01:27:56.281589+00:00",
+      "thinking": "*   Home Team: Sea Eagles\n    *   Away Team: Dolphins\n    *   Round Number: 24\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    1.  Home team availability: `\"<home team> NRL injury OR \"late mail\" OR \"team list\"\"`\n    2.  Away team availability: Same for away side.\n    3.  Fixture preview: `\"<home team> vs <away team> NRL round <N> preview\"`\n    4.  Market prices: `\"<home team> <away team> NRL odds OR price OR favourite\"`\n    5.  Specific context (form, ladder, etc.): Choose one relevant to the fixture.\n\n    *   Query 1 (Home): \"Sea Eagles NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 24\"\n    *   Query 2 (Away): \"Dolphins NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 24\"\n    *   Query 3 (Preview): \"Sea Eagles vs Dolphins NRL round 24 preview\"\n    *   Query 4 (Odds): \"Sea Eagles Dolphins NRL odds OR price OR favourite\"\n    *   Query 5 (Context): Since it's Round 24 (late season), finals race/ladder stakes are most relevant. \"Sea Eagles Dolphins NRL finals race ladder stakes\" or \"Dolphins Sea Eagles recent form streak\". Let's go with finals race/ladder stakes as it's late in the season.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Sea Eagles, Dolphins).\n    *   JSON format? Yes.",
+      "chars": 1404
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-14T01:33:06.228824+00:00",
+      "thinking": "Sea Eagles (Home) vs. Dolphins (Away).\nDolphins (predicted Away Win, prob 0.5114).\n\n        *   Favouring Sea Eagles: Ladder points differential per game (0.093), Home rest (0.044), H2H record last 5 (0.033), H2H avg margin (0.032), Rest-day advantage (0.025).\n        *   Favouring Dolphins: Elo rating (-0.184), Bradley-Terry strength (-0.127), Pythagorean form (-0.063), 5-game run metres (-0.057), Away rest (0.033).\n        *   Attribution Balance: Leans away (Total Home: 0.3554, Total Away: 0.7233).\n\n        *   Sea Eagles: Position 10, Wins 9, Lost 11. Recent form: 4L streak. Points diff per game: 3.4.\n        *   Dolphins: Position 5, Wins 13, Lost 7. Recent form: 3W streak. Points diff per game: 4.9.\n\n        *   Sea Eagles are in a slump (5 consecutive losses according to `sportsnews.com.au` and `beforeyoubet.com.au`, though standings say 4L).\n        *   Dolphins have won three straight (`sportsnews.com.au`) and secured finals football (`rugbyleaguezone.com`).\n        *   Sea Eagles' defensive decline is noted as a problem against the Dolphins (`sportsnews.com.au`).\n        *   Availability: Clayton Faulalo returns for Sea Eagles; Ray Stone is back for Dolphins (per `nrl_news` preview).\n\n        *   Dolphins are bookmaker favourites (`sportsnews.com.au`, prices $1.36 vs $7.50).\n\n    *   The math model predicts an Away win with a slight probability edge (0.51), but the SHAP drivers show a much stronger lean toward the Dolphins (Elo, BT strength, form).\n    *   Research strongly supports the Dolphins: they are in winning form (3W streak) while Manly is collapsing (4-5L streak).\n    *   Dolphins have already secured finals; Manly's hopes are \"fading\" or \"under severe pressure\".\n    *   The ladder gap is significant (5th vs 10th).\n    *   Market heavily favours Dolphins ($1.36).\n\n    *   Strongest reason for loss: Home ground advantage at Brookvale (\"traditionally a difficult road trip\") and the historical H2H record (Sea Eagles lead 3-1).\n    *   However, current form is too disparate to ignore. Manly's defensive collapse against Melbourne (42 points conceded) suggests they are vulnerable.\n\n    *   The model probability is low (0.51), but the SHAP totals and research suggest a more decisive edge.\n    *   Dolphins have: Elo advantage, BT strength advantage, better form, higher ladder position, and market support.\n    *   Manly has: Home ground and historical H2H.\n    *   Confidence Band: 0.65-0.75 (Clear edge). The ratings gap is confirmed by current form (3W vs 4L/5L) and the ladder position.\n\n    *   Winner: away (Dolphins).\n    *   Home Team: Sea Eagles.\n    *   Away Team: Dolphins.\n    *   Confidence: 0.68 (Clear edge due to form disparity and ratings, though tempered by Manly's home ground).\n    *   Summary: The Dolphins enter this clash in strong form with a three-game winning streak and a secured finals berth, while the Sea Eagles are struggling through a five-game losing streak. Despite Manly's historical head-to-head edge, the current ratings gap and defensive vulnerabilities make the visitors clear favourites.\n    *   Key Factors:\n        1.  Math: Elo rating advantage (contribution 0.184).\n        2.  Research: Dolphins have won three straight games while Sea Eagles have lost five consecutively (`sportsnews.com.au`).\n        3.  Scene: Dolphins are significantly higher on the ladder (5th vs 10th) with a superior points difference per game.\n\n    *   Math predicted Away Win (0.51). I am picking Away. No disagreement, just increasing confidence based on research/standings.",
+      "chars": 3548
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-14T01:37:06.897660+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check eight specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the judgement sourced from research or scene?\n2. `availability_direction`: Do availability claims match the source direction?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research (with article ID)?\n6. `confidence_justified`: Is confidence justified, within 0.5-0.85, and $\\le$ 0.65 if there's an unresolved risk?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive over top ones?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed in the judgement?\n\n- Home: Sea Eagles (10th, 4L streak)\n- Away: Dolphins (5th, 3W streak)\n- Venue: 4 Pines Park\n- Weather: Fine\n\n- `favouring_Sea Eagles_home_win`: Ladder points differential per game (0.093), Home rest (0.044), Head-to-head record (0.033), Head-to-head average margin (0.032), Rest-day advantage (0.025).\n- `favouring_Dolphins_away_win`: Elo rating advantage (-99 points, 0.184), Bradley-Terry strength advantage (-0.28 log-strength, 0.127), Pythagorean form (last 10) (0.063), 5-game form: all run metres (0.057), Away rest (0.033).\n\n- Winner: away\n- Confidence: 0.68\n- Summary: Dolphins strong form (3W streak, finals berth); Sea Eagles struggling (5L streak). Manly historical H2H advantage. Defensive decline vs momentum.\n- Key Factors:\n    1. Math: Elo rating advantage (0.184), Bradley-Terry strength advantage (0.127).\n    2. Research: Dolphins 3W, Sea Eagles 5L including 42-20 loss to Melbourne (sportsnews.com.au).\n    3. Scene: Ladder pos (5th vs 10th), points diff per game (4.9 vs 3.4).\n\n`sourced_claims`:\n- \"Dolphins... three-game winning streak\": Research `sportsnews.com.au` says \"The visitors have won three straight\". Pass.\n- \"secured finals berth\": Research `sportsnews.com.au` says \"effectively secured their first finals appearance\"; `Before You Bet` says \"now officially assured of playing finals football\". Pass.\n- \"Sea Eagles... five-game losing streak\": Research `sportsnews.com.au` says \"after five consecutive defeats\". Pass.\n- \"Manly has a historical head-to-head advantage\": Research `Official website of The Dolphins` says \"the teams have met four times, with the Sea Eagles holding a 3-1 record\". Pass.\n- \"defensive decline\": Research `sportsnews.com.au` says \"its defensive decline presents a serious problem\". Pass.\n- \"42-20 defeat to Melbourne\": Research `sportsnews.com.au` says \"including a 42-20 loss to Melbourne\". Pass.\n- Ladder positions (5th vs 10th) and points diff per game (4.9 vs 3.4): Found in `set_fixture_scene`. Pass.\n\n`availability_direction`: No specific player availability claims made in the judgement (only general team form). Pass.\n\n`shap_attribution`:\n- \"Elo rating advantage for the Dolphins (contribution 0.184)\": In `favouring_Dolphins_away_win`. Correct.\n- \"Bradley-Terry strength advantage (contribution 0.127)\": In `favouring_Dolphins_away_win`. Correct.\nPass.\n\n`weather_not_headline`: Weather is not mentioned in the judgement. Pass.\n\n`research_used`: Key factor 2 cites `sportsnews.com.au`. Pass.\n\n`confidence_justified`: Confidence is 0.68. Summary mentions Dolphins' strong form and secured finals berth vs Sea Eagles' losing streak. This justifies a moderate-to-high confidence. It is within the 0.50-0.85 range. Is there a credible unresolved reason they could lose? The judgement notes Manly's historical H2H advantage, but doesn't treat it as an \"unresolved risk\" that would drop confidence below 0.65 (since current form is so disparate). Pass.\n\n`driver_proportionality`: Top drivers used are Elo (0.184) and Bradley-Terry (0.127). No minor factors treated as decisive. Pass.\n\n`omitted_math_signals`:\n- `favouring_Dolphins_away_win` top drivers: Elo (used), Bradley-Terry (used), Pythagorean form (not mentioned), 5-game run metres (not mentioned).\n- `favouring_Sea Eagles_home_win` top drivers: Ladder points differential per game (0.093) - this is essentially the \"points difference per game\" mentioned in Key Factor 3 from scene data. Home rest (0.044), H2H record (0.033).\n- The summary mentions Manly's historical head-to-head advantage, which covers the H2H drivers.\n- However, Pythagorean form and run metres are not mentioned. Are they top 3? Yes. Elo, BT, and Pythagorean are the top 3 for Dolphins. Pythagorean is missing.\n- For Sea Eagles: Ladder points diff (used), Home rest (missing), H2H record (used). Home rest is #2.\n- Wait, \"Ladder points differential per game\" in SHAP is listed as contribution 0.093. The judgement mentions the ladder advantage and points difference per game from scene data. This covers that signal.\n- Missing: Pythagorean form (Dolphins), Home rest (Sea Eagles).\n- Let's re-evaluate \"top two or three\".\n    - Dolphins: Elo, BT, Pythagorean. (Pythagorean missing).\n    - Sea Eagles: Ladder points diff, Home rest, H2H record. (Home rest missing).\n- The prompt says: \"If any of those is neither named nor clearly alluded to... fail\".\n- Pythagorean form and Home rest are not mentioned.\n\nWait, let me double check the `favouring_Sea Eagles_home_win` list again.\n1. Ladder points differential per game (0.093) -> Mentioned in Key Factor 3 (\"superior points difference per game\").\n2. Home rest (0.044) -> Not mentioned.\n3. Head-to-head record (0.033) -> Mentioned in summary (\"historical head-to-head advantage\").\n\n`favouring_Dolphins_away_win`:\n1. Elo rating advantage (0.184) -> Mentioned in Key Factor 1.\n2. Bradley-Terry strength advantage (0.127) -> Mentioned in Key Factor 1.\n3. Pythagorean form (0.063) -> Not mentioned.\n\nSo, \"Pythagorean form\" and \"Home rest\" are omitted from the top drivers of each group.\n\nWait, let me check if they are \"clearly alluded to\".\n- Home rest: No mention of rest or fatigue for Manly.\n- Pythagorean form: This is a measure of expected wins based on points scored/conceded. The judgement mentions \"defensive decline\" and \"strong form\", which are related but not an explicit evaluation of the Pythagorean signal. Usually, this needs to be more direct if it's a top driver.\n\nActually, looking at the `favouring_Sea Eagles_home_win` list:\n- Ladder points differential per game (0.093) - Used.\n- Home rest (0.044) - Not used.\n- H2H record (0.033) - Used.\n\nLooking at `favouring_Dolphins_away_win`:\n- Elo (0.184) - Used.\n- BT (0.127) - Used.\n- Pythagorean form (0.063) - Not used.\n\nI will flag these as omitted math signals.",
+      "chars": 6631
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-14T01:38:33.238400+00:00",
+      "thinking": "*   Match: Sea Eagles vs Dolphins.\n    *   Current Pick: Away (Dolphins).\n    *   Confidence: 0.68.\n    *   Verifier Issues: 'Pythagorean form (last 10)' and 'Home rest (19.1 days)' from math drivers were not addressed.\n\n    *   `favouring_Sea Eagles_home_win`:\n        *   Ladder points differential per game (+0.0) - contribution 0.093 (9%)\n        *   Home rest (19.1 days) - contribution 0.044 (4%) -> *Flagged by verifier*\n        *   Head-to-head record (last 5) (75% home side) - contribution 0.033 (3%)\n        *   Head-to-head average margin (+24.0 points) - contribution 0.032 (3%)\n        *   Rest-day advantage (+5.1 days) - contribution 0.025 (2%)\n    *   `favouring_Dolphins_away_win`:\n        *   Elo rating advantage (-99 points) - contribution 0.184 (17%)\n        *   Bradley-Terry strength advantage (-0.28 log-strength) - contribution 0.127 (12%)\n        *   Pythagorean form (last 10) (-13% expected-win gap) - contribution 0.063 (6%) -> *Flagged by verifier*\n        *   5-game form: all run metres (-82.40) - contribution 0.057 (5%)\n        *   Away rest (14.0 days) - contribution 0.033 (3%)\n\n    *   `Pythagorean form (last 10)`: This is a measure of expected wins based on points scored vs conceded over the last 10 games. The model nets this as an advantage for the Dolphins (-13% expected-win gap, contribution 0.063). This aligns with the research that Manly's defense has declined and they are losing heavily (e.g., 42-20 to Storm), while Dolphins are surging.\n    *   `Home rest (19.1 days)`: The Sea Eagles have had significant rest (nearly 3 weeks). The model attributes a small positive contribution (0.044) to the home side for this. However, research notes Manly has \"hit the skids\" with five losses in a row; long breaks don't necessarily fix systemic defensive issues or poor form.\n\n    *   The Dolphins are clearly superior in current form (3W streak vs 5L streak).\n    *   Ladder position: 5th vs 10th.\n    *   Math drivers strongly lean away (total toward home 0.3554 vs total toward away 0.7233).\n    *   The \"Home rest\" is a minor factor compared to the Elo and Bradley-Terry advantages of the Dolphins.\n    *   Pythagorean form reinforces the current performance gap.\n\n    *   Winner: Away (Dolphins).\n    *   Confidence: 0.68 seems reasonable. The strongest reason they could lose is the home ground advantage at Brookvale (\"traditionally a difficult road trip\" per Rugby League Zone) and Manly's historical head-to-head dominance (3-1 record, though that may be outdated relative to current form).\n    *   Confidence check: 0.65-0.75 is for \"clear edge with several independent signals agreeing\". We have Elo, Bradley-Terry, Ladder position, and recent form all pointing to Dolphins.\n\n    *   Update summary to include the evaluation of these drivers.\n    *   Ensure key factors reflect the math's Pythagorean form (as a signal of underlying strength) and acknowledge the home rest as a minor counter-signal.",
+      "chars": 2953
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-14T01:27:56.289385+00:00",
+      "payload": {
+        "queries": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Sea Eagles vs Dolphins NRL round 24 preview",
+          "Sea Eagles Dolphins NRL odds OR price OR favourite",
+          "Sea Eagles Dolphins NRL finals race ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-14T01:33:06.228944+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "confidence": 0.68,
+          "summary": "The Dolphins enter this match in strong form with a three-game winning streak and a secured finals berth, whereas the Sea Eagles are struggling through a five-game losing streak. While Manly has a historical head-to-head advantage, their current defensive decline and poor run of form contrast sharply with the Dolphins' momentum.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a significant Elo rating advantage for the Dolphins (contribution 0.184) and Bradley-Terry strength advantage (contribution 0.127)."
+            },
+            {
+              "source": "research",
+              "detail": "Dolphins have won three straight games, while the Sea Eagles have lost five consecutive matches including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Dolphins hold a significant ladder advantage, sitting 5th compared to the Sea Eagles in 10th, with a superior points difference per game (4.9 vs 3.4)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-14T01:37:06.898255+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims regarding winning/losing streaks, finals berth, and H2H record are sourced from sportsnews.com.au and the Dolphins official website."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "No specific player availability claims were made in the judgement."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Dolphins (away win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies sportsnews.com.au for form and result data."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.68 is justified by the stark contrast in current form (3W vs 5L) and is within the allowed range."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the highest contributing SHAP drivers (Elo, BT)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Pythagorean form' (Dolphins) and 'Home rest' (Sea Eagles) are not addressed in the judgement."
+            }
+          ],
+          "issues": [
+            "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation."
+          ],
+          "instruction": "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-14T01:38:33.238459+00:00",
+      "payload": {
+        "issues": [
+          "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation."
+        ],
+        "instruction": "Math drivers include 'Pythagorean form (last 10)' and 'Home rest (19.1 days)'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "confidence": 0.68,
+          "summary": "The Dolphins enter this match in strong form with a three-game winning streak and a secured finals berth, whereas the Sea Eagles are struggling through a five-game losing streak. While Manly has a historical head-to-head advantage, their current defensive decline and poor run of form contrast sharply with the Dolphins' momentum.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a significant Elo rating advantage for the Dolphins (contribution 0.184) and Bradley-Terry strength advantage (contribution 0.127)."
+            },
+            {
+              "source": "research",
+              "detail": "Dolphins have won three straight games, while the Sea Eagles have lost five consecutive matches including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Dolphins hold a significant ladder advantage, sitting 5th compared to the Sea Eagles in 10th, with a superior points difference per game (4.9 vs 3.4)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "confidence": 0.68,
+          "summary": "The Dolphins hold a clear edge in current form and underlying strength, supported by an Elo advantage and superior Pythagorean form over the last ten games. While the Sea Eagles benefit from significant home rest (19.1 days), this is outweighed by their five-game losing streak and defensive decline compared to the Dolphins' three-game winning run.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a strong edge for the Dolphins via Elo rating (0.184 contribution) and Pythagorean form over the last 10 games (0.063 contribution), indicating superior underlying performance."
+            },
+            {
+              "source": "research",
+              "detail": "Dolphins have won three straight matches and secured a finals berth, while the Sea Eagles have lost five consecutive games, including a heavy 42-20 defeat to Melbourne (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Dolphins sit 5th on the ladder compared to the Sea Eagles in 10th, with a higher points difference per game (4.9 vs 3.4)."
+            },
+            {
+              "source": "math",
+              "detail": "The home side receives a minor boost from significant rest (19.1 days), though this is offset by the Dolphins' overall strength drivers."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "f817298ef5f2",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-14T01:27:15.128297+00:00",
+      "finished_at": "2026-08-14T01:27:18.570168+00:00",
+      "duration_ms": 3441,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dolphins",
+        "season": 2026,
+        "round_number": 24,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "season": 2026,
+          "round_number": 24
+        },
+        "retrieved_at": "2026-08-14T01:27:15.128367+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 24,
+          "round_title": "Round 24",
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "kickoff": "2026-08-14T18:00:00+10:00",
+          "venue": "4 Pines Park",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/sea-eagles-v-dolphins/",
+          "match_mode": "Pre",
+          "match_id": "20261112420",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Grant Atkins"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Wyatt Raymond"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Clayton Faulalo",
+                "position": "Fullback",
+                "player_id": 100000346
+              },
+              {
+                "number": 2,
+                "name": "Jason Saab",
+                "position": "Winger",
+                "player_id": 507670
+              },
+              {
+                "number": 3,
+                "name": "Tolutau Koula",
+                "position": "Centre",
+                "player_id": 509634
+              },
+              {
+                "number": 4,
+                "name": "Reuben Garrick",
+                "position": "Centre",
+                "player_id": 503443
+              },
+              {
+                "number": 5,
+                "name": "Lehi Hopoate",
+                "position": "Winger",
+                "player_id": 100011191
+              },
+              {
+                "number": 6,
+                "name": "Joey Walsh",
+                "position": "Five-Eighth",
+                "player_id": 100011351
+              },
+              {
+                "number": 7,
+                "name": "Jamal Fogarty",
+                "position": "Halfback",
+                "player_id": 501175
+              },
+              {
+                "number": 8,
+                "name": "Simione Laiafi",
+                "position": "Prop",
+                "player_id": 100011203
+              },
+              {
+                "number": 9,
+                "name": "Brandon Wakeham",
+                "position": "Hooker",
+                "player_id": 504307
+              },
+              {
+                "number": 10,
+                "name": "Nathan Brown",
+                "position": "Prop",
+                "player_id": 500647
+              },
+              {
+                "number": 11,
+                "name": "Haumole Olakau'atu",
+                "position": "2nd Row",
+                "player_id": 508033
+              },
+              {
+                "number": 12,
+                "name": "Corey Waddell",
+                "position": "2nd Row",
+                "player_id": 503341
+              },
+              {
+                "number": 13,
+                "name": "Jake Trbojevic",
+                "position": "Lock",
+                "player_id": 500751
+              },
+              {
+                "number": 14,
+                "name": "Jake Simpkin",
+                "position": "Interchange",
+                "player_id": 508629
+              },
+              {
+                "number": 15,
+                "name": "Nicholas Lenaz",
+                "position": "Interchange",
+                "player_id": 100003907
+              },
+              {
+                "number": 16,
+                "name": "Fletcher Baker",
+                "position": "Interchange",
+                "player_id": 509851
+              },
+              {
+                "number": 17,
+                "name": "Jackson Shereb",
+                "position": "Interchange",
+                "player_id": 509494
+              },
+              {
+                "number": 18,
+                "name": "Josh Feledy",
+                "position": "Interchange",
+                "player_id": 100006630
+              },
+              {
+                "number": 19,
+                "name": "Hugo Hart",
+                "position": "Interchange",
+                "player_id": 100018603
+              },
+              {
+                "number": 20,
+                "name": "Onitoni Large",
+                "position": "Reserve",
+                "player_id": 100013788
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Hamiso Tabuai-Fidow",
+                "position": "Fullback",
+                "player_id": 100001936
+              },
+              {
+                "number": 2,
+                "name": "Jamayne Isaako",
+                "position": "Winger",
+                "player_id": 502014
+              },
+              {
+                "number": 3,
+                "name": "Jack Bostock",
+                "position": "Centre",
+                "player_id": 100007515
+              },
+              {
+                "number": 4,
+                "name": "Herbie Farnworth",
+                "position": "Centre",
+                "player_id": 508300
+              },
+              {
+                "number": 5,
+                "name": "Selwyn Cobbo",
+                "position": "Winger",
+                "player_id": 100004649
+              },
+              {
+                "number": 6,
+                "name": "Kodi Nikorima",
+                "position": "Five-Eighth",
+                "player_id": 500265
+              },
+              {
+                "number": 7,
+                "name": "Isaiya Katoa",
+                "position": "Halfback",
+                "player_id": 100006258
+              },
+              {
+                "number": 8,
+                "name": "Thomas Flegler",
+                "position": "Prop",
+                "player_id": 504315
+              },
+              {
+                "number": 9,
+                "name": "Jeremy Marshall-King",
+                "position": "Hooker",
+                "player_id": 502511
+              },
+              {
+                "number": 10,
+                "name": "Francis Molo",
+                "position": "Prop",
+                "player_id": 500264
+              },
+              {
+                "number": 11,
+                "name": "Connelly Lemuelu",
+                "position": "2nd Row",
+                "player_id": 507949
+              },
+              {
+                "number": 12,
+                "name": "Kulikefu Finefeuiaki",
+                "position": "2nd Row",
+                "player_id": 100007811
+              },
+              {
+                "number": 13,
+                "name": "Morgan Knowles",
+                "position": "Lock",
+                "player_id": 505736
+              },
+              {
+                "number": 14,
+                "name": "Max Plath",
+                "position": "Interchange",
+                "player_id": 100002172
+              },
+              {
+                "number": 15,
+                "name": "Ray Stone",
+                "position": "Interchange",
+                "player_id": 503964
+              },
+              {
+                "number": 16,
+                "name": "Tom Gilbert",
+                "position": "Interchange",
+                "player_id": 506156
+              },
+              {
+                "number": 17,
+                "name": "Felise Kaufusi",
+                "position": "Interchange",
+                "player_id": 500598
+              },
+              {
+                "number": 18,
+                "name": "Bradley Schneider",
+                "position": "Interchange",
+                "player_id": 100002660
+              },
+              {
+                "number": 21,
+                "name": "Tevita Naufahu",
+                "position": "Interchange",
+                "player_id": 100017017
+              },
+              {
+                "number": 22,
+                "name": "Brian Pouniu",
+                "position": "Reserve",
+                "player_id": 100011973
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 24,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Sea Eagles",
+            "position": 10,
+            "played": 20,
+            "wins": 9,
+            "drawn": 0,
+            "lost": 11,
+            "competition_points": 24,
+            "points_for": 505,
+            "points_against": 437,
+            "points_difference": 68,
+            "points_difference_per_game": 3.4,
+            "recent_form_last_4": "0 - 4",
+            "streak": "4L",
+            "home_record": "5 - 5",
+            "away_record": "4 - 6"
+          },
+          "away": {
+            "team": "Dolphins",
+            "position": 5,
+            "played": 20,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 32,
+            "points_for": 556,
+            "points_against": 458,
+            "points_difference": 98,
+            "points_difference_per_game": 4.9,
+            "recent_form_last_4": "3 - 1",
+            "streak": "3W",
+            "home_record": "7 - 4",
+            "away_record": "6 - 3"
+          },
+          "comparison": {
+            "higher_on_ladder": "Dolphins",
+            "ladder_positions_gap": -5,
+            "points_difference_per_game_gap": -1.5,
+            "points_difference_favours": "Dolphins"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-14T18:00",
+            "temperature_c": 13.5,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 8.7,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.788,
+            "longitude": 151.286,
+            "venue": "4 Pines Park",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.788&longitude=151.286&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-14T01:27:18.565899+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=24&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/sea-eagles-v-dolphins/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.788&longitude=151.286&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "f4901f21395e",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-14T01:27:56.305730+00:00",
+      "finished_at": "2026-08-14T01:29:33.655946+00:00",
+      "duration_ms": 97350,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dolphins",
+        "kickoff": "2026-08-14T18:00:00+10:00",
+        "round_number": 24,
+        "venue": "4 Pines Park",
+        "queries": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Sea Eagles vs Dolphins NRL round 24 preview",
+          "Sea Eagles Dolphins NRL odds OR price OR favourite",
+          "Sea Eagles Dolphins NRL finals race ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "kickoff": "2026-08-14T18:00:00+10:00",
+          "round_number": 24,
+          "venue": "4 Pines Park",
+          "queries": [
+            "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Sea Eagles vs Dolphins NRL round 24 preview",
+            "Sea Eagles Dolphins NRL odds OR price OR favourite",
+            "Sea Eagles Dolphins NRL finals race ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-14T01:27:56.325955+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "5e8b5ad69f60bb6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 24 - Graham nears return",
+            "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/",
+            "published_at": "2026-08-13T10:04:21+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 - Graham nears return\nThe Rabbitohs are on track to welcome back Campbell Graham from a calf injury in Friday night's clash with the Bulldogs.\nSouth Sydney coach Wayne Bennett has declared the winger a certain starter in a much-needed boost to",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 - Graham nears return\nThe Rabbitohs are on track to welcome back Campbell Graham from a calf injury in Friday night's clash with the Bulldogs.\nSouth Sydney coach Wayne Bennett has declared the winger a certain starter in a much-needed boost to the squad for a game in which both teams will be desperate to improve their finals chances.\nSee all the late mail, official team news and updates for Round 24 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Team Lists: Round 24\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nSea Eagles\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dolphins is number 10 Francis Molo\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dolphins is number 11 Connelly Lemuelu\n11\n2nd Row for Sea Eagles is number 12 Corey Waddell 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Sea Eagles is number 14 Jake Simpkin 14 Interchange for Dolphins is number 14 Max Plath\n14\nInterchange for Sea Eagles is number 15 Nicholas Lenaz 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Sea Eagles is number 16 Fletcher Baker 16 Interchange for Dolphins is number 16 Tom Gilbert\n16\nInterchange for Sea Eagles is number 17 Jackson Shereb 17 Interchange for Dolphins is number 17 Felise Kaufusi\n17\nInterchange for Sea Eagles is number 18 Josh Feledy 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Sea Eagles is number 19 Hugo Hart 19 21 Interchange for Dolphins is number 21 Tevita Naufahu\n19 21\nReserves\nReserve for Sea Eagles is number 20 Onitoni Large 20 22 Reserve for Dolphins is number 22 Brian Pouniu\n20 22\nSea Eagles Ins\nClayton Faulalo\nHugo Hart\nOnitoni Large\nDolphins Ins\nRay Stone\nTevita Naufahu\nSea Eagles Outs\nBlake Wilson\nTaniela Paseka\nKurt Donoghoe\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Dave Munro\nSenior Review Official: Wyatt Raymond\nLast updated: 8/14/2026 12:06:14 AM\nSea Eagles: Still no Tom Trbojevic (hamstring) so Clayton Faulalo takes the No.1 jersey as he returns from a hamstring injury of his own. Lehi Hopoate moves to the wing. Nathan Brown starts at prop in place of Taniela Paseka (knee) and rising prop Hugo Hart joins the bench for his NRL debut. Caleb Navale and Blake Wilson dropped out in Thursday's 24-hour update.\nDolphins: Speedster Jake Averillo has dropped out of the squad on Thursday after initially being named for his first NRL appearance since Round 19. Tevita Naufahu has been added to the bench. Ray Stone is back from a neck injury to fill the hole left by Kurt Donoghoe (thumb). Winger Selwyn Cobbo has scored 11 tries in his last eight games.\nBulldogs v Rabbitohs, Friday 8.00pm at Accor Stadium\nMatch: Bulldogs v Rabbitohs\nBulldogs\nRabbitohs\nFullback for Bulldogs is number 1 Connor Trac",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.393146098611112,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90ca980be2320f59",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 24",
+            "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/",
+            "published_at": "2026-08-11T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 20 Dylan Edwards 20 18 Fullback for Roosters is number 18 Cody Ramsey\n20 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Roosters is number 15 Lindsay Collins\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Roosters is number 16 Nat Butcher\n17 16\nInterchange for Panthers is number 19 Blaize Talagi 19\n19\nReserve for Panthers is number 1 Jaxen Edgar 1 17 Reserve for Roosters is number 17 Egan Butcher\n1 17\nReserve for Panthers is number 14 Billy Scott 14 19 Reserve for Roosters is number 19 Tommy Talau\n14 19\n20 Reserve for Roosters is number 20 Rex Bassingthwaighte\n20\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/13/2026 11:50:35 PM\nPanthers: Gun fullback Dylan Edwards is listed among the reserves as he looks to return from a shoulder injury. Edwards' last match was Round 20 against the Broncos. Lindsay Smith shifts from prop to lock to take over from skipper Isaah Yeo (pectoral) while Liam Henry starts in the front row. Jack Cogger will wear the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife. Jack Cole goes back to the bench as a result.\nRoosters: Skipper James Tedesco is back in the No.1 jersey after sitting out the Bulldogs game with an ankle injury. Cody Ramsey gets a spot in the six-man interchange after filling in at fullback last week. Spencer Leniu has again been named to start in the front row but could make a late switch back to the bench as he did last week when Nat Butcher started.\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nSea Eagles\nDolphins\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 67.48231276527778,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "581b7ae9ac8b9a2b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dolphins Preview (Round 24, 2026): Team News, Team Lists & Prediction - Rugby League Zone",
+            "url": "https://rugbyleaguezone.com/sea-eagles-vs-dolphins-round-24-preview-2026-433285/",
+            "published_at": "2026-08-11T22:31:00+00:00",
+            "snippet": "Sea Eagles vs Dolphins Preview (Round 24, 2026): Team News, Team Lists & Prediction &nbsp;&nbsp; Rugby League Zone",
+            "body_excerpt": "Manly’s fading finals hopes face their biggest test yet as the Sea Eagles host an in-form Dolphins side that has already secured its place in September. With the visitors surging and Brookvale traditionally a difficult road trip, this clash could prove season-defining for both clubs.\nRead Full Previews\nPanthers vs Roosters → Read full preview: panthers-vs-roosters-round-24-preview-2026\nSea Eagles vs Dolphins → Read full preview: sea-eagles-vs-dolphins-round-24-preview-2026\nBulldogs vs Rabbitohs → Read full preview: bulldogs-vs-rabbitohs-round-24-preview-2026\nSharks vs Raiders → Read full preview: sharks-vs-raiders-round-24-preview-2026\nEels vs Cowboys → Read full preview: eels-vs-cowboys-round-24-preview-2026\nBroncos vs Warriors → Read full preview: broncos-vs-warriors-round-24-preview-2026\nKnights vs Titans → Read full preview: knights-vs-titans-round-24-preview-2026\nWests Tigers vs Dragons → Read full preview: wests-tigers-vs-dragons-round-24-preview-2026\nMatchday Details\nFriday, 14 August 2026 – 6:00pm AEST – 4 Pines Park, Sydney 📺 Foxtel / Kayo Referee: Grant Atkins | Bunker: Wyatt Raymond\nManly Warringah Sea Eagles: 1. Clayton Faulalo, 2. Jason Saab, 3. Tolutau Koula, 4. Reuben Garrick, 5. Lehi Hopoate, 6. Joey Walsh, 7. Jamal Fogarty, 8. Simione Laiafi, 9. Brandon Wakeham, 10. Nathan Brown, 11. Haumole Olakau’atu, 12. Corey Waddell, 13. Jake Trbojevic (c), 14. Jake Simpkin, 15. Nicholas Lenaz, 16. Fletcher Baker, 17. Jackson Shereb, 18. Josh Feledy, 19. Hugo Hart, 20. Onitoni Large, 21. Caleb Navale, 22. Blake Wilson\nDolphins: 1. Hamiso Tabuai-Fidow, 2. Jamayne Isaako, 3. Jack Bostock, 4. Herbie Farnworth, 5. Selwyn Cobbo, 6. Kodi Nikorima, 7. Isaiya Katoa (c), 8. Thomas Flegler, 9. Jeremy Marshall-King, 10. Francis Molo, 11. Connelly Lemuelu, 12. Kulikefu Finefeuiaki, 13. Morgan Knowles, 14. Max Plath, 15. Ray Stone, 16. Tom Gilbert, 17. Felise Kaufusi, 18. Bradley Schneider, 19. Jake Averillo, 20. Sebastian Su’a, 21. Tevita Naufahu, 22. Brian Pouniu\nMatch Preview\nManly are hoping to keep their 2026 finals hopes alive on Friday night at 4 Pines Park (Brookvale), but they face a tough test with the visit of the Dolphins, who arrive full of confidence after confirming a finals spot and defeating the Broncos in last weekend’s Battle of Brisbane.\nA loss on Friday night won’t mathematically rule out Manly, but it will make life tough for them with the potential of falling three wins behind the Rabbitohs and two wins behind the Bulldogs, both of whom play each other this weekend – so one will pull further ahead of Manly if the Sea Eagles lose.\nThe Sea Eagles are in less than ideal form to mount a finals challenge, coming into this weekend’s game on a run of five straight losses as Fozball really appears to be deflating. If they can turn it around on Friday night it would be coincidental, as the first game of Kieran Foran’s fledgling coaching career was against the Dolphins in Redcliffe, where Foran and the rejuvenated Sea Eagles brought the new era in spectacularly with a 52-18 win. Manly recorded a 78% win rate under Foran as interim coach, but that has dropped to 25% since being made full-time. Manly are scoring 10 points per game less and conceding 10 points more per game since the change from interim to full-time coach.\nManly haven’t been helped by injuries – like most other clubs – with their two best fullbacks having been out. There was talk of Tom Trbojevic’s return this weekend, but that has hasn’t happened. Clayton Faulalo returns from injury, which moves Lehi Hopoate back to the wing at the expense of Blake Wilson. Sea Eagles prop Taniela Paseka is out with a knee injury and Nathan Brown replaces him in the starting side. There could be an NRL debut for Hugo Hart, who is named among the reserves: the NSW Cup second-rower has played 11 games for Manly, who are last on one win for the 2026 NSW Cup season.\nThe Dolphins are in much better shape than their Friday night opponents, winning 11 of their last 13 games, includ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 50.948979431944444,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b06cc43a83319d56",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NSW Cup Round 24 vs Warriors - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/11/team-list-nsw-cup-round-24-vs-warriors/",
+            "published_at": "2026-08-11T07:14:14+00:00",
+            "snippet": "Team List: NSW Cup Round 24 vs Warriors\nSea Eagles coach Brett Kimmorley has named his squad for Saturday's matchat 4 Pines Park against the Warriors in Round 24 of the Knock On Effect NSW Cup.\nMatch: Sea Eagles v Warriors\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSea Eagle",
+            "body_excerpt": "Team List: NSW Cup Round 24 vs Warriors\nSea Eagles coach Brett Kimmorley has named his squad for Saturday's matchat 4 Pines Park against the Warriors in Round 24 of the Knock On Effect NSW Cup.\nMatch: Sea Eagles v Warriors\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSea Eagles\n14th Position\naway Team\nWarriors\n5th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nBarTV\nTeam list\n1. Tyler Melrose\n2. Navren Willett\n3. Josh Feledy\n4. Blake Wilson\n5. Beau Newlands\n6. Onitoni Large\n7. Tex Hoy\n8. Aaron Schoupp\n9. Zach Dockar Clay\n10. D'jazirhae Puaávase\n11. Will Lane\n12. Hugo Hart\n13. Caleb Navale\n14. Nicholas Bilsborough\n15. Thomas Demeio\n16. Jermayne Cook\n17. Paul Bryan\n18. Tenzin Contor\nRelated /\nTeam List: Jersey Flegg Cup Round 24 vs Warriors\nTeam Lists\nTeam List: Indigenous Round vs Dolphins\nKnock On Effect NSW Cup\nMatch Report: NSW Cup Round 23 vs Storm\nFinal Team: Round 23 vs Storm\nTeam Update: NRL Round 23 vs Storm",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 66.22842387638889,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "a15e2bcc4a367bfb",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Manly Sea Eagles vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/manly-sea-eagles-vs-dolphins-tips-odds-teams-predictions-nrl-round-24-2026/609871",
+            "published_at": "2026-08-13T03:53:52+00:00",
+            "snippet": "Manly Sea Eagles vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 24 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "4 Pines Park will play host to Friday's Round 24 NRL game between Manly Sea Eagles and Dolphins. The game kicks off at 6:00 pm with Dolphins heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Manly Sea Eagles vs. Dolphins game and give you our free tips and bets.\nWhen: Friday August 14, 2026 at 6:00 pm\nWhere: 4 Pines Park\nBet 💰: Bet On This Match HERE\nManly Sea Eagles vs Dolphins Odds\nManly Sea Eagles vs Dolphins Preview\nManly’s finals hopes are under severe pressure after five consecutive defeats, including a 42-20 loss to Melbourne, and its defensive decline presents a serious problem against the Dolphins. The visitors have won three straight and effectively secured their first finals appearance by recovering from 24-0 down to beat Brisbane 40-32. Clayton Faulalo returns at fullback for the Sea Eagles, allowing Lehi Hopoate to shift to the wing, but Tom Trbojevic remains unavailable and Taniela Paseka is out with a knee injury. The Dolphins lose Kurt Donoghoe to a thumb problem, though Ray Stone and Jake Averillo bolster the interchange. Manly won the Round 5 meeting 52-18, but the teams’ current trajectories make the Dolphins’ speed and finishing power especially difficult to contain.\nHead To Head Bet\nWe're tipping Dolphins to win at $1.36 odds.\nFirst Try Scorer\nFirst Try Scorer: Selwyn Cobbo at $7.50 .\nManly Sea Eagles vs Dolphins Teams\nSea Eagles team: 1. Clayton Faulalo 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart 20. Onitoni Large 21. Caleb Navale 22. Blake Wilson\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 19. Jake Averillo 20. Sebastian Su’a 21. Tevita Naufahu 22. Brian Pouniu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.56786832083333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "d34202a6445deccb",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: Round 24 – Dolphins v Sea Eagles - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/08/14/match-preview-round-24--dolphins-v-sea-eagles/",
+            "published_at": "2026-08-13T22:52:36+00:00",
+            "snippet": "Match Preview: Round 24 – Dolphins v Sea Eagles &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nMatch Preview: Round 24 – Dolphins v Sea Eagles\nThe Dolphins head south for a crucial clash against the Sea Eagles as they continue their push towards a maiden finals campaign.\nComing off a thrilling win over the Broncos last week, the Dolphins will be looking to carry that momentum into Manly and continue their strong run towards September.\nSitting fifth on the ladder, the Dolphins remain firmly in the hunt for a top-four finish, while the 10th-placed Sea Eagles will be desperate for a win to keep their season alive.\nThe two sides last met in Round 5, where Manly claimed the victory. Since the Dolphins entered the competition, the teams have met four times, with the Sea Eagles holding a 3-1 record.\nDolphins inaugural player Jamayne Isaako also enters the clash on the verge of a major milestone, needing just nine points to reach 1,000 points for the club.\nIsaako has been a key part of the Dolphins’ attack since their inaugural season, accounting for 39.8 per cent of the club’s total points\nTeam News\nDolphins\nHead Coach Kristian Woolf has named an unchanged starting 13 from the side that defeated the Broncos, backing the same combination for the trip south.\nRay Stone returns to the interchange bench to replace Kurt Donoghoe, who has been ruled out after undergoing surgery on his thumb. Donoghoe is expected to miss a minimum of two weeks.\nSea Eagles\nClayton Faulalo returns from a hamstring injury to take the No.1 jersey, with Lehi Hopoate shifting to the wing and Blake Wilson dropping out of the side.\nNathan Brown moves into the starting front row in place of Taniela Paseka, who has been ruled out with a knee injury.\nRising prop Hugo Hart has been named on the interchange and is in line to make his NRL debut.\nMatch-Up\nIsaiya Katoa v Jamal Fogarty\nThe battle of the halfbacks shapes as a key contest, with young Dolphins playmaker Isaiya Katoa going up against experienced Sea Eagles No.7 Jamal Fogarty.\nBoth halves have been influential creators this season, with Katoa recording 14 try assists compared to Fogarty's 19.\nTheir kicking games are also closely matched. Katoa averages 456.2 kicking metres per game, narrowly ahead of Fogarty's 450.8 metres.\nWith both No.7s capable of creating opportunities and controlling field position with the boot, their battle could have a major say in which side takes control of the contest.\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\n10th Position\naway Team\n5th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nDolphins Team List: Round 24 v Sea Eagles\nPress Conference\nDolphins: Round 23\nMatch Highlights\nDolphins v Broncos – Round 23, 2026\nMatch Preview\nMatch Preview: Round 23 – Dolphins v Broncos\nMatch Preview: Round 22 – Dolphins v Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 2.5889794319444444,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-13T12:56:55+00:00",
+            "snippet": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knoc",
+            "body_excerpt": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knock in the Round 22 loss to the Knights and the latest setback puts his hopes of playing out his final season before retiring at the end of the year at risk.\nIn a statement, the Broncos said Reynolds will be assessed on a weekly basis to determine a return to play.\n\"Scans at the Clive Berghofer Centre’s Qscan facility confirmed that Broncos captain Adam Reynolds sustained a grade 1 soleus strain on his right calf at training yesterday,\" the club said.\n\"His return-to-play timeline will be determined on a week-by-week basis.\"\nCronulla Jesse Ramien has also played his final game for the club with the centre undergoing season-ending pectoral surgery on Thursday.\nRamien suffered the injury in the second half of last week's loss to St George Illawarra and will depart the Sharks at the end of the season to join the Cowboys.\n\"A big blow for the Sharks with Jesse Ramien ruled out for the remainder of the 2026 season after undergoing pectoral repair surgery today,\" the club said in a statement.\n\"The star centre hurt himself in the second half against the Dragons on Sunday afternoon; he then went for scans on Monday, but after seeing a specialist, it was decided the best course of action was surgery.\"\nGun fullback James Tedesco has fallen short in his bid to return from ankle injury for Thursday's top-of-the-table showdown between the Roosters and Panthers.\nThe Rooster was named to return after missing last week's win over the Bulldogs but was ruled out of the CommBank Stadium clash on Wednesday night.\nThe Panthers are missing captain Isaah Yeo due to a pectoral injury suffered in last week's loss to the Warriors.\nThe NSW and Australian skipper received some positive news on Monday, with scans revealing he does not need season-ending surgery and could return at the start of the finals series.\nThe Panthers have one injury concern out of their 12-6 loss to the Roosters, with Paul Alamoti leaving the field in the 75th minute.\nPanthers coach Ivan Cleary said post-match the centre suffered a leg injury and would go for scans,\nThe Roosters remain without representative stars Angus Crichton (foot) and Daniel Tupou (shoulder).\nIn an update at his weekly press conference, coach Trent Robinson said he hopes the pair will be back before the end of the regular season.\n\"They’re a few weeks away still,\" Robinson said. \"Toups is back running well, with his shoulder injury so that’s still a few weeks away.\n\"Gussie had a medical appointment on Monday. There’s some good progression there and he’s starting to get back into some more movement. Again, it’s not within the next week or two but it’d be nice [to have him back] before the end of the regular season as well.\"\nThere's mixed news for the Rabbitohs ahead of their crucial clash with the Bulldogs, with winger Campbell Graham named to return from a calf injury.\nThe Australian representative was a late withdrawal from last week's win over the Eels.\nIn less positive news, South Sydney will be without halfback Ashton Ward for the remainder of the season after he suffered a high-grade hamstring tear while kicking in last week's win over Parramatta.\nJamie Humphreys is also sidelined with an ankle injury. The Rabbitohs have said he is a week-to-week proposition with a chronic ankle issue.\nCronulla have been dealt a blow ahead of their date with the Raiders, with centre Jesse Ramien ruled out due to a pectoral injury.\nThe Indigenous star is set to see a specialist later this week to determine the severity of the injury.\nIn positive news, Mawene Hiroti and Braydon Trindall have been cleared to play despite battling through issues in last Sunday's loss to St George Illawarra, while KL Iro has been named to return from a concussion and Sifa ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 12.5170349875,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ff7db90289635ac0",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Dolphins",
+            "title": "Match Preview Sea Eagles v Dolphins: Faulalo returns; Stone back on deck",
+            "url": "https://www.nrl.com/news/2026/08/11/sea-eagles-v-dolphins-faulalo-returns-averillo-good-to-go/",
+            "published_at": "2026-08-13T08:12:26+00:00",
+            "snippet": "Presented By\nSea Eagles v Dolphins: Faulalo returns; Stone back on deck\nAfter winning seven of their first eight games under Kieran Foran, the Sea Eagles have hit the skids with five losses in a row to all but kiss their finals chances goodbye.\nThe Sea Eagles now sit four points ",
+            "body_excerpt": "Presented By\nSea Eagles v Dolphins: Faulalo returns; Stone back on deck\nAfter winning seven of their first eight games under Kieran Foran, the Sea Eagles have hit the skids with five losses in a row to all but kiss their finals chances goodbye.\nThe Sea Eagles now sit four points behind the eighth-placed Cowboys and face a tough run home with three of their four games against current top-eight sides (Dolphins, Knights, Warriors).\nLast weekend's loss to the Storm was a hammer blow for Foran's men as they gave up a 14-0 lead and conceded 42 unanswered points before a late consolation try to Blake Wilson.\nAnd speaking of piling on points that's exactly what the potent Dolphins did as they roared back from 24-0 down midway through the first half to salute 40-32 in the Battle of Brisbane.\nThe Dolphins have secured their first finals appearance since joining the competition in 2023 and can now set their sights on the top four and a double chance.\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDolphins\n5th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nSea Eagles: Still no Tom Trbojevic (hamstring) so Clayton Faulalo takes the No.1 jersey as he returns from a hamstring injury of his own. Lehi Hopoate moves to the wing. Nathan Brown starts at prop in place of Taniela Paseka (knee) and rising prop Hugo Hart joins the bench for his NRL debut. Caleb Navale and Blake Wilson dropped out in Thursday's 24-hour update.\nDolphins: Speedster Jake Averillo has dropped out of the squad on Thursday after initially being named for his first NRL appearance since Round 19. Tevita Naufahu has been added to the bench. Ray Stone is back from a neck injury to fill the hole left by Kurt Donoghoe (thumb). Winger Selwyn Cobbo has scored 11 tries in his last eight games.\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dolphins is number 10 Francis Molo\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dolphins is number 11 Connelly Lemuelu\n11\n2nd Row for Sea Eagles is number 12 Corey Waddell 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Sea Eagles is number 14 Jake Simpkin 14 Interchange for Dolphins is number 14 Max Plath\n14\nInterchange for Sea Eagles is number 15 Nicholas Lenaz 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Sea Eagles is number 16 Fletcher Baker 16 Interchange for Dolphins is number 16 Tom Gilbert\n16\nInterchange for Sea Eagles is number 17 Jackson Shereb 17 Interchange for Dolphins is number 17 Felise Kaufusi\n17\nInterchange for Sea Eagles is number 18 Josh Feledy 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Sea Eagles is number 19 Hugo Hart 19 21 Interchange for Dolphins is number 21 Tevita Naufahu\n19 21\nReserves\nReserve for Sea Eagles is number 20 Onitoni Large 20 22 Reserve for Dolphins is number 22 Brian Pouniu\n20 22\n",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.25842387638889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f5d17de111e3fbc2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/sea-eagles-vs-dolphins-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-13T03:51:41+00:00",
+            "snippet": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026\nAugust 13 th 2026, 12:53pm , By: Ben Bridge\nFriday Night Football at 4 Pines Park shapes as a genuine ‘win or go home’ game for Manly, although at this stage it may already be too late to save their season. The Sea Eagles have lost five consecutive matches, fallen from third to 10th on the ladder and now return from a trip to Perth where they blew a 14-0 lead before being hammered 42-20 by Melbourne. Despite finally getting back to Brookvale, Manly arguably have the worse travel setup against a Dolphins side coming off a Brisbane derby and now officially assured of playing finals football.\nThe market is basically where I have this game rated, so this is not a major edge. However, the alternative margin appeals more than forcing the traditional spread. The Dolphins have secured their first finals berth and can now attack the final month without the same pressure that has followed them in previous late season collapses. If the shackles come off, this backline can put a number on a Manly side whose defensive confidence looks completely shot.\nTom Trbojevic remains unavailable with his hamstring injury, leaving Clayton Faulalo at fullback. The Dolphins are close to full strength through their spine and backline, with Hamiso Tabuai-Fidow, Isaiya Katoa, Herbie Farnworth, Jack Bostock, Selwyn Cobbo and Jamayne Isaako all named.\nSea Eagles vs Dolphins Prediction & Tips: 2026 NRL Round 24\nSea Eagles’ Season Falling Apart\nManly’s 42-20 loss to Melbourne in Perth might have been the performance that finally broke their finals campaign. The opening stages were actually excellent. The Sea Eagles raced to a 14-0 advantage and looked capable of snapping their losing run, only for the Storm to score 42 unanswered points as Manly completely lost control of the contest. Taniela Paseka also suffered a suspected MCL injury, adding another setback to a side already without Turbo.\nThat second half collapse is the greater concern than the raw result. Manly’s attack still has weapons. Jason Saab, Tolu Koula, Reuben Garrick, Lehi Hopoate and Haumole Olakau’atu can all generate points, while Jamal Fogarty provides a reliable kicking game. The issue is what happens when momentum shifts against them. Over the past month, Manly have been beaten by Parramatta, Gold Coast and North Queensland before the Melbourne loss, surrendering leads, and falling apart defensively with alarming regularity.\nKieran Foran has been forced into further changes this week. Faulalo returns at fullback, but Manly are still without Trbojevic and have lost Paseka from the middle. Simione Laiafi starts at prop alongside Nathan Brown, with Corey Waddell and Olakau’atu remaining their greatest attacking weapons in the pack.\nBrookvale should produce a response. It is essentially win or go home, and Manly will know they embarrassed the Dolphins 52-18 earlier this season. But the team playing now looks a long way removed from the side that produced that result in April.\nDolphins Finally Break Through to September\nThe Dolphins secured their finals position in dramatic fashion with a 40-32 victory over Brisbane after trailing 24-0 inside the opening 20 minutes. Rather than folding, they dragged the margin back to 30-24 by halftime before dominating possession and field position through the second half. It was the sort of comeback that demonstrated a maturity this club has often lacked during late season campaigns.\nMost importantly, the Dolphins now know they will play finals football. After fading badly down the stretch in previous seasons, that psychological hurdle has finally been cleared. Isaiya Katoa has spoken about wanting more than simply making September, and the side remains close enough to the top four for the final month to carry genuine meaning.\nTheir attacking lineup is frightening when healthy. Hammer gives them explosive support play through the middle, Isaako remains an elite finisher, while Bostock, Farnworth",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.60425720972222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8a0727c884443ec4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles v Dolphins: Round 24 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/12/sea-eagles-v-dolphins-round-24/",
+            "published_at": "2026-08-12T05:04:26+00:00",
+            "snippet": "Sea Eagles v Dolphins: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:06 Rabbitohs v Eels: Round 23\nRabbitohs v Eels: Round 23\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragon",
+            "body_excerpt": "Sea Eagles v Dolphins: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:06 Rabbitohs v Eels: Round 23\nRabbitohs v Eels: Round 23\n03:15 Warriors v Panthers: Round 23\nWarriors v Panthers: Round 23\n02:32 Dragons v Sharks: Round 23\nDragons v Sharks: Round 23\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\nRelated /\n‘Bigger goals’ driving Dolphins after first finals berth secured\nMatch Preview\nSea Eagles v Dolphins: Faulalo returns; Stone back on deck\nNRL News\n'Sky is still the limit': Koula's added motivation as Manly fight for finals\nDolphins\nKatoa wanting more as Phins step into finals frontier\nLive Blog\nAs it happened: Dolphins, Rabbitohs, Storm earn Super Saturday wins\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 44.39175720972222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e1704e09b9fc6a83",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dolphins - Round 24, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/sea-eagles-dolphins-round-24-2026-mc10397668-236790/",
+            "published_at": "2026-08-09T17:57:18+00:00",
+            "snippet": "Sea Eagles vs Dolphins - Round 24, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 24, 2026 SEA EAGLES V DOLPHINS KICK OFF 4 Pines Park #NRLManlyDolphins 2026-08-14T08:00:00Z Preview\nSEA EAGLES\nDOLPHINS\nPreview\nSea Eagles vs Dolphins – Round 24, 2026\nThe Manly Sea Eagles face the Dolphins in Round 24 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at 4 Pines Park. Ladder Position Injury Report Sea Eagles NAME REASON EXPECTED RETURN Luke Brooks ACL Next Season Kobe Hetherington Biceps Next Season Tom Trbojevic Hamstring Round 25 Ben Trbojevic Concussion Round 25 Ethan Bullemor Concussion Round 25 Taniela Paseka Knee Round 26 Siosiua Taukeiaho Leg TBC Dolphins NAME REASON EXPECTED RETURN Kurt Donoghoe Thumb Round 26 Previous 5 Games Sea Eagles DATE OPP RESULT 8/8/26 Storm L 42 - 20 26/7/26 Sharks L 12 - 48 19/7/26 Titans L 38 - 32 12/7/26 Cowboys L 18 - 19 5/7/26 Eels L 23 - 14 Dolphins DATE OPP RESULT 8/8/26 Broncos W 40 - 32 31/7/26 Dragons W 22 - 28 19/7/26 Cowboys W 36 - 16 11/7/26 Sharks L 0 - 66 5/7/26 Knights L 13 - 12\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nLuke Brooks\nACL\nNext Season\nKobe Hetherington\nBiceps\nTom Trbojevic\nHamstring\nRound 25\nBen Trbojevic\nConcussion\nEthan Bullemor\nTaniela Paseka\nKnee\nRound 26\nSiosiua Taukeiaho\nLeg\nTBC\nKurt Donoghoe\nThumb\nPrevious 5 Games\nDATE\nOPP\nRESULT\n8/8/26\nStorm\nL 42 - 20\n26/7/26\nSharks\nL 12 - 48\n19/7/26\nTitans\nL 38 - 32\n12/7/26\nCowboys\nL 18 - 19\n5/7/26\nEels\nL 23 - 14\nBroncos\nW 40 - 32\n31/7/26\nDragons\nW 22 - 28\nW 36 - 16\n11/7/26\nL 0 - 66\nKnights\nL 13 - 12\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nClayton Faulalo Clayton Faulalo\nJason Saab Jason Saab\nTolutau Koula Tolutau Koula\nReuben Garrick Reuben Garrick\nLehi Hopoate Lehi Hopoate\nJoey Walsh Joey Walsh\nJamal Fogarty Jamal Fogarty\nSimione Laiafi Simione Laiafi\nBrandon Wakeham Brandon Wakeham\n10\nNathan Brown Nathan Brown\n11\nHaumole Olakau'atu Haumole Olakau'atu\n12\nCorey Waddell Corey Waddell\n13\nJake Trbojevic Jake Trbojevic\nINTERCHANGE\n14\nJake Simpkin Jake Simpkin\n15\nNicholas Lenaz Nicholas Lenaz\n16\nFletcher Baker Fletcher Baker\n17\nJackson Shereb Jackson Shereb\n18\nJosh Feledy Josh Feledy\n19\nHugo Hart Hugo Hart\nRESERVES\n20\nOnitoni Large Onitoni Large\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nH. Tabuai-Fidow Hamiso Tabuai-Fidow\nJamayne Isaako Jamayne Isaako\nJack Bostock Jack Bostock\nHerbie Farnworth Herbie Farnworth\nSelwyn Cobbo Selwyn Cobbo\nKodi Nikorima Kodi Nikorima\nIsaiya Katoa Isaiya Katoa\nTom Flegler Tom Flegler\nJ. Marshall-King Jeremy Marshall-King\nFrancis Molo Francis Molo\nConnelly Lemuelu Connelly Lemuelu\nK. Finefeuiaki Kulikefu Finefeuiaki\nMorgan Knowles Morgan Knowles\nMax Plath Max Plath\nRay Stone Ray Stone\nTom Gilbert Tom Gilbert\nFelise Kaufusi Felise Kaufusi\nBrad Schneider Brad Schneider\nTevita Naufahu Tevita Naufahu\n21\nBrian Pouniu Brian Pouniu\n22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 103.51064609861112,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "0ddf348039d0b4f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529",
+            "published_at": "2026-08-12T10:08:15+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Confirmed lineups, results for Round 24\nPeter Maniaty\nGetty Images\nRound 24 began with a potential grand final preview as the Roosters took down the Panthers 12-6.\nManly tackle the Dolphins in the early Friday game before the Bulldogs and Rabbitohs clash at Accor Stadium in a match with massive finals implications for both clubs.\nThe Broncos and Warriors square off in Brisbane on Saturday night, before the Tigers and Dragons close things out on Sunday.\nThe Storm have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 24\nManly Sea Eagles vs. Dolphins\n(Friday, August 14 at 4 Pines Park , 6:00pm AEST)\nManly team:\n1. Clayton Faulalo 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart\nSea Eagles team news:\nSkipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) both missed the trip to Perth and remain out. In better news Clayton Faulalo (hamstring) returns at fullback with Lehi Hopoate moving back to the wing. Kobe Hetherington (bicep) is out for the season while Ethan Bullemor suffered a head knock at training last week and is in NRL concussion protocols. Prop Taniela Paseka (knee) is unlikely to be available for several weeks and has been replaced up front by Nathan Brown.\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 21. Tevita Naufahu\nDolphins team news:\nThe Dolphins are cooking in attack, but their defence remains a worry heading into the finals. Kristian Woolf has stuck firm, but Kurt Donoghoe (broken thumb) has had minor surgery and is expected to miss two matches. Jake Averillo was originally named on the been but has been replaced by Tevita Naufahu.\nCanterbury Bulldogs vs. South Sydney Rabbitohs\n(Friday, August 14 at Accor Stadium , 8:00pm AEST)\nCanterbury team:\n1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton (c) 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon\n14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 18. Bronson Xerri 19. Jake Turpin\nBulldogs team news:\nSitili Tupouniua re-injured his hamstring in his first match since Round 16 and there are fears his season could be over. The starting 13 remains unchanged this week.\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray (c)\n14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Euan Aitken 18. Peter Mamouzelos 19. Ed Kosi\nRabbitohs team news:\nIt remains unclear if and when Latrell Mitchell (nerve) will be available again this season. Campbell Graham (calf) was a late withdrawal in Round 23 and while initial fears were for a 2-3 week absence he has been named to play. Ashton Ward suffered a high-grade hamstring injury while goal kicking and is out for the season, with Jayden Sullivan taking his place in the No.7. Jamie Humphreys is out altogether with an ankle issue. Euan Aitken returns on the bench.\nCronulla Sharks vs. Canberra Raiders\n(Saturday, August 15 at Ocean Protect Stadium , 3:00pm AEST)\nCronulla team:\n1. Will Kennedy 2. Sione Katoa 3. Mawene Hiroti 4. KL Iro 5. Ronaldo Mul",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 39.328146098611114,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "d68f609bb0bb01c9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 24 vs. Wests Tigers - dragons.com.au",
+            "url": "https://www.dragons.com.au/news/2026/08/11/nrl-team-list-round-24-vs.-wests-tigers/",
+            "published_at": "2026-08-11T05:57:12+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 24 vs. Wests Tigers\nDean Young has named his squad to take on the Wests Tigers at CommBank Stadium in Round 24.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position",
+            "body_excerpt": "Presented By\nNRL Team List: Round 24 vs. Wests Tigers\nDean Young has named his squad to take on the Wests Tigers at CommBank Stadium in Round 24.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nToby Couchman (head knock) has been named to return for the Red V via the interchange.\nJacob Webster retains the No.17 jersey after a successful NRL debut in Round 23 whilst Mathew Feagai has been named among the reserves despite nursing a back injury.\nROUND 24 TEAM LIST\nROUND 24\nTEAM LIST\nPLAYER PARTNER\nClint GUTHERSON (c)\nBill & Toni’s Restaurant\nSetu TU\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nPorta Restaurant\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nJacob LIDDLE\nWollongong City Jetski\n15\nToby COUCHMAN\n16\nJacob HALANGAHU\nTripADeal\n17\nJacob WEBSTER\nJAC Motors\n18\nDaniel ATKINSON\n19\nMathew FEAGAI\ni98FM\n20\nJosh KERR\nClassic Sportswear\n21\nBlake LAWRIE\nGearbox\n22\nChristian TUIPULOTU\nWIN TV\nRelated /\nNRL Final Team: Indigenous Round vs. Sharks\nTeam Lists\nNRL Team Update: Indigenous Round vs. Sharks\nNRL Team List: Indigenous Round vs. Sharks\nNRL Final Team: Round 22 vs. Dolphins\nNRL Team List: Round 22 vs. Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.51231276527778,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "a20744080b24292f",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Round 24 late mail: Jesse Ramien undergoes season-ending surgery",
+            "url": "https://www.adelaidenow.com.au/sport/nrl/supercoach-news/nrl-round-24-late-mail-james-tedesco-dylan-edwards-in-some-doubt-for-roosters-v-panthers-clash/news-story/ea1aec1675b19c39080798fddaf39728",
+            "published_at": "2026-08-11T01:28:02+00:00",
+            "snippet": "Roosters fullback James Tedesco has been ruled out of his side’s clash against Penrith after failing a fitness test on ...",
+            "body_excerpt": "Late Mail: Season-ending surgery for Sharks gun\nSydney Roosters captain James Tedesco has been ruled out of the top of the table clash, as Penrith sweats on the fitness of their own superstar fullback. See the latest team news.\nAll your news for a great price\nUnlock this story and more with your subscription\nFull Digital Access\nUnlimited articles on app & web\nSubscriber-exclusive newsletters\nA digital version of Today’s Paper\nA refreshed puzzle experience\nPay As You Go\nNo lock-in contract\nFull Digital Access $1 charged monthly for a duration of 2 months, after which it automatically renews at $35 charged monthly. Renewals occur unless cancelled as per full Terms and Conditions. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. New customers only. Prices after any early discounted periods may be varied as per full Terms and Conditions. See www.advertiser.com.au/subscriptionterms for full details.\n12 Month Plan\nLock in & save\nFull Digital Access 12 Month Plan costs $260 (min. cost) for the first 12 months, charged as $20 every 4 weeks. This automatically renews after the first 12 months to be charged as $20 (min. cost) every 4 weeks. Renewals occur unless cancelled as per full Terms and Conditions. No cancellations during the first 12 months. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. Prices after the first 12 months may be varied as per full Terms and Conditions. See www.advertiser.com.au/subscriptionterms for full details.\nOther subscription options\nStudent Subscription\nVerified journalism. Expert analysis.\nStudy smarter and stay informed with a student subscription\nSorry, we are unable to process your request at this time. Please try again later.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.99842387638888,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9df6c063a8cade87",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Round 24 late mail: Jesse Ramien undergoes season-ending surgery, James Tedesco out of top-two blockbuster",
+            "url": "https://www.dailytelegraph.com.au/sport/nrl/supercoach-news/nrl-round-24-late-mail-james-tedesco-dylan-edwards-in-some-doubt-for-roosters-v-panthers-clash/news-story/ea1aec1675b19c39080798fddaf39728",
+            "published_at": "2026-08-05T01:28:10+00:00",
+            "snippet": "Roosters fullback James Tedesco has been ruled out of his side’s clash against Penrith after failing a fitness test on ...",
+            "body_excerpt": "Late Mail: Season-ending surgery for Sharks gun\nSydney Roosters captain James Tedesco has been ruled out of the top of the table clash, as Penrith sweats on the fitness of their own superstar fullback. See the latest team news.\nAll your news for a great price\nUnlock this story and more with your subscription\nFull Digital Access\nUnlimited articles on app & web\nSubscriber-exclusive newsletters\nA digital version of Today’s Paper\nA refreshed puzzle experience\nPay As You Go\nNo lock-in contract\nFull Digital Access $16 charged every 4 weeks for a duration of 12 weeks, after which it automatically renews at $32 charged every 4 weeks. Renewals occur unless cancelled as per full Terms and Conditions. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. New customers only. Prices after any early discounted periods may be varied as per full Terms and Conditions.See www.dailytelegraph.com.au/subscriptionterms for full details.\n12 Month Plan\nLock in and save $108 over 12 months^\nFull Digital Access 12 Month Plan costs $260 (min. cost) for the first 12 months, charged as $20 every 4 weeks. This automatically renews after the first 12 months to be charged as $20 (min. cost) every 4 weeks. Renewals occur unless cancelled as per full Terms and Conditions. No cancellations during the first 12 months. Each payment, once made, is non-refundable, subject to law. Not in conjunction with any other offer. Prices after the first 12 months may be varied as per full Terms and Conditions. See www.dailytelegraph.com.au/subscriptionterms for full details.\nOther subscription options\nStudent Subscription\nVerified journalism. Expert analysis.\nStudy smarter and stay informed with a student subscription\nSorry, we are unable to process your request at this time. Please try again later.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 215.99620165416667,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9208c066a5c6083a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Reynolds’ scans results in; season over for Sharks star — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-24-early-mail-news-teams-ins-and-outs-james-tedesco-in-doubt-dylan-edwards-pushing-to-play/news-story/ed6f741082a0959e49bf6a7f245bde8c",
+            "published_at": "2026-08-13T14:56:33+00:00",
+            "snippet": "Reynolds’ scans results in; season over for Sharks star — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Reynolds’ scans results in; season over for Sharks star — Late Mail\nAdam Reynolds may have played his last NRL game as the Broncos halfback provided a cryptic reply on his potential return to the field while the South Sydney Rabbitohs have been dealt a crushing blow.\nElsewhere, a Sharks gun is out for the season.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nRead on for all of the Late Mail ahead of Round 24!\nFRIDAY AUGUST 14\nManly Sea Eagles vs. Dolphins, 6pm @ 4 Pines Park\nSea Eagles team: 1. Clayton Faulalo 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart 20. Onitoni Large\nPlayers cut: 21. Caleb Navale 22. Blake Wilson\nLate Mail: Manly coach Kieran Foran revealed Tom Trbojevic was close to making a comeback for this game. “It was touch and go for this week. There wasn’t much in it, but with a guy like that you don’t want any sort of risk at all,” Foran said.\n“We’re taking out time with him. We want to make sure he comes back at full fitness and he’s not feeling any hesitation there. We’re hopeful of getting him back before the ends of the year.” Trbojevic’s replacement this week is Clayton Faulalo who is returning from a hamstring injury suffered in Round 18. “Clayton is ready to go, he’s fully fit and there’s no hesitation around him re-injuring his hamstring. We’ve got all the confidence in the world and are really excited about having Clay back,” Foran said. Taniela Paseka (knee) is out which means Hugo Hart joins the bench for his NRL debut.\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 21. Tevita Naufahu 22. Brian Pouniu\nPlayers cut: 19. Jake Averillo 20. Sebastian Su’a\nLate Mail: Kurt Donoghoe (thumb) is out but has a top replacemnt in Ray Stone who is back from a neck injury, much to coach Kristian Woolf’s excitement.\n“He’s going to come off the bench and tackle everything and run hard. We love having him in the team,” Woolf said. Jake Averillo in on the bench after being out with a rib problem.\nCanterbury Bulldogs vs. South Sydney Rabbitohs, 8pm @ Accor Stadium\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 19. Bronson Xerri 20. Jake Turpin 22. Sean O’Sullivan\nPlayers cut: 21. Jack Underhill 23. Jonathan Sua\nLate Mail: Alekolasimi Jones comes in for his fourth NRL game in place of Sitili Tupouniua , who suffered a hamstring injury in his comeback game against the Roosters. Bulldogs coach Cameron Ciraldo said Tupouniua’s season may not yet be over. “We’re just making sure he gets through is first few weeks of rehab then anything can happen after that,” Ciraldo said. Bulldogs captain Stephen Crichton has scored 11 tries in 14 games against the Rabbitohs. Bulldogs centre Matt Burton requires three points for 700 career points.\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Euan Aitken 18. Peter Mamouzelos 19. Edward Kosi 20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 10.523146098611111,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "9711cbb7106b8539",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL News /",
+            "url": "https://www.nrl.com/news/topic/nrl-news/",
+            "published_at": "2026-08-13T12:56:00+00:00",
+            "snippet": "View updates for the most breaking NRL News NRL news, analysis, scores, team list updates, squads, casualty ward, injury news, signings and judiciary.",
+            "body_excerpt": "NRL News /\nJudiciary\nNRL Judiciary: Radley, Lussick charged after Thursday thriller\nSharks\nHiroti steps up as Sharks chase top-four finish\nDolphins\n‘Bigger goals’ driving Dolphins after first finals berth secured\nSignings\n2026 NRL Signings Tracker: DCE to depart Roosters for Hull FC\nNRL News\n'We can beat anyone': Rabbitohs primed for season-defining clash\nInjuries\nNRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nLive Blog\nAs it happened: Roosters take No.1 in epic showdown\nTeam Lists\nNRL Late Mail: Round 24 - Graham nears return\nBattle for the 8: It's all on the line in the fight for September\nMatch Preview\nPanthers v Roosters: Edwards good to go; Teddy struck down\nSea Eagles v Dolphins: Faulalo returns; Stone back on deck\nTipping\nExpert Tipping: NRL Round 24 & NRLW Round 7\n'Sky is still the limit': Koula's added motivation as Manly fight for finals\nBulldogs\nDogs sound air raid alert ahead of Bunnies blockbuster\nJenkins to unleash hidden talent in Nawaqanitawase aerial contest\nCowboys\nComeback kids dare to dream as Cowboys chase finals\nHeavyweight halves: Walker embarks on Cleary collision course\nReady to roar: Dramatic week driving Panthers towards Roosters showdown\nFantasy\nLone Scout's Fantasy team list analysis: Round 24\nWests Tigers v Dragons: Saukuru set for debut; Couchman returns\nKnights v Titans: Best, Crossland return; Sami eyes club record\nBulldogs v Rabbitohs: Jones steps up; Sullivan steers ship\nNRL Team Lists: Round 24\nRoyce Simmons Foundation announces 2026 Big Walk\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 12.532312765277778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "acb5245995a31b44",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "NRL News 'Sky is still the limit': Koula's added motivation as Manly fight for finals",
+            "url": "https://www.nrl.com/news/2026/08/13/sky-is-still-the-limit-koulas-added-motivation-as-manly-fight-for-finals/",
+            "published_at": "2026-08-13T02:01:21+00:00",
+            "snippet": "'Sky is still the limit': Koula's added motivation as Manly fight for finals\nThe Sea Eagles are determined to ensure their season comes full circle when they host the Dolphins in a must-win clash on Friday night.\nManly kicked off the Fozball era with a thumping 52-18 win over the",
+            "body_excerpt": "'Sky is still the limit': Koula's added motivation as Manly fight for finals\nThe Sea Eagles are determined to ensure their season comes full circle when they host the Dolphins in a must-win clash on Friday night.\nManly kicked off the Fozball era with a thumping 52-18 win over the Dolphins in Round 5 but they have struggled in recent weeks.\nFive-straight losses have left Manly sitting 10th on the ladder, four points outside the top eight with just four games remaining.\nDolphins v Sea Eagles – Round 5, 2026\nStanding in their way this weekend are the fifth-placed Dolphins, with Manly needing a win to keep pace in a congested finals race.\n“We still have a chance for finals, and hopefully we chase that this weekend, get a win and turn it around,” Haumole Olakau’atu said.\n“The last couple of weeks haven’t been the best for us.\n“It comes down to our attitude, our mindset and turning up on the day and playing for each other.”\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDolphins\n5th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nThere is a sense of deja vu about Friday night.\nThe last time Manly faced the Dolphins, Foran had just taken over as interim coach in Round Five, sparking a four-game winning streak that ignited the Sea Eagles' season.\nWith Foran now permanently in charge, Manly are hoping to produce another turnaround against the same opponent, this time with their season hanging in the balance.\n“We’ve had glimpses in the last couple of weeks, the results haven’t gone our way,” halfback Jamal Fogarty said.\n“Foz is giving us game plans, giving us confidence and belief.”\nThe players have continued to back Foran through the difficult run, with Fogarty adamant the responsibility sits with the playing group to turn their form around.\nHaumole looking ominous early\n“It’s us as a team, us as players and the club,” he said.\n“Foz is doing a wonderful job.\n“We know what we are playing for. We try to go out there every single week to get a win and perform well and some weeks that doesn’t happen.\n“If we have 17 guys do that on the weekend, we’ll get a result.”\nFriday night will also carry a different kind of significance for centre Tolu Koula.\nThe 24-year-old will run out for his 100th NRL game, a milestone that brings his career full circle, with Foran and Olakau’atu both alongside him when he made his first-grade debut for Manly in 2022.\n“It was always a dream of mine to make my NRL debut,” Koula said.\n“It feels like a little while now. I remember coming on at left centre and Foz was the half.\n“It’s crazy now that he’s my coach.\n“Haumole was in the team as well and a few of the other boys.”\nKoula has the need... the need for speed\nOlakau’atu still remembers the teenager who nervously made his way around the sidelines before getting his chance.\n“It’s a very special round for him and his family,” Olakau’atu said.\n“I still remember his first game.\n“I remember a young, shy kid walking up and down the sidelines, getting ready to jump on.\n“We all know how explosive and fast he is, he played really well that night.\n“We all know how good he’s been for the past 99 games. The sky is still the limit for him.\n“He’s a very good player, and I can’t wait for what the future holds for him.”\nKoula has since developed into one of Manly’s most dangerous attacking weapons, earning a NSW debut this season and establishing himself as a key part of the Sea Eagles’ future.\nBut his 100th game will mean little if Manly cannot keep their season alive.\nFour games remain, and with every point crucial in the race for the top eight, Friday night shapes as a must-win for Foran’s side.\nRelated /\n‘Bigger goals’ driving Dolphins after first finals berth secured\nMatch Preview\nSea Eagles v Dolphins: Faulalo returns; Stone back on deck\nSea Eagles v Dolphins: Round 24\nKatoa wanting more as Phins step into finals frontier\nPress Conference\nNRL Press Conference: Storm v Sea Eagles - Round 23,",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 23.44314609861111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6755c9e0e9a0ad9d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+            "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18",
+            "published_at": "2026-08-12T11:50:56+00:00",
+            "snippet": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ &nbsp;&nbsp; News.com.au",
+            "body_excerpt": "NRL teams Round 24: Raiders coach Ricky Stuart axes Corey Horsburgh\nRicky Stuart has sensationally swung the axe on a Raiders star after his ‘brain explosion’, while an exiled star has moved one step closer to an NRL return. See all the Round 24 teams news.\nFiery Canberra forward Corey Horsburgh has been dramatically dropped for Saturday’s away game against Cronulla at Ocean Protect Stadium.\nThe Raiders claim Horsburgh has been rested after a controversial performance against Newcastle last weekend.\nHorsburgh won’t play NSW Cup this weekend.\nAta Mariota will be Horsburgh’s replacement at starting prop against the Sharks.\nIt is unknown whether Horsburgh will be considered for NRL selection in Canberra’s round 25 game against Brisbane.\nHorsburgh’s omission is another clear sign that he and the club are at loggerheads.\nOthers you may like\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images\nHis demise is the culmination of a difficult week after Horsburgh drew sharp criticism for a “brain explosion” at a pivotal moment in Canberra’s loss to the Knights.\nHorsburgh was sin binned for slapping opponent Dane Gagai nearing fulltime in the Raiders’ 30-24 loss, which ended the club’s finals hopes.\nStuart singled out Horsburgh for criticism at a post-match press conference.\n“It was a f***ing brain explosion and (we) lost the opportunity,” Stuart fumed.\nThe pair have been getting along well in recent times while enjoying or enduring a rollercoaster relationship over the past eight years.\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images. Picture: NRL Photos\nThis masthead can confirm that Canberra would be prepared to offload Horsburgh early if he can secure another NRL club.\nA former Queensland State of Origin player, Horsburgh comes off contract at Canberra after next season.\nCaboolture-born Horsburgh, 28, would prefer a return to Queensland but Perth is also monitoring the situation.\nThe Bears are also ready to make a move on Horsburgh.\nBrisbane has been gently linked to Horsburgh but the Broncos’ star-studded roster may prevent an offer being lodged.\nBut there was speculation on Tuesday that Horsburgh could join Brisbane as early as next season.\nIll-discipline has cost Canberra this season with last year’s minor premiers sitting in the 12th spot with nine wins from 21 games.\nCanberra’s finals round games are against Cronulla, Brisbane and North Queensland.\n—Dean Ritchie\nEXILED STAR ONE STEP CLOSER TO NRL RETURN\n—Tyson Jackson\nFormer Manly star Josh Schuster has been handed his first opportunity with new club the Wests Tigers, named to play five-eighth with the club’s NSW Cup team on Sunday.\nSchuster, who has spent the last couple of months training with the Tigers reserve grade squad, will finally get his opportunity to play alongside Javon Andrews, as he tries to get his NRL career back on track.\nJosh Schuster has been named to play five-eighth for the Wests Tigers’ NSW Cup team. Picture: Instagram\nThe former Sea Eagle and Rabbitoh took a train and trial deal with the Tigers until the end of the year, with the club wanting to help Schuster get back to the NRL.\nIt’s understood the five-eighth has lost a lot of weight and has impressed the Tigers in his couple of months training.\nSchuster was initially not expected to get a game with the club before next year, but will now have the opportunity to play for a new contract this Sunday.\nThe Tigers and Schuster both see the young playmaker in the halves, rather than second-row where he’s played in the last couple of years.\nSchuster’s last rugby league game was over 12-months ago, with the five-eighth spending the first half of this year training by himself to get prepared to play again.\nSEASON OVER FOR EELS STAR\nParramatta’s Isaiah Iongi’s season is over with the young fullback ruled out with a knee injury.\nIongi suffered a medial and posterior knee injury but has avoided ru",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 37.61675720972222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Sea Eagles vs Dolphins NRL round 24 preview",
+          "Sea Eagles Dolphins NRL odds OR price OR favourite",
+          "Sea Eagles Dolphins NRL finals race ladder stakes",
+          "Sea Eagles Dolphins NRL",
+          "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sea Eagles Dolphins NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 24 Sea Eagles OR Dolphins"
+        ],
+        "filter_summary": {
+          "dropped_stale": 59,
+          "dropped_wrong_round": 3,
+          "dropped_noise": 9,
+          "dropped_irrelevant": 10,
+          "kept": 19,
+          "deferred_pending_body": 63,
+          "promoted_after_body": 9,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "3e23f99ae6d6",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-14T01:27:56.305732+00:00",
+      "finished_at": "2026-08-14T01:29:33.655948+00:00",
+      "duration_ms": 97350,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dolphins",
+        "venue": "4 Pines Park",
+        "kickoff": "2026-08-14T18:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.5114,
+        "home_win_probability": 0.4886,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (+0.0 points) — contribution 0.093 (9% of total)",
+            "Home rest (19.1 days) — contribution 0.044 (4% of total)",
+            "Head-to-head record (last 5) (75% to the home side) — contribution 0.033 (3% of total)",
+            "Head-to-head average margin (last 5) (+24.0 points) — contribution 0.032 (3% of total)",
+            "Rest-day advantage (+5.1 days) — contribution 0.025 (2% of total)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-99 points) — contribution 0.184 (17% of total)",
+            "Bradley-Terry strength advantage (-0.28 log-strength) — contribution 0.127 (12% of total)",
+            "Pythagorean form (last 10) (-13% expected-win gap) — contribution 0.063 (6% of total)",
+            "5-game form: all run metres (-82.40) — contribution 0.057 (5% of total)",
+            "Away rest (14.0 days) — contribution 0.033 (3% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.3554,
+            "total_toward_away": 0.7233,
+            "net": -0.368,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": []
+        },
+        "fixture": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dolphins",
+          "venue": "4 Pines Park",
+          "kickoff": "2026-08-14T18:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

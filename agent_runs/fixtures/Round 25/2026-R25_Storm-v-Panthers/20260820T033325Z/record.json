@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "run_id": "20260820T033325Z-7e761a86",
+  "run": {
+    "predicted_at_utc": "2026-08-20T03:43:05.083344+00:00",
+    "predicted_at_local": "2026-08-20T13:43:05.083344+10:00",
+    "started_at_utc": "2026-08-20T03:33:25.081229+00:00",
+    "wall_seconds": 580.0,
+    "hours_before_kickoff": 6.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Storm",
+    "away_team": "Panthers",
+    "venue": "AAMI Park",
+    "kickoff": "2026-08-20T19:50:00+10:00",
+    "kickoff_local": "2026-08-20T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Storm",
+      "position": 11,
+      "played": 21,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 24,
+      "points_for": 510,
+      "points_against": 514,
+      "points_difference": -4,
+      "points_difference_per_game": -0.19,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1W",
+      "home_record": "7 - 4",
+      "away_record": "2 - 8"
+    },
+    "away": {
+      "team": "Panthers",
+      "position": 2,
+      "played": 21,
+      "wins": 15,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 36,
+      "points_for": 599,
+      "points_against": 313,
+      "points_difference": 286,
+      "points_difference_per_game": 13.62,
+      "recent_form_last_4": "2 - 3",
+      "streak": "2L",
+      "home_record": "8 - 2",
+      "away_record": "7 - 4"
+    },
+    "comparison": {
+      "higher_on_ladder": "Panthers",
+      "ladder_positions_gap": -9,
+      "points_difference_per_game_gap": -13.81,
+      "points_difference_favours": "Panthers"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Panthers",
+    "predicted_side": "away",
+    "confidence": 0.6,
+    "home_win_probability": 0.4
+  },
+  "math_model": {
+    "home_win_probability": 0.4027,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (3% of total)",
+        "Home travel to venue (0 km) — contribution 0.021 (2% of total)",
+        "Venue home advantage (75% historical home rate) — contribution 0.020 (2% of total)",
+        "Rest-day advantage (+5.2 days) — contribution 0.017 (1% of total)",
+        "5-game workload: top3 tackle share (-0.01) — contribution 0.016 (1% of total)"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-13.8 points) — contribution 0.287 (24% of total)",
+        "Elo rating advantage (-91 points) — contribution 0.165 (14% of total)",
+        "Bradley-Terry strength advantage (-0.39 log-strength) — contribution 0.134 (11% of total)",
+        "5-game form: all run metres (-149.60) — contribution 0.080 (7% of total)",
+        "Pythagorean form (last 10) (-22% expected-win gap) — contribution 0.071 (6% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": []
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Storm vs Panthers NRL round 25 preview",
+      "Storm Panthers NRL odds OR price OR favourite",
+      "Storm Panthers NRL ladder stakes OR finals race",
+      "Storm Panthers NRL",
+      "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Storm Panthers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Storm OR Panthers"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 25 - Harry good to go; Trell touch and go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-19T09:59:26+00:00",
+        "age_hours": 17.57704310277778,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 45.55954310277777,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "NRL Casualty Ward: Mitchell eyes comeback; Surgery for Doueihi, Walsh",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-19T10:05:34+00:00",
+        "age_hours": 17.474820880555555,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Match Preview Storm v Panthers: Wild about Harry; McLean back on deck",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "NRL News",
+        "published_at": "2026-08-19T10:00:37+00:00",
+        "age_hours": 17.557320880555555,
+        "url": "https://www.nrl.com/news/2026/08/18/storm-v-panthers-wild-about-harry-mclean-back-on-deck/"
+      },
+      {
+        "title": "Storm vs Panthers Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T08:15:02+00:00",
+        "age_hours": 19.317043102777777,
+        "url": "https://www.beforeyoubet.com.au/storm-vs-panthers-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Storm v Panthers: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T06:01:31+00:00",
+        "age_hours": 21.542320880555554,
+        "url": "https://www.nrl.com/news/2026/08/19/storm-v-panthers-round-25/"
+      },
+      {
+        "title": "Storm vs Panthers - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-16T19:11:19+00:00",
+        "age_hours": 80.37898754722222,
+        "url": "https://www.zerotackle.com/storm-panthers-round-25-2026-mc10396524-237071/"
+      },
+      {
+        "title": "NRL Updated Team List: Round 25 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T09:49:00+00:00",
+        "age_hours": 17.75093199166667,
+        "url": "https://www.penrithpanthers.com.au/news/2026/08/19/nrl-updated-team-list-round-25/"
+      },
+      {
+        "title": "Lone Scout's Fantasy team list analysis: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T02:59:24+00:00",
+        "age_hours": 24.577598658333333,
+        "url": "https://www.nrl.com/news/2026/08/18/lone-scouts-fantasy-team-list-analysis-round-25/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 25 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T06:28:31+00:00",
+        "age_hours": 45.092320880555555,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb"
+      },
+      {
+        "title": "NRL Team List: Round 25 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:59:00+00:00",
+        "age_hours": 45.584265325,
+        "url": "https://www.penrithpanthers.com.au/news/2026/08/18/nrl-team-list-round-25/"
+      },
+      {
+        "title": "Brutal extent of Tigers star’s injury revealed; Madge turns heads with curious call: Teams Analysis - foxsports.com.au",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T02:00:28+00:00",
+        "age_hours": 1.5598208805555556,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-latrell-mitchell-named-in-round-25-team-lists-ins-and-outs-injury-updates-sunia-turuva-dropped-ben-hunt-at-halfback/news-story/c7ce045929ed5144647f5aca4a7606ae"
+      },
+      {
+        "title": "Melbourne Storm vs Penrith Panthers Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T19:08:11+00:00",
+        "age_hours": 8.431209769444445,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/20/melbourne-storm-vs-penrith-panthers-predictions/"
+      },
+      {
+        "title": "Tips: The one factor stopping Joey from locking in wild upset - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T02:58:13+00:00",
+        "age_hours": 0.5973208805555555,
+        "url": "https://www.nine.com.au/sport/nrl/tips-round-25-expert-predictions-andrew-johns-brad-fittler-20260730-p60k2c.html"
+      },
+      {
+        "title": "Storm grand final star retires months after suffering stroke - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T01:49:53+00:00",
+        "age_hours": 1.7362097694444445,
+        "url": "https://www.nine.com.au/sport/nrl/news-tui-kamikamica-retires-medical-grounds-melbourne-storm-grand-final-hero-20260820-p60pzz.html"
+      },
+      {
+        "title": "'Memories I'll cherish forever': Tui's Bati pride",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "World Cup",
+        "published_at": "2026-08-20T01:25:16+00:00",
+        "age_hours": 2.1464875472222222,
+        "url": "https://www.nrl.com/news/2026/08/16/memories-ill-cherish-forever-tuis-bati-pride/"
+      },
+      {
+        "title": "‘F*** that’: Theory on why Madge finally snapped; shock call on Panthers ‘experiment’ - foxsports.com.au",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T20:04:15+00:00",
+        "age_hours": 7.496765324999999,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-talking-points-and-analysis-why-michael-maguire-snapped-in-brisbane-broncos-press-conference-blaize-talagi-dropped-braydon-trindall-injury/news-story/11fae5d63d4d9ba2da6667cdfc19d106"
+      },
+      {
+        "title": "Meet the unheralded halves ready to deliver on the big stage",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "NRL News",
+        "published_at": "2026-08-19T20:01:21+00:00",
+        "age_hours": 7.545098658333333,
+        "url": "https://www.nrl.com/news/2026/08/20/meet-the-unheralded-halves-ready-to-deliver-on-the-big-stage/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Omitted math signals: Head-to-head record (last 5) and Bradley-Terry strength advantage were not evaluated."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Harry Grant's return is sourced from 'NRL Late Mail: Round 25' and Panthers' losses are sourced from 'Match Preview Storm v Panthers'."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Source states Harry Grant returns; judgement describes him as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Ladder differential and Elo rating are correctly attributed to the Panthers from the 'favouring_Panthers_away_win' group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor in the judgement."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors identify 'NRL Late Mail: Round 25' and 'Match Preview Storm v Panthers'."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.6 is within the allowed range and justified by the conflict between statistical dominance and recent losing form."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant drivers (Ladder differential, Elo) are treated as the primary factors."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers 'Head-to-head record (last 5)' for Storm and 'Bradley-Terry strength advantage' for Panthers are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.6
+  },
+  "reasoning": {
+    "summary": "The Panthers maintain a strong statistical advantage via Elo and Bradley-Terry strength ratings, despite entering the match on a two-game losing streak. While Storm benefit from captain Harry Grant's return and a slight historical head-to-head edge, Penrith's overall season dominance in points differential remains the primary driver. The result is expected to be competitive given Penrith's recent vulnerability.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favors the Panthers based on ladder points differential per game (contribution 0.287) and Bradley-Terry strength advantage (contribution 0.134)."
+      },
+      {
+        "source": "research",
+        "detail": "Storm captain Harry Grant is a confirmed starter, returning from a hamstring injury to lead the side (\"NRL Late Mail: Round 25\")."
+      },
+      {
+        "source": "math",
+        "detail": "The head-to-head record for the last five games slightly favors Storm (60% win rate), though its contribution is minimal at 3% of the total model weight."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers have recently relinquished top spot after consecutive losses to the Warriors and Roosters (\"Match Preview Storm v Panthers\")."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Storm-v-Panthers/20260820T033325Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Storm-v-Panthers/20260820T033325Z/summary.md"
+  }
+}

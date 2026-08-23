@@ -1,0 +1,1306 @@
+{
+  "schema_version": 2,
+  "run_id": "20260822T011159Z-e7b3d151",
+  "at_a_glance": {
+    "fixture": "Knights v Sea Eagles",
+    "round": 25,
+    "kickoff": "2026-08-22T15:00:00+10:00",
+    "venue": "McDonald Jones Stadium",
+    "predicted_winner": "Knights",
+    "confidence": 0.7,
+    "model_home_win_probability": 0.6933,
+    "model_prediction": "Home Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-22T01:11:59.658228+00:00",
+  "updated_at": "2026-08-22T01:23:45.134433+00:00",
+  "request": {
+    "home_team": "Knights",
+    "away_team": "Sea Eagles",
+    "season": 2026,
+    "round_number": 25,
+    "force_refresh": true,
+    "user_question": "Who wins Knights vs Sea Eagles?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Knights",
+    "away_team": "Sea Eagles",
+    "confidence": 0.7,
+    "summary": "The Knights enter this match in strong form with a three-game winning streak and a significant ladder advantage (6th vs 10th). They are backed by strong recent defensive metrics, while the Sea Eagles are struggling with a four-game losing streak and the absence of five-eighth Joey Walsh. Although the Sea Eagles welcome back Tom Trbojevic, the Knights are the market favourites and hold the statistical edge.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model's prior is driven by Pythagorean form (14% contribution) and a strong 5-game defensive record in points against (8% contribution)."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights have won three consecutive games, scoring at least 30 points in each (sportsnews.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights receive a boost from the return of Bradman Best and Jacob Saifiti (newcastleknights.com.au), while the Sea Eagles are missing Joey Walsh due to a jaw fracture (seaeagles.com.au)."
+      },
+      {
+        "source": "math",
+        "detail": "The model attributes some weight to the Sea Eagles via the penalty cluster rate (8% contribution), although the raw value of this metric actually favours the Knights."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 8
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 4
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Knights vs Sea Eagles NRL round 25 preview",
+      "Knights Sea Eagles NRL odds OR price OR favourite",
+      "Knights Sea Eagles NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that the market price is '$1.46' does not appear in any research body_excerpt or title."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Claims for Trbojevic (returning), Walsh (missing), and Best/Saifiti (returning) match the research excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Pythagorean form and ladder points differential are correctly attributed to the Knights."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors 2, 3, and 4 are sourced from research articles."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.7 is within the 0.50-0.85 range and justified by the form/ladder gap."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the highest contributing SHAP drivers."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles) were not addressed."
+        }
+      ],
+      "issues": [
+        "Hallucinated market price of $1.46.",
+        "Omitted top math signals: '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles)."
+      ],
+      "instruction": "Please remove the unsourced market price of $1.46 and evaluate the following math drivers: '5-game form: points against' for the Knights and '5-game momentum: penalty cluster rate' for the Sea Eagles."
+    },
+    "instruction": "Please remove the unsourced market price of $1.46 and evaluate the following math drivers: '5-game form: points against' for the Knights and '5-game momentum: penalty cluster rate' for the Sea Eagles.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Knights",
+      "away_team": "Sea Eagles",
+      "confidence": 0.7,
+      "summary": "The Knights hold a significant edge in form and ladder position, entering the match on a three-game winning streak where they have scored 30+ points per game. While the Sea Eagles welcome back Tom Trbojevic, they are struggling with a multi-game losing streak and the loss of five-eighth Joey Walsh. The market strongly favours the Knights with a price of $1.46.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favours the home side, driven primarily by Pythagorean form (14% contribution) and ladder points differential per game (9% contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights have built strong momentum with three consecutive victories, scoring at least 30 points in each (sportsnews.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights receive a boost with the return of Bradman Best and Jacob Saifiti from injury (newcastleknights.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "The Sea Eagles are missing five-eighth Joey Walsh, who is sidelined with a hairline fracture in his jaw (seaeagles.com.au)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Knights",
+      "away_team": "Sea Eagles",
+      "confidence": 0.7,
+      "summary": "The Knights enter this match in strong form with a three-game winning streak and a significant ladder advantage (6th vs 10th). They are backed by strong recent defensive metrics, while the Sea Eagles are struggling with a four-game losing streak and the absence of five-eighth Joey Walsh. Although the Sea Eagles welcome back Tom Trbojevic, the Knights are the market favourites and hold the statistical edge.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model's prior is driven by Pythagorean form (14% contribution) and a strong 5-game defensive record in points against (8% contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights have won three consecutive games, scoring at least 30 points in each (sportsnews.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights receive a boost from the return of Bradman Best and Jacob Saifiti (newcastleknights.com.au), while the Sea Eagles are missing Joey Walsh due to a jaw fracture (seaeagles.com.au)."
+        },
+        {
+          "source": "math",
+          "detail": "The model attributes some weight to the Sea Eagles via the penalty cluster rate (8% contribution), although the raw value of this metric actually favours the Knights."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Hallucinated market price of $1.46.",
+      "Omitted top math signals: '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles)."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T01:12:39.580339+00:00",
+      "thinking": "*   Home Team: Knights\n    *   Away Team: Sea Eagles\n    *   Round Number: 25\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Knights).\n    *   Query 2: Away team availability (Sea Eagles).\n    *   Query 3: Fixture preview (Knights vs Sea Eagles Round 25).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure).\n\n    *   Query 1: `Knights NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Query 2: `Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Query 3: `Knights vs Sea Eagles NRL round 25 preview`\n    *   Query 4: `Knights Sea Eagles NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 25 (late season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Knights Sea Eagles NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Knights, Sea Eagles).\n    *   JSON format? Yes.",
+      "chars": 1065
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T01:17:28.278774+00:00",
+      "thinking": "*   Fixture: Knights (Home) vs Sea Eagles (Away).\n    *   Venue: McDonald Jones Stadium.\n    *   Round: 25.\n    *   Standings:\n        *   Knights: 6th, 14 wins, 8 losses, 32 pts, PD +76. Recent form: 3W streak. Home record: 8-3.\n        *   Sea Eagles: 10th, 9 wins, 12 losses, 24 pts, PD +46. Recent form: 4L streak. Away record: 4-6.\n    *   Math Model:\n        *   Prediction: Home Win.\n        *   Probability: 0.6933.\n        *   SHAP Drivers (Home): Pythagorean form (14%), Ladder PD per game (9%), 5-game points against (8%), Elo rating (7%), 5-game run metres (3%).\n        *   SHAP Drivers (Away): All listed drivers for Sea Eagles are marked \"CONFLICT\", meaning the raw values actually favour the Knights, but the model nets them toward the Sea Eagles (likely as a correction or specific feature interaction).\n        *   Attribution Balance: Leans home (0.7327 vs 0.2705).\n    *   Research:\n        *   Knights: 3 consecutive wins, scoring 30+ against Brisbane, Canberra, Gold Coast. Bradman Best and Jacob Saifiti returning from injury (confirmed in team lists).\n        *   Sea Eagles: 6-game losing streak (though standings say 4L, research says 6L). 10th place, 6 points out of top 8.\n        *   Availability: Tom Trbojevic is a confirmed starter (returning from hamstring). Joey Walsh is OUT (jaw fracture).\n        *   Market: Knights are favourites (prices $1.46 vs $7.50).\n\n    *   Winner: Home (Knights).\n    *   Confidence: The model says 0.69. Research strongly supports this: Knights are on a 3-game winning streak (scoring heavily), while Sea Eagles are in a slump (4-6 game losing streak). Knights are higher on the ladder (6th vs 10th).\n    *   Key Factors:\n        *   Math: Pythagorean form and ladder differential.\n        *   Research: Knights' recent scoring form (30+ points in last 3 games) and the return of Bradman Best and Jacob Saifiti (from `newcastleknights.com.au` or `sportsnews.com.au`).\n        *   Research: Sea Eagles' poor form (losing streak) and the loss of Joey Walsh (from `seaeagles.com.au`).\n    *   Confidence Adjustment:\n        *   Strongest reason for loss: Tom Trbojevic's return. He is a game-changer.\n        *   However, the Knights' momentum is huge, and they are at home.\n        *   Confidence band: 0.65-0.75 (clear edge). I'll stick close to the model's 0.69, perhaps 0.70 given the strong research alignment.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Knights\"\n    *   `away_team`: \"Sea Eagles\"\n    *   `confidence`: 0.70\n    *   `summary`: Knights enter the match with significant momentum, having won three straight games while scoring 30+ points in each. In contrast, the Sea Eagles are struggling with a multi-game losing streak and the loss of Joey Walsh, though the return of Tom Trbojevic provides a potential spark. The market strongly favours the home side.\n    *   `key_factors`:\n        *   Math: Pythagorean form and ladder differential (contribution 23% combined).\n        *   Research: Knights' high-scoring form in their last three wins (sportsnews.com.au).\n        *   Research: Return of Bradman Best and Jacob Saifiti to the Knights' lineup (newcastleknights.com.au).\n        *   Research: Absence of Sea Eagles five-eighth Joey Walsh due to a jaw fracture (seaeagles.com.au).\n    *   `disagreements_with_math`: null.\n\n    *   No invented stats? Checked.\n    *   Math model as prior? Checked.\n    *   Research quoted/named? Checked.\n    *   SHAP drivers correct? Checked.\n    *   Conflict drivers handled? (I didn't use the conflicted ones as support, just the clear home drivers).\n    *   Attribution balance checked? Leans home.\n    *   Standings sanity check? Knights 6th, Sea Eagles 10th. Correct.\n    *   Availability direction? Turbo is BACK (helps Manly), Walsh is OUT (hurts Manly). Correct.\n    *   Weather ignored? Checked.\n    *   Market acknowledged? Checked ($1.46).\n    *   Confidence band? 0.70 is in the \"clear edge\" band.\n    *   Strongest reason for loss mentioned? Turbo's return.",
+      "chars": 3990
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T01:21:59.615013+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research with an article ID?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are top SHAP drivers from both sides addressed?\n\n- Home: Knights (6th, 3W streak)\n- Away: Sea Eagles (10th, 4L streak)\n- Venue: McDonald Jones Stadium\n- Weather: Fine\n\n- \"Tom Trbojevic a confirmed starter\" (nrl_news: \"NRL Late Mail: Round 25 - Latrell on hold; Turbo on track\") -> Match.\n- \"return of fullback Tom Trbojevic\" (google_news_rss: \"Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles\") -> Match.\n- \"absence of five-eighth Joey Walsh... hairline fracture in his jaw\" (google_news_rss: \"Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles\") -> Match.\n- \"Knights... three consecutive victories, scoring at least 30 points\" (google_news_rss: \"Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions\") -> Match.\n- \"Bradman Best returns to replace the injured Dane Gagai\" (google_news_rss: \"Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions\") -> Match.\n- \"Jacob Saifiti is back after six weeks\" (google_news_rss: \"Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions\") -> Match.\n- \"Sea Eagles... six straight defeats\" (google_news_rss: \"Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions\") -> Match.\n- \"market strongly favours the Knights with a price of $1.46\" -> I don't see \"$1.46\" in any research body. I see \"Newcastle Knights heading into the game as favourites\" but no specific price. **FAIL**.\n\n- Tom Trbojevic: Returning/Starter. Judgement: \"welcome back\". Correct.\n- Joey Walsh: Missing (jaw fracture). Judgement: \"loss of\". Correct.\n- Bradman Best/Jacob Saifiti: Returning. Judgement: \"boost with the return\". Correct.\n\n- \"Pythagorean form (14% contribution)\" -> `favouring_Knights_home_win`. Correct.\n- \"ladder points differential per game (9% contribution)\" -> `favouring_Knights_home_win`. Correct.\n\n- Weather is \"Fine\". Not mentioned as a key factor. Pass.\n\n- Key factor 2: \"three consecutive victories... (sportsnews.com.au)\". Match.\n- Key factor 3: \"return of Bradman Best and Jacob Saifiti... (newcastleknights.com.au)\". Note: The source in the ledger is `google_news_rss` (sportsnews.com.au), but the judge cited `newcastleknights.com.au`. Wait, let me check the research items.\n    - Item 4: `sportsnews.com.au` mentions Best and Saifiti.\n    - Item 9: `google_news_rss` (24 Hour Update | Round 25 - Newcastle Knights) mentions Best and Saifiti.\n    - The judge cited `newcastleknights.com.au` and `seaeagles.com.au`. These domains are not explicitly in the `source` field of the research items (which are `nrl_news` and `google_news_rss`), although the content is there. However, the requirement is to identify the article. The judge used domain names that aren't in the `source` field, but the content is sourced. I'll check if the content is there. Yes.\n- Key factor 4: \"Joey Walsh... (seaeagles.com.au)\". Content is in `google_news_rss` item \"Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles\".\n\n- Confidence: 0.7.\n- Justification: \"Knights hold a significant edge in form and ladder position... Sea Eagles... struggling with a multi-game losing streak\".\n- Range: 0.50-0.85. 0.7 is within range.\n- Defensible: Yes, Knights are 6th and winning, Sea Eagles 10th and losing.\n\n- Top drivers: Pythagorean form (14%), Ladder points diff (9%). These are the ones used. Pass.\n\n- `favouring_Knights_home_win`:\n    - Pythagorean form (14%) - Mentioned.\n    - Ladder points differential (9%) - Mentioned.\n    - 5-game form: points against (8%) - Not mentioned.\n    - Elo rating advantage (7%) - Not mentioned.\n- `favouring_Sea Eagles_away_win`:\n    - 5-game momentum: penalty cluster rate (8%) - Not mentioned.\n    - 5-game form: points for (5%) - Not mentioned.\n- The judge only mentioned the top two for the home side. The top driver for the away side (penalty cluster rate) is completely ignored. **FAIL**.\n\n- Sourced claims: Price $1.46 is not in the research.\n- Omitted math signals: Top drivers for Sea Eagles (penalty cluster rate) and other top Knights drivers (points against, Elo) are missing.\n\nWait, let me re-read the research for the price.\nItem 4: \"Newcastle Knights heading into the game as favourites with the bookmakers.\" No price.\nItem 10: \"Knights vs Sea Eagles Preview & Betting Tips... Before You Bet\". No price in excerpt.\nThe price $1.46 is a hallucination.\n\nLet's double check the `omitted_math_signals` rule: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n- Knights: Pythagorean (Yes), Ladder points (Yes), 5-game points against (No).\n- Sea Eagles: Penalty cluster rate (No), 5-game points for (No).\nDefinitely failed.\n\nOne more check on `sourced_claims`:\n- \"Bradman Best and Jacob Saifiti... (newcastleknights.com.au)\" -> The research item is from `google_news_rss`. The judge attributed it to `newcastleknights.com.au`. This is a minor attribution error, but the *fact* is sourced.\n- \"Joey Walsh... (seaeagles.com.au)\" -> Fact is sourced.\n- Price $1.46 -> Not sourced.\n\nSummary of issues:\n1. Hallucinated price $1.46.\n2. Omitted math signals: `5-game form: points against`, `Elo rating advantage` (Knights) and `5-game momentum: penalty cluster rate`, `5-game form: points for` (Sea Eagles).\n\nWait, the prompt says \"If any of those is neither named nor clearly alluded to... fail\".\nTop 3 Knights: Pythagorean, Ladder points, Points against. (Points against missing).\nTop 3 Sea Eagles: Penalty cluster, Points for, Errors. (All missing).\n\nLet's refine the `sourced_claims` evidence.\n- \"The market strongly favours the Knights with a price of $1.46\" -> Searched all body_excerpts, no mention of \"$1.46\".\n\nLet's refine `omitted_math_signals` evidence.\n- Skipped drivers: `5-game form: points against`, `Elo rating advantage`, `5-game momentum: penalty cluster rate`, `5-game form: points for`.\n\nFinal check on `confidence_justified`:\n- Confidence 0.7. Justification provided in summary. Range is okay. Pass.\n\nFinal check on `shap_attribution`:\n- Pythagorean form (14%) -> Knights. Correct.\n- Ladder points differential (9%) -> Knights. Correct.\nPass.\n\nFinal check on `availability_direction`:\n- Turbo: returning. Correct.\n- Walsh: missing. Correct.\n- Best/Saifiti: returning. Correct.\nPass.\n\nFinal check on `research_used`:\n- Key factors 2, 3, 4 are from research. Pass.\n\nFinal check on `driver_proportionality`:\n- Only top drivers used. Pass.\n\nFinal check on `weather_not_headline`:\n- Not used. Pass.\n\nWait, I should check if the judge's citations of `newcastleknights.com.au` and `seaeagles.com.au` are considered hallucinations if the `source` field says `google_news_rss`. The prompt says \"Every... claim... appears in a research `body_excerpt`/title or a scene field.\" The *claims* (Best, Saifiti, Walsh) are in the excerpts. The *source names* used by the judge are not in the `source` field, but they are likely the original sites the RSS feed pulled from. I will focus on the $1.46 price as the primary hallucination.\n\nActually, the prompt says \"Quote the text you matched it to, or state that you searched the bodies and found none.\"\n- \"three consecutive victories, scoring at least 30 points\" -> \"Newcastle has built timely momentum with three consecutive victories, scoring at least 30 points against Brisbane, Canberra and Gold Coast.\"\n- \"return of Bradman Best and Jacob Saifiti\" -> \"Bradman Best returns to replace the injured Dane Gagai, while Jacob Saifiti is back after six weeks\"\n- \"Joey Walsh... hairline fracture in his jaw\" -> \"Walsh will miss the trip to Newcastle after suffering a hairline fracture in his jaw\"\n- \"price of $1.46\" -> Not found.\n\nOne detail: \"The Knights receive a boost with the return of Bradman Best and Jacob Saifiti from injury (newcastleknights.com.au).\"\nThe research item 9 is \"24 Hour Update | Round 25 - Newcastle Knights\" from `google_news_rss`.\nThe research item 4 is \"Newcastle Knights vs Manly Sea Eagles Tips... sportsnews.com.au\" from `google_news_rss`.\nThe judge cited `newcastleknights.com.au`. This is an attribution error/hallucination of the source URL, but the fact is sourced. I'll flag the price.\n\nWait, the `omitted_math_signals` check:\n\"Look at the top drivers in each favouring_* SHAP group (the first two or three listed on each side).\"\nKnights:\n1. Pythagorean form (14%) - Used.\n2. Ladder points differential (9%) - Used.\n3. 5-game form: points against (8%) - Not used.\nSea Eagles:\n1. 5-game momentum: penalty cluster rate (8%) - Not used.\n2. 5-game form: points for (5%) - Not used.\n3. 3-game form: errors (2%) - Not used.\n\nI will list these in the `omitted_math_signals` failure.",
+      "chars": 9356
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T01:23:45.134060+00:00",
+      "thinking": "*   Winner: Knights (Home)\n    *   Confidence: 0.70\n    *   Summary: Knights in form (3 wins), Sea Eagles struggling (losing streak), Turbo returns but Walsh is out.\n    *   Key Factors: Math (Pythagorean form, ladder diff), Research (3 wins, 30+ points, Best/Saifiti return, Walsh out).\n    *   Market: Cited $1.46 (Flagged as hallucinated).\n\n    *   *Market Price:* The verifier says I hallucinated $1.46. Looking at `market_mentions`, there are prices `[\"$1.46\", \"$7.50\"]` from `sportsnews.com.au`. Wait, the JSON *does* contain those prices. However, the verifier says it's hallucinated. I must check if I attributed it correctly or if I should just remove it to be safe. Actually, looking at the `market_mentions` block: `{\"title\": \"...\", \"url\": \"...\", \"source_tier\": \"search_discovery\", \"prices_found\": [\"$1.46\", \"$7.50\"], \"snippet\": \"...\"}`. The price *is* there. But if the verifier flags it as hallucinated, perhaps it's because I didn't explicitly link it to the source or the verifier is mistaken? No, the instruction says \"remove the unsourced market price of $1.46\". I will remove it to comply.\n\n    *   *Math Signal 1: '5-game form: points against' (Knights):*\n        *   Value: contribution 0.076 (8% of total).\n        *   Meaning: The Knights have a strong defensive record over the last 5 games, which the model uses to favour the home win.\n\n    *   *Math Signal 2: '5-game momentum: penalty cluster rate' (Sea Eagles):*\n        *   Value: contribution 0.076 (8% of total).\n        *   Note: \"CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here\".\n        *   Meaning: The raw penalty cluster rate actually favours the Knights, but the model's internal logic (SHAP) is attributing this specific driver's contribution toward the Sea Eagles' win probability.\n\n    *   *Winner:* Still Knights. The evidence is overwhelming: 6th vs 10th, 3W streak vs 4L streak, home ground, strong math prior (0.69).\n    *   *Confidence:* 0.70. The strongest reason they could lose is the return of Tom Trbojevic (a game-changer). However, the Sea Eagles are missing Walsh and are in a slump. 0.70 remains reasonable.\n    *   *Summary:* Update to remove the price and incorporate the defensive form.\n    *   *Key Factors:* Add the defensive form (points against) and the penalty cluster rate (noting the conflict).\n\n    *   *Market:* Remove $1.46. Acknowledge they are favourites based on the snippet \"Newcastle Knights heading into the game as favourites with the bookmakers\".\n    *   *Math:*\n        *   Knights: 5-game points against (8% contribution) supports the pick.\n        *   Sea Eagles: Penalty cluster rate (8% contribution) is netted toward the away side despite the raw value favouring the home side.\n\n    *   Winner: home\n    *   Confidence: 0.70\n    *   Summary: Knights are in strong form (3W streak) and hold a ladder advantage (6th vs 10th). They show strong defensive form over the last five games. While Tom Trbojevic returns for the Sea Eagles, they are missing Joey Walsh and are currently on a four-game losing streak.\n    *   Key Factors:\n        1. Math: Pythagorean form and ladder differential.\n        2. Math: Strong 5-game defensive form (points against).\n        3. Research: 3-game winning streak with 30+ points per game (sportsnews.com.au).\n        4. Research: Return of Bradman Best and Jacob Saifiti (newcastleknights.com.au).\n        5. Research: Absence of Joey Walsh (seaeagles.com.au).\n        6. Math: Penalty cluster rate (noting the model nets this toward the Sea Eagles despite the raw value favouring the Knights).\n\n    *   *Wait, the penalty cluster rate is a \"conflict\" driver.* I should mention it as a factor that the model uses to give the Sea Eagles some credit, even if the raw stat is poor.\n\n    *   *Confidence check:* Strongest reason to lose: Tom Trbojevic's return. He is one of the best players in the game. This keeps confidence at 0.70 rather than 0.80.\n\n    *   *Market check:* The snippet says \"Newcastle Knights heading into the game as favourites\". I will mention they are the market favourites without using the specific price.",
+      "chars": 4140
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T01:12:39.589855+00:00",
+      "payload": {
+        "queries": [
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Knights vs Sea Eagles NRL round 25 preview",
+          "Knights Sea Eagles NRL odds OR price OR favourite",
+          "Knights Sea Eagles NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T01:17:28.279215+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "confidence": 0.7,
+          "summary": "The Knights hold a significant edge in form and ladder position, entering the match on a three-game winning streak where they have scored 30+ points per game. While the Sea Eagles welcome back Tom Trbojevic, they are struggling with a multi-game losing streak and the loss of five-eighth Joey Walsh. The market strongly favours the Knights with a price of $1.46.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the home side, driven primarily by Pythagorean form (14% contribution) and ladder points differential per game (9% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights have built strong momentum with three consecutive victories, scoring at least 30 points in each (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights receive a boost with the return of Bradman Best and Jacob Saifiti from injury (newcastleknights.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sea Eagles are missing five-eighth Joey Walsh, who is sidelined with a hairline fracture in his jaw (seaeagles.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T01:21:59.615327+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that the market price is '$1.46' does not appear in any research body_excerpt or title."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Claims for Trbojevic (returning), Walsh (missing), and Best/Saifiti (returning) match the research excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Pythagorean form and ladder points differential are correctly attributed to the Knights."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors 2, 3, and 4 are sourced from research articles."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.7 is within the 0.50-0.85 range and justified by the form/ladder gap."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the highest contributing SHAP drivers."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles) were not addressed."
+            }
+          ],
+          "issues": [
+            "Hallucinated market price of $1.46.",
+            "Omitted top math signals: '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles)."
+          ],
+          "instruction": "Please remove the unsourced market price of $1.46 and evaluate the following math drivers: '5-game form: points against' for the Knights and '5-game momentum: penalty cluster rate' for the Sea Eagles."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T01:23:45.134247+00:00",
+      "payload": {
+        "issues": [
+          "Hallucinated market price of $1.46.",
+          "Omitted top math signals: '5-game form: points against' (Knights) and '5-game momentum: penalty cluster rate' (Sea Eagles)."
+        ],
+        "instruction": "Please remove the unsourced market price of $1.46 and evaluate the following math drivers: '5-game form: points against' for the Knights and '5-game momentum: penalty cluster rate' for the Sea Eagles.",
+        "before": {
+          "winner": "home",
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "confidence": 0.7,
+          "summary": "The Knights hold a significant edge in form and ladder position, entering the match on a three-game winning streak where they have scored 30+ points per game. While the Sea Eagles welcome back Tom Trbojevic, they are struggling with a multi-game losing streak and the loss of five-eighth Joey Walsh. The market strongly favours the Knights with a price of $1.46.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the home side, driven primarily by Pythagorean form (14% contribution) and ladder points differential per game (9% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights have built strong momentum with three consecutive victories, scoring at least 30 points in each (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights receive a boost with the return of Bradman Best and Jacob Saifiti from injury (newcastleknights.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sea Eagles are missing five-eighth Joey Walsh, who is sidelined with a hairline fracture in his jaw (seaeagles.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "confidence": 0.7,
+          "summary": "The Knights enter this match in strong form with a three-game winning streak and a significant ladder advantage (6th vs 10th). They are backed by strong recent defensive metrics, while the Sea Eagles are struggling with a four-game losing streak and the absence of five-eighth Joey Walsh. Although the Sea Eagles welcome back Tom Trbojevic, the Knights are the market favourites and hold the statistical edge.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model's prior is driven by Pythagorean form (14% contribution) and a strong 5-game defensive record in points against (8% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights have won three consecutive games, scoring at least 30 points in each (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights receive a boost from the return of Bradman Best and Jacob Saifiti (newcastleknights.com.au), while the Sea Eagles are missing Joey Walsh due to a jaw fracture (seaeagles.com.au)."
+            },
+            {
+              "source": "math",
+              "detail": "The model attributes some weight to the Sea Eagles via the penalty cluster rate (8% contribution), although the raw value of this metric actually favours the Knights."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "2be718f1b7c2",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-22T01:11:59.658363+00:00",
+      "finished_at": "2026-08-22T01:12:03.060628+00:00",
+      "duration_ms": 3402,
+      "request": {
+        "home_team": "Knights",
+        "away_team": "Sea Eagles",
+        "season": 2026,
+        "round_number": 25,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "season": 2026,
+          "round_number": 25
+        },
+        "retrieved_at": "2026-08-22T01:11:59.658431+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 25,
+          "round_title": "Round 25",
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "kickoff": "2026-08-22T15:00:00+10:00",
+          "venue": "McDonald Jones Stadium",
+          "venue_city": "Newcastle",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/knights-v-sea-eagles/",
+          "match_mode": "Pre",
+          "match_id": "20261112540",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Wyatt Raymond"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Adam Gee"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Fletcher Hunt",
+                "position": "Centre",
+                "player_id": 100008414
+              },
+              {
+                "number": 4,
+                "name": "Bradman Best",
+                "position": "Centre",
+                "player_id": 506682
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Jacob Saifiti",
+                "position": "Prop",
+                "player_id": 503523
+              },
+              {
+                "number": 9,
+                "name": "Phoenix Crossland",
+                "position": "Hooker",
+                "player_id": 504597
+              },
+              {
+                "number": 10,
+                "name": "Trey Mooney",
+                "position": "Prop",
+                "player_id": 507915
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Tyson Frizell",
+                "position": "2nd Row",
+                "player_id": 500622
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Interchange",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Cody Hopwood",
+                "position": "Interchange",
+                "player_id": 100011256
+              },
+              {
+                "number": 16,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 17,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 18,
+                "name": "Pasami Saulo",
+                "position": "Interchange",
+                "player_id": 504079
+              },
+              {
+                "number": 19,
+                "name": "Toby Winter",
+                "position": "Interchange",
+                "player_id": 100016039
+              },
+              {
+                "number": 22,
+                "name": "Elijah Salesa-Leaumoana",
+                "position": "Reserve",
+                "player_id": 100014185
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Tom Trbojevic",
+                "position": "Fullback",
+                "player_id": 501505
+              },
+              {
+                "number": 2,
+                "name": "Jason Saab",
+                "position": "Winger",
+                "player_id": 507670
+              },
+              {
+                "number": 3,
+                "name": "Tolutau Koula",
+                "position": "Centre",
+                "player_id": 509634
+              },
+              {
+                "number": 4,
+                "name": "Reuben Garrick",
+                "position": "Centre",
+                "player_id": 503443
+              },
+              {
+                "number": 5,
+                "name": "Lehi Hopoate",
+                "position": "Winger",
+                "player_id": 100011191
+              },
+              {
+                "number": 6,
+                "name": "Clayton Faulalo",
+                "position": "Five-Eighth",
+                "player_id": 100000346
+              },
+              {
+                "number": 7,
+                "name": "Jamal Fogarty",
+                "position": "Halfback",
+                "player_id": 501175
+              },
+              {
+                "number": 8,
+                "name": "Simione Laiafi",
+                "position": "Prop",
+                "player_id": 100011203
+              },
+              {
+                "number": 9,
+                "name": "Brandon Wakeham",
+                "position": "Hooker",
+                "player_id": 504307
+              },
+              {
+                "number": 10,
+                "name": "Nathan Brown",
+                "position": "Prop",
+                "player_id": 500647
+              },
+              {
+                "number": 11,
+                "name": "Haumole Olakau'atu",
+                "position": "2nd Row",
+                "player_id": 508033
+              },
+              {
+                "number": 12,
+                "name": "Ben Trbojevic",
+                "position": "2nd Row",
+                "player_id": 507850
+              },
+              {
+                "number": 13,
+                "name": "Jake Trbojevic",
+                "position": "Lock",
+                "player_id": 500751
+              },
+              {
+                "number": 14,
+                "name": "Jake Simpkin",
+                "position": "Interchange",
+                "player_id": 508629
+              },
+              {
+                "number": 15,
+                "name": "Nicholas Lenaz",
+                "position": "Interchange",
+                "player_id": 100003907
+              },
+              {
+                "number": 16,
+                "name": "Corey Waddell",
+                "position": "Interchange",
+                "player_id": 503341
+              },
+              {
+                "number": 17,
+                "name": "Caleb Navale",
+                "position": "Interchange",
+                "player_id": 509548
+              },
+              {
+                "number": 18,
+                "name": "Josh Feledy",
+                "position": "Interchange",
+                "player_id": 100006630
+              },
+              {
+                "number": 19,
+                "name": "Fletcher Baker",
+                "position": "Interchange",
+                "player_id": 509851
+              },
+              {
+                "number": 20,
+                "name": "Onitoni Large",
+                "position": "Reserve",
+                "player_id": 100013788
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 25,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Knights",
+            "position": 6,
+            "played": 22,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 32,
+            "points_for": 577,
+            "points_against": 501,
+            "points_difference": 76,
+            "points_difference_per_game": 3.45,
+            "recent_form_last_4": "3 - 2",
+            "streak": "3W",
+            "home_record": "8 - 3",
+            "away_record": "6 - 5"
+          },
+          "away": {
+            "team": "Sea Eagles",
+            "position": 10,
+            "played": 21,
+            "wins": 9,
+            "drawn": 0,
+            "lost": 12,
+            "competition_points": 24,
+            "points_for": 505,
+            "points_against": 459,
+            "points_difference": 46,
+            "points_difference_per_game": 2.19,
+            "recent_form_last_4": "0 - 4",
+            "streak": "4L",
+            "home_record": "5 - 6",
+            "away_record": "4 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Knights",
+            "ladder_positions_gap": 4,
+            "points_difference_per_game_gap": 1.26,
+            "points_difference_favours": "Knights"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-22T15:00",
+            "temperature_c": 21.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 6.6,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -32.918,
+            "longitude": 151.728,
+            "venue": "McDonald Jones Stadium",
+            "venue_city": "Newcastle"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-32.918&longitude=151.728&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-22T01:12:03.056481+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=25&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/knights-v-sea-eagles/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-32.918&longitude=151.728&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "b029648221a1",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-22T01:12:39.613973+00:00",
+      "finished_at": "2026-08-22T01:14:04.889430+00:00",
+      "duration_ms": 85275,
+      "request": {
+        "home_team": "Knights",
+        "away_team": "Sea Eagles",
+        "kickoff": "2026-08-22T15:00:00+10:00",
+        "round_number": 25,
+        "venue": "McDonald Jones Stadium",
+        "queries": [
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Knights vs Sea Eagles NRL round 25 preview",
+          "Knights Sea Eagles NRL odds OR price OR favourite",
+          "Knights Sea Eagles NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "kickoff": "2026-08-22T15:00:00+10:00",
+          "round_number": 25,
+          "venue": "McDonald Jones Stadium",
+          "queries": [
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Knights vs Sea Eagles NRL round 25 preview",
+            "Knights Sea Eagles NRL odds OR price OR favourite",
+            "Knights Sea Eagles NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-22T01:12:39.642786+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 8
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "fcfe094bee404c00",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 25 - Latrell on hold; Turbo on track",
+            "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/",
+            "published_at": "2026-08-21T10:04:46+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has affected his leg and calf but had been named in the Rabbitohs' extended squad on Tuesday.\n\"There was a chance (for this week). He trained pretty well but just probably needs another week,\" coach Wayne Bennett said on Friday.\n\"We took a cautious approach and we'll give him another week.\"\nBetter news for Manly though with Tom Trbojevic a confirmed starter for their clash with the Knights on Saturday.\nSee all the late mail, official team news and updates for Round 25 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 25\nKnights v Sea Eagles, Saturday 3.00pm at McDonald Jones Stadium\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Sea Eagles is number 1 Tom Trbojevic\nWinger for Knights is number 2 Dominic Young 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Knights is number 3 Fletcher Hunt 3 Centre for Sea Eagles is number 3 Tolutau Koula\nCentre for Knights is number 4 Bradman Best 4 Centre for Sea Eagles is number 4 Reuben Garrick\nWinger for Knights is number 5 Greg Marzhew 5 Winger for Sea Eagles is number 5 Lehi Hopoate\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Sea Eagles is number 6 Clayton Faulalo\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Knights is number 8 Jacob Saifiti 8 Prop for Sea Eagles is number 8 Simione Laiafi\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Knights is number 10 Trey Mooney 10 Prop for Sea Eagles is number 10 Nathan Brown\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n11\n2nd Row for Knights is number 12 Tyson Frizell 12 2nd Row for Sea Eagles is number 12 Ben Trbojevic\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n14\nInterchange for Knights is number 15 Cody Hopwood 15 Interchange for Sea Eagles is number 15 Nicholas Lenaz\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Sea Eagles is number 16 Corey Waddell\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Sea Eagles is number 17 Caleb Navale\n17\nInterchange for Knights is number 18 Pasami Saulo 18 Interchange for Sea Eagles is number 18 Josh Feledy\n18\nInterchange for Knights is number 19 Toby Winter 19 Interchange for Sea Eagles is number 19 Fletcher Baker\n19\nReserves\nReserve for Knights is number 22 Elijah Salesa-Leaumoana 22 20 Reserve for Sea Eagles is number 20 Onitoni Large\n22 20\nKnights Ins\nBradman Best\nElijah Salesa-Leaumoana\nJacob Saifiti\nSea Eagles Ins\nBen Trbojevic\nCaleb Navale\nOnitoni Large\nTom Trbojevic\nKnights Outs\nDane Gagai\nFrancis Manuleleua\nHugo Hart\nJackson Shereb\nJoey Walsh\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Dave Munro\nSenior Review Official: Adam Gee\nLast updated: 8/22/2026 12:06:14 AM\nKnights: Origin centre Bradman Best is back after two games out with a calf injury and lines up for just his 13th match of the season. Two big blows though with Dane Gagai (hamstring) and Francis Manuleleua (concussion) to sit this one out. Prop Jacob Saifiti is also back after six games out with a hamstring injury so Cody Hopwood slides to the bench. Winger Dominic Young has scored 10 tries in his last six games against the Sea Eagles. No changes in Friday's 24-hour update with Elijah Salesa-Leaumoana rem",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.131567440555555,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f6a7e8a2b1c5da45",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 25",
+            "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/",
+            "published_at": "2026-08-18T06:00:29+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Th",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 14 Tyran Wishart 14 7 Halfback for Panthers is number 7 Nathan Cleary\n14 7\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 15 Alec MacDonald 15 14 Interchange for Panthers is number 14 Billy Scott\n15 14\nInterchange for Storm is number 16 Angus Hinchey 16 15 Interchange for Panthers is number 15 Scott Sorensen\n16 15\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\n21 Interchange for Panthers is number 21 Luke Garner\n21\nReserve for Storm is number 7 Trent Toelau 7 16 Reserve for Panthers is number 16 Luron Patea\n7 16\nReserve for Storm is number 18 Joe Chan 18 Reserve for Panthers is number 18 Jack Cole\n18\nReserve for Storm is number 21 Jack Hetherington 21\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/21/2026 8:06:13 AM\nStorm: Captain Harry Grant is back from a hamstring injury so Tyran Wishart slides to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Alec MacDonald is back from concussion and joins the interchange. Jack Hetherington and Davvy Moale drop to the reserves.\nPanthers: Young gun Casey McLean returns from a hand injury and takes over in the centres from Paul Alamoti (hamstring). Jack Cole has been added to the interchange in place of Jaxen Edgar.\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nRaiders\nBroncos\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nProp for Raiders is number 8 Josh Papalii 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Broncos is number 9 Billy Walters\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Broncos is number 10 Payne Haas\n2nd Row for Raiders is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 91.20295632944443,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c1f0d9bf571dcf6f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/18/team-list-nrl-round-25-vs-knights/",
+            "published_at": "2026-08-18T05:59:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s Round 25 match against the Newcastle Knights at McDonald Jones Stadium.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Po",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s Round 25 match against the Newcastle Knights at McDonald Jones Stadium.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Position\naway Team\nSea Eagles\n10th Position\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nFoxtel\nKayo\nThere are a couple of changes to the team including the return of fullback Tom Trbojevic and the absence of five-eighth Joey Walsh.\nTurbo will slot straight back into the No.1 jersey after missing the past three games with a hamstring injury.\nWalsh will miss the trip to Newcastle after suffering a hairline fracture in his jaw during last Friday’s loss to the Dolphins at 4 Pines Park.\nClayton Faulalo shifts from fullback to five-eighth for what will be his first start in the No.6 jersey at Manly.\nBen Trbojevic is back on deck after suffering a concussion in Round 21 against the Sharks. He returns to the second row pushing Corey Waddell to the interchange.\nAlso on the interchange, for the first time this season, is Caleb Navale. The 23-year-old lock made a successful return in the NSW Cup last weekend after suffering an ACL injury in February.\nTeam List: Round 25 vs Knights\nBrought to you by\n1.\nTom Trbojevic (c)\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nLehi Hopoate\n6.\nClayton Faulalo\n7.\nJamal Fogarty\n8.\nSimione Laiafi\n9.\nBrandon Wakeham\n10.\nNathan Brown\n11.\nHaumole Olakau'atu\n12.\nBen Trbojevic\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNic Lenaz\n16.\nCorey Waddell\n17.\nCaleb Navale\n18.\nJosh Feledy\n19.\nFletcher Baker\nReserves\n20.\nOnitoni Large\n21.\nJackson Shereb\n22.\nBlake Wilson\nRelated /\nGallery: Final Prep for Knights\nTeam Lists\nTeam Update: NRL Round 25 vs Knights\nA Big Final Home Game for Families\nTeam List: NSW Cup Round 25 vs Knights\nFinal Team: NRL Indigenous Round vs Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 91.22767855166666,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "abc2545963ccc956",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/newcastle-knights-vs-manly-sea-eagles-tips-odds-teams-predictions-nrl-round-25-2026/609972/amp",
+            "published_at": "2026-08-20T02:58:58+00:00",
+            "snippet": "Newcastle Knights vs Manly Sea Eagles Tips, Odds, Teams & Predictions – NRL Round 25 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "McDonald Jones Stadium will play host to Saturday's Round 25 NRL game between Newcastle Knights and Manly Sea Eagles. The game kicks off at 3:00 pm with Newcastle Knights heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Newcastle Knights vs. Manly Sea Eagles game and give you our free tips and bets.\nWhen: Saturday August 22, 2026 at 3:00 pm\nWhere: McDonald Jones Stadium\nBet: Bet On This Match HERE\nNewcastle Knights vs Manly Sea Eagles Odds\nNewcastle Knights vs Manly Sea Eagles Preview\nNewcastle has built timely momentum with three consecutive victories, scoring at least 30 points against Brisbane, Canberra and Gold Coast. Bradman Best returns to replace the injured Dane Gagai, while Jacob Saifiti is back after six weeks and Tyson Frizell moves into the starting side. Manly’s season has unravelled through six straight defeats, including three losses by at least 22 points and last week’s scoreless display against the Dolphins. Tom Trbojevic’s return at fullback is a major lift, with Clayton Faulalo moving into the halves, but the Sea Eagles need a dramatic improvement through the middle. Newcastle has three wins and a draw from the past five meetings, and Dominic Young’s 10 tries in six games against Manly reinforce the hosts’ attacking edge.\nHead To Head Bet\nWe're tipping Newcastle Knights to win at $1.46 odds.\nFirst Try Scorer\nFirst Try Scorer: Dominic Young at $7.50 .\nNewcastle Knights vs Manly Sea Eagles Teams\nKnights team: 1. Kalyn Ponga 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mathew Croker 14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter 20. Diesel Hagan 21. Kyle McCarthy 22. Elijah Leaumoana\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker 20. Onitoni Large 21. Jackson Shereb 22. Blake Wilson",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 46.22823410722223,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-21T09:34:49+00:00",
+            "snippet": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delaye",
+            "body_excerpt": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delayed surgery in an attempt to kickstart the Tigers finals campaign.\nThe 28-year-old returned to the field in Round 17 but fresh scans have shown Doueihi requires immediate surgery, with the halfback to go under the knife later this week.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers head of high performance Peter Moussa said.\nMeanwhile, Tigers five-eighth Latu Fainu has suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension but will now be sidelined for 1-2 weeks with his latest injury.\nIn positive news, Sunia Turuva has been named on the six-man bench despite suffering a knee injury last week, while Alex Twal is set to return after missing Round 24 due to illness.\nBroncos superstar Reece Walsh has had surgery on his ankle and is facing an eight-week recovery time.\nWalsh had scans on Sunday which confirmed he had sustained a high-grade syndesmosis injury during the loss to the Warriors on Saturday night.\nWarriors fullback Charnze Nicoll-Klokstad has subsequently been banned for two games for a hip drop tackle.\nWith Australia's World Cup opener against the Kiwis set down for Thursday, October 15 it appears Walsh's chances of representing the Kangaroos are gone.\nThe Raiders had Simi Sasagi back from a shoulder injury for their clash with the Broncos but lost back-rower Zac Hosking to a hamstring injury during the second half.\nSouth Sydney star Latrell Mitchell will look to return in Round 26 from a nerve injury that has kept him sidelined since Round 11.\nThe centre has missed 11 games with the injury but was named in the Bunnies' extended squad for this weekend's match against the Warriors before being put on ice once more.\nThe Rabbitohs have lost Adam Elliott to a groin injury, with the veteran expected to miss two to three weeks with a strained adductor.\nMeanwhile, Warriors halfback Luke Metcalf will miss the remainder of the regular season after suffering a hamstring injury in last week's win over Brisbane.\n\"The timeline for him will be deep into the finals but you never know,\" coach Andrew Webster said on Thursday.\n\"I think this is probably the most optimistic I've seen him when he knows he's got a plan and when he knows he wants to attack something.\"\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nWith Te Maire Martin at least another week away from returning from a hamstring injury, rookie Luke Hanson will step into the halves for Saturday's clash with the Rabbitohs.\n\"We want to make sure we get it right but Te Maire is progressing well,\" Webster said.\nThe Roosters will also welcome back James Tedesco from an ankle injury for Sunday's clash against Wests Tigers at Allianz Stadium.\nDolphins forward Connelly Lemuelu will miss his side's clash with the Eels due a hamstring injury. The 28-year-old has sustained a low-grade hamstring injury and is expected to miss two to three weeks.\nParramatta will be without Dylan Walker, who is set for one to two weeks on the sideline with a wrist injury, while Jordan Samrani was a late withdrawal after injuring his groin in the warm-up.\nPlaymaker Jonah Pezet has been named to make his return from a shoulder injury in NSW Cup.\nWinger Bailey Simonsson is also back in reserve grade, playing his first game since suffering a nasty leg injury on Easter Monday.\nNewcastle veteran Dane Gagai will miss this week's clash with Manly due to a hamstring strain suffered last weekend, while Francis Manuleleua has been ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.63073410722222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e1925b1ea66fb774",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Knights v Sea Eagles: Best back on deck: Trbojevic returns",
+            "url": "https://www.nrl.com/news/2026/08/18/knights-v-sea-eagles-best-back-on-deck-trbojevic-returns/",
+            "published_at": "2026-08-21T05:04:34+00:00",
+            "snippet": "Presented By\nKnights v Sea Eagles: Best back on deck: Trbojevic returns\nThe Newcastle Knights will look to keep their bid for a top-four finish on track when they host the desperate Sea Eagles on Saturday afternoon.\nThe match is Newcastle's final game at McDonald Jones Stadium be",
+            "body_excerpt": "Presented By\nKnights v Sea Eagles: Best back on deck: Trbojevic returns\nThe Newcastle Knights will look to keep their bid for a top-four finish on track when they host the desperate Sea Eagles on Saturday afternoon.\nThe match is Newcastle's final game at McDonald Jones Stadium before the finals, with Justin Holbrook's men eager to keep in touch with the top four.\nThe Knights have won three in a row, with Kalyn Ponga recreating the form that saw him claim the Dally M Medal in 2023 and leading his side on a remarkable rise from wooden spoon to premiership contender.\nStanding in their way on Saturday is a Manly side desperate to keep their slim finals hopes alive.\nThe Sea Eagles' top-eight chances have faded amid a six-game losing streak and now sit 10th, six points outside the eight.\nManly must win their final three games and hope other results go their way to play finals, a quest that starts in Newcastle on Saturday.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Position\naway Team\nSea Eagles\n10th Position\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nKnights : Centre Bradman Best returns after two games out with a calf injury and fills the hole left by Dane Gagai (hamstring). Prop Jacob Saifiti is also back after six games out with a hamstring injury so Cody Hopwood slides to the bench. Veteran Tyson Frizell starts in place of Francis Manuleleua, who will miss this week due to the late onset of concussion symptoms. No changes in Friday's 24-hour update.\nSea Eagles : A massive in for Manly with gun fullback Tom Trbojevic returning after three games out with a hamstring injury. Clayton Faulalo has been shifted to five-eighth in place of Joey Walsh, who suffered a hairline fracture in his jaw during last Friday’s loss to the Dolphins. Back-rower Ben Trbojevic (concussion) is good to go so Corey Waddell moves to the bench. Prop Caleb Navale will come off the bench in his first NRL game of the year having returned from an ACL injury through NSW Cup last week. No changes in Friday's 24-hour update.\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Sea Eagles is number 1 Tom Trbojevic\nWinger for Knights is number 2 Dominic Young 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Knights is number 3 Fletcher Hunt 3 Centre for Sea Eagles is number 3 Tolutau Koula\nCentre for Knights is number 4 Bradman Best 4 Centre for Sea Eagles is number 4 Reuben Garrick\nWinger for Knights is number 5 Greg Marzhew 5 Winger for Sea Eagles is number 5 Lehi Hopoate\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Sea Eagles is number 6 Clayton Faulalo\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Knights is number 8 Jacob Saifiti 8 Prop for Sea Eagles is number 8 Simione Laiafi\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Knights is number 10 Trey Mooney 10 Prop for Sea Eagles is number 10 Nathan Brown\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n11\n2nd Row for Knights is number 12 Tyson Frizell 12 2nd Row for Sea Eagles is number 12 Ben Trbojevic\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n14\nInterchange for Knights is number 15 Cody Hopwood 15 Interchange for Sea Eagles is number 15 Nicholas Lenaz\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Sea Eagles is number 16 Corey Waddell\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Sea Eagles is number 17 Caleb Navale\n17\nInterchange for Knights is number 18 Pasami Saulo 18 Interchange for Sea Eagles is number 18 Josh Feledy\n18\nInterchange for Knights is numb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.134900773888887,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "26979d3d0b33f5c2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team Update: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/21/team-update-nrl-round-25-vs-knights/",
+            "published_at": "2026-08-21T05:01:21+00:00",
+            "snippet": "Team Update: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Saturday's Round 25 match against the Knights in Newcastle.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Position\naway Team\nS",
+            "body_excerpt": "Team Update: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Saturday's Round 25 match against the Knights in Newcastle.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Position\naway Team\nSea Eagles\n10th Position\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nFoxtel\nKayo\nDropping out of the squad in the 24-hour update are Jackson Shereb and Blake Wilson.\nThe team will be reduced to 19 players 90 minutes before kick-off.\nTeam Update: Round 25 vs Knights\nBrought to you by\n1.\nTom Trbojevic (c)\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nLehi Hopoate\n6.\nClayton Faulalo\n7.\nJamal Fogarty\n8.\nSimione Laiafi\n9.\nBrandon Wakeham\n10.\nNathan Brown\n11.\nHaumole Olakau'atu\n12.\nBen Trbojevic\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNic Lenaz\n16.\nCorey Waddell\n17.\nCaleb Navale\n18.\nJosh Feledy\n19.\nFletcher Baker\nReserves\n20.\nOnitoni Large\nRelated /\nGallery: Final Prep for Knights\nA Big Final Home Game for Families\nTeam Lists\nFinal Team: NRL Indigenous Round vs Dolphins\nTeam List: Indigenous Round vs Dolphins\nFinal Team: Round 23 vs Storm",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.188511885,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ca5cf3b0ad8b3947",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Update | Round 25 - Newcastle Knights",
+            "url": "https://www.newcastleknights.com.au/news/2026/08/18/nrl-team-list--round-25/",
+            "published_at": "2026-08-21T05:01:21+00:00",
+            "snippet": "Presented By\n24 Hour Update | Round 25\nnib Newcastle Knights Head Coach Justin Holbrook has adjusted his squad for tomorrow afternoon's Old Boys Day clash against the Manly-Warringah Sea Eagles at McDonald Jones Stadium.\nDiesel Hagan and Kyle McCarthy come out of the side this we",
+            "body_excerpt": "Presented By\n24 Hour Update | Round 25\nnib Newcastle Knights Head Coach Justin Holbrook has adjusted his squad for tomorrow afternoon's Old Boys Day clash against the Manly-Warringah Sea Eagles at McDonald Jones Stadium.\nDiesel Hagan and Kyle McCarthy come out of the side this week.\nElijah Salesa-Leaumoana remains as the sole reserve on the extended bench.\nThe remainder of the side is unchanged.\nOriginally published Tuesday, August 18, 2026:\nnib Newcastle Knights Head Coach Justin Holbrook has named his 22-man squad for Saturday afternoon's Old Boys Day clash against the Manly-Warringah Sea Eagles at McDonald Jones Stadium.\nIn a massive boost just two games out from the finals series, both Bradman Best and Jacob Saifiti have been named to make their respective returns from injury.\nSaifiti's return sees Cody Hopwood move back to the interchange bench.\nIn further news, Holbrook has confirmed both Francis Manuleleua and Dane Gagai will not play this weekend.\nManuleleua will miss this week due to the late on-set of concussion symptoms and has begun standard concussion protocols, while Gagai has been sidelined with a hamstring strain suffered in last week’s win over the Titans.\nFletcher Hunt will start at centre in Gagai's place, while Tyson Frizell comes into the starting team at back-row in place of Manuleleua.\nSee the squad below:\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Sea Eagles is number 1 Tom Trbojevic\nWinger for Knights is number 2 Dominic Young 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Knights is number 3 Fletcher Hunt 3 Centre for Sea Eagles is number 3 Tolutau Koula\nCentre for Knights is number 4 Bradman Best 4 Centre for Sea Eagles is number 4 Reuben Garrick\nWinger for Knights is number 5 Greg Marzhew 5 Winger for Sea Eagles is number 5 Lehi Hopoate\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Sea Eagles is number 6 Clayton Faulalo\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Knights is number 8 Jacob Saifiti 8 Prop for Sea Eagles is number 8 Simione Laiafi\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Knights is number 10 Trey Mooney 10 Prop for Sea Eagles is number 10 Nathan Brown\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n11\n2nd Row for Knights is number 12 Tyson Frizell 12 2nd Row for Sea Eagles is number 12 Ben Trbojevic\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n14\nInterchange for Knights is number 15 Cody Hopwood 15 Interchange for Sea Eagles is number 15 Nicholas Lenaz\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Sea Eagles is number 16 Corey Waddell\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Sea Eagles is number 17 Caleb Navale\n17\nInterchange for Knights is number 18 Pasami Saulo 18 Interchange for Sea Eagles is number 18 Josh Feledy\n18\nInterchange for Knights is number 19 Toby Winter 19 Interchange for Sea Eagles is number 19 Fletcher Baker\n19\nReserves\nReserve for Knights is number 22 Elijah Salesa-Leaumoana 22 20 Reserve for Sea Eagles is number 20 Onitoni Large\n22 20\nKnights Ins\nBradman Best\nElijah Salesa-Leaumoana\nJacob Saifiti\nSea Eagles Ins\nBen Trbojevic\nCaleb Navale\nOnitoni Large\nTom Trbojevic\nKnights Outs\nDane Gagai\nFrancis Manuleleua\nHugo Hart\nJackson Shereb\nJoey Walsh\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Dave Munro\nSenior Review Official: Adam Gee\nLast updated: 8/22/2026 12:06:14 AM\nThe nib Newcastle Knights would like to thank our proud Club 17 partners for bringing you this week",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.188511885,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4fab0b10c67df441",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/knights-vs-sea-eagles-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-21T04:36:25+00:00",
+            "snippet": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026\nAugust 21 st 2026, 2:30pm , By: Scooby\nNRL Super Saturday begins in Newcastle this week with the Knights hosting the Sea Eagles . Always an exciting afternoon of rugby league, this weekend promises to be no different as the NRL Finals are just around the corner. With the outcome of matches more important than ever, fans are set to be on the edge of their seats, and this game promises to deliver. Before You Bet is here to help with a detailed look at what is ahead in this match.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nKnights vs Sea Eagles Predictions & Tips: NRL Round 25 2026\nStating their case\nIt was another strong performance by the Knights in their 36-26 victory over the Titans at home. The win solidified their standing in the Top 8 and reiterated the talented and desire this team possesses. Despite an inferior share of possession (48%) and completion rate (79%), they managed to make 10.3m per carry, which also lead to 7 line breaks. Relentless in their support of the ball carrier, the Knights continually built pressure. Unfortunately, the fact that they missed 34 tackles meant their opponents scored 5 tries. They will need to be better in this area heading into the Finals.\nFoz Fall\nThe Sea Eagles suffered yet another loss last week, meaning they sit 10th on the ladder and are 6 points adrift of the Top 8. This time, it was a 22-0 home loss to the Dolphins where they were outplayed for the duration of the contest. With no points to their name, they have little excuse other than poor execution as they had the same completion rate (74%) as their opponents with 49% possession. They still ran for 8.9m per carry and made 608 PCM’s but failed to turn this into points. The fact that they had just 1 line break highlights their lack of creativity. It was another poor showing which same them allow their opponents to make 9.9m per carry and 672 PCM’s.\nStats that matter\n- These two sides met in Round 2 where the Knights won 36-16. They will be hoping their home ground advantage (54% vs Sea Eagles 26%) counts for something also.\n- In the past 5 matches between these two sides, 3 have been decided by 10 points or less, including a draw. Blowout victories drags the average margin of victory to 14.4 points though. The average total points is high, with 52ppg averaged in the same number of matches.\n- The Knights have a better attack this season compared to the Sea Eagles, scoring 26ppg to 24ppg. Interestingly, the Sea Eagles have a slight edge defensive, allowing 21ppg compared to the Knights 22ppg.\nA close call\nA win is coming for the Sea Eagles and the return of Tommy Turbo at fullback provides their biggest hope yet with their Finals chances hanging in the balance. That shouldn’t mean the home side is overlooked; they have earned the right to be thought of as a capable team. They also receive positive news with Bradman best returning to cover the loss of Gagai. You would think that, with their season hanging by a thread, the best version of the Sea Eagles will feature in this game. Losing Walsh doesn’t help their creativity in attack but Faulalo is a suitable replacement. The Knights have enough resilience to counter what their opponents throw at them in attack. They need to ensure they take their chances as the Sea Eagles are vulnerable at times and can be guilty of allowing more than enough chances to their opponents.\nWith the chance that the visitors could cause an upset and the fact that the Knights can sometimes allow opponents a chance to score points, it’s recommended that you avoid making a direct call on this match. Rather, take the option that either could win. It is expected that each will be a chance of winning with 10 minutes remaining in this game.\nEither team by 10.5 points or less\n$2.10 (2 un",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.604067440555554,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8c3eb25c7581f0dd",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights vs Sea Eagles - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/knights-sea-eagles-round-25-2026-mc10396527-237065/",
+            "published_at": "2026-08-16T20:41:23+00:00",
+            "snippet": "Knights vs Sea Eagles - Round 25, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 25, 2026 KNIGHTS V SEA EAGLES KICK OFF McDonald Jones #NRLKnightsManly 2026-08-22T05:00:00Z Preview\nKNIGHTS\nSEA EAGLES\nPreview\nKnights vs Sea Eagles – Round 25, 2026\nThe Newcastle Knights face the Manly Sea Eagles in Round 25 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at McDonald Jones Stadium. Ladder Position Injury Report Knights NAME REASON EXPECTED RETURN Dylan Lucas Ankle Next Season Dylan Brown ACL Next Season Francis Manuleleua Concussion Round 26 Dane Gagai Hamstring TBC Brodie Jones Hamstring TBC Sea Eagles NAME REASON EXPECTED RETURN Kobe Hetherington Biceps Next Season Luke Brooks ACL Next Season Taniela Paseka Knee Round 26 Joey Walsh Jaw TBC Siosiua Taukeiaho Leg TBC Ethan Bullemor Concussion TBC Previous 5 Games Knights DATE OPP RESULT 16/8/26 Titans W 36 - 26 9/8/26 Raiders W 24 - 30 1/8/26 Broncos W 6 - 30 24/7/26 Roosters L 22 - 23 17/7/26 Sharks L 20 - 18 Sea Eagles DATE OPP RESULT 14/8/26 Dolphins L 0 - 22 8/8/26 Storm L 42 - 20 26/7/26 Sharks L 12 - 48 19/7/26 Titans L 38 - 32 12/7/26 Cowboys L 18 - 19\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nDylan Lucas\nAnkle\nNext Season\nDylan Brown\nACL\nFrancis Manuleleua\nConcussion\nRound 26\nDane Gagai\nHamstring\nTBC\nBrodie Jones\nKobe Hetherington\nBiceps\nLuke Brooks\nTaniela Paseka\nKnee\nJoey Walsh\nJaw\nSiosiua Taukeiaho\nLeg\nEthan Bullemor\nPrevious 5 Games\nDATE\nOPP\nRESULT\n16/8/26\nTitans\nW 36 - 26\n9/8/26\nRaiders\nW 24 - 30\n1/8/26\nBroncos\nW 6 - 30\n24/7/26\nRoosters\nL 22 - 23\n17/7/26\nSharks\nL 20 - 18\n14/8/26\nDolphins\nL 0 - 22\n8/8/26\nStorm\nL 42 - 20\n26/7/26\nL 12 - 48\n19/7/26\nL 38 - 32\n12/7/26\nCowboys\nL 18 - 19\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nKalyn Ponga Kalyn Ponga\nDominic Young Dominic Young\nFletcher Hunt Fletcher Hunt\nBradman Best Bradman Best\nGreg Marzhew Greg Marzhew\nFletcher Sharpe Fletcher Sharpe\nSandon Smith Sandon Smith\nJacob Saifiti Jacob Saifiti\nPhoenix Crossland Phoenix Crossland\n10\nTrey Mooney Trey Mooney\n11\nJermaine McEwen Jermaine McEwen\n12\nTyson Frizell Tyson Frizell\n13\nMat Croker Mat Croker\nINTERCHANGE\n14\nHarrison Graham Harrison Graham\n15\nCody Hopwood Cody Hopwood\n16\nLachlan Crouch Lachlan Crouch\n17\nThomas Cant Thomas Cant\n18\nPasami Saulo Pasami Saulo\n19\nToby Winter Toby Winter\nRESERVES\n22\nE. Salesa-Leaumoana Elijah Salesa-Leaumoana\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nTom Trbojevic Tom Trbojevic\nJason Saab Jason Saab\nTolutau Koula Tolutau Koula\nReuben Garrick Reuben Garrick\nLehi Hopoate Lehi Hopoate\nClayton Faulalo Clayton Faulalo\nJamal Fogarty Jamal Fogarty\nSimione Laiafi Simione Laiafi\nBrandon Wakeham Brandon Wakeham\nNathan Brown Nathan Brown\nHaumole Olakau'atu Haumole Olakau'atu\nBen Trbojevic Ben Trbojevic\nJake Trbojevic Jake Trbojevic\nJake Simpkin Jake Simpkin\nNicholas Lenaz Nicholas Lenaz\nCorey Waddell Corey Waddell\nCaleb Navale Caleb Navale\nJosh Feledy Josh Feledy\nFletcher Baker Fletcher Baker\nOnitoni Large Onitoni Large\n20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 124.52128966277778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "a22ee1ad418c609a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 25 team lists: Full squads + NRL Supercoach analysis - SC Playbook NRL",
+            "url": "https://scplaybook.com.au/blog/2026/08/18/nrl-round-25-team-lists-full-squads-nrl-supercoach-analysis",
+            "published_at": "2026-08-18T06:26:31+00:00",
+            "snippet": "NRL Round 25 team lists: Full squads + NRL Supercoach analysis &nbsp;&nbsp; SC Playbook NRL",
+            "body_excerpt": "NRL Round 25 team lists: Full squads + NRL Supercoach analysis\nNRL Supercoach veteran Tim Williams analyses the NRL squads for the round 25 fixtures with in-depth Supercoach analysis\nTim Williams\nSC Playbook founder, 2nd NRL 2020, 43rd BBL 21/22'\nDiscussion ( 0 )\nRelated /\n11/08/2026\n04/08/2026\n28/07/2026\n21/07/2026\nContact Us\nAbout Us\n18/08/2026",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 90.76906744055555,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7aa22dc4ad351e6a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 25 v Titans - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/18/nrl-team-list-round-25-v-titans/",
+            "published_at": "2026-08-18T05:58:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 25 v Titans\nNiwhai Puru comes into the Sharks' halves to take on the Titans on the Gold Coast this Sunday.\nNiwhai will partner Nicho Hynes after Braydon Trindall was ruled out with a shoulder injury in the club's loss to the Raiders on the weeken",
+            "body_excerpt": "Presented By\nNRL Team List: Round 25 v Titans\nNiwhai Puru comes into the Sharks' halves to take on the Titans on the Gold Coast this Sunday.\nNiwhai will partner Nicho Hynes after Braydon Trindall was ruled out with a shoulder injury in the club's loss to the Raiders on the weekend.\nThe 24-year-old has a good track record so far, winning all three of his NRL appearances with Cronulla since debuting in round 13 against the Sea Eagles, where he scored a try.\nSharks' Origin prop Addin Fonua-Blake returns from a 1-week suspension and will line up next to Jesse Colquhoun in the front row.\nLiam Ison has been lighting it up for Newtown in the NSW Cup and comes into the team in jersey #20; it'd be his first NRL game of the season if he gets on field, and his second appearance since debuting for the Sharks in 2024.\nCronulla's coastal clash with the Titans kicks off at 2pm on Sunday.\nSee the two team lists below.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Titans is number 13 Cooper Bai 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Titans is number 15 Klese Haas 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Titans is number 16 Chris Randall 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Titans is number 17 Bodhi Sharpley 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Titans is number 18 Luke Sommerton 18 Interchange for Sharks is number 18 Hohepa Puru\n18\nInterchange for Titans is number 19 Siale Faeamani 19 Interchange for Sharks is number 19 Braden Uele\n19\nReserves\nReserve for Titans is number 20 Adam Christensen 20 Reserve for Sharks is number 20 Liam Ison\n20\nReserve for Titans is number 21 Jett Liu 21 Reserve for Sharks is number 21 Samuel Stonestreet\n21\nReserve for Titans is number 22 Tony Francis 22 Reserve for Sharks is number 22 Toby Rudolf\n22\nTitans Ins\nAdam Christensen\nArama Hau\nJett Liu\nLuke Sommerton\nTony Francis\nSharks Ins\nAddin Fonua-Blake\nLiam Ison\nNiwhai Puru\nToby Rudolf\nTitans Outs\nJosh Patston\nSam Verrills\nBraydon Trindall\nMatch Officials\nReferee: Peter Gough\nSenior Review Official: Chris Butler\nLast updated: 8/20/2026 5:46:04 AM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Mawene Hiroti - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Niwhai Puru - Totally Workwear Kirrawee 7 - Nicho Hynes - John Ryan Freight Services 8 - Addin Fonua-Blake - Hicon 9 - Blayke Brailey - Elite Legal 10 - Jesse Colquhoun - Picker Financial 11 - Briton Nikora - Guardian Venue Management International 12 - Teig Wilton - White Wolf Constructions 13 - Cameron",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 91.24434521833332,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "068cb54f985ba47d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report Round 25 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers-nrl-injury-report-round-25/",
+            "published_at": "2026-08-18T03:14:30+00:00",
+            "snippet": "Wests Tigers NRL Injury Report Round 25\nWests Tigers half-back Adam Doueihi will undergo shoulder surgery this week, bringing an end to his 2026 season.\nDoueihi suffered the injury in scoring a try against the Cronulla-Sutherland Sharks in Round 9, resulting in the playmaker bein",
+            "body_excerpt": "Wests Tigers NRL Injury Report Round 25\nWests Tigers half-back Adam Doueihi will undergo shoulder surgery this week, bringing an end to his 2026 season.\nDoueihi suffered the injury in scoring a try against the Cronulla-Sutherland Sharks in Round 9, resulting in the playmaker being out for two months.\nThe 28-year-old has bravely played on with the injury since returning in Round 17.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers Head of High Performance, Peter Moussa said.\nMeanwhile, Wests Tigers five-eighth Latu Fainu suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension, he is expected to be out for 1-2 weeks.\nAdam Doueihi\nInjury: Shoulder reconstruction.\nReturn: Round 1, 2027\nLatu Fainu\nInjury: Low-grade hamstring.\nReturn: TBC\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights).\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans).\nRoyce Hunt\nInjury: Pectoral tendon repair (Rd 14 vs Penrith).\nReturn: TBA\nWill Craig\nInjury: Ankle. Will has started his return to play protocol.\nRelated /\nAlex Seyfarth: Fresh faces bring new energy\nTeam Lists\nTeam List: NRL Round 25 v Roosters\nNRL News\nJoyous time for Solomone Saukuru after NRL debut\nPress Conference\nWests Tigers: Round 24",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.96934521833333,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "1b622b604e92dd3b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-latest-team-news-and-injury-updates-latrell-mitchell-clint-gutherson-tom-trbojevic/news-story/1362e2e046e9793d10ba74e544d57765",
+            "published_at": "2026-08-22T00:07:31+00:00",
+            "snippet": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail\nKieran Foran says Tom Trbojevic is a sure starter in Newcastle this weekend as the Sea Eagles attempt to save their season.\nThe Rabbitohs have ruled out Latrell Mitchell from this week’s crunch game against the Warriors, but there’s good news for Souths fans as the champion centre looks to feature in the club’s finals campaign.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, an injured Dragons star’s season is over.\nRead on for Round 25 Late Mail!\nSATURDAY AUGUST 22\nNewcastle Knights vs Manly Sea Eagles @ McDonald Jones Stadium, 3pm\nKnights team: 1. Kalyn Ponga 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mathew Croker 14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter 22. Elijah Leaumoana\nPlayers Cut: 20. Diesel Hagan 21. Kyle McCarthy\nLate Mail: To come.\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker 20. Onitoni Large\nPlayers Cut: 21. Jackson Shereb 22. Blake Wilson\nLate Mail: Tom Trbojevic is ready to go according to coach Kieran Foran, with the coach expecting a big game from his skipper. He also revealed there was no temptation to sit the oft-injured fullback out for the rest of the season. “He’s trained well, he’s hit all his markers, and he’s jumping out of the ground so we expect him to hit the ground running,” Foran said. Meanwhile, the Sea Eagles coach revealed the reason behind the decision not to blood promising youngster Onitoni Large and hand him his NRL debut. “We’re really excited about the career of Onitoni and he’s been in and around the group the last month and a half,” Foran said. “He’s been 20th man a few times, so we’re really starting to get him closer to the action. ”But at this stage of our season and just where he’s at in terms of his development, it’s important that we prioritise that and don’t throw Onitoni into the fire just yet. “He’s growing each and every week, we’re extremely excited about where his future is going.”\nSouth Sydney Rabbitohs vs Warriors @ Accor Stadium, 5.30pm\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Edward Kosi 21. Thomas Fletcher\nPlayers cut: 20. Jonah Glover 22. Latrell Mitchell\nLate Mail: Latrell Mitchell’s comeback from injury is set to be delayed another week with reports that he won’t play against the Warriors this weekend. Mitchell has only played one match since Round 10 due to a nerve problem in his lower back. “There was a chance (for him to play on Saturday). He trained pretty well but just probably needs another week, so we took the cautious approach and gave him another week,” Bennett said. “It’s his decision. He knows his body, so we’re not in it. There were questions about whether he might have played at all this year. To get him back in the run to the finals is pretty big.” The Bunnies coach also revealed that playmaker Jamie Humphreys is set to be back on deck next week.\nWarriors team: 1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-T",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.0857341072222222,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "9def6ad083f8a18c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb",
+            "published_at": "2026-08-21T10:18:00+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is begin",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is beginning to take shape.\nRound 25 kicked off in Melbourne as the Storm fell to the Panthers 22-14.\nFriday began with the Broncos downing the Raiders 34-30 in Canberra and was followed by the Dolphins beating the Eels 34-16 at Suncorp.\nThe Knights welcome the Sea Eagles on Saturday afternoon before the Rabbitohs face the Warriors at Accor Stadium and the Bulldogs take on the Dragons in a must-win clash at Allianz.\nThe 8th-placed Cowboys have the bye and move automatically up to 30 points.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 25\nNewcastle Knights vs. Manly Sea Eagles\n(Saturday, August 22 at McDonald Jones Stadium , 3:00pm AEST)\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mat Croker\n14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter\nKnights team news:\nJacob Saifiti (hamstring) has been named to make his injury return in the front row. Bradman Best is also in line to return from a calf injury, while Dane Gagai is managing a hamstring issue and has been rested ahead of the finals with the ever-versatile Fletcher Hunt taking his place. Francis Manuleleua is out with late on-set concussion symptoms.\nManly team:\n1. Tom Trbojevic (c) 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Ben Trbojevic 13. Jake Trbojevic\n14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker\nSea Eagles team news:\nIn welcome news for the struggling Sea Eagles Ben Trbojevic and Tom Trbojevic both return, but Ethan Bullemor remains out. It's also been revealed young half Joey Walsh suffered a broken jaw against the Dolphins with his season likely over. The ever-versatile Clayton Faulalo is named in the No.6 jersey. Taniela Paseka (knee) is still a week or two away.\nSouth Sydney Rabbitohs vs. New Zealand Warriors\n(Saturday, August 22 at Accor Stadium , 5:30pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray (c)\n14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Ed Kosi\nRabbitohs team news:\nIn an encouraging sign for Bunnies fans Latrell Mitchell was named on the extended reserves - but it has since been confirmed he won't play this week. Jamie Humphreys (ankle) remains out while off-contract Adam Elliott left the field against the Bulldogs with a groin injury and is set for yet more time on the sidelines.\nWarriors team:\n1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-Tavita 8. James Fisher-Harris (c) 9. Wayde Egan 10. Mitch Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark\n14. Sam Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Eddie Ieremia-Toeava 18. Adam Pompey 20. Morgan Gannon\nWarriors team news:\nLuke Metcalf (hamstring) is replaced in the halves by Luke Hanson with Jett Cleary named on the extended reserves. Charnze Nicoll-Klokstad has accepted a 2-week ban for his hip drop tackle on Reece Walsh with Taine Tuaupiki returning at fullback. Te Maire Martin (hamstring) is still a week or two away.\nSt. George Illawarra Dragons vs. Canterbury Bulldogs\n(Saturday, August 22 at Allianz Stadium",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 14.911011884999999,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "2aa3f67f4e03fa81",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Dolphins v Eels - Round 25, 2026",
+            "url": "https://www.nrl.com/watch/matches/telstra-premiership/2026/round-25/full-match-replay-dolphins-v-eels---round-25-2026/",
+            "published_at": "2026-08-21T01:13:00+00:00",
+            "snippet": "The Dolphins and the Parramatta Eels face off in Round 25 of the 2026 Telstra Premiership ...",
+            "body_excerpt": "Dolphins v Eels - Round 25, 2026\nThe Dolphins and the Parramatta Eels face off in Round 25 of the 2026 Telstra Premiership\nMatch Replays /\nMatch Replays\nTelstra Premiership\n2026 / Round 25\nRaiders v Broncos\nStorm v Panthers\n2026 / Round 22\nWests Tigers v Eels\nTelstra Women's Premiership\n2026 / Round 7\nCowboys v Sharks\n2026 / Round 24\nWests Tigers v Dragons\nKnights v Titans\nWests Tigers v Warriors\nKnights v Raiders",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.994345218333333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "d731d1c6de344dde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-20T06:04:37+00:00",
+            "snippet": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026\nAugust 20 th 2026, 3:36pm , By: Ben Bridge\nFriday Night Football at GIO Stadium has far more riding on it than the respective ladder positions suggest, as the Raiders host Brisbane in a matchup loaded with desperation, emotion, and a little revenge. Canberra’s finals hopes remain incredibly faint, but they are still alive. Wins over Brisbane and North Queensland, combined with their Round 26 bye, could get the Raiders to 30 competition points, and leave them praying other results fall their way. Brisbane, meanwhile, have endured one of the worst premiership defences in modern NRL history and are now fighting simply to avoid an unthinkable wooden spoon.\nThen there is Josh Papali’i. Friday night will be the Canberra legend’s final home appearance, with GIO Stadium even being temporarily transformed into “Papa’s House” for the occasion. Papali’i has been promoted into the starting front row, and you can guarantee the Raiders faithful will turn this into one of the most emotional home games of the season.\nMy numbers are not miles away from the current spread, but the circumstances push me toward Canberra. With the Broncos broken, Reece Walsh gone for the season and the Raiders needing a win, I’ll take Canberra -10.5.\nRaiders vs Broncos Prediction & Tips: 2026 NRL Round 25\nRaiders Refuse to Let Season Die\nCanberra looked like a team whose finals hopes were virtually finished heading into last week’s trip to Sharks Stadium, yet they produced one of their gutsiest performances of the season to upset Cronulla 24-20. Against a Sharks side sitting firmly in the top 4 conversation, the Raiders absorbed an early 8-0 deficit, fought their way to an 18-14 halftime lead and then survived a frantic final quarter to keep their season alive.\nJoseph Tapine delivered the decisive moment after the Sharks had regained a 20-18 advantage, powering through five defenders to score underneath the posts in the 57th minute. From there, Canberra defended their lead despite Cronulla receiving several opportunities to steal the game late.\nIt was exactly the type of performance Ricky Stuart would have wanted after the Raiders’ form had again become inconsistent. Canberra have enough attacking talent through Kaeo Weekes, Ethan Strange, Ethan Sanders, Matthew Timoko and Xavier Savage, but their success still starts with the middle. Tapine, Papalii, Zac Hosking and Ata Mariota must generate the field position that allows the young spine to play with freedom.\nMorgan Smithies’ failed HIA against Cronulla rules him out this week, forcing Mariota to lock, while Corey Horsburgh returns through the interchange. Simi Sasagi is also back from a shoulder problem, strengthening the centres.\nThe emotional factor cannot be ignored. Papali’i starts in his final match at GIO Stadium, and Canberra have averaged 35 points across their past four home games. If there is one night where this Raiders side should produce maximum effort for 80 minutes, this is it.\nBroncos Hit Rock Bottom in Premiership Defence\nBrisbane’s extraordinary collapse continued last Saturday when the Warriors humiliated them 40-6 at Suncorp Stadium. The Broncos trailed 20-0 at halftime and did not score until Xavier Willison crossed in the 64th minute, by which point New Zealand had already put 36 points on the board.\nThe statistics around Brisbane’s season are becoming almost unbelievable for the defending premiers. They have now lost 12 of their past 13 games, and they are staring down the worst fall from grace by a premiership winning side since Western Suburbs went from premiers to wooden spooners in 1963. Brisbane are now fighting simply to avoid finishing last.\nThings somehow got worse against the Warriors when Reece Walsh suffered a syndesmosis injury that has ended his season. Hayze Perham takes over at fullback this week, while Ben Hunt returns to halfback for the first time since Round 18 and Tom Duffy drops to the bench.\nThere is still p",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.13406744055556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "fea4c0247368ab55",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/",
+            "published_at": "2026-08-19T05:28:23+00:00",
+            "snippet": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydn",
+            "body_excerpt": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydney has a huge obstacle in front of them in the form of the Warriors.\nRead on for our complete 2026 NRL Round 25 predictions, tips and best Rugby League bets to place this weekend!\nThe finals ship has all but sailed for Melbourne, but knocking over stumbling Penrith in their last home game of the season will provide ample motivation.\nFORM: The Storm snapped a three-game losing run to trounce the Sea Eagles 42-20 in Perth in Round 23, after trailing at halftime. They had the bye last weekend.\nThe Panthers lost their grip on top spot courtesy of a 12-6 loss to the Roosters – their fifth loss in eight games.\nINS AND OUTS: Melbourne gets a further boost with Harry Grant and Jack Howarth returning, which sees Tyran Wishart and Joe Chan revert to the bench. Trent Toelau will partner Cam Munster in the halves this week.\nCasey McLean is a back in a timely lift for the Panthers, with Paul Alamoti (hamstring) ruled out.\nKEY MATCH-UP: Different jersey numbers, but Origin adversaries and Test teammates Munster and Nathan Cleary will guide their teams’ fortunes.\nHISTORY: The Storm have won four of their last six against the Panthers but crashed to a 50-10 loss at CommBank Stadium in Round 5.\nKEY STAT: The Panthers have a 1-9 record at AAMI Park.\nVERDICT: The two biggest heavyweights of the 2020s renew a fierce rivalry, though at a very different juncture than the out-of-contention Storm are used to. But the injury-ravaged side has been gallant in recent defeats and the win over Manly was well-deserved reward.\nThere’s plenty at stake for the Panthers, who could drop out of the top two with a loss and need to recover some momentum over the closing three rounds.\nThe Storm are a tempting option with a 7.5-point start after winning five of their last six at home, but the over appeals more with seven of 10 games at AAMI Park producing 52-plus points this season.\nPredictions: Back Over 42.5 Total Points @ $1.90\nSGM: STORM +7.5 / OVER 7.5 TOTAL TRIES / TOM JENKINS ANYTIME TRYSCORER / NICK MEANEY ANYTIME TRYSCORER @ $16.31\nOther teams’ stumbles have maintained a mathematical Top 8 chance for the Raiders after an upset victory last week, but the spiralling Broncos’ only remaining motivation is avoiding the wooden spoon.\nFORM: The Raiders showed an abundance of spirit to roll Cronulla 24-20 on the road last Saturday just six days after a seemingly season-ending home loss to Newcastle.\nThe Broncos crashed to their 12th loss in 13 games last weekend, a 40-6 defeat to the Warriors in which enthusiasm and defensive desire appeared sorely lacking – as well as costing them Reece Walsh for the rest of a sorry title defence.\nINS AND OUTS: The Raiders get Simi Sasagi back from injury, Ata Mariota comes in at lock for Morgan Smithies (concussion) and Josh Papalii will start at prop in his last home game. Corey Horsburgh has received a bench recall.\nHayze Perham slots in as Brisbane’s fullback for Walsh, while Ben Hunt replaces Tom Duffy at halfback.\nKEY MATCH-UP: Big ‘Papa’ will be fired up to turn back the clock in his home farewell – and he and Joe Tapine will engage in a crucial battle up front against Broncos bookends Xavier Willison and Payne Haas.\nHISTORY: The Broncos have won three of their last four against the Raiders, most recently taking out a golden point epic at GIO Stadium 29-28 last September.\nKEY STAT: Broncos wingers have scored 14 tries in the club’s last seven clashes with the Raiders. Both wingers scored in four of those matches.\nVERDICT: A heavy loss to Penrith in Mudgee aside, the Raiders have been very competitive over the past seven weeks – winning five games – and will still be alive in the finals race when this game kicks off.\nPapalii’s farewell should also ins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.73795632944444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Knights vs Sea Eagles NRL round 25 preview",
+          "Knights Sea Eagles NRL odds OR price OR favourite",
+          "Knights Sea Eagles NRL finals race OR ladder stakes",
+          "Knights Sea Eagles NRL",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights Sea Eagles NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 25 Knights OR Sea Eagles"
+        ],
+        "filter_summary": {
+          "dropped_stale": 35,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 12,
+          "dropped_irrelevant": 17,
+          "kept": 18,
+          "deferred_pending_body": 61,
+          "promoted_after_body": 8,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 6
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "45e0e861ea6a",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-22T01:12:39.613976+00:00",
+      "finished_at": "2026-08-22T01:14:04.889432+00:00",
+      "duration_ms": 85275,
+      "request": {
+        "home_team": "Knights",
+        "away_team": "Sea Eagles",
+        "venue": "McDonald Jones Stadium",
+        "kickoff": "2026-08-22T15:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6933,
+        "home_win_probability": 0.6933,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Pythagorean form (last 10) (+29% expected-win gap) — contribution 0.136 (14% of total)",
+            "Ladder points differential per game (+1.3 points) — contribution 0.089 (9% of total)",
+            "5-game form: points against (-14.00) — contribution 0.076 (8% of total)",
+            "Elo rating advantage (+75 points) — contribution 0.070 (7% of total)",
+            "5-game form: all run metres (+87.20) — contribution 0.034 (3% of total)"
+          ],
+          "negative_drivers": [
+            "5-game momentum: penalty cluster rate (-1.20) — contribution 0.076 (8% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: points for (+10.80) — contribution 0.049 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "3-game form: errors (-2.00) — contribution 0.022 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: possession pct (+2.80) — contribution 0.018 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: errors (-2.00) — contribution 0.018 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.7327,
+            "total_toward_away": 0.2705,
+            "net": 0.4621,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game momentum: penalty cluster rate (-1.20)",
+            "5-game form: points for (+10.80)",
+            "3-game form: errors (-2.00)",
+            "5-game form: possession pct (+2.80)",
+            "5-game form: errors (-2.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Knights",
+          "away_team": "Sea Eagles",
+          "venue": "McDonald Jones Stadium",
+          "kickoff": "2026-08-22T15:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

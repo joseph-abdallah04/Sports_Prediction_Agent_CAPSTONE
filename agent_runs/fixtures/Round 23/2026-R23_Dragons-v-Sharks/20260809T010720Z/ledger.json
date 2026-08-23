@@ -1,0 +1,1287 @@
+{
+  "schema_version": 2,
+  "run_id": "20260809T010720Z-f94e3aa5",
+  "at_a_glance": {
+    "fixture": "Dragons v Sharks",
+    "round": 23,
+    "kickoff": "2026-08-09T16:05:00+10:00",
+    "venue": "St George Venues Jubilee Stadium",
+    "predicted_winner": "Sharks",
+    "confidence": 0.74,
+    "model_home_win_probability": 0.2651,
+    "model_prediction": "Away Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-09T01:07:20.830708+00:00",
+  "updated_at": "2026-08-09T01:17:32.993285+00:00",
+  "request": {
+    "home_team": "Dragons",
+    "away_team": "Sharks",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Dragons vs Sharks?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Dragons",
+    "away_team": "Sharks",
+    "confidence": 0.74,
+    "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the match is a local clash with minimal travel for Cronulla, their dominant form and significant ratings advantage outweigh these factors. The market identifies the Sharks as the clear favourite.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favours the Sharks via an Elo rating advantage (19% contribution) and a Bradley-Terry strength advantage (14% contribution)."
+      },
+      {
+        "source": "research",
+        "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+      },
+      {
+        "source": "scene",
+        "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+      },
+      {
+        "source": "math",
+        "detail": "The Dragons receive a minor boost from the local nature of the fixture, as the Sharks' travel distance to the venue is only 8 km."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 5
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 16
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Dragons NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Dragons vs Sharks NRL round 23 preview",
+      "Dragons Sharks NRL odds OR price OR favourite",
+      "Sharks Dragons NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that the market prices the Sharks at '$1.20' is not found in any research body_excerpt or scene field."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "KL Iro and Siosifa Talakai are correctly described as missing based on sources stating they return in Round 24."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks' win probability group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Rain is not presented as a key factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies sharks.com.au regarding the team's winning streak."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.74 is justified by dominant form and ratings outweighing injury absences."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder diff) rather than minor factors."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' are not addressed in the evaluation."
+        }
+      ],
+      "issues": [
+        "The market price of $1.20 is a hallucination as it does not appear in the research.",
+        "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' were omitted from the evaluation."
+      ],
+      "instruction": "Please remove the unsourced market price claim and evaluate the impact of the Bradley-Terry strength advantage and Away travel to venue signals before re-outputting."
+    },
+    "instruction": "Please remove the unsourced market price claim and evaluate the impact of the Bradley-Terry strength advantage and Away travel to venue signals before re-outputting.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Dragons",
+      "away_team": "Sharks",
+      "confidence": 0.74,
+      "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the Sharks are missing KL Iro (concussion) and Siosifa Talakai (bicep), their dominant form and significant ratings advantage outweigh these absences. The market strongly aligns with this view, pricing the Sharks at $1.20.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favours the Sharks based on a significant Elo rating advantage (19% contribution) and ladder points differential per game (15%)."
+        },
+        {
+          "source": "research",
+          "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+        },
+        {
+          "source": "scene",
+          "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Dragons",
+      "away_team": "Sharks",
+      "confidence": 0.74,
+      "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the match is a local clash with minimal travel for Cronulla, their dominant form and significant ratings advantage outweigh these factors. The market identifies the Sharks as the clear favourite.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favours the Sharks via an Elo rating advantage (19% contribution) and a Bradley-Terry strength advantage (14% contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+        },
+        {
+          "source": "scene",
+          "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+        },
+        {
+          "source": "math",
+          "detail": "The Dragons receive a minor boost from the local nature of the fixture, as the Sharks' travel distance to the venue is only 8 km."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The market price of $1.20 is a hallucination as it does not appear in the research.",
+      "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-09T01:07:45.470452+00:00",
+      "thinking": "*   Home Team: Dragons\n    *   Away Team: Sharks\n    *   Round Number: 23\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Dragons)\n    *   Query 2: Away team availability (Sharks)\n    *   Query 3: Fixture preview (Dragons vs Sharks Round 23)\n    *   Query 4: Market prices/odds (Dragons vs Sharks)\n    *   Query 5: Specific context (form, ladder, etc.)\n\n    *   Q1: `Dragons NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q2: `Sharks NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q3: `Dragons vs Sharks NRL round 23 preview`\n    *   Q4: `Dragons Sharks NRL odds OR price OR favourite`\n    *   Q5 (Context): Since it's Round 23, the finals race is usually critical. Let's look for \"finals hopes\" or \"ladder stakes\".\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Dragons, Sharks).\n    *   JSON format? Yes.",
+      "chars": 1066
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-09T01:12:48.075749+00:00",
+      "thinking": "*   Home Team: Dragons (St George Illawarra)\n    *   Away Team: Sharks (Cronulla)\n    *   Venue: St George Venues Jubilee Stadium\n    *   Round: 23\n\n    *   Dragons: Position 17, Wins 2, Lost 17, Points Diff -273. Recent form: 3L streak. Home record: 1-8.\n    *   Sharks: Position 4, Wins 13, Lost 6, Points Diff +177. Recent form: 5W streak. Away record: 5-4.\n    *   Gap: Sharks are significantly higher (13 places) and have a much better points differential per game (-23.69 gap).\n\n    *   Prediction: Away Win (Sharks)\n    *   Probability: 0.7349\n    *   Key Drivers for Sharks: Elo rating advantage (19%), Ladder points diff (15%), Bradley-Terry strength (14%), Pythagorean form (6%).\n    *   Key Drivers for Dragons: Travel distance (6% - very small), tackle pct, rest days.\n    *   Attribution Balance: Leans heavily away (Total toward home 0.26 vs total toward away 1.56).\n\n    *   Sharks Form: Won 10 of last 11 matches; currently on a 5-game winning streak (`sportsnews.com.au`, `sharks.com.au`).\n    *   Dragons Form: Last place, struggling for wins, though recently narrow loss to Dolphins (`nrl.com` - \"Guler to start\").\n    *   Availability (Sharks): KL Iro is out (concussion stand-down), Mawene Hiroti replaces him (`sharks.com.au`). Siosifa Talakai is also missing (bicep injury, expected return Round 24 per `zerotackle.com` and `sharks.com.au`). Hohepa Puru returns from concussion.\n    *   Availability (Dragons): Emre Guler to start (`nrl.com`). No major negative news other than general poor form.\n    *   Market: Sharks are heavy favourites ($1.20 vs $7.00 per `sportsnews.com.au`).\n\n    *   Winner: Away (Sharks).\n    *   Confidence: The model says 0.7349. Research confirms a massive gap in form (5W streak for Sharks, last place for Dragons) and ladder position (4th vs 17th). Even with the loss of KL Iro and Siosifa Talakai, the Sharks are heavily favoured by both math and market.\n    *   Strongest reason they could lose: Local derby emotion/desperation at Jubilee Stadium; the \"upset\" potential mentioned in `sharks.com.au` (referencing last year's result). However, the current gap is immense.\n    *   Confidence Band: 0.75-0.85? No, maybe slightly lower because of the missing key players (Iro and Talakai) and the derby nature. Let's stick to a clear edge: 0.73 - 0.75 range. I will use 0.74 as it aligns with the model probability and is supported by the standings/form.\n\n    *   Math: Elo, Ladder diff, Bradley-Terry strength.\n    *   Research: Sharks' 5-game winning streak (`sharks.com.au` / `sportsnews.com.au`).\n    *   Scene: Standings (4th vs 17th).",
+      "chars": 2591
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-09T01:16:06.305444+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home Team: Dragons (17th)\n    *   Away Team: Sharks (4th)\n    *   Venue: St George Venues Jubilee Stadium\n    *   Weather: Rain\n    *   Sharks Form: 5W streak, won 10 of last 11.\n    *   Dragons Form: 3L streak, last on ladder.\n\n    *   `favouring_Dragons_home_win`: Away travel (8km), effective tackle pct, Rest-day advantage, Home travel (0km), Home rest.\n    *   `favouring_Sharks_away_win`: Elo rating (-317 pts, 19%), Ladder points differential per game (-23.7 pts, 15%), Bradley-Terry strength (-1.76 log-strength, 14%), Pythagorean form (last 10), 5-game form: all run metres.\n\n    *   Winner: Away (Sharks)\n    *   Confidence: 0.74\n    *   Summary mentions: 5-game winning streak, ladder positions (4th vs last), missing KL Iro (concussion) and Siosifa Talakai (bicep). Market price $1.20.\n    *   Key Factors:\n        1.  Math: Elo rating advantage (19%), Ladder points differential per game (15%).\n        2.  Research: Won 10 of last 11, five-game winning streak (sharks.com.au).\n        3.  Scene: Ladder gap (4th vs 17th).\n\n    *   **Check 1: `sourced_claims`**\n        *   KL Iro (concussion): Found in \"NRL Team List: Round 23 v Dragons - sharks.com.au\" (\"...after a concussion to KL Iro...\") and Zero Tackle's injury report.\n        *   Siosifa Talakai (bicep): Found in \"NRL Team List: Round 23 v Dragons - sharks.com.au\" (\"...Siosifa Talakai will be back... after he suffered a bicep injury...\") and Zero Tackle's injury report.\n        *   Sharks won 10 of last 11 / five-game winning streak: Found in \"St. George Illawarra Dragons vs Cronulla Sharks Tips, Odds, Teams & Predictions\" (\"The Sharks have won 10 of their past 11 matches\") and \"Dragons v Sharks: Guler to start; Hiroti in for Iro\" (\"Shooting for their sixth straight this week\").\n        *   Market price $1.20: Not explicitly found in the provided `body_excerpt`s. Let me re-read. The research mentions bookmakers' favorites and a \"fair spread... Sharks -17.5\", but I don't see \"$1.20\" anywhere in the text.\n        *   Verdict: Fail (Market price $1.20 is not sourced).\n\n    *   **Check 2: `availability_direction`**\n        *   KL Iro: Source says \"available for selection in round 24 next week\". Judgement says \"missing KL Iro\". Correct.\n        *   Siosifa Talakai: Source says \"hopeful... will be back for that home game against the Raiders\" (which is after this game). Judgement says \"missing Siosifa Talakai\". Correct.\n        *   Verdict: Pass.\n\n    *   **Check 3: `shap_attribution`**\n        *   Elo rating advantage (19%): In `favouring_Sharks_away_win`. Attributed to Sharks. Correct.\n        *   Ladder points differential per game (15%): In `favouring_Sharks_away_win`. Attributed to Sharks. Correct.\n        *   Verdict: Pass.\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather is \"Rain\" in scene/predict_match. It is NOT mentioned as a key factor or in the summary.\n        *   Verdict: Pass.\n\n    *   **Check 5: `research_used`**\n        *   Key factor 2 cites research (sharks.com.au) regarding form.\n        *   Verdict: Pass.\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence is 0.74. Summary says \"dominant form and significant ratings advantage outweigh these absences\". This justifies the confidence level (within 0.5-0.85). No credible unresolved reason for loss mentioned other than injuries, which were dismissed as outweighed by form/ratings.\n        *   Verdict: Pass.\n\n    *   **Check 7: `driver_proportionality`**\n        *   Top drivers are Elo (19%) and Ladder diff (15%). These are the ones used in key factors. No minor driver is treated as decisive.\n        *   Verdict: Pass.\n\n    *   **Check 8: `omitted_math_signals`**\n        *   `favouring_Sharks_away_win`: Top drivers are Elo (19%), Ladder points diff (15%), Bradley-Terry strength (14%). The judgement mentions Elo and Ladder diff. It omits Bradley-Terry strength.\n        *   `favouring_Dragons_home_win`: Top driver is Away travel to venue (6%). Not mentioned in summary or key factors.\n        *   Verdict: Fail (Bradley-Terry strength and Away travel not addressed).\n\n    *   Sourced claims fail on the $1.20 price.\n    *   Omitted math signals fail on Bradley-Terry strength and Away travel to venue.",
+      "chars": 4366
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-09T01:17:32.992617+00:00",
+      "thinking": "*   Winner: Sharks (away)\n    *   Confidence: 0.74\n    *   Summary mentioned $1.20 odds (flagged as hallucination).\n    *   Key factors omitted Bradley-Terry strength and Away travel distance.\n\n    *   `market_mentions`: The `prices_found` list contains `[\"$1.20\", \"$7.00\"]`. Wait, the verifier says it's a hallucination? Let me look closer at the JSON provided in the prompt.\n    *   Looking at `market_mentions` block:\n        ```json\n        \"market_mentions\": [\n          {\n            \"title\": \"St. George Illawarra Dragons vs Cronulla Sharks Tips, Odds, Teams & Predictions \\u2013 NRL Round 23 2026 - sportsnews.com.au\",\n            \"url\": \"https://www.sportsnews.com.au/nrl/st-george-illawarra-dragons-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-23-2026/609771\",\n            \"source_tier\": \"search_discovery\",\n            \"prices_found\": [\"$1.20\", \"$7.00\"],\n            ...\n          }\n        ]\n        ```\n    *   The prices *are* in the `market_mentions` block of the provided JSON. However, the verifier says it's a hallucination. I must follow the verifier's instruction to remove it regardless of my observation of the JSON, or perhaps they mean it wasn't in the *research body excerpts*. Actually, looking at the `body_excerpt` for that specific article: \"Cronulla Sharks heading into the game as favourites with the bookmakers... Continue reading...\". The prices are extracted by a regex tool into `market_mentions`, but not explicitly written in the text provided to me. Regardless, if the verifier says it's a hallucination or unsourced, I will remove the specific price and just say they are favorites.\n\n    *   `Bradley-Terry strength advantage (-1.76 log-strength)`: Contribution 0.255 (14% of total). This is a strong signal favoring the Sharks.\n    *   `Away travel to venue (8 km)`: Contribution 0.115 (6% of total). This favors the Dragons (home win group). It's a minor factor reflecting that the \"away\" team has very little travel distance for this local derby.\n\n    *   Winner: Sharks (still strongly supported by math and research).\n    *   Confidence: 0.74 seems reasonable given the massive gap in standings, form (5W vs 3L), and strong math drivers. The strongest reason they could lose is \"local derby emotion\" or complacency mentioned by coach Fitzgibbon, but the quality gap is too wide to drop confidence significantly below 0.65 unless there's a major injury blow.\n    *   Summary: Remove $1.20. Mention the local nature of the game (low travel).\n\n    *   `winner`: \"away\"\n    *   `home_team`: \"Dragons\"\n    *   `away_team`: \"Sharks\"\n    *   `confidence`: 0.74\n    *   `summary`: Update to remove price and include the local derby context.\n    *   `key_factors`: Add Bradley-Terry strength. Mention travel distance as a minor home advantage.\n\n    *   Math: Elo (19%), Ladder diff (15%), BT Strength (14%). Total away lean is huge (-1.3023).\n    *   Research: Sharks 10/11 wins, Dragons last on ladder.\n    *   Scene: Standings gap (4th vs 17th).\n\n    *Self-Correction on Market Price:* The verifier explicitly said \"The market price of $1.20 is a hallucination as it does not appear in the research.\" I will remove any mention of specific numbers and just state they are favorites.",
+      "chars": 3230
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-09T01:07:45.472309+00:00",
+      "payload": {
+        "queries": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dragons vs Sharks NRL round 23 preview",
+          "Dragons Sharks NRL odds OR price OR favourite",
+          "Sharks Dragons NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-09T01:12:48.076322+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "confidence": 0.74,
+          "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the Sharks are missing KL Iro (concussion) and Siosifa Talakai (bicep), their dominant form and significant ratings advantage outweigh these absences. The market strongly aligns with this view, pricing the Sharks at $1.20.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the Sharks based on a significant Elo rating advantage (19% contribution) and ladder points differential per game (15%)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+            },
+            {
+              "source": "scene",
+              "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-09T01:16:06.306506+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that the market prices the Sharks at '$1.20' is not found in any research body_excerpt or scene field."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "KL Iro and Siosifa Talakai are correctly described as missing based on sources stating they return in Round 24."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks' win probability group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Rain is not presented as a key factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies sharks.com.au regarding the team's winning streak."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.74 is justified by dominant form and ratings outweighing injury absences."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder diff) rather than minor factors."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' are not addressed in the evaluation."
+            }
+          ],
+          "issues": [
+            "The market price of $1.20 is a hallucination as it does not appear in the research.",
+            "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' were omitted from the evaluation."
+          ],
+          "instruction": "Please remove the unsourced market price claim and evaluate the impact of the Bradley-Terry strength advantage and Away travel to venue signals before re-outputting."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-09T01:17:32.992908+00:00",
+      "payload": {
+        "issues": [
+          "The market price of $1.20 is a hallucination as it does not appear in the research.",
+          "Math drivers 'Bradley-Terry strength advantage' and 'Away travel to venue (8 km)' were omitted from the evaluation."
+        ],
+        "instruction": "Please remove the unsourced market price claim and evaluate the impact of the Bradley-Terry strength advantage and Away travel to venue signals before re-outputting.",
+        "before": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "confidence": 0.74,
+          "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the Sharks are missing KL Iro (concussion) and Siosifa Talakai (bicep), their dominant form and significant ratings advantage outweigh these absences. The market strongly aligns with this view, pricing the Sharks at $1.20.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the Sharks based on a significant Elo rating advantage (19% contribution) and ladder points differential per game (15%)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+            },
+            {
+              "source": "scene",
+              "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "confidence": 0.74,
+          "summary": "The Sharks enter this local derby as heavy favourites, currently on a five-game winning streak and sitting 4th on the ladder compared to the Dragons in last place. While the match is a local clash with minimal travel for Cronulla, their dominant form and significant ratings advantage outweigh these factors. The market identifies the Sharks as the clear favourite.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the Sharks via an Elo rating advantage (19% contribution) and a Bradley-Terry strength advantage (14% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks have won 10 of their last 11 matches and are currently on a five-game winning streak according to sharks.com.au."
+            },
+            {
+              "source": "scene",
+              "detail": "A massive ladder gap exists, with the Sharks in 4th position (13 wins) while the Dragons sit 17th (2 wins)."
+            },
+            {
+              "source": "math",
+              "detail": "The Dragons receive a minor boost from the local nature of the fixture, as the Sharks' travel distance to the venue is only 8 km."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "523f9438dc8c",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-09T01:07:20.830849+00:00",
+      "finished_at": "2026-08-09T01:07:24.321661+00:00",
+      "duration_ms": 3490,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Sharks",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-09T01:07:20.830908+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-09T16:05:00+10:00",
+          "venue": "St George Venues Jubilee Stadium",
+          "venue_city": "Kogarah",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/dragons-v-sharks/",
+          "match_mode": "Pre",
+          "match_id": "20261112380",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Liam Kennedy"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Wyatt Raymond"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Clinton Gutherson",
+                "position": "Fullback",
+                "player_id": 500729
+              },
+              {
+                "number": 2,
+                "name": "Setu Tu",
+                "position": "Winger",
+                "player_id": 510696
+              },
+              {
+                "number": 3,
+                "name": "Moses Suli",
+                "position": "Centre",
+                "player_id": 504101
+              },
+              {
+                "number": 4,
+                "name": "Valentine Holmes",
+                "position": "Centre",
+                "player_id": 500845
+              },
+              {
+                "number": 5,
+                "name": "Tyrell Sloan",
+                "position": "Winger",
+                "player_id": 509484
+              },
+              {
+                "number": 6,
+                "name": "Lyhkan King-Togia",
+                "position": "Five-Eighth",
+                "player_id": 100012312
+              },
+              {
+                "number": 7,
+                "name": "Kyle Flanagan",
+                "position": "Halfback",
+                "player_id": 504363
+              },
+              {
+                "number": 8,
+                "name": "Loko Jnr Pasifiki Tonga",
+                "position": "Prop",
+                "player_id": 100014137
+              },
+              {
+                "number": 9,
+                "name": "Damien Cook",
+                "position": "Hooker",
+                "player_id": 501600
+              },
+              {
+                "number": 10,
+                "name": "Emre Guler",
+                "position": "Prop",
+                "player_id": 504426
+              },
+              {
+                "number": 11,
+                "name": "Dylan Egan",
+                "position": "2nd Row",
+                "player_id": 100006243
+              },
+              {
+                "number": 12,
+                "name": "Hamish Stewart",
+                "position": "2nd Row",
+                "player_id": 100006241
+              },
+              {
+                "number": 13,
+                "name": "Ryan Couchman",
+                "position": "Lock",
+                "player_id": 100008396
+              },
+              {
+                "number": 14,
+                "name": "Jacob Liddle",
+                "position": "Interchange",
+                "player_id": 503449
+              },
+              {
+                "number": 15,
+                "name": "Josh Kerr",
+                "position": "Interchange",
+                "player_id": 503533
+              },
+              {
+                "number": 16,
+                "name": "Jacob Halangahu",
+                "position": "Interchange",
+                "player_id": 100011655
+              },
+              {
+                "number": 17,
+                "name": "Jacob Webster",
+                "position": "Interchange",
+                "player_id": 100004153
+              },
+              {
+                "number": 18,
+                "name": "Daniel Atkinson",
+                "position": "Interchange",
+                "player_id": 100004700
+              },
+              {
+                "number": 19,
+                "name": "Mathew Feagai",
+                "position": "Interchange",
+                "player_id": 507925
+              },
+              {
+                "number": 20,
+                "name": "Luciano Leilua",
+                "position": "Reserve",
+                "player_id": 500459
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Jesse Ramien",
+                "position": "Centre",
+                "player_id": 502072
+              },
+              {
+                "number": 4,
+                "name": "Mawene Hiroti",
+                "position": "Centre",
+                "player_id": 504666
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Braydon Trindall",
+                "position": "Five-Eighth",
+                "player_id": 504321
+              },
+              {
+                "number": 7,
+                "name": "Nicho Hynes",
+                "position": "Halfback",
+                "player_id": 502490
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Blayke Brailey",
+                "position": "Hooker",
+                "player_id": 504274
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Teig Wilton",
+                "position": "2nd Row",
+                "player_id": 507615
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Lock",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Hohepa Puru",
+                "position": "Interchange",
+                "player_id": 507815
+              },
+              {
+                "number": 15,
+                "name": "Billy Burns",
+                "position": "Interchange",
+                "player_id": 505413
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Thomas Hazelton",
+                "position": "Interchange",
+                "player_id": 510238
+              },
+              {
+                "number": 18,
+                "name": "Michael Gabrael",
+                "position": "Interchange",
+                "player_id": 100011237
+              },
+              {
+                "number": 19,
+                "name": "Braden Uele",
+                "position": "Interchange",
+                "player_id": 500213
+              },
+              {
+                "number": 20,
+                "name": "Niwhai Puru",
+                "position": "Reserve",
+                "player_id": 509464
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 23,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Dragons",
+            "position": 17,
+            "played": 19,
+            "wins": 2,
+            "drawn": 0,
+            "lost": 17,
+            "competition_points": 10,
+            "points_for": 296,
+            "points_against": 569,
+            "points_difference": -273,
+            "points_difference_per_game": -14.37,
+            "recent_form_last_4": "1 - 3",
+            "streak": "3L",
+            "home_record": "1 - 8",
+            "away_record": "1 - 9"
+          },
+          "away": {
+            "team": "Sharks",
+            "position": 4,
+            "played": 19,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 32,
+            "points_for": 568,
+            "points_against": 391,
+            "points_difference": 177,
+            "points_difference_per_game": 9.32,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "8 - 2",
+            "away_record": "5 - 4"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sharks",
+            "ladder_positions_gap": -13,
+            "points_difference_per_game_gap": -23.69,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-09T16:00",
+            "temperature_c": 16.6,
+            "precipitation_mm": 0.1,
+            "precipitation_probability_pct": 63,
+            "wind_speed_kmh": 17.7,
+            "weather_code": 51,
+            "summary": "Light drizzle",
+            "latitude": -33.972,
+            "longitude": 151.129,
+            "venue": "St George Venues Jubilee Stadium",
+            "venue_city": "Kogarah"
+          },
+          "math_weather_label": "Rain",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.972&longitude=151.129&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-09T01:07:24.316935+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/dragons-v-sharks/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.972&longitude=151.129&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "a130c7e04cef",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-09T01:07:45.476734+00:00",
+      "finished_at": "2026-08-09T01:09:38.917110+00:00",
+      "duration_ms": 113440,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Sharks",
+        "kickoff": "2026-08-09T16:05:00+10:00",
+        "round_number": 23,
+        "venue": "St George Venues Jubilee Stadium",
+        "queries": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dragons vs Sharks NRL round 23 preview",
+          "Dragons Sharks NRL odds OR price OR favourite",
+          "Sharks Dragons NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-09T16:05:00+10:00",
+          "round_number": 23,
+          "venue": "St George Venues Jubilee Stadium",
+          "queries": [
+            "Dragons NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Dragons vs Sharks NRL round 23 preview",
+            "Dragons Sharks NRL odds OR price OR favourite",
+            "Sharks Dragons NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-09T01:07:45.478327+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 16
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 23 - Best sidelined",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-08T09:52:49+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Best sidelined\nThe Knights will be without Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premier",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Best sidelined\nThe Knights will be without Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nRaiders v Knights, Sunday 2.00pm at GIO Stadium\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knights is number 19 Brodie Jones\n18 19\nInterchange for Raiders is number 19 Matty Nicholson 19 20 Interchange for Knights is number 20 Toby Winter\n19 20\nReserves\nReserve for Raiders is number 20 Coby Black 20 22 Reserve for Knights is number 22 Diesel Hagan\n20 22\nRaiders Ins\nCoby Black\nSimi Sasagi\nKnights Ins\nDiesel Hagan\nHarrison Graham\nRaiders Outs\nSebastian Kris\nBradman Best\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/9/2026 1:06:14 AM\nRaiders: Gun centre Simi Sasagi is back from a hamstring injury so Seb Kris makes way in the only change to Ricky Stuart's 19-man squad for the must-win clash against the Knights. Sasagi was a late withdrawal from last week's loss to the Panthers. Back-rower Matty Nicholson has now had two games back off the bench and is part of the interchange again with Stuart indicating he will play NSW Cup later on Sunday if he doesn't get on in NRL. The Raiders have won four of their last five games on their home patch at GIO Stadium. No changes in Saturday's 24-hour update.\nKnights: A blow for the Knights on Saturday with Bradman Best dropping out due to a calf strain suffered in last week's win over Brisbane. Fletcher Hunt comes into the starting side at centre, with Toby Winter moving onto the six-man bench. After coming off the interchange in 17 of his 18 games this season, veteran Tyson Frizell has been named to start in his 300th NRL match. That pushes Cody Hopwood to the bench. Harrison Graham has been added to the bench after missing last week's game with hamstring tightness.\nDragons v Sharks, Sunday 4.05pm at St George Venues Jubilee Stadium\nMatch: Dragons v Sharks\nDragons\nSharks\nFul",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.2490217575,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 20 Jaylan De Groot 20 4 Centre for Cowboys is number 4 Tom Chester\n20 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 4 AJ Brimson 4 7 Halfback for Cowboys is number 7 Jaxon Purdue\n4 7\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 18 Sam Verrills 18 9 Hooker for Cowboys is number 9 Soni Luke\n18 9\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Cowboys is number 11 Heilum Luki\n12 11\n2nd Row for Titans is number 15 Josh Patston 15 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n15 12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 9 Oliver Pascoe 9 14 Interchange for Cowboys is number 14 Ethan King\n9 14\nInterchange for Titans is number 14 Kurtis Morrin 14 15 Interchange for Cowboys is number 15 Thomas Mikaele\n14 15\nInterchange for Titans is number 16 Klese Haas 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Titans is number 17 Cooper Bai 17 20 Interchange for Cowboys is number 20 John Bateman\n17 20\nReserve for Titans is number 7 Lachlan Ilias 7 16 Reserve for Cowboys is number 16 Matthew Lodge\n7 16\nReserve for Titans is number 11 Arama Hau 11 18 Reserve for Cowboys is number 18 Sam McIntyre\n11 18\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/8/2026 2:18:14 PM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 18 Five-Eighth for Panthers is number 18 Jack Cole\n6 18\nHalfback for Warriors is number 18 Luke Metcalf 18 7 Halfback for Panthers is number 7 Nathan Cleary\n18 7\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Panthers is number 8 Moses Leota\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Panthers is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 115.11679953527778,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "61d2da7ab0003b4e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Jersey Flegg Team List: Round 23 vs. Sharks - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/04/jersey-flegg-team-list-round-23-vs.-sharks/",
+            "published_at": "2026-08-04T06:00:15+00:00",
+            "snippet": "Jersey Flegg Team List: Round 23 vs. Sharks &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Jersey Flegg Team List: Round 23 vs. Sharks\nAaron Gorrell has named his squad to take on the Sharks in Round 23 of the 2026 Jersey Flegg season at Collegians Sporting Complex.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\n1st Position\naway Team\nSharks\n4th Position\nVenue: Collegians Sporting Complex, Wollongong\nMatch broadcasters:\nBarTV\nJERSEY FLEGG TEAM LIST ROUND 23\nJERSEY FLEGG TEAM LIST\nROUND 23\nLucas BORG\nTom KIRK\nOliver BURTON\nToby RUMBLE\nEden HODGES (c)\nShadi HAMMOUD\nViliami HIKILA\nDextar GRANT\n10\nBen JACKSON\n11\nJarrah TREWEEK\n12\nConnor SADLER\n13\nBraith PLECAS\n14\nIsaiah FAGALILO\n15\nDaniel MEAFOU\n16\nLeeroy WEATHERALL\n17\nDrew LANGDON\n18\nMarley McLAREN\nRelated /\nNRL Team Update: Indigenous Round vs. Sharks\nTeam Lists\nNRLW Team Update: Indigenous Round vs. Wests Tigers\nKnock-On Effect NSW Cup Team List: Round 23 vs. Jets\nNRL Team List: Indigenous Round vs. Sharks\nJersey Flegg Team List: Round 22 vs. Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 115.1251328686111,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "a64ec8776dc05da0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 23 v Dragons - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/04/nrl-team-list-round-23-v-dragons/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 23 v Dragons\nA few changes for the Sharks ahead of their Monty Porter Memorial Cup clash with St George in the first week of Indigenous Round.\nThe ever-reliable Mawene Hiroti comes into the centres after a concussion to KL Iro in last Sunday's 32",
+            "body_excerpt": "Presented By\nNRL Team List: Round 23 v Dragons\nA few changes for the Sharks ahead of their Monty Porter Memorial Cup clash with St George in the first week of Indigenous Round.\nThe ever-reliable Mawene Hiroti comes into the centres after a concussion to KL Iro in last Sunday's 32-16 victory over the Rabbitohs.\nIro has entered the NRL's 11-day stand-down period and will be available for selection in round 24 next week.\nThe Sharks are also hopeful milestone man Siosifa Talakai will be back for that home game against the Raiders, after he suffered a bicep injury on Sunday.\nJesse Colquhoun has been named to start this week, after being named on the bench the last two games but then being promoted to the starting side before kick-off each time.\nHohepa Puru returns from a concussion to take his place back on Cronulla's bench; the versatile middle forward has been a mainstay since coming into the team and impressing from round 11.\nCentre Michael Gabrael has been named in jumper 18 and is a chance to make his NRL debut if called upon on Sunday.\nThe 21-year-old was the equal 3rd top try scorer in NSW Cup last year; Gabrael has 26 tries and 10 try assists from his 31 games for the Newtown Jets.\nThe Sharks will run out in the Dragons derby in their 2026 Indigenous jersey , which you can read more about HERE , with kick-off at 4:05pm at Jubilee Stadium, Kogarah.\nSee the following two team lists for Sunday's game.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Dragons is number 1 Clinton Gutherson 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Dragons is number 2 Setu Tu 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Dragons is number 3 Moses Suli 3 Centre for Sharks is number 3 Jesse Ramien\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Sharks is number 4 Mawene Hiroti\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Dragons is number 6 Lyhkan King-Togia 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Dragons is number 7 Kyle Flanagan 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Dragons is number 8 Loko Jnr Pasifiki Tonga 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Dragons is number 9 Damien Cook 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Dragons is number 10 Emre Guler 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Dragons is number 11 Dylan Egan 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Dragons is number 12 Hamish Stewart 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Dragons is number 13 Ryan Couchman 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Dragons is number 14 Jacob Liddle 14 Interchange for Sharks is number 14 Hohepa Puru\n14\nInterchange for Dragons is number 15 Josh Kerr 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Dragons is number 16 Jacob Halangahu 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Dragons is number 17 Jacob Webster 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Dragons is number 18 Daniel Atkinson 18 Interchange for Sharks is number 18 Michael Gabrael\n18\nInterchange for Dragons is number 19 Mathew Feagai 19 Interchange for Sharks is number 19 Braden Uele\n19\nReserves\nReserve for Dragons is number 20 Luciano Leilua 20 Reserve for Sharks is number 20 Niwhai Puru\n20\nDragons Ins\nJacob Webster\nMathew Feagai\nSharks Ins\nBraden Uele\nHohepa Puru\nMawene Hiroti\nMichael Gabrael\nNiwhai Puru\nDragons Outs\nToby Couchman\nJayden Berrell\nKL Iro\nSamuel Stonestreet\nSiosifa Talakai\nMatch Officials\nReferee: Liam Kennedy\nTouch Judge: Dave Munro\nSenior Review Official: Wyatt Raymond\nLast updated: 8/9/2026 1:06:14 AM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Jesse Ramien - The Vinyl Room Nightclub Gymea ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 115.12929953527778,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "16655ea094f55883",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knock-On Effect NSW Cup Team List: Round 23 vs. Jets - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/04/knock-on-effect-nsw-cup-team-list-round-23-vs.-jets/",
+            "published_at": "2026-08-04T05:58:46+00:00",
+            "snippet": "Knock-On Effect NSW Cup Team List: Round 23 vs. Jets &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Knock-On Effect NSW Cup Team List: Round 23 vs. Jets\nWillie Talau has named his squad to face the Newtown Jets in Round 23 of the 2026 Knock-On Effect NSW Cup season at Collegians Sporting Complex.\nMatch: Dragons v Jets\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\n12th Position\naway Team\nJets\n5th Position\nVenue: Collegians Sporting Complex, Wollongong\nMatch broadcasters:\nBarTV\nKade Reed (finger) has been named at halfback for his first match since Round 10 pushing Joseph O’Neill to five-eighth.\nBlake Lawrie also returns from injury in the front row whilst Connor Muhleisen starts at hooker having made a successful return from an ACL injury last week.\nNSW CUP TEAM LIST ROUND 23\nNSW CUP TEAM LIST\nROUND 23\nChristian TUIPULOTU\nNick TSOUGRANIS\nJoseph O’NEILL (c)\nKade REED\nRyan HUTCHINSON\nConnor MUHLEISEN\n10\nBlake LAWRIE\n11\nDylan COUTTS\n12\n13\nMatthew ALHAZIM\n14\nHa’ele FINAU\n15\n16\n17\nCyrus STANLEY-TRAILL\n22\nWes PRING\nRelated /\nNRL Team Update: Indigenous Round vs. Sharks\nTeam Lists\nNRLW Team Update: Indigenous Round vs. Wests Tigers\nJersey Flegg Team List: Round 23 vs. Sharks\nNRL Team List: Indigenous Round vs. Sharks\nKnock-On Effect NSW Cup Team List: Round 22 vs. Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 115.14985509083333,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4c7d85d578a82594",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "St. George Illawarra Dragons vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 23 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/st-george-illawarra-dragons-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-23-2026/609771",
+            "published_at": "2026-08-06T00:35:52+00:00",
+            "snippet": "St. George Illawarra Dragons vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 23 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Jubilee Stadium will play host to Sunday's Round 23 NRL game between St. George Illawarra Dragons and Cronulla Sharks. The game kicks off at 4:05 pm with Cronulla Sharks heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the St. George Illawarra Dragons vs. Cronulla Sharks game and give you our free tips and bets.\nWhen: Sunday August 9, 2026 at 4:05 pm\nWhere: Jubilee Stadium\nBet 💰: Bet On This Match HERE\nSt. George Illawarra Dragons vs Cronulla Sharks Odds\nSt. George Illawarra Dragons vs Cronulla Sharks Preview\nCronulla will look to extend its outstanding run of form when it crosses southern Sydney to face St George Illawarra on Sunday afternoon. The Sharks have won 10 of their past 11 matches and remain firmly in the race for the minor premiership, while the Dragons continue to battle through a difficult campaign despite showing resilience in recent weeks.\nThe Sharks have won 11 of the past 12 meetings between the clubs and again enter the local derby as strong favourites. Mawene Hiroti comes into the Cronulla side after KL Iro’s concussion, while the Dragons reshuffle their forward pack following Toby Couchman’s injury. Nicho Hynes has consistently excelled against St George Illawarra, and another influential performance from the star halfback could keep the Sharks’ impressive late-season charge rolling.\nHead To Head Bet\nWe're tipping Cronulla Sharks to win at $1.20 odds.\nFirst Try Scorer\nFirst Try Scorer: Ronaldo Mulitalo at $7.00 .\nSt. George Illawarra Dragons vs Cronulla Sharks Teams\nDragons team: 1. Clinton Gutherson 2. Setu Tu 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Jacob Liddle 15. Josh Kerr 16. Jacob Halangahu 17. Jacob Webster 18. Daniel Atkinson 19. Mathew Feagai 20. Luciano Leilua 21. Christian Tuipulotu 22. Ryan Hutchinson\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Jesse Ramien 4. Mawene Hiroti 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 8. Addin Fonua-Blake 9. Blayke Brailey 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 14. Hohepa Puru 15. Billy Burns 16. Oregon Kaufusi 17. Thomas Hazelton 18. Michael Gabrael 19. Braden Hamlin-Uele 20. Niwhai Puru 21. Samuel Stonestreet 22. Tuku Hau Tapuha",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.5315217575,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-08T12:22:04+00:00",
+            "snippet": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a s",
+            "body_excerpt": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shocked look on his face as he reeled away.\nThe NSW and Australian captain left the field in the 34th minute and cut a forlorn figure on the Panthers bench in the second term. He will be sent for scans to confirm the severity of the injury.\nBefore the game, Panthers centre Casey McLean had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean saw three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors.\nIn Friday's second game, Roosters fullback James Tedesco missed the Round 23 blockbuster against the Bulldogs after failing to overcome an ankle injury.\nTedesco sat out the second half of the Round 22 slaughter of the Cowboys with ice on his ankle but he was initially named to return against the Bulldogs.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nThe skipper dropped out of the side on Thursday and was replaced by Cody Ramsey.\nHowever, it was another blow for Bulldogs star back-rower Sitili Tupouniua who was back from a hamstring injury, but was ruled out in his return game - again with a hamstring injury.\n\"Not sure how bad it is, but he's felt it in the same spot where he injured about eight weeks ago, so not ideal,\" Bulldogs coach Cameron Ciraldo said after the game.\n\"He's pretty devastated because he was training really well and he was just excited to get back playing, this is what he does, this is what he loves doing, so he's pretty shattered.\"\nThe Knights suffered a blow ahead of Sunday's trip to Canberra with star centre Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane.\nManly lost prop Taniela Paseka during the first half in Perth on Saturday with the club reporting he had suffered MCL damage and would be sent for scans on his knee.\nThe Sea Eagles went into the game without Ethan Bullemor , who s uffered a head knock in training and will follow NRL concussion protocol. He will be stood down for 11 days meaning he will miss this week's clash and next Friday's game against the Dolphins.\nThe Sea Eagles have also lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nThe Rabbitohs have suffered another injury blow, with Ashton Ward leaving the field with a hamstring injury suffered while kicking for goal in the first half of his side's win over the Eels.\nWinger Campbell Graham missed the game with a calf injury suffered in training, which could sideline him for 3-4 weeks.\nThe Eels also have their own injury worries, with Isaiah Iongi also limping off in the first half. He returned to the bench in the second half pictured in a brace on his right knee.\nEels coach Jason Ryles said post-match there was concern for MCL and PCL injuries, with scans on Monday to confirm to extent of the damage.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nChemist Warehouse Casualty Ward\nBrisbane Broncos\nAdam Reynolds (concussion, ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 12.761521757499999,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "2bd32a5819f02aef",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Dragons v Sharks: Guler to start; Hiroti in for Iro",
+            "url": "https://www.nrl.com/news/2026/08/04/dragons-v-sharks-guler-to-start-hiroti-in-for-iro/",
+            "published_at": "2026-08-08T06:07:47+00:00",
+            "snippet": "Presented By\nDragons v Sharks: Guler to start; Hiroti in for Iro\nA local derby is always a game to look forward to, no matter where the teams are on the ladder and this week's encounter between the Dragons and Sharks should be no different.\nThe home side have been struggling for ",
+            "body_excerpt": "Presented By\nDragons v Sharks: Guler to start; Hiroti in for Iro\nA local derby is always a game to look forward to, no matter where the teams are on the ladder and this week's encounter between the Dragons and Sharks should be no different.\nThe home side have been struggling for wins, but have consistently been putting in big efforts, including last week where they came within a converted try of upsetting the highly-fancied Dolphins in their 28-22 loss.\nThe Sharks however will be another prospect again, having well and truly hit their straps in recent weeks.\nLast round, they were able to overpower the Rabbitohs with a 32-16 win, which came off the back of four wins on the trot.\nShooting for their sixth straight this week, a win against their nearest rivals would only add to celebrations for their fans.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\n17th Position\naway Team\nSharks\n4th Position\nVenue: St George Venues Jubilee Stadium, Kogarah\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nDragons : Emre Guler comes into the starting side in place of Toby Couchman, who has entered the concussion protocols. Kempsey product Jacob Webster will make his NRL debut off the bench after racking up 40 NSW Cup appearances across the past two seasons in the front row. No changes in Saturday's 24-hour update, with Christian Tuipulotu and Ryan Hutchinson dropping out.\nSharks : Blues prop Addin Fonua-Blake has again been named to start but may swap on game day with Oregon Kaufusi as he did last week. The loss of KL Iro (concussion) and Siosifa Talakai (biceps) sees Mawene Hiroti comes in at centre and Hohepa Puru join the bench. Braden Uele has been added to the interchange as he chases a first NRL appearance since Round 4 while potential debutant Michael Gabrael is also listed on the six-man interchange. Cronulla also remains 1-19, with Niwhai Puru remaining in the extended squad.\nTeam Lists\nBacks\nFullback for Dragons is number 1 Clinton Gutherson 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Dragons is number 2 Setu Tu 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Dragons is number 3 Moses Suli 3 Centre for Sharks is number 3 Jesse Ramien\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Sharks is number 4 Mawene Hiroti\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Dragons is number 6 Lyhkan King-Togia 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Dragons is number 7 Kyle Flanagan 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Dragons is number 8 Loko Jnr Pasifiki Tonga 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Dragons is number 9 Damien Cook 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Dragons is number 10 Emre Guler 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Dragons is number 11 Dylan Egan 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Dragons is number 12 Hamish Stewart 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Dragons is number 13 Ryan Couchman 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Dragons is number 14 Jacob Liddle 14 Interchange for Sharks is number 14 Hohepa Puru\n14\nInterchange for Dragons is number 15 Josh Kerr 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Dragons is number 16 Jacob Halangahu 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Dragons is number 17 Jacob Webster 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Dragons is number 18 Daniel Atkinson 18 Interchange for Sharks is number 18 Michael Gabrael\n18\nInterchange for Dragons is number 19 Mathew Feagai 19 Interchange for Sharks is number 19 Braden Uele\n19\nReserves\nReserve for Dragons is number 20 Luciano Leilua 20 Reserve for Sharks is number 20 Niwhai Puru\n20\nDragons Ins\nJacob Webster\nMathew Feagai\n",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.999577313055557,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8d7ae8cb7925f883",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Round 23 v Dragons - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/08/nrl-match-preview-round-23-v-dragons/",
+            "published_at": "2026-08-08T06:05:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Round 23 v Dragons\nThe Sharks come into the Dragons derby having won 9 from their last 10 games, but are ultra-wary that they can’t let complacency creep in.\nSt George are on the back of 3 straight losses and languishing in last on the NRL ladder, ",
+            "body_excerpt": "Presented By\nNRL Match Preview: Round 23 v Dragons\nThe Sharks come into the Dragons derby having won 9 from their last 10 games, but are ultra-wary that they can’t let complacency creep in.\nSt George are on the back of 3 straight losses and languishing in last on the NRL ladder, although the Red V were in a similar position last season and stunned the Sharks with a 22-14 victory.\nThe local rivals have had many fierce encounters over the years playing for the Monty Porter Memorial Cup, and when you add Indigenous Round into the equation it could make for an emotional matchup.\n“Sometimes it can be in a good way, and then sometimes it can be the other way,” Sharks coach Craig Fitzgibbon said.\n“We didn’t perform last year. It’s the same round, Indigenous Round, round 23 last year at Kogarah. So, we didn’t perform there last year, and that stung.\n“The Indigenous boys are incredibly proud of this round and to wear the jersey, and the make-up of this jersey has some significance in it, but to be fair on the boys, they all said to me individually that they just want to focus on getting the performance done and playing the way the Sharks do.”\nThe ever-reliable Mawene Hiroti starts in the centres for KL Iro, who is out with concussion.\nMichael Gabrael is a chance to make his NRL debut, named in jumper 18 on the 6-man bench.\nThe 21-year-old was the equal 3rd top try scorer in NSW Cup last year; Gabrael has 26 tries and 10 try assists from his 31 games for the Newtown Jets.\n“(Mawene’s) just so NRL ready and he’s going to be a huge asset for the Titans next year, and we’re going to miss him dearly,” Fitzgibbon said.\n“It was a bit of a difficult call would have loved to look at Micky Gabrael there.\n“He’s getting close to a debut as well, but for Mawene’s performance it is hard to ignore, and he’s an out-and-out first grader so Micky G’s time will come soon too.”\nNicho Hynes could break the record for most consecutive goal kicks in the NRL tomorrow afternoon.\nCronulla’s number 7 is on a streak of 32 straight goals, equal second all-time; needing 4 more in a row to beat Hazem El Masri’s record from 2003.\n“Of course it’s on his mind,” the Sharks coach shared.\n“It’s an incredible milestone for our game and for Nicho, but he’s also very process-driven at the moment and the amount of work he’s doing.\n“He’s just going to trust his process and the way he kicks the ball the same way.\n“It’s been building for a couple of weeks, so it’s not like this week is any different to the others because there have been little milestones along the way for him.\n“I think he’s excited for the challenge and not doing anything other than trying to work hard and get better.”\nHis halves partner Braydon Trindall just broke the club’s most try assists in a season record, surpassing Nicho’s 2023 efforts.\nThere’s a record up for grabs for Ronaldo Mulitalo tomorrow too; he needs one more try to pass club legend David Peachey for the outright second most tries for the club (which will be 111).\nMulitalo has seven tries against the Dragons, while Will Kennedy has the club record of 8 tries against them.\nUnder Craig Fitzgibbon, the Sharks have won 8/9 Local Derbies against St George, winning their last encounter in Round 14 at Ocean Protect Stadium, with their only loss coming in Round 23 last year in Kogarah.\nKick-off is at 4:05pm tomorrow at Jubilee Stadium.\nSee the 24-hour squad lists below.\nMatch: Sharks v Titans\nRound 6 - Round 6 - Saturday 8 Aug\nhome Team\nSharks\naway Team\nTitans\nTeam Lists\nBacks\nFullback for Sharks is number 1 Jada Taylor 1 Fullback for Titans is number 1 Lily Patston\nWinger for Sharks is number 5 Georgia Ravics 5 2 Winger for Titans is number 2 Sienna Ibrahim\n5 2\nCentre for Sharks is number 4 Tiana Penitani Gray 4 3 Centre for Titans is number 3 Jaime Chapman\n4 3\nCentre for Sharks is number 12 China Polata 12 4 Centre for Titans is number 4 Phoenix-Raine Hippi\n12 4\nWinger for Sharks is number 19 Milla Elaro 19 5 Winger for Titans is number 5 Indie Bostock",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.045966201944445,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "654fea149d95fdce",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons vs Sharks Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/dragons-vs-sharks-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-07T16:39:46+00:00",
+            "snippet": "Dragons vs Sharks Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Dragons vs Sharks Preview & Betting Tips: NRL Round 23 2026\nAugust 8 th 2026, 2:17am , By: Ben Bridge\nSunday afternoon at Jubilee Stadium closes the NRL Round 23 slate with the latest chapter of one of rugby league’s oldest local rivalries. The Dragons will bring emotion and home ground desperation, but this matchup should still be heavily controlled by Cronulla .\nThe Sharks are genuine premiership contenders and enter after a convincing 32-16 win over South Sydney, their fifth consecutive victory. The Dragons narrowly lost 28-22 to the Dolphins and remain last, with their only home win at Jubilee Stadium this season coming against the Tigers.\nMy fair spread is approximately Sharks -17.5, which sits close to the available market. Normally, that would point toward leaving the game alone. However, the gap between these teams is so significant that I still expect Cronulla to create separation across 80 minutes.\nThe Sharks are without KL Iro due to concussion and have named Mawene Hiroti in the centres. Siosifa Talakai is being rested, while the Dragons lose Toby Couchman and bring Emre Guler into the starting pack.\nThe rivalry is the only major reason for caution, along with possible showers. Local derbies can become physical, emotional, and far tighter than the ratings suggest. But if Cronulla remain patient, their forward pack and spine should eventually overwhelm St George Illawarra.\nDragons vs Sharks Prediction & Tips: 2026 NRL Round 23\nDragons Competitive but Still Fall Short\nThe Dragons’ 28-22 loss to the Dolphins was another performance that contained enough effort to avoid embarrassment but not enough polish to deliver a result. St George Illawarra remained in the contest and gave itself opportunities late, yet once again walked away without competition points.\nThat has become the story of their improved second half of the season. Dean Young has lifted the effort, defensive connectivity, and competitiveness of the team, but the Dragons remain limited with the ball and struggle to convert good periods into wins.\nClint Gutherson continues to provide leadership from fullback, while Damien Cook gives the side speed around the ruck. Kyle Flanagan and Daniel Atkinson have brought more organisation to the halves, however Young has dropped Atkinson to the bench in favour of youngster Lyhkan King-Togia, and it will be interesting to see what he can bring to the table this week.\nThe concern is what happens when opponents score quickly. The Dragons do not possess enough repeatable attacking weapons to confidently chase games. Valentine Holmes and Moses Suli can create on the edges, but the broader structure still requires high completion and favourable territory.\nToby Couchman’s absence weakens a forward pack that has been one of the few clear positives. Emre Guler has been promoted to start, joining Loko Pasifiki Tonga in the front row, while the Dragons continue to rely heavily on younger forwards through the rotation.\nThat is a difficult setup against Cronulla. The Sharks’ middle includes Addin Fonua-Blake, Thomas Hazelton, Cameron McInnes, and several powerful interchange options. If the Dragons lose the yardage battle, their attack may spend most of the afternoon starting from poor field position.\nJubilee Stadium has not provided meaningful protection. The Dragons average only 14 points and concede around 28 per home game this season.\nSharks Continue Premiership Surge\nCronulla’s 32-16 win over South Sydney reinforced the view that the Sharks are now one of the competition’s most complete sides. They controlled the middle, converted attacking opportunities and extended their winning streak to five matches.\nThe Sharks’ attack has been outstanding throughout the past two months. Nicho Hynes and Braydon Trindall have found the balance that was missing earlier in the year, with Hynes able to attack rather than carry every organisational responsibility. Blayke Brailey gives Cronulla another elite decision maker around the ruck.\nTheir",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 32.466521757500004,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0cdaca8beb8d1402",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons v Sharks: Round 23 - nrl.com",
+            "url": "https://www.nrl.com/news/2026/08/05/dragons-v-sharks-round-23/",
+            "published_at": "2026-08-05T04:04:03+00:00",
+            "snippet": "Dragons v Sharks: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:",
+            "body_excerpt": "Dragons v Sharks: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:26 Titans v Cowboys: Round 23\nTitans v Cowboys: Round 23\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Round 23\nRelated /\nDragons v Sharks: Guler to start; Hiroti in for Iro\nIndigenous Round\nMuch bigger than football: Changing lives one boot at a time\nFantasy\nFirst take: Dragons v Sharks\nMatch Replays\nSharks v Dragons - 1999 Preliminary Final\nNRL News\n'More than a highlight reel': How Hynes built for finals success as record looms\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.06179953527777,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "195267db2c740b34",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons vs Sharks - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/dragons-sharks-round-23-2026-mc10396513-236510/",
+            "published_at": "2026-08-02T19:10:23+00:00",
+            "snippet": "Dragons vs Sharks - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 DRAGONS V SHARKS KICK OFF St George Venues Stadium #NRLDragonsSharks 2026-08-09T06:05:00Z Preview\nDRAGONS\nSHARKS\nPreview\nDragons vs Sharks – Round 23, 2026\nThe St George Illawarra Dragons face the Cronulla Sharks in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at St George Venues Jubilee Stadium. Ladder Position Injury Report Dragons NAME REASON EXPECTED RETURN Hayden Buchanan Shoulder Next Season Toby Couchman Concussion Round 24 Jaydn Su'A Pectoral Round 27 Hame Sele Achilles TBC Sharks NAME REASON EXPECTED RETURN KL Iro Concussion Round 24 Siosifa Talakai Biceps Round 24 Previous 5 Games Dragons DATE OPP RESULT 31/7/26 Dolphins L 22 - 28 26/7/26 Titans L 18 - 38 18/7/26 Warriors L 20 - 12 4/7/26 Wests Tigers W 24 - 10 28/6/26 Raiders L 24 - 16 Sharks DATE OPP RESULT 2/8/26 Rabbitohs W 32 - 16 26/7/26 Sea Eagles W 12 - 48 17/7/26 Knights W 20 - 18 11/7/26 Dolphins W 0 - 66 4/7/26 Broncos W 16 - 28\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nHayden Buchanan\nShoulder\nNext Season\nToby Couchman\nConcussion\nRound 24\nJaydn Su'A\nPectoral\nRound 27\nHame Sele\nAchilles\nTBC\nKL Iro\nSiosifa Talakai\nBiceps\nPrevious 5 Games\nDATE\nOPP\nRESULT\n31/7/26\nDolphins\nL 22 - 28\n26/7/26\nTitans\nL 18 - 38\n18/7/26\nWarriors\nL 20 - 12\n4/7/26\nWests Tigers\nW 24 - 10\n28/6/26\nRaiders\nL 24 - 16\n2/8/26\nRabbitohs\nW 32 - 16\nSea Eagles\nW 12 - 48\n17/7/26\nKnights\nW 20 - 18\n11/7/26\nW 0 - 66\nBroncos\nW 16 - 28\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nClinton Gutherson Clinton Gutherson\nSetu Tu Setu Tu\nMoses Suli Moses Suli\nValentine Holmes Valentine Holmes\nTyrell Sloan Tyrell Sloan\nLyhkan King-Togia Lyhkan King-Togia\nKyle Flanagan Kyle Flanagan\nL. Pasifiki Tonga Loko Pasifiki Tonga\nDamien Cook Damien Cook\n10\nEmre Guler Emre Guler\n11\nDylan Egan Dylan Egan\n12\nHamish Stewart Hamish Stewart\n13\nRyan Couchman Ryan Couchman\nINTERCHANGE\n14\nJacob Liddle Jacob Liddle\n15\nJosh Kerr Josh Kerr\n16\nJacob Halangahu Jacob Halangahu\n17\nJacob Webster Jacob Webster\n18\nDaniel Atkinson Daniel Atkinson\n19\nMathew Feagai Mathew Feagai\nRESERVES\n20\nLuciano Leilua Luciano Leilua\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nWilliam Kennedy William Kennedy\nSione Katoa Sione Katoa\nJesse Ramien Jesse Ramien\nMawene Hiroti Mawene Hiroti\nRonaldo Mulitalo Ronaldo Mulitalo\nBraydon Trindall Braydon Trindall\nNicho Hynes Nicho Hynes\nAddin Fonua-Blake Addin Fonua-Blake\nBlayke Brailey Blayke Brailey\nJesse Colquhoun Jesse Colquhoun\nBriton Nikora Briton Nikora\nTeig Wilton Teig Wilton\nCameron McInnes Cameron McInnes\nHohepa Puru Hohepa Puru\nBilly Burns Billy Burns\nOregon Kaufusi Oregon Kaufusi\nThomas Hazelton Thomas Hazelton\nMichael Gabrael Michael Gabrael\nBraden Uele Braden Uele\nNiwhai Puru Niwhai Puru",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 149.95624397972225,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "1de55eaa795c3137",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Indigenous Round vs. Sharks - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/04/nrl-team-list-indigenous-round-vs.-sharks/",
+            "published_at": "2026-08-04T05:57:11+00:00",
+            "snippet": "NRL Team List: Indigenous Round vs. Sharks &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team List: Indigenous Round vs. Sharks\nDean Young has named his squad to take on rivals Cronulla at St George Venues Jubilee Stadium in Round 23.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\n17th Position\naway Team\nSharks\n4th Position\nVenue: St George Venues Jubilee Stadium, Kogarah\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nToby Couchman (head knock) is unavailable for the Dragons seeing Emre Guler promoted to the run-on side and debutant Jacob Webster named in jersey No.17.\nA Kempsey Dragons junior, Webster made his way to Wollongong as a teenager to play Harold Matthews Cup with the Steelers.\nAn Under 19s State of Origin representative in 2022, the 23-year-old has grown into an integral part of the club’s Knock-On Effect NSW Cup side having this year averaged 131 metres and tallied 672 tackles at over 95 per cent efficiency in 18 outings.\nMoses Suli and Lyhkan King-Togia retain their spots in the starting unit having impressed in their first-grade returns last week.\nINDIGENOUS ROUND TEAM LIST\nINDIGENOUS ROUND\nTEAM LIST\nPLAYER PARTNER\nClint GUTHERSON (c)\nBill & Toni’s Restaurant\nSetu TU\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nPorta Restaurant\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nJacob LIDDLE\nWollongong City Jetski\n15\nJosh KERR\nClassic Sportswear\n16\nJacob HALANGAHU\nTripADeal\n17\nJacob WEBSTER\nJAC Motors\n18\nDaniel ATKINSON\n19\nMathew FEAGAI\ni98FM\n20\nLuciano LEILUA\nSt George Leagues Club\n21\nChristian TUIPULOTU\nWIN TV\n22\nRyan HUTCHINSON\nGearbox\nRelated /\nNRL Team Update: Indigenous Round vs. Sharks\nMatch Preview\nNRL Indigenous Round Match Preview: Dragons host Sharks in Local Derby battle\nCommunity\nDragons partner with Burraga Foundation for Indigenous Round 50-50 Charity Raffle\nTeam Lists\nNRL Final Team: Round 22 vs. Dolphins\nNRL Team List: Round 22 vs. Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 115.17624397972222,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-08T19:17:02+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nigh",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nightmare to beat the Titans 30-8 on the Gold Coast.\nFriday saw the Warriors down the Panthers 28-12 in Auckland and the Roosters edge the Bulldogs 20-18 at Allianz in Sydney.\nThe Storm beat the Sea Eagles 42-20 at HBF Stadium in Perth on Saturday afternoon, before the Dolphins fought back from a 24-point deficit to win the 'Battle of Brisbane' 40-32.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nCanberra Raiders vs. Newcastle Knights\n(Sunday, August 9 at GIO Stadium , 2:00pm AEST)\nCanberra team:\n1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Ethan Sanders 8. Corey Horsburgh 9. Owen Pattie 10. Joe Tapine (c) 11. Zac Hosking 12. Ata Mariota 13. Morgan Smithies\n14. Tom Starling 15. Joe Roddy 16. Josh Papalii 17. Daine Laurie 18. Savelio Tamale 19. Matty Nicholson\nRaiders team news:\nSimi Sasagi returns after being ruled out of the Panthers match with a hamstring strain. Sebastian Kris has been left out altogether this week.\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Dane Gagai 18. Fletcher Hunt 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Francis Manuleleua 13. Mat Croker\n14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 19. Brodie Jones 20. Toby Winter\nKnights team news:\nThe Knights looked good against Brisbane and a finals appearance is still very much on the cards. Jermaine McEwen (hamstring) and Phoenix Crossland (calf) have both been named. Jacob Saifiti (hamstring) is still a couple of weeks away. Bradman Best (calf) is a late withdrawal and is replaced by Fletcher Hunt.\nSt. George Illawarra Dragons vs. Cronulla Sharks\n(Sunday, August 9 at St George Venues Jubilee Stadium , 4:05pm AEST)\nSt. George Illawarra team:\n1. Clint Gutherson 2. Setu Tu 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook (c) 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman\n14. Jacob Liddle 15. Josh Kerr 16. Jacob Halangahu 17. Jacob Webster 18. Daniel Atkinson 19. Mathew Feagai\nDragons team news:\nDaniel Atkinson played NSW Cup last week after being dropped for Lyhkan King-Togia and Dean Young has stuck with his young playmaker for the Sharks. Toby Couchman failed an HIA against the Dolphins and is replaced up front by Emre Guler.\nCronulla team:\n1. Will Kennedy 2. Sione Katoa 3. Jesse Ramien 4. Mawene Hiroti 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 8. Addin Fanua-Blake 9. Blayke Brailey (c) 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cam McInnes\n14. Hohepa Puru 15. Billy Burns 16. Oregon Kaufusi 17. Tom Hazelton 18. Michael Gabrael 19. Braden Uele\nSharks team news:\nKL Iro failed an HIA against the Rabbitohs and is replaced by Mawene Hiroti. Siosifa Talakai suffered a biceps injury against the Rabbitohs and is out at least this week. Jesse Colquhoun comes into the front row with Tom Hazelton named on the bench. Jayden Berrell is out of the 19 .\nNRL RESULTS, SCORES ROUND 23:\nNorth Queensland Cowboys 30 def. Gold Coast Titans 6\n(Thursday, August 6 at Cbus Super Stadium , 7:50pm AEST)\nGold Coast team:\n1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 20. Jaylan De Groot 5. Phillip Sami 6. Jayden Campbell 4. AJ Brimson 8. Moeaki Fotuaika (c) 18. Sam Verrills 10. Tino Fa'asuamaleaui (c) 15. Josh Patston 12. Beau Fermor 13. Chris Randall\n7. Lachlan Ilias 9. Oliver Pascoe 11. Arama Hau 14. Kurtis Morrin 16. Klese Haas 17. Cooper Bai\nNorth Queensland team:",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 5.845410646388889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "784c78932ff37273",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Brandy and Jimmy's Round 23 NRL Tips - SEN",
+            "url": "https://www.sen.com.au/news/2026/08/06/nrl-2026-brandy-and-jimmys-expert-round-23-nrl-tips",
+            "published_at": "2026-08-06T01:54:30+00:00",
+            "snippet": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 23 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nIt took 22 rounds but one of our SEN experts finally managed to tip a perfect round.\nUnfortunately for Greg Alexander, it only trimmed t",
+            "body_excerpt": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 23 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nIt took 22 rounds but one of our SEN experts finally managed to tip a perfect round.\nUnfortunately for Greg Alexander, it only trimmed the margin on Jimmy Smith from four to three. Can Brandy back up his good tipping form this week?\nLeaderboard:\nBrandy: 98 (8)\nJimmy: 101 (7)\nGold Coast Titans v North Queensland Cowboys\nThursday 7:50pm @ Cbus Super Stadium, Gold Coast\nBrandy: Cowboys\nJimmy: Titans\nThe Warriors v Penrith Panthers\nFriday 6pm @ Go Media Stadium, Auckland\nBrandy: Panthers\nJimmy: Panthers\nSydney Roosters v Canterbury-Bankstown Bulldogs\nFriday 8pm @ Allianz Stadium, Sydney\nBrandy: Bulldogs\nJimmy: Roosters\nMelbourne Storm v Manly Sea Eagles\nSaturday 3pm @ HBF Park, Perth\nBrandy: Sea Eagles\nJimmy: Storm\nThe Dolphins v Brisbane Broncos\nSaturday 5:30pm @ Suncorp Stadium, Brisbane\nBrandy: Dolphins\nJimmy: Dolphins\nSouth Sydney Rabbitohs v Parramatta Eels\nSaturday 7:35pm @ Allianz Stadium, Sydney\nBrandy: Rabbitohs\nJimmy: Rabbitohs\nCanberra Raiders v Newcastle Knights\nSunday 2pm @ GIO Stadium, Canberra\nBrandy: Raiders\nJimmy: Knights\nSt George Illawarra Dragons v Cronulla Sharks\nSunday 4:05pm @ St George Venues Jubilee Stadium, Kogarah\nBrandy: Sharks\nJimmy: Sharks\nBye: Wests Tigers\nMore in NRL\n19 hours ago\n1 day ago\nCrafted by Project Diamond",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.22096620194444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "82a0c775ac413b0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/",
+            "published_at": "2026-08-04T23:57:46+00:00",
+            "snippet": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on oppone",
+            "body_excerpt": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on opponents currently languishing in the bottom seven spots.\nRead on for our complete 2026 NRL Round 23 predictions, tips and best bets and don’t forget to check out our exclusive NRL Round 23 betting specials open now!\nThese derby rivals lost their Round 22 home fixtures by a combined margin of 106 points – but it’s the still-in-contention Cowboys most under the microscope after last week’s historic loss.\nFORM: The Titans’ followed up their first back-to-back wins of the season – scoring 38 points against both Manly and St George Illawarra – with a crushing 42-6 home loss to the Warriors.\nThe Cowboys are in disarray after a record-shattering 82-12 loss to the Roosters, which came on the back of a 3-1 run that included wins over the Panthers, Sea Eagles and Broncos.\nINS AND OUTS: Zane Harrison’s season-ending injury sees Lachlan Ilias return in the Titans’ No.7 jersey. The Cowboys get Griffin Neame back from suspension, but Jeremiah Nanai has been ruled out with Kai O’Donnell coming in.\nKEY MATCH-UP: Keano Kini tried hard in a steamrolled team last week, but fellow fullback livewire Scott Drinkwater’s passive display against the Roosters rightly came under a harsh spotlight.\nHISTORY: The Cowboys have won their last three against the Titans, scoring 110 points in the process. They prevailed 30-16 in Townsville in Round 3.\nKEY STAT: The Titans have won four of their last six against the Cowboys at Cbus Super Stadium, averaging 23 points across those six encounters.\nScott Drinkwater has scored five tries in his last five games against the Titans.\nVERDICT: After a week of soul-searching, the Cowboys receive an ideal opportunity to reset and get their finals bid back on track. Four of 10 teams to conceded 50-plus points in 2026 have won their next game – and Todd Payten’s chastened side is still in the thick of the Top 8 race.\nThe Titans took a sizeable step back last week and Harrison’s injury is a bitter blow for a team that looked to be turning a corner. With both sides taking an optional attitude to defence, the over also holds plenty of appeal in this one.\nPrediction: Back Over 48.5 Total Points @ $1.90\nSGM: COWBOYS WIN / BOTH TEAMS SCORE 20+ POINTS / PHILLIP SAMI ANYTIME TRYSCORER / SCOTT DRINKWATER ANYTIME TRYSCORER / HEILUM LUKI ANYTIME TRYSCORER / JOJO FIFITA ANYTIME TRYSCORER @ $67.78\nA potential grand final preview got a major boost with the Warriors and Panthers both returning to form in emphatic fashion last week.\nFORM: The Warriors put some patchy form – including a disappointing 18-6 loss to the Bulldogs in Round 21 – behind them with a blistering 42-6 win over the Titans last Saturday.\nAfter winning only two of their previous five and having some trouble putting away Parramatta in Round 21, the Panthers returned to somewhere near their best in a 42-18 win over the Raiders in Mudgee.\nINS AND OUTS: Charnze Nicoll-Klokstad and Leka Halasima retain their backline spots, while Morgan Gannon is a surprise inclusion on the bench with Demitric Vaimauga remaining on the sidelines. Taine Tuaupiki is on the six-man bench.\nCasey McLean is a big out for the Panthers, replaced by Izack Tago, while Dylan Edwards is still out injured and Jack Cogger keeps his spot ahead of Blaize Talagi.\nKEY MATCH-UP: Nathan Cleary was rested from the clubs’ June epic, while he hasn’t lost to the Warriors since 2019. Te Maire Martin bounced back from a quiet fortnight in a two-try performance last week.\nHISTORY: The Panthers have won 11 of their last 12 against the Warriors, including a gripping 20-18 result at CommBank Stadium in Round 13 this year and a pair of wins in Auckland (28-18 in Round 16 and 24-8 in an elimination final) last season.\nKEY STAT: The Warriors have scored mo",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 97.16652175749999,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "0fb6f4f1604ae042",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Dolphins v Broncos: Katoa ready to shine; Duffy steps up",
+            "url": "https://www.nrl.com/news/2026/08/04/dolphins-v-broncos-katoa-ready-to-shine-duffy-steps-up/",
+            "published_at": "2026-08-08T06:04:31+00:00",
+            "snippet": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week t",
+            "body_excerpt": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week to steer the Dolphins past the Dragons and they are out to keep the momentum rolling against the Broncos on Saturday night.\nThe Dolphins have beaten Brisbane just once since their introduction to the competition in 2023 but they are after more than just bragging rights at Suncorp Stadium this weekend.\nKristian Woolf's men sit fifth and are chasing a top-four finish as they seek a maiden finals berth.\nBrisbane's chances of qualifying for the finals were extinguished with a 24-point loss to the Knights last weekend but they still have plenty to play for.\nThe Broncos claimed a 26-12 victory when the two sides faced off earlier this season and Michael Maguire's men would like nothing more than toppling their local rivals.\nA host of stars are also pushing for a World Cup berth later this season, with Reece Walsh and Pat Carrigan among the Kangaroos contenders.\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\n5th Position\naway Team\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nTeam News\nDolphins : No further changes on game day after one change to the bench in the 24-hour update with Brian Pouniu elevated with Sebastian Su'a dropping out. Earlier, centre Jake Averillo was again listed among the reserves as he chases his first appearance since Round 19 having recovered from a rib injury. Winger Jamayne Isaako has scored nine tries in his last seven games at Suncorp Stadium.\nBroncos : One change to the six-man bench 90 minutes before kick-off, with Blake Mozer coming into the 19 and Hayze Perham dropping out. A new-look spine for Michael Maguire with Billy Walters back in the starting side at hooker at the expense of Cory Paix while Thomas Duffy takes over at halfback from Adam Reynolds (concussion). Xavier Willison has been named to play despite suffering a laceration to his leg in last week's loss to the Knights. He will line up at prop, with Va'a Semu dropping to the bench.\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 15 Interchange for Broncos is number 15 Va'a Semu\n14 15\nInterchange for Dolphins is number 15 Max Plath 15 16 Interchange for Broncos is number 16 Ben Talty\n15 16\nInterchange for Dolphins is number 16 Tom Gilbert 16 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n16 17\nInterchange for Dolphins is number 17 Felise Kaufusi 17 20 Interchange for Broncos is number 20 Blake Mozer\n17 20\nReserve for Dolphins is numb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 19.054021757500003,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c3099bcb9793c8e3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Update: Indigenous Round vs. Sharks - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/08/nrl-team-update-indigenous-round-vs.-sharks/",
+            "published_at": "2026-08-08T06:02:00+00:00",
+            "snippet": "NRL Team Update: Indigenous Round vs. Sharks &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team Update: Indigenous Round vs. Sharks\nDean Young has updated his squad to take on rivals Cronulla at St George Venues Jubilee Stadium in Round 23.\n24-Hour Update: Christian Tuipulotu and Ryan Hutchinson drop out of the squad.\nMatch: Dragons v Sharks\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nDragons\n17th Position\naway Team\nSharks\n4th Position\nVenue: St George Venues Jubilee Stadium, Kogarah\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nToby Couchman (head knock) is unavailable for the Dragons seeing Emre Guler promoted to the run-on side and debutant Jacob Webster named in jersey No.17.\nA Kempsey Dragons junior, Webster made his way to Wollongong as a teenager to play Harold Matthews Cup with the Steelers.\nAn Under 19s State of Origin representative in 2022, the 23-year-old has grown into an integral part of the club’s Knock-On Effect NSW Cup side having this year averaged 131 metres and tallied 672 tackles at over 95 per cent efficiency in 18 outings.\nMoses Suli and Lyhkan King-Togia retain their spots in the starting unit having impressed in their first-grade returns last week.\nINDIGENOUS ROUND TEAM LIST\nINDIGENOUS ROUND\nTEAM LIST\nPLAYER PARTNER\nClint GUTHERSON (c)\nBill & Toni’s Restaurant\nSetu TU\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nPorta Restaurant\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nJacob LIDDLE\nWollongong City Jetski\n15\nJosh KERR\nClassic Sportswear\n16\nJacob HALANGAHU\nTripADeal\n17\nJacob WEBSTER\nJAC Motors\n18\nDaniel ATKINSON\n19\nMathew FEAGAI\ni98FM\n20\nLuciano LEILUA\nSt George Leagues Club\nRelated /\nNRL Indigenous Round Match Preview: Dragons host Sharks in Local Derby battle\nCommunity\nDragons partner with Burraga Foundation for Indigenous Round 50-50 Charity Raffle\nTeam Lists\nNRL Team List: Indigenous Round vs. Sharks\nNRL Final Team: Round 22 vs. Dolphins\nNRL Team List: Round 22 vs. Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.095966201944446,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dragons vs Sharks NRL round 23 preview",
+          "Dragons Sharks NRL odds OR price OR favourite",
+          "Sharks Dragons NRL finals race OR ladder stakes",
+          "Dragons Sharks NRL",
+          "Dragons NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dragons Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Dragons OR Sharks"
+        ],
+        "filter_summary": {
+          "dropped_stale": 56,
+          "dropped_wrong_round": 3,
+          "dropped_noise": 15,
+          "dropped_irrelevant": 17,
+          "kept": 18,
+          "deferred_pending_body": 68,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 4,
+          "dropped_no_body": 3
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "f48699ea821c",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-09T01:07:45.476737+00:00",
+      "finished_at": "2026-08-09T01:09:38.917114+00:00",
+      "duration_ms": 113440,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Sharks",
+        "venue": "St George Venues Jubilee Stadium",
+        "kickoff": "2026-08-09T16:05:00+10:00",
+        "weather": "Rain"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.7349,
+        "home_win_probability": 0.2651,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Away travel to venue (8 km) — contribution 0.115 (6% of total)",
+            "5-game form: effective tackle pct (+1.78) — contribution 0.026 (1% of total)",
+            "Rest-day advantage (+1.8 days) — contribution 0.025 (1% of total)",
+            "Home travel to venue (0 km) — contribution 0.024 (1% of total)",
+            "Home rest (8.9 days) — contribution 0.016 (1% of total)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-317 points) — contribution 0.343 (19% of total)",
+            "Ladder points differential per game (-23.7 points) — contribution 0.265 (15% of total)",
+            "Bradley-Terry strength advantage (-1.76 log-strength) — contribution 0.255 (14% of total)",
+            "Pythagorean form (last 10) (-61% expected-win gap) — contribution 0.110 (6% of total)",
+            "5-game form: all run metres (-111.80) — contribution 0.063 (3% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2601,
+            "total_toward_away": 1.5623,
+            "net": -1.3023,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": []
+        },
+        "fixture": {
+          "home_team": "Dragons",
+          "away_team": "Sharks",
+          "venue": "St George Venues Jubilee Stadium",
+          "kickoff": "2026-08-09T16:05:00+10:00",
+          "weather": "Rain"
+        }
+      },
+      "error": null
+    }
+  ]
+}

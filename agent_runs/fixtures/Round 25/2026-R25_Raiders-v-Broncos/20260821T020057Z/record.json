@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "run_id": "20260821T020057Z-55e11046",
+  "run": {
+    "predicted_at_utc": "2026-08-21T02:13:11.717452+00:00",
+    "predicted_at_local": "2026-08-21T12:13:11.717452+10:00",
+    "started_at_utc": "2026-08-21T02:00:57.720789+00:00",
+    "wall_seconds": 734.0,
+    "hours_before_kickoff": 5.8,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Raiders",
+    "away_team": "Broncos",
+    "venue": "GIO Stadium",
+    "kickoff": "2026-08-21T18:00:00+10:00",
+    "kickoff_local": "2026-08-21T18:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Raiders",
+      "position": 12,
+      "played": 22,
+      "wins": 10,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 24,
+      "points_for": 501,
+      "points_against": 562,
+      "points_difference": -61,
+      "points_difference_per_game": -2.77,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "5 - 6",
+      "away_record": "5 - 6"
+    },
+    "away": {
+      "team": "Broncos",
+      "position": 16,
+      "played": 21,
+      "wins": 6,
+      "drawn": 0,
+      "lost": 15,
+      "competition_points": 18,
+      "points_for": 383,
+      "points_against": 581,
+      "points_difference": -198,
+      "points_difference_per_game": -9.43,
+      "recent_form_last_4": "1 - 4",
+      "streak": "4L",
+      "home_record": "2 - 9",
+      "away_record": "4 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Raiders",
+      "ladder_positions_gap": 4,
+      "points_difference_per_game_gap": 6.66,
+      "points_difference_favours": "Raiders"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Raiders",
+    "predicted_side": "home",
+    "confidence": 0.72,
+    "home_win_probability": 0.72
+  },
+  "math_model": {
+    "home_win_probability": 0.7087,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Ladder points differential per game (+6.7 points) — contribution 0.154 (14% of total)",
+        "Bradley-Terry strength advantage (+0.32 log-strength) — contribution 0.151 (14% of total)",
+        "Elo rating advantage (+91 points) — contribution 0.134 (12% of total)",
+        "Pythagorean form (last 10) (+36% expected-win gap) — contribution 0.123 (11% of total)",
+        "5-game form: all run metres (+98.00) — contribution 0.042 (4% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: points for (+17.60) — contribution 0.041 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Head-to-head record (last 5) (40% to the home side) — contribution 0.024 (2% of total)",
+        "3-game form: errors (-3.00) — contribution 0.021 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Away travel to venue (942 km) — contribution 0.019 (2% of total)",
+        "5-game form: missed tackles (+3.80) — contribution 0.019 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: points for (+17.60)",
+        "3-game form: errors (-3.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Raiders NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Broncos NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Raiders vs Broncos NRL round 25 preview",
+      "Raiders Broncos NRL odds OR price OR favourite",
+      "Raiders Broncos NRL finals race OR ladder stakes",
+      "Raiders Broncos NRL",
+      "Raiders NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Broncos NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Raiders Broncos NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Raiders OR Broncos"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 25 - Trell touch and go; Best good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-20T10:03:20+00:00",
+        "age_hours": 15.972090044166666,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 68.01959004416666,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "NRL Team List Round 25 v Raiders - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:48:55+00:00",
+        "age_hours": 68.21236782194444,
+        "url": "https://www.broncos.com.au/news/2026/08/18/nrl-team-list-round-25-v-raiders/"
+      },
+      {
+        "title": "Canberra Raiders vs Brisbane Broncos Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T02:52:27+00:00",
+        "age_hours": 23.153478933055553,
+        "url": "https://www.sportsnews.com.au/nrl/canberra-raiders-vs-brisbane-broncos-tips-odds-teams-predictions-nrl-round-25-2026/609970"
+      },
+      {
+        "title": "Dolphins v Eels: Plath set to start; De Belin locked in",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-20T10:03:52+00:00",
+        "age_hours": 15.963201155277778,
+        "url": "https://www.nrl.com/news/2026/08/18/dolphins-v-eels-plath-set-to-start-de-belin-locked-in/"
+      },
+      {
+        "title": "Raiders v Broncos: Sasagi returns; Hunt set to start",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-20T08:03:11+00:00",
+        "age_hours": 17.974590044166668,
+        "url": "https://www.nrl.com/news/2026/08/18/raiders-v-broncos-sasagi-returns-hunt-set-to-start/"
+      },
+      {
+        "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T06:04:37+00:00",
+        "age_hours": 19.950701155277777,
+        "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "NRL Casualty Ward: Mitchell eyes comeback; Surgery for Doueihi, Walsh",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-20T04:47:11+00:00",
+        "age_hours": 21.24125671083333,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Raiders v Broncos: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:56:26+00:00",
+        "age_hours": 44.087090044166665,
+        "url": "https://www.nrl.com/watch/news/raiders-v-broncos-round-25-1978621/"
+      },
+      {
+        "title": "Raiders v Broncos: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:56:26+00:00",
+        "age_hours": 44.087090044166665,
+        "url": "https://www.nrl.com/news/2026/08/19/raiders-v-broncos-round-25/"
+      },
+      {
+        "title": "Raiders vs Broncos - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-16T19:25:22+00:00",
+        "age_hours": 102.60486782194445,
+        "url": "https://www.zerotackle.com/raiders-broncos-round-25-2026-mc10396525-237069/"
+      },
+      {
+        "title": "NRL Team List: Round 25 v Titans - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:58:00+00:00",
+        "age_hours": 68.06097893305555,
+        "url": "https://www.sharks.com.au/news/2026/08/18/nrl-team-list-round-25-v-titans/"
+      },
+      {
+        "title": "NRL Late Mail Round 25: Latrell Mitchell won’t play but back next week, surgery for Jock Madden",
+        "source": "theaustralian.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-15T02:01:48+00:00",
+        "age_hours": 143.99764559972223,
+        "url": "https://www.theaustralian.com.au/sport/nrl/nrl-late-mail-round-25-rabbitohs-young-gun-dayne-jennings-back-from-gruesome-injury/news-story/f9e0661b9a55ca8efcc14c9ab0b6513b"
+      },
+      {
+        "title": "Huge news on Latrell’s comeback ahead of the finals; Dragons star’s season over: Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T15:48:59+00:00",
+        "age_hours": 10.211256710833334,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-latest-team-news-and-injury-updates-latrell-mitchell-clint-gutherson-tom-trbojevic/news-story/1362e2e046e9793d10ba74e544d57765"
+      },
+      {
+        "title": "NRL Team List: Raiders v Broncos - raiders.com.au",
+        "source": "raiders.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:56:17+00:00",
+        "age_hours": 68.08959004416667,
+        "url": "https://www.raiders.com.au/news/2026/08/18/nrl-team-list-raiders-v-broncos/"
+      },
+      {
+        "title": "NRL News /",
+        "source": "nrl.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-20T20:00:00+00:00",
+        "age_hours": 6.027645599722223,
+        "url": "https://www.nrl.com/news/topic/nrl-news/"
+      },
+      {
+        "title": "Dolphins vs Eels Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T06:04:37+00:00",
+        "age_hours": 19.950701155277777,
+        "url": "https://www.beforeyoubet.com.au/dolphins-vs-eels-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Brandy and Jimmy's Round 25 NRL Tips - SEN",
+        "source": "sen.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T03:05:56+00:00",
+        "age_hours": 22.92875671083333,
+        "url": "https://www.sen.com.au/news/2026/08/20/nrl-2026-brandy-and-jimmy-s-expert-round-25-tips"
+      },
+      {
+        "title": "'Carry on what he's built': Raiders' vow before Papa's swansong",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Raiders",
+        "published_at": "2026-08-20T20:01:22+00:00",
+        "age_hours": 6.004867821944445,
+        "url": "https://www.nrl.com/news/2026/08/21/carry-on-what-hes-built-raiders-vow-before-papas-swansong/"
+      },
+      {
+        "title": "Raiders vs Broncos Prediction & NRL Betting Preview - 21/8/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T15:50:11+00:00",
+        "age_hours": 10.191256710833333,
+        "url": "https://insights.betfred.com/rugby-league/raiders-vs-broncos-prediction-betting-tips-friday-21-august-2026/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The market price '$1.30' is a hallucination as it does not appear in the research.",
+      "Several top math drivers (Bradley-Terry strength, H2H record, 5-game points for) were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The market price '$1.30' is not mentioned in any research body excerpt or title."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Reece Walsh is correctly described as missing due to surgery and Simi Sasagi as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Ladder points differential and Elo rating are correctly attributed to the Raiders from the favouring_Raiders_home_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include Reece Walsh's injury and Josh Papalii's final home game from research articles."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.72 is within the allowed range and justified by strong math signals and key injury news."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the top SHAP drivers (Ladder diff, Elo) rather than minor ones."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Math drivers 'Bradley-Terry strength advantage', 'Head-to-head record (last 5)', and '5-game form: points for' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.72
+  },
+  "reasoning": {
+    "summary": "The Raiders hold a significant edge in strength and form, while the Broncos are on a four-game losing streak and missing star fullback Reece Walsh due to surgery. While the model notes minor advantages for Brisbane in head-to-head records and recent points scored, these are heavily outweighed by Canberra's overall ratings and home advantage. The match is further charged emotionally as it marks Josh Papalii's final appearance at GIO Stadium.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model identifies a strong edge for the Raiders via Bradley-Terry strength advantage (+0.32 log-strength, 14% contribution) and Elo rating (+91 points)."
+      },
+      {
+        "source": "research",
+        "detail": "The Broncos are missing star fullback Reece Walsh, who has undergone surgery to repair a syndesmosis injury (broncos.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Raiders regain Simi Sasagi and have an emotional driver in Josh Papalii's final home game at GIO Stadium (nrl_news)."
+      },
+      {
+        "source": "math",
+        "detail": "Minor drivers favouring the Broncos, including head-to-head records and 5-game points for, provide minimal contribution (2-4% each) compared to the primary strength metrics."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Raiders-v-Broncos/20260821T020057Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Raiders-v-Broncos/20260821T020057Z/summary.md"
+  }
+}

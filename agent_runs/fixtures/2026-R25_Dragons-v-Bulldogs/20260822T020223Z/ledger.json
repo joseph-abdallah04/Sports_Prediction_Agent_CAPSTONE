@@ -1,0 +1,1294 @@
+{
+  "schema_version": 2,
+  "run_id": "20260822T020223Z-7e51b39e",
+  "at_a_glance": {
+    "fixture": "Dragons v Bulldogs",
+    "round": 25,
+    "kickoff": "2026-08-22T19:35:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Bulldogs",
+    "confidence": 0.65,
+    "model_home_win_probability": 0.3156,
+    "model_prediction": "Away Win",
+    "research_items_kept": 19,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-22T02:02:23.185669+00:00",
+  "updated_at": "2026-08-22T02:13:42.066233+00:00",
+  "request": {
+    "home_team": "Dragons",
+    "away_team": "Bulldogs",
+    "season": 2026,
+    "round_number": 25,
+    "force_refresh": true,
+    "user_question": "Who wins Dragons vs Bulldogs?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Dragons",
+    "away_team": "Bulldogs",
+    "confidence": 0.65,
+    "summary": "The Bulldogs hold a significant class advantage, sitting 9th on the ladder compared to the Dragons in 17th. While the Dragons have recent momentum with a two-game winning streak and superior recent run metres, the Bulldogs are driven by the need to win for finals contention. The math model strongly favors the Bulldogs, primarily through Bradley-Terry and Elo strength ratings, which outweigh minor home-side advantages like travel distance and recent run metres.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model identifies a strong edge for the Bulldogs via Bradley-Terry strength advantage (15% contribution) and Elo rating advantage (19% contribution)."
+      },
+      {
+        "source": "research",
+        "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 19,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 1
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 17
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 4
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Dragons NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Dragons vs Bulldogs NRL round 25 preview",
+      "Dragons Bulldogs NRL odds OR price OR favourite",
+      "Dragons Bulldogs NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that the Bulldogs are favoured by the market at '$1.50' is not present in any research body_excerpt or title."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "No specific player availability claims were made in the judgement."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating advantage and ladder points differential are correctly attributed to the Bulldogs' win probability."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from nrl.com regarding the Bulldogs' finals hopes."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence is 0.65, which is defensible given the Bulldogs' class advantage vs the Dragons' current winning streak."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder points)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Bradley-Terry strength advantage' (Bulldogs), 'Away travel to venue' (Dragons), and '3-game form: all run metres' (Dragons) were not addressed."
+        }
+      ],
+      "issues": [
+        "Hallucinated market price of $1.50.",
+        "Omitted top math signals: Bradley-Terry strength advantage, Away travel to venue, and 3-game form: all run metres."
+      ],
+      "instruction": "Please remove the hallucinated market price ($1.50) and evaluate the following math drivers: 'Bradley-Terry strength advantage', 'Away travel to venue', and '3-game form: all run metres'."
+    },
+    "instruction": "Please remove the hallucinated market price ($1.50) and evaluate the following math drivers: 'Bradley-Terry strength advantage', 'Away travel to venue', and '3-game form: all run metres'.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Dragons",
+      "away_team": "Bulldogs",
+      "confidence": 0.65,
+      "summary": "The Bulldogs hold a significant advantage in class and ladder position (9th vs 17th) and are heavily favoured by the market ($1.50). While the Dragons are currently resurgent with a two-game winning streak, the Bulldogs are fighting for a finals spot, providing strong motivation to overcome their own recent two-game slump. The math model strongly supports an away win driven by Elo and strength ratings.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies a strong edge for the Bulldogs via Elo rating advantage (19% contribution) and ladder points differential per game (18% contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Dragons",
+      "away_team": "Bulldogs",
+      "confidence": 0.65,
+      "summary": "The Bulldogs hold a significant class advantage, sitting 9th on the ladder compared to the Dragons in 17th. While the Dragons have recent momentum with a two-game winning streak and superior recent run metres, the Bulldogs are driven by the need to win for finals contention. The math model strongly favors the Bulldogs, primarily through Bradley-Terry and Elo strength ratings, which outweigh minor home-side advantages like travel distance and recent run metres.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies a strong edge for the Bulldogs via Bradley-Terry strength advantage (15% contribution) and Elo rating advantage (19% contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Hallucinated market price of $1.50.",
+      "Omitted top math signals: Bradley-Terry strength advantage, Away travel to venue, and 3-game form: all run metres."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T02:03:00.429993+00:00",
+      "thinking": "*   Home Team: Dragons\n    *   Away Team: Bulldogs\n    *   Round Number: 25\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Dragons).\n    *   Query 2: Away team availability (Bulldogs).\n    *   Query 3: Fixture preview (Dragons vs Bulldogs Round 25).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific context (Form/Ladder/Pressure).\n\n    *   Q1 (Home): `Dragons NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q2 (Away): `Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q3 (Fixture): `Dragons vs Bulldogs NRL round 25 preview`\n    *   Q4 (Market): `Dragons Bulldogs NRL odds OR price OR favourite`\n    *   Q5 (Context): Since it's Round 25 (late season), \"finals race\" or \"ladder stakes\" is the most likely relevant angle. `Dragons Bulldogs NRL finals race OR ladder stakes` or `Bulldogs NRL form streak OR finals hopes`. Let's go with `Dragons Bulldogs NRL finals race OR ladder stakes`.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Dragons, Bulldogs).\n    *   JSON format? Yes.",
+      "chars": 1250
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T02:08:24.337533+00:00",
+      "thinking": "*   Match: Dragons (Home) vs Bulldogs (Away).\n    *   Venue: Allianz Stadium.\n    *   Round: 25.\n\n    *   Prediction: Away Win (Bulldogs).\n    *   Probability: 0.6844.\n    *   Key Drivers (Away): Elo rating advantage (19%), Ladder points differential per game (18%), Bradley-Terry strength (15%), Pythagorean form (6%), 5-game form points against (4%).\n    *   Key Drivers (Home): Away travel (5%), 3-game form run metres (2%), 5-game form effective tackle % (1%), 3-game form forced drop outs (1%), 3-game form points against (1% - CONFLICT).\n    *   Attribution Balance: Leans heavily away (1.2942 vs 0.2296).\n\n    *   Dragons: Position 17, 4 wins, 17 losses. Points diff per game: -12.52. Recent form: 2W (streak).\n    *   Bulldogs: Position 9, 10 wins, 11 losses. Points diff per game: -2.95. Recent form: 2L (streak).\n    *   Gap: Bulldogs are 8 places higher.\n\n    *   Bulldogs: \"put their finals hopes on the line\" (nrl.com), \"must now win at least two of their final three games\" to play finals.\n    *   Dragons: \"resurgent\" (nrl.com), \"doubled its season win tally across the past fortnight\" (sportsnews.com.au), winning last two games (Wests Tigers, Cronulla).\n    *   Availability:\n        *   Dragons: Clint Gutherson (knee) is missing. Daniel Atkinson is starting at fullback.\n        *   Bulldogs: No major injuries mentioned in the excerpts for this specific game.\n    *   Market: Bulldogs are favourites (sportsnews.com.au mentions them as favourites; market_mentions shows $1.50 vs $9.25).\n\n    *   The math model strongly favours the Bulldogs (0.68 probability) based on Elo, ladder position, and overall strength.\n    *   The Dragons have momentum (2W streak, \"resurgent\").\n    *   The Bulldogs have high motivation (finals race) but are coming off 2 losses.\n    *   The Dragons are at the bottom of the ladder (17th).\n    *   The Bulldogs are 9th.\n\n    *   Winner: Away (Bulldogs).\n    *   Confidence: The model says 0.68. The Dragons' recent form (2 wins) is a positive signal, but they are 17th on the ladder. The Bulldogs are fighting for finals. The gap in class (Elo/Ladder) is significant. However, the Bulldogs' recent 2-game losing streak and the Dragons' surge suggest it's not a lock.\n    *   Confidence Band: 0.60 - 0.65. Why? The Bulldogs have a clear edge in ratings and ladder position, but the Dragons' current form (2 wins) and the Bulldogs' recent dip (2 losses) create some uncertainty.\n    *   Strongest reason to lose: Dragons' current momentum/resurgence (winning last 2) vs Bulldogs' recent slump (losing last 2).\n\n    *   `winner`: \"away\"\n    *   `home_team`: \"Dragons\"\n    *   `away_team`: \"Bulldogs\"\n    *   `confidence`: 0.65 (Modest to clear edge, but tempered by recent form).\n    *   `summary`: The Bulldogs enter as clear favourites based on their superior ladder position (9th vs 17th) and Elo rating. While the Dragons are resurgent with two recent wins, the Bulldogs are fighting for a finals spot and possess a significant strength advantage. The market also favours the Bulldogs ($1.50).\n    *   `key_factors`:\n        1.  Math: Elo rating advantage and ladder points differential per game.\n        2.  Research: Bulldogs' motivation to win for finals hopes (nrl.com).\n        3.  Scene: Bulldogs' significantly higher ladder position (9th vs 17th).\n    *   `disagreements_with_math`: None (agreeing with Away win).\n\n    *   Check SHAP drivers: Elo (19%), Ladder diff (18%), Bradley-Terry (15%). All favour Bulldogs.\n    *   Check research: nrl.com mentions Bulldogs' finals hopes.\n    *   Check standings: Bulldogs 9th, Dragons 17th.\n    *   Check market: Bulldogs $1.50.\n    *   Check confidence: 0.65 is appropriate given the ratings gap vs the recent form flip (Dragons winning, Bulldogs losing).",
+      "chars": 3755
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T02:12:06.758777+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are top SHAP drivers from both sides addressed?\n\n- Home: Dragons (17th)\n- Away: Bulldogs (9th)\n- Prediction: Away Win\n- Confidence: 0.65\n\n- \"Bulldogs hold a significant advantage in class and ladder position (9th vs 17th)\" -> Scene (standings).\n- \"heavily favoured by the market ($1.50)\" -> Research (sportsnews.com.au says \"Canterbury Bulldogs heading into the game as favourites\", but doesn't explicitly state $1.50. Wait, let me check the research bodies again).\n    - `sportsnews.com.au`: \"Canterbury Bulldogs heading into the game as favourites with the bookmakers.\" No price mentioned.\n    - `Before You Bet`: No price mentioned.\n    - `nrl_news`: No price mentioned.\n    - Hallucination check: The price \"$1.50\" is not in any research body.\n- \"Dragons are currently resurgent with a two-game winning streak\" -> Scene (streak: \"2W\").\n- \"Bulldogs are fighting for a finals spot\" -> Research (`nrl_news`: \"The Bulldogs will put their finals hopes on the line... must now win at least two of their final three games\").\n- \"Bulldogs... recent two-game slump\" -> Scene (streak: \"2L\").\n- \"math model strongly supports an away win driven by Elo and strength ratings\" -> Math (`predict_match`).\n\n- \"Elo rating advantage (19% contribution)\" -> Math (`favouring_Bulldogs_away_win`).\n- \"ladder points differential per game (18% contribution)\" -> Math (`favouring_Bulldogs_away_win`).\n- \"Bulldogs are fighting for finals hopes... (nrl.com)\" -> Research (`nrl_news` body: \"The Bulldogs will put their finals hopes on the line...\").\n- \"Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position\" -> Scene (standings).\n\n- No availability claims made in the judgement (no specific players mentioned as in/out).\n\n- \"Elo rating advantage\" (19%) -> `favouring_Bulldogs_away_win`. Correct.\n- \"ladder points differential per game\" (18%) -> `favouring_Bulldogs_away_win`. Correct.\n\n- Weather is \"Fine\". Not mentioned in summary or key factors. Pass.\n\n- Key factor 2 is sourced from research (`nrl.com` / `nrl_news`). Pass.\n\n- Confidence is 0.65.\n- Justification: \"Bulldogs hold a significant advantage in class and ladder position... fighting for a finals spot... math model strongly supports\".\n- Defensibility: 0.65 is within 0.50-0.85. There is a credible reason the pick could lose (Dragons are on a 2-game winning streak, Bulldogs on a 2-game losing streak). 0.65 is at or below 0.65. Pass.\n\n- Top drivers for Bulldogs: Elo (19%), Ladder points diff (18%), Bradley-Terry (15%).\n- Top drivers for Dragons: Away travel (5%), 3-game form run metres (2%).\n- Judgement mentions Elo and Ladder points diff.\n- It does NOT mention Bradley-Terry (15%) or Pythagorean form (6%).\n- It does NOT mention \"Away travel to venue\" (5%) or \"3-game form: all run metres\" (2%).\n- Wait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n- Bulldogs side: Elo (named), Ladder points (named), Bradley-Terry (NOT named).\n- Dragons side: Away travel (NOT named), 3-game form run metres (NOT named).\n- This is a failure of `omitted_math_signals`.\n\n- The price \"$1.50\" is not in the research. This is a hallucination.\n\n- `sourced_claims`: Fail. The price \"$1.50\" is not in the research.\n- `availability_direction`: Pass (no claims).\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Bradley-Terry (Bulldogs), Away travel (Dragons), and 3-game form run metres (Dragons) are missing.\n\n- `sourced_claims`: \"heavily favoured by the market ($1.50)\" -> Not found in any research body.\n- `omitted_math_signals`: \"Bradley-Terry strength advantage\", \"Away travel to venue\", \"3-game form: all run metres\".\n\nWait, let me double check the research for the price.\n- `sportsnews.com.au`: \"Canterbury Bulldogs heading into the game as favourites with the bookmakers.\"\n- `Before You Bet`: \"Dragons vs Bulldogs Predictions & Tips... A win but still stuck at the bottom\"\n- No prices.\n\nLet's re-verify `omitted_math_signals`.\n- `favouring_Bulldogs_away_win`:\n    1. Elo rating advantage (Named)\n    2. Ladder points differential per game (Named)\n    3. Bradley-Terry strength advantage (NOT named)\n- `favouring_Dragons_home_win`:\n    1. Away travel to venue (NOT named)\n    2. 3-game form: all run metres (NOT named)\n    3. 5-game form: effective tackle pct (NOT named)\n\nThe judge must evaluate the top 2-3 from *each* side.\n\nOne more check on `sourced_claims`:\n- \"Bulldogs are fighting for finals hopes... (nrl.com)\" -> Found in `nrl_news` body: \"The Bulldogs will put their finals hopes on the line...\". Correct.\n- \"Dragons are currently resurgent with a two-game winning streak\" -> Scene `streak: \"2W\"`. Correct.\n- \"Bulldogs... recent two-game slump\" -> Scene `streak: \"2L\"`. Correct.\n\nFinal check on `confidence_justified`:\n- Confidence 0.65.\n- Reason for pick to lose: Dragons are on a 2-game winning streak, Bulldogs on a 2-game losing streak.\n- 0.65 is $\\le 0.65$. Pass.\n\nSummary of issues:\n1. Hallucinated price \"$1.50\".\n2. Omitted math signals: Bradley-Terry strength advantage, Away travel to venue, 3-game form: all run metres.",
+      "chars": 6009
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T02:13:42.066117+00:00",
+      "thinking": "*   Winner: Away (Bulldogs)\n    *   Confidence: 0.65\n    *   Summary: Mentioned ladder position, market favorite (hallucinated $1.50), Dragons' streak, Bulldogs' finals motivation, and math model.\n    *   Key Factors: Math (Elo/Ladder diff), Research (Finals hopes), Scene (Ladder position).\n\n    *   *Hallucinated market price:* I cited $1.50. Looking at `market_mentions`, the prices found are `$1.50` and `$9.25`. Wait, the `market_mentions` block *does* contain `$1.50`. However, the verifier says I hallucinated it. Let me re-read the `market_mentions` JSON.\n        *   `\"prices_found\": [\"$1.50\", \"$9.25\"]`\n        *   Wait, if it's in the JSON, why did the verifier say it's hallucinated?\n        *   Looking closer at the `market_mentions` snippet: \"Canterbury Bulldogs heading into the game as favourites with the bookmakers... St George Illawarra Dragons vs Canterbury Bulldogs Odds... $1.50, $9.25\".\n        *   Actually, the verifier says I hallucinated it. I must follow the verifier's instruction to remove it, regardless of whether I think it's there, or perhaps the verifier is implying I attributed it incorrectly or it's not explicitly linked to the Bulldogs in a way that's certain. Regardless, the instruction is: \"Please remove the hallucinated market price ($1.50)\". I will remove it.\n\n    *   *Omitted math signals:*\n        *   `Bradley-Terry strength advantage (-0.91 log-strength)`: Contribution 0.222 (15% of total). This is a major driver for the Bulldogs.\n        *   `Away travel to venue (16 km)`: Contribution 0.075 (5% of total). This favors the Dragons (home).\n        *   `3-game form: all run metres (+167.67)`: Contribution 0.023 (2% of total). This favors the Dragons (home).\n\n    *   *Winner:* Still Bulldogs. The math model is heavily skewed towards them (net -1.0646).\n    *   *Confidence:* 0.65.\n        *   Strongest reason they could lose: Dragons are on a 2-game winning streak (scene: `streak: \"2W\"`) and the Bulldogs are on a 2-game losing streak (scene: `streak: \"2L\"`).\n        *   The Dragons have some minor momentum (run metres, effective tackle pct).\n        *   However, the gap in class (9th vs 17th) and the Bradley-Terry/Elo ratings are dominant.\n        *   Confidence stays at 0.65 because while the Bulldogs are clear favorites, the recent form (Dragons winning, Bulldogs losing) creates enough variance to prevent a higher confidence score.\n\n    *   *Summary:* Update to remove the price and incorporate the missing math drivers.\n    *   *Key Factors:*\n        *   Math: Bradley-Terry strength advantage (15% contribution).\n        *   Research: Finals motivation (nrl.com).\n        *   Scene: Ladder position (9th vs 17th).\n        *   Address the home-favoring drivers: The model acknowledges the Dragons' recent run-metre advantage and the short travel distance for the Bulldogs, but these are outweighed by the strength ratings.\n\n    *   `winner`: \"away\"\n    *   `home_team`: \"Dragons\"\n    *   `away_team`: \"Bulldogs\"\n    *   `confidence`: 0.65\n    *   `summary`: \"The Bulldogs hold a significant class advantage, sitting 9th on the ladder compared to the Dragons in 17th. While the Dragons have recent momentum with a two-game winning streak and superior recent run metres, the Bulldogs are driven by the need to win for finals contention. The math model strongly favors the Bulldogs, primarily through Bradley-Terry and Elo strength ratings.\"\n    *   `key_factors`:\n        *   Math: Bradley-Terry strength advantage (15% contribution).\n        *   Research: Bulldogs' finals hopes (nrl.com).\n        *   Scene: Ladder position (9th vs 17th).\n    *   `disagreements_with_math`: \"null\"\n\n    *   Remove $1.50? Yes.\n    *   Evaluate Bradley-Terry? Yes (15% contribution).\n    *   Evaluate Away travel? Yes (5% contribution, favors home).\n    *   Evaluate 3-game run metres? Yes (2% contribution, favors home).\n    *   Check `attribution_balance`: Leans away (away).\n    *   Check `standings`: Bulldogs 9th, Dragons 17th. Correct.",
+      "chars": 3993
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T02:03:00.436524+00:00",
+      "payload": {
+        "queries": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Dragons vs Bulldogs NRL round 25 preview",
+          "Dragons Bulldogs NRL odds OR price OR favourite",
+          "Dragons Bulldogs NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T02:08:24.337759+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "confidence": 0.65,
+          "summary": "The Bulldogs hold a significant advantage in class and ladder position (9th vs 17th) and are heavily favoured by the market ($1.50). While the Dragons are currently resurgent with a two-game winning streak, the Bulldogs are fighting for a finals spot, providing strong motivation to overcome their own recent two-game slump. The math model strongly supports an away win driven by Elo and strength ratings.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a strong edge for the Bulldogs via Elo rating advantage (19% contribution) and ladder points differential per game (18% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T02:12:06.759259+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that the Bulldogs are favoured by the market at '$1.50' is not present in any research body_excerpt or title."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "No specific player availability claims were made in the judgement."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating advantage and ladder points differential are correctly attributed to the Bulldogs' win probability."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from nrl.com regarding the Bulldogs' finals hopes."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence is 0.65, which is defensible given the Bulldogs' class advantage vs the Dragons' current winning streak."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder points)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Bradley-Terry strength advantage' (Bulldogs), 'Away travel to venue' (Dragons), and '3-game form: all run metres' (Dragons) were not addressed."
+            }
+          ],
+          "issues": [
+            "Hallucinated market price of $1.50.",
+            "Omitted top math signals: Bradley-Terry strength advantage, Away travel to venue, and 3-game form: all run metres."
+          ],
+          "instruction": "Please remove the hallucinated market price ($1.50) and evaluate the following math drivers: 'Bradley-Terry strength advantage', 'Away travel to venue', and '3-game form: all run metres'."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T02:13:42.066176+00:00",
+      "payload": {
+        "issues": [
+          "Hallucinated market price of $1.50.",
+          "Omitted top math signals: Bradley-Terry strength advantage, Away travel to venue, and 3-game form: all run metres."
+        ],
+        "instruction": "Please remove the hallucinated market price ($1.50) and evaluate the following math drivers: 'Bradley-Terry strength advantage', 'Away travel to venue', and '3-game form: all run metres'.",
+        "before": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "confidence": 0.65,
+          "summary": "The Bulldogs hold a significant advantage in class and ladder position (9th vs 17th) and are heavily favoured by the market ($1.50). While the Dragons are currently resurgent with a two-game winning streak, the Bulldogs are fighting for a finals spot, providing strong motivation to overcome their own recent two-game slump. The math model strongly supports an away win driven by Elo and strength ratings.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a strong edge for the Bulldogs via Elo rating advantage (19% contribution) and ladder points differential per game (18% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "confidence": 0.65,
+          "summary": "The Bulldogs hold a significant class advantage, sitting 9th on the ladder compared to the Dragons in 17th. While the Dragons have recent momentum with a two-game winning streak and superior recent run metres, the Bulldogs are driven by the need to win for finals contention. The math model strongly favors the Bulldogs, primarily through Bradley-Terry and Elo strength ratings, which outweigh minor home-side advantages like travel distance and recent run metres.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a strong edge for the Bulldogs via Bradley-Terry strength advantage (15% contribution) and Elo rating advantage (19% contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "The Bulldogs are fighting for finals hopes and must win at least two of their final three games to remain in contention (nrl.com)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Bulldogs are significantly higher on the official ladder, sitting 9th compared to the Dragons in 17th position."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "f821ca85517b",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-22T02:02:23.185855+00:00",
+      "finished_at": "2026-08-22T02:02:26.874303+00:00",
+      "duration_ms": 3688,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Bulldogs",
+        "season": 2026,
+        "round_number": 25,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "season": 2026,
+          "round_number": 25
+        },
+        "retrieved_at": "2026-08-22T02:02:23.185923+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 25,
+          "round_title": "Round 25",
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "kickoff": "2026-08-22T19:35:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/dragons-v-bulldogs/",
+          "match_mode": "Pre",
+          "match_id": "20261112560",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Liam Kennedy"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Jon Stone"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Daniel Atkinson",
+                "position": "Fullback",
+                "player_id": 100004700
+              },
+              {
+                "number": 2,
+                "name": "Mathew Feagai",
+                "position": "Winger",
+                "player_id": 507925
+              },
+              {
+                "number": 3,
+                "name": "Moses Suli",
+                "position": "Centre",
+                "player_id": 504101
+              },
+              {
+                "number": 4,
+                "name": "Valentine Holmes",
+                "position": "Centre",
+                "player_id": 500845
+              },
+              {
+                "number": 5,
+                "name": "Tyrell Sloan",
+                "position": "Winger",
+                "player_id": 509484
+              },
+              {
+                "number": 6,
+                "name": "Lyhkan King-Togia",
+                "position": "Five-Eighth",
+                "player_id": 100012312
+              },
+              {
+                "number": 7,
+                "name": "Kyle Flanagan",
+                "position": "Halfback",
+                "player_id": 504363
+              },
+              {
+                "number": 8,
+                "name": "Loko Jnr Pasifiki Tonga",
+                "position": "Prop",
+                "player_id": 100014137
+              },
+              {
+                "number": 9,
+                "name": "Jacob Liddle",
+                "position": "Hooker",
+                "player_id": 503449
+              },
+              {
+                "number": 11,
+                "name": "Dylan Egan",
+                "position": "2nd Row",
+                "player_id": 100006243
+              },
+              {
+                "number": 12,
+                "name": "Hamish Stewart",
+                "position": "2nd Row",
+                "player_id": 100006241
+              },
+              {
+                "number": 13,
+                "name": "Ryan Couchman",
+                "position": "Lock",
+                "player_id": 100008396
+              },
+              {
+                "number": 14,
+                "name": "Damien Cook",
+                "position": "Interchange",
+                "player_id": 501600
+              },
+              {
+                "number": 15,
+                "name": "Toby Couchman",
+                "position": "Prop",
+                "player_id": 100011308
+              },
+              {
+                "number": 16,
+                "name": "Jacob Halangahu",
+                "position": "Interchange",
+                "player_id": 100011655
+              },
+              {
+                "number": 17,
+                "name": "Jacob Webster",
+                "position": "Interchange",
+                "player_id": 100004153
+              },
+              {
+                "number": 18,
+                "name": "Setu Tu",
+                "position": "Interchange",
+                "player_id": 510696
+              },
+              {
+                "number": 19,
+                "name": "Josh Kerr",
+                "position": "Interchange",
+                "player_id": 503533
+              },
+              {
+                "number": 20,
+                "name": "Blake Lawrie",
+                "position": "Interchange",
+                "player_id": 503440
+              },
+              {
+                "number": 21,
+                "name": "Luciano Leilua",
+                "position": "Reserve",
+                "player_id": 500459
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Connor Tracey",
+                "position": "Fullback",
+                "player_id": 502015
+              },
+              {
+                "number": 2,
+                "name": "Jacob Kiraz",
+                "position": "Winger",
+                "player_id": 100004133
+              },
+              {
+                "number": 3,
+                "name": "Matt Burton",
+                "position": "Centre",
+                "player_id": 509397
+              },
+              {
+                "number": 4,
+                "name": "Bronson Xerri",
+                "position": "Centre",
+                "player_id": 504714
+              },
+              {
+                "number": 5,
+                "name": "Enari Tuala",
+                "position": "Winger",
+                "player_id": 504372
+              },
+              {
+                "number": 6,
+                "name": "Stephen Crichton",
+                "position": "Five-Eighth",
+                "player_id": 508062
+              },
+              {
+                "number": 7,
+                "name": "Lachlan Galvin",
+                "position": "Halfback",
+                "player_id": 100007336
+              },
+              {
+                "number": 8,
+                "name": "Max King",
+                "position": "Prop",
+                "player_id": 504397
+              },
+              {
+                "number": 9,
+                "name": "Bailey Hayward",
+                "position": "Hooker",
+                "player_id": 505864
+              },
+              {
+                "number": 10,
+                "name": "Leo Thompson",
+                "position": "Prop",
+                "player_id": 100007572
+              },
+              {
+                "number": 11,
+                "name": "Viliame Kikau",
+                "position": "2nd Row",
+                "player_id": 500408
+              },
+              {
+                "number": 12,
+                "name": "Jacob Preston",
+                "position": "2nd Row",
+                "player_id": 507878
+              },
+              {
+                "number": 13,
+                "name": "Jaeman Salmon",
+                "position": "Lock",
+                "player_id": 504301
+              },
+              {
+                "number": 14,
+                "name": "Kurt Mann",
+                "position": "Interchange",
+                "player_id": 500601
+              },
+              {
+                "number": 15,
+                "name": "Josh Curran",
+                "position": "Interchange",
+                "player_id": 504712
+              },
+              {
+                "number": 16,
+                "name": "Harry Hayes",
+                "position": "Interchange",
+                "player_id": 100006687
+              },
+              {
+                "number": 17,
+                "name": "Alekolasimi Jones",
+                "position": "Interchange",
+                "player_id": 100013762
+              },
+              {
+                "number": 19,
+                "name": "Jake Turpin",
+                "position": "Interchange",
+                "player_id": 501280
+              },
+              {
+                "number": 20,
+                "name": "Sean O'Sullivan",
+                "position": "Interchange",
+                "player_id": 504842
+              },
+              {
+                "number": 22,
+                "name": "Jonathan Sua",
+                "position": "Reserve",
+                "player_id": 100011328
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 25,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Dragons",
+            "position": 17,
+            "played": 21,
+            "wins": 4,
+            "drawn": 0,
+            "lost": 17,
+            "competition_points": 14,
+            "points_for": 344,
+            "points_against": 607,
+            "points_difference": -263,
+            "points_difference_per_game": -12.52,
+            "recent_form_last_4": "2 - 3",
+            "streak": "2W",
+            "home_record": "2 - 8",
+            "away_record": "2 - 9"
+          },
+          "away": {
+            "team": "Bulldogs",
+            "position": 9,
+            "played": 21,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 11,
+            "competition_points": 26,
+            "points_for": 402,
+            "points_against": 464,
+            "points_difference": -62,
+            "points_difference_per_game": -2.95,
+            "recent_form_last_4": "3 - 2",
+            "streak": "2L",
+            "home_record": "7 - 4",
+            "away_record": "3 - 7"
+          },
+          "comparison": {
+            "higher_on_ladder": "Bulldogs",
+            "ladder_positions_gap": -8,
+            "points_difference_per_game_gap": -9.57,
+            "points_difference_favours": "Bulldogs"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-22T19:00",
+            "temperature_c": 15.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 7.2,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-22T02:02:26.870453+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=25&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/dragons-v-bulldogs/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "50086604132c",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-22T02:03:00.444729+00:00",
+      "finished_at": "2026-08-22T02:05:00.213954+00:00",
+      "duration_ms": 119769,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Bulldogs",
+        "kickoff": "2026-08-22T19:35:00+10:00",
+        "round_number": 25,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Dragons vs Bulldogs NRL round 25 preview",
+          "Dragons Bulldogs NRL odds OR price OR favourite",
+          "Dragons Bulldogs NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "kickoff": "2026-08-22T19:35:00+10:00",
+          "round_number": 25,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Dragons NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Dragons vs Bulldogs NRL round 25 preview",
+            "Dragons Bulldogs NRL odds OR price OR favourite",
+            "Dragons Bulldogs NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-22T02:03:00.463784+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 1
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 17
+          }
+        },
+        "items": [
+          {
+            "id": "fcfe094bee404c00",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 25 - Latrell on hold; Turbo on track",
+            "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/",
+            "published_at": "2026-08-21T10:04:46+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has affected his leg and calf but had been named in the Rabbitohs' extended squad on Tuesday.\n\"There was a chance (for this week). He trained pretty well but just probably needs another week,\" coach Wayne Bennett said on Friday.\n\"We took a cautious approach and we'll give him another week.\"\nBetter news for Manly though with Tom Trbojevic a confirmed starter for their clash with the Knights on Saturday.\nSee all the late mail, official team news and updates for Round 25 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 25\nKnights v Sea Eagles, Saturday 3.00pm at McDonald Jones Stadium\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Sea Eagles is number 1 Tom Trbojevic\nWinger for Knights is number 2 Dominic Young 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Knights is number 3 Fletcher Hunt 3 Centre for Sea Eagles is number 3 Tolutau Koula\nCentre for Knights is number 4 Bradman Best 4 Centre for Sea Eagles is number 4 Reuben Garrick\nWinger for Knights is number 5 Greg Marzhew 5 Winger for Sea Eagles is number 5 Lehi Hopoate\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Sea Eagles is number 6 Clayton Faulalo\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Knights is number 8 Jacob Saifiti 8 Prop for Sea Eagles is number 8 Simione Laiafi\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Knights is number 10 Trey Mooney 10 Prop for Sea Eagles is number 10 Nathan Brown\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n11\n2nd Row for Knights is number 12 Tyson Frizell 12 2nd Row for Sea Eagles is number 12 Ben Trbojevic\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n14\nInterchange for Knights is number 15 Cody Hopwood 15 Interchange for Sea Eagles is number 15 Nicholas Lenaz\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Sea Eagles is number 16 Corey Waddell\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Sea Eagles is number 17 Caleb Navale\n17\nInterchange for Knights is number 18 Pasami Saulo 18 Interchange for Sea Eagles is number 18 Josh Feledy\n18\nInterchange for Knights is number 19 Toby Winter 19 Interchange for Sea Eagles is number 19 Fletcher Baker\n19\nReserves\nReserve for Knights is number 22 Elijah Salesa-Leaumoana 22 20 Reserve for Sea Eagles is number 20 Onitoni Large\n22 20\nKnights Ins\nBradman Best\nElijah Salesa-Leaumoana\nJacob Saifiti\nSea Eagles Ins\nBen Trbojevic\nCaleb Navale\nOnitoni Large\nTom Trbojevic\nKnights Outs\nDane Gagai\nFrancis Manuleleua\nHugo Hart\nJackson Shereb\nJoey Walsh\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Dave Munro\nSenior Review Official: Adam Gee\nLast updated: 8/22/2026 1:26:04 AM\nKnights: Origin centre Bradman Best is back after two games out with a calf injury and lines up for just his 13th match of the season. Two big blows though with Dane Gagai (hamstring) and Francis Manuleleua (concussion) to sit this one out. Prop Jacob Saifiti is also back after six games out with a hamstring injury so Cody Hopwood slides to the bench. Winger Dominic Young has scored 10 tries in his last six games against the Sea Eagles. No changes in Friday's 24-hour update with Elijah Salesa-Leaumoana rema",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.970684384444445,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f6a7e8a2b1c5da45",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 25",
+            "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/",
+            "published_at": "2026-08-18T06:00:29+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Th",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 14 Tyran Wishart 14 7 Halfback for Panthers is number 7 Nathan Cleary\n14 7\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 15 Alec MacDonald 15 14 Interchange for Panthers is number 14 Billy Scott\n15 14\nInterchange for Storm is number 16 Angus Hinchey 16 15 Interchange for Panthers is number 15 Scott Sorensen\n16 15\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\n21 Interchange for Panthers is number 21 Luke Garner\n21\nReserve for Storm is number 7 Trent Toelau 7 16 Reserve for Panthers is number 16 Luron Patea\n7 16\nReserve for Storm is number 18 Joe Chan 18 Reserve for Panthers is number 18 Jack Cole\n18\nReserve for Storm is number 21 Jack Hetherington 21\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/21/2026 8:06:13 AM\nStorm: Captain Harry Grant is back from a hamstring injury so Tyran Wishart slides to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Alec MacDonald is back from concussion and joins the interchange. Jack Hetherington and Davvy Moale drop to the reserves.\nPanthers: Young gun Casey McLean returns from a hand injury and takes over in the centres from Paul Alamoti (hamstring). Jack Cole has been added to the interchange in place of Jaxen Edgar.\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nRaiders\nBroncos\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nProp for Raiders is number 8 Josh Papalii 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Broncos is number 9 Billy Walters\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Broncos is number 10 Payne Haas\n2nd Row for Raiders is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 92.04207327333334,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "05b96fd6dab44c24",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knock-On Effect NSW Cup Team List: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/18/knock-on-effect-nsw-cup-team-list-round-25-vs.-bulldogs/",
+            "published_at": "2026-08-18T05:58:51+00:00",
+            "snippet": "Knock-On Effect NSW Cup Team List: Round 25 vs. Bulldogs &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Knock-On Effect NSW Cup Team List: Round 25 vs. Bulldogs\nWillie Talau has named his squad to face the Bulldogs in Round 25 of the 2026 Knock-On Effect NSW Cup season at Croome Road Sporting Complex.\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n11th Position\naway Team\nBulldogs\n7th Position\nVenue: Croome Road Sporting Complex, Croom\nMatch broadcasters:\nBarTV\nNSW CUP TEAM LIST ROUND 25\nNSW CUP TEAM LIST\nROUND 25\nHa’ele FINAU\nTom KIRK\nTyler PECKHAM-HARRIS\nNick TSOUGRANIS\nBrandon MORKOS\nJoseph O’NEILL (c)\nKade REED\nRyan HUTCHINSON\nConnor MUHLEISEN\n10\nBlake LAWRIE\n11\nDylan COUTTS\n12\nLuciano LEILUA\n13\nMatthew ALHAZIM\n14\nNick QUINN\n15\n16\nViliami AMONE\n17\nCyrus STANLEY-TRAILL\n22\nWes PRING\nRelated /\nNRL Team Update: Round 25 vs. Bulldogs\nTeam Lists\nNRLW Team Update: Round 8 vs. Cowboys\nNRLW Team List: Round 8 vs. Cowboys\nNRL Team List: Round 25 vs. Bulldogs\nKnock-On Effect NSW Cup Highlights: Round 24 vs. Magpies",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 92.06929549555556,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "83d3047e14a56cde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/18/nrl-team-list-round-25-vs.-bulldogs/",
+            "published_at": "2026-08-18T05:57:35+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 25 vs. Bulldogs\nDean Young has named his squad to take on the Canterbury Bankstown Bulldogs at Allianz Stadium in Round 25.\nThe squad will be in action in the second leg of a double-header with the club’s NRLW outfit facing the Cowboys in the lea",
+            "body_excerpt": "Presented By\nNRL Team List: Round 25 vs. Bulldogs\nDean Young has named his squad to take on the Canterbury Bankstown Bulldogs at Allianz Stadium in Round 25.\nThe squad will be in action in the second leg of a double-header with the club’s NRLW outfit facing the Cowboys in the lead-up. Tickets are available on Ticketmaster .\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThere are no changes to the side which took down the Wests Tigers on Sunday.\nDaniel Atkinson retains his spot at the back in the absence of Clint Gutherson (knee) whilst Mathew Feagai and Jacob Liddle remain in the run-on side having been promoted prior to kick-off.\nKade Reed has been listed among the reserves as he eyes his first NRL outing since Round 10.\nROUND 25 TEAM LIST\nROUND 25\nTEAM LIST\nPLAYER PARTNER\nDaniel ATKINSON\nPorta Restaurant\nMathew FEAGAI\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nJacob LIDDLE\nWollongong City Jetski\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nDamien COOK (c)\nRemara\n15\nToby COUCHMAN\n16\nJacob HALANGAHU\nBill & Toni’s Restaurant\n17\nJacob WEBSTER\nJAC Motors\n18\nSetu TU\ni98FM\n19\nJosh KERR\nClassic Sportswear\n20\nBlake LAWRIE\nGearbox\n21\nLuciano LEILUA\nSt George Leagues Club\n22\nKade REED\nWIN TV\nRelated /\nNRL Team Update: Round 25 vs. Bulldogs\nMatch Preview\nNRL Round 25 Match Preview: Dragons, Bulldogs to meet in Allianz blockbuster\nCommunity\nDragons partner with The Kids’ Cancer Project for 50-50 Charity Raffle\nTeam Lists\nNRL Final Team: Round 24 vs. Wests Tigers\nNRL Team Update: Round 24 vs. Wests Tigers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 92.09040660666668,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "a2bcb1ef74177bc3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "St. George Illawarra Dragons vs Canterbury Bulldogs Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/st-george-illawarra-dragons-vs-canterbury-bulldogs-tips-odds-teams-predictions-nrl-round-25-2026/609974",
+            "published_at": "2026-08-20T03:07:38+00:00",
+            "snippet": "St. George Illawarra Dragons vs Canterbury Bulldogs Tips, Odds, Teams & Predictions – NRL Round 25 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Allianz Stadium will play host to Saturday's Round 25 NRL game between St. George Illawarra Dragons and Canterbury Bulldogs. The game kicks off at 7:35 pm with Canterbury Bulldogs heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the St. George Illawarra Dragons vs. Canterbury Bulldogs game and give you our free tips and bets.\nWhen: Saturday August 22, 2026 at 7:35 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nSt. George Illawarra Dragons vs Canterbury Bulldogs Odds\nSt. George Illawarra Dragons vs Canterbury Bulldogs Preview\nSt George Illawarra has doubled its season win tally across the past fortnight, upsetting Cronulla before edging Wests Tigers 24-22. Daniel Atkinson starts at fullback with Mathew Feagai on the wing, while the Dragons’ emerging forwards again face a demanding assignment. Canterbury has slipped outside the top eight after losses to the Roosters and Rabbitohs, making this contest effectively non-negotiable. Bronson Xerri returns in the centres and Enari Tuala moves to the wing following Jethro Rinakama’s season-ending injury. The Bulldogs have won six consecutive meetings, including a 15-14 golden-point escape in Las Vegas, although four of the past six clashes have produced no more than 38 points. Canterbury’s greater urgency and collection of attacking game-breakers should be enough, but the Dragons’ renewed resilience promises a tight contest.\nHead To Head Bet\nWe're tipping Canterbury Bulldogs to win at $1.50 odds.\nFirst Try Scorer\nFirst Try Scorer: Jacob Kiraz at $9.25 .\nSt. George Illawarra Dragons vs Canterbury Bulldogs Teams\nDragons team: 1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Jacob Liddle 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Damien Cook 15. Toby Couchman 16. Jacob Halangahu 17. Jacob Webster 18. Setu Tu 19. Josh Kerr 20. Blake Lawrie 21. Luciano Leilua 22. Kade Reed\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Bronson Xerri 5. Enari Tuala 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 19. Jake Turpin 20. Sean O’Sullivan 21. Jed Reardon 22. Jonathan Sua 23. Jack Underhill",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 46.922906606666665,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "490203ad992993a0",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Dragons v Bulldogs: Atkinson settles in; Xerri's fresh chance",
+            "url": "https://www.nrl.com/news/2026/08/18/dragons-v-bulldogs-atkinson-settles-in-xerris-fresh-chance/",
+            "published_at": "2026-08-21T10:05:15+00:00",
+            "snippet": "Presented By\nDragons v Bulldogs: Atkinson settles in; Xerri's fresh chance\nThe Bulldogs will put their finals hopes on the line when they take on the resurgent Dragons at Allianz Stadium.\nPlenty has changed since the two teams opened the season in Las Vegas, with Canterbury skipp",
+            "body_excerpt": "Presented By\nDragons v Bulldogs: Atkinson settles in; Xerri's fresh chance\nThe Bulldogs will put their finals hopes on the line when they take on the resurgent Dragons at Allianz Stadium.\nPlenty has changed since the two teams opened the season in Las Vegas, with Canterbury skipper Stephen Crichton kicking a golden point field goal to deliver his side a memorable victory.\nSince then, the captain has shifted from centre to five-eighth and the Bulldogs have found their rhythm with Crichton partnering Lachlan Galvin in the halves.\nThe late-season rise has hit a stumbling block in the past fortnight, with Canterbury dropping their last two games to fall out of the eight.\nCameron Ciraldo's side must now win at least two of their final three games and hope other results go their way to play finals football.\nStanding in their way this week is a Dragons side that has claimed back-to-back victories and is desperate to avoid the wooden spoon.\nSt George Illawarra held on to edge the Tigers last weekend, with a promising crop of young forwards getting better with each week.\nHamish Stewart has rocketed into Australian World Cup contention, while prop Loko Pasifiki Tonga is sending a message up front.\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nDragons: With Emre Guler granted an immediate release this week to join Wakefield Trinity, Toby Couchman will start at prop with Josh Kerr and Blake Lawrie coming off the bench. Skipper Clint Gutherson is set to miss the final three games with a knee injury so Dean Young sticks with last week's winning formula with Dan Atkinson at fullback and Mat Feagai on the wing. Winger Tyrell Sloan has scored eight tries in his last eight games.\nBulldogs: With Jethro Rinakama out for the rest of the season after suffering knee and ankle injuries, Enari Tuala pushes out to the wing and Bronson Xerri starts in the centres. The new face on the bench is utility Sean O'Sullivan, chasing his first NRL action since Round 20 when he starred against Wests Tigers at five-eighth. No changes in Friday's 24-hour update.\nTeam Lists\nBacks\nFullback for Dragons is number 1 Daniel Atkinson 1 Fullback for Bulldogs is number 1 Connor Tracey\nWinger for Dragons is number 2 Mathew Feagai 2 Winger for Bulldogs is number 2 Jacob Kiraz\nCentre for Dragons is number 3 Moses Suli 3 Centre for Bulldogs is number 3 Matt Burton\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Bulldogs is number 4 Bronson Xerri\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Bulldogs is number 5 Enari Tuala\nFive-Eighth for Dragons is number 6 Lyhkan King-Togia 6 Five-Eighth for Bulldogs is number 6 Stephen Crichton\nHalfback for Dragons is number 7 Kyle Flanagan 7 Halfback for Bulldogs is number 7 Lachlan Galvin\nForwards\nProp for Dragons is number 8 Loko Jnr Pasifiki Tonga 8 Prop for Bulldogs is number 8 Max King\nHooker for Dragons is number 9 Jacob Liddle 9 Hooker for Bulldogs is number 9 Bailey Hayward\nProp for Dragons is number 15 Toby Couchman 15 10 Prop for Bulldogs is number 10 Leo Thompson\n15 10\n2nd Row for Dragons is number 11 Dylan Egan 11 2nd Row for Bulldogs is number 11 Viliame Kikau\n11\n2nd Row for Dragons is number 12 Hamish Stewart 12 2nd Row for Bulldogs is number 12 Jacob Preston\n12\nLock for Dragons is number 13 Ryan Couchman 13 Lock for Bulldogs is number 13 Jaeman Salmon\n13\nInterchange\nInterchange for Dragons is number 14 Damien Cook 14 Interchange for Bulldogs is number 14 Kurt Mann\n14\nInterchange for Dragons is number 16 Jacob Halangahu 16 15 Interchange for Bulldogs is number 15 Josh Curran\n16 15\nInterchange for Dragons is number 17 Jacob Webster 17 16 Interchange for Bulldogs is number 16 Harry Hayes\n17 16\nInterchange for Dragons is number 18 Setu Tu 18 17 Interchange for Bulldogs is number 17 Alekolasimi Jones\n18 17\nInterchange for Dragons is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.962628828888889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-21T09:34:49+00:00",
+            "snippet": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delaye",
+            "body_excerpt": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delayed surgery in an attempt to kickstart the Tigers finals campaign.\nThe 28-year-old returned to the field in Round 17 but fresh scans have shown Doueihi requires immediate surgery, with the halfback to go under the knife later this week.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers head of high performance Peter Moussa said.\nMeanwhile, Tigers five-eighth Latu Fainu has suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension but will now be sidelined for 1-2 weeks with his latest injury.\nIn positive news, Sunia Turuva has been named on the six-man bench despite suffering a knee injury last week, while Alex Twal is set to return after missing Round 24 due to illness.\nBroncos superstar Reece Walsh has had surgery on his ankle and is facing an eight-week recovery time.\nWalsh had scans on Sunday which confirmed he had sustained a high-grade syndesmosis injury during the loss to the Warriors on Saturday night.\nWarriors fullback Charnze Nicoll-Klokstad has subsequently been banned for two games for a hip drop tackle.\nWith Australia's World Cup opener against the Kiwis set down for Thursday, October 15 it appears Walsh's chances of representing the Kangaroos are gone.\nThe Raiders had Simi Sasagi back from a shoulder injury for their clash with the Broncos but lost back-rower Zac Hosking to a hamstring injury during the second half.\nSouth Sydney star Latrell Mitchell will look to return in Round 26 from a nerve injury that has kept him sidelined since Round 11.\nThe centre has missed 11 games with the injury but was named in the Bunnies' extended squad for this weekend's match against the Warriors before being put on ice once more.\nThe Rabbitohs have lost Adam Elliott to a groin injury, with the veteran expected to miss two to three weeks with a strained adductor.\nMeanwhile, Warriors halfback Luke Metcalf will miss the remainder of the regular season after suffering a hamstring injury in last week's win over Brisbane.\n\"The timeline for him will be deep into the finals but you never know,\" coach Andrew Webster said on Thursday.\n\"I think this is probably the most optimistic I've seen him when he knows he's got a plan and when he knows he wants to attack something.\"\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nWith Te Maire Martin at least another week away from returning from a hamstring injury, rookie Luke Hanson will step into the halves for Saturday's clash with the Rabbitohs.\n\"We want to make sure we get it right but Te Maire is progressing well,\" Webster said.\nThe Roosters will also welcome back James Tedesco from an ankle injury for Sunday's clash against Wests Tigers at Allianz Stadium.\nDolphins forward Connelly Lemuelu will miss his side's clash with the Eels due a hamstring injury. The 28-year-old has sustained a low-grade hamstring injury and is expected to miss two to three weeks.\nParramatta will be without Dylan Walker, who is set for one to two weeks on the sideline with a wrist injury, while Jordan Samrani was a late withdrawal after injuring his groin in the warm-up.\nPlaymaker Jonah Pezet has been named to make his return from a shoulder injury in NSW Cup.\nWinger Bailey Simonsson is also back in reserve grade, playing his first game since suffering a nasty leg injury on Easter Monday.\nNewcastle veteran Dane Gagai will miss this week's clash with Manly due to a hamstring strain suffered last weekend, while Francis Manuleleua has been ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 16.46985105111111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "bbca208ae4062ba2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Update: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/21/nrl-team-update-round-25-vs.-bulldogs/",
+            "published_at": "2026-08-21T09:32:00+00:00",
+            "snippet": "Presented By\nNRL Team Update: Round 25 vs. Bulldogs\nDean Young has updated his squad to take on the Canterbury Bankstown Bulldogs at Allianz Stadium in Round 25.\n24-Hour Update: Emre Guler and Kade Reed drop out of the side.\nThe squad will be in action in the second leg of a doub",
+            "body_excerpt": "Presented By\nNRL Team Update: Round 25 vs. Bulldogs\nDean Young has updated his squad to take on the Canterbury Bankstown Bulldogs at Allianz Stadium in Round 25.\n24-Hour Update: Emre Guler and Kade Reed drop out of the side.\nThe squad will be in action in the second leg of a double-header with the club’s NRLW outfit facing the Cowboys in the lead-up. Tickets are available on Ticketmaster .\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThere are no changes to the side which took down the Wests Tigers on Sunday.\nDaniel Atkinson retains his spot at the back in the absence of Clint Gutherson (knee) whilst Mathew Feagai and Jacob Liddle remain in the run-on side having been promoted prior to kick-off.\nKade Reed has been listed among the reserves as he eyes his first NRL outing since Round 10.\nROUND 25 TEAM LIST\nROUND 25\nTEAM LIST\nPLAYER PARTNER\nDaniel ATKINSON\nPorta Restaurant\nMathew FEAGAI\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nJacob LIDDLE\nWollongong City Jetski\n15\nToby COUCHMAN\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nDamien COOK (c)\nRemara\n16\nJacob HALANGAHU\nBill & Toni’s Restaurant\n17\nJacob WEBSTER\nJAC Motors\n18\nSetu TU\ni98FM\n19\nJosh KERR\nClassic Sportswear\n20\nBlake LAWRIE\nGearbox\n21\nLuciano LEILUA\nSt George Leagues Club\nRelated /\nNRL Round 25 Match Preview: Dragons, Bulldogs to meet in Allianz blockbuster\nCommunity\nDragons partner with The Kids’ Cancer Project for 50-50 Charity Raffle\nTeam Lists\nNRL Team List: Round 25 vs. Bulldogs\nNRL Final Team: Round 24 vs. Wests Tigers\nNRL Team Update: Round 24 vs. Wests Tigers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.516795495555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ae11b26e13832e2b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons vs Bulldogs Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/dragons-vs-bulldogs-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-21T04:36:25+00:00",
+            "snippet": "Dragons vs Bulldogs Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Dragons vs Bulldogs Preview & Betting Tips: NRL Round 25 2026\nAugust 21 st 2026, 7:31pm , By: Scooby\nThe concluding game on NRL Super Saturday may not excite many fans but it does promise to be an intriguing contest as the Dragons host the Bulldogs . Fighting their own battles as the conclusion of the regular season approaches, neither will want to drop a game against one of their traditional rivals. Regardless of where they sit on the ladder, this game promises to be an exciting fixture. Before You Bet is here to help find a winner with a detailed look at what is ahead.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nDragons vs Bulldogs Predictions & Tips: NRL Round 25 2026\nA win but still stuck at the bottom\nOn the road against the Tigers, the Dragons held on for a narrow 24-22 victory which was spirited and provides hope moving forward. As ugly as it was, they will take the 2-competition points. With just 47% possession they completed at 82% which gave them the ability to run for 9.5m per carry and create 5 line breaks. It demonstrated their attacking ability; they still have their shortcomings in defence though. Missing 30 tackles, better teams will make them pay for their mistakes in the future. Perhaps this demonstrates their immaturity, and it will give them an area to focus on in the closing weeks of 2026.\nHanging on by a thread\nA 22-6 home loss to the Rabbitohs had the Bulldogs facing elimination from the NRL Finals but their hopes were kept alive courtesy of another shock result. With their fate in their hands, the Bulldogs were disappointing. They were outplayed in every way. With just 45% possession, they completed at 77% and made just 7.7m per carry. This saw them also create just 1 line break and miss 41 tackles. Given such a performance with everything to play for, doubt remains whether they deserve the opportunity to progress beyond the regular season.\nStats that matter\n- These two sides met in Round 1, which was held in Vegas, where the Bulldogs narrowly prevailed 15-14. This means the Bulldogs have won 7 of the past 8 games between these two sides. Neither has a positive record at this ground though (Dragons 39% vs Bulldogs 49%).\n- In the past 5 games between these two sides, the average margin of victory is 12.2 points, with 3 games decided by 8 points or less. The average total points scored in those matches is 41.8.\n- It is no surprise that the Bulldogs are the superior team on both sides of the ball this season. They score 19ppg in attack, which is poor, but better than the Dragons 16ppg. The Dragons concede too many, averaging 28ppg compared to the Bulldogs 22ppg.\nAn ugly but winnable contest\nDespite the standing on the ladder, there is little between these two sides. The improvement shown in the Dragons recently is to be admired; they are well placed to make it 3 consecutive victories. Had they been at full-strength, they would be considered a strong chance. The Bulldogs have their shortcomings and are trying to avoid 3 consecutive losses; with their Finals hopes in the balance, their best is also expected. As close as it will be for majority of this contest, the Bulldogs have an edge in class. Bringing Xerri into the centres adds another dimension to their attack and he will trouble the Dragons in this area.\nThe visitors will be the first to admit they need to find another dimension to their inconsistent attacking patterns. Despite this, their forwards are strong enough to set a strong platform over their opponents. It’s interesting that the Dragons are persisting with Cook on the bench as they look towards developing players beyond 2026. That mindset is good if players are out to prove a point, but it can also mean experience is absent. The visitors should prevail but will need a strong performance to ensure this occurs. With that in mind, th",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.443184384444447,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "736ecd732aa55af5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 25 Match Preview: Dragons, Bulldogs to meet in Allianz blockbuster - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/19/nrl-round-25-match-preview-dragons-bulldogs-to-meet-in-allianz-blockbuster/",
+            "published_at": "2026-08-19T07:50:49+00:00",
+            "snippet": "NRL Round 25 Match Preview: Dragons, Bulldogs to meet in Allianz blockbuster &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "NRL Round 25 Match Preview: Dragons, Bulldogs to meet in Allianz blockbuster\nThe Dragons take on the Bulldogs in a Round 25 blockbuster at Allianz Stadium this Saturday as a part of an action-packed double-header.\nGET YOUR TICKETS!\nMATCH DAY GUIDE\nNRL TEAM LIST\nNRLW TEAM LIST\n50-50 CHARITY RAFFLE\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nKEY INFO\nTickets: Available at Ticketmaster\nDate: Saturday, August 22nd\nVenue: Allianz Stadium, Moore Park\nWatch: Kayo & Foxtel\nGates Open: 4:45pm\nNRLW: 5:15pm\nNRL: 7:35pm\nA BIG-TIME DOUBLE-HEADER\nThe club's NRLW squad will be in action at 5:15pm against the Cowboys before the NRL side take on the Bulldogs at 7:35pm.\nFor the NRLW squad, Zali Hopkins comes in at five-eighth with Taliah Fuimaono listed among the reserves as she looks to overcome a shoulder injury suffered in the side’s loss to the Gold Coast whilst Nita Maynard-Perrin earns a start in the No.9 jersey with Brooke Anderson shifting to lock, Hannah Southwell moving into the front row, and Amelia Huakau listed among the reserves.\nAt NRL level meanwhile the Dragons will be looking to put a big dent in the Bulldogs' finals hopes as they face them for the first time since Las Vegas.\nSUNSET BROS PERFORMING\nSunset Bros is one of the country's biggest electronic dance music groups and will be performing at half-time of Saturday night's NRL game.\nWhen it comes to dance music, Sunset Bros are a name that continues to ignite dance floors around the world.\nHailing from Sydney, the duo have built a global reputation for their explosive fusion of NRG, hard house, techno, hardstyle and trance, delivering euphoric melodies, massive drops and unforgettable live performances.\nTheir breakout anthem “I’m Feelin’ It (In The Air)” has become a worldwide dance phenomenon, surpassing 100 million streams and earning Double Platinum in Ireland, Gold in Australia, and Gold in the UK.\nThey’ve sold out headline shows at Sydney’s Hordern Pavilion and Enmore Theatre, headlined legendary venues such as Cavo Paradiso and Tropicana Beach Club in Mykonos, and completed a triple sold-out UK and Ireland tour. Festival appearances at Creamfields, Dreamstate, Hypersonic, Festival X and Ultra Australia continue to showcase their ability to command massive crowds.\nPLENTY ON IN THE PRECINCT\nThere will be a heap of activity around the Allianz Stadium precinct with something for everyone, including:\nGate 1: JAC Ute Display, Kombi Van DJ, RLWC Display, Meet & Greet with International Players, Dragons Merch\nGate 2: Fire Dancers, Dragons Membership, Squadron Marquee & Pass the Ball\nGate 3: Royal Fire Service Fire Engine Display, Meet and Greet, Scorch Mascot, LED Dancers\nTEAM NEWS\nThere are no changes to the side which took down the Wests Tigers on Sunday.\nDaniel Atkinson retains his spot at the back in the absence of Clint Gutherson (knee) whilst Mathew Feagai and Jacob Liddle remain in the run-on side having been promoted prior to kick-off.\nKade Reed has been listed among the reserves as he eyes his first NRL outing since Round 10.\nWith Jethro Rinakama out for the rest of the season after suffering knee and ankle injuries, Enari Tuala pushes out to the wing and Bronson Xerri starts in the centres.\nThe new face on the bench is utility Sean O'Sullivan, chasing his first NRL action since Round 20.\nTeam Lists\nBacks\nFullback for Dragons is number 1 Daniel Atkinson 1 Fullback for Bulldogs is number 1 Connor Tracey\nWinger for Dragons is number 2 Mathew Feagai 2 Winger for Bulldogs is number 2 Jacob Kiraz\nCentre for Dragons is number 3 Moses Suli 3 Centre for Bulldogs is number 3 Matt Burton\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Bulldogs is number 4 Bronson Xerri\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Bulldogs is number 5 Enari Tuala\nFive-Eighth for Dragons is number 6 Lyhka",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 66.20318438444444,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0acec1b86a46f608",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons v Bulldogs: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/19/dragons-v-bulldogs-round-25/",
+            "published_at": "2026-08-19T05:47:00+00:00",
+            "snippet": "Dragons v Bulldogs: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:30 Rabbitohs v Warriors: Round 25\nRabbitohs v Warriors: Round 25\n02:38 Dolphins v Eels: Round 25\nDolphins v Eels: Round 25\n02:54 Raiders v Broncos: Round 25\nRaiders ",
+            "body_excerpt": "Dragons v Bulldogs: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:30 Rabbitohs v Warriors: Round 25\nRabbitohs v Warriors: Round 25\n02:38 Dolphins v Eels: Round 25\nDolphins v Eels: Round 25\n02:54 Raiders v Broncos: Round 25\nRaiders v Broncos: Round 25\n03:26 Storm v Panthers: Round 25\nStorm v Panthers: Round 25\nRelated /\nDragons v Bulldogs: Atkinson settles in; Xerri's fresh chance\nFantasy\nFirst take: Dragons v Bulldogs\nMatch Preview\nWests Tigers v Dragons: Saukuru set for debut; Couchman returns\nBulldogs v Rabbitohs: Jones steps up; Sullivan steers ship\nBulldogs v Rabbitohs: Round 24\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.26679549555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e2a659f8937ea29f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Lone Scout's Fantasy team list analysis: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/18/lone-scouts-fantasy-team-list-analysis-round-25/",
+            "published_at": "2026-08-19T02:59:24+00:00",
+            "snippet": "Presented By\nLone Scout's Fantasy team list analysis: Round 25\nFinally some good news with a number of Fantasy studs returning for this week, just hope for our coaches sakes it is the ones we held and not the ones we sold.\nStill a few big names missing and more than a couple more",
+            "body_excerpt": "Presented By\nLone Scout's Fantasy team list analysis: Round 25\nFinally some good news with a number of Fantasy studs returning for this week, just hope for our coaches sakes it is the ones we held and not the ones we sold.\nStill a few big names missing and more than a couple more have joined the Casualty Ward so let’s get stuck into the analysis.\nCleary: It’s pretty clear to us what we need to do to improve\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nStorm: Harry Grant returns for Melbourne in a big boost for their side and Fantasy owners who held the top rated HOK in the game. However, he comes in at the expense of Tyran Wishart with Trent Toelau named in the No.7 and Wishart only found amongst the interchange. There could be switch-ups on game day, especially with Hayden Watson relegated to the extended reserves, but Wishart could be one to set in the looping position to start your round. Also returning but less relevant for Fantasy are Jack Howarth in the centres and Alec MacDonald on the bench.\nFirst take: Storm v Panthers\nPanthers: Dylan Edwards made his long-awaited return at fullback last week and is named there again. Casey McLean is the important cog in the wheel that comes back this time around but it is a trade for the now injured Paul Alamoti. Luke Garner has been named in the extended squad after returning from a hamstring injury through NSW Cup last week.\nJosh Papalii announces retirement\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nRaiders: Canberra get a couple of integral players back this week as they still have a slight chance of playing finals football providing other results continue to go their way. Simi Sasagi is the most important one for Fantasy coaches as he is named in the centres while Corey Horsburgh comes back in via the interchange. Josh Papali’i will start in the middle third with Morgan Smithies in concussion protocols for now.\nFirst take: Raiders v Broncos\nBroncos: Another key player went down hurt for the defending premiers Brisbane last week in Reece Walsh, which will have many Fantasy owners spending their last trade on moving him out. Hayze Perham will deputise in the No.1 while Ben Hunt replaces Tom Duffy at halfback, although Duffy can still be found in the 19. Va’a Semu is the other returnee for Brisbane who will be desperate to find a victory having not tasted success since Round 20.\nKatoa: My role is to control the team and lead our mindset\nDolphins v Eels, Friday 8.00pm at Suncorp Stadium\nDolphins: Connolly Lemuelu went down with a hamstring injury last Friday so Max Plath slides over to the edge position to accommodate. Hopefully Lemuelu owners from earlier in the season already upgraded him before this news. The rest of the Dolphins squad is fairly settled but keep an eye on Herbie Farnworth who copped a knock two weeks ago and ever since has not been able to put up his usual Fantasy numbers. He could even be worth looping if you have a strong 21 this week.\nFirst take: Dolphins v Eels\nEels: Parramatta welcome back Jack De Belin who was a late withdrawal last weekend which pops Saxon Pryke back to the bench. Dylan Walker is out with a wrist injury. Not much else to report on the victorious Eels who continue to try and play giant slayers as they round out their 2026 season.\nMarzhew gets two\nKnights v Sea Eagles, Saturday 3.00pm at MacDonald Jones Stadium\nKnights: A devastating team list for those who recently plumped for gun rookie edge Francis Manuleleua, who is out with concussion, veteran Tyson Frizell is listed on the edge. The Knights have also lost Dane Gagai for this encounter but do name Bradman Best once more after he was a late out last weekend. Jacob Saifiti makes his long-awaited return form injury just in time to get some match fitness before the finals. Cody Hopwood makes way but can still be found riding the pine.\nFirst take: Knights v Sea Eagles\nSea Eagles: Brilliant news with Tom Trbojevic and brother Ben Trbojevic both named to return from their respective inj",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.06012882888889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e99add6bfba9dff1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 25 v Roosters - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/18/team-list-nrl-round-25-v-roosters2/",
+            "published_at": "2026-08-18T06:00:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 25 v Roosters\nWests Tigers NRL Head Coach Benji Marshall has named his squad to play the Sydney Roosters at Allianz Stadium on Sunday, 23 August, in Round 25 of the Telstra Premiership.\nMatch: Roosters v Wests Tigers\nRound 25 - Round 25 - Sunday ",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 25 v Roosters\nWests Tigers NRL Head Coach Benji Marshall has named his squad to play the Sydney Roosters at Allianz Stadium on Sunday, 23 August, in Round 25 of the Telstra Premiership.\nMatch: Roosters v Wests Tigers\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nRoosters\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThe Tigers will be without half-back Adam Doueihi, who will now be sent for season ending shoulder surgery. Jock Madden returns to the team at half-back.\nJeral Skelton comes onto the wing with Sunia Turuva named on the interchange bench.\nReserves: 20 Javon Andrews\n21 Charlie Murray 22 Tino Tavana\nMatch details\nSydney Roosters vs Wests Tigers\nSunday, 23 August Allianz Stadium\nKick-off: 4.05pm\nBroadcast: Live on Channel 9, 9Now, Kayo Sports, Fox League\nRelated /\nAlex Seyfarth: Fresh faces bring new energy\nTeam Lists\nInjuries\nWests Tigers NRL Injury Report Round 25\nLate Mail: NRL Round 24 v Dragons\nSquad Update: NRL Round 24 v Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 92.0501288288889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9def6ad083f8a18c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb",
+            "published_at": "2026-08-21T10:18:00+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is begin",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is beginning to take shape.\nRound 25 kicked off in Melbourne as the Storm fell to the Panthers 22-14.\nFriday began with the Broncos downing the Raiders 34-30 in Canberra and was followed by the Dolphins beating the Eels 34-16 at Suncorp.\nThe Knights welcome the Sea Eagles on Saturday afternoon before the Rabbitohs face the Warriors at Accor Stadium and the Bulldogs take on the Dragons in a must-win clash at Allianz.\nThe 8th-placed Cowboys have the bye and move automatically up to 30 points.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 25\nNewcastle Knights vs. Manly Sea Eagles\n(Saturday, August 22 at McDonald Jones Stadium , 3:00pm AEST)\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mat Croker\n14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter\nKnights team news:\nJacob Saifiti (hamstring) has been named to make his injury return in the front row. Bradman Best is also in line to return from a calf injury, while Dane Gagai is managing a hamstring issue and has been rested ahead of the finals with the ever-versatile Fletcher Hunt taking his place. Francis Manuleleua is out with late on-set concussion symptoms.\nManly team:\n1. Tom Trbojevic (c) 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Ben Trbojevic 13. Jake Trbojevic\n14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker\nSea Eagles team news:\nIn welcome news for the struggling Sea Eagles Ben Trbojevic and Tom Trbojevic both return, but Ethan Bullemor remains out. It's also been revealed young half Joey Walsh suffered a broken jaw against the Dolphins with his season likely over. The ever-versatile Clayton Faulalo is named in the No.6 jersey. Taniela Paseka (knee) is still a week or two away.\nSouth Sydney Rabbitohs vs. New Zealand Warriors\n(Saturday, August 22 at Accor Stadium , 5:30pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray (c)\n14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Ed Kosi\nRabbitohs team news:\nIn an encouraging sign for Bunnies fans Latrell Mitchell was named on the extended reserves - but it has since been confirmed he won't play this week. Jamie Humphreys (ankle) remains out while off-contract Adam Elliott left the field against the Bulldogs with a groin injury and is set for yet more time on the sidelines.\nWarriors team:\n1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-Tavita 8. James Fisher-Harris (c) 9. Wayde Egan 10. Mitch Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark\n14. Sam Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Eddie Ieremia-Toeava 18. Adam Pompey 20. Morgan Gannon\nWarriors team news:\nLuke Metcalf (hamstring) is replaced in the halves by Luke Hanson with Jett Cleary named on the extended reserves. Charnze Nicoll-Klokstad has accepted a 2-week ban for his hip drop tackle on Reece Walsh with Taine Tuaupiki returning at fullback. Te Maire Martin (hamstring) is still a week or two away.\nSt. George Illawarra Dragons vs. Canterbury Bulldogs\n(Saturday, August 22 at Allianz Stadium",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.750128828888888,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "54284335fe5351a6",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-warriors-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-21T05:11:25+00:00",
+            "snippet": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026\nAugust 21 st 2026, 2:36pm , By: Ben Bridge\nSaturday evening at Accor Stadium gives us one of the best games of NRL Round 25 , with South Sydney hosting the Warriors in a matchup carrying major finals implications at both ends of the top eight. The Rabbitohs sit seventh and are trying to lock away their finals position, while New Zealand remain third and level on competition points with Penrith as they chase a top 2 finish and a home final.\nBoth teams therefore have plenty to play for, but I still lean toward the Warriors despite the disruption in their spine. Luke Metcalf is sidelined with a hamstring injury, Charnze Nicoll-Klokstad is suspended, and Andrew Webster has named Chanel Harris-Tavita at halfback alongside rookie Luke Hanson, who plays just his second NRL game. Taine Tuaupiki moves to fullback. South Sydney are far healthier than earlier in the season, however Latrell Mitchell will not take his place after being named on the extended bench, he has been ruled out.\nThat inexperienced Warriors halves combination keeps this from becoming a large bet, but their forward pack and season long profile still make Warriors -4.5 the side I want, with their advantage in the forwards and outside backs enough in my opinion.\nRabbitohs vs Warriors Prediction & Tips: 2026 NRL Round 25\nRabbitohs Building Momentum at the Right Time\nSouth Sydney continued their late season surge with a convincing 22-6 victory over Canterbury last Friday, another crucial step toward securing a finals berth after a season that has contained more than its fair share of disruption. The Rabbitohs controlled the contest defensively, restricting the Bulldogs to a single try and again showing that Wayne Bennett has this side peaking at the right stage of the year.\nMatt Dufty has been one of the success stories of South Sydney’s resurgence. Against Canterbury he produced 250 running metres, four tackle breaks, a try and a try assist, giving the Rabbitohs the type of support play and yardage they desperately needed during their injury riddled middle of the season.\nThe bigger improvement has come through the return of their forward leaders. Cameron Murray and David Fifita have both made an immediate impact since returning, and South Sydney look far more capable of sustaining pressure through the middle rather than asking Cody Walker to manufacture everything himself. Souths have won eight consecutive games at Accor Stadium, which makes this a far tougher road assignment for the Warriors than the ladder alone suggests.\nThe team news is also encouraging. Cody Walker and Jayden Sullivan remain the halves, Brandon Smith starts at hooker and Murray locks a pack featuring Junior Tatola, Keaon Koloamatangi and Fifita. Latrell Mitchell was named to return on the extended bench; however, he is being given one more week before his return next week.\nSouth Sydney are dangerous enough to win this game. The question is whether they can contain a Warriors pack that remains close to full strength despite the disruption in the backline.\nWarriors Keep Rolling Despite Injury Setbacks\nThe Warriors reinforced their premiership credentials last weekend with a dominant 40-6 victory over Brisbane at Suncorp Stadium, controlling the defending premiers from the opening exchanges and never allowing the Broncos into the contest.\nThat performance was particularly important because the Warriors have continued to absorb injuries without losing their underlying identity. Their season has been built around middle third dominance, strong yardage from their back three, and defensive consistency, and those areas remain intact even with Metcalf and Nicoll-Klokstad unavailable.\nJames Fisher-Harris and Mitch Barnett give New Zealand one of the best starting prop combinations in the competition, while Wayde Egan remains the crucial link at hooker. Kurt Capewell and Jacob Laban start on the edges, with Erin Clark at lock.\nThe concern is obvi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.859851051111114,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "4fab0b10c67df441",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/knights-vs-sea-eagles-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-21T04:36:25+00:00",
+            "snippet": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Knights vs Sea Eagles Preview & Betting Tips: NRL Round 25 2026\nAugust 21 st 2026, 2:30pm , By: Scooby\nNRL Super Saturday begins in Newcastle this week with the Knights hosting the Sea Eagles . Always an exciting afternoon of rugby league, this weekend promises to be no different as the NRL Finals are just around the corner. With the outcome of matches more important than ever, fans are set to be on the edge of their seats, and this game promises to deliver. Before You Bet is here to help with a detailed look at what is ahead in this match.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nKnights vs Sea Eagles Predictions & Tips: NRL Round 25 2026\nStating their case\nIt was another strong performance by the Knights in their 36-26 victory over the Titans at home. The win solidified their standing in the Top 8 and reiterated the talented and desire this team possesses. Despite an inferior share of possession (48%) and completion rate (79%), they managed to make 10.3m per carry, which also lead to 7 line breaks. Relentless in their support of the ball carrier, the Knights continually built pressure. Unfortunately, the fact that they missed 34 tackles meant their opponents scored 5 tries. They will need to be better in this area heading into the Finals.\nFoz Fall\nThe Sea Eagles suffered yet another loss last week, meaning they sit 10th on the ladder and are 6 points adrift of the Top 8. This time, it was a 22-0 home loss to the Dolphins where they were outplayed for the duration of the contest. With no points to their name, they have little excuse other than poor execution as they had the same completion rate (74%) as their opponents with 49% possession. They still ran for 8.9m per carry and made 608 PCM’s but failed to turn this into points. The fact that they had just 1 line break highlights their lack of creativity. It was another poor showing which same them allow their opponents to make 9.9m per carry and 672 PCM’s.\nStats that matter\n- These two sides met in Round 2 where the Knights won 36-16. They will be hoping their home ground advantage (54% vs Sea Eagles 26%) counts for something also.\n- In the past 5 matches between these two sides, 3 have been decided by 10 points or less, including a draw. Blowout victories drags the average margin of victory to 14.4 points though. The average total points is high, with 52ppg averaged in the same number of matches.\n- The Knights have a better attack this season compared to the Sea Eagles, scoring 26ppg to 24ppg. Interestingly, the Sea Eagles have a slight edge defensive, allowing 21ppg compared to the Knights 22ppg.\nA close call\nA win is coming for the Sea Eagles and the return of Tommy Turbo at fullback provides their biggest hope yet with their Finals chances hanging in the balance. That shouldn’t mean the home side is overlooked; they have earned the right to be thought of as a capable team. They also receive positive news with Bradman best returning to cover the loss of Gagai. You would think that, with their season hanging by a thread, the best version of the Sea Eagles will feature in this game. Losing Walsh doesn’t help their creativity in attack but Faulalo is a suitable replacement. The Knights have enough resilience to counter what their opponents throw at them in attack. They need to ensure they take their chances as the Sea Eagles are vulnerable at times and can be guilty of allowing more than enough chances to their opponents.\nWith the chance that the visitors could cause an upset and the fact that the Knights can sometimes allow opponents a chance to score points, it’s recommended that you avoid making a direct call on this match. Rather, take the option that either could win. It is expected that each will be a chance of winning with 10 minutes remaining in this game.\nEither team by 10.5 points or less\n$2.10 (2 un",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.443184384444447,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "d731d1c6de344dde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-20T06:04:37+00:00",
+            "snippet": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026\nAugust 20 th 2026, 3:36pm , By: Ben Bridge\nFriday Night Football at GIO Stadium has far more riding on it than the respective ladder positions suggest, as the Raiders host Brisbane in a matchup loaded with desperation, emotion, and a little revenge. Canberra’s finals hopes remain incredibly faint, but they are still alive. Wins over Brisbane and North Queensland, combined with their Round 26 bye, could get the Raiders to 30 competition points, and leave them praying other results fall their way. Brisbane, meanwhile, have endured one of the worst premiership defences in modern NRL history and are now fighting simply to avoid an unthinkable wooden spoon.\nThen there is Josh Papali’i. Friday night will be the Canberra legend’s final home appearance, with GIO Stadium even being temporarily transformed into “Papa’s House” for the occasion. Papali’i has been promoted into the starting front row, and you can guarantee the Raiders faithful will turn this into one of the most emotional home games of the season.\nMy numbers are not miles away from the current spread, but the circumstances push me toward Canberra. With the Broncos broken, Reece Walsh gone for the season and the Raiders needing a win, I’ll take Canberra -10.5.\nRaiders vs Broncos Prediction & Tips: 2026 NRL Round 25\nRaiders Refuse to Let Season Die\nCanberra looked like a team whose finals hopes were virtually finished heading into last week’s trip to Sharks Stadium, yet they produced one of their gutsiest performances of the season to upset Cronulla 24-20. Against a Sharks side sitting firmly in the top 4 conversation, the Raiders absorbed an early 8-0 deficit, fought their way to an 18-14 halftime lead and then survived a frantic final quarter to keep their season alive.\nJoseph Tapine delivered the decisive moment after the Sharks had regained a 20-18 advantage, powering through five defenders to score underneath the posts in the 57th minute. From there, Canberra defended their lead despite Cronulla receiving several opportunities to steal the game late.\nIt was exactly the type of performance Ricky Stuart would have wanted after the Raiders’ form had again become inconsistent. Canberra have enough attacking talent through Kaeo Weekes, Ethan Strange, Ethan Sanders, Matthew Timoko and Xavier Savage, but their success still starts with the middle. Tapine, Papalii, Zac Hosking and Ata Mariota must generate the field position that allows the young spine to play with freedom.\nMorgan Smithies’ failed HIA against Cronulla rules him out this week, forcing Mariota to lock, while Corey Horsburgh returns through the interchange. Simi Sasagi is also back from a shoulder problem, strengthening the centres.\nThe emotional factor cannot be ignored. Papali’i starts in his final match at GIO Stadium, and Canberra have averaged 35 points across their past four home games. If there is one night where this Raiders side should produce maximum effort for 80 minutes, this is it.\nBroncos Hit Rock Bottom in Premiership Defence\nBrisbane’s extraordinary collapse continued last Saturday when the Warriors humiliated them 40-6 at Suncorp Stadium. The Broncos trailed 20-0 at halftime and did not score until Xavier Willison crossed in the 64th minute, by which point New Zealand had already put 36 points on the board.\nThe statistics around Brisbane’s season are becoming almost unbelievable for the defending premiers. They have now lost 12 of their past 13 games, and they are staring down the worst fall from grace by a premiership winning side since Western Suburbs went from premiers to wooden spooners in 1963. Brisbane are now fighting simply to avoid finishing last.\nThings somehow got worse against the Warriors when Reece Walsh suffered a syndesmosis injury that has ended his season. Hayze Perham takes over at fullback this week, while Ben Hunt returns to halfback for the first time since Round 18 and Tom Duffy drops to the bench.\nThere is still p",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.973184384444444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "0d192e26fc59d458",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 25 Match Preview: Vegas Rematch - Bulldogs",
+            "url": "https://www.bulldogs.com.au/news/2026/08/20/nrl-round-25-match-preview-vegas-rematch/",
+            "published_at": "2026-08-20T00:01:52+00:00",
+            "snippet": "NRL Round 25 Match Preview: Vegas Rematch\nThey say what happens in Vegas stays in Vegas, but Rugby League fans will be hoping that the thrilling match between the Bulldogs and Dragons can be replicated at Allianz Stadium this Saturday night.\nThe Bulldogs are still in the hunt for",
+            "body_excerpt": "NRL Round 25 Match Preview: Vegas Rematch\nThey say what happens in Vegas stays in Vegas, but Rugby League fans will be hoping that the thrilling match between the Bulldogs and Dragons can be replicated at Allianz Stadium this Saturday night.\nThe Bulldogs are still in the hunt for a spot in the top eight, but they face the resurgent Dragons who have recorded back-to-back wins for the first time in 2026 as they look to avoid the dreaded wooden spoon.\nFor tickets, transport and more, check out our Round 25 Gameday Guide below!\nRelated Bulldogs\nGameday Guide: NRL Round 25 at Allianz Stadium\nDownload Your 2026 NRL Team Poster here!\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nAs usual, there is plenty of team news, stats and info to unpack in our Round 25 Match Preview.\nTeamlists and Team News\nHistory vs Dragons and Last Time Out\nKey Match Up\nWhat They Said\nStat Attack\nWhere to Watch\nWith Jethro Rinakama out for the rest of the season after suffering knee and ankle injuries, Enari Tuala pushes out to the wing and Bronson Xerri starts in the centres. The new face on the bench is utility Sean O'Sullivan, chasing his first NRL action since Round 20 when he starred against Wests Tigers at five-eighth.\nTeam Lists\nBacks\nFullback for Dragons is number 1 Daniel Atkinson 1 Fullback for Bulldogs is number 1 Connor Tracey\nWinger for Dragons is number 2 Mathew Feagai 2 Winger for Bulldogs is number 2 Jacob Kiraz\nCentre for Dragons is number 3 Moses Suli 3 Centre for Bulldogs is number 3 Matt Burton\nCentre for Dragons is number 4 Valentine Holmes 4 Centre for Bulldogs is number 4 Bronson Xerri\nWinger for Dragons is number 5 Tyrell Sloan 5 Winger for Bulldogs is number 5 Enari Tuala\nFive-Eighth for Dragons is number 6 Lyhkan King-Togia 6 Five-Eighth for Bulldogs is number 6 Stephen Crichton\nHalfback for Dragons is number 7 Kyle Flanagan 7 Halfback for Bulldogs is number 7 Lachlan Galvin\nForwards\nProp for Dragons is number 8 Loko Jnr Pasifiki Tonga 8 Prop for Bulldogs is number 8 Max King\nHooker for Dragons is number 9 Jacob Liddle 9 Hooker for Bulldogs is number 9 Bailey Hayward\nProp for Dragons is number 15 Toby Couchman 15 10 Prop for Bulldogs is number 10 Leo Thompson\n15 10\n2nd Row for Dragons is number 11 Dylan Egan 11 2nd Row for Bulldogs is number 11 Viliame Kikau\n11\n2nd Row for Dragons is number 12 Hamish Stewart 12 2nd Row for Bulldogs is number 12 Jacob Preston\n12\nLock for Dragons is number 13 Ryan Couchman 13 Lock for Bulldogs is number 13 Jaeman Salmon\n13\nInterchange\nInterchange for Dragons is number 14 Damien Cook 14 Interchange for Bulldogs is number 14 Kurt Mann\n14\nInterchange for Dragons is number 16 Jacob Halangahu 16 15 Interchange for Bulldogs is number 15 Josh Curran\n16 15\nInterchange for Dragons is number 17 Jacob Webster 17 16 Interchange for Bulldogs is number 16 Harry Hayes\n17 16\nInterchange for Dragons is number 18 Setu Tu 18 17 Interchange for Bulldogs is number 17 Alekolasimi Jones\n18 17\nInterchange for Dragons is number 19 Josh Kerr 19 Interchange for Bulldogs is number 19 Jake Turpin\n19\nInterchange for Dragons is number 20 Blake Lawrie 20 Interchange for Bulldogs is number 20 Sean O'Sullivan\n20\nReserves\nReserve for Dragons is number 21 Luciano Leilua 21 22 Reserve for Bulldogs is number 22 Jonathan Sua\n21 22\nDragons Ins\nJosh Kerr\nLuciano Leilua\nBulldogs Ins\nJonathan Sua\nSean O'Sullivan\nDragons Outs\nEmre Guler\nJethro Rinakama\nMatch Officials\nReferee: Liam Kennedy\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/22/2026 12:06:13 AM\nDan Atkinson has been named at fullback and Mat Feagai on the wing with Clint Gutherson (knee) remaining sidelined. Just the one change on the bench with Josh Kerr coming in for Blake Lawrie.\nHistory vs Dragons and Last Time Out: Round 1, 2026\nCanterbury-Bankstown and St George Illawarra have a rich h",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 50.01901771777778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "fea4c0247368ab55",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/",
+            "published_at": "2026-08-19T05:28:23+00:00",
+            "snippet": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydn",
+            "body_excerpt": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydney has a huge obstacle in front of them in the form of the Warriors.\nRead on for our complete 2026 NRL Round 25 predictions, tips and best Rugby League bets to place this weekend!\nThe finals ship has all but sailed for Melbourne, but knocking over stumbling Penrith in their last home game of the season will provide ample motivation.\nFORM: The Storm snapped a three-game losing run to trounce the Sea Eagles 42-20 in Perth in Round 23, after trailing at halftime. They had the bye last weekend.\nThe Panthers lost their grip on top spot courtesy of a 12-6 loss to the Roosters – their fifth loss in eight games.\nINS AND OUTS: Melbourne gets a further boost with Harry Grant and Jack Howarth returning, which sees Tyran Wishart and Joe Chan revert to the bench. Trent Toelau will partner Cam Munster in the halves this week.\nCasey McLean is a back in a timely lift for the Panthers, with Paul Alamoti (hamstring) ruled out.\nKEY MATCH-UP: Different jersey numbers, but Origin adversaries and Test teammates Munster and Nathan Cleary will guide their teams’ fortunes.\nHISTORY: The Storm have won four of their last six against the Panthers but crashed to a 50-10 loss at CommBank Stadium in Round 5.\nKEY STAT: The Panthers have a 1-9 record at AAMI Park.\nVERDICT: The two biggest heavyweights of the 2020s renew a fierce rivalry, though at a very different juncture than the out-of-contention Storm are used to. But the injury-ravaged side has been gallant in recent defeats and the win over Manly was well-deserved reward.\nThere’s plenty at stake for the Panthers, who could drop out of the top two with a loss and need to recover some momentum over the closing three rounds.\nThe Storm are a tempting option with a 7.5-point start after winning five of their last six at home, but the over appeals more with seven of 10 games at AAMI Park producing 52-plus points this season.\nPredictions: Back Over 42.5 Total Points @ $1.90\nSGM: STORM +7.5 / OVER 7.5 TOTAL TRIES / TOM JENKINS ANYTIME TRYSCORER / NICK MEANEY ANYTIME TRYSCORER @ $16.31\nOther teams’ stumbles have maintained a mathematical Top 8 chance for the Raiders after an upset victory last week, but the spiralling Broncos’ only remaining motivation is avoiding the wooden spoon.\nFORM: The Raiders showed an abundance of spirit to roll Cronulla 24-20 on the road last Saturday just six days after a seemingly season-ending home loss to Newcastle.\nThe Broncos crashed to their 12th loss in 13 games last weekend, a 40-6 defeat to the Warriors in which enthusiasm and defensive desire appeared sorely lacking – as well as costing them Reece Walsh for the rest of a sorry title defence.\nINS AND OUTS: The Raiders get Simi Sasagi back from injury, Ata Mariota comes in at lock for Morgan Smithies (concussion) and Josh Papalii will start at prop in his last home game. Corey Horsburgh has received a bench recall.\nHayze Perham slots in as Brisbane’s fullback for Walsh, while Ben Hunt replaces Tom Duffy at halfback.\nKEY MATCH-UP: Big ‘Papa’ will be fired up to turn back the clock in his home farewell – and he and Joe Tapine will engage in a crucial battle up front against Broncos bookends Xavier Willison and Payne Haas.\nHISTORY: The Broncos have won three of their last four against the Raiders, most recently taking out a golden point epic at GIO Stadium 29-28 last September.\nKEY STAT: Broncos wingers have scored 14 tries in the club’s last seven clashes with the Raiders. Both wingers scored in four of those matches.\nVERDICT: A heavy loss to Penrith in Mudgee aside, the Raiders have been very competitive over the past seven weeks – winning five games – and will still be alive in the finals race when this game kicks off.\nPapalii’s farewell should also ins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.57707327333333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Dragons vs Bulldogs NRL round 25 preview",
+          "Dragons Bulldogs NRL odds OR price OR favourite",
+          "Dragons Bulldogs NRL finals race OR ladder stakes",
+          "Dragons Bulldogs NRL",
+          "Dragons NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dragons Bulldogs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 25 Dragons OR Bulldogs"
+        ],
+        "filter_summary": {
+          "dropped_stale": 43,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 10,
+          "dropped_irrelevant": 17,
+          "kept": 19,
+          "deferred_pending_body": 65,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "20e29f56e838",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-22T02:03:00.444730+00:00",
+      "finished_at": "2026-08-22T02:05:00.213959+00:00",
+      "duration_ms": 119769,
+      "request": {
+        "home_team": "Dragons",
+        "away_team": "Bulldogs",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-08-22T19:35:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.6844,
+        "home_win_probability": 0.3156,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Away travel to venue (16 km) — contribution 0.075 (5% of total)",
+            "3-game form: all run metres (+167.67) — contribution 0.023 (2% of total)",
+            "5-game form: effective tackle pct (+3.18) — contribution 0.021 (1% of total)",
+            "3-game form: forced drop outs (+1.00) — contribution 0.018 (1% of total)",
+            "3-game form: points against (+0.67) — contribution 0.017 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-149 points) — contribution 0.293 (19% of total)",
+            "Ladder points differential per game (-9.6 points) — contribution 0.276 (18% of total)",
+            "Bradley-Terry strength advantage (-0.91 log-strength) — contribution 0.222 (15% of total)",
+            "Pythagorean form (last 10) (-21% expected-win gap) — contribution 0.085 (6% of total)",
+            "5-game form: points against (+10.80) — contribution 0.059 (4% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2296,
+            "total_toward_away": 1.2942,
+            "net": -1.0646,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: points against (+0.67)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Dragons",
+          "away_team": "Bulldogs",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-08-22T19:35:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

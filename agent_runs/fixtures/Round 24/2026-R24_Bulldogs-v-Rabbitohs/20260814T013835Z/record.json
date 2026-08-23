@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "run_id": "20260814T013835Z-4368793d",
+  "run": {
+    "predicted_at_utc": "2026-08-14T01:49:21.664824+00:00",
+    "predicted_at_local": "2026-08-14T11:49:21.664824+10:00",
+    "started_at_utc": "2026-08-14T01:38:35.527588+00:00",
+    "wall_seconds": 646.1,
+    "hours_before_kickoff": 8.2,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 24,
+    "home_team": "Bulldogs",
+    "away_team": "Rabbitohs",
+    "venue": "Accor Stadium",
+    "kickoff": "2026-08-14T20:00:00+10:00",
+    "kickoff_local": "2026-08-14T20:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 24,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Bulldogs",
+      "position": 9,
+      "played": 20,
+      "wins": 10,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 26,
+      "points_for": 396,
+      "points_against": 442,
+      "points_difference": -46,
+      "points_difference_per_game": -2.3,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1L",
+      "home_record": "7 - 3",
+      "away_record": "3 - 7"
+    },
+    "away": {
+      "team": "Rabbitohs",
+      "position": 7,
+      "played": 20,
+      "wins": 11,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 28,
+      "points_for": 554,
+      "points_against": 488,
+      "points_difference": 66,
+      "points_difference_per_game": 3.3,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "8 - 2",
+      "away_record": "3 - 7"
+    },
+    "comparison": {
+      "higher_on_ladder": "Rabbitohs",
+      "ladder_positions_gap": -2,
+      "points_difference_per_game_gap": -5.6,
+      "points_difference_favours": "Rabbitohs"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+  },
+  "prediction": {
+    "predicted_winner": "Bulldogs",
+    "predicted_side": "home",
+    "confidence": 0.71,
+    "home_win_probability": 0.71
+  },
+  "math_model": {
+    "home_win_probability": 0.7382,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Pythagorean form (last 10) (+19% expected-win gap) — contribution 0.130 (13% of total)",
+        "5-game form: points against (-14.40) — contribution 0.095 (10% of total)",
+        "Away travel to venue (0 km) — contribution 0.072 (7% of total)",
+        "Elo rating advantage (+46 points) — contribution 0.064 (7% of total)",
+        "Bradley-Terry strength advantage (+0.19 log-strength) — contribution 0.064 (7% of total)"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-5.6 points) — contribution 0.037 (4% of total)",
+        "Away rest (12.2 days) — contribution 0.030 (3% of total)",
+        "Travel-distance advantage (-0 km for away) — contribution 0.022 (2% of total)",
+        "5-game workload: top3 tackle share (+0.02) — contribution 0.018 (2% of total)",
+        "5-game momentum: penalty cluster rate (-0.80) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game momentum: penalty cluster rate (-0.80)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Bulldogs vs Rabbitohs NRL round 24 preview",
+      "Bulldogs Rabbitohs NRL odds OR price OR favourite",
+      "Bulldogs Rabbitohs NRL finals race OR form guide",
+      "Bulldogs Rabbitohs NRL",
+      "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Bulldogs Rabbitohs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 24 Bulldogs OR Rabbitohs"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 24 - Graham nears return",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-13T10:04:21+00:00",
+        "age_hours": 15.578109801388889,
+        "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/"
+      },
+      {
+        "title": "NRL Team Lists: Round 24",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-11T05:59:00+00:00",
+        "age_hours": 67.66727646805555,
+        "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/"
+      },
+      {
+        "title": "Canterbury Bulldogs vs South Sydney Rabbitohs Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:53:52+00:00",
+        "age_hours": 21.75283202361111,
+        "url": "https://www.sportsnews.com.au/nrl/canterbury-bulldogs-vs-south-sydney-rabbitohs-tips-odds-teams-predictions-nrl-round-24-2026/609872"
+      },
+      {
+        "title": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-13T12:56:55+00:00",
+        "age_hours": 12.701998690277778,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Bulldogs vs Rabbitohs Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:16:40+00:00",
+        "age_hours": 22.37283202361111,
+        "url": "https://www.beforeyoubet.com.au/bulldogs-vs-rabbitohs-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Bulldogs v Rabbitohs: Round 24 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:03:43+00:00",
+        "age_hours": 44.588665356944446,
+        "url": "https://www.nrl.com/news/2026/08/12/bulldogs-v-rabbitohs-round-24/"
+      },
+      {
+        "title": "Bulldogs v Rabbitohs: Round 24 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:03:43+00:00",
+        "age_hours": 44.588665356944446,
+        "url": "https://www.nrl.com/watch/news/bulldogs-v-rabbitohs-round-24-1975481/"
+      },
+      {
+        "title": "Match Preview Bulldogs v Rabbitohs: Jones steps up; Sullivan steers ship",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "NRL News",
+        "published_at": "2026-08-11T08:00:32+00:00",
+        "age_hours": 65.64172091249999,
+        "url": "https://www.nrl.com/news/2026/08/11/bulldogs-v-rabbitohs-jones-steps-up-sullivan-steers-ship/"
+      },
+      {
+        "title": "Bulldogs vs Rabbitohs - Round 24, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-09T17:57:18+00:00",
+        "age_hours": 103.6956098013889,
+        "url": "https://www.zerotackle.com/bulldogs-rabbitohs-round-24-2026-mc10397669-236788/"
+      },
+      {
+        "title": "NRL Round 24 Match Preview: A Colossal Battle Awaits",
+        "source": "bulldogs.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-09T01:39:20+00:00",
+        "age_hours": 119.99505424583334,
+        "url": "https://www.bulldogs.com.au/news/2026/08/14/nrl-round-24-match-preview-a-colossal-battle-awaits/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T10:08:15+00:00",
+        "age_hours": 39.513109801388886,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529"
+      },
+      {
+        "title": "NRL Team List: Round 24 v Raiders - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:57:00+00:00",
+        "age_hours": 67.7006098013889,
+        "url": "https://www.sharks.com.au/news/2026/08/11/nrl-team-list-round-24-v-raiders/"
+      },
+      {
+        "title": "NRL Round 24 late mail: Jesse Ramien undergoes season-ending surgery, James Tedesco out of top-two blockbuster",
+        "source": "dailytelegraph.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-05T01:39:17+00:00",
+        "age_hours": 215.99588757916666,
+        "url": "https://www.dailytelegraph.com.au/sport/nrl/supercoach-news/nrl-round-24-late-mail-james-tedesco-dylan-edwards-in-some-doubt-for-roosters-v-panthers-clash/news-story/ea1aec1675b19c39080798fddaf39728"
+      },
+      {
+        "title": "Reynolds’ scans results in; season over for Sharks star — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T14:56:33+00:00",
+        "age_hours": 10.70810980138889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-24-early-mail-news-teams-ins-and-outs-james-tedesco-in-doubt-dylan-edwards-pushing-to-play/news-story/ed6f741082a0959e49bf6a7f245bde8c"
+      },
+      {
+        "title": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T17:32:04+00:00",
+        "age_hours": 8.116165356944444,
+        "url": "https://www.beforeyoubet.com.au/broncos-vs-warriors-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Canterbury Bulldogs vs South Sydney Rabbitohs Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T15:27:16+00:00",
+        "age_hours": 34.19616535694444,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/13/canterbury-bulldogs-vs-south-sydney-rabbitohs-predictions/"
+      },
+      {
+        "title": "2026 NRL Round 24 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:02:46+00:00",
+        "age_hours": 44.60449869027778,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/12/2026-nrl-round-24-predictions/"
+      },
+      {
+        "title": "NRL Round 24 Team News: Friday Night Blockbuster - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:46:15+00:00",
+        "age_hours": 67.87977646805555,
+        "url": "https://www.bulldogs.com.au/news/2026/08/11/nrl-round-24-team-news-friday-night-blockbuster/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Math drivers include '5-game form: points against' and 'Away rest (12.2 days)'; they are not addressed in the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Matched bookmaker favourites (sportsnews.com.au), 6/8 wins (sportsnews.com.au), ladder position and PD per game (set_fixture_scene), home/away records (set_fixture_scene), and Campbell Graham's return (nrl_news)."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Source says Campbell Graham is 'on track to welcome back', judgement describes it as a 'return'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Pythagorean form and Elo advantage are correctly attributed to the Bulldogs (home side)."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a factor in the judgement."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 identifies sportsnews.com.au regarding recent win momentum."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.71 is within the allowed range and justified by citing Graham's return and scoring margins as tempering factors."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on high-contribution drivers like Pythagorean form and Elo rating."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top math drivers '5-game form: points against' (Bulldogs) and 'Away rest (12.2 days)' (Rabbitohs) were not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.71
+  },
+  "reasoning": {
+    "summary": "The Bulldogs are strong favourites based on a combination of an Elo advantage and superior recent defensive form, having conceded significantly fewer points over their last five games (math driver: -14.40). While the Rabbitohs benefit from substantial rest (12.2 days) and a better season-long points differential, they struggle away from home (3-7 record). The Bulldogs' momentum—winning six of eight according to sportsnews.com.au—outweighs South Sydney's recovery advantage.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favours the home side, driven by a +19% Pythagorean form gap and an Elo rating advantage of +46 points."
+      },
+      {
+        "source": "math",
+        "detail": "Bulldogs show strong recent defensive trends with a 5-game 'points against' contribution of -14.40 favouring the home win."
+      },
+      {
+        "source": "research",
+        "detail": "The Bulldogs have shown strong recent momentum, winning six of their past eight games (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "Bulldogs maintain a strong home record at 7-3 compared to the Rabbitohs' poor away record of 3-7."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Bulldogs-v-Rabbitohs/20260814T013835Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Bulldogs-v-Rabbitohs/20260814T013835Z/summary.md"
+  }
+}

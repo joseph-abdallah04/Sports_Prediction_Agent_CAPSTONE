@@ -1,0 +1,1298 @@
+{
+  "schema_version": 2,
+  "run_id": "20260815T044822Z-a99ec147",
+  "at_a_glance": {
+    "fixture": "Eels v Cowboys",
+    "round": 24,
+    "kickoff": "2026-08-15T17:30:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Eels",
+    "confidence": 0.56,
+    "model_home_win_probability": 0.5628,
+    "model_prediction": "Home Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-15T04:48:22.598240+00:00",
+  "updated_at": "2026-08-15T05:00:27.628003+00:00",
+  "request": {
+    "home_team": "Eels",
+    "away_team": "Cowboys",
+    "season": 2026,
+    "round_number": 24,
+    "force_refresh": true,
+    "user_question": "Who wins Eels vs Cowboys?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Eels",
+    "away_team": "Cowboys",
+    "confidence": 0.56,
+    "summary": "The Eels are predicted to win based on a strong historical head-to-head record and the Cowboys' poor history at CommBank Stadium. While North Queensland is the market favourite and holds superior Elo ratings, Parramatta's recent defensive form and venue dominance provide a sufficient edge.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+      },
+      {
+        "source": "math",
+        "detail": "The model's home-win prediction is supported by a strong head-to-head record (80% win rate) and recent defensive form, specifically the '5-game form: points against' driver (contribution 0.074)."
+      },
+      {
+        "source": "math",
+        "detail": "The model nets the '3-game form: errors' driver toward the Eels (contribution 0.053), although this is a conflicted value where the raw stat actually favours the Cowboys."
+      },
+      {
+        "source": "math",
+        "detail": "Conversely, the Cowboys hold an advantage in '5-game form: all run metres' (contribution 0.069) and superior Elo ratings, which contributes to the model's attribution balance leaning toward the away side."
+      },
+      {
+        "source": "research",
+        "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+      }
+    ],
+    "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that while it predicts a home win, the aggregate weight of ratings and run-metre data favours the Cowboys."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 5
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Eels vs Cowboys NRL round 24 preview",
+      "Eels Cowboys NRL odds OR price OR favourite",
+      "Eels Cowboys NRL finals race ladder stakes form"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The market price '$1.52' for North Queensland is not mentioned in any research body or title."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Walker and Mahoney are correctly described as returning."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "The head-to-head record driver is correctly attributed to the Eels (home win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors are sourced from 'Before You Bet' and 'nrl_news'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.56) is within the allowed range and reflects the conflict between H2H history and ladder/market position."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judge acknowledges that Elo and strength ratings (larger drivers) favor the away side while using H2H to justify the pick."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+        }
+      ],
+      "issues": [
+        "The market price '$1.52' is unsourced.",
+        "Math drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' were omitted from the evaluation."
+      ],
+      "instruction": "Please remove the unsourced market price '$1.52' and evaluate the following math drivers in your reasoning: '5-game form: points against', '3-game form: errors', and '5-game form: all run metres'."
+    },
+    "instruction": "Please remove the unsourced market price '$1.52' and evaluate the following math drivers in your reasoning: '5-game form: points against', '3-game form: errors', and '5-game form: all run metres'.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Eels",
+      "away_team": "Cowboys",
+      "confidence": 0.56,
+      "summary": "The Eels are predicted to win despite being lower on the ladder (13th vs 8th), supported by a strong historical head-to-head record and the Cowboys' struggles at CommBank Stadium. While the market favors North Queensland ($1.52) and the model's attribution balance leans away, the specific matchup history provides a significant edge for Parramatta.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+        },
+        {
+          "source": "math",
+          "detail": "The model's prediction is supported by a head-to-head record favoring the home side (80% win rate), contributing 0.044 to the probability."
+        },
+        {
+          "source": "research",
+          "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+        }
+      ],
+      "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that Elo and strength ratings favor the Cowboys despite the final home-win prediction."
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Eels",
+      "away_team": "Cowboys",
+      "confidence": 0.56,
+      "summary": "The Eels are predicted to win based on a strong historical head-to-head record and the Cowboys' poor history at CommBank Stadium. While North Queensland is the market favourite and holds superior Elo ratings, Parramatta's recent defensive form and venue dominance provide a sufficient edge.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+        },
+        {
+          "source": "math",
+          "detail": "The model's home-win prediction is supported by a strong head-to-head record (80% win rate) and recent defensive form, specifically the '5-game form: points against' driver (contribution 0.074)."
+        },
+        {
+          "source": "math",
+          "detail": "The model nets the '3-game form: errors' driver toward the Eels (contribution 0.053), although this is a conflicted value where the raw stat actually favours the Cowboys."
+        },
+        {
+          "source": "math",
+          "detail": "Conversely, the Cowboys hold an advantage in '5-game form: all run metres' (contribution 0.069) and superior Elo ratings, which contributes to the model's attribution balance leaning toward the away side."
+        },
+        {
+          "source": "research",
+          "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+        }
+      ],
+      "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that while it predicts a home win, the aggregate weight of ratings and run-metre data favours the Cowboys."
+    },
+    "issues": [
+      "The market price '$1.52' is unsourced.",
+      "Math drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-15T04:48:51.899807+00:00",
+      "thinking": "*   Home Team: Eels\n    *   Away Team: Cowboys\n    *   Round Number: 24\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Eels)\n    *   Query 2: Away team availability (Cowboys)\n    *   Query 3: Fixture preview (Eels vs Cowboys Round 24)\n    *   Query 4: Market prices/odds (Eels vs Cowboys)\n    *   Query 5: Specific context (form, ladder, pressure, etc.)\n\n    *   Q1: `Eels NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Q2: `Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Q3: `Eels vs Cowboys NRL round 24 preview`\n    *   Q4: `Eels Cowboys NRL odds OR price OR favourite`\n    *   Q5 (Context): Since it's Round 24, finals race/ladder stakes are usually critical. Let's go with \"finals race\" or \"form\".\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Eels, Cowboys).\n    *   JSON format? Yes.",
+      "chars": 1060
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-15T04:55:02.896165+00:00",
+      "thinking": "*   Match: Eels (Home) vs Cowboys (Away).\n    *   Venue: CommBank Stadium.\n    *   Round: 24.\n\n        *   Prediction: Home Win.\n        *   Probability: 0.5628.\n        *   SHAP Drivers favoring Eels: 5-game form points against, Head-to-head record (80% home win), Home travel (0km). Note: \"3-game form errors\" and \"Ladder points differential per game\" are listed as favoring Eels but have CONFLICT notes (raw values favor Cowboys).\n        *   SHAP Drivers favoring Cowboys: Elo rating advantage, Bradley-Terry strength, 5-game form run metres, Away rest, Away travel.\n        *   Attribution Balance: Leans *away* (Total toward home: 0.3849 vs Total toward away: 0.4673). This means the model's net probability favors Home, but the sum of drivers actually leans Away.\n\n        *   Eels: Position 13, Wins 7, Lost 13.\n        *   Cowboys: Position 8, Wins 12, Lost 9.\n        *   Comparison: Cowboys are higher on ladder and have a better points difference per game (-3.62 vs -9.15).\n\n        *   \"Before You Bet\": Eels have won five of the past six meetings between the sides; Cowboys have won just once in five visits to CommBank Stadium.\n        *   \"nrl_news\": Reed Mahoney (Cowboys hooker) returns from concussion. Dylan Walker is \"back on deck\" for Eels.\n        *   \"sportsnews.com.au\": Cowboys are bookmaker favorites. Market mentions show prices $1.52 and $7.75 (likely Cowboys/Eels).\n\n    *   The model predicts a Home Win (0.56), but the `attribution_balance` leans Away (-0.0823).\n    *   The ladder clearly favors the Cowboys (8th vs 13th).\n    *   However, there is a strong historical trend: Eels have won 5 of the last 6 meetings and the Cowboys struggle at CommBank Stadium (1 win in 5 visits). This is cited by \"Before You Bet\".\n    *   Availability: Reed Mahoney returns for Cowboys; Dylan Walker returns for Eels. Both are positive moves.\n\n    *   The model's probability is modest (0.56).\n    *   The market favors the Cowboys ($1.52).\n    *   The ladder favors the Cowboys.\n    *   The historical head-to-head and venue record strongly favor the Eels.\n    *   The `attribution_balance` leans away, meaning the math is actually slightly against the home win despite the final prediction.\n\n    *Decision:* The historical dominance of the Eels over the Cowboys (5 of 6 wins) and the specific struggle for North Queensland at CommBank Stadium are significant qualitative factors that offset the ladder position. However, the Cowboys are fighting for a top-eight spot while the Eels are out of the race.\n\n    *Wait*, let's look closer at the SHAP drivers.\n    \"Head-to-head record (last 5) (80% to the home side)\" is a driver favoring Eels.\n    The `attribution_balance` leans away, meaning Elo and Strength are pulling hard for Cowboys.\n\n    *Confidence Calculation:*\n    Market: Cowboys favorite.\n    Ladder: Cowboys superior.\n    H2H/Venue: Eels dominant.\n    Model: Home Win (0.56).\n    Since the model's net is home but its balance leans away, and the market/ladder favor the away side, this is a high-variance game. The strongest reason for an Eels win is the historical trend; the strongest reason for a Cowboys win is current form/rankings and finals motivation.\n\n    I will pick the **Eels** based on the model's prediction and the strong H2H evidence from research, but keep confidence low (0.55-0.60) because the math balance and market are against them.\n\n    *Wait*, let me re-evaluate. The Cowboys are 8th, Eels 13th. The Cowboys have a clear Elo/Strength advantage. If I pick Home, I am going against the ladder and the market.\n    Research says: \"Cowboys -6.5 asks them to win by more than I am comfortable... fair spread is closer to Cowboys -3.5\". This suggests the expert thinks Cowboys should win but not by much.\n\n    Actually, looking at the `attribution_balance`, it leans *away*. The model's prediction of 0.5628 for Home is barely above a coin flip and contradicts its own driver totals (0.4673 away vs 0.3849 home). This suggests the \"Home Win\" prediction might be fragile.\n\n    However, I must follow the evidence provided. The model *did* pick Home. Research provides a strong reason for Home (H2H record and venue history from \"Before You Bet\").\n\n    Let's check availability again:\n    - Reed Mahoney (Cowboys) is back.\n    - Dylan Walker (Eels) is back.\n\n    Strongest reason the Eels could lose: The Cowboys are significantly higher on the ladder, have a better Elo rating, and are fighting for a finals spot while the Eels are not.\n\n    *Confidence:* 0.56 (matching model probability roughly).\n\n    - Winner: home\n    - Home Team: Eels\n    - Away Team: Cowboys\n    - Confidence: 0.56\n    - Summary: The Eels are predicted to win despite being lower on the ladder, driven by a strong historical head-to-head record and the Cowboys' poor history at CommBank Stadium. While the market favors North Queensland, recent research highlights Parramatta's dominance in this specific matchup (winning five of the last six).\n    - Key Factors:\n        1. Math: Head-to-head record (80% home win) contributing to the model's prior.\n        2. Research: \"Before You Bet\" notes Eels have won five of the past six meetings and Cowboys have only one win in five visits to CommBank Stadium.\n        3. Scene/Research: Return of Dylan Walker for Eels and Reed Mahoney for Cowboys.\n    - Disagreements with math: The `attribution_balance` leans away (0.467 vs 0.385), suggesting the model's net prediction is countered by its own strength/Elo drivers.\n\n    *Self-Correction on Confidence:* If I pick Home, and the market is $1.52 for Cowboys, and the ladder is 8th vs 13th, and the math balance leans away... can I be confident?\n    The H2H record is the only strong signal for Eels.\n    Confidence should be in the 0.50-0.55 range if evidence points both ways.\n\n    Let's re-read: \"If research items were returned, at least one key_factor MUST come from research\". I have that (Before You Bet).\n    \"Only cite a SHAP driver that actually appears in shap_drivers.\" - Checked.\n    \"Read availability news for DIRECTION.\" - Mahoney and Walker are both returning (Positive for both).\n\n    Final check on the \"CONFLICT\" drivers:\n    - 3-game form errors (+3.00) -> Raw value favors away, model nets it home.\n    - Ladder points differential per game (-4.5) -> Raw value favors away, model nets it home.\n    This means the model is essentially ignoring the ladder/error stats to favor Home based on other things (like H2H).\n\n    Confidence: 0.56.",
+      "chars": 6473
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-15T04:58:48.867411+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home Team: Eels (13th)\n    *   Away Team: Cowboys (8th)\n    *   Venue: CommBank Stadium\n    *   Math Prediction: Home Win (Probability 0.5628)\n    *   SHAP Drivers (Eels): 5-game form points against, 3-game form errors, H2H record (last 5), Ladder points diff per game, Home travel.\n    *   SHAP Drivers (Cowboys): Elo rating advantage, Bradley-Terry strength, 5-game form run metres, Away rest, Away travel.\n\n    *   Winner: home (Eels)\n    *   Confidence: 0.56\n    *   Summary mentions: Ladder positions (13th vs 8th), H2H record, Cowboys' struggles at CommBank Stadium, Market favors NQ ($1.52).\n    *   Key Factors:\n        1.  Research: Eels won 5 of last 6 meetings; Cowboys won once in last 5 visits to CommBank (Source: 'Before You Bet').\n        2.  Math: H2H record favoring home side (80% win rate), contribution 0.044.\n        3.  Research: Dylan Walker returning for Eels, Reed Mahoney returning from concussion for Cowboys (Source: 'nrl_news').\n\n    *   **Check 1: `sourced_claims`**\n        *   Claim: \"Eels have won five of the last six meetings... Cowboys have won only once in their last five visits to CommBank Stadium.\" -> Source: 'Before You Bet' body excerpt says \"...won five of the past six meetings between the sides. The Cowboys have also won just once in five visits to CommBank Stadium.\" (Match)\n        *   Claim: \"Dylan Walker returning for the Eels\" -> Search research bodies. I see a title \"Match Preview Eels v Cowboys: Walker back on deck; Mahoney good to go\". However, looking at the `body_excerpt` of that article... it says \"Walker back on deck\" in the title, but does the body mention him? The excerpt provided for that specific article is: \"The Cowboys are out to solidify their place in the top eight when they travel south to face the Parramatta Eels on Saturday evening. North Queensland climbed back into the eight with a convincing win over the Titans last week and they are looking to keep the momentum rolling in the race to September. While they continue to play without star halfback Tom Dearden; playmakers Jake Clifford and Jaxon Purdue have combined to lead the Cowboys high-powered attack. Parramatta may be out of the finals race but they showed last week they won't go down without a fight. Trailing 28-0 at half-time against the Rabbitohs, the Eels came within a whisker of pulling off the biggest comeback in NRL history before ultimately falling 28-24. Mitchell Moses remains one of the best playmakers in the competition and has been surrounded by an im\". The body excerpt *does not* mention Dylan Walker. It's only in the title. Wait, the instructions say \"Player names and injuries usually appear in that body text, NOT in the title. Read the bodies before calling anything a hallucination... Every injury, player name... claim in the judgement appears in a research `body_excerpt`/title or a scene field.\" Okay, it's in the *title* of the article \"Match Preview Eels v Cowboys: Walker back on deck; Mahoney good to go\". So this is sourced.\n        *   Claim: \"Reed Mahoney returning from concussion for the Cowboys\" -> Source: 'nrl_news' (Late Mail) says \"Also returning in Round 24 is Cowboys hooker Reed Mahoney after a couple of weeks out with concussion.\" and Google News RSS says \"Reed Mahoney will return from concussion to face the Parramatta Eels\". (Match)\n        *   Claim: Market favors NQ ($1.52). -> Search research bodies. I see 'Before You Bet' mentions Cowboys -6.5, but no specific price of $1.52 in any excerpt. Let me re-read all excerpts. None mention \"$1.52\". This is a hallucination/unsourced claim.\n\n    *   **Check 2: `availability_direction`**\n        *   Walker returning -> Judgement says \"returning\" (Correct).\n        *   Mahoney returning from concussion -> Judgement says \"returning\" (Correct).\n\n    *   **Check 3: `shap_attribution`**\n        *   Driver named in judgement: \"head-to-head record favoring the home side (80% win rate), contributing 0.044\". This is listed under `favouring_Eels_home_win`. Correct attribution to Eels.\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather not mentioned in summary or key factors. (Pass)\n\n    *   **Check 5: `research_used`**\n        *   Key factor 1 is sourced from 'Before You Bet'. Key factor 3 is sourced from 'nrl_news'. (Pass)\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence is 0.56. Summary says \"The Eels are predicted to win despite being lower on the ladder... supported by a strong historical head-to-head record\". It explains why it's not higher (ladder position, market favor). The number 0.56 is within 0.50-0.85 and below 0.65 given the unresolved reason (lower ladder pos/market odds). (Pass)\n\n    *   **Check 7: `driver_proportionality`**\n        *   The H2H driver (0.044) is used, but it's not treated as \"decisive\" over others in a way that ignores the top drivers; rather, it's presented as the reason for the pick despite other factors. However, looking at SHAP: Elo rating advantage (0.133) and Bradley-Terry (0.124) are much larger than H2H (0.044). The judge is picking Home Win based on a smaller driver while acknowledging the larger drivers favor Away. This is an interpretation of \"decisive\". But usually, this check is about treating a 0.01 factor as the main reason. Here, it's one of the few positive factors for home. I'll mark as pass unless it's blatantly ignoring the scale.\n\n    *   **Check 8: `omitted_math_signals`**\n        *   Top drivers for Eels (Home):\n            1.  5-game form points against (0.074) - NOT mentioned.\n            2.  3-game form errors (0.053) - NOT mentioned.\n            3.  H2H record (0.044) - Mentioned.\n        *   Top drivers for Cowboys (Away):\n            1.  Elo rating advantage (0.133) - Alluded to in \"disagreements_with_math\" (\"Elo and strength ratings favor the Cowboys\").\n            2.  Bradley-Terry strength (0.124) - Alluded to in \"disagreements_with_math\".\n            3.  5-game form run metres (0.069) - NOT mentioned.\n        *   Failure: 5-game form points against, 3-game form errors, and 5-game form run metres are omitted.\n\n    *   `sourced_claims`: Fail. The market price \"$1.52\" is not in any research excerpt.\n    *   `omitted_math_signals`: Fail. Top drivers like \"5-game form: points against\", \"3-game form: errors\", and \"5-game form: all run metres\" are missing from the evaluation.\n\n    *   Sourced claims evidence: Market price \"$1.52\" not found in any research body or title.\n    *   Omitted math signals evidence: Drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' are not addressed.\n\n    *   Instruction for judge: \"The market price '$1.52' is unsourced; additionally, please evaluate the following math drivers: '5-game form: points against', '3-game form: errors', and '5-game form: all run metres'.\"",
+      "chars": 6969
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-15T05:00:27.627717+00:00",
+      "thinking": "*   Winner: Eels (Home)\n    *   Confidence: 0.56\n    *   Summary mentioned market price $1.52 (flagged as unsourced).\n    *   Key factors cited research (Before You Bet), math (H2H), and research (availability).\n\n    *   Issue 1: Market price '$1.52' is unsourced. Looking at `market_mentions`, there are prices `$1.52` and `$7.75` in the snippet from `sportsnews.com.au`. Wait, the verifier says it's \"unsourced\". Let me check the JSON again.\n        *   `market_mentions`: `{\"title\": \"Parramatta Eels vs North Queensland Cowboys Tips, Odds, Teams & Predictions \\u2013 NRL Round 24 2026 - sportsnews.com.au\", ..., \"prices_found\": [\"$1.52\", \"$7.75\"], ...}`.\n        *   Actually, the price *is* in the `market_mentions` block. However, if the verifier says it's unsourced or I didn't cite the source correctly (I just said \"the market favors\"), I should be more precise or remove it as requested. The instruction specifically says: \"Please remove the unsourced market price '$1.52'\". I will follow this instruction and remove the specific number.\n\n    *   Issue 2: Math drivers omitted from evaluation:\n        *   `5-game form: points against (-9.40)` -> contribution 0.074 (favouring Eels).\n        *   `3-game form: errors (+3.00)` -> contribution 0.053 (favouring Eels, but CONFLICT: raw value favors away side).\n        *   `5-game form: all run metres (-96.20)` -> contribution 0.069 (favouring Cowboys).\n\n    *   Winner: Home (Eels)\n    *   Confidence: 0.56\n    *   Math Model Prediction: Home Win (Probability 0.5628).\n    *   Attribution Balance: Leans Away (-0.0823). This means the sum of drivers for Cowboys is higher than Eels, even though the model's final output is \"Home Win\".\n\n    *   *Eels strengths:* H2H record (research and math), home ground advantage at CommBank Stadium (research: Cowboys only won 1/5 there), recent defensive form (`5-game form: points against` - contribution 0.074).\n    *   *Cowboys strengths:* Elo rating, Bradley-Terry strength, `5-game form: all run metres` (contribution 0.069).\n    *   *Conflict Driver:* `3-game form: errors`. The raw value favors the Cowboys, but the model nets it toward the Eels. I should mention this as a conflicted driver if used.\n\n    *   The market favorite is North Queensland (per research \"North Queensland Cowboys heading into the game as favourites\").\n    *   The math model predicts Home Win (0.5628), but the attribution balance leans away.\n    *   Research strongly supports Eels' historical dominance over Cowboys at this venue.\n\n    *   Strongest reason pick could lose: The Cowboys are significantly higher on the ladder (8th vs 13th) and have superior Elo/strength ratings. They also have a run-meter advantage in recent form.\n    *   Confidence check: If these factors are credible, confidence should stay $\\le$ 0.65. 0.56 is appropriate given the conflict between historical dominance (Eels) and current season standing/ratings (Cowboys).\n\n    *   Remove \"$1.52\".\n    *   Incorporate `5-game form: points against` (supports Eels).\n    *   Incorporate `3-game form: errors` (conflicted, but nets to Eels).\n    *   Incorporate `5-game form: all run metres` (supports Cowboys).\n\n    *   Winner: home\n    *   Confidence: 0.56\n    *   Summary: Mention the conflict between current ratings and historical dominance.\n    *   Key factors: Include the specific math drivers requested.",
+      "chars": 3364
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-15T04:48:51.900288+00:00",
+      "payload": {
+        "queries": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Eels vs Cowboys NRL round 24 preview",
+          "Eels Cowboys NRL odds OR price OR favourite",
+          "Eels Cowboys NRL finals race ladder stakes form"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-15T04:55:02.896853+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "confidence": 0.56,
+          "summary": "The Eels are predicted to win despite being lower on the ladder (13th vs 8th), supported by a strong historical head-to-head record and the Cowboys' struggles at CommBank Stadium. While the market favors North Queensland ($1.52) and the model's attribution balance leans away, the specific matchup history provides a significant edge for Parramatta.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prediction is supported by a head-to-head record favoring the home side (80% win rate), contributing 0.044 to the probability."
+            },
+            {
+              "source": "research",
+              "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+            }
+          ],
+          "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that Elo and strength ratings favor the Cowboys despite the final home-win prediction."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-15T04:58:48.867878+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The market price '$1.52' for North Queensland is not mentioned in any research body or title."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Walker and Mahoney are correctly described as returning."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "The head-to-head record driver is correctly attributed to the Eels (home win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors are sourced from 'Before You Bet' and 'nrl_news'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.56) is within the allowed range and reflects the conflict between H2H history and ladder/market position."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judge acknowledges that Elo and strength ratings (larger drivers) favor the away side while using H2H to justify the pick."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+            }
+          ],
+          "issues": [
+            "The market price '$1.52' is unsourced.",
+            "Math drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' were omitted from the evaluation."
+          ],
+          "instruction": "Please remove the unsourced market price '$1.52' and evaluate the following math drivers in your reasoning: '5-game form: points against', '3-game form: errors', and '5-game form: all run metres'."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-15T05:00:27.627830+00:00",
+      "payload": {
+        "issues": [
+          "The market price '$1.52' is unsourced.",
+          "Math drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' were omitted from the evaluation."
+        ],
+        "instruction": "Please remove the unsourced market price '$1.52' and evaluate the following math drivers in your reasoning: '5-game form: points against', '3-game form: errors', and '5-game form: all run metres'.",
+        "before": {
+          "winner": "home",
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "confidence": 0.56,
+          "summary": "The Eels are predicted to win despite being lower on the ladder (13th vs 8th), supported by a strong historical head-to-head record and the Cowboys' struggles at CommBank Stadium. While the market favors North Queensland ($1.52) and the model's attribution balance leans away, the specific matchup history provides a significant edge for Parramatta.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prediction is supported by a head-to-head record favoring the home side (80% win rate), contributing 0.044 to the probability."
+            },
+            {
+              "source": "research",
+              "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+            }
+          ],
+          "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that Elo and strength ratings favor the Cowboys despite the final home-win prediction."
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "confidence": 0.56,
+          "summary": "The Eels are predicted to win based on a strong historical head-to-head record and the Cowboys' poor history at CommBank Stadium. While North Queensland is the market favourite and holds superior Elo ratings, Parramatta's recent defensive form and venue dominance provide a sufficient edge.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+            },
+            {
+              "source": "math",
+              "detail": "The model's home-win prediction is supported by a strong head-to-head record (80% win rate) and recent defensive form, specifically the '5-game form: points against' driver (contribution 0.074)."
+            },
+            {
+              "source": "math",
+              "detail": "The model nets the '3-game form: errors' driver toward the Eels (contribution 0.053), although this is a conflicted value where the raw stat actually favours the Cowboys."
+            },
+            {
+              "source": "math",
+              "detail": "Conversely, the Cowboys hold an advantage in '5-game form: all run metres' (contribution 0.069) and superior Elo ratings, which contributes to the model's attribution balance leaning toward the away side."
+            },
+            {
+              "source": "research",
+              "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+            }
+          ],
+          "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that while it predicts a home win, the aggregate weight of ratings and run-metre data favours the Cowboys."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "7138bf3d0b34",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-15T04:48:22.598384+00:00",
+      "finished_at": "2026-08-15T04:48:26.041966+00:00",
+      "duration_ms": 3443,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Cowboys",
+        "season": 2026,
+        "round_number": 24,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "season": 2026,
+          "round_number": 24
+        },
+        "retrieved_at": "2026-08-15T04:48:22.598450+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 24,
+          "round_title": "Round 24",
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-15T17:30:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/eels-v-cowboys/",
+          "match_mode": "Pre",
+          "match_id": "20261112450",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Todd Smith"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Grant Atkins"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Apa Twidle",
+                "position": "Fullback",
+                "player_id": 100020440
+              },
+              {
+                "number": 2,
+                "name": "Brian Kelly",
+                "position": "Winger",
+                "player_id": 500872
+              },
+              {
+                "number": 3,
+                "name": "Will Penisini",
+                "position": "Centre",
+                "player_id": 507922
+              },
+              {
+                "number": 4,
+                "name": "Jordan Samrani",
+                "position": "Centre",
+                "player_id": 509558
+              },
+              {
+                "number": 5,
+                "name": "Josh Addo-Carr",
+                "position": "Winger",
+                "player_id": 501351
+              },
+              {
+                "number": 6,
+                "name": "Ronald Volkman",
+                "position": "Five-Eighth",
+                "player_id": 100000365
+              },
+              {
+                "number": 7,
+                "name": "Mitchell Moses",
+                "position": "Halfback",
+                "player_id": 500485
+              },
+              {
+                "number": 8,
+                "name": "Luca Moretti",
+                "position": "Prop",
+                "player_id": 505676
+              },
+              {
+                "number": 9,
+                "name": "Tallyn Da Silva",
+                "position": "Hooker",
+                "player_id": 100006658
+              },
+              {
+                "number": 10,
+                "name": "Junior Paulo",
+                "position": "Prop",
+                "player_id": 500687
+              },
+              {
+                "number": 11,
+                "name": "Jack Williams",
+                "position": "2nd Row",
+                "player_id": 502363
+              },
+              {
+                "number": 12,
+                "name": "Kitione Kautoga",
+                "position": "2nd Row",
+                "player_id": 507965
+              },
+              {
+                "number": 14,
+                "name": "Dylan Walker",
+                "position": "Interchange",
+                "player_id": 500083
+              },
+              {
+                "number": 15,
+                "name": "Saxon Pryke",
+                "position": "Lock",
+                "player_id": 100006431
+              },
+              {
+                "number": 16,
+                "name": "Teancum Brown",
+                "position": "Interchange",
+                "player_id": 100008613
+              },
+              {
+                "number": 17,
+                "name": "Jezaiah Funa",
+                "position": "Interchange",
+                "player_id": 100011276
+              },
+              {
+                "number": 18,
+                "name": "Toni Mataele",
+                "position": "Interchange",
+                "player_id": 509635
+              },
+              {
+                "number": 19,
+                "name": "Sean Russell",
+                "position": "Interchange",
+                "player_id": 509762
+              },
+              {
+                "number": 20,
+                "name": "Kelma Tuilagi",
+                "position": "Interchange",
+                "player_id": 506628
+              },
+              {
+                "number": 21,
+                "name": "Harrison Edwards",
+                "position": "Reserve",
+                "player_id": 505612
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Scott Drinkwater",
+                "position": "Fullback",
+                "player_id": 504087
+              },
+              {
+                "number": 2,
+                "name": "Braidon Burns",
+                "position": "Winger",
+                "player_id": 506040
+              },
+              {
+                "number": 3,
+                "name": "Zac Laybutt",
+                "position": "Centre",
+                "player_id": 510612
+              },
+              {
+                "number": 4,
+                "name": "Tom Chester",
+                "position": "Centre",
+                "player_id": 100004781
+              },
+              {
+                "number": 5,
+                "name": "Murray Taulagi",
+                "position": "Winger",
+                "player_id": 508443
+              },
+              {
+                "number": 6,
+                "name": "Jake Clifford",
+                "position": "Five-Eighth",
+                "player_id": 505894
+              },
+              {
+                "number": 7,
+                "name": "Jaxon Purdue",
+                "position": "Halfback",
+                "player_id": 100008940
+              },
+              {
+                "number": 8,
+                "name": "Griffin Neame",
+                "position": "Prop",
+                "player_id": 100004869
+              },
+              {
+                "number": 9,
+                "name": "Reed Mahoney",
+                "position": "Hooker",
+                "player_id": 505460
+              },
+              {
+                "number": 10,
+                "name": "Jason Taumalolo",
+                "position": "Prop",
+                "player_id": 500301
+              },
+              {
+                "number": 11,
+                "name": "Heilum Luki",
+                "position": "2nd Row",
+                "player_id": 100001946
+              },
+              {
+                "number": 12,
+                "name": "Kai O'Donnell",
+                "position": "2nd Row",
+                "player_id": 506555
+              },
+              {
+                "number": 13,
+                "name": "Reuben Cotter",
+                "position": "Lock",
+                "player_id": 504374
+              },
+              {
+                "number": 14,
+                "name": "Soni Luke",
+                "position": "Interchange",
+                "player_id": 502756
+              },
+              {
+                "number": 15,
+                "name": "Thomas Mikaele",
+                "position": "Interchange",
+                "player_id": 504377
+              },
+              {
+                "number": 16,
+                "name": "John Bateman",
+                "position": "Interchange",
+                "player_id": 502214
+              },
+              {
+                "number": 17,
+                "name": "Coen Hess",
+                "position": "Interchange",
+                "player_id": 500405
+              },
+              {
+                "number": 18,
+                "name": "Sam McIntyre",
+                "position": "Interchange",
+                "player_id": 504065
+              },
+              {
+                "number": 19,
+                "name": "Ethan King",
+                "position": "Interchange",
+                "player_id": 100010520
+              },
+              {
+                "number": 20,
+                "name": "Kaiden Lahrs",
+                "position": "Reserve",
+                "player_id": 100012039
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 24,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Eels",
+            "position": 13,
+            "played": 20,
+            "wins": 7,
+            "drawn": 0,
+            "lost": 13,
+            "competition_points": 20,
+            "points_for": 389,
+            "points_against": 572,
+            "points_difference": -183,
+            "points_difference_per_game": -9.15,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1L",
+            "home_record": "4 - 6",
+            "away_record": "3 - 7"
+          },
+          "away": {
+            "team": "Cowboys",
+            "position": 8,
+            "played": 21,
+            "wins": 12,
+            "drawn": 0,
+            "lost": 9,
+            "competition_points": 28,
+            "points_for": 484,
+            "points_against": 560,
+            "points_difference": -76,
+            "points_difference_per_game": -3.62,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "6 - 4",
+            "away_record": "6 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Cowboys",
+            "ladder_positions_gap": -5,
+            "points_difference_per_game_gap": -5.53,
+            "points_difference_favours": "Cowboys"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-15T17:00",
+            "temperature_c": 15.2,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 7,
+            "wind_speed_kmh": 10.1,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-15T04:48:26.036976+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=24&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/eels-v-cowboys/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "9e5a8881e8ee",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-15T04:48:51.902659+00:00",
+      "finished_at": "2026-08-15T04:50:44.168479+00:00",
+      "duration_ms": 112265,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Cowboys",
+        "kickoff": "2026-08-15T17:30:00+10:00",
+        "round_number": 24,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Eels vs Cowboys NRL round 24 preview",
+          "Eels Cowboys NRL odds OR price OR favourite",
+          "Eels Cowboys NRL finals race ladder stakes form"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-15T17:30:00+10:00",
+          "round_number": 24,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Eels vs Cowboys NRL round 24 preview",
+            "Eels Cowboys NRL odds OR price OR favourite",
+            "Eels Cowboys NRL finals race ladder stakes form"
+          ]
+        },
+        "retrieved_at": "2026-08-15T04:48:51.903383+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "5e8b5ad69f60bb6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 24 - Crossland back, Best on hold for Knights Presented by 37 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/",
+            "published_at": "2026-08-15T04:11:15+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 - Crossland back, Best on hold for Knights\nKnights hooker Phoenix Crossland is back on deck to face the Titans after missing the win over Canberra due to calf a injury.\nCentre Bradman Best was originally named, but will need at least another w",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 - Crossland back, Best on hold for Knights\nKnights hooker Phoenix Crossland is back on deck to face the Titans after missing the win over Canberra due to calf a injury.\nCentre Bradman Best was originally named, but will need at least another week to recover.\nAlso returning in Round 24 is Cowboys hooker Reed Mahoney after a couple of weeks out with concussion.\nSee all the late mail, official team news and updates for Round 24 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 24\nSharks v Raiders, Saturday 3.00pm at Ocean Protect Stadium\nMatch: Sharks v Raiders\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSharks\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Sharks is number 3 Mawene Hiroti 3 Centre for Raiders is number 3 Savelio Tamale\nCentre for Sharks is number 4 KL Iro 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Raiders is number 7 Ethan Sanders\nForwards\nProp for Sharks is number 8 Oregon Kaufusi 8 Prop for Raiders is number 8 Ata Mariota\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Raiders is number 11 Zac Hosking\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Raiders is number 13 Morgan Smithies\n13\nInterchange\nInterchange for Sharks is number 14 Hohepa Puru 14 Interchange for Raiders is number 14 Tom Starling\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Sharks is number 16 Siosifa Talakai 16 Interchange for Raiders is number 16 Josh Papalii\n16\nInterchange for Sharks is number 17 Thomas Hazelton 17 Interchange for Raiders is number 17 Daine Laurie\n17\nInterchange for Sharks is number 19 Braden Uele 19 18 Interchange for Raiders is number 18 Vena Patuki-Case\n19 18\nInterchange for Sharks is number 21 Samuel Stonestreet 21 19 Interchange for Raiders is number 19 Sebastian Kris\n21 19\nSharks Ins\nKL Iro\nSamuel Stonestreet\nSiosifa Talakai\nRaiders Ins\nSebastian Kris\nVena Patuki-Case\nSharks Outs\nAddin Fonua-Blake\nJesse Ramien\nMichael Gabrael\nCorey Horsburgh\nSimi Sasagi\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Drew Oultram\nSenior Review Official: Adam Gee\nLast updated: 8/15/2026 4:45:40 AM\nSharks: No game day changes after Braden Uele and Sam Stonestreet were retained in the 19-man squad on Friday with Michael Gabrael omitted. Addin Fonua-Blake's one-game ban for a careless high tackle brings Oregon Kaufusi into the starting side. Centre KL Iro is back from concussion to fill the hole left by Jesse Ramien (pectoral). The Sharks have won five of their past six games against the Raiders.\nRaiders: The Raiders are 1-19 with no late changes. With the finals all but gone, Simi Sasagi will be rested ahead of end-of-season shoulder surgery. Savelio Tamale earns a recall in the centres after four games in NSW Cup. With Corey Horsburgh left out, Ata Mariota moves to prop and Englishman Matty Nicholson joins the starting side in the back row for his third game of 2026.\nEels v Cowboys, Saturday 5.30pm at CommBank Stadium\nMatch: Eels v Cowboys\nEels\nCowboys\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Eels is number 2 Brian Kelly 2 Winger for Cowboys is num",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.6269176063888888,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90ca980be2320f59",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 24",
+            "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/",
+            "published_at": "2026-08-11T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 20 Dylan Edwards 20 18 Fullback for Roosters is number 18 Cody Ramsey\n20 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Roosters is number 15 Lindsay Collins\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Roosters is number 16 Nat Butcher\n17 16\nInterchange for Panthers is number 19 Blaize Talagi 19\n19\nReserve for Panthers is number 1 Jaxen Edgar 1 17 Reserve for Roosters is number 17 Egan Butcher\n1 17\nReserve for Panthers is number 14 Billy Scott 14 19 Reserve for Roosters is number 19 Tommy Talau\n14 19\n20 Reserve for Roosters is number 20 Rex Bassingthwaighte\n20\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/14/2026 8:04:05 AM\nPanthers: Gun fullback Dylan Edwards is listed among the reserves as he looks to return from a shoulder injury. Edwards' last match was Round 20 against the Broncos. Lindsay Smith shifts from prop to lock to take over from skipper Isaah Yeo (pectoral) while Liam Henry starts in the front row. Jack Cogger will wear the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife. Jack Cole goes back to the bench as a result.\nRoosters: Skipper James Tedesco is back in the No.1 jersey after sitting out the Bulldogs game with an ankle injury. Cody Ramsey gets a spot in the six-man interchange after filling in at fullback last week. Spencer Leniu has again been named to start in the front row but could make a late switch back to the bench as he did last week when Nat Butcher started.\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nSea Eagles\nDolphins\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 94.83108427305555,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c2edb12a5a2d518e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cowboys NRL team list: Round 24 v Eels - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/08/11/cowboys-nrl-team-list-round-24-v-eels-reed-returns/",
+            "published_at": "2026-08-11T05:53:00+00:00",
+            "snippet": "Cowboys NRL team list: Round 24 v Eels\nReed Mahoney will return from concussion to face the Parramatta Eels at CommBank Stadium on Saturday evening.\nMahoney’s inclusion is the only change to the starting side by North Queensland Toyota Cowboys Head Coach Todd Payten following las",
+            "body_excerpt": "Cowboys NRL team list: Round 24 v Eels\nReed Mahoney will return from concussion to face the Parramatta Eels at CommBank Stadium on Saturday evening.\nMahoney’s inclusion is the only change to the starting side by North Queensland Toyota Cowboys Head Coach Todd Payten following last Thursday’s victory over the Titans.\nSoni Luke reverts to the interchange after a two-week stint in the starting side.\nSaturday’s game kicks off at 5.30pm.\n>>> Payten: I'm looking forward to that 1-2 punch\nCowboys team to play Eels:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Zac Laybutt\n4. Tom Chester\n5. Murray Taulagi\n6. Jake Clifford\n7. Jaxon Purdue\n8. Griffin Neame\n9. Reed Mahoney\n10. Jason Taumalolo\n11. Heilum Luki\n12. Kai O’Donnell\n13. Reuben Cotter (c)\nInterchange\n14. Soni Luke\n15. Tom Mikaele\n16. John Bateman\n17. Coen Hess\n18. Sam McIntyre\n19. Ethan King\n20. Kaiden Lahrs\n21. Mason Kira\n22. Liam Sutton\nRelated /\nPayten on current depth in the forwards\nCowboys\nHenry on who will step up in leadership following Manzelmann's injury\nTeam Lists\nCowboys release Lodge\nCowboys NRLQ team list: Grand Final v Dolphins\nCowboys NRLW team list: Round 7 v Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.93108427305556,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "3df0892ed474ee70",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Parramatta Eels vs North Queensland Cowboys Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/parramatta-eels-vs-north-queensland-cowboys-tips-odds-teams-predictions-nrl-round-24-2026/609874",
+            "published_at": "2026-08-12T15:40:11+00:00",
+            "snippet": "Parramatta Eels vs North Queensland Cowboys Tips, Odds, Teams & Predictions – NRL Round 24 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "CommBank Stadium will play host to Saturday's Round 24 NRL game between Parramatta Eels and North Queensland Cowboys. The game kicks off at 5:30 pm with North Queensland Cowboys heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Parramatta Eels vs. North Queensland Cowboys game and give you our free tips and bets.\nWhen: Saturday August 15, 2026 at 5:30 pm\nWhere: CommBank Stadium\nBet 💰: Bet On This Match HERE\nParramatta Eels vs North Queensland Cowboys Odds\nParramatta Eels vs North Queensland Cowboys Preview\nNorth Queensland can strengthen its position inside the top eight when it visits Parramatta, but the Cowboys remain difficult to trust after wildly contrasting performances. They answered an 82-12 defeat to the Roosters with a controlled 30-8 win over Gold Coast, while the Eels nearly erased a 28-point half-time deficit before losing 28-24 to South Sydney. Parramatta must cover the season-ending loss of Isaiah Iongi, with Apa Twidle named at fullback and Tallyn Da Silva starting at hooker. Dylan Walker returns through the interchange. The Cowboys regain Reed Mahoney from concussion, providing direction around the ruck. Parramatta has won seven of the past nine meetings and four previous clashes with North Queensland at CommBank Stadium, so the visitors will need greater consistency and patience than they showed in their recent collapse.\nHead To Head Bet\nWe're tipping North Queensland Cowboys to win at $1.52 odds.\nFirst Try Scorer\nFirst Try Scorer: Murray Taulagi at $7.75 .\nParramatta Eels vs North Queensland Cowboys Teams\nEels team: 1. Apa Twidle 2. Brian Kelly 3. Viliami Penisini 4. Jordan Samrani 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses 8. Luca Moretti 9. Tallyn Da Silva 10. Junior Paulo 11. Jack Williams 12. Kitione Kautoga 13. Jack de Belin 14. Dylan Walker 15. Saxon Pryke 16. Teancum Brown 17. Jezaiah Funa-Luta 18. Toni Mataele 19. Sean Russell 20. Kelma Tuilagi 21. Harrison Edwards 22. Ryley Smith\nCowboys team: 1. Scott Drinkwater 2. Braidon Burns 3. Zac Laybutt 4. Tomas Chester 5. Murray Taulagi 6. Jake Clifford 7. Jaxon Purdue 8. Griffin Neame 9. Reed Mahoney 10. Jason Taumalolo 11. Heilum Luki 12. Kai O’Donnell 13. Reuben Cotter 14. Soni Luke 15. Thomas Mikaele 16. John Bateman 17. Coen Hess 18. Sam McIntyre 19. Ethan King 20. Kaiden Lahrs 21. Mason Kira 22. Liam Sutton",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 61.14469538416667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "a2cbfdcf846f2512",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Live Blog Super Saturday: Sharks v Raiders; Eels v Cowboys; Broncos v Warriors Presented by 37 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/15/super-saturday-sharks-v-raiders-eels-v-cowboys-broncos-v-warriors/",
+            "published_at": "2026-08-15T04:11:51+00:00",
+            "snippet": "Presented By\nSuper Saturday: Sharks v Raiders; Eels v Cowboys; Broncos v Warriors\nThe Raiders' finals hopes may have evaporated at home last Sunday but their intense rivalry with the Sharks is sure to bring out the best in Ricky Stuart's men in our Saturday opener.\nThe Sharks hun",
+            "body_excerpt": "Presented By\nSuper Saturday: Sharks v Raiders; Eels v Cowboys; Broncos v Warriors\nThe Raiders' finals hopes may have evaporated at home last Sunday but their intense rivalry with the Sharks is sure to bring out the best in Ricky Stuart's men in our Saturday opener.\nThe Sharks hung on to fourth spot at the end of Round 23 despite a shock loss to the Dragons but they can ill-afford another slip-up against a team outside the eight.\nSpeaking of danger games, that's precisely what the Cowboys face when they travel to CommBank Stadium to face the Eels.\nThey may be sitting 13th but the Eels' second-half surge against the Bunnies served notice that they can never be taken lightly.\nOur final clash on Saturday night takes us to Brisbane where the Wahs fans will be out in force for a high-octane showdown with Reece Walsh and the Broncos.\nOne team is finals-bound and the other has plummeted from the premiership to second-last on the ladder but the Warriors will be wary of a proud opponent eager to win for their fans and finish a horror season strongly.\nFollow all the action from Round 24 of the NRL Telstra Premiership on NRL.com's live blog.\nSharks v Raiders at Ocean Protect Stadium\nMatch: Sharks v Raiders\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSharks\n5th Position\naway Team\nRaiders\n12th Position\nVenue: Ocean Protect Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nMatch preview\nSharks v Raiders: Round 24\nLate Mail\nSharks: No game day changes after Braden Uele and Sam Stonestreet were retained in the 19-man squad on Friday with Michael Gabrael omitted. Addin Fonua-Blake's one-game ban for a careless high tackle brings Oregon Kaufusi into the starting side. Centre KL Iro is back from concussion to fill the hole left by Jesse Ramien (pectoral). The Sharks have won five of their past six games against the Raiders.\nRaiders: The Raiders are 1-19 with no late changes. With the finals all but gone, Simi Sasagi will be rested ahead of end-of-season shoulder surgery. Savelio Tamale earns a recall in the centres after four games in NSW Cup. With Corey Horsburgh left out, Ata Mariota moves to prop and Englishman Matty Nicholson joins the starting side in the back row for his third game of 2026.\nNumbers Game\nThe Sharks have won five of their past six games against the Raiders.\nThe Raiders have not won at Ocean Protect Stadium since 2019.\nThe Sharks have won seven from eight at Ocean Protect Stadium this season.\nRaiders winger Jed Stuart has scored four tries in his last four games.\nSharks winger Sione Katoa has scored six tries in his last six games.\nEels v Cowboys at CommBank Stadium\nMatch: Eels v Cowboys\nEels\n13th Position\nCowboys\n8th Position\nVenue: CommBank Stadium, Sydney\nEels v Cowboys: Round 24\nBroncos v Warriors at Suncorp Stadium\nMatch: Broncos v Warriors\nBroncos\n16th Position\nWarriors\n3rd Position\nVenue: Suncorp Stadium, Brisbane\nNine Network\nNine Now\nBroncos v Warriors: Round 24\nRelated /\nSharks v Raiders: Iro returns; Sasagi ruled out\nBroncos v Warriors: Duffy ready to grow; Metcalf's central role\nLive Blog\nAs it happened: Dragons stun Sharks; Knights win thriller\nAs it happened: Knights outgun Broncos; Wahs, Panthers win\nAs it happened: Cowboys charge; Bulldogs barking; Raiders win big",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.6169176063888888,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-14T10:43:19+00:00",
+            "snippet": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knoc",
+            "body_excerpt": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knock in the Round 22 loss to the Knights and the latest setback puts his hopes of playing out his final season before retiring at the end of the year at risk.\nIn a statement, the Broncos said Reynolds will be assessed on a weekly basis to determine a return to play.\n\"Scans at the Clive Berghofer Centre’s Qscan facility confirmed that Broncos captain Adam Reynolds sustained a grade 1 soleus strain on his right calf at training yesterday,\" the club said.\n\"His return-to-play timeline will be determined on a week-by-week basis.\"\nCronulla centre Jesse Ramien has also played his final game for the club with the centre undergoing season-ending pectoral surgery on Thursday.\nRamien suffered the injury in the second half of last week's loss to St George Illawarra and will depart the Sharks at the end of the season to join the Cowboys.\n\"A big blow for the Sharks with Jesse Ramien ruled out for the remainder of the 2026 season after undergoing pectoral repair surgery today,\" the club said in a statement.\n\"The star centre hurt himself in the second half against the Dragons on Sunday afternoon; he then went for scans on Monday, but after seeing a specialist, it was decided the best course of action was surgery.\"\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nIn Friday night's clash at Accor Stadium, the Rabbitohs lost Adam Elliott to a groin injury early in the first half.\nThe Bunnies have lost halfback Ashton Ward (hamstring) for the remainder of the season while Jamie Humphreys is also sidelined with an ankle injury. The Rabbitohs have said he is a week-to-week proposition with a chronic ankle issue.\nThe Bulldogs lost winger Jethro Rinakama to a knee injury during Friday night's loss to Souths.\nEarlier on Friday, Dolphins back-rower Connelly Lemuelu suffered a hamstring injury midway through the second half against Manly.\nGun fullback James Tedesco fell short in his bid to return from an ankle injury for Thursday's top-of-the-table showdown between the Roosters and Panthers.\nThe Roosters also remain without representative stars Angus Crichton (foot) and Daniel Tupou (shoulder).\nIn an update at his weekly press conference, coach Trent Robinson said he hopes the pair will be back before the end of the regular season.\n\"They’re a few weeks away still,\" Robinson said. \"Toups is back running well, with his shoulder injury so that’s still a few weeks away.\n\"Gussie had a medical appointment on Monday. There’s some good progression there and he’s starting to get back into some more movement. Again, it’s not within the next week or two but it’d be nice [to have him back] before the end of the regular season as well.\"\nThe Panthers are missing captain Isaah Yeo due to a pectoral injury suffered in last week's loss to the Warriors.\nThe NSW and Australian skipper received some positive news on Monday, with scans revealing he does not need season-ending surgery and could return at the start of the finals series.\nThe Panthers had one injury concern out of their 12-6 loss to the Roosters, with Paul Alamoti leaving the field in the 75th minute.\nPanthers coach Ivan Cleary said post-match the centre suffered a leg injury and would go for scans.\nParramatta fullback Isaiah Iongi has been ruled out for the remainder of the season after injuring his syndesmosis and his medial ligament.\n\"He would be touch and go for the World Cup,\" coach Jason Ryles said on Friday. \"It's a 12-14 week injury.\"\nTeammate Sean Russell is slated to return from a quad injury and has been named on the bench for Saturday's clash with the Cowboys.\nNorth Queensland will welcome back hooker Reed Maho",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.092473161944444,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "09519ca63f249171",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Eels v Cowboys: Walker back on deck; Mahoney good to go",
+            "url": "https://www.nrl.com/news/2026/08/11/eels-v-cowboys-walker-back-on-deck-mahoney-good-to-go/",
+            "published_at": "2026-08-14T07:37:02+00:00",
+            "snippet": "Presented By\nEels v Cowboys: Walker back on deck; Mahoney good to go\nThe Cowboys are out to solidify their place in the top eight when they travel south to face the Parramatta Eels on Saturday evening.\nNorth Queensland climbed back into the eight with a convincing win over the Ti",
+            "body_excerpt": "Presented By\nEels v Cowboys: Walker back on deck; Mahoney good to go\nThe Cowboys are out to solidify their place in the top eight when they travel south to face the Parramatta Eels on Saturday evening.\nNorth Queensland climbed back into the eight with a convincing win over the Titans last week and they are looking to keep the momentum rolling in the race to September.\nWhile they continue to play without star halfback Tom Dearden; playmakers Jake Clifford and Jaxon Purdue have combined to lead the Cowboys high-powered attack.\nParramatta may be out of the finals race but they showed last week they won't go down without a fight.\nTrailing 28-0 at half-time against the Rabbitohs, the Eels came within a whisker of pulling off the biggest comeback in NRL history before ultimately falling 28-24.\nMitchell Moses remains one of the best playmakers in the competition and has been surrounded by an improving crop of exciting young backs. Jordan Samrani and Ronald Volkman have impressed this season and will look to contribute to a win on Saturday.\nMatch: Eels v Cowboys\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nEels\n13th Position\naway Team\nCowboys\n8th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nEels : Utility Dylan Walker returns after being rested in Round 23 and outside back Sean Russell also appears on the bench having overcome a quad injury. Tallyn Da Silva has been named to start at hooker with Ryley Price dropping out. The loss of Isaiah Iongi to a season-ending knee injury sees Apa Twidle handed the No.1 jersey. Jack de Belin dropped out of the squad on Friday, his place taken by Saxon Pryke.\nCowboys : The return of hooker Reed Mahoney from concussion sees Soni Luke revert to the bench in the only change to the starting side that downed the Titans. Veteran prop Matt Lodge drops off the interchange. No changes in Friday's 24-hour update with Kaiden Lahrs remaining in the squad as the reserve.\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Eels is number 2 Brian Kelly 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Eels is number 3 Will Penisini 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Eels is number 4 Jordan Samrani 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Cowboys is number 9 Reed Mahoney\nProp for Eels is number 10 Junior Paulo 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Eels is number 15 Saxon Pryke 15 13 Lock for Cowboys is number 13 Reuben Cotter\n15 13\nInterchange\nInterchange for Eels is number 14 Dylan Walker 14 Interchange for Cowboys is number 14 Soni Luke\n14\nInterchange for Eels is number 16 Teancum Brown 16 15 Interchange for Cowboys is number 15 Thomas Mikaele\n16 15\nInterchange for Eels is number 17 Jezaiah Funa 17 16 Interchange for Cowboys is number 16 John Bateman\n17 16\nInterchange for Eels is number 18 Toni Mataele 18 17 Interchange for Cowboys is number 17 Coen Hess\n18 17\nInterchange for Eels is number 19 Sean Russell 19 18 Interchange for Cowboys is number 18 Sam McIntyre\n19 18\nInterchange for Eels is number 20 Kelma Tuilagi 20 19 Interchange for Cowboys is number 19 Ethan King\n20 19\nReserves\nReserve for Eels is number 21 Harrison Edwards 21 20 Reserve for Cowboys is number 20 Kaiden Lahrs\n21 20\nEels Ins\nApa Twidle\nDylan Walker\nHarrison Edwards",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.197195384166665,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "682dbbd5c4ed74cc",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Eels vs Cowboys Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/eels-vs-cowboys-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-13T07:00:00+00:00",
+            "snippet": "Eels vs Cowboys Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Eels vs Cowboys Preview & Betting Tips: NRL Round 24 2026\nAugust 13 th 2026, 3:15pm , By: Ben Bridge\nSaturday evening at CommBank Stadium brings together a Cowboys side clinging to a finals position and a Parramatta team with nothing to lose. North Queensland absolutely needs the two competition points and should win this game, but Cowboys -6.5 asks them to win by more than I am comfortable laying given the matchup history and their inconsistent recent form.\nMy fair spread is closer to Cowboys -3.5, making Eels +6.5 the play. It is only a small position because Parramatta have been impossible to trust all season, but they have repeatedly troubled North Queensland and have won five of the past six meetings between the sides. The Cowboys have also won just once in five visits to CommBank Stadium.\nParramatta lose Isaiah Iongi for the season after the fullback suffered MCL and PCL damage against South Sydney. Apa Twidle takes over at No.1, Dylan Walker returns on the bench and Junior Paulo starts in the front row. North Queensland name Scott Drinkwater at fullback, Jake Clifford and Jaxon Purdue in the halves and a powerful forward pack featuring Jason Taumalolo, Reuben Cotter, Griffin Neame and Reed Mahoney.\nEels vs Cowboys Prediction & Tips: 2026 NRL Round 24\nEels Show Fight After Horror First Half\nParramatta’s 28-24 loss to South Sydney was about as strange a performance as you will see. The Eels were dreadful for 40 minutes, trailing 28-0 at halftime after being completely overwhelmed by South Sydney’s attack. Brian Kelly spent time in the sin bin, Parramatta missed 29 tackles in the opening half and looked capable of conceding 50.\nThen they nearly produced the biggest comeback in premiership history.\nParramatta scored 24 unanswered points after halftime and gave themselves a genuine opportunity to steal the game. Jordan Samrani’s acrobatic try reduced the margin to four with 13 minutes remaining, and the Eels suddenly looked like the side playing with greater energy and confidence. They eventually ran out of time, but the response at least showed this team has not completely checked out.\nThe cost was Iongi’s knee injury, which has ended his season. That removes one of Parramatta’s better attacking players from the backfield, with young Apa Twidle now asked to take over. Mitchell Moses remains the key to everything. If he can control field position and keep the Cowboys starting sets deep, Parramatta can make this ugly enough to stay inside the number.\nThe forward pack also looks competitive. Paulo starts alongside Luca Moretti, Jack de Belin provides experience at lock and Dylan Walker returns through the interchange.\nThis is still a bottom 4 team, but their best performances have generally come when opposition sides expect an easy afternoon. North Queensland cannot afford to treat them as one.\nCowboys Produce Massive Defensive Response\nNorth Queensland’s 30-8 win over the Titans was exactly the response Todd Payten needed after the Cowboys had conceded 82 points to the Roosters one week earlier. Rather than trying to immediately repair their points differential through reckless attack, the Cowboys based the win on defence and repeatedly turned Gold Coast away despite the Titans receiving opportunities.\nThat response deserves enormous credit. North Queensland remains inside the eight and, importantly, their run home is favourable. Their remaining opponents sit below them on the ladder, meaning there are no excuses if they do not qualify for September.\nThe Cowboys still have some unusual selection features. Jaxon Purdue remains at halfback alongside Jake Clifford, while Scott Drinkwater is the primary attacking threat from fullback. Without Tom Dearden, they lack some of the direct running and composure that normally makes their spine dangerous.\nThrough the middle, however, they should have an advantage. Taumalolo and Griffin Neame start at prop, Mahoney gives them aggression and service at hooker, while Cotter plays lock. Thom",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.814417606388886,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "10da43a48f51e42c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Press Conference: Eels v Cowboys - Round 24, 2026 - NRL.com",
+            "url": "https://www.nrl.com/watch/matches/telstra-premiership/2026/round-24/nrl-press-conference-eels-v-cowboys---round-24-2026/",
+            "published_at": "2026-08-12T09:10:00+00:00",
+            "snippet": "NRL Press Conference: Eels v Cowboys - Round 24, 2026\nParramatta Eels and PNorth Queesnland Cowboys captains and coaches chat to the media after their Telstra Premiership Round 24 clash.\nPress Conferences /\nPress Conference\nTelstra Women's Premiership\n2026 / Round 7\nTitans v Drag",
+            "body_excerpt": "NRL Press Conference: Eels v Cowboys - Round 24, 2026\nParramatta Eels and PNorth Queesnland Cowboys captains and coaches chat to the media after their Telstra Premiership Round 24 clash.\nPress Conferences /\nPress Conference\nTelstra Women's Premiership\n2026 / Round 7\nTitans v Dragons\nTelstra Premiership\n2026 / Round 24\nRabbitohs\nBulldogs\nDolphins\nSea Eagles\nSea Eagles v Dolphins\nRoosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.64775093972221,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ceef946acf5974d7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Eels v Cowboys: Round 24 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/eels-v-cowboys-round-24-1975477/",
+            "published_at": "2026-08-12T05:03:06+00:00",
+            "snippet": "Eels v Cowboys: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nKnights v Raiders\nWests Tigers v Warriors\nCowboys v Sharks\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTelstra Prem",
+            "body_excerpt": "Eels v Cowboys: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nKnights v Raiders\nWests Tigers v Warriors\nCowboys v Sharks\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTelstra Premiership\n2026 / Round 24\nPanthers v Roosters: Round 24\nSea Eagles v Dolphins: Round 24",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.76275093972222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f77477fd00760a40",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Update: Round 24 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/14/nrl-team-list-update-round-24/",
+            "published_at": "2026-08-14T07:30:00+00:00",
+            "snippet": "Presented By\nNRL Team List Update: Round 24\nThe Parramatta Eels have updated their NRL team to take on the Cowboys tomorrow in Parradise.\nMatch: Eels v Cowboys\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nEels\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Eels is number 1 Ap",
+            "body_excerpt": "Presented By\nNRL Team List Update: Round 24\nThe Parramatta Eels have updated their NRL team to take on the Cowboys tomorrow in Parradise.\nMatch: Eels v Cowboys\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nEels\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Eels is number 2 Brian Kelly 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Eels is number 3 Will Penisini 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Eels is number 4 Jordan Samrani 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Cowboys is number 9 Reed Mahoney\nProp for Eels is number 10 Junior Paulo 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Eels is number 15 Saxon Pryke 15 13 Lock for Cowboys is number 13 Reuben Cotter\n15 13\nInterchange\nInterchange for Eels is number 14 Dylan Walker 14 Interchange for Cowboys is number 14 Soni Luke\n14\nInterchange for Eels is number 16 Teancum Brown 16 15 Interchange for Cowboys is number 15 Thomas Mikaele\n16 15\nInterchange for Eels is number 17 Jezaiah Funa 17 16 Interchange for Cowboys is number 16 John Bateman\n17 16\nInterchange for Eels is number 18 Toni Mataele 18 17 Interchange for Cowboys is number 17 Coen Hess\n18 17\nInterchange for Eels is number 19 Sean Russell 19 18 Interchange for Cowboys is number 18 Sam McIntyre\n19 18\nInterchange for Eels is number 20 Kelma Tuilagi 20 19 Interchange for Cowboys is number 19 Ethan King\n20 19\nReserves\nReserve for Eels is number 21 Harrison Edwards 21 20 Reserve for Cowboys is number 20 Kaiden Lahrs\n21 20\nEels Ins\nApa Twidle\nDylan Walker\nHarrison Edwards\nKelma Tuilagi\nSean Russell\nCowboys Ins\nKaiden Lahrs\nReed Mahoney\nEels Outs\nIsaiah Iongi\nJack De Belin\nRyley Smith\nSam Tuivaiti\nMatthew Lodge\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Phil Henderson\nSenior Review Official: Grant Atkins\nLast updated: 8/15/2026 4:26:04 AM\nRelated /\nNRL Team List: Round 24\nInjuries\nNRL Injury Report: Round 24\nNRL Late Mail: Round 23\nNRL Team List Update: Round 23\nNRL Team List: Round 23",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.314417606388886,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "da6da513f0bd417c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Injury Report: Round 24 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/11/nrl-injury-report-round-24/",
+            "published_at": "2026-08-11T06:00:00+00:00",
+            "snippet": "NRL Injury Report: Round 24\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their Indigenous Round clash with the Cowboys.\nInjury Report:\nPlayer\nInjury Report\nExpected\nMatt Doorey\nL Knee ACL\n2027\nCharlie Guymer\nR Knee - PCL Rupture\nJ'maine Ho",
+            "body_excerpt": "NRL Injury Report: Round 24\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their Indigenous Round clash with the Cowboys.\nInjury Report:\nPlayer\nInjury Report\nExpected\nMatt Doorey\nL Knee ACL\n2027\nCharlie Guymer\nR Knee - PCL Rupture\nJ'maine Hopgood\nR Knee ACL\nIsaiah Iongi\nR Knee MCL + PCL\nRichard Penisini\nR Knee - Meniscus Tear\nJonah Pezet\nShoulder\nRound 25\nBailey Simonsson\nL Ankle Fracture\nTBC\nSam Tuivaiti\nL Knee High Grade MCL\nRelated /\nNRL Team List Update: Round 24\nTeam Lists\nNRL Team List: Round 24\nInjuries\nNRLW Injury Report: Round 7\nNRL Injury Report: Round 23\nNRL Injury Report: Round 22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.81441760638889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "41208331577797ca",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 24 v Dragons - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/11/team-list-nrl-round-24-v-dragons/",
+            "published_at": "2026-08-11T06:00:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 24 v Dragons\nWests Tigers NRL Head Coach Benji Marshall has named his squad to play the St George-Illawarra Dragons on Sunday, 16th August, in Round 24 of the Telstra Premiership.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\n",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 24 v Dragons\nWests Tigers NRL Head Coach Benji Marshall has named his squad to play the St George-Illawarra Dragons on Sunday, 16th August, in Round 24 of the Telstra Premiership.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nExciting centre Solomone Saukuru will make his NRL debut following a fine season with the Western Suburbs Magpies where he is the leading tryscorer in the NSW Cup with 20 tries.\nTony Sukkar will start in the second-row with Sione Fainu off the interchange bench.\nThe Tigers will be looking to end a seven-game losing streak and get revenge on the Dragons from round 18 in their final home game of the season.\nWests Tigers will wear their 2026 Indigenous jersey for this game. Order your jersey here\nLearn more about our Indigenous jersey design\nReserves: 20 Ethan Roberts\n21 Javon Andrews 22 Charlie Murray\nMatch details\nWests Tigers v St George-Illawarra Dragons Sunday, 16 August CommBank Stadium, Parramatta Kick-off: 4.05pm\nTickets via Ticketmaster\nBroadcast: Live on Channel 9, 9Now, Kayo Sports, Fox League\nRelated /\nPlenty of love for Solomone Saukuru in NRL debut\nIndigenous Round\nProud cultural moment for Heath Mason\nTeam Lists\nLate Mail: NRL Round 22 v Eels\nSquad Update: NRL Round 22 v Eels\nTeam List: NRL Round 22 v Eels",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.81441760638889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "92f9ae90a68c4c75",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 24 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/11/nrl-team-list-round-24/",
+            "published_at": "2026-08-11T06:00:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 24\nThe Parramatta Eels have named their NRL team to take on the Cowboys this Saturday in Indigenous Round.\nMatch: Eels v Cowboys\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nEels\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Eels is number 1",
+            "body_excerpt": "Presented By\nNRL Team List: Round 24\nThe Parramatta Eels have named their NRL team to take on the Cowboys this Saturday in Indigenous Round.\nMatch: Eels v Cowboys\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nEels\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Eels is number 2 Brian Kelly 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Eels is number 3 Will Penisini 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Eels is number 4 Jordan Samrani 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Cowboys is number 9 Reed Mahoney\nProp for Eels is number 10 Junior Paulo 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Eels is number 15 Saxon Pryke 15 13 Lock for Cowboys is number 13 Reuben Cotter\n15 13\nInterchange\nInterchange for Eels is number 14 Dylan Walker 14 Interchange for Cowboys is number 14 Soni Luke\n14\nInterchange for Eels is number 16 Teancum Brown 16 15 Interchange for Cowboys is number 15 Thomas Mikaele\n16 15\nInterchange for Eels is number 17 Jezaiah Funa 17 16 Interchange for Cowboys is number 16 John Bateman\n17 16\nInterchange for Eels is number 18 Toni Mataele 18 17 Interchange for Cowboys is number 17 Coen Hess\n18 17\nInterchange for Eels is number 19 Sean Russell 19 18 Interchange for Cowboys is number 18 Sam McIntyre\n19 18\nInterchange for Eels is number 20 Kelma Tuilagi 20 19 Interchange for Cowboys is number 19 Ethan King\n20 19\nReserves\nReserve for Eels is number 21 Harrison Edwards 21 20 Reserve for Cowboys is number 20 Kaiden Lahrs\n21 20\nEels Ins\nApa Twidle\nDylan Walker\nHarrison Edwards\nKelma Tuilagi\nSean Russell\nCowboys Ins\nKaiden Lahrs\nReed Mahoney\nEels Outs\nIsaiah Iongi\nJack De Belin\nRyley Smith\nSam Tuivaiti\nMatthew Lodge\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Phil Henderson\nSenior Review Official: Grant Atkins\nLast updated: 8/15/2026 4:26:04 AM\nRelated /\nNRL Team List Update: Round 24\nInjuries\nNRL Injury Report: Round 24\nNRL Late Mail: Round 23\nNRL Team List Update: Round 23\nNRL Team List: Round 23",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.81441760638889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "17f540e71f900574",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Late Mail: Round 24 v Raiders",
+            "url": "https://www.sharks.com.au/news/2026/08/15/nrl-late-mail-round-24-v-raiders/",
+            "published_at": "2026-08-10T04:49:00+00:00",
+            "snippet": "The Sharks will run out 1-13 for their round 24 clash with the Canberra Raiders, with no changes to the team as announced on Tuesday. Oregon Kaufusi comes into the Sharks starting side in place of the ...",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 v Raiders\nThe Sharks will run out 1-13 for their round 24 clash with the Canberra Raiders, with no changes to the team as announced on Tuesday.\nOregon Kaufusi comes into the Sharks starting side in place of the suspended Addin Fonua-Blake, while KL Iro returns after missing the Dragons loss due to concussion protocols.\nIn relation to the Sharks bench, Braden Uele and Sam Stonestreet have been retained in the 19-man squad, with Michael Gabrael omitted from the 20-man team as listed last night.\nFollowing a Dolphins win last night the Sharks come into the contest in fifth position on the NRL ladder, needing a win to consolidate their position inside the top four.\nKick off to the Sharks v Raiders clash is at 3.00pm, with the two 19-man squads listed below.\nMatch: Sharks v Raiders\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSharks\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Sharks is number 3 Mawene Hiroti 3 Centre for Raiders is number 3 Savelio Tamale\nCentre for Sharks is number 4 KL Iro 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Raiders is number 7 Ethan Sanders\nForwards\nProp for Sharks is number 8 Oregon Kaufusi 8 Prop for Raiders is number 8 Ata Mariota\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Raiders is number 11 Zac Hosking\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Raiders is number 13 Morgan Smithies\n13\nInterchange\nInterchange for Sharks is number 14 Hohepa Puru 14 Interchange for Raiders is number 14 Tom Starling\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Sharks is number 16 Siosifa Talakai 16 Interchange for Raiders is number 16 Josh Papalii\n16\nInterchange for Sharks is number 17 Thomas Hazelton 17 Interchange for Raiders is number 17 Daine Laurie\n17\nInterchange for Sharks is number 19 Braden Uele 19 18 Interchange for Raiders is number 18 Vena Patuki-Case\n19 18\nInterchange for Sharks is number 21 Samuel Stonestreet 21 19 Interchange for Raiders is number 19 Sebastian Kris\n21 19\nSharks Ins\nKL Iro\nSamuel Stonestreet\nSiosifa Talakai\nRaiders Ins\nSebastian Kris\nVena Patuki-Case\nSharks Outs\nAddin Fonua-Blake\nJesse Ramien\nMichael Gabrael\nCorey Horsburgh\nSimi Sasagi\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Drew Oultram\nSenior Review Official: Adam Gee\nLast updated: 8/15/2026 4:45:40 AM\nRelated /\nNSW Women's Premiership Team List: Round 9\nSenior Representative Team Lists: Round 24\nNRLW Team List: Round 7 v Cowboys\nNRL Team List: Round 24 v Raiders\nNRL Late Mail: Round 23 v Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 119.99775093972222,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c80e4209fa1b6fb4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/broncos-vs-warriors-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-15T03:17:03+00:00",
+            "snippet": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026\nAugust 14 th 2026, 1:13am , By: Scooby\nThe final game on NRL Super Saturday heads to Brisbane this week with the Broncos hosting the Warriors . Playing for pride, the Broncos will want to avoid conceding this contest as the Warriors look to consolidate their spot inside the Top 4. This sets the stage for an intriguing match. The intensity inside this stadium will only add to the spectacle and Before You Bet is here assist with a comprehensive look at what is ahead in this contest.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nBroncos vs Warriors Predictions & Tips: NRL Round 24 2026\nA team of two halves\nFans would’ve hope that the Broncos could repeat their first half effort against the Dolphins in Round 23 which saw them score 5 tries in thrilling fashion. That was short-lived though, as the Dolphins powered home to prevail 40-32 against a blundering Broncos outfit. With just 46% possession and a 79% completion rate, they couldn’t turn their 9.6m per carry into more points. While they set a strong platform in attack, they were loose defensively, allowing 7 line breaks and missing 27 tackles. Ultimately, the power of their opponents was too much. In previous years, this could’ve been a game they closed out but this is further evidence of their decline.\nMaking a statement\nWelcoming the table-toping Panthers to Auckland, the Warriors needed to make a statement with a strong performance. They did just that as they powered their way to a comprehensive 28-12 victory. Leading 18-nil at HT, they continued their dominance in the second half. They controlled the speed of the game with 53% possession and an 83% completion rate, which allowed them to run for 9.9m per carry, make 624 PCM’s, and create 8 line breaks. Despite missing 35 tackles, they scrambled well defensively. This is another chance for them to prove how far they have come in a tricky road match.\nStats that matter\n- These two sides met in Round 11 where the Warriors were victorious 42-12. The home team has won 8 out of the past 9 games played.\n- The past 5 games between these two sides has seen blowout victories. The average winning margin is 18.4 points. They have been relatively low scoring matches, with the average total points sitting at 46.4.\n- Given their struggles this season, it is no surprise to see the Broncos trail the Warriors on both sides of the ball. The home team averages just 18ppg in attack while conceding 27ppg defensively. The Warriors allow just 16ppg while scoring 28ppg.\nQuality and execution to determine the winner\nThe Broncos have been flattered with the odds that are posted, and the value immediately rests with the Warriors. Their performance last week highlights their capabilities, and the Broncos have proven at several points this season that they are lacking consistency. There is no doubt that they will be motivated ahead of this contest but the relentless pressure the Warriors build in their play should expose the lack of maturity the Broncos possess.\nLook for the Warriors to generate momentum in the middle of the field first, allowing their crafty outside backs to pressure the Broncos on the edge. This has been an issue for the home side throughout 2026 and while capable enough, consistency still eludes them. Once the Warriors gather enough momentum, they should pull away from their opponents to comfortably cover the line and consolidate their position in the Top 4 on the competition ladder.\nWarriors -7.5\n$1.90 (1.5 units)\nBroncos vs Warriors Same Game Multi\nLeg 1 = Total points over 46.5 – see above for justification.\nLeg 2 = Watene-Zelezniak to score – he cannot help but score when playing the Broncos. He has crossed for a try in his past 5 games against them with a total of 8 tries.\nLeg 3 = Halasima to score – he was i",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.5302509397222221,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "11bb0c2b57100944",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights vs Titans Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/knights-vs-titans-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-14T14:08:33+00:00",
+            "snippet": "Knights vs Titans Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Knights vs Titans Preview & Betting Tips: NRL Round 24 2026\nAugust 14 th 2026, 11:45pm , By: Ben Bridge\nSunday afternoon at McDonald Jones Stadium looks like one of the clearest favourite spots on the NRL Round 24 card. The Knights are firmly entrenched in the finals race, return home after another huge victory in Canberra and now regain Bradman Best and Phoenix Crossland. Gold Coast , meanwhile, were poor last weekend and will continue to struggle without the organising influence they had received from young halfback Zane Harrison.\nThe current spread of Knights -13.5 is large, but I am happy to lay it. Newcastle already belted Gold Coast 36-12 during Magic Round earlier this season, and their attacking lineup now looks close to full strength. The Knights have won 12 games and remain in the top six, while the Titans sit near the bottom and have little beyond pride to play for.\nHarrison is not available, with Lachlan Ilias retained at halfback alongside Jayden Campbell. Newcastle regains Best and Crossland after both missed the Canberra win with calf issues, while Kalyn Ponga, Dominic Young, Dane Gagai, Greg Marzhew and Fletcher Sharpe all remain in the backline.\nThe primary bet is Newcastle -13.5, but alternate spreads are absolutely on the table if the Knights begin strongly.\nKnights vs Titans Prediction & Tips: 2026 NRL Round 24\nKnights Keep Finding Ways to Win\nNewcastle’s 30-24 victory over Canberra at GIO Stadium was another significant step in what has become one of the season’s great turnarounds. The Knights were pushed throughout and completed at only 66 per cent in the first half, but their strike players continually produced when the game demanded it. Dominic Young finished with 203 metres, 11 tackle breaks and two tries, while Francis Manuleleua ran for 153 metres with 11 tackle breaks of his own.\nKalyn Ponga was involved everywhere. He scored after backing up a 60-metre movement with Gagai and Young and repeatedly threatened Canberra despite making several errors under difficult conditions. The key difference was Newcastle’s ability to produce high quality attacking moments even when their overall execution was imperfect.\nThe win pushed the Knights to sixth and continued an extraordinary revival after finishing last in 2025. A win here keeps them right in the hunt for a top 4 spot come seasons end.\nThis week they become stronger again. Best returns in the centres, giving Newcastle another elite yardage carrier and attacking weapon on the left edge. Crossland resumes at hooker, providing far more experience around the ruck than Newcastle had last week.\nThe only notable fresh loss is Brodie Jones, who suffered a hamstring injury against Canberra. Tyson Frizell remains available from the bench, allowing Justin Holbrook to maintain plenty of experience through the middle despite a youthful starting pack.\nAt home, Newcastle’s attacking ceiling is huge. With Ponga, Best, Gagai, Young and Marzhew all available, a Titans defensive unit already under pressure faces arguably its most difficult matchup of the remaining season.\nTitans Lose Their Way Again\nGold Coast’s 30-8 home loss to North Queensland was a significant backward step after several encouraging attacking performances. The Titans received enough opportunities to make the game competitive but repeatedly failed to convert field position, while the Cowboys’ defence comfortably handled most of what was thrown at them.\nThe absence of Harrison’s organisation was obvious. Lachlan Ilias has again been named at halfback this week, with Jayden Campbell playing five-eighth and AJ Brimson moving back into the centres. That combination still provides individual attacking quality, but the Titans lack the structured kicking and game management required to consistently finish sets well.\nKeano Kini remains a major threat from fullback, while Jojo Fifita and Phillip Sami give Gold Coast dangerous ball carriers on the edges. Through the middle, Tino Fa’asuamaleaui and Moeaki Fotuaik",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 14.671917606388888,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "6755c9e0e9a0ad9d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+            "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18",
+            "published_at": "2026-08-13T03:48:51+00:00",
+            "snippet": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ &nbsp;&nbsp; News.com.au",
+            "body_excerpt": "NRL teams Round 24: Raiders coach Ricky Stuart axes Corey Horsburgh\nRicky Stuart has sensationally swung the axe on a Raiders star after his ‘brain explosion’, while an exiled star has moved one step closer to an NRL return. See all the Round 24 teams news.\nFiery Canberra forward Corey Horsburgh has been dramatically dropped for Saturday’s away game against Cronulla at Ocean Protect Stadium.\nThe Raiders claim Horsburgh has been rested after a controversial performance against Newcastle last weekend.\nHorsburgh won’t play NSW Cup this weekend.\nAta Mariota will be Horsburgh’s replacement at starting prop against the Sharks.\nIt is unknown whether Horsburgh will be considered for NRL selection in Canberra’s round 25 game against Brisbane.\nHorsburgh’s omission is another clear sign that he and the club are at loggerheads.\nOthers you may like\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images\nHis demise is the culmination of a difficult week after Horsburgh drew sharp criticism for a “brain explosion” at a pivotal moment in Canberra’s loss to the Knights.\nHorsburgh was sin binned for slapping opponent Dane Gagai nearing fulltime in the Raiders’ 30-24 loss, which ended the club’s finals hopes.\nStuart singled out Horsburgh for criticism at a post-match press conference.\n“It was a f***ing brain explosion and (we) lost the opportunity,” Stuart fumed.\nThe pair have been getting along well in recent times while enjoying or enduring a rollercoaster relationship over the past eight years.\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images. Picture: NRL Photos\nThis masthead can confirm that Canberra would be prepared to offload Horsburgh early if he can secure another NRL club.\nA former Queensland State of Origin player, Horsburgh comes off contract at Canberra after next season.\nCaboolture-born Horsburgh, 28, would prefer a return to Queensland but Perth is also monitoring the situation.\nThe Bears are also ready to make a move on Horsburgh.\nBrisbane has been gently linked to Horsburgh but the Broncos’ star-studded roster may prevent an offer being lodged.\nBut there was speculation on Tuesday that Horsburgh could join Brisbane as early as next season.\nIll-discipline has cost Canberra this season with last year’s minor premiers sitting in the 12th spot with nine wins from 21 games.\nCanberra’s finals round games are against Cronulla, Brisbane and North Queensland.\n—Dean Ritchie\nEXILED STAR ONE STEP CLOSER TO NRL RETURN\n—Tyson Jackson\nFormer Manly star Josh Schuster has been handed his first opportunity with new club the Wests Tigers, named to play five-eighth with the club’s NSW Cup team on Sunday.\nSchuster, who has spent the last couple of months training with the Tigers reserve grade squad, will finally get his opportunity to play alongside Javon Andrews, as he tries to get his NRL career back on track.\nJosh Schuster has been named to play five-eighth for the Wests Tigers’ NSW Cup team. Picture: Instagram\nThe former Sea Eagle and Rabbitoh took a train and trial deal with the Tigers until the end of the year, with the club wanting to help Schuster get back to the NRL.\nIt’s understood the five-eighth has lost a lot of weight and has impressed the Tigers in his couple of months training.\nSchuster was initially not expected to get a game with the club before next year, but will now have the opportunity to play for a new contract this Sunday.\nThe Tigers and Schuster both see the young playmaker in the halves, rather than second-row where he’s played in the last couple of years.\nSchuster’s last rugby league game was over 12-months ago, with the five-eighth spending the first half of this year training by himself to get prepared to play again.\nSEASON OVER FOR EELS STAR\nParramatta’s Isaiah Iongi’s season is over with the young fullback ruled out with a knee injury.\nIongi suffered a medial and posterior knee injury but has avoided ru",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 49.00025093972222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Eels vs Cowboys NRL round 24 preview",
+          "Eels Cowboys NRL odds OR price OR favourite",
+          "Eels Cowboys NRL finals race ladder stakes form",
+          "Eels Cowboys NRL",
+          "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Eels Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 24 Eels OR Cowboys"
+        ],
+        "filter_summary": {
+          "dropped_stale": 47,
+          "dropped_wrong_round": 7,
+          "dropped_noise": 16,
+          "dropped_irrelevant": 13,
+          "kept": 18,
+          "deferred_pending_body": 55,
+          "promoted_after_body": 4,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "513b32fda662",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-15T04:48:51.902672+00:00",
+      "finished_at": "2026-08-15T04:50:44.168481+00:00",
+      "duration_ms": 112265,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Cowboys",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-08-15T17:30:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5628,
+        "home_win_probability": 0.5628,
+        "shap_explanations": {
+          "positive_drivers": [
+            "5-game form: points against (-9.40) — contribution 0.074 (9% of total)",
+            "3-game form: errors (+3.00) — contribution 0.053 (6% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "Head-to-head record (last 5) (80% to the home side) — contribution 0.044 (5% of total)",
+            "Ladder points differential per game (-4.5 points) — contribution 0.025 (3% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "Home travel to venue (0 km) — contribution 0.022 (3% of total)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-75 points) — contribution 0.133 (16% of total)",
+            "Bradley-Terry strength advantage (-0.45 log-strength) — contribution 0.124 (15% of total)",
+            "5-game form: all run metres (-96.20) — contribution 0.069 (8% of total)",
+            "Away rest (15.9 days) — contribution 0.027 (3% of total)",
+            "Away travel to venue (1,665 km) — contribution 0.021 (3% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.3849,
+            "total_toward_away": 0.4673,
+            "net": -0.0823,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (+3.00)",
+            "Ladder points differential per game (-4.5 points)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Eels",
+          "away_team": "Cowboys",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-08-15T17:30:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

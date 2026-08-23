@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "run_id": "20260813T044820Z-c5568e72",
+  "run": {
+    "predicted_at_utc": "2026-08-13T04:59:56.849671+00:00",
+    "predicted_at_local": "2026-08-13T14:59:56.849671+10:00",
+    "started_at_utc": "2026-08-13T04:48:20.743141+00:00",
+    "wall_seconds": 696.1,
+    "hours_before_kickoff": 4.8,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 24,
+    "home_team": "Panthers",
+    "away_team": "Roosters",
+    "venue": "CommBank Stadium",
+    "kickoff": "2026-08-13T19:50:00+10:00",
+    "kickoff_local": "2026-08-13T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 24,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Panthers",
+      "position": 1,
+      "played": 20,
+      "wins": 15,
+      "drawn": 0,
+      "lost": 5,
+      "competition_points": 36,
+      "points_for": 593,
+      "points_against": 301,
+      "points_difference": 292,
+      "points_difference_per_game": 14.6,
+      "recent_form_last_4": "2 - 2",
+      "streak": "1L",
+      "home_record": "8 - 1",
+      "away_record": "7 - 4"
+    },
+    "away": {
+      "team": "Roosters",
+      "position": 2,
+      "played": 20,
+      "wins": 15,
+      "drawn": 0,
+      "lost": 5,
+      "competition_points": 36,
+      "points_for": 551,
+      "points_against": 394,
+      "points_difference": 157,
+      "points_difference_per_game": 7.85,
+      "recent_form_last_4": "5 - 0",
+      "streak": "5W",
+      "home_record": "8 - 2",
+      "away_record": "7 - 3"
+    },
+    "comparison": {
+      "higher_on_ladder": "Panthers",
+      "ladder_positions_gap": 1,
+      "points_difference_per_game_gap": 6.75,
+      "points_difference_favours": "Panthers"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+  },
+  "prediction": {
+    "predicted_winner": "Panthers",
+    "predicted_side": "home",
+    "confidence": 0.6,
+    "home_win_probability": 0.6
+  },
+  "math_model": {
+    "home_win_probability": 0.6595,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.29 log-strength) — contribution 0.148 (16% of total)",
+        "Ladder points differential per game (+8.1 points) — contribution 0.129 (14% of total)",
+        "Elo rating advantage (+7 points) — contribution 0.054 (6% of total)",
+        "Away travel to venue (23 km) — contribution 0.053 (6% of total)",
+        "Head-to-head record (last 5) (80% to the home side) — contribution 0.038 (4% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: all run metres (-77.00) — contribution 0.041 (4% of total)",
+        "3-game form: errors (-1.33) — contribution 0.035 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Away rest (14.0 days) — contribution 0.031 (3% of total)",
+        "Travel-distance advantage (-5 km for away) — contribution 0.029 (3% of total)",
+        "5-game momentum: last20 net points (-15.00) — contribution 0.025 (3% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-1.33)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Panthers vs Roosters NRL round 24 preview",
+      "Panthers Roosters NRL odds OR price OR favourite",
+      "Panthers Roosters NRL finals race OR ladder stakes",
+      "Panthers Roosters NRL",
+      "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Panthers Roosters NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 24 Panthers OR Roosters"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 24 - Teddy ruled out; Knights stars return",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-12T09:57:05+00:00",
+        "age_hours": 18.86574332166667,
+        "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/"
+      },
+      {
+        "title": "NRL Team Lists: Round 24",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-11T05:59:00+00:00",
+        "age_hours": 46.83379887722222,
+        "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/"
+      },
+      {
+        "title": "Injuries NRL Casualty Ward: Fresh Reynolds injury; Roosters' Teddy blow 7 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-13T04:41:35+00:00",
+        "age_hours": 0.124076655,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Panthers v Roosters: Round 24 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T02:04:31+00:00",
+        "age_hours": 2.7418544327777776,
+        "url": "https://www.nrl.com/news/2026/08/12/panthers-v-roosters-round-24/"
+      },
+      {
+        "title": "NRL News Jenkins to unleash hidden talent in Nawaqanitawase aerial contest",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-12T20:01:21+00:00",
+        "age_hours": 8.794632210555555,
+        "url": "https://www.nrl.com/news/2026/08/13/jenkins-to-unleash-hidden-talent-in-nawaqanitawase-aerial-contest/"
+      },
+      {
+        "title": "Panthers vs Roosters Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T13:16:12+00:00",
+        "age_hours": 15.547132210555555,
+        "url": "https://www.beforeyoubet.com.au/panthers-vs-roosters-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Panthers v Roosters: Edwards in the frame; Teddy struck down",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-12T10:00:26+00:00",
+        "age_hours": 18.809909988333334,
+        "url": "https://www.nrl.com/news/2026/08/11/panthers-v-roosters-edwards-in-the-frame-teddys-ready/"
+      },
+      {
+        "title": "NRL Coach Media | Round 24 v Panthers - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T02:23:14+00:00",
+        "age_hours": 26.429909988333335,
+        "url": "https://www.roosters.com.au/news/2026/08/12/nrl-coach-media--round-24-v-panthers/"
+      },
+      {
+        "title": "NRL News Ready to roar: Dramatic week driving Panthers towards Roosters showdown",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-11T22:01:20+00:00",
+        "age_hours": 30.794909988333334,
+        "url": "https://www.nrl.com/news/2026/08/12/ready-to-roar-dramatic-week-driving-panthers-towards-roosters-showdown/"
+      },
+      {
+        "title": "NRL News Roosters eye statement win in Penrith showdown",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-10T20:01:21+00:00",
+        "age_hours": 56.794632210555555,
+        "url": "https://www.nrl.com/news/2026/08/11/roosters-eye-statement-win-in-penrith-showdown/"
+      },
+      {
+        "title": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T04:17:05+00:00",
+        "age_hours": 0.5324099883333333,
+        "url": "https://www.zerotackle.com/round-24-team-lists-2026-236834/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T10:08:15+00:00",
+        "age_hours": 18.679632210555557,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529"
+      },
+      {
+        "title": "NRL Updated Team List: Round 24 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T09:49:00+00:00",
+        "age_hours": 19.00046554388889,
+        "url": "https://www.penrithpanthers.com.au/news/2026/08/12/nrl-updated-team-list-round-24/"
+      },
+      {
+        "title": "Reynolds’ cryptic reply as brutal setback revealed; Roosters’ big Teddy blow — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T10:28:11+00:00",
+        "age_hours": 18.347409988333336,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-24-early-mail-news-teams-ins-and-outs-james-tedesco-in-doubt-dylan-edwards-pushing-to-play/news-story/ed6f741082a0959e49bf6a7f245bde8c"
+      },
+      {
+        "title": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:33:43+00:00",
+        "age_hours": 1.255187766111111,
+        "url": "https://www.beforeyoubet.com.au/sea-eagles-vs-dolphins-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Penrith Panthers vs Sydney Roosters Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T15:27:15+00:00",
+        "age_hours": 13.362965543888889,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/13/penrith-panthers-vs-sydney-roosters-predictions/"
+      },
+      {
+        "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T11:50:56+00:00",
+        "age_hours": 16.968243321666666,
+        "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18"
+      },
+      {
+        "title": "2026 NRL Round 24 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:02:46+00:00",
+        "age_hours": 23.771021099444447,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/12/2026-nrl-round-24-predictions/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.",
+      "The top math driver 'Elo rating advantage (+7 points)' was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The claim that Panthers are market favourites at '$1.77' does not appear in any research body excerpt or scene field."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Tedesco and Yeo are correctly described as ruled out/sidelined per the nrl_news excerpts."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the Panthers from the favouring_Panthers_home_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include injuries to Tedesco and Yeo sourced from nrl_news."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.6 is justified by the Roosters' winning streak and the loss of Isaah Yeo."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant SHAP drivers (Bradley-Terry and points differential) are the ones highlighted."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top driver 'Elo rating advantage (+7 points)' is not named or alluded to in the judgement."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.6
+  },
+  "reasoning": {
+    "summary": "The Panthers hold a statistical edge in Elo and Bradley-Terry ratings, though confidence is tempered by their recent inconsistent form compared to the Roosters' five-game winning streak. Both teams face critical losses with James Tedesco (Roosters) and Isaah Yeo (Panthers) ruled out of this top-of-the-table clash.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model favours a home win based on an Elo rating advantage (+7 points), Bradley-Terry strength advantage, and superior ladder points differential per game."
+      },
+      {
+        "source": "research",
+        "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+      }
+    ],
+    "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Panthers-v-Roosters/20260813T044820Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Panthers-v-Roosters/20260813T044820Z/summary.md"
+  }
+}

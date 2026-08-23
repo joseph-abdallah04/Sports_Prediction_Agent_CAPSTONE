@@ -1,0 +1,1254 @@
+{
+  "schema_version": 2,
+  "run_id": "20260809T005509Z-be2ac1aa",
+  "at_a_glance": {
+    "fixture": "Raiders v Knights",
+    "round": 23,
+    "kickoff": "2026-08-09T14:00:00+10:00",
+    "venue": "GIO Stadium",
+    "predicted_winner": "Knights",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.5491,
+    "model_prediction": "Home Win",
+    "research_items_kept": 17,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-09T00:55:09.849730+00:00",
+  "updated_at": "2026-08-09T01:07:18.601345+00:00",
+  "request": {
+    "home_team": "Raiders",
+    "away_team": "Knights",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Raiders vs Knights?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Raiders",
+    "away_team": "Knights",
+    "confidence": 0.6,
+    "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), supported by superior recent form including a dominant win over Brisbane. While math drivers such as Bradley-Terry strength and Elo ratings suggest a latent ability edge for the Raiders, the overall attribution balance leans toward Newcastle despite the loss of Bradman Best to injury.",
+    "key_factors": [
+      {
+        "source": "scene",
+        "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+      },
+      {
+        "source": "research",
+        "detail": "Newcastle enters following an emphatic 30-6 win over Brisbane, whereas Canberra was comprehensively beaten 42-18 by Penrith (BeforeYouBet); however, Newcastle will miss Bradman Best due to a calf strain (nrl.com)."
+      },
+      {
+        "source": "math",
+        "detail": "While the Bradley-Terry strength advantage (+0.35 log-strength) and Elo rating (+19 points) favor the Raiders, the total attribution balance leans away (-0.1353 net), favoring the Knights."
+      }
+    ],
+    "disagreements_with_math": "The model predicts a Home Win (0.5491), but I am picking Away because the official standings and recent form strongly outweigh the latent strength indicators (Elo/Bradley-Terry) cited by the model."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 17,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Raiders vs Knights NRL round 23 preview",
+      "Raiders Knights NRL odds OR price OR favourite",
+      "Raiders Knights NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Standings/diff matched to set_fixture_scene; Bradman Best injury matched to nrl_news body excerpt; Brisbane win matched to google_news_rss excerpt."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Bradman Best is correctly described as missing based on research stating he is 'without' and suffered a calf strain."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Pythagorean form and ladder points differential are both listed in the favouring_Knights_away_win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather (Rain) is not mentioned as a factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor identifies Bradman Best's injury sourced from research (nrl.com)."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is defensible given the disagreement with the model's prediction and the away-win nature of the pick."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the net attribution balance and top drivers (Pythagorean form) rather than minor factors."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top Raiders drivers 'Bradley-Terry strength advantage' and 'Elo rating advantage' are not named or alluded to in the evaluation."
+        }
+      ],
+      "issues": [
+        "The top math signals favouring the Raiders (Bradley-Terry strength advantage and Elo rating advantage) were omitted from the analysis."
+      ],
+      "instruction": "Math drivers include 'Bradley-Terry strength advantage' and 'Elo rating advantage'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Bradley-Terry strength advantage' and 'Elo rating advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Raiders",
+      "away_team": "Knights",
+      "confidence": 0.6,
+      "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), coupled with superior recent form following a dominant win over Brisbane. While Newcastle will miss Bradman Best due to a calf strain, their overall statistical profile outweighs the Raiders' home-ground edge.",
+      "key_factors": [
+        {
+          "source": "scene",
+          "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights will be without Bradman Best for this match after he suffered a calf strain against Brisbane (nrl.com)."
+        },
+        {
+          "source": "math",
+          "detail": "Although the model predicts a home win, the attribution balance actually leans away (0.4311 toward Knights vs 0.2959 toward Raiders), driven by Pythagorean form and ladder points differential."
+        }
+      ],
+      "disagreements_with_math": "The model's final prediction is a Home Win, but I am picking Away because the official standings and recent form (Knights crushing Brisbane while Raiders were crushed by Penrith) strongly contradict the home pick."
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Raiders",
+      "away_team": "Knights",
+      "confidence": 0.6,
+      "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), supported by superior recent form including a dominant win over Brisbane. While math drivers such as Bradley-Terry strength and Elo ratings suggest a latent ability edge for the Raiders, the overall attribution balance leans toward Newcastle despite the loss of Bradman Best to injury.",
+      "key_factors": [
+        {
+          "source": "scene",
+          "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+        },
+        {
+          "source": "research",
+          "detail": "Newcastle enters following an emphatic 30-6 win over Brisbane, whereas Canberra was comprehensively beaten 42-18 by Penrith (BeforeYouBet); however, Newcastle will miss Bradman Best due to a calf strain (nrl.com)."
+        },
+        {
+          "source": "math",
+          "detail": "While the Bradley-Terry strength advantage (+0.35 log-strength) and Elo rating (+19 points) favor the Raiders, the total attribution balance leans away (-0.1353 net), favoring the Knights."
+        }
+      ],
+      "disagreements_with_math": "The model predicts a Home Win (0.5491), but I am picking Away because the official standings and recent form strongly outweigh the latent strength indicators (Elo/Bradley-Terry) cited by the model."
+    },
+    "issues": [
+      "The top math signals favouring the Raiders (Bradley-Terry strength advantage and Elo rating advantage) were omitted from the analysis."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-09T00:55:53.451495+00:00",
+      "thinking": "*   Home Team: Raiders\n    *   Away Team: Knights\n    *   Round Number: 23\n    *   Goal: Determine who wins (requires availability, preview, odds, and context/form).\n\n    *   Query 1 (Home Availability): `Raiders NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 2 (Away Availability): `Knights NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 3 (Fixture Preview): `Raiders vs Knights NRL round 23 preview`\n    *   Query 4 (Market Prices): `Raiders Knights NRL odds OR price OR favourite`\n    *   Query 5 (Context/Form/Stakes): Since it's Round 23, finals race or form is usually key. Let's go with \"finals hopes\" or \"recent form\".\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Correct order of importance? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Raiders, Knights).\n    *   JSON format? Yes.\n\n    *   Q1: `Raiders NRL injury OR \"late mail\" OR \"team list\"`\n    *   Q2: `Knights NRL injury OR \"late mail\" OR \"team list\"`\n    *   Q3: `Raiders vs Knights NRL round 23 preview`\n    *   Q4: `Raiders Knights NRL odds OR price OR favourite`\n    *   Q5: `Raiders Knights NRL finals race OR form guide` (or similar). Let's use \"finals hopes\" as it's late season.\n\n    Wait, the prompt says: \"Whichever ONE of these the fixture most calls for: recent form slump or streak, ladder stakes / finals race, coach or selection pressure, a returning or suspended key player.\"\n    Round 23 is very late in the season (usually only 24-27 rounds). Finals race is the most likely driver.\n\n    *Refining Q1/Q2 to include round number for specificity.*",
+      "chars": 1647
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-09T01:01:10.441882+00:00",
+      "thinking": "Raiders (Home) vs. Knights (Away).\nGIO Stadium, Round 23.\n\n        *   Prediction: Home Win (Raiders).\n        *   Probability: 0.5491.\n        *   SHAP Drivers favoring Raiders: Bradley-Terry strength (+0.12), Elo rating (+0.056), H2H record last 5 (+0.036), Travel (0km) (+0.013). Note: Penalty cluster rate is conflicted but nets home.\n        *   SHAP Drivers favoring Knights: Pythagorean form (-0.06), Points for (+0.048 - conflicted), Errors (-0.033 - conflicted), Ladder points diff per game (-0.024), Run metres (+0.023 - conflicted).\n        *   Attribution Balance: Leans *away* (Knights) by 0.1353. This means the model's net probability is slightly home, but the sum of drivers actually leans away.\n\n        *   Raiders: Position 12, Wins 9, Lost 11, PD -59.\n        *   Knights: Position 7, Wins 12, Lost 8, PD +60.\n        *   Gap: Knights are higher (Pos 7 vs Pos 12) and have a significantly better points differential (+60 vs -59).\n\n        *   Raiders: Simi Sasagi returns to the side; Joe Roddy returns to the bench (`raiders.com.au`).\n        *   Knights: Bradman Best is sidelined with a calf strain (`nrl.com` late mail, `newcastleknights.com.au`). Fletcher Hunt replaces him at centre.\n        *   Recent Form: Knights coming off an \"emphatic 30-6 win over Brisbane\" (`beforeyoubet.com.au`), while Raiders were \"comprehensively beaten 42-18 by Penrith\" (`beforeyoubet.com.au`).\n\n        *   `beforeyoubet.com.au`: Market has Raiders as narrow favourites, but the author backs Knights at $2.05.\n\n    *   The model predicts a home win (Raiders) with 54.9% probability.\n    *   However, the `attribution_balance` leans *away* (Knights).\n    *   The standings heavily favour the Knights (Pos 7 vs Pos 12, PD +60 vs -59).\n    *   Recent form is starkly different: Knights crushed Brisbane; Raiders were crushed by Penrith.\n    *   Injury news: Knights lose Bradman Best (significant loss), but Raiders get Simi Sasagi back.\n    *   Market: Raiders are narrow favourites, but analysts see value in the Knights.\n\n    *   The model's prior is very slim (54.9%) and actually leans away in its attribution balance.\n    *   The qualitative evidence (standings, recent form) strongly favours the Knights.\n    *   The loss of Bradman Best for the Knights is a negative factor, but the overall gap in class/form between 7th and 12th is substantial.\n    *   Raiders' home ground advantage and H2H record (cited by SHAP) are the main supports for them, but recent form suggests they are struggling.\n\n    *   Winner: Away (Knights).\n    *   Confidence: The model is nearly 50/50. Standings and form favour Knights. Injury to Best hurts them slightly. I'll place it in the \"modest edge\" band (0.58-0.62) because while they are better on paper, losing a star back like Best and playing away at GIO Stadium introduces variance.\n    *   Strongest reason for loss: Loss of Bradman Best and the Raiders' home ground advantage/H2H record.\n\n    *   `winner`: \"away\"\n    *   `home_team`: \"Raiders\"\n    *   `away_team`: \"Knights\"\n    *   `confidence`: 0.60 (Modest edge based on standings and form, tempered by the Best injury).\n    *   `summary`: The Knights enter with a superior ladder position (7th vs 12th) and stronger recent form, including a dominant win over Brisbane compared to the Raiders' heavy loss to Penrith. While Newcastle will miss Bradman Best due to a calf strain, their overall statistical profile and points differential (+60 vs -59) provide a clear edge.\n    *   `key_factors`:\n        1.  Math: Elo rating/Bradley-Terry (though these were home drivers, the attribution balance actually leaned away). Wait, I should cite specific research for at least one factor.\n        2.  Research: Bradman Best is sidelined with a calf strain (`nrl.com`).\n        3.  Scene: Knights are significantly higher on the ladder (7th) than the Raiders (12th) and have a much stronger points differential (+60 vs -59).\n    *   `disagreements_with_math`: The model predicts a home win, but I am picking away due to the stark difference in recent form and official standings.\n\n    *   Check SHAP drivers again: \"Bradley-Terry strength advantage\" favors Raiders? That's odd if Knights are 7th and Raiders 12th. Let me re-read.\n    *   `favouring_Raiders_home_win`: Bradley-Terry, Elo (+19), H2H (60%).\n    *   `favouring_Knights_away_win`: Pythagorean form, Points for, Errors, Ladder points diff per game (-6.0).\n    *   Wait, the `attribution_balance` says it \"leans away\" (total toward home 0.2959 vs total toward away 0.4311). This means despite the final prediction being Home Win, the *sum of drivers* actually favors Away. The model's internal logic is conflicted.\n    *   The standings clearly show Knights are better.\n\n    *   Confidence: 0.60. Reason for loss: Loss of Bradman Best and Raiders home advantage.",
+      "chars": 4817
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-09T01:05:08.274561+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home Team: Raiders (12th, -59 diff)\n    *   Away Team: Knights (7th, +60 diff)\n    *   Venue: GIO Stadium\n    *   Weather: Rain\n\n    *   Knights without Bradman Best (calf strain vs Brisbane). Source: `nrl_news` (\"The Knights will be without Bradman Best... calf strain against Brisbane last week\") and `google_news_rss` (\"Bradman Best and Kyle McCarthy come out of the side this week\").\n    *   Raiders' Simi Sasagi returns. Source: `raiders.com.au` (\"Simi Sasagi returns to the side after missing last week through injury\").\n\n    *   Home Win Prob: 0.5491 (Prediction: Home Win)\n    *   Favouring Raiders: Bradley-Terry strength, Elo rating, H2H record, Home travel, 5-game momentum penalty cluster rate.\n    *   Favouring Knights: Pythagorean form, 5-game form points for, 3-game form errors, Ladder points differential per game, 5-game form all run metres.\n    *   Attribution Balance: Total toward home (0.2959), total toward away (0.4311). Net leans away.\n\n    *   Winner: Away (Knights)\n    *   Confidence: 0.6\n    *   Summary mentions standings, points differential, recent form (win over Brisbane), and Bradman Best's injury.\n    *   Key Factors: Standings/Diff (scene), Bradman Best injury (research - nrl.com), Attribution balance leaning away via Pythagorean form and ladder points diff (math).\n\n    *   **Check 1: `sourced_claims`**\n        *   Claim: Knights higher on ladder (7th vs 12th) / Points differential (+60 vs -59). Source: `set_fixture_scene` response snippet. Match: \"home\": {\"team\": \"Raiders\", \"position\": 12... \"points_difference\": -59}, \"away\": {\"team\": \"Knights\", \"position\": 7... \"points_difference\": 60}. (Pass)\n        *   Claim: Bradman Best missing due to calf strain. Source: `nrl_news` body excerpt (\"The Knights will be without Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week\"). (Pass)\n        *   Claim: Recent form - dominant win over Brisbane. Source: `google_news_rss` (\"Newcastle enters after an emphatic 30-6 win over Brisbane\"). (Pass)\n\n    *   **Check 2: `availability_direction`**\n        *   Bradman Best is missing. Judgement says \"will miss Bradman Best\". Correct. (Pass)\n\n    *   **Check 3: `shap_attribution`**\n        *   \"Pythagorean form\" cited as driver for Knights. In SHAP: `favouring_Knights_away_win`. (Pass)\n        *   \"ladder points differential\" cited as driver for Knights. In SHAP: `favouring_Knights_away_win` (\"Ladder points differential per game\"). (Pass)\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather is \"Rain\". Is it in the judgement? No. (Pass)\n\n    *   **Check 5: `research_used`**\n        *   Key factor mentions Bradman Best injury sourced from research (`nrl.com`). (Pass)\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence is 0.6. Summary says \"overall statistical profile outweighs the Raiders' home-ground edge\". This justifies a moderate confidence given it's an away win against a team with some home advantage and the model actually predicted Home Win (though attribution leans Away). It's within 0.50-0.85. (Pass)\n\n    *   **Check 7: `driver_proportionality`**\n        *   Top drivers for Knights are Pythagorean form (0.060) and points for (0.048). The judgement focuses on the attribution balance leaning away, driven by these factors. No minor factor is treated as decisive over top ones. (Pass)\n\n    *   **Check 8: `omitted_math_signals`**\n        *   Top Raiders drivers: Bradley-Terry strength advantage (0.120), Elo rating advantage (0.056).\n        *   Top Knights drivers: Pythagorean form (0.060), 5-game form points for (0.048).\n        *   Judgement mentions \"Pythagorean form\" and \"ladder points differential\". It does *not* mention Bradley-Terry strength or Elo rating. However, it explicitly discounts the model's prediction of a Home Win in the `disagreements_with_math` section (\"The model's final prediction is a Home Win, but I am picking Away because...\").\n        *   Wait, does \"discounting the home pick\" count as evaluating the top drivers for that side? The rule says: \"If any of those [top drivers] is neither named nor clearly alluded to in the judgement's summary or key_factors, fail\".\n        *   The Bradley-Terry strength (0.120) and Elo rating (0.056) are the biggest signals for Raiders. The judge says \"the official standings and recent form... strongly contradict the home pick\". This is a general dismissal of the Home Win prediction, but it doesn't specifically address *why* the model liked the home side (strength/Elo).\n        *   Actually, looking at `disagreements_with_math`: \"The model's final prediction is a Home Win, but I am picking Away because...\". This acknowledges the signal exists but rejects it. Is that an \"explicit discount\"? The prompt says: \"A passing acknowledgement can be a key_factor, a clause in the summary, or an explicit discount — silence is the failure.\"\n        *   The judge explicitly discounts the Home Win prediction. However, Bradley-Terry and Elo are specific drivers. Does discounting the *result* count as discounting the *drivers*? Usually, yes, if they are the primary reasons for that result. But to be strict: \"Bradley-Terry strength advantage\" is not named or alluded to.\n        *   Let's re-read: \"If any of those [top drivers] is neither named nor clearly alluded to... fail\". The judge mentions the model predicts a home win but disagrees. This alludes to the collective weight of the home drivers. But it doesn't mention them by name. Is that enough?\n        *   Compare this to previous audits: usually, if the judge says \"The model likes X because of Y, but I disagree\", it passes. Here, the judge just says \"The model predicts Home Win, but I pick Away\". It doesn't acknowledge *why* the model predicted Home Win (the drivers).\n        *   Top Raiders drivers: Bradley-Terry strength advantage (+0.35 log-strength), Elo rating advantage (+19 points). Neither is mentioned.\n        *   Top Knights drivers: Pythagorean form, 5-game form points for. Pythagorean form is mentioned. Points for is not explicitly named but \"recent form following a dominant win over Brisbane\" alludes to it.\n        *   So, the top Raiders signals (Bradley-Terry and Elo) are missing from the evaluation of *why* the model predicted Home Win. This is an omission.\n\n    *   `sourced_claims`: Pass. All claims matched to snippets.\n    *   `availability_direction`: Pass. Bradman Best correctly identified as out.\n    *   `shap_attribution`: Pass. Pythagorean and Ladder diff are in `favouring_Knights`.\n    *   `weather_not_headline`: Pass. Not mentioned.\n    *   `research_used`: Pass. Bradman Best injury cited.\n    *   `confidence_justified`: Pass. 0.6 is reasonable for a contested pick.\n    *   `driver_proportionality`: Pass. Focuses on the net attribution balance and top drivers.\n    *   `omitted_math_signals`: Fail. Bradley-Terry strength advantage and Elo rating advantage (top Raiders drivers) are not addressed.\n\n    *   Instruction: \"Math drivers include 'Bradley-Terry strength advantage' and 'Elo rating advantage'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 7299
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-09T01:07:18.601243+00:00",
+      "thinking": "*   Match: Raiders (Home) vs Knights (Away).\n    *   Model Prediction: Home Win (0.5491 probability).\n    *   My Previous Pick: Away (Knights), Confidence 0.60.\n    *   Verifier Issue: I ignored the top math signals favoring the Raiders (Bradley-Terry strength advantage and Elo rating advantage).\n\n    *   `favouring_Raiders_home_win`:\n        *   Bradley-Terry strength advantage (+0.35 log-strength): contribution 0.120 (16% of total) - *Strongest driver*.\n        *   Elo rating advantage (+19 points): contribution 0.056 (8% of total).\n        *   Head-to-head record (last 5) (60% home side): contribution 0.036 (5%).\n    *   `favouring_Knights_away_win`:\n        *   Pythagorean form (last 10) (-12% expected-win gap): contribution 0.060 (8%).\n        *   Ladder points differential per game (-6.0 points): contribution 0.024 (3%).\n    *   `attribution_balance`: `total_toward_home`: 0.2959, `total_toward_away`: 0.4311. Net: -0.1353 (leans away).\n\n    *Wait*, let me re-read the attribution balance carefully.\n    `total_toward_home`: 0.2959\n    `total_toward_away`: 0.4311\n    The `net` is -0.1353, and it `leans: away`.\n\n    Wait, the model's *prediction* was \"Home Win\" with probability 0.5491. But the SHAP totals (attribution balance) lean *away*. This is a contradiction in the provided JSON math block (usually prediction aligns with net attribution). However, I must follow the data as written.\n\n    *   Raiders: Position 12, Wins 9, Lost 11, PD -59.\n    *   Knights: Position 7, Wins 12, Lost 8, PD +60.\n    *   Recent Form (Last 4): Raiders (3-1), Knights (2-3). *Wait*, the standings say Raiders are 3-1 and Knights are 2-3 in last 4? Let me check research.\n    *   Research: \"Newcastle enters after an emphatic 30-6 win over Brisbane, while Canberra was comprehensively beaten 42-18 by Penrith in Mudgee.\" (BeforeYouBet). This contradicts the `recent_form_last_4` string if that string is meant to be most recent. Actually, looking at the Zero Tackle snippet: Raiders lost to Panthers 42-18 on 1/8/26, won vs Tigers 56-10 on 25/7/26, won vs Rabbitohs 34-24 on 18/7/26. That's 2 wins and 1 loss in the last three.\n\n    *   Bradley-Terry strength advantage (Raiders +0.35) is the strongest single driver for home.\n    *   Elo rating advantage (Raiders +19) also favors home.\n    *   However, the Knights are significantly higher on the ladder (7th vs 12th).\n\n    *   The model predicts Home Win (prob 0.5491), but the SHAP totals lean Away (-0.1353 net).\n    *   The Bradley-Terry and Elo ratings suggest Raiders have a fundamental strength edge despite their lower ladder position. This often happens when a team has had bad luck or played a harder schedule (though PD -59 vs +60 is a huge gap).\n    *   Research says Knights are in better current form (crushed Brisbane) while Raiders were crushed by Penrith.\n    *   Knights missing Bradman Best (calf strain).\n\n    *   The Bradley-Terry and Elo advantages provide a baseline of strength for the Raiders that explains why the model predicts them to win despite being lower on the ladder.\n    *   However, the Knights' current form is superior, their ladder position is much higher, and their points differential is vastly better (+60 vs -59).\n    *   The \"attribution balance\" explicitly leans away (Knights), even though the final prediction says Home Win. This suggests the model is conflicted.\n\n    *   Strongest reason pick could lose: The Bradley-Terry and Elo ratings indicate a latent strength in the Raiders that isn't reflected in their current ladder position, and they are playing at home.\n    *   Confidence: 0.60 seems reasonable given the Knights' overall season superiority (7th vs 12th) and recent win over Brisbane, but I must acknowledge the math drivers now.\n\n    *   Winner: Away (Knights).\n    *   Confidence: 0.60.\n    *   Summary: Acknowledge the Bradley-Terry/Elo strength of Raiders but prioritize the Knights' ladder position (7th vs 12th), superior points differential (+60 vs -59), and recent form (win over Brisbane). Mention Bradman Best is out.\n\n    *   `winner`: \"away\"\n    *   `confidence`: 0.60\n    *   `summary`: Knights are significantly higher on the ladder (7th) with a much stronger points differential (+60 vs -59) and recent form, including a dominant win over Brisbane. While math drivers like Bradley-Terry strength and Elo ratings favor the Raiders' latent ability, the overall attribution balance leans toward Newcastle despite their loss of Bradman Best to injury.\n    *   `key_factors`:\n        1.  Scene: Ladder position (7th vs 12th) and PD (+60 vs -59).\n        2.  Research: Knights' recent win over Brisbane vs Raiders' loss to Penrith (BeforeYouBet); Bradman Best sidelined (nrl.com).\n        3.  Math: Acknowledge Bradley-Terry/Elo favor home, but the net attribution balance leans away (-0.1353).\n\n    *   Did I address Bradley-Terry? Yes.\n    *   Did I address Elo? Yes.\n    *   Did I use research? Yes (BeforeYouBet, nrl.com).\n    *   Did I check standings? Yes.\n    *   Confidence band: 0.60 is \"modest edge\". Correct.",
+      "chars": 5047
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-09T00:55:53.460221+00:00",
+      "payload": {
+        "queries": [
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Raiders vs Knights NRL round 23 preview",
+          "Raiders Knights NRL odds OR price OR favourite",
+          "Raiders Knights NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-09T01:01:10.442788+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), coupled with superior recent form following a dominant win over Brisbane. While Newcastle will miss Bradman Best due to a calf strain, their overall statistical profile outweighs the Raiders' home-ground edge.",
+          "key_factors": [
+            {
+              "source": "scene",
+              "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights will be without Bradman Best for this match after he suffered a calf strain against Brisbane (nrl.com)."
+            },
+            {
+              "source": "math",
+              "detail": "Although the model predicts a home win, the attribution balance actually leans away (0.4311 toward Knights vs 0.2959 toward Raiders), driven by Pythagorean form and ladder points differential."
+            }
+          ],
+          "disagreements_with_math": "The model's final prediction is a Home Win, but I am picking Away because the official standings and recent form (Knights crushing Brisbane while Raiders were crushed by Penrith) strongly contradict the home pick."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-09T01:05:08.274893+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Standings/diff matched to set_fixture_scene; Bradman Best injury matched to nrl_news body excerpt; Brisbane win matched to google_news_rss excerpt."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Bradman Best is correctly described as missing based on research stating he is 'without' and suffered a calf strain."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Pythagorean form and ladder points differential are both listed in the favouring_Knights_away_win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather (Rain) is not mentioned as a factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor identifies Bradman Best's injury sourced from research (nrl.com)."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is defensible given the disagreement with the model's prediction and the away-win nature of the pick."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the net attribution balance and top drivers (Pythagorean form) rather than minor factors."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top Raiders drivers 'Bradley-Terry strength advantage' and 'Elo rating advantage' are not named or alluded to in the evaluation."
+            }
+          ],
+          "issues": [
+            "The top math signals favouring the Raiders (Bradley-Terry strength advantage and Elo rating advantage) were omitted from the analysis."
+          ],
+          "instruction": "Math drivers include 'Bradley-Terry strength advantage' and 'Elo rating advantage'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-09T01:07:18.601298+00:00",
+      "payload": {
+        "issues": [
+          "The top math signals favouring the Raiders (Bradley-Terry strength advantage and Elo rating advantage) were omitted from the analysis."
+        ],
+        "instruction": "Math drivers include 'Bradley-Terry strength advantage' and 'Elo rating advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), coupled with superior recent form following a dominant win over Brisbane. While Newcastle will miss Bradman Best due to a calf strain, their overall statistical profile outweighs the Raiders' home-ground edge.",
+          "key_factors": [
+            {
+              "source": "scene",
+              "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights will be without Bradman Best for this match after he suffered a calf strain against Brisbane (nrl.com)."
+            },
+            {
+              "source": "math",
+              "detail": "Although the model predicts a home win, the attribution balance actually leans away (0.4311 toward Knights vs 0.2959 toward Raiders), driven by Pythagorean form and ladder points differential."
+            }
+          ],
+          "disagreements_with_math": "The model's final prediction is a Home Win, but I am picking Away because the official standings and recent form (Knights crushing Brisbane while Raiders were crushed by Penrith) strongly contradict the home pick."
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Knights hold a significant advantage in the standings (7th vs 12th) and points differential (+60 vs -59), supported by superior recent form including a dominant win over Brisbane. While math drivers such as Bradley-Terry strength and Elo ratings suggest a latent ability edge for the Raiders, the overall attribution balance leans toward Newcastle despite the loss of Bradman Best to injury.",
+          "key_factors": [
+            {
+              "source": "scene",
+              "detail": "The Knights are significantly higher on the ladder (7th) than the Raiders (12th), with a points differential of +60 compared to the Raiders' -59."
+            },
+            {
+              "source": "research",
+              "detail": "Newcastle enters following an emphatic 30-6 win over Brisbane, whereas Canberra was comprehensively beaten 42-18 by Penrith (BeforeYouBet); however, Newcastle will miss Bradman Best due to a calf strain (nrl.com)."
+            },
+            {
+              "source": "math",
+              "detail": "While the Bradley-Terry strength advantage (+0.35 log-strength) and Elo rating (+19 points) favor the Raiders, the total attribution balance leans away (-0.1353 net), favoring the Knights."
+            }
+          ],
+          "disagreements_with_math": "The model predicts a Home Win (0.5491), but I am picking Away because the official standings and recent form strongly outweigh the latent strength indicators (Elo/Bradley-Terry) cited by the model."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "608ca27b77fa",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-09T00:55:09.849879+00:00",
+      "finished_at": "2026-08-09T00:55:13.463599+00:00",
+      "duration_ms": 3613,
+      "request": {
+        "home_team": "Raiders",
+        "away_team": "Knights",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-09T00:55:09.849950+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "kickoff": "2026-08-09T14:00:00+10:00",
+          "venue": "GIO Stadium",
+          "venue_city": "Canberra",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/raiders-v-knights/",
+          "match_mode": "Pre",
+          "match_id": "20261112370",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Jon Stone"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Kaeo Weekes",
+                "position": "Fullback",
+                "player_id": 507846
+              },
+              {
+                "number": 2,
+                "name": "Jed Stuart",
+                "position": "Winger",
+                "player_id": 100012912
+              },
+              {
+                "number": 3,
+                "name": "Simi Sasagi",
+                "position": "Centre",
+                "player_id": 100000129
+              },
+              {
+                "number": 4,
+                "name": "Matthew Timoko",
+                "position": "Centre",
+                "player_id": 509757
+              },
+              {
+                "number": 5,
+                "name": "Xavier Savage",
+                "position": "Winger",
+                "player_id": 510220
+              },
+              {
+                "number": 6,
+                "name": "Ethan Strange",
+                "position": "Five-Eighth",
+                "player_id": 100006524
+              },
+              {
+                "number": 7,
+                "name": "Ethan Sanders",
+                "position": "Halfback",
+                "player_id": 100003925
+              },
+              {
+                "number": 8,
+                "name": "Corey Horsburgh",
+                "position": "Prop",
+                "player_id": 506018
+              },
+              {
+                "number": 9,
+                "name": "Owen Pattie",
+                "position": "Hooker",
+                "player_id": 100009202
+              },
+              {
+                "number": 10,
+                "name": "Joseph Tapine",
+                "position": "Prop",
+                "player_id": 500555
+              },
+              {
+                "number": 11,
+                "name": "Zac Hosking",
+                "position": "2nd Row",
+                "player_id": 505985
+              },
+              {
+                "number": 12,
+                "name": "Ata Mariota",
+                "position": "2nd Row",
+                "player_id": 100004109
+              },
+              {
+                "number": 13,
+                "name": "Morgan Smithies",
+                "position": "Lock",
+                "player_id": 100006166
+              },
+              {
+                "number": 14,
+                "name": "Tom Starling",
+                "position": "Interchange",
+                "player_id": 504072
+              },
+              {
+                "number": 15,
+                "name": "Joe Roddy",
+                "position": "Interchange",
+                "player_id": 100006817
+              },
+              {
+                "number": 16,
+                "name": "Josh Papalii",
+                "position": "Interchange",
+                "player_id": 500973
+              },
+              {
+                "number": 17,
+                "name": "Daine Laurie",
+                "position": "Interchange",
+                "player_id": 507645
+              },
+              {
+                "number": 18,
+                "name": "Savelio Tamale",
+                "position": "Interchange",
+                "player_id": 100013751
+              },
+              {
+                "number": 19,
+                "name": "Matty Nicholson",
+                "position": "Interchange",
+                "player_id": 100010807
+              },
+              {
+                "number": 20,
+                "name": "Coby Black",
+                "position": "Reserve",
+                "player_id": 100011844
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Dane Gagai",
+                "position": "Centre",
+                "player_id": 500043
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Tyson Frizell",
+                "position": "Prop",
+                "player_id": 500622
+              },
+              {
+                "number": 9,
+                "name": "Phoenix Crossland",
+                "position": "Hooker",
+                "player_id": 504597
+              },
+              {
+                "number": 10,
+                "name": "Trey Mooney",
+                "position": "Prop",
+                "player_id": 507915
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Francis Manuleleua",
+                "position": "2nd Row",
+                "player_id": 100013721
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Interchange",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Cody Hopwood",
+                "position": "Interchange",
+                "player_id": 100011256
+              },
+              {
+                "number": 16,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 17,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 18,
+                "name": "Fletcher Hunt",
+                "position": "Centre",
+                "player_id": 100008414
+              },
+              {
+                "number": 19,
+                "name": "Brodie Jones",
+                "position": "Interchange",
+                "player_id": 504075
+              },
+              {
+                "number": 20,
+                "name": "Toby Winter",
+                "position": "Interchange",
+                "player_id": 100016039
+              },
+              {
+                "number": 22,
+                "name": "Diesel Hagan",
+                "position": "Reserve",
+                "player_id": 100013938
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 23,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Raiders",
+            "position": 12,
+            "played": 20,
+            "wins": 9,
+            "drawn": 0,
+            "lost": 11,
+            "competition_points": 22,
+            "points_for": 453,
+            "points_against": 512,
+            "points_difference": -59,
+            "points_difference_per_game": -2.95,
+            "recent_form_last_4": "3 - 1",
+            "streak": "1L",
+            "home_record": "5 - 5",
+            "away_record": "4 - 6"
+          },
+          "away": {
+            "team": "Knights",
+            "position": 7,
+            "played": 20,
+            "wins": 12,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 28,
+            "points_for": 511,
+            "points_against": 451,
+            "points_difference": 60,
+            "points_difference_per_game": 3.0,
+            "recent_form_last_4": "2 - 3",
+            "streak": "1W",
+            "home_record": "7 - 3",
+            "away_record": "5 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Knights",
+            "ladder_positions_gap": -5,
+            "points_difference_per_game_gap": -5.95,
+            "points_difference_favours": "Knights"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-09T14:00",
+            "temperature_c": 8.6,
+            "precipitation_mm": 0.6,
+            "precipitation_probability_pct": 100,
+            "wind_speed_kmh": 2.7,
+            "weather_code": 53,
+            "summary": "Moderate drizzle",
+            "latitude": -35.25,
+            "longitude": 149.102,
+            "venue": "GIO Stadium",
+            "venue_city": "Canberra"
+          },
+          "math_weather_label": "Rain",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-35.25&longitude=149.102&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-09T00:55:13.456902+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/raiders-v-knights/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-35.25&longitude=149.102&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "57aaf655874d",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-09T00:55:53.473093+00:00",
+      "finished_at": "2026-08-09T00:57:23.705411+00:00",
+      "duration_ms": 90232,
+      "request": {
+        "home_team": "Raiders",
+        "away_team": "Knights",
+        "kickoff": "2026-08-09T14:00:00+10:00",
+        "round_number": 23,
+        "venue": "GIO Stadium",
+        "queries": [
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Raiders vs Knights NRL round 23 preview",
+          "Raiders Knights NRL odds OR price OR favourite",
+          "Raiders Knights NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "kickoff": "2026-08-09T14:00:00+10:00",
+          "round_number": 23,
+          "venue": "GIO Stadium",
+          "queries": [
+            "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Raiders vs Knights NRL round 23 preview",
+            "Raiders Knights NRL odds OR price OR favourite",
+            "Raiders Knights NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-09T00:55:53.520695+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 23 - Best sidelined",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-08T09:52:49+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Best sidelined\nThe Knights will be without Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premier",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Best sidelined\nThe Knights will be without Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nRaiders v Knights, Sunday 2.00pm at GIO Stadium\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knights is number 19 Brodie Jones\n18 19\nInterchange for Raiders is number 19 Matty Nicholson 19 20 Interchange for Knights is number 20 Toby Winter\n19 20\nReserves\nReserve for Raiders is number 20 Coby Black 20 22 Reserve for Knights is number 22 Diesel Hagan\n20 22\nRaiders Ins\nCoby Black\nSimi Sasagi\nKnights Ins\nDiesel Hagan\nHarrison Graham\nRaiders Outs\nSebastian Kris\nBradman Best\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/9/2026 12:26:04 AM\nRaiders: Gun centre Simi Sasagi is back from a hamstring injury so Seb Kris makes way in the only change to Ricky Stuart's 19-man squad for the must-win clash against the Knights. Sasagi was a late withdrawal from last week's loss to the Panthers. Back-rower Matty Nicholson has now had two games back off the bench and is part of the interchange again with Stuart indicating he will play NSW Cup later on Sunday if he doesn't get on in NRL. The Raiders have won four of their last five games on their home patch at GIO Stadium. No changes in Saturday's 24-hour update.\nKnights: A blow for the Knights on Saturday with Bradman Best dropping out due to a calf strain suffered in last week's win over Brisbane. Fletcher Hunt comes into the starting side at centre, with Toby Winter moving onto the six-man bench. After coming off the interchange in 17 of his 18 games this season, veteran Tyson Frizell has been named to start in his 300th NRL match. That pushes Cody Hopwood to the bench. Harrison Graham has been added to the bench after missing last week's game with hamstring tightness.\nDragons v Sharks, Sunday 4.05pm at St George Venues Jubilee Stadium\nMatch: Dragons v Sharks\nDragons\nSharks\nFu",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.05125574861111,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 20 Jaylan De Groot 20 4 Centre for Cowboys is number 4 Tom Chester\n20 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 4 AJ Brimson 4 7 Halfback for Cowboys is number 7 Jaxon Purdue\n4 7\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 18 Sam Verrills 18 9 Hooker for Cowboys is number 9 Soni Luke\n18 9\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Cowboys is number 11 Heilum Luki\n12 11\n2nd Row for Titans is number 15 Josh Patston 15 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n15 12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 9 Oliver Pascoe 9 14 Interchange for Cowboys is number 14 Ethan King\n9 14\nInterchange for Titans is number 14 Kurtis Morrin 14 15 Interchange for Cowboys is number 15 Thomas Mikaele\n14 15\nInterchange for Titans is number 16 Klese Haas 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Titans is number 17 Cooper Bai 17 20 Interchange for Cowboys is number 20 John Bateman\n17 20\nReserve for Titans is number 7 Lachlan Ilias 7 16 Reserve for Cowboys is number 16 Matthew Lodge\n7 16\nReserve for Titans is number 11 Arama Hau 11 18 Reserve for Cowboys is number 18 Sam McIntyre\n11 18\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/8/2026 2:18:14 PM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 18 Five-Eighth for Panthers is number 18 Jack Cole\n6 18\nHalfback for Warriors is number 18 Luke Metcalf 18 7 Halfback for Panthers is number 7 Nathan Cleary\n18 7\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Panthers is number 8 Moses Leota\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Panthers is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 114.91903352638889,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-08T12:22:04+00:00",
+            "snippet": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a s",
+            "body_excerpt": "NRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shocked look on his face as he reeled away.\nThe NSW and Australian captain left the field in the 34th minute and cut a forlorn figure on the Panthers bench in the second term. He will be sent for scans to confirm the severity of the injury.\nBefore the game, Panthers centre Casey McLean had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean saw three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors.\nIn Friday's second game, Roosters fullback James Tedesco missed the Round 23 blockbuster against the Bulldogs after failing to overcome an ankle injury.\nTedesco sat out the second half of the Round 22 slaughter of the Cowboys with ice on his ankle but he was initially named to return against the Bulldogs.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nThe skipper dropped out of the side on Thursday and was replaced by Cody Ramsey.\nHowever, it was another blow for Bulldogs star back-rower Sitili Tupouniua who was back from a hamstring injury, but was ruled out in his return game - again with a hamstring injury.\n\"Not sure how bad it is, but he's felt it in the same spot where he injured about eight weeks ago, so not ideal,\" Bulldogs coach Cameron Ciraldo said after the game.\n\"He's pretty devastated because he was training really well and he was just excited to get back playing, this is what he does, this is what he loves doing, so he's pretty shattered.\"\nThe Knights suffered a blow ahead of Sunday's trip to Canberra with star centre Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane.\nManly lost prop Taniela Paseka during the first half in Perth on Saturday with the club reporting he had suffered MCL damage and would be sent for scans on his knee.\nThe Sea Eagles went into the game without Ethan Bullemor , who s uffered a head knock in training and will follow NRL concussion protocol. He will be stood down for 11 days meaning he will miss this week's clash and next Friday's game against the Dolphins.\nThe Sea Eagles have also lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nThe Rabbitohs have suffered another injury blow, with Ashton Ward leaving the field with a hamstring injury suffered while kicking for goal in the first half of his side's win over the Eels.\nWinger Campbell Graham missed the game with a calf injury suffered in training, which could sideline him for 3-4 weeks.\nThe Eels also have their own injury worries, with Isaiah Iongi also limping off in the first half. He returned to the bench in the second half pictured in a brace on his right knee.\nEels coach Jason Ryles said post-match there was concern for MCL and PCL injuries, with scans on Monday to confirm to extent of the damage.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nChemist Warehouse Casualty Ward\nBrisbane Broncos\nAdam Reynolds (concussion, ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 12.563755748611111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "54884c699f47a82a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders vs Knights Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/raiders-vs-knights-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-07T16:39:46+00:00",
+            "snippet": "Raiders vs Knights Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Raiders vs Knights Preview & Betting Tips: NRL Round 23 2026\nAugust 8 th 2026, 2:06am , By: Ben Bridge\nSunday afternoon at GIO Stadium gives us one of the most intriguing price disagreements of Round 23, as Canberra host Newcastle in a match the market has struggled to separate. The Raiders are narrow favourites, but I have the wrong team on top and will back the Knights money line at $2.05.\nNewcastle enters after an emphatic 30-6 win over Brisbane, while Canberra was comprehensively beaten 42-18 by Penrith in Mudgee. The Raiders’ previous good form deserves respect, but Newcastle currently possesses the more reliable spine, the stronger recent defensive performance and the greater attacking ceiling.\nMoney has already arrived for the Knights after they opened at a larger outsider price, and I agree with the move. Newcastle have Kalyn Ponga, Fletcher Sharpe, Bradman Best, Dane Gagai and Dominic Young available, while Tyson Frizell reaches another important career milestone.\nCanberra regain Simi Sasagi after injury, but Sebastian Kris is out, and their young halves must recover quickly from a difficult evening against Penrith.\nThe venue keeps this close. GIO Stadium remains a significant advantage for Canberra, and the Raiders’ middle can make life difficult for any opponent. But at plus money, Newcastle are the side I want.\nRaiders vs Knights Prediction & Tips: 2026 NRL Round 23\nRaiders Brought Back to Earth by Penrith\nCanberra entered the Mudgee clash chasing a fifth consecutive win and carrying genuine momentum after a strong month. Penrith brutally halted that run, scoring 42 points and effectively deciding the game through a dominant opening half.\nThe Raiders had been playing with confidence through Kaeo Weekes, Ethan Strange and Ethan Sanders, but Penrith prevented the young spine from establishing field position. Canberra’s forwards were forced to work out of their own end, and the defensive line struggled once Nathan Cleary and Isaah Yeo began creating repeated movement.\nThe loss should not erase the previous improvement. Canberra’s attack had become considerably more dangerous, with Weekes providing speed from fullback and Strange becoming increasingly comfortable running directly at defensive lines. Sanders gives the side an organising half and a strong long kicking option.\nThe pack remains Canberra’s greatest strength. Joseph Tapine, Corey Horsburgh, Morgan Smithies, Zac Hosking, Ata Mariota, and Josh Papali’i provide power, work rate and experience. If those players win the middle, Canberra can place Newcastle under substantial pressure.\nSimi Sasagi’s return strengthens the centres after he missed the Penrith match, while Joe Roddy returns to the bench. Sebastian Kris is unavailable, forcing another adjustment to the outside backs.\nThe Raiders’ challenge is avoiding the defensive collapses that have appeared too frequently this season. They have conceded 512 points and average approximately 25.5 points against per game, which places enormous pressure on a young spine to keep producing.\nKnights Make Finals Statement at Suncorp\nNewcastle’s 30-6 victory over Brisbane was among their most complete performances of the season. The Knights scored five tries, held the Broncos to a single score and effectively ended Brisbane’s already faint finals hopes.\nFletcher Sharpe and Greg Marzhew both scored doubles, while Kalyn Ponga controlled the backfield and repeatedly created attacking opportunities. The result strengthened Newcastle’s position inside the top eight and gave them confidence before another difficult road trip.\nThe Knights’ spine is the primary reason I rate them above Canberra. Ponga remains the most influential player in the matchup, Sandon Smith gives Newcastle a genuine organising half and Sharpe provides another creative option close to the line.\nBradman Best and Dane Gagai give the Knights power and experience in the centres, while Dominic Young and Marzhew provide elite finishing and yardage from the wings. C",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 32.26875574861111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ea38f8b9745cce21",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders v Knights: Round 23 - nrl.com",
+            "url": "https://www.nrl.com/news/2026/08/05/raiders-v-knights-round-23/",
+            "published_at": "2026-08-05T04:05:26+00:00",
+            "snippet": "Raiders v Knights: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Round 23\nRelated /\nRaiders v Knights: Sasagi returns; Frizell the m",
+            "body_excerpt": "Raiders v Knights: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Round 23\nRelated /\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nPlayer Highlights\n300 Battles. Zero Shortcuts.\nMedia Release\nTyson Frizell 300\nFantasy\nFirst take: Raiders v Knights\nIndigenous Round\nNgunnawal Country: Welcome to Indigenous Round 2026\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 92.84097797083334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "db35878dfb258d90",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders vs Knights - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/raiders-knights-round-23-2026-mc10396512-236512/",
+            "published_at": "2026-08-02T18:36:21+00:00",
+            "snippet": "Raiders vs Knights - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 RAIDERS V KNIGHTS KICK OFF GIO Stadium #NRLRaidersKnights 2026-08-09T04:00:00Z Preview\nRAIDERS\nKNIGHTS\nPreview\nRaiders vs Knights – Round 23, 2026\nThe Canberra Raiders face the Newcastle Knights in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at GIO Stadium. Ladder Position Injury Report Raiders NAME REASON EXPECTED RETURN Hudson Young Achilles Next Season Noah Martin Quad Round 26 Knights NAME REASON EXPECTED RETURN Dylan Lucas Ankle Next Season Dylan Brown ACL Next Season James Schiller Neck Round 25 Jacob Saifiti Hamstring Round 25 Bradman Best Calf TBC Previous 5 Games Raiders DATE OPP RESULT 1/8/26 Panthers L 42 - 18 25/7/26 Wests Tigers W 56 - 10 18/7/26 Rabbitohs W 34 - 24 11/7/26 Bulldogs W 16 - 40 28/6/26 Dragons W 24 - 16 Knights DATE OPP RESULT 1/8/26 Broncos W 6 - 30 24/7/26 Roosters L 22 - 23 17/7/26 Sharks L 20 - 18 12/7/26 Rabbitohs L 26 - 24 5/7/26 Dolphins W 13 - 12\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nHudson Young\nAchilles\nNext Season\nNoah Martin\nQuad\nRound 26\nDylan Lucas\nAnkle\nDylan Brown\nACL\nJames Schiller\nNeck\nRound 25\nJacob Saifiti\nHamstring\nBradman Best\nCalf\nTBC\nPrevious 5 Games\nDATE\nOPP\nRESULT\n1/8/26\nPanthers\nL 42 - 18\n25/7/26\nWests Tigers\nW 56 - 10\n18/7/26\nRabbitohs\nW 34 - 24\n11/7/26\nBulldogs\nW 16 - 40\n28/6/26\nDragons\nW 24 - 16\nBroncos\nW 6 - 30\n24/7/26\nRoosters\nL 22 - 23\n17/7/26\nSharks\nL 20 - 18\n12/7/26\nL 26 - 24\n5/7/26\nDolphins\nW 13 - 12\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nKaeo Weekes Kaeo Weekes\nJed Stuart Jed Stuart\nSimi Sasagi Simi Sasagi\nMatthew Timoko Matthew Timoko\nXavier Savage Xavier Savage\nEthan Strange Ethan Strange\nEthan Sanders Ethan Sanders\nCorey Horsburgh Corey Horsburgh\nOwen Pattie Owen Pattie\n10\nJoseph Tapine Joseph Tapine\n11\nZac Hosking Zac Hosking\n12\nAta Mariota Ata Mariota\n13\nMorgan Smithies Morgan Smithies\nINTERCHANGE\n14\nTom Starling Tom Starling\n15\nJoe Roddy Joe Roddy\n16\nJosh Papalii Josh Papalii\n17\nDaine Laurie Daine Laurie\n18\nSavelio Tamale Savelio Tamale\n19\nMatty Nicholson Matty Nicholson\nRESERVES\n20\nCoby Black Coby Black\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nKalyn Ponga Kalyn Ponga\nDominic Young Dominic Young\nDane Gagai Dane Gagai\nFletcher Hunt Fletcher Hunt\nGreg Marzhew Greg Marzhew\nFletcher Sharpe Fletcher Sharpe\nSandon Smith Sandon Smith\nTyson Frizell Tyson Frizell\nPhoenix Crossland Phoenix Crossland\nTrey Mooney Trey Mooney\nJermaine McEwen Jermaine McEwen\nFrancis Manuleleua Francis Manuleleua\nMat Croker Mat Croker\nHarrison Graham Harrison Graham\nCody Hopwood Cody Hopwood\nLachlan Crouch Lachlan Crouch\nThomas Cant Thomas Cant\nBrodie Jones Brodie Jones\nToby Winter Toby Winter\nDiesel Hagan Diesel Hagan\n22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 150.32570019305555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "155752c3b3073c8a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 23 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/06/Wests-Tigers-NRL-Injury-Report-Round-23/",
+            "published_at": "2026-08-06T00:30:30+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 23\nWests Tigers can provide the latest NRL injury update heading into this weekend’s bye.\nThe Tigers return to the field on Sunday, 16 August, against the St George-Illawarra Dragons in their final home game of the season.\nThe club’s NRL reha",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 23\nWests Tigers can provide the latest NRL injury update heading into this weekend’s bye.\nThe Tigers return to the field on Sunday, 16 August, against the St George-Illawarra Dragons in their final home game of the season.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\n\"We are pleased with the progression our players have made in rehab. They are all working hard and are committed to returning as soon as it's possible,'' Moussa said.\nTaylan May\nInjury: Right Shoulder reconstruction (Rd 17 vs Knights).\nReturn : TBA\nKai Pearce Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans). Kai has started his return to play protocol.\nReturn: TBA\nRoyce Hunt\nInjury: Pectoral tendon repair (Rd 14 vs Penrith). Royce has started his return to play protocol.\nWill Craig\nInjury: Ankle. Will has started his return to play protocol.\nRelated /\nSquad Update: NRLW Round 6 v Dragons\nNSW Women's Rugby League\nWests Tigers - NSW Women's Premiership: Round 8\nPathways\nJersey Flegg bound for Fiji to take on the Kaiviti Silktails\nIndigenous Round\nWests Tigers unveil 2026 Indigenous Jersey\nInjuries\nWests Tigers NRLW Injury Report: Round 5",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.42320019305556,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4effb2d19731db61",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List | Round 23 - Newcastle Knights",
+            "url": "https://www.newcastleknights.com.au/news/2026/08/04/nrl-team-list--round-23/",
+            "published_at": "2026-08-04T06:01:22+00:00",
+            "snippet": "Presented By\n24 Hour Update | Round 23\nnib Newcastle Knights Head Coach Justin Holbrook has updated his squad for tomorrow afternoon's clash against the Canberra Raiders at GIO Stadium.\nBradman Best and Kyle McCarthy come out of the side this week, with Best suffering a low grade",
+            "body_excerpt": "Presented By\n24 Hour Update | Round 23\nnib Newcastle Knights Head Coach Justin Holbrook has updated his squad for tomorrow afternoon's clash against the Canberra Raiders at GIO Stadium.\nBradman Best and Kyle McCarthy come out of the side this week, with Best suffering a low grade calf strain in last week's win over Brisbane.\nFletcher Hunt comes into the starting side at centre, with Toby Winter moving onto the six-man bench.\nDiesel Hagan is the sole reserve remaining.\nOriginally published Tuesday, August 4, 2026:\nnib Newcastle Knights Head Coach Justin Holbrook has named his 22-man squad for Sunday afternoon's clash against the Canberra Raiders at GIO Stadium.\nTyson Frizell has been named to start in the front row for what will be his 300th NRL game.\nFrizell replaces Cody Hopwood, who moves back to the interchange bench.\nHarrison Graham has also been named to make his return after missing last week's game with hamstring tightness.\nMeanwhile, Diesel Hagan appears on the reserves list for the first time, having been named in jersey No.22.\nThe remainder of the squad is unchanged from the one which defeated Brisbane 30-6 on Saturday night.\nSee the squad below:\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knights is number 19 Brodie Jones\n18 19\nInterchange for Raiders is number 19 Matty Nicholson 19 20 Interchange for Knights is number 20 Toby Winter\n19 20\nReserves\nReserve for Raiders is number 20 Coby Black 20 22 Reserve for Knights is number 22 Diesel Hagan\n20 22\nRaiders Ins\nCoby Black\nSimi Sasagi\nKnights Ins\nDiesel Hagan\nHarrison Graham\nRaiders Outs\nSebastian Kris\nBradman Best\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/9/2026 12:26:04 AM\nThe nib Newcastle Knights would like to thank our proud Club 17 partners for bringing you this week's team list:\nJersey 1 presented by:\nHoneywell Capital\nJersey 2 presented by:\nPalmerbet\nJersey 3 presented by:\nEast Coast Building & Pest Services\nJersey 4 presented by:\nHunter Imaging\nJersey 5 presented by:\nHunter City Motor Group\nJersey 6 presented by:\nGreg Tapp Printing\nJersey 7 presented by:\nEtch Couriers\nJersey 8 presented by:\nPrime Edge C",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 114.90875574861111,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e824460d69135016",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+            "url": "https://www.zerotackle.com/round-23-team-lists-2026-236562/",
+            "published_at": "2026-08-04T05:58:19+00:00",
+            "snippet": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Round 23 NRL team lists for the 2026 season are in, with all clubs naming their squads for this week's matches. Stay across every lineup, late changes, and key ins and outs as they're confirmed.\nCheck out all team lists below, with updates added as official final teams are announced.\nTitans vs Cowboys Team Lists: Round 23\nKeano Kini Keano Kini\nDean Ieremia Dean Ieremia\nJojo Fifita Jojo Fifita\n20\nJaylan De Groot Jaylan De Groot\nPhillip Sami Phillip Sami\nJayden Campbell Jayden Campbell\nAJ Brimson AJ Brimson\nMoeaki Fotuaika Moeaki Fotuaika\n18\nSam Verrills Sam Verrills\n10\nT. Fa'asuamaleaui Tino Fa'asuamaleaui\n12\nBeau Fermor Beau Fermor\n15\nJosh Patston Josh Patston\n13\nChris Randall Chris Randall\nINTERCHANGE\nOliver Pascoe Oliver Pascoe\n14\nKurtis Morrin Kurtis Morrin\n16\nKlese Haas Klese Haas\n17\nCooper Bai Cooper Bai\nLachlan Ilias Lachlan Ilias\n11\nArama Hau Arama Hau\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nScott Drinkwater Scott Drinkwater\nBraidon Burns Braidon Burns\nZac Laybutt Zac Laybutt\nTom Chester Tom Chester\nMurray Taulagi Murray Taulagi\nJake Clifford Jake Clifford\nJaxon Purdue Jaxon Purdue\nGriffin Neame Griffin Neame\nSoni Luke Soni Luke\nJason Taumalolo Jason Taumalolo\nHeilum Luki Heilum Luki\nKai O'Donnell Kai O'Donnell\nReuben Cotter Reuben Cotter\nEthan King Ethan King\nThomas Mikaele Thomas Mikaele\nCoen Hess Coen Hess\nJohn Bateman John Bateman\nMatthew Lodge Matthew Lodge\nSam McIntyre Sam McIntyre\nWarriors vs Panthers Team Lists: Round 23\nC. Nicoll-Klokstad Charnze Nicoll-Klokstad\nD. Watene-Zelezniak Dallin Watene-Zelezniak\nAli Leiataua Ali Leiataua\nLeka Halasima Leka Halasima\nA. Khan-Pereira Alofiana Khan-Pereira\nC. Harris-Tavita Chanel Harris-Tavita\nLuke Metcalf Luke Metcalf\nJ. Fisher-Harris James Fisher-Harris\nWayde Egan Wayde Egan\nMitch Barnett Mitch Barnett\nKurt Capewell Kurt Capewell\nJacob Laban Jacob Laban\nErin Clark Erin Clark\nSamuel Healey Samuel Healey\nT. Stowers-Smith Tanner Stowers-Smith\nMorgan Gannon Morgan Gannon\nE. Ieremia-Toeava Eddie Ieremia-Toeava\nTaine Tuaupiki Taine Tuaupiki\n23\nAdam Pompey Adam Pompey\nJaxen Edgar Jaxen Edgar\nThomas Jenkins Thomas Jenkins\nPaul Alamoti Paul Alamoti\nIzack Tago Izack Tago\nBrian To'o Brian To'o\nJack Cole Jack Cole\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\nLindsay Smith Lindsay Smith\nIsaiah Papali'i Isaiah Papali'i\nLiam Martin Liam Martin\nIsaah Yeo Isaah Yeo\nScott Sorensen Scott Sorensen\nLiam Henry Liam Henry\nBilly Phillips Billy Phillips\nLuron Patea Luron Patea\n21\nBilly Scott Billy Scott\nBlaize Talagi Blaize Talagi\n19\nRoosters vs Bulldogs Team Lists: Round 23\nCody Ramsey Cody Ramsey\nBilly Smith Billy Smith\nHugo Savala Hugo Savala\nRobert Toia Robert Toia\nM. Nawaqanitawase Mark Nawaqanitawase\nDaly Cherry-Evans Daly Cherry-Evans\nSam Walker Sam Walker\nNaufahu Whyte Naufahu Whyte\nReece Robson Reece Robson\nNat Butcher Nat Butcher\nSalesi Foketi Salesi Foketi\nSiua Wong Siua Wong\nVictor Radley Victor Radley\nSpencer Leniu Spencer Leniu\nConnor Watson Connor Watson\nLindsay Collins Lindsay Collins\nEgan Butcher Egan Butcher\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nEnari Tuala Enari Tuala\nJethro Rinakama Jethro Rinakama\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\nLeo Thompson Leo Thompson\nViliame Kikau Viliame Kikau\nJacob Preston Jacob Preston\nJaeman Salmon Jaeman Salmon\nKurt Mann Kurt Mann\nHarry Hayes Harry Hayes\nSitili Tupouniua Sitili Tupouniua\nJake Turpin Jake Turpin\nJosh Curran Josh Curran\nBronson Xerri Bronson Xerri\nStorm vs Sea Eagles Team Lists: Round 23\nSua Fa'alogo Sua Fa'alogo\nS. Tuimalatu-Brown Siulagi Tuimalatu-Brown\nNick Meaney Nick Meaney\nJoe Chan Joe Chan\nMoses Leo Moses Leo\nCameron Munster Cameron Munster\nHayden Watson Hayden Watson\nStefano Utoikamanu Stefano Utoikamanu\nTyran Wishart Tyran Wishart\nJosh King Josh King\nOryn Keeley Oryn Keeley\nS",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 114.95958908194444,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0dbc07a78d490f0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66",
+            "published_at": "2026-08-08T08:41:42+00:00",
+            "snippet": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail\nThe Knights have lost a State of Origin representative ahead of Sunday’s crunch game agaisnt Canberra.\nWayne Bennett and South Sydney have suffered another blow with a key outside back going down.\nMichael Maguire has given a defiant answer after being asked whether the Brisbane Broncos would give up on their season with finals now out of reach, while also giving an update on Adam Reynolds.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nSATURDAY AUGUST 8\nSouth Sydney Rabbitohs vs. Parramatta Eels, 7.35pm @ Allianz Stadium\nSouths team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 14. Jye Gray 6. Cody Walker 7. Ashton Ward 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Jayden Sullivan 19. Thomas Fletcher 20. Liam Le Blanc 21. Moala Graham-Taufa\nPlayers cut: 5. Campbell Graham 22. John Radel\nLate Mail: The Bunnies have suffered another setback with Campbell Graham ruled out of Saturday’s game against the Eels with a calf strain. Jye Gray will replace him on the wing against Josh Addo-Carr, with Bennett hoping to get Graham back next week. “He’s got a bit of a strain. It’s not too serious but he’s not quite right,” he said. “(Jye will replace him on the wing) so we’ve matched the big guy with the big guy.” Wayne Bennett also revealed that superstar Latrell Mitchell could also miss the remainder of the season, providing cryptic answers to reporters. “Why don’t you give him a ring and find out?” Bennett said. “I don’t know (when he will be back). He doesn’t know, and I don’t know.” Asked by a reporter if there is a chance that Mitchell won’t return this season, Bennett responded, “Good chance that may be the case (maybe) not either.”\nEels team: 1. Isaiah Iongi 2. Brian Kelly 3. Viliami Penisini 4. Jordan Samrani 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses 8. Sam Tuivaiti 22. Ryley Smith 10. Luca Moretti 11. Jack Williams 12. Kitione Kautoga 13. Jack de Belin 9. Tallyn Da Silva 14. Saxon Pryke 15. Junior Paulo 16. Teancum Brown 19. Jezaiah Funa-Luta 20. Toni Mataele\nPlayers cut: 17. Kelma Tuilagi 18. Joash Papali’i 21. Sean Russell\nLate Mail: The Eels have pulled a late switch with Ryley Smith recalled and starting at hooker, which sees Tallyn Da Silva drop to the bench. Dylan Walker has not been named but the club says the bench utlity is not injured and is instead being rested for this week. This comes as Jonah Pezet's (shoulder) injury troubles have continued, with the young halfback set to spend the next two weeks on the sidelines. Meanwhile, Bailey Simonsson (ankle), who was originally listed to make his return last week, remains sidelined indefinitely.\nSUNDAY AUGUST 9\nCanberra Raiders vs. Newcastle Knights, 2pm @ GIO Stadium\nRaiders team: 1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Ethan Sanders 8. Corey Horsburgh 9. Owen Pattie 10. Joseph Tapine 11. Zac Hosking 12. Ata Mariota 13. Morgan Smithies 14. Tom Starling 15. Joseph Roddy 16. Josh Papali’i 17. Daine Laurie 18. Savelio Tamale 19. Matt Nicholson 20. Coby Black\nPlayers cut: 21. Mark Tuialii 22. Vena Patuki-Case\nLate Mail: To come.\nKnights team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 18. Fletcher Hunt 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 19. Brodie Jones 20. Toby Winter 22. Diesel Hagan\nPlayers cut: Bradman Best, 21. Kyle McCarthy\nLate Mail: Bradman Best was withdrawn from the side on Saturday due to a calf injury. Fletcher Hunt ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.23653352638889,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "fbd0433d89f0b246",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Raiders v Knights - raiders.com.au",
+            "url": "https://www.raiders.com.au/news/2026/08/04/nrl-team-list-raiders-v-knights/",
+            "published_at": "2026-08-04T05:56:16+00:00",
+            "snippet": "Presented By\nNRL Team List: Raiders v Knights\nThe Toyota Forklifts Canberra Raiders have named their team for Sunday afternoon’s match against the Newcastle Knights at GIO Stadium Canberra.\nSimi Sasagi returns to the side after missing last week through injury, while Joe Roddy re",
+            "body_excerpt": "Presented By\nNRL Team List: Raiders v Knights\nThe Toyota Forklifts Canberra Raiders have named their team for Sunday afternoon’s match against the Newcastle Knights at GIO Stadium Canberra.\nSimi Sasagi returns to the side after missing last week through injury, while Joe Roddy returns to the bench.\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knights is number 19 Brodie Jones\n18 19\nInterchange for Raiders is number 19 Matty Nicholson 19 20 Interchange for Knights is number 20 Toby Winter\n19 20\nReserves\nReserve for Raiders is number 20 Coby Black 20 22 Reserve for Knights is number 22 Diesel Hagan\n20 22\nRaiders Ins\nCoby Black\nSimi Sasagi\nKnights Ins\nDiesel Hagan\nHarrison Graham\nRaiders Outs\nSebastian Kris\nBradman Best\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Jon Stone\nSenior Review Official: Chris Butler\nLast updated: 8/9/2026 12:26:04 AM\nCanberra Raiders v Newcastle Knights Sunday August 9, 2.00pm, GIO Stadium Canberra\nKaeo Weekes\nJed Stuart\nMatt Timoko\nXavier Savage\nEthan Strange\nEthan Sanders\nCorey Horsburgh\nOwen Pattie\nJoe Tapine (c)\nZac Hosking\nAta Mariota\nMorgan Smithies\nTom Starling\nJoe Roddy\nJosh Papalii\nDaine Laurie\nSavelio Tamale\nMatty Nicholson\nMark Tuialii\nVena Patuki-Case\nRelated /\nNRLW Late Mail: Raiders v Broncos\nNRLW News\nNRLW Captain's Run Gallery: Raiders v Broncos\nNRL Squad Update: Raiders v Knights\nCaptain's Run Gallery: Round 23 v Knights\nNRLW Squad Update: Raiders v Broncos",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 114.99375574861112,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-08T19:17:02+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nigh",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nightmare to beat the Titans 30-8 on the Gold Coast.\nFriday saw the Warriors down the Panthers 28-12 in Auckland and the Roosters edge the Bulldogs 20-18 at Allianz in Sydney.\nThe Storm beat the Sea Eagles 42-20 at HBF Stadium in Perth on Saturday afternoon, before the Dolphins fought back from a 24-point deficit to win the 'Battle of Brisbane' 40-32.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nCanberra Raiders vs. Newcastle Knights\n(Sunday, August 9 at GIO Stadium , 2:00pm AEST)\nCanberra team:\n1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Ethan Sanders 8. Corey Horsburgh 9. Owen Pattie 10. Joe Tapine (c) 11. Zac Hosking 12. Ata Mariota 13. Morgan Smithies\n14. Tom Starling 15. Joe Roddy 16. Josh Papalii 17. Daine Laurie 18. Savelio Tamale 19. Matty Nicholson\nRaiders team news:\nSimi Sasagi returns after being ruled out of the Panthers match with a hamstring strain. Sebastian Kris has been left out altogether this week.\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Dane Gagai 18. Fletcher Hunt 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Francis Manuleleua 13. Mat Croker\n14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 19. Brodie Jones 20. Toby Winter\nKnights team news:\nThe Knights looked good against Brisbane and a finals appearance is still very much on the cards. Jermaine McEwen (hamstring) and Phoenix Crossland (calf) have both been named. Jacob Saifiti (hamstring) is still a couple of weeks away. Bradman Best (calf) is a late withdrawal and is replaced by Fletcher Hunt.\nSt. George Illawarra Dragons vs. Cronulla Sharks\n(Sunday, August 9 at St George Venues Jubilee Stadium , 4:05pm AEST)\nSt. George Illawarra team:\n1. Clint Gutherson 2. Setu Tu 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook (c) 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman\n14. Jacob Liddle 15. Josh Kerr 16. Jacob Halangahu 17. Jacob Webster 18. Daniel Atkinson 19. Mathew Feagai\nDragons team news:\nDaniel Atkinson played NSW Cup last week after being dropped for Lyhkan King-Togia and Dean Young has stuck with his young playmaker for the Sharks. Toby Couchman failed an HIA against the Dolphins and is replaced up front by Emre Guler.\nCronulla team:\n1. Will Kennedy 2. Sione Katoa 3. Jesse Ramien 4. Mawene Hiroti 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 8. Addin Fanua-Blake 9. Blayke Brailey (c) 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cam McInnes\n14. Hohepa Puru 15. Billy Burns 16. Oregon Kaufusi 17. Tom Hazelton 18. Michael Gabrael 19. Braden Uele\nSharks team news:\nKL Iro failed an HIA against the Rabbitohs and is replaced by Mawene Hiroti. Siosifa Talakai suffered a biceps injury against the Rabbitohs and is out at least this week. Jesse Colquhoun comes into the front row with Tom Hazelton named on the bench. Jayden Berrell is out of the 19 .\nNRL RESULTS, SCORES ROUND 23:\nNorth Queensland Cowboys 30 def. Gold Coast Titans 6\n(Thursday, August 6 at Cbus Super Stadium , 7:50pm AEST)\nGold Coast team:\n1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 20. Jaylan De Groot 5. Phillip Sami 6. Jayden Campbell 4. AJ Brimson 8. Moeaki Fotuaika (c) 18. Sam Verrills 10. Tino Fa'asuamaleaui (c) 15. Josh Patston 12. Beau Fermor 13. Chris Randall\n7. Lachlan Ilias 9. Oliver Pascoe 11. Arama Hau 14. Kurtis Morrin 16. Klese Haas 17. Cooper Bai\nNorth Queensland team:",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 5.6476446375,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "9711cbb7106b8539",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL News /",
+            "url": "https://www.nrl.com/news/topic/nrl-news/",
+            "published_at": "2026-08-08T12:22:00+00:00",
+            "snippet": "View updates for the most breaking NRL News NRL news, analysis, scores, team list updates, squads, casualty ward, injury news, signings and judiciary.",
+            "body_excerpt": "NRL News /\nInjuries\nNRL Casualty Ward: Panthers' Yeo blow; Ward, Iongi, Tupouniua felled\nLive Blog\nAs it happened: Dolphins, Rabbitohs, Storm earn Super Saturday wins\nTeam Lists\nNRL Late Mail: Round 23 - Best sidelined\nMatch Preview\nRabbitohs v Eels: Big guns return; Moretti back on deck\nDragons v Sharks: Guler to start; Hiroti in for Iro\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nCowboys\nDrinkwater riding the highs and lows in final Cowboys charge\nJudiciary\nNRL Judiciary: Mann charged twice; Alamoti faces fine\nWorld Cup\n'One of our best teams': Kiraz to delay honeymoon for World Cup\nNRL News\n'A more powerful beast: Legends back Perth Bears jersey\nMunster returns as sold-out Perth clash offers glimpse into Bears era\nAs it happened: Roosters steal it late; Warriors make statement\nFrom the field: Mark Nawaqanitawase\nFrom the field: Sam Walker\nFrom the field: Stephen Crichton\nFrom the field: Nathan Cleary\nFrom the field: James Fisher-Harris\nRoosters v Bulldogs: Tedesco sidelined; Tupouniua back on deck\nClark grateful to be surrounded by the best\nWebster excited for Metcalf to take the reins\nNBA Star Steven Adams chats to Shaun Johnson ahead of kickoff at Mount Smart\nCleary looking forward to a special period for the NRL\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 12.564866859722223,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "82a0c775ac413b0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/",
+            "published_at": "2026-08-04T23:57:46+00:00",
+            "snippet": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on oppone",
+            "body_excerpt": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on opponents currently languishing in the bottom seven spots.\nRead on for our complete 2026 NRL Round 23 predictions, tips and best bets and don’t forget to check out our exclusive NRL Round 23 betting specials open now!\nThese derby rivals lost their Round 22 home fixtures by a combined margin of 106 points – but it’s the still-in-contention Cowboys most under the microscope after last week’s historic loss.\nFORM: The Titans’ followed up their first back-to-back wins of the season – scoring 38 points against both Manly and St George Illawarra – with a crushing 42-6 home loss to the Warriors.\nThe Cowboys are in disarray after a record-shattering 82-12 loss to the Roosters, which came on the back of a 3-1 run that included wins over the Panthers, Sea Eagles and Broncos.\nINS AND OUTS: Zane Harrison’s season-ending injury sees Lachlan Ilias return in the Titans’ No.7 jersey. The Cowboys get Griffin Neame back from suspension, but Jeremiah Nanai has been ruled out with Kai O’Donnell coming in.\nKEY MATCH-UP: Keano Kini tried hard in a steamrolled team last week, but fellow fullback livewire Scott Drinkwater’s passive display against the Roosters rightly came under a harsh spotlight.\nHISTORY: The Cowboys have won their last three against the Titans, scoring 110 points in the process. They prevailed 30-16 in Townsville in Round 3.\nKEY STAT: The Titans have won four of their last six against the Cowboys at Cbus Super Stadium, averaging 23 points across those six encounters.\nScott Drinkwater has scored five tries in his last five games against the Titans.\nVERDICT: After a week of soul-searching, the Cowboys receive an ideal opportunity to reset and get their finals bid back on track. Four of 10 teams to conceded 50-plus points in 2026 have won their next game – and Todd Payten’s chastened side is still in the thick of the Top 8 race.\nThe Titans took a sizeable step back last week and Harrison’s injury is a bitter blow for a team that looked to be turning a corner. With both sides taking an optional attitude to defence, the over also holds plenty of appeal in this one.\nPrediction: Back Over 48.5 Total Points @ $1.90\nSGM: COWBOYS WIN / BOTH TEAMS SCORE 20+ POINTS / PHILLIP SAMI ANYTIME TRYSCORER / SCOTT DRINKWATER ANYTIME TRYSCORER / HEILUM LUKI ANYTIME TRYSCORER / JOJO FIFITA ANYTIME TRYSCORER @ $67.78\nA potential grand final preview got a major boost with the Warriors and Panthers both returning to form in emphatic fashion last week.\nFORM: The Warriors put some patchy form – including a disappointing 18-6 loss to the Bulldogs in Round 21 – behind them with a blistering 42-6 win over the Titans last Saturday.\nAfter winning only two of their previous five and having some trouble putting away Parramatta in Round 21, the Panthers returned to somewhere near their best in a 42-18 win over the Raiders in Mudgee.\nINS AND OUTS: Charnze Nicoll-Klokstad and Leka Halasima retain their backline spots, while Morgan Gannon is a surprise inclusion on the bench with Demitric Vaimauga remaining on the sidelines. Taine Tuaupiki is on the six-man bench.\nCasey McLean is a big out for the Panthers, replaced by Izack Tago, while Dylan Edwards is still out injured and Jack Cogger keeps his spot ahead of Blaize Talagi.\nKEY MATCH-UP: Nathan Cleary was rested from the clubs’ June epic, while he hasn’t lost to the Warriors since 2019. Te Maire Martin bounced back from a quiet fortnight in a two-try performance last week.\nHISTORY: The Panthers have won 11 of their last 12 against the Warriors, including a gripping 20-18 result at CommBank Stadium in Round 13 this year and a pair of wins in Auckland (28-18 in Round 16 and 24-8 in an elimination final) last season.\nKEY STAT: The Warriors have scored mo",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 96.96875574861112,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "0fb6f4f1604ae042",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Dolphins v Broncos: Katoa ready to shine; Duffy steps up",
+            "url": "https://www.nrl.com/news/2026/08/04/dolphins-v-broncos-katoa-ready-to-shine-duffy-steps-up/",
+            "published_at": "2026-08-08T06:04:31+00:00",
+            "snippet": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week t",
+            "body_excerpt": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week to steer the Dolphins past the Dragons and they are out to keep the momentum rolling against the Broncos on Saturday night.\nThe Dolphins have beaten Brisbane just once since their introduction to the competition in 2023 but they are after more than just bragging rights at Suncorp Stadium this weekend.\nKristian Woolf's men sit fifth and are chasing a top-four finish as they seek a maiden finals berth.\nBrisbane's chances of qualifying for the finals were extinguished with a 24-point loss to the Knights last weekend but they still have plenty to play for.\nThe Broncos claimed a 26-12 victory when the two sides faced off earlier this season and Michael Maguire's men would like nothing more than toppling their local rivals.\nA host of stars are also pushing for a World Cup berth later this season, with Reece Walsh and Pat Carrigan among the Kangaroos contenders.\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\n5th Position\naway Team\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nTeam News\nDolphins : No further changes on game day after one change to the bench in the 24-hour update with Brian Pouniu elevated with Sebastian Su'a dropping out. Earlier, centre Jake Averillo was again listed among the reserves as he chases his first appearance since Round 19 having recovered from a rib injury. Winger Jamayne Isaako has scored nine tries in his last seven games at Suncorp Stadium.\nBroncos : One change to the six-man bench 90 minutes before kick-off, with Blake Mozer coming into the 19 and Hayze Perham dropping out. A new-look spine for Michael Maguire with Billy Walters back in the starting side at hooker at the expense of Cory Paix while Thomas Duffy takes over at halfback from Adam Reynolds (concussion). Xavier Willison has been named to play despite suffering a laceration to his leg in last week's loss to the Knights. He will line up at prop, with Va'a Semu dropping to the bench.\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 15 Interchange for Broncos is number 15 Va'a Semu\n14 15\nInterchange for Dolphins is number 15 Max Plath 15 16 Interchange for Broncos is number 16 Ben Talty\n15 16\nInterchange for Dolphins is number 16 Tom Gilbert 16 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n16 17\nInterchange for Dolphins is number 17 Felise Kaufusi 17 20 Interchange for Broncos is number 20 Blake Mozer\n17 20\nReserve for Dolphins is numb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.85625574861111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d6025c25b3acb69",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knights cop unwanted blow with Bradman Best ruled out of Raiders clash - 7NEWS",
+            "url": "https://7news.com.au/sport/rugby-league/knights-cop-unwanted-blow-with-bradman-best-ruled-out-of-raiders-clash-c-22695500",
+            "published_at": "2026-08-08T05:45:00+00:00",
+            "snippet": "Knights cop unwanted blow with Bradman Best ruled out of Raiders clash &nbsp;&nbsp; 7NEWS",
+            "body_excerpt": "Newcastle’s hopes of cementing their spot inside the NRL’s top eight have been dealt a huge blow with star centre Bradman Best ruled out with a calf injury.\nThe Knights have had to count the cost of a rousing 30-6 victory over Brisbane last round, as Best emerged from the clash with a low-grade calf strain.\nThe NSW State of Origin representative’s injury will be unwelcome for Newcastle (12-8), who sit just two points clear of ninth place and are looking to win prop Tyson Frizell’s 300th match on Sunday at GIO Stadium.\nKnow the news with the 7NEWS app: Download today Arrow\nBest’s niggle is the latest setback in a stop-start campaign as he’s also battled through groin and calf injuries earlier in the season. Fletcher Hunt will shift into the centres while teenager Toby Winter moves onto the bench.\nNewcastle’s news comes after Canberra coach Ricky Stuart said their hopes of victory will rest on halfback Ethan Sanders’ kicking game.\nThe Raiders (9-11) must snare a victory on Sunday if they are to have any chance of securing a winning record and staying in contention for the NRL finals.\nHowever, the weather is set to cause chaos with torrential rain expected to impact the playing surface.\nIt means the 11th-placed Canberra’s usual razzle dazzle, hard running and fast game will have to be tweaked, and Stuart is relying on Sanders to pick up some of the extra work.\nAfter a rocky start to the year, the young halfback has begun to find his groove with his booming kicks becoming crucial to the Green Machine’s winning formula.\n“It (kicking game) is important in every game, but when you’re playing in wet, slippery conditions it is important,” Stuart said.\n“You’re going to play a little bit of a different style of game, but we’ve seen the forecast.\n“It was meant to be very windy and now it’s probably forecasted not as much wind, but it’s going to be wet here.”\nThe Raiders welcome back centre Simi Sasagi from a hamstring strain as they look to rebound from a dismal 42-18 loss to Penrith last Saturday.\nAlong with Sasagi, second-rower Joe Roddy is poised to play his first game off the bench since he broke his hand in round nine and underwent surgery.\n“Then last week, there was something wrong with his ankle or whatnot,” Stuart said.\n“It’s been disappointing that he hasn’t got more game time this year because it’s what’s needed for him at this stage of his career.\n“But it’s good to have him back now. He’s a good trainer. He’s a great bloke to have around the camp.”\nStream free on",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.18153352638889,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "cb67de571e8a358b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders v Knights: Sasagi returns; Frizell the milestone man - nrl.com",
+            "url": "https://www.nrl.com/news/2026/08/04/raiders-v-knights-sasagi-returns-frizell-the-milestone-man/",
+            "published_at": "2026-08-08T04:06:56+00:00",
+            "snippet": "Raiders v Knights: Sasagi returns; Frizell the milestone man &nbsp;&nbsp; nrl.com",
+            "body_excerpt": "Presented By\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nThe Raiders will be looking to get back on track this week against the Knights after their recent run of good form was halted by Penrith.\nCanberra were aiming for five wins in a row - but against this year's ladder leaders, they hit a snag and were unable to match them in their match at Mudgee.\nThey face a tough challenge this week however against a Knights side who are still full of belief, despite losing key players Dylan Brown and Dylan Lucas for the season.\nUnder coach Justin Holbrook this year, Newcastle's team have been rewarded for their spirit and will be looking to press their case for a top four finish with a win.\nLast week they proved too strong for the Broncos and ended last year's defending premiers title defence.\nIn the absence of some of their stars, they have seen some new talents emerge, including forwards Cody Hopwood and Francis Manuleleua.\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\n12th Position\naway Team\nKnights\n7th Position\nVenue: GIO Stadium, Canberra\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nRaiders: Gun centre Simi Sasagi is back from a hamstring injury so Seb Kris makes way in the only change to Ricky Stuart's 19-man squad for the must-win clash against the Knights. Sasagi was a late withdrawal from last week's loss to the Panthers. Back-rower Matty Nicholson has now had two games back off the bench and is part of the interchange again with Stuart indicating he will play NSW Cup later on Sunday if he doesn't get on in NRL. The Raiders have won four of their last five games on their home patch at GIO Stadium. No changes in Saturday's 24-hour update.\nKnights: A blow for the Knights on Saturday with Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane. Fletcher Hunt comes into the starting side at centre, with Toby Winter moving onto the six-man bench. After coming off the interchange in 17 of his 18 games this season, veteran Tyson Frizell has been named to start in his 300th NRL match. That pushes Cody Hopwood to the bench. Harrison Graham has been added to the bench after missing last week's game with hamstring tightness.\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knig",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.815977970833334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Raiders vs Knights NRL round 23 preview",
+          "Raiders Knights NRL odds OR price OR favourite",
+          "Raiders Knights NRL finals race OR ladder stakes",
+          "Raiders Knights NRL",
+          "Raiders NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Raiders Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Raiders OR Knights"
+        ],
+        "filter_summary": {
+          "dropped_stale": 59,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 17,
+          "dropped_irrelevant": 15,
+          "kept": 17,
+          "deferred_pending_body": 64,
+          "promoted_after_body": 7,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 6
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "bfbbee82066f",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-09T00:55:53.473094+00:00",
+      "finished_at": "2026-08-09T00:57:23.705413+00:00",
+      "duration_ms": 90232,
+      "request": {
+        "home_team": "Raiders",
+        "away_team": "Knights",
+        "venue": "GIO Stadium",
+        "kickoff": "2026-08-09T14:00:00+10:00",
+        "weather": "Rain"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5491,
+        "home_win_probability": 0.5491,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.35 log-strength) — contribution 0.120 (16% of total)",
+            "Elo rating advantage (+19 points) — contribution 0.056 (8% of total)",
+            "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (5% of total)",
+            "Home travel to venue (0 km) — contribution 0.013 (2% of total)",
+            "5-game momentum: penalty cluster rate (+0.40) — contribution 0.012 (2% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+          ],
+          "negative_drivers": [
+            "Pythagorean form (last 10) (-12% expected-win gap) — contribution 0.060 (8% of total)",
+            "5-game form: points for (+13.00) — contribution 0.048 (7% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "3-game form: errors (-1.67) — contribution 0.033 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Ladder points differential per game (-6.0 points) — contribution 0.024 (3% of total)",
+            "5-game form: all run metres (+11.80) — contribution 0.023 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2959,
+            "total_toward_away": 0.4311,
+            "net": -0.1353,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game momentum: penalty cluster rate (+0.40)",
+            "5-game form: points for (+13.00)",
+            "3-game form: errors (-1.67)",
+            "5-game form: all run metres (+11.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Raiders",
+          "away_team": "Knights",
+          "venue": "GIO Stadium",
+          "kickoff": "2026-08-09T14:00:00+10:00",
+          "weather": "Rain"
+        }
+      },
+      "error": null
+    }
+  ]
+}

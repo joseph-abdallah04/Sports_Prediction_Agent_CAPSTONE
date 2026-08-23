@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "run_id": "20260808T050615Z-aa39550b",
+  "run": {
+    "predicted_at_utc": "2026-08-08T05:16:12.444315+00:00",
+    "predicted_at_local": "2026-08-08T15:16:12.444315+10:00",
+    "started_at_utc": "2026-08-08T05:06:15.903078+00:00",
+    "wall_seconds": 596.5,
+    "hours_before_kickoff": 2.2,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 23,
+    "home_team": "Dolphins",
+    "away_team": "Broncos",
+    "venue": "Suncorp Stadium",
+    "kickoff": "2026-08-08T17:30:00+10:00",
+    "kickoff_local": "2026-08-08T17:30:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 23,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Dolphins",
+      "position": 5,
+      "played": 19,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 7,
+      "competition_points": 30,
+      "points_for": 516,
+      "points_against": 426,
+      "points_difference": 90,
+      "points_difference_per_game": 4.74,
+      "recent_form_last_4": "2 - 2",
+      "streak": "2W",
+      "home_record": "6 - 4",
+      "away_record": "6 - 3"
+    },
+    "away": {
+      "team": "Broncos",
+      "position": 16,
+      "played": 19,
+      "wins": 6,
+      "drawn": 0,
+      "lost": 13,
+      "competition_points": 18,
+      "points_for": 345,
+      "points_against": 501,
+      "points_difference": -156,
+      "points_difference_per_game": -8.21,
+      "recent_form_last_4": "1 - 3",
+      "streak": "2L",
+      "home_record": "2 - 8",
+      "away_record": "4 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Dolphins",
+      "ladder_positions_gap": 11,
+      "points_difference_per_game_gap": 12.95,
+      "points_difference_favours": "Dolphins"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+  },
+  "prediction": {
+    "predicted_winner": "Dolphins",
+    "predicted_side": "home",
+    "confidence": 0.74,
+    "home_win_probability": 0.74
+  },
+  "math_model": {
+    "home_win_probability": 0.7434,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Elo rating advantage (+125 points) — contribution 0.224 (16% of total)",
+        "Ladder points differential per game (+12.9 points) — contribution 0.144 (10% of total)",
+        "Pythagorean form (last 10) (+54% expected-win gap) — contribution 0.133 (10% of total)",
+        "Bradley-Terry strength advantage (+0.26 log-strength) — contribution 0.127 (9% of total)",
+        "5-game form: all run metres (+169.00) — contribution 0.105 (8% of total)"
+      ],
+      "negative_drivers": [
+        "3-game form: points against (+14.67) — contribution 0.086 (6% of total)",
+        "5-game form: penalties conceded (-2.20) — contribution 0.041 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: points against (+5.80) — contribution 0.037 (3% of total)",
+        "Head-to-head record (last 5) (20% to the home side) — contribution 0.034 (2% of total)",
+        "Travel-distance advantage (-22 km for away) — contribution 0.023 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: penalties conceded (-2.20)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Dolphins vs Broncos NRL round 23 preview",
+      "Dolphins Broncos NRL odds OR price OR favourite",
+      "Dolphins Broncos NRL finals race ladder stakes form",
+      "Dolphins Broncos NRL",
+      "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Broncos NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Dolphins Broncos NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 23 Dolphins OR Broncos"
+    ],
+    "items_kept": 16,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-08T04:06:17+00:00",
+        "age_hours": 1.0064937255555555,
+        "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/"
+      },
+      {
+        "title": "NRL Team Lists: Round 23",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-04T06:00:45+00:00",
+        "age_hours": 95.09871594777778,
+        "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/"
+      },
+      {
+        "title": "NRL Team List Round 23 v Dolphins - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:32:06+00:00",
+        "age_hours": 95.57621594777777,
+        "url": "https://www.broncos.com.au/news/2026/08/04/nrl-team-list-round-23-v-dolphins/"
+      },
+      {
+        "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 28 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:38:02+00:00",
+        "age_hours": 0.4773270588888889,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-08T04:01:29+00:00",
+        "age_hours": 1.0864937255555556,
+        "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/"
+      },
+      {
+        "title": "Match Preview Dolphins v Broncos: Katoa ready to shine; Duffy steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-07T07:36:03+00:00",
+        "age_hours": 21.510382614444445,
+        "url": "https://www.nrl.com/news/2026/08/04/dolphins-v-broncos-katoa-ready-to-shine-duffy-steps-up/"
+      },
+      {
+        "title": "Match Preview: Round 23 – Dolphins v Broncos - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T05:57:29+00:00",
+        "age_hours": 23.153160392222222,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/08/07/match-preview-round-23--dolphins-v-broncos/"
+      },
+      {
+        "title": "Dolphins vs Broncos Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T05:28:04+00:00",
+        "age_hours": 23.64343817,
+        "url": "https://www.beforeyoubet.com.au/dolphins-vs-broncos-preview-betting-tips-nrl-round-23-2026"
+      },
+      {
+        "title": "Broncos Broncos aiming to create major disruptions in Dolphins derby",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-05T21:01:21+00:00",
+        "age_hours": 56.08871594777778,
+        "url": "https://www.nrl.com/news/2026/08/06/broncos-aiming-to-create-major-disruptions-in-dolphins-derby/"
+      },
+      {
+        "title": "Dolphins v Broncos: Round 23 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:04:43+00:00",
+        "age_hours": 73.03260483666666,
+        "url": "https://www.nrl.com/news/2026/08/05/dolphins-v-broncos-round-23/"
+      },
+      {
+        "title": "Dolphins vs Broncos - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-02T19:43:04+00:00",
+        "age_hours": 129.39343817,
+        "url": "https://www.zerotackle.com/dolphins-broncos-round-23-2026-mc10396510-236516/"
+      },
+      {
+        "title": "Match Preview Raiders v Knights: Sasagi returns; Frizell the milestone man",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:06:56+00:00",
+        "age_hours": 0.9956603922222221,
+        "url": "https://www.nrl.com/news/2026/08/04/raiders-v-knights-sasagi-returns-frizell-the-milestone-man/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T02:22:53+00:00",
+        "age_hours": 26.72982705888889,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242"
+      },
+      {
+        "title": "Match Preview Storm v Sea Eagles: Munster back on deck; Laiafi to start",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T03:36:17+00:00",
+        "age_hours": 1.5064937255555555,
+        "url": "https://www.nrl.com/news/2026/08/04/storm-v-sea-eagles-munster-back-on-deck-wakeham-returns/"
+      },
+      {
+        "title": "Match Preview Bulldogs v Cowboys: Hopoate sidelined; Forwards shuffled",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T01:20:08+00:00",
+        "age_hours": 3.775660392222222,
+        "url": "https://www.nrl.com/news/2026/08/05/bulldogs-v-cowboys-no-changes-for-wiliame-forwards-shuffled/"
+      },
+      {
+        "title": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T13:42:11+00:00",
+        "age_hours": 15.408160392222223,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The judgement omits several top SHAP drivers from both sides of the model output."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "All claims match scene standings (5th vs 16th, 12 wins vs 6) or research articles regarding Adam Reynolds' concussion and the finals race."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Adam Reynolds is correctly described as ruled out per the research text."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Ladder differential drivers are correctly attributed to the Dolphins from the favouring_Dolphins group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 identifies the 'NRL Team List Round 23 v Dolphins - Brisbane Broncos' article."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.74 is within range and justified by ladder gap, injury to Reynolds, and model ratings."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the top two SHAP drivers (Elo and Ladder differential)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top math signals 'Pythagorean form' (Dolphins), '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against' (Broncos) are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.74
+  },
+  "reasoning": {
+    "summary": "The Dolphins are strong favourites based on a significant ladder gap (5th vs 16th) and superior underlying quality, evidenced by a +54% Pythagorean expected-win gap. While the Broncos have shown slight defensive improvement in recent points against metrics, this is outweighed by the loss of key playmaker Adam Reynolds to concussion. With the Dolphins chasing a top-four finish and Brisbane's season effectively over, the momentum heavily favours the home side.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model shows a strong home edge driven by an Elo advantage (+125 points) and superior Pythagorean form (last 10 games), which indicates a +54% expected-win gap."
+      },
+      {
+        "source": "research",
+        "detail": "Broncos playmaker Adam Reynolds is ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+      },
+      {
+        "source": "scene",
+        "detail": "The official standings confirm a stark contrast in form, with the Dolphins holding 12 wins compared to the Broncos' 6."
+      },
+      {
+        "source": "math",
+        "detail": "Minor offsets favouring Brisbane include recent points against trends (3-game and 5-game), though these carry low weight relative to the overall model net."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Dolphins-v-Broncos/20260808T050615Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Dolphins-v-Broncos/20260808T050615Z/summary.md"
+  }
+}

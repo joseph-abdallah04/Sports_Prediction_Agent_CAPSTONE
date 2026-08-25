@@ -11,10 +11,124 @@ from agent_app.llm import ChatSession, parse_json_object
 from agent_app.prompts import JUDGEMENT_SYSTEM, RECALIBRATE_USER_TEMPLATE
 
 _PRICE_RE = re.compile(r"\$\d{1,2}\.\d{2}")
-_MARKETISH_RE = re.compile(
-    r"\b(odds|favourite|favorite|priced|pricing|\$\d{1,2}\.\d{2})\b",
-    re.IGNORECASE,
+_PRICE_QUOTE_WINDOW = 180
+
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+
+def _team_aliases(team: str) -> set[str]:
+    t = _norm(team)
+    aliases = {t}
+    parts = t.split()
+    if parts:
+        aliases.add(parts[-1])
+    if t == "wests tigers":
+        aliases.update({"tigers", "w.tigers"})
+    return {a for a in aliases if len(a) > 2}
+
+
+def mentions_team(text: str, team: str) -> bool:
+    blob = _norm(text)
+    return any(a in blob for a in _team_aliases(team))
+
+
+def mentions_both_teams(text: str, home: str, away: str) -> bool:
+    if not home or not away:
+        return False
+    return mentions_team(text, home) and mentions_team(text, away)
+
+
+RESEARCH_STANCES = ("confirms", "conflicts", "mixed", "silent")
+# Two-decimal match is how the model pastes P(win); independent 0.60 vs 0.6108
+# is not treated as a copy.
+_COPY_DECIMALS = 2
+# Prompt band: above 0.65 needs several independent signals, including research.
+CLEAR_EDGE_ABOVE = 0.65
+_TEAM_NEWS_RE = re.compile(
+    r"(return|returned|returning|comeback|named|sidelined|injur|"
+    r"suspen|late mail|team list|hat-?trick|ruled out|\bout\b|"
+    r"available|omitted|dropped|recalled)",
+    re.I,
 )
+
+
+def normalize_research_stance(value: Any) -> str | None:
+    raw = str(value or "").strip().lower()
+    if raw in RESEARCH_STANCES:
+        return raw
+    aliases = {
+        "confirm": "confirms",
+        "confirmed": "confirms",
+        "conflict": "conflicts",
+        "neutral": "silent",
+        "none": "silent",
+        "n/a": "silent",
+    }
+    return aliases.get(raw)
+
+
+def math_win_probability_for_side(math: dict[str, Any] | None, winner: str) -> float | None:
+    """P(the judged side wins) from the model, or None if we cannot compute it."""
+    if not math or winner not in ("home", "away"):
+        return None
+    p_home = math.get("home_win_probability")
+    if not isinstance(p_home, (int, float)):
+        return None
+    p_home = float(p_home)
+    if not 0.0 <= p_home <= 1.0:
+        return None
+    return p_home if winner == "home" else 1.0 - p_home
+
+
+def confidence_copies_math(confidence: Any, math_p: float | None) -> bool:
+    """True when the judge pasted the model's P(their side) to two decimals."""
+    if math_p is None or not isinstance(confidence, (int, float)):
+        return False
+    return round(float(confidence), _COPY_DECIMALS) == round(float(math_p), _COPY_DECIMALS)
+
+
+def loss_reason_specific_flag(judgement: dict[str, Any]) -> bool | None:
+    """Parse loss_reason_specific; None if the judge omitted it."""
+    raw = judgement.get("loss_reason_specific")
+    if raw is None or raw == "":
+        return None
+    if isinstance(raw, bool):
+        return raw
+    text = str(raw).strip().lower()
+    if text in ("true", "yes", "1"):
+        return True
+    if text in ("false", "no", "0"):
+        return False
+    return None
+
+
+def research_factors_cite_team_news(factors: list[dict[str, Any]]) -> bool:
+    """True when a research key_factor names availability/form, not just stakes."""
+    blob = " ".join(
+        str(f.get("detail") or "")
+        for f in factors
+        if isinstance(f, dict) and f.get("source") == "research"
+    )
+    return bool(_TEAM_NEWS_RE.search(blob))
+
+
+def price_quote(body: str, *, window: int = _PRICE_QUOTE_WINDOW) -> str | None:
+    """Short window around the first $x.xx so the verifier can match a price."""
+    if not body:
+        return None
+    m = _PRICE_RE.search(body)
+    if not m:
+        return None
+    start = max(0, m.start() - window // 2)
+    end = min(len(body), m.end() + window // 2)
+    return body[start:end].strip()
+
+
+def fixture_teams_from_research(research: dict[str, Any]) -> tuple[str, str]:
+    req = research.get("request") or {}
+    return str(req.get("home_team") or ""), str(req.get("away_team") or "")
 
 
 def label_shap_drivers(
@@ -46,7 +160,8 @@ def label_shap_drivers(
 def extract_market_mentions(
     research: dict[str, Any], *, limit: int = 6
 ) -> list[dict[str, Any]]:
-    """Pull bookie-ish snippets + $prices from research excerpts (no new tools)."""
+    """Pull bookie-ish snippets + $prices from on-fixture excerpts (no new tools)."""
+    home, away = fixture_teams_from_research(research)
     mentions: list[dict[str, Any]] = []
     for item in research.get("items") or []:
         if not isinstance(item, dict):
@@ -54,16 +169,20 @@ def extract_market_mentions(
         title = str(item.get("title") or "")
         body = str(item.get("body_excerpt") or "")
         blob = f"{title}\n{body}"
-        if not _MARKETISH_RE.search(blob):
+        if home and away and not mentions_both_teams(blob, home, away):
             continue
         prices = _PRICE_RE.findall(blob)
+        if not prices:
+            continue
+        quote = price_quote(body) or price_quote(blob)
         mentions.append(
             {
                 "title": title,
                 "url": item.get("url"),
                 "source_tier": item.get("source_tier"),
                 "prices_found": prices[:8],
-                "snippet": body[:400],
+                "price_quote": quote,
+                "snippet": (quote or body)[:400],
             }
         )
         if len(mentions) >= limit:
@@ -72,19 +191,29 @@ def extract_market_mentions(
 
 
 def _slim_research(research: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
+    home, away = fixture_teams_from_research(research)
     items = []
     for i in (research.get("items") or [])[:limit]:
         if not isinstance(i, dict):
             continue
-        items.append(
-            {
-                "title": i.get("title"),
-                "source_tier": i.get("source_tier"),
-                "channel": i.get("channel"),
-                "url": i.get("url"),
-                "body_excerpt": (i.get("body_excerpt") or "")[:800],
-            }
-        )
+        body = i.get("body_excerpt") or ""
+        title = i.get("title") or ""
+        blob = f"{title}\n{body}"
+        quote = None
+        if (not home or not away or mentions_both_teams(blob, home, away)) and _PRICE_RE.search(
+            blob
+        ):
+            quote = price_quote(body) or price_quote(blob)
+        slim = {
+            "title": i.get("title"),
+            "source_tier": i.get("source_tier"),
+            "channel": i.get("channel"),
+            "url": i.get("url"),
+            "body_excerpt": body[:800],
+        }
+        if quote:
+            slim["price_quote"] = quote
+        items.append(slim)
     return items
 
 

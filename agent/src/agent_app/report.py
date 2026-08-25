@@ -73,6 +73,18 @@ def render_run_summary(ledger: dict[str, Any]) -> str:
             "",
             f"> {judgement.get('summary') or '—'}",
             "",
+        ]
+        stance = judgement.get("research_stance")
+        if stance:
+            lines += [f"- **Research vs math:** {stance}"]
+        loss = judgement.get("strongest_reason_could_lose")
+        if loss:
+            lines += [f"- **Strongest reason it could lose:** {loss}"]
+        specific = judgement.get("loss_reason_specific")
+        if specific is not None:
+            lines += [f"- **Loss reason is specific:** {specific}"]
+        lines += [
+            "",
             "### Key factors",
             "",
         ]

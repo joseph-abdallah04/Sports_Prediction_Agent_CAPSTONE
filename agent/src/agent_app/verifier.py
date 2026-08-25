@@ -4,20 +4,37 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any
 
 from agent_app.config import Settings
-from agent_app.judgement import label_shap_drivers
+from agent_app.judgement import (
+    CLEAR_EDGE_ABOVE,
+    confidence_copies_math,
+    label_shap_drivers,
+    loss_reason_specific_flag,
+    math_win_probability_for_side,
+    mentions_both_teams,
+    normalize_research_stance,
+    price_quote,
+    research_factors_cite_team_news,
+)
 from agent_app.llm import chat_completion, parse_json_object
 from agent_app.prompts import VERIFIER_SYSTEM
 
 logger = logging.getLogger(__name__)
 
-# Confidence bounds, deliberately NOT tied to the model probability (DD-41).
-# The floor is definitional rather than a calibration rule: confidence is in the
-# side the judge picked, so below 0.50 it has contradicted its own winner.
+# Confidence bounds. Floor is definitional: below 0.50 the judge has picked
+# the other side. Ceiling matches the prompt's "above 0.85 do not use" band.
+# Copying the math probability is a separate check: allowed only when
+# research_stance is confirms (qualitative news actually backs the pick).
 CONFIDENCE_FLOOR = 0.50
-CONFIDENCE_CEILING = 0.95
+CONFIDENCE_CEILING = 0.85
+
+# SHAP rows below this share of total mass are padding; omitting them is not
+# a reason to recalibrate.
+MATERIAL_SHAP_MIN_PCT = 8
+_SHAP_PCT_RE = re.compile(r"\((\d+)% of total\)")
 
 # Evidence budget for the audit packet. The verifier must see the same article
 # text the judge saw, bounded so the prompt stays well inside context.
@@ -29,6 +46,7 @@ _VERIFIER_PROMPT_CHARS = 40000
 def _check_judgement_grounding(
     judgement: dict[str, Any],
     research_resp: dict[str, Any] | None,
+    math_resp: dict[str, Any] | None = None,
 ) -> list[str]:
     """Evidence-grounding rules that can be decided in code, not by an LLM.
 
@@ -46,10 +64,23 @@ def _check_judgement_grounding(
         if items and not any(f.get("source") == "research" for f in factors):
             issues.append("no_research_key_factor_despite_items")
 
-    # Confidence is the judge's own number and is deliberately not compared with
-    # the model probability: anchoring the two makes the agent's Brier score a
-    # restatement of the model's, which would make the comparison circular
-    # (DD-41). Only the two bounds are enforced.
+    stance = normalize_research_stance(judgement.get("research_stance"))
+    if judgement.get("research_stance") not in (None, "") and stance is None:
+        issues.append("research_stance_invalid")
+    elif stance is None:
+        issues.append("research_stance_missing")
+
+    reason = str(judgement.get("strongest_reason_could_lose") or "").strip()
+    if not reason:
+        issues.append("strongest_reason_could_lose_missing")
+
+    specific = loss_reason_specific_flag(judgement)
+    if specific is None:
+        issues.append("loss_reason_specific_missing")
+
+    if stance == "confirms" and not research_factors_cite_team_news(factors):
+        issues.append("research_stance_confirms_without_team_news")
+
     confidence = judgement.get("confidence")
     if isinstance(confidence, (int, float)):
         if confidence < CONFIDENCE_FLOOR:
@@ -62,6 +93,27 @@ def _check_judgement_grounding(
             issues.append(
                 f"confidence_above_ceiling:{confidence:.2f}>{CONFIDENCE_CEILING:.2f}"
             )
+        else:
+            math_p = math_win_probability_for_side(
+                math_resp, str(judgement.get("winner") or "")
+            )
+            confirmed = stance == "confirms" and research_factors_cite_team_news(
+                factors
+            )
+            copied = confidence_copies_math(confidence, math_p)
+            if copied and not confirmed:
+                issues.append("confidence_copied_math_without_research_confirm")
+            if confidence > CLEAR_EDGE_ABOVE and not confirmed:
+                issues.append("confidence_above_clear_edge_without_research_confirm")
+            if stance == "conflicts" and confidence > CLEAR_EDGE_ABOVE:
+                issues.append("confidence_too_high_for_research_conflict")
+            if stance == "conflicts" and math_p is not None and (
+                copied or float(confidence) >= math_p
+            ):
+                # Two-decimal paste (0.83 vs 0.8306) is keeping the prior.
+                issues.append("confidence_not_discounted_despite_research_conflict")
+            if specific is True and confidence > CLEAR_EDGE_ABOVE:
+                issues.append("confidence_too_high_for_specific_loss_reason")
     return issues
 
 
@@ -75,12 +127,15 @@ def checklist_verify(ledger: dict[str, Any]) -> dict[str, Any]:
 
     scene_resp = None
     predict_req = None
+    predict_resp = None
     research_resp = None
     for t in ledger.get("tool_calls") or []:
         if t.get("tool_name") == "set_fixture_scene" and t.get("response"):
             scene_resp = t["response"]
         if t.get("tool_name") == "predict_match":
             predict_req = t.get("request") or {}
+            if isinstance(t.get("response"), dict):
+                predict_resp = t["response"]
         if t.get("tool_name") == "research_fixture_news":
             if isinstance(t.get("response"), dict):
                 research_resp = t["response"]
@@ -110,7 +165,7 @@ def checklist_verify(ledger: dict[str, Any]) -> dict[str, Any]:
                 issues.append(f"key_factor_empty:{i}")
 
     if judgement:
-        issues.extend(_check_judgement_grounding(judgement, research_resp))
+        issues.extend(_check_judgement_grounding(judgement, research_resp, predict_resp))
 
     return {"pass": len(issues) == 0, "issues": issues}
 
@@ -241,33 +296,80 @@ def _snip_response(
             },
         }
     if tool_name == "predict_match":
+        shap = label_shap_drivers(response.get("shap_explanations"), *teams)
         return {
             "home_win_probability": response.get("home_win_probability"),
             "prediction": response.get("prediction"),
-            "shap_drivers": label_shap_drivers(
-                response.get("shap_explanations"), *teams
-            ),
+            "shap_drivers": shap,
+            "material_shap_drivers": material_shap_drivers(shap),
         }
     if tool_name == "research_fixture_news":
         items = [i for i in (response.get("items") or []) if isinstance(i, dict)]
+        req = response.get("request") or {}
+        home = req.get("home_team") or teams[0] or ""
+        away = req.get("away_team") or teams[1] or ""
         # The verifier is asked whether each player/injury claim traces to a
         # research item, so it needs the article text, not just the headline.
         # Shown titles alone it reliably declares true, sourced facts to be
         # hallucinations (DD-33).
+        slim_items = []
+        for i in items[:_VERIFIER_MAX_ITEMS]:
+            body = i.get("body_excerpt") or ""
+            title = i.get("title") or ""
+            blob = f"{title}\n{body}"
+            entry = {
+                "title": i.get("title"),
+                "source": i.get("source_domain") or i.get("channel"),
+                "published": i.get("published"),
+                "body_excerpt": body[:_VERIFIER_BODY_CHARS],
+            }
+            if (not home or not away or mentions_both_teams(blob, home, away)):
+                quote = price_quote(body) or price_quote(blob)
+                if quote:
+                    entry["price_quote"] = quote
+            slim_items.append(entry)
         return {
             "n_items": len(items),
-            "items": [
-                {
-                    "title": i.get("title"),
-                    "source": i.get("source_domain") or i.get("channel"),
-                    "published": i.get("published"),
-                    "body_excerpt": (i.get("body_excerpt") or "")[:_VERIFIER_BODY_CHARS],
-                }
-                for i in items[:_VERIFIER_MAX_ITEMS]
-            ],
+            "items": slim_items,
             "queries_run": response.get("queries_run"),
         }
     return None
+
+
+def material_shap_drivers(shap: Any, *, min_pct: int = MATERIAL_SHAP_MIN_PCT) -> list[str]:
+    """Driver lines whose stated share of total SHAP is at least ``min_pct``."""
+    if not isinstance(shap, dict):
+        return []
+    out: list[str] = []
+    seen: set[str] = set()
+    for key, drivers in shap.items():
+        if key == "value_contribution_conflicts":
+            continue
+        if not isinstance(drivers, list):
+            continue
+        for line in drivers:
+            text = str(line)
+            m = _SHAP_PCT_RE.search(text)
+            if not m or int(m.group(1)) < min_pct:
+                continue
+            if text not in seen:
+                seen.add(text)
+                out.append(text)
+    return out
+
+
+def omitted_math_signals_only(audit: dict[str, Any]) -> bool:
+    """True when the LLM audit failed solely on omitted_math_signals."""
+    if audit.get("pass"):
+        return False
+    failing = [
+        c
+        for c in (audit.get("checks") or [])
+        if isinstance(c, dict) and str(c.get("verdict") or "").lower() == "fail"
+    ]
+    if not failing:
+        return False
+    return all(c.get("check") == "omitted_math_signals" for c in failing)
 
 
 def should_recalibrate(
@@ -275,8 +377,15 @@ def should_recalibrate(
     audit: dict[str, Any],
 ) -> tuple[bool, list[str], str]:
     issues = list(checklist.get("issues") or []) + list(audit.get("issues") or [])
-    fail = (not checklist.get("pass")) or (not audit.get("pass"))
+    checklist_fail = not checklist.get("pass")
+    audit_fail = not audit.get("pass")
     instruction = audit.get("instruction") or ""
+    if checklist_fail:
+        fail = True
+    elif audit_fail and omitted_math_signals_only(audit):
+        fail = False
+    else:
+        fail = audit_fail
     if fail and not instruction and issues:
         instruction = (
             "Address these issues and re-output judgement JSON without new tools: "

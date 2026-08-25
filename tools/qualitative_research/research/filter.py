@@ -126,11 +126,41 @@ def _canonical_club(token: str) -> str:
     return REGION_ALIAS_TO_NICKNAME.get(t, t)
 
 
+_LIVE_COVERAGE = ("as it happened", "live blog", "live scores", "match report")
+
+# Evergreen nrl.com Casualty Ward hub that republishes under a January 2026 URL.
+_EVERGREEN_CASUALTY_WARD = re.compile(
+    r"nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026",
+    re.I,
+)
+
+# League-wide round wraps kept in the final pack (Late Mail / tips / team lists
+# that are not a dedicated club page for this fixture).
+MAX_LEAGUE_ROUNDUPS = 2
+_ROUNDUP_REASONS = frozenset(
+    {
+        "nrl_official_roundup",
+        "league_round_roundup",
+    }
+)
+
+
+def _is_live_coverage(title: str) -> bool:
+    title_l = (title or "").lower()
+    return any(k in title_l for k in _LIVE_COVERAGE)
+
+
+def _is_evergreen_casualty_ward(url: str) -> bool:
+    return bool(_EVERGREEN_CASUALTY_WARD.search(url or ""))
+
+
 def _is_other_fixture_preview(title: str, home: str, away: str) -> bool:
     """True if title is clearly 'X v Y' for a different NRL pairing.
 
     Uses known club nicknames only so 'Eels vs Panthers Preview' is not
     misread as an other-fixture (old regex swallowed 'Preview…' into team 2).
+    Any known pairing that is not this fixture is dropped — including tips
+    pages that name two other clubs and never mention ours.
     """
     m = _VS_KNOWN.search(title or "")
     if not m:
@@ -139,17 +169,11 @@ def _is_other_fixture_preview(title: str, home: str, away: str) -> bool:
     b = _canonical_club(m.group(2))
     home_aliases = {_canonical_club(x) for x in _team_aliases(home)}
     away_aliases = {_canonical_club(x) for x in _team_aliases(away)}
-    ours = home_aliases | away_aliases
     title_pair = {a, b}
-    if not title_pair & ours:
-        return False
     # Exact fixture (order-independent)
     if (home_aliases & title_pair) and (away_aliases & title_pair):
         return False
-    # Involves exactly one of our teams → different opponent
-    mentions_home = bool(title_pair & home_aliases)
-    mentions_away = bool(title_pair & away_aliases)
-    return mentions_home ^ mentions_away
+    return True
 
 
 def _is_league_round_roundup(title: str, round_number: int | None) -> bool:
@@ -415,15 +439,20 @@ def _apply_relevance(
 
     if item.channel == "nrl_news":
         if is_league_wide:
-            reasons.append("nrl_official_roundup")
-            item.relevance_score += 2.5
+            if mentions_home and mentions_away:
+                reasons.append("nrl_official_roundup_on_fixture")
+                item.relevance_score += 1.0
+            else:
+                reasons.append("nrl_official_roundup")
+                item.relevance_score += 0.5
         elif mentions_home and mentions_away:
             reasons.append("nrl_mentions_both")
             item.relevance_score += 2.0
         elif mentions_home or mentions_away:
-            if any(k in title_l for k in ("as it happened", "live blog", "match report")):
-                if not (mentions_home and mentions_away):
-                    return "drop", "dropped_irrelevant_other_game_recap"
+            if _is_live_coverage(item.title or "") and not (
+                mentions_home and mentions_away
+            ):
+                return "drop", "dropped_irrelevant_other_game_recap"
             reasons.append("nrl_club_news")
             item.relevance_score += 1.0
         else:
@@ -437,9 +466,12 @@ def _apply_relevance(
             reasons.append("mentions_fixture_team")
 
     if mentions_home and mentions_away:
-        item.relevance_score += 2.0
+        item.relevance_score += 3.0
         reasons.append("mentions_both_teams")
-    if any(k in title_l for k in ("late mail", "casualty", "injury", "team list")):
+    # Title bonus only when the article is actually about this fixture.
+    if (mentions_home or mentions_away) and any(
+        k in title_l for k in ("late mail", "casualty", "injury", "team list")
+    ):
         item.relevance_score += 1.5
         reasons.append("injury_or_team_list")
     if any(k in title_l or k in (item.snippet or "").lower() for k in _CONTEXT_CUES):
@@ -450,6 +482,10 @@ def _apply_relevance(
         item.relevance_score += 1.0
     elif item.source_tier == "unverified_community":
         item.relevance_score -= 0.5
+
+    if _is_live_coverage(item.title or ""):
+        item.relevance_score -= 2.0
+        reasons.append("live_coverage_penalty")
 
     return "keep", ""
 
@@ -506,3 +542,113 @@ def promote_deferred_with_bodies(
 
     promoted.sort(key=sort_key)
     return promoted, dropped
+
+
+def _item_text(item: ResearchItem) -> str:
+    return " ".join(
+        filter(
+            None,
+            [
+                item.title,
+                item.snippet or "",
+                item.body_excerpt or "",
+                item.category or "",
+            ],
+        )
+    )
+
+
+def _structural_reasons(reasons: list[str] | None) -> list[str]:
+    keep = []
+    for r in reasons or []:
+        if r.startswith("round_") and r.endswith("_match"):
+            keep.append(r)
+        elif r in (
+            "in_time_window",
+            "no_date_but_official_roundup",
+            "promoted_after_body_fetch",
+        ):
+            keep.append(r)
+    return keep
+
+
+def cap_league_roundups(
+    items: list[ResearchItem],
+    *,
+    max_roundups: int = MAX_LEAGUE_ROUNDUPS,
+) -> tuple[list[ResearchItem], list[dict[str, Any]]]:
+    """Keep at most ``max_roundups`` league-wide wraps; prefer higher scores."""
+    kept: list[ResearchItem] = []
+    dropped: list[dict[str, Any]] = []
+    n_roundups = 0
+    for item in items:
+        is_roundup = bool(set(item.keep_reasons or []) & _ROUNDUP_REASONS)
+        if is_roundup:
+            if n_roundups >= max_roundups:
+                dropped.append(_drop_record(item, "dropped_roundup_cap"))
+                continue
+            n_roundups += 1
+        kept.append(item)
+    return kept, dropped
+
+
+def refine_kept_after_bodies(
+    items: list[ResearchItem],
+    *,
+    home_team: str,
+    away_team: str,
+    round_number: int | None = None,
+) -> tuple[list[ResearchItem], list[dict[str, Any]]]:
+    """Drop empty roundups / evergreen Casualty Ward, then rescore with bodies.
+
+    Pass 1 ranking only sees titles. After fetch, a round wrap that never names
+    this fixture is junk, and a Late Mail that *does* name both clubs should
+    be scored as on-fixture rather than as a generic roundup.
+    """
+    kept: list[ResearchItem] = []
+    dropped: list[dict[str, Any]] = []
+
+    for item in items:
+        if _is_evergreen_casualty_ward(item.url or ""):
+            dropped.append(_drop_record(item, "dropped_evergreen_casualty_ward"))
+            continue
+
+        text_blob = _item_text(item)
+        mentions_home = _mentions_team(text_blob, home_team)
+        mentions_away = _mentions_team(text_blob, away_team)
+        title_l = (item.title or "").lower()
+        is_league_wide_title = any(
+            k in title_l for k in ("late mail", "casualty ward", "team list")
+        ) or _is_league_round_roundup(item.title or "", round_number)
+        if is_league_wide_title and not mentions_home and not mentions_away:
+            dropped.append(_drop_record(item, "dropped_roundup_no_fixture_team"))
+            continue
+
+        structural = _structural_reasons(item.keep_reasons)
+        item.relevance_score = (
+            3.0
+            if any(r.startswith("round_") and r.endswith("_match") for r in structural)
+            else 0.0
+        )
+        reasons = list(structural)
+        verdict, drop_reason = _apply_relevance(
+            item,
+            text_blob=text_blob,
+            title_l=title_l,
+            home_team=home_team,
+            away_team=away_team,
+            round_number=round_number,
+            reasons=reasons,
+        )
+        if verdict != "keep":
+            dropped.append(
+                _drop_record(item, drop_reason or "dropped_irrelevant_after_body")
+            )
+            continue
+        item.keep_reasons = reasons
+        kept.append(item)
+
+    kept.sort(key=sort_key)
+    kept, cap_drops = cap_league_roundups(kept)
+    dropped.extend(cap_drops)
+    return kept, dropped

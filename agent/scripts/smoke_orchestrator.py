@@ -75,6 +75,7 @@ SCENE = {
 # published; no source_domain), so the record builder is tested against the
 # shape it will actually be handed.
 RESEARCH = {
+    "request": {"home_team": "Titans", "away_team": "Cowboys"},
     "items": [
         {
             "title": "NRL Casualty Ward: Round 23 injury list",
@@ -84,7 +85,7 @@ RESEARCH = {
             "category": "Injuries",
             "published_at": "2026-08-03T08:00:00+00:00",
             "age_hours": 1.3,
-            "body_excerpt": "Griffin Neame expected return round 23. "
+            "body_excerpt": "Titans and Cowboys: Griffin Neame expected return round 23. "
             "John Bateman is named to play.",
         },
         {
@@ -135,6 +136,9 @@ def _judgement(confidence: float) -> dict:
         "home_team": "Titans",
         "away_team": "Cowboys",
         "confidence": confidence,
+        "research_stance": "silent",
+        "strongest_reason_could_lose": "Coin-flip math and NRL variance.",
+        "loss_reason_specific": False,
         "summary": "Pythagorean form favours the Titans at home.",
         "key_factors": [
             {
@@ -263,7 +267,7 @@ def main() -> int:
         failures += _check_record(runs_dir, ledger_path, rows=1)
 
         print("Scenario 2: over-confident judgement, recalibration must fire")
-        # Above the ceiling, which is no longer tied to the model probability.
+        # Above the prompt ceiling (0.85), which is no longer tied to the model.
         result = _run(runs_dir, first_confidence=0.99)
         ledger = json.loads(Path(result["ledger_path"]).read_text())
         v = ledger.get("verifier_loop") or {}

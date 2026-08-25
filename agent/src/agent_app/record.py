@@ -245,6 +245,11 @@ def build_record(ledger: dict[str, Any], ledger_path: Path | None = None) -> dic
         "reasoning": {
             "summary": judgement.get("summary"),
             "key_factors": judgement.get("key_factors") or [],
+            "research_stance": judgement.get("research_stance"),
+            "strongest_reason_could_lose": judgement.get(
+                "strongest_reason_could_lose"
+            ),
+            "loss_reason_specific": judgement.get("loss_reason_specific"),
             "disagreements_with_math": judgement.get("disagreements_with_math"),
         },
         "paths": {

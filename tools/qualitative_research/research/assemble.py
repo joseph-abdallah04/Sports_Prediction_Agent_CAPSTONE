@@ -18,6 +18,7 @@ from .filter import (
     dedupe_by_url,
     filter_items,
     promote_deferred_with_bodies,
+    refine_kept_after_bodies,
     sort_key,
 )
 from .http_client import RateLimitedHttpClient
@@ -155,7 +156,34 @@ def research_fixture(
     filter_summary["promoted_after_body"] = len(promoted)
     filter_summary["dropped_irrelevant"] += len(deferred_drops)
     if promoted:
-        kept = sorted([*kept, *promoted], key=sort_key)[:max_items]
+        kept = sorted([*kept, *promoted], key=sort_key)
+
+    kept, post_drops = refine_kept_after_bodies(
+        kept,
+        home_team=home_team,
+        away_team=away_team,
+        round_number=round_number,
+    )
+    dropped.extend(post_drops)
+    for rec in post_drops:
+        reason = rec.get("reason") or ""
+        if reason == "dropped_evergreen_casualty_ward":
+            filter_summary["dropped_evergreen_casualty_ward"] = (
+                filter_summary.get("dropped_evergreen_casualty_ward", 0) + 1
+            )
+        elif reason == "dropped_roundup_no_fixture_team":
+            filter_summary["dropped_roundup_no_fixture_team"] = (
+                filter_summary.get("dropped_roundup_no_fixture_team", 0) + 1
+            )
+        elif reason == "dropped_roundup_cap":
+            filter_summary["dropped_roundup_cap"] = (
+                filter_summary.get("dropped_roundup_cap", 0) + 1
+            )
+        else:
+            filter_summary["dropped_irrelevant"] = (
+                filter_summary.get("dropped_irrelevant", 0) + 1
+            )
+    kept = kept[:max_items]
 
     # Collapse identical publisher URLs (e.g. nrl_news + Google → same nrl.com)
     kept, dup_drops = dedupe_by_canonical_url(kept)

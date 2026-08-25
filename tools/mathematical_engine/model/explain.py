@@ -172,6 +172,17 @@ def _driver_line(feature: str, shap_value: float, value, total_abs: float) -> st
     return line
 
 
+TOO_CLOSE_LOW = 0.45
+TOO_CLOSE_HIGH = 0.55
+
+
+def prediction_label(home_proba: float) -> str:
+    """Hard side label. Coin-flips are 'Too close', not Home/Away Win."""
+    if TOO_CLOSE_LOW <= home_proba <= TOO_CLOSE_HIGH:
+        return "Too close"
+    return "Home Win" if home_proba >= 0.5 else "Away Win"
+
+
 def explain_prediction(
     model,
     calibrator,
@@ -202,7 +213,7 @@ def explain_prediction(
     raw_proba = float(model.predict_proba(X)[:, 1][0])
     home_proba = float(calibrator.transform([raw_proba])[0]) if calibrator else raw_proba
 
-    prediction = "Home Win" if home_proba >= 0.5 else "Away Win"
+    prediction = prediction_label(home_proba)
     confidence = home_proba if home_proba >= 0.5 else 1 - home_proba
 
     explainer = shap.TreeExplainer(model)
@@ -256,7 +267,9 @@ def explain_prediction(
                 ),
                 "note": (
                     "Summed SHAP over all features. Equal-length driver lists do "
-                    "not mean equal weight; compare these totals."
+                    "not mean equal weight; compare these totals. This is the "
+                    "split of SHAP mass, not a second prediction. "
+                    "home_win_probability is the prior."
                 ),
             },
             "value_contribution_conflicts": conflicts,

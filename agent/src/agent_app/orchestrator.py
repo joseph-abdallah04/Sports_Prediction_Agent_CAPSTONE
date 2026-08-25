@@ -18,7 +18,7 @@ from agent_app.query_planner import plan_queries, refine_queries
 from agent_app.report import render_run_summary, render_thinking
 from agent_app.research_gate import research_ok
 from agent_app.run_paths import fixture_run_dir
-from agent_app.verifier import checklist_verify, llm_audit, should_recalibrate
+from agent_app.verifier import checklist_verify, llm_audit, omitted_math_signals_only, should_recalibrate
 
 logger = logging.getLogger(__name__)
 
@@ -513,7 +513,12 @@ def run_prediction(
                 },
             )
         else:
-            logger.info("Verifier recalibrate: skipped (audit/checklist passed)")
+            if omitted_math_signals_only(audit) and checklist.get("pass"):
+                logger.info(
+                    "Verifier recalibrate: skipped (omitted_math_signals only)"
+                )
+            else:
+                logger.info("Verifier recalibrate: skipped (audit/checklist passed)")
         ledger["verifier_loop"] = verifier_loop
         persist()
         finalise()

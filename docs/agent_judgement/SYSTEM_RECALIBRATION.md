@@ -2,6 +2,8 @@
 
 This is the agreed fix list from the Round 23–25 audit in [`FINDINGS_AFTER_ROUND25.md`](FINDINGS_AFTER_ROUND25.md). It is a patch on a pipeline that already runs, not a rewrite.
 
+What we expect on every run from Round 26 on is in [`EXPECTED_BEHAVIOUR.md`](EXPECTED_BEHAVIOUR.md).
+
 Not in this round of changes:
 
 - **No kickoff block.** Games can still be run inside an hour of (or after) kickoff. Live blogs are downranked in research instead. Try to run earlier when you can.

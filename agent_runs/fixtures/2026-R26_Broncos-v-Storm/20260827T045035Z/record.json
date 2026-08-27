@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "run_id": "20260827T045035Z-f94520b9",
+  "run": {
+    "predicted_at_utc": "2026-08-27T04:59:43.969704+00:00",
+    "predicted_at_local": "2026-08-27T14:59:43.969704+10:00",
+    "started_at_utc": "2026-08-27T04:50:35.181263+00:00",
+    "wall_seconds": 548.8,
+    "hours_before_kickoff": 4.8,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Broncos",
+    "away_team": "Storm",
+    "venue": "Suncorp Stadium",
+    "kickoff": "2026-08-27T19:50:00+10:00",
+    "kickoff_local": "2026-08-27T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Broncos",
+      "position": 15,
+      "played": 22,
+      "wins": 7,
+      "drawn": 0,
+      "lost": 15,
+      "competition_points": 20,
+      "points_for": 417,
+      "points_against": 611,
+      "points_difference": -194,
+      "points_difference_per_game": -8.82,
+      "recent_form_last_4": "1 - 4",
+      "streak": "1W",
+      "home_record": "2 - 9",
+      "away_record": "5 - 6"
+    },
+    "away": {
+      "team": "Storm",
+      "position": 11,
+      "played": 22,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 13,
+      "competition_points": 24,
+      "points_for": 524,
+      "points_against": 536,
+      "points_difference": -12,
+      "points_difference_per_game": -0.55,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1L",
+      "home_record": "7 - 5",
+      "away_record": "2 - 8"
+    },
+    "comparison": {
+      "higher_on_ladder": "Storm",
+      "ladder_positions_gap": -4,
+      "points_difference_per_game_gap": -8.27,
+      "points_difference_favours": "Storm"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Storm",
+    "predicted_side": "away",
+    "confidence": 0.61,
+    "home_win_probability": 0.39
+  },
+  "math_model": {
+    "home_win_probability": 0.3892,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Head-to-head record (last 5) (60% to the home side) — contribution 0.029 (3% of total)",
+        "Home travel to venue (0 km) — contribution 0.019 (2% of total)",
+        "5-game form: penalties conceded (+2.20) — contribution 0.019 (2% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Travel-distance advantage (+1,374 km for away) — contribution 0.019 (2% of total)",
+        "5-game form: completion rate (-4.00) — contribution 0.013 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-8.3 points) — contribution 0.272 (25% of total)",
+        "Bradley-Terry strength advantage (-0.45 log-strength) — contribution 0.135 (13% of total)",
+        "Pythagorean form (last 10) (-33% expected-win gap) — contribution 0.090 (8% of total)",
+        "5-game momentum: penalty cluster rate (-1.40) — contribution 0.085 (8% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: all run metres (-108.20) — contribution 0.065 (6% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: penalties conceded (+2.20)",
+        "5-game form: completion rate (-4.00)",
+        "5-game momentum: penalty cluster rate (-1.40)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Broncos NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Broncos vs Storm NRL round 26 preview",
+      "Broncos Storm NRL odds OR price OR favourite",
+      "Broncos Storm NRL finals race OR ladder stakes",
+      "Broncos Storm NRL",
+      "Broncos NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Broncos Storm NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Broncos OR Storm"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Team Lists: Round 26",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-25T05:59:01+00:00",
+        "age_hours": 46.86988688666667,
+        "url": "https://www.nrl.com/news/2026/08/25/nrl-team-lists-round-26/"
+      },
+      {
+        "title": "NRL Late Mail: Round 26 - Teddy, Trell target returns",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-26T10:04:33+00:00",
+        "age_hours": 18.777664664444444,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "Broncos vs Storm Preview (Round 26, 2026): Team News, Team Lists & Prediction - Rugby League Zone",
+        "source": "rugbyleaguezone.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T10:00:49+00:00",
+        "age_hours": 18.839886886666665,
+        "url": "https://rugbyleaguezone.com/broncos-vs-storm-round-26-preview-2026-437392/"
+      },
+      {
+        "title": "Lone Scout's Fantasy team list analysis: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T08:30:08+00:00",
+        "age_hours": 44.35127577555556,
+        "url": "https://www.nrl.com/news/2026/08/25/lone-scouts-fantasy-team-list-analysis-round-26/"
+      },
+      {
+        "title": "NRL Team List Round 26 v Storm - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:39:45+00:00",
+        "age_hours": 47.19099799777778,
+        "url": "https://www.broncos.com.au/news/2026/08/25/nrl-team-list-round-26-v-storm/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:37:45+00:00",
+        "age_hours": 47.22433133111112,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T22:07:42+00:00",
+        "age_hours": 6.725164664444445,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/"
+      },
+      {
+        "title": "Team Announcement: Round 26 v Broncos - Melbourne Storm",
+        "source": "melbournestorm.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:39+00:00",
+        "age_hours": 46.859331331111115,
+        "url": "https://www.melbournestorm.com.au/news/2026/08/25/team-announcement-round-26-v-broncos/"
+      },
+      {
+        "title": "Match Preview Broncos v Storm: Madge sticks solid; Hughes boost for Bellamy",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Storm",
+        "published_at": "2026-08-26T10:03:31+00:00",
+        "age_hours": 18.794886886666667,
+        "url": "https://www.nrl.com/news/2026/08/25/broncos-v-storm-madge-sticks-solid-hughes-boost-for-bellamy/"
+      },
+      {
+        "title": "Broncos vs Storm Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T06:50:18+00:00",
+        "age_hours": 22.015164664444445,
+        "url": "https://www.beforeyoubet.com.au/broncos-vs-storm-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Broncos v Storm: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:43:12+00:00",
+        "age_hours": 23.133497997777777,
+        "url": "https://www.nrl.com/news/2026/08/26/broncos-v-storm-round-26/"
+      },
+      {
+        "title": "Foran confirms Sea Eagles’ brutal finals blow, Souths’ likely Latrell plan revealed — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T04:04:18+00:00",
+        "age_hours": 0.7818313311111111,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487"
+      },
+      {
+        "title": "Brisbane Broncos vs Melbourne Storm Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:19:42+00:00",
+        "age_hours": 2.525164664444444,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/brisbane-broncos-vs-melbourne-storm-predictions/"
+      },
+      {
+        "title": "NRL Judiciary: Young, Frizell, Cogger banned until finals - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T08:16:26+00:00",
+        "age_hours": 44.57960910888889,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/"
+      },
+      {
+        "title": "‘Bee in the bonnet’ of Storm players after Broncos snubs - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T03:20:18+00:00",
+        "age_hours": 1.5151646644444445,
+        "url": "https://www.nine.com.au/sport/nrl/tips-round-26-2026-expert-predictions-andrew-johns-brad-fittler-20260730-p60k2d.html"
+      },
+      {
+        "title": "Broncos vs Storm Prediction & NRL Betting Preview - 27/8/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T12:02:19+00:00",
+        "age_hours": 16.814886886666667,
+        "url": "https://insights.betfred.com/rugby-league/broncos-vs-storm-prediction-betting-tips-thursday-27-august-2026/"
+      },
+      {
+        "title": "Major mystery remains for NRL rule change - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T03:45:37+00:00",
+        "age_hours": 25.09322022,
+        "url": "https://www.news.com.au/sport/nrl/perfect-time-to-trial-it-storm-has-no-issue-with-being-the-guinea-pigs-for-major-rule-change-but-one-mystery-remains/news-story/9ac48c5eb82ca5d0e0efe871ccd857fa"
+      },
+      {
+        "title": "Teams: Latrell role confirmed; Panthers make contentious selection call - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T07:30:27+00:00",
+        "age_hours": 45.34599799777778,
+        "url": "https://www.nine.com.au/sport/nrl/team-lists-round-26-injuries-suspensions-latrell-mitchell-return-rabbitohs-jai-arrow-panthers-halves-selection-blaize-talagi-20260825-p60rg9.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Omitted material math signals: Bradley-Terry strength advantage, Pythagorean form (last 10), and 5-game momentum: penalty cluster rate."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "All claims including ladder positions (11th/15th), Jahrome Hughes' return, and market status as 'appealing favourite' are found in the scene or research body excerpts."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Research states Jahrome Hughes is 'returning' or 'welcome back', and the judgement correctly describes this as a return."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "The ladder points differential is correctly attributed to the Storm as it appears in the 'favouring_Storm_away_win' group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research regarding Jahrome Hughes."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.61) matches the math prior for an away win (1 - 0.3892 = 0.6108) and the summary explicitly states it was kept at the math prior."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant driver (25%) is the primary one cited."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material drivers 'Bradley-Terry strength advantage' (13%), 'Pythagorean form (last 10)' (8%), and '5-game momentum: penalty cluster rate' (8%) were not addressed."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The math model strongly favours the Storm, primarily driven by a significant ladder points differential. This is confirmed by research reporting the return of star halfback Jahrome Hughes to the lineup (nrl_news). While the market also views the Storm as an appealing favourite, the confidence is kept at the math prior due to the Broncos' recent momentum and home-ground advantage in a game with no finals implications.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model's strongest driver is the ladder points differential per game, contributing 25% to the Storm's win probability."
+      },
+      {
+        "source": "research",
+        "detail": "Jahrome Hughes returns to the halves for the Storm, providing a significant boost to their playmaking (nrl_news, melbournestorm.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Storm sit higher on the official ladder (11th) compared to the Broncos (15th)."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Broncos are playing their final home game of the season at Suncorp and are coming off a high-scoring comeback victory over Canberra.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Broncos-v-Storm/20260827T045035Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Broncos-v-Storm/20260827T045035Z/summary.md"
+  }
+}

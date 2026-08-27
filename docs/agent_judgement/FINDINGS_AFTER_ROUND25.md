@@ -2,7 +2,7 @@
 
 A read-only audit of the 24 canonical Round 23–25 prediction runs. Written 25 August 2026. No files were changed as part of the audit itself.
 
-This is the full write-up: what worked, what did not, and every number and example the audit produced. Plain language, nothing left out.
+This is the full write-up: what worked, what did not, and every number and example the audit produced. Plain language, nothing left out. The fixes are in [`SYSTEM_RECALIBRATION.md`](SYSTEM_RECALIBRATION.md). What we expect from Round 26 on is in [`EXPECTED_BEHAVIOUR.md`](EXPECTED_BEHAVIOUR.md).
 
 ---
 

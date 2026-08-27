@@ -1,0 +1,19 @@
+---
+description: Check every official prediction run against the intended math-then-news judgement behaviour.
+globs: agent_runs/**/{summary.md,record.json,thinking.md}
+alwaysApply: true
+---
+
+# Agent judgement behaviour (Round 26 on)
+
+After any official prediction run, check the run against
+`docs/agent_judgement/EXPECTED_BEHAVIOUR.md`. That is the intended logic.
+
+The math model is the starting number. This week’s news (what the ratings cannot
+see) is used to agree or disagree. Do not treat ladder, SHAP, and standings as
+three extra votes. Agree means keep the side; do not climb just for finding an
+article. Disagree means come down (or flip only with a concrete research fact).
+A specific named loss reason stays at or below 0.65.
+
+When reporting a run, say whether this logic held. Do not treat the final score
+as proof the process was right or wrong.

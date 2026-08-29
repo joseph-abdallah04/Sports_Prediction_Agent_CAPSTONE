@@ -115,7 +115,9 @@ The Round 25 plan said we would **not** compare confidence to the math probabili
 | Sea Eagles vs Dragons | Sea Eagles | **0.75** | Copied math 0.7499, but research really did support it (Trbojevic back, Feledy hat-trick). Same side as math is fine; the number happened to match. |
 | Broncos vs Storm (evening, after first confidence patch) | Storm | **0.68** | Stopped pasting 0.61. Used Hughes as `confirms`, then **climbed a band** by counting math + ladder + SHAP as three signals. Named Suncorp as a reason it could lose, then ignored the ≤0.65 rule. |
 
-We want the judge to **use** research, and we allow the same side as math. Research can move confidence **down or up**. **Going less sure than the math prior is the usual move** (mixed news, a specific reason the pick could lose, or news that cuts against the favourite). **Going more sure is the rare exception:** only when the news is a real this-week shock the ratings could not have known. We do **not** hard-code a list of shocks. “I found an article, so add 7%” is the failure mode. Keeping or raising the math number while research **conflicts** is also a failure.
+We want the judge to **use** research, and we allow the same side as math. Research can move confidence **down or up**. **Going less sure than the math prior is the usual move**. **Going more sure is the rare exception:** only when the news is a real this-week shock the ratings could not have known. We do **not** hard-code a list of shocks. “I found an article, so add 7%” is the failure mode. Keeping or raising the math number while research **conflicts** is also a failure.
+
+**29 Aug 2026:** the first Fix 6 pass also forced ≤ 0.65 whenever `loss_reason_specific` was true (and for `conflicts`). That flattened official R26 picks onto 0.65. That cap is **removed**. The agent must still *use* a genuine loss reason; it chooses the number. Bands remain descriptive.
 
 **Code / prompt:** `agent/src/agent_app/prompts/__init__.py`, `judgement.py`, `verifier.py`, `record.py`, `report.py`
 
@@ -128,14 +130,14 @@ We want the judge to **use** research, and we allow the same side as math. Resea
 | Ladder / SHAP / standings are **one** math signal | Evening Storm @ 0.68 counted them as three votes | Prompt only (“one math signal, not three”). Not a keyword ban |
 | `confirms` is agreement, not a bonus | Finding a team list does not mean “add 0.07” | Prompt. Code does not freeze the number to math P |
 | Getting surer than the prior is **rare** | Needs a real this-week shock the model could not know. We do **not** list allowed shocks | Prompt. Code does **not** require a particular kind of shock to climb |
-| Getting less sure than the prior is **normal** | Mixed/silent news, or a specific reason you could lose, should not keep a high math number | Prompt. `conflicts` in code: must sit below math P and ≤ 0.65 |
-| `loss_reason_specific` | If the reason you could lose is a named this-week fact (last home game at Suncorp, your star out), stay ≤ **0.65** | Required boolean. Checklist rejects confidence > 0.65 when it is true |
+| Getting less sure than the prior is **normal** | Mixed/silent news, or a genuine reason you could lose, should move the number down; how far is the judge’s call | Prompt. `conflicts` in code: must sit **below** math P (no forced 0.65) |
+| `loss_reason_specific` | Named this-week fact that could beat the pick. Use it in the number. **Do not** force ≤ 0.65 | Required boolean. Checklist no longer caps on this flag |
 | Above 0.65 needs real `confirms` | Clear-edge band is not the default | Checklist |
-| `conflicts` cannot sit above 0.65 | Tedesco-out @ 0.83 is the case this catches | Checklist |
+| `conflicts` cannot keep or raise the math number | Tedesco-out @ 0.83 is the case this catches | Checklist (below prior, not a 0.65 landing) |
 
 JSON the judge must now return (extra fields vs R23–R25): `research_stance`, `strongest_reason_could_lose`, `loss_reason_specific`. Those also appear on `summary.md` and in `record.json` under `reasoning`.
 
-**What we deliberately did not do:** tell the agent who to pick; pin confidence to the math probability; forbid all band climbs; encode “only injuries count as a shock”; forbid coming **down** from the prior.
+**What we deliberately did not do:** tell the agent who to pick; pin confidence to the math probability; forbid all band climbs; encode “only injuries count as a shock”; forbid coming **down** from the prior; force a landing score (0.65) when a loss reason is named.
 
 ---
 
@@ -143,7 +145,7 @@ JSON the judge must now return (extra fields vs R23–R25): `research_stance`, `
 
 | Finding (severity) | Fix |
 |---|---|
-| 1. Calibration / overconfidence | 5 (0.85 ceiling) + 6 (don’t paste math P; come down when research conflicts; don’t climb on non-shocks; ≤0.65 if the loss reason is specific) + 3 (fewer unjustified coin-flip flips) |
+| 1. Calibration / overconfidence | 5 (0.85 ceiling) + 6 (don’t paste math P; come down when research conflicts; don’t climb on non-shocks) + 3 (fewer unjustified coin-flip flips) |
 | 2. Research volume ≠ quality | 1 |
 | 3. Verifier ceremonial | 4 |
 | 4. Coin-flip math UX | 3 |
@@ -188,7 +190,7 @@ Do **not** commit until a real fixture run looks right.
    - Confidence cannot land above 0.85.
    - `research_stance` and `loss_reason_specific` are present.
    - Confidence is not a two-decimal paste of math P unless research really confirms the pick.
-   - If the loss reason is specific (venue / this-week availability), confidence is ≤ 0.65.
+   - A named this-week loss reason should move confidence; it must **not** force 0.65.
 
 Throwaway R26 folders (`2026-R26_Broncos-v-Storm`, `2026-R26_Sea-Eagles-v-Dragons`) and extra CSV rows were for testing only and should not be treated as official Round 26 predictions.
 

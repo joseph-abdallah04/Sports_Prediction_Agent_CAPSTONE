@@ -1,0 +1,1271 @@
+{
+  "schema_version": 2,
+  "run_id": "20260828T012127Z-2883d879",
+  "at_a_glance": {
+    "fixture": "Panthers v Bulldogs",
+    "round": 26,
+    "kickoff": "2026-08-28T20:00:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Panthers",
+    "confidence": 0.65,
+    "model_home_win_probability": 0.7197,
+    "model_prediction": "Home Win",
+    "research_items_kept": 21,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": true,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-28T01:21:27.994288+00:00",
+  "updated_at": "2026-08-28T01:31:30.178724+00:00",
+  "request": {
+    "home_team": "Panthers",
+    "away_team": "Bulldogs",
+    "season": null,
+    "round_number": 26,
+    "force_refresh": true,
+    "user_question": "Who wins Panthers vs Bulldogs?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Panthers",
+    "away_team": "Bulldogs",
+    "confidence": 0.65,
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Panthers are missing key players including Mitch Kenny and Jack Cogger, while the Bulldogs are fighting for their finals lives.",
+    "loss_reason_specific": true,
+    "summary": "The Panthers are strong favourites based on a 0.72 math prior and a significant ladder advantage (2nd vs 9th). However, confidence is reduced to 0.65 because research identifies key absences for Penrith, specifically Mitch Kenny and Jack Cogger, while the Bulldogs welcome back Enari Tuala. The market aligns with the pick, pricing the Panthers at $1.35.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry strength advantage (18% contribution) and Elo rating advantage (14% contribution)."
+      },
+      {
+        "source": "scene",
+        "detail": "Panthers hold a significant ladder advantage, sitting 2nd compared to the Bulldogs in 9th."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers are missing Mitch Kenny (leg) and Jack Cogger (suspension) according to Zero Tackle and nrl.com, while the Bulldogs have Enari Tuala returning from injury (bulldogs.com.au)."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 21,
+      "items_mentioning_both_teams": 17,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 20
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 1
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Panthers vs Bulldogs NRL round 26 preview",
+      "Panthers Bulldogs NRL odds OR price OR favourite",
+      "Panthers Bulldogs NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": true,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Mitch Kenny (leg) and Jack Cogger (suspension) are in Zero Tackle body; Enari Tuala return is in Bulldogs news body; $1.35 price is in sportsnews.com.au price_quote; ladder positions are in scene."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Claims for Kenny/Cogger as missing and Tuala as returning match the research excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry and Elo drivers are correctly attributed to the Panthers' advantage."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 3 is sourced from research regarding player availability."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence was correctly reduced from the 0.72 prior to 0.65 based on specific research conflicts (absences)."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the material drivers (BT, Elo, Ladder) rather than minor ones."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "pass",
+          "evidence": "All material drivers (Bradley-Terry, Ladder differential, Elo) are addressed in the summary or key factors."
+        }
+      ],
+      "issues": [],
+      "instruction": ""
+    },
+    "instruction": "",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Bulldogs",
+      "confidence": 0.65,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The Panthers are missing key players including Mitch Kenny and Jack Cogger, while the Bulldogs are fighting for their finals lives.",
+      "loss_reason_specific": true,
+      "summary": "The Panthers are strong favourites based on a 0.72 math prior and a significant ladder advantage (2nd vs 9th). However, confidence is reduced to 0.65 because research identifies key absences for Penrith, specifically Mitch Kenny and Jack Cogger, while the Bulldogs welcome back Enari Tuala. The market aligns with the pick, pricing the Panthers at $1.35.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Bradley-Terry strength advantage (18% contribution) and Elo rating advantage (14% contribution)."
+        },
+        {
+          "source": "scene",
+          "detail": "Panthers hold a significant ladder advantage, sitting 2nd compared to the Bulldogs in 9th."
+        },
+        {
+          "source": "research",
+          "detail": "Panthers are missing Mitch Kenny (leg) and Jack Cogger (suspension) according to Zero Tackle and nrl.com, while the Bulldogs have Enari Tuala returning from injury (bulldogs.com.au)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-28T01:21:54.549490+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Bulldogs\n    *   Round Number: 26\n    *   User Question: \"Who wins Panthers vs Bulldogs?\"\n\n    *   Query 1: Home team availability (Panthers)\n    *   Query 2: Away team availability (Bulldogs)\n    *   Query 3: Fixture preview (Panthers vs Bulldogs Round 26)\n    *   Query 4: Market prices (Panthers Bulldogs odds/price/favourite)\n    *   Query 5: Specific angle (form, ladder, pressure, etc.) - Since it's Round 26 (late season), finals race/ladder stakes is the most relevant angle.\n\n    *   Q1: `Panthers NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q2: `Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q3: `Panthers vs Bulldogs NRL round 26 preview`\n    *   Q4: `Panthers Bulldogs NRL odds OR price OR favourite`\n    *   Q5: `Panthers Bulldogs NRL finals race OR ladder stakes` (or maybe \"Bulldogs NRL form streak\" or \"Panthers NRL form\"). Let's go with finals race/ladder stakes given it's Round 26.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Panthers, Bulldogs).\n    *   JSON format? Yes.",
+      "chars": 1173
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-28T01:28:19.572717+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Bulldogs\n    *   Venue: CommBank Stadium\n    *   Math Prediction: Home Win (Probability: 0.7197)\n    *   Standings: Panthers (2nd), Bulldogs (9th). Gap of 7 positions.\n    *   SHAP Drivers:\n        *   Favouring Panthers: Bradley-Terry strength (18%), Ladder points diff (14%), Elo rating (14%), Away travel (6%), Rest-day (3%).\n        *   Favouring Bulldogs: Travel-distance (2%), Pythagorean form (2% - CONFLICT), Penalties (2% - CONFLICT), Points against (2%), Errors (2% - CONFLICT).\n    *   Market: Panthers favourite ($1.35).\n\n    *   Panthers:\n        *   Jack Cogger is out (Suspension - return Finals).\n        *   Jack Cole is in for Cogger (nrl.com).\n        *   Mitch Kenny is out (Leg - return Finals).\n        *   Paul Alamoti (Hamstring - TBC).\n        *   Isaah Yeo (Pectoral - TBC).\n    *   Bulldogs:\n        *   Enari Tuala is returning from knee injury (bulldogs.com.au).\n        *   Jonathan Su'a is out (Suspension - return Round 27).\n        *   Kurt Mann is out (Groin - TBC).\n        *   Jake Turpin replaces Kurt Mann (bulldogs.com.au).\n\n    *   Math prior: 0.7197 (Home Win).\n    *   Research:\n        *   Panthers are missing key players: Jack Cogger (suspension) and Mitch Kenny (injury).\n        *   Bulldogs have Enari Tuala returning.\n        *   Bulldogs are desperate for finals (9th place).\n        *   Panthers are fighting for Minor Premiership (2nd place).\n    *   Research Stance: `conflicts`. The math prior is high (0.72), but the research highlights significant absences for the Panthers (Cogger, Kenny) and a returning player for the Bulldogs (Tuala). While the Panthers are still strong, these specific availability facts cut against the high probability.\n\n    *   Winner: Home (Panthers). The math prior is very strong (0.72), and while there are absences, the ladder gap (7 places) and overall strength advantage are massive.\n    *   Confidence: The prior is 0.72. Because research `conflicts` (key absences for Panthers), I must come down. I should stay below the prior. 0.65 is the cap for `conflicts` or `loss_reason_specific`.\n    *   Strongest reason could lose: Missing key players like Mitch Kenny and Jack Cogger, combined with the Bulldogs' desperation to make the finals.\n    *   Loss reason specific: True (named players out).\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Panthers\"\n    *   `away_team`: \"Bulldogs\"\n    *   `confidence`: 0.65 (Reduced from 0.72 due to conflicts).\n    *   `research_stance`: \"conflicts\"\n    *   `strongest_reason_could_lose`: \"The Panthers are missing key players including Mitch Kenny and Jack Cogger, while the Bulldogs are fighting for their finals lives.\"\n    *   `loss_reason_specific`: true\n    *   `summary`: \"The Panthers enter as strong favourites based on a 0.72 math prior and a significant ladder advantage. However, confidence is tempered to 0.65 as research reveals key absences for Penrith, specifically Mitch Kenny and Jack Cogger, while the Bulldogs welcome back Enari Tuala. The market also favours the Panthers at $1.35.\"\n    *   `key_factors`:\n        *   Math: Bradley-Terry strength advantage and Elo rating.\n        *   Research: Absence of Mitch Kenny and Jack Cogger (Zero Tackle/nrl.com), return of Enari Tuala (bulldogs.com.au).\n        *   Scene: Panthers are 2nd on the ladder compared to the Bulldogs in 9th.\n    *   `disagreements_with_math`: \"null\" (I am picking the same side, just lowering confidence).\n\n    *   Check SHAP drivers: \"Bradley-Terry strength advantage\" is in `favouring_Panthers_home_win`. Correct.\n    *   Check standings: Panthers 2nd, Bulldogs 9th. Correct.\n    *   Check availability: Cogger (Suspension), Kenny (Leg). Tuala (Returning). Correct.\n    *   Check confidence: 0.65 is below 0.7197. Correct.\n    *   Check `loss_reason_specific`: True because of named players. Correct.",
+      "chars": 3867
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-28T01:31:30.178426+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all injuries, player names, quotes, team-list claims, or prices sourced from the research body/title/price_quote/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.65) justified based on the math prior (0.7197) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) covered?\n\n- Home: Panthers (2nd)\n- Away: Bulldogs (9th)\n- Math Prior: 0.7197 (Home Win)\n- Material SHAP Drivers:\n    - Bradley-Terry strength advantage (18%)\n    - Ladder points differential per game (14%)\n    - Elo rating advantage (14%)\n\n- Winner: Home (Panthers)\n- Confidence: 0.65\n- Research Stance: conflicts\n- Loss Reason Specific: true\n- Summary: Mentions 0.72 math prior, ladder advantage (2nd vs 9th), absences (Mitch Kenny, Jack Cogger), return (Enari Tuala), market price ($1.35).\n- Key Factors:\n    - Math: Bradley-Terry (18%), Elo (14%).\n    - Scene: Ladder advantage (2nd vs 9th).\n    - Research: Mitch Kenny (leg), Jack Cogger (suspension), Enari Tuala (returning).\n\n- Mitch Kenny (leg): Found in Zero Tackle body excerpt (\"Mitch Kenny Leg Finals\").\n- Jack Cogger (suspension): Found in Zero Tackle body excerpt (\"Jack Cogger Suspension Finals\") and sportsnews.com.au (\"Jack Cole replaces the suspended Jack Cogger\").\n- Enari Tuala (returning): Found in Bulldogs news body excerpt (\"Cameron Ciraldo has named Enari Tuala to return from a knee injury\").\n- Market price $1.35: Found in sportsnews.com.au `price_quote` (\"We're tipping Penrith Panthers to win at $1.35 odds\").\n- Ladder positions (2nd vs 9th): Found in `set_fixture_scene` response snippet.\n- Verdict: Pass.\n\n- Mitch Kenny: Missing (Zero Tackle says \"Leg Finals\"). Judgement says \"missing\". Correct.\n- Jack Cogger: Missing (Zero Tackle says \"Suspension Finals\"). Judgement says \"missing\". Correct.\n- Enari Tuala: Returning (Bulldogs news says \"return from a knee injury\"). Judgement says \"welcome back\". Correct.\n- Verdict: Pass.\n\n- Bradley-Terry strength advantage: In `favouring_Panthers_home_win`. Judgement attributes it to math/Panthers. Correct.\n- Elo rating advantage: In `favouring_Panthers_home_win`. Judgement attributes it to math/Panthers. Correct.\n- Verdict: Pass.\n\n- Weather is \"Fine\" in scene.\n- Weather is not mentioned in the summary or key factors.\n- Verdict: Pass.\n\n- Key factor 3 is sourced from research (Mitch Kenny, Jack Cogger, Enari Tuala).\n- Verdict: Pass.\n\n- Math Prior: 0.7197.\n- Judgement Confidence: 0.65.\n- Research Stance: \"conflicts\".\n- `loss_reason_specific`: true.\n- The confidence was reduced from 0.72 to 0.65 due to \"key absences for Penrith\" (Kenny, Cogger).\n- This follows the rule: \"Going less sure than the prior is the usual research adjustment.\"\n- Verdict: Pass.\n\n- Top drivers (BT, Elo, Ladder) are the ones highlighted.\n- No minor drivers (like travel or rest) are treated as decisive.\n- Verdict: Pass.\n\n- Material drivers (>= 8%):\n    - Bradley-Terry strength advantage (18%): Mentioned in key factors.\n    - Ladder points differential per game (14%): Mentioned in summary (\"significant ladder advantage\") and key factors (\"ladder advantage\").\n    - Elo rating advantage (14%): Mentioned in key factors.\n- All material drivers are covered.\n- Verdict: Pass.\n\nAll checks pass.",
+      "chars": 3704
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-28T01:21:54.551251+00:00",
+      "payload": {
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Panthers vs Bulldogs NRL round 26 preview",
+          "Panthers Bulldogs NRL odds OR price OR favourite",
+          "Panthers Bulldogs NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-28T01:28:19.573657+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Bulldogs",
+          "confidence": 0.65,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Panthers are missing key players including Mitch Kenny and Jack Cogger, while the Bulldogs are fighting for their finals lives.",
+          "loss_reason_specific": true,
+          "summary": "The Panthers are strong favourites based on a 0.72 math prior and a significant ladder advantage (2nd vs 9th). However, confidence is reduced to 0.65 because research identifies key absences for Penrith, specifically Mitch Kenny and Jack Cogger, while the Bulldogs welcome back Enari Tuala. The market aligns with the pick, pricing the Panthers at $1.35.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Bradley-Terry strength advantage (18% contribution) and Elo rating advantage (14% contribution)."
+            },
+            {
+              "source": "scene",
+              "detail": "Panthers hold a significant ladder advantage, sitting 2nd compared to the Bulldogs in 9th."
+            },
+            {
+              "source": "research",
+              "detail": "Panthers are missing Mitch Kenny (leg) and Jack Cogger (suspension) according to Zero Tackle and nrl.com, while the Bulldogs have Enari Tuala returning from injury (bulldogs.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-28T01:31:30.178617+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": true,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Mitch Kenny (leg) and Jack Cogger (suspension) are in Zero Tackle body; Enari Tuala return is in Bulldogs news body; $1.35 price is in sportsnews.com.au price_quote; ladder positions are in scene."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Claims for Kenny/Cogger as missing and Tuala as returning match the research excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry and Elo drivers are correctly attributed to the Panthers' advantage."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 3 is sourced from research regarding player availability."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence was correctly reduced from the 0.72 prior to 0.65 based on specific research conflicts (absences)."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the material drivers (BT, Elo, Ladder) rather than minor ones."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "pass",
+              "evidence": "All material drivers (Bradley-Terry, Ladder differential, Elo) are addressed in the summary or key factors."
+            }
+          ],
+          "issues": [],
+          "instruction": ""
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "237ca4d4cc47",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-28T01:21:27.994436+00:00",
+      "finished_at": "2026-08-28T01:21:32.353845+00:00",
+      "duration_ms": 4359,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Bulldogs",
+        "season": null,
+        "round_number": 26,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Bulldogs",
+          "season": null,
+          "round_number": 26
+        },
+        "retrieved_at": "2026-08-28T01:21:27.994499+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 26,
+          "round_title": "Round 26",
+          "home_team": "Panthers",
+          "away_team": "Bulldogs",
+          "kickoff": "2026-08-28T20:00:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/panthers-v-bulldogs/",
+          "match_mode": "Pre",
+          "match_id": "20261112630",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Gerard Sutton"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Drew Oultram"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Belinda Sharpe"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Dylan Edwards",
+                "position": "Fullback",
+                "player_id": 503340
+              },
+              {
+                "number": 2,
+                "name": "Thomas Jenkins",
+                "position": "Winger",
+                "player_id": 100007927
+              },
+              {
+                "number": 3,
+                "name": "Izack Tago",
+                "position": "Centre",
+                "player_id": 509467
+              },
+              {
+                "number": 4,
+                "name": "Casey McLean",
+                "position": "Centre",
+                "player_id": 100011678
+              },
+              {
+                "number": 5,
+                "name": "Brian To'o",
+                "position": "Winger",
+                "player_id": 505410
+              },
+              {
+                "number": 6,
+                "name": "Jack Cole",
+                "position": "Five-Eighth",
+                "player_id": 100003896
+              },
+              {
+                "number": 7,
+                "name": "Nathan Cleary",
+                "position": "Halfback",
+                "player_id": 504120
+              },
+              {
+                "number": 8,
+                "name": "Moses Leota",
+                "position": "Prop",
+                "player_id": 501461
+              },
+              {
+                "number": 9,
+                "name": "Freddy Lussick",
+                "position": "Hooker",
+                "player_id": 504830
+              },
+              {
+                "number": 10,
+                "name": "Liam Henry",
+                "position": "Prop",
+                "player_id": 100007929
+              },
+              {
+                "number": 11,
+                "name": "Isaiah Papali'i",
+                "position": "2nd Row",
+                "player_id": 505976
+              },
+              {
+                "number": 12,
+                "name": "Liam Martin",
+                "position": "2nd Row",
+                "player_id": 504125
+              },
+              {
+                "number": 13,
+                "name": "Lindsay Smith",
+                "position": "Lock",
+                "player_id": 505555
+              },
+              {
+                "number": 14,
+                "name": "Billy Scott",
+                "position": "Interchange",
+                "player_id": 100006259
+              },
+              {
+                "number": 15,
+                "name": "Scott Sorensen",
+                "position": "Interchange",
+                "player_id": 500852
+              },
+              {
+                "number": 16,
+                "name": "Luke Garner",
+                "position": "Interchange",
+                "player_id": 501271
+              },
+              {
+                "number": 17,
+                "name": "Billy Phillips",
+                "position": "Interchange",
+                "player_id": 100008487
+              },
+              {
+                "number": 18,
+                "name": "Blaize Talagi",
+                "position": "Interchange",
+                "player_id": 100006848
+              },
+              {
+                "number": 19,
+                "name": "Jaxen Edgar",
+                "position": "Interchange",
+                "player_id": 100011683
+              },
+              {
+                "number": 20,
+                "name": "Kalani Leuluai-Going",
+                "position": "Reserve",
+                "player_id": 504144
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Connor Tracey",
+                "position": "Fullback",
+                "player_id": 502015
+              },
+              {
+                "number": 2,
+                "name": "Jacob Kiraz",
+                "position": "Winger",
+                "player_id": 100004133
+              },
+              {
+                "number": 3,
+                "name": "Matt Burton",
+                "position": "Centre",
+                "player_id": 509397
+              },
+              {
+                "number": 4,
+                "name": "Bronson Xerri",
+                "position": "Centre",
+                "player_id": 504714
+              },
+              {
+                "number": 5,
+                "name": "Enari Tuala",
+                "position": "Winger",
+                "player_id": 504372
+              },
+              {
+                "number": 6,
+                "name": "Stephen Crichton",
+                "position": "Five-Eighth",
+                "player_id": 508062
+              },
+              {
+                "number": 7,
+                "name": "Lachlan Galvin",
+                "position": "Halfback",
+                "player_id": 100007336
+              },
+              {
+                "number": 8,
+                "name": "Max King",
+                "position": "Prop",
+                "player_id": 504397
+              },
+              {
+                "number": 9,
+                "name": "Bailey Hayward",
+                "position": "Hooker",
+                "player_id": 505864
+              },
+              {
+                "number": 10,
+                "name": "Leo Thompson",
+                "position": "Prop",
+                "player_id": 100007572
+              },
+              {
+                "number": 11,
+                "name": "Viliame Kikau",
+                "position": "2nd Row",
+                "player_id": 500408
+              },
+              {
+                "number": 12,
+                "name": "Jacob Preston",
+                "position": "2nd Row",
+                "player_id": 507878
+              },
+              {
+                "number": 13,
+                "name": "Jaeman Salmon",
+                "position": "Lock",
+                "player_id": 504301
+              },
+              {
+                "number": 14,
+                "name": "Jake Turpin",
+                "position": "Interchange",
+                "player_id": 501280
+              },
+              {
+                "number": 15,
+                "name": "Alekolasimi Jones",
+                "position": "Interchange",
+                "player_id": 100013762
+              },
+              {
+                "number": 16,
+                "name": "Harry Hayes",
+                "position": "Interchange",
+                "player_id": 100006687
+              },
+              {
+                "number": 17,
+                "name": "Josh Curran",
+                "position": "Interchange",
+                "player_id": 504712
+              },
+              {
+                "number": 19,
+                "name": "Sean O'Sullivan",
+                "position": "Interchange",
+                "player_id": 504842
+              },
+              {
+                "number": 22,
+                "name": "Jed Reardon",
+                "position": "Interchange",
+                "player_id": 100008712
+              },
+              {
+                "number": 23,
+                "name": "Cooper Toy",
+                "position": "Reserve",
+                "player_id": 100008231
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 26,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Panthers",
+            "position": 2,
+            "played": 22,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 38,
+            "points_for": 621,
+            "points_against": 327,
+            "points_difference": 294,
+            "points_difference_per_game": 13.36,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "8 - 2",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Bulldogs",
+            "position": 9,
+            "played": 22,
+            "wins": 11,
+            "drawn": 0,
+            "lost": 11,
+            "competition_points": 28,
+            "points_for": 446,
+            "points_against": 478,
+            "points_difference": -32,
+            "points_difference_per_game": -1.45,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "7 - 4",
+            "away_record": "4 - 7"
+          },
+          "comparison": {
+            "higher_on_ladder": "Panthers",
+            "ladder_positions_gap": 7,
+            "points_difference_per_game_gap": 14.81,
+            "points_difference_favours": "Panthers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-28T20:00",
+            "temperature_c": 13.5,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 6.4,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-28T01:21:32.352274+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=26&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/panthers-v-bulldogs/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "e13b9aabcf9a",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-28T01:21:54.553894+00:00",
+      "finished_at": "2026-08-28T01:24:34.601330+00:00",
+      "duration_ms": 160047,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Bulldogs",
+        "kickoff": "2026-08-28T20:00:00+10:00",
+        "round_number": 26,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Panthers vs Bulldogs NRL round 26 preview",
+          "Panthers Bulldogs NRL odds OR price OR favourite",
+          "Panthers Bulldogs NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Bulldogs",
+          "kickoff": "2026-08-28T20:00:00+10:00",
+          "round_number": 26,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Panthers vs Bulldogs NRL round 26 preview",
+            "Panthers Bulldogs NRL odds OR price OR favourite",
+            "Panthers Bulldogs NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-28T01:21:54.555688+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 1
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 20
+          }
+        },
+        "items": [
+          {
+            "id": "c047a26347ec7075",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 26 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc",
+            "published_at": "2026-08-26T18:53:26+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 26 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 26\nPeter Maniaty\nGetty Images\nRound 26 began with a replay of the 2025 NRL grand final as the Storm humbled the Broncos 46-20 at Suncorp.\nOn Friday night the Bulldogs ' season goes on the line against the Panthers , before the Roosters then host the Dolphins in a heavyweight finals preview on Saturday.\nThe Warriors take on the Knights on Sunday afternoon in Auckland in another match that will shape the order of the top eight.\nThe Raiders have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 26\nManly Sea Eagles vs. St. George Illawarra Dragons\n(Friday, August 28 at 4 Pines Park , 6:00pm AEST)\nManly team:\n1. Tom Trbojevic (c) 2. Jason Saab 3. Josh Feledy 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Ben Trbojevic 13. Jake Trbojevic\n14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Onitoni Large 19. Fletcher Baker\nSea Eagles team news:\nEthan Bullemor remains out while Tolutau Koula is likely out for the season with a syndesmosis injury. Taniela Paseka (knee) has not been included.\nSt. George Illawarra team:\n1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook (c) 10. Toby Couchman 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman\n14. Connor Muhleisen 15. Josh Kerr 16. Jacob Halangahu 17. Jacob Webster 18. Blake Lawrie 19. Setu Tu\nDragons team news:\nJacob Liddle suffered a calf injury against the Bulldogs is out with Damien Cook named at No.9. Daniel Atkinson remains at fullback with Clint Gutherson having season-ending knee surgery. Emre Guler left last week for Super League ending his 33-match Dragons career.\nPenrith Panthers vs. Canterbury Bulldogs\n(Friday, August 28 at CommBank Stadium , 8:00pm AEST)\nPenrith team:\n1. Dylan Edwards 2. Thomas Jenkins 3. Izack Tago 4. Casey McLean 5. Brian To'o 6. Jack Cole 7. Nathan Cleary (c) 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali'i 12. Liam Martin 13. Lindsay Smith\n14. Billy Scott 15. Scott Sorensen 16. Luke Garner 17. Billy Phillips 18. Blaize Talagi 19. Jaxen Edgar\nPanthers team news:\nMitch Kenny (leg) is unlikely to seen before the finals while Jack Cogger has copped a 3-week ban for his high shot on Tyran Wishart. Ivan Cleary has opted for Perth-bound Jack Cole at No.6 in a move that doesn't bode well for Blaize Talagi's finals hopes.\nCanterbury team:\n1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Bronson Xerri 5. Enari Tuala 6. Stephen Crichton (c) 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon\n14. Jake Turpin 15. Alekolasimi Jones 16. Harry Hayes 17. Josh Curran 18. Sean O'Sullivan 22. Jed Reardon\nBulldogs team news:\nThere are reports the Bulldogs are continuing to deal with a major outbreak of Covid, so who knows who will and won't be playing this week? Covid-aside, Enari Tuala (knee) was a late withdrawal in Round 25 but returns this week. Kurt Mann (groin) was racing the clock to be fit but has not been named. Jonathan Sua has copped a one-week ban for a tackle on Moses Suli in Round 25.\nGold Coast Titans vs. South Sydney Rabbitohs\n(Saturday, August 29 at Cbus Super Stadium , 3:00pm AEST)\nGold Coast team:\n1. Keano Kini 2. Jaylan De Groot 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Klese Haas 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Josh Patston 12. Kurtis Morrin 13. Cooper Bai\n14. Moeaki Fotuaika 15. Chris Randall 16. Bodhi Sharpley 17. Luke Sommerton 18. Siale Faeamani 19. Arama Hau\nTitans team news:\nJosh Patston (concussion) is back this week and takes the place of Beau Fe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 30.47459880222222,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "77d45e8086ca367a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Lone Scout's Fantasy team list analysis: Round 26 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/25/lone-scouts-fantasy-team-list-analysis-round-26/",
+            "published_at": "2026-08-25T08:30:08+00:00",
+            "snippet": "Presented By\nLone Scout's Fantasy team list analysis: Round 26\nSome big names return along with a couple of Fantasy specialists but still a couple of surprise outs to deal with.\nLet’s get into the team lists for this week.\nBroncos v Storm, Thursday 7.50pm at Suncorp Stadium\nBronc",
+            "body_excerpt": "Presented By\nLone Scout's Fantasy team list analysis: Round 26\nSome big names return along with a couple of Fantasy specialists but still a couple of surprise outs to deal with.\nLet’s get into the team lists for this week.\nBroncos v Storm, Thursday 7.50pm at Suncorp Stadium\nBroncos: After their come from behind win last week in Canberra, the Broncos have kept their side as is for the Grand Final rematch against the Storm. Payne Haas had a big game last week and owners will be hoping he backs up in this one.\nStorm: For a third game running Tyran Wishart has a new position with Jahrome Hughes returning at halfback this week. Wishart instead finds himself at centre covering for Jack Howarth who has gone for surgery on an oft-injured shoulder. Jack Hetherington and Marion Seve are the new bench men.\nFirst take: Broncos v Storm\nSea Eagles v Dragons, Friday 6.00pm at 4 Pines Park\nSea Eagles: Josh Feledy replaces the injured Tolutau Koula who suffered an ankle sprain last week. Onitoni Large joins the 19 as Manly fight to keep their season alive.\nDragons: Jacob Liddle is out with a calf injury which gives an opportunity for Damien Cook to give us one or two more great fantasy games before he departs to Castleford next season. Connor Muhleisen comes into the interchange but expect Cook to get a bulk of the minutes if not play the entire match.\nFirst take: Sea Eagles v Dragons\nPanthers v Bulldogs, Friday 8.00pm at CommBank Stadium\nPanthers: Jack Cole is the surprise replacement for the suspended Jack Cogger at five-eighth with Blaize Talagi remaining on the six-man interchange. Jaxon Edgar takes the bench spot vacated by Cole.\nBulldogs: Enari Tuala is the only change to the side that got the job done against the Dragons last week. It should be noted that Matt Burton switched to right centre last week so Bronson Xerri could play on his preferred left side and expect the Bulldogs to run out in the same fashion on Friday night.\nFirst take: Panthers v Bulldogs\nTitans v Rabbitohs, Saturday 3.00pm at Cbus Super Stadium\nTitans: Coach Josh Hannay has resisted making too many changes to the team that went down to the Sharks despite leading at half-time. Josh Patston comes back from his stint in the concussion protocols in a straight swap for the injured Beau Fermor. Max Feagai can be found amongst the extended reserves in the only other adjustment.\nRabbitohs: In a fantastic initiative by the Rabbitohs and the NRL, Jai Arrow will suit up for, and take part in, the opening seconds of this game against his former club, allowing him to potentially register 100 matches for Souths. The other big news comes via the bench with Latrell Mitchell coming back from injury. He will be joined by Jamie Humphreys and Adam Elliott in a big boost for the visitors as they fight to cement a top-eight spot.\nFirst take: Titans v Rabbitohs\nRoosters v Dolphins, Saturday 5.30pm at Allianz Stadium\nRoosters: Having been teased for return for the past three weeks, coaches will again need to take the allocation of James Tedesco at fullback with a grain of salt. Following interviews with coach Trent Robinson who noted the ankle injury was more severe than first thought and the skipper has been named each week to allow Tedesco to prove his fitness but has still been yet to get the all-clear. After putting up an incredible outing last round, Nat Butcher reverts to lock with Victor Radley dealing with a concussion. Lindsay Collins is the new prop while Taylor Losalu joins Cody Ramsey on the pine.\nDolphins: Now locked for their first ever finals appearance the Phins will look to keep the purple patch going with a top-four spot up for grabs or at the very least a home final. The multi-talented, multi-positional Max Plath is again named in the back row to fill in for Connelly Lemuelu (hamstring). Although expect the dynamic Brian Pouniu, who played there last week to be a late swap into the starting side. Interestingly, Kurt Donoghoe is amongst the back lot of the reserves in his ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 64.86293213555555,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c01e86d7aaedfdde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Bulldogs Senior Pathways Team List: Round 26 - Bulldogs",
+            "url": "https://www.bulldogs.com.au/news/2026/08/25/bulldogs-senior-pathways-team-list-round-26/",
+            "published_at": "2026-08-25T05:59:36+00:00",
+            "snippet": "Bulldogs Senior Pathways Team List: Round 26\nThe Canterbury-Bankstown Bulldogs Senior Representative sides have been named for Round 26 of their respective seasons.\nThe Jersey Flegg Cup side face the Penrith Panthers in a tantalising match between second and third place, while th",
+            "body_excerpt": "Bulldogs Senior Pathways Team List: Round 26\nThe Canterbury-Bankstown Bulldogs Senior Representative sides have been named for Round 26 of their respective seasons.\nThe Jersey Flegg Cup side face the Penrith Panthers in a tantalising match between second and third place, while the Ron Massey Cup team are playing for a spot in the Grand Final.\nMeanwhile after gallant campaigns, the NSW Cup and NSW Women's Premiership sides will play their final matches of the season against the Panthers and Tigers respectively.\nNSW Cup Teamlist\nNSW Women's Premiership Teamlist\nJersey Flegg Cup Teamlist\nRon Massey Cup Teamlist\nNSW Cup (Men's Open Age)\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nPanthers\n1st Position\naway Team\nBulldogs\n7th Position\nVenue: Parker Street Reserve, Penrith\nMatch broadcasters:\nBarTV\nNo.\nName\nKade Dykes\nChelden Hayward\nCooper Toy\nJed Reardon\nNick O'Meley\nAlex Conti\nJoseph Teaupa\nLipoi Hopoi\nGordon Chan Kum Tong\n10\nLyncoln Cliffe\n11\nChase Paterson\n12\nLogan Spinks\n13\nJack Todd\nInterchange\n14\nBailey Myers\n15\nFinau Latu\n16\nDavid Leota\n17\nTBA\nHead Coach:\nJason Taylor\nNSW Women's Premiership (Women's Open Age)\nMatch: Wests Tigers v Bulldogs\nRound 11 - Round 11 - Saturday 29 Aug\nWests Tigers\nVenue: Lidcombe Oval, Sydney\n19\nShanthie Lui\nTiare-Anne Leauga\nAmbryn Murphy-Haua\nHenilietta Lokotui\nMoana Coutenay\nLimilaiti Paea\nDallis Graham-Withell\nLosalio Payne\nEbony Prior\nGiovanna Suani\nShafenior Lui\nAlleya Scrivens\nRiley Fruen-Otineru\nWaimarie Martin\nLeteena Medland\nMaeya Talamaivao\n22\nTyler Eve Mair\nReserves\nTeromgomai Williams\nCharlotte Henry\nJersey Flegg Cup (Men's Under 21s)\n3rd Position\n2nd Position\nRaymond Puru\nMaila Setu\nAaymon Fitzgibbon\nMarcellus Iakopo\nWesley Papalii-Afoa\nLatrell Fing\nBronson Reuben\nTristan Burns\nKaawyn Patterson\nFine Fale\nSosaia Alatini\nJayden Smith\nSosefo Finau\nLachlan Mifsud\nPatrick Carey\nBud Smith\nAlvin Chong Nee\nJosh Jackson\nRon Massey Cup (Men's Open Age)\nMatch: Hawks v Bulldogs\nFinals Week 3 - Finals Week 3 - Saturday 29 Aug\nHawks\nVenue: St George Venues Jubilee Stadium, Kogarah\nTaye Cochrane\nMikaele Senibua\nBaxter Warner\nPaul Johnson\nJope Rauqe\nLeif Dietrich\nDamon Humphrys\nBroden Konz\nMeli Nacaginimasei\nAngus Fahey\nMace Andrew\nMikal Papalii-Talanai\nJustin Matamua\nJack Ennis\nAzariah Toki-Maitauri\nMalachi Filipo\nCorey Ackers\nDave Swann\nRelated /\nCoach Media: Round 26\nNRLW Round 9 Match Preview: Heating Up\nNRL.com: Bulldogs Back Galvin to Keep Dream Alive\nCommunity\nBulldogs and SDA Join Forces with PDRL\nNRL Round 26 Match Preview: Final Battle of the West",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.37182102444444,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d8089cbd5733323",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 26 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/08/25/nrl-team-list-round-26/",
+            "published_at": "2026-08-25T05:59:00+00:00",
+            "snippet": "NRL Team List: Round 26\nPanthers Head Coach Ivan Cleary has named his squad for Friday’s clash with the Bulldogs at CommBank Stadium.\nWith the finals and minor premiership race heating up, don’t miss the Panthers final home games of the regular season.\nSPECIAL TICKET OFFERS $67 F",
+            "body_excerpt": "NRL Team List: Round 26\nPanthers Head Coach Ivan Cleary has named his squad for Friday’s clash with the Bulldogs at CommBank Stadium.\nWith the finals and minor premiership race heating up, don’t miss the Panthers final home games of the regular season.\nSPECIAL TICKET OFFERS $67 Family Offer in the North Grandstand. Use promo code PANTHERS67\nRelated Panthers\nGameday Guide: Panthers v Bulldogs\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nPanthers\n2nd Position\naway Team\nBulldogs\n9th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nTeam Lists\nUpdated NRL Team List: Round 26\nPlayer Media\nLussick on sin bins: You’ve just got to adapt and move on\nScott: Loving every minute\nCasey McLean: Mitch Kenny is our ‘unsung hero'",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.38182102444445,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "222e49f63a77f803",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Penrith Panthers vs Canterbury Bulldogs Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/penrith-panthers-vs-canterbury-bulldogs-tips-odds-teams-predictions-nrl-round-26-2026/610054/amp",
+            "published_at": "2026-08-26T23:11:33+00:00",
+            "snippet": "Penrith Panthers vs Canterbury Bulldogs Tips, Odds, Teams & Predictions – NRL Round 26 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "CommBank Stadium will play host to Friday's Round 26 NRL game between Penrith Panthers and Canterbury Bulldogs. The game kicks off at 8:00 pm with Penrith Panthers heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Penrith Panthers vs. Canterbury Bulldogs game and give you our free tips and bets.\nWhen: Friday August 28, 2026 at 8:00 pm\nWhere: CommBank Stadium\nBet: Bet On This Match HERE\nPenrith Panthers vs Canterbury Bulldogs Odds\nPenrith Panthers vs Canterbury Bulldogs Preview\nPenrith remains second after a disciplined 22-14 win over Melbourne and can move closer to securing a home qualifying final with another victory. Canterbury revived its season by beating St George Illawarra 44-14, but the Bulldogs still enter the round two points outside the top eight. Jack Cole replaces the suspended Jack Cogger at five-eighth for the Panthers, while Enari Tuala returns on Canterbury’s wing and Jack Underhill comes onto the bench for the injured Kurt Mann. The Bulldogs produced a 32-16 upset in Round 6, so Penrith will not lack motivation. Nathan Cleary’s control, the Panthers’ defensive consistency and an eight-match home winning streak against Canterbury give the hosts the stronger foundation, although the Bulldogs’ desperation should keep the contest physical and competitive.\nHead To Head Bet\nWe're tipping Penrith Panthers to win at $1.35 odds.\nFirst Try Scorer\nFirst Try Scorer: Casey McLean at $11.00 .\nPenrith Panthers vs Canterbury Bulldogs Teams\nPanthers team: 1. Dylan Edwards 2. Thomas Jenkins 3. Izack Tago 4. Casey McLean 5. Brian To’o 6. Jack Cole 7. Nathan Cleary 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali’i 12. Liam Martin 13. Lindsay Smith 14. Billy Scott 15. Scott Sorensen 16. Luke Garner 17. Billy Phillips 18. Blaize Talagi 19. Jaxen Edgar 20. Kalani Leuluai-going 21. Tom Ale 22. Jesse McLean\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Bronson Xerri 5. Enari Tuala 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Jake Turpin 15. Alekolasimi Jones 16. Harry Hayes 17. Josh Curran 19. Sean O’Sullivan 20. Jack Underhill 21. Logan Spinks 22. Jed Reardon 23. Cooper Toy",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.172654357777777,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "34ba6e97c8931cbd",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Panthers v Bulldogs: Cole in for Cogger; Tuala good to go",
+            "url": "https://www.nrl.com/news/2026/08/25/panthers-v-bulldogs-cole-in-for-cogger-tuala-good-to-go/",
+            "published_at": "2026-08-27T10:01:36+00:00",
+            "snippet": "Presented By\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nThe Panthers have once again put themselves in a striking position late in the season with a fourth minor premiership in seven years beckoning.\nWith games against the Bulldogs and Wests Tigers to come, the tea",
+            "body_excerpt": "Presented By\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nThe Panthers have once again put themselves in a striking position late in the season with a fourth minor premiership in seven years beckoning.\nWith games against the Bulldogs and Wests Tigers to come, the team of the decade can start planning for an all-out assault on another premiership to go with the 2021, '22, '23 and '24 titles.\nStanding in their way on Friday night will be a desperate Bulldogs outfit still clinging to their own finals dream and a shot at breaking a premiership drought that stretches all the way back to 2004.\nThe Bulldogs have more than enough firepower to cause the Panthers problems and this promises to be a cracking contest with so much at stake for both sides,\nHow Bulldogs playmaker Lachlan Galvin copes with the intense pressure from a rushing Penrith defence will go a long way towards deciding his team's fate as they look to stay alive in the race for the eight.\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nPanthers\n2nd Position\naway Team\nBulldogs\n9th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nPanthers: Jack Cole takes over at five-eighth with Jack Cogger serving a three-game ban for a careless high tackle. Blaize Talagi has been added to the bench after playing NSW Cup the past two weeks while impressive young fullback Jaxen Edgar also joins the interchange. No changes in Thursday's 24-hour update.\nBulldogs: Enari Tuala returns on the wing after missing last week's game with a knee injury. Utility Kurt Mann (groin) is sidelined so Jack Underhill was named on the bench on Tuesday but has dropped out 24 hours before kick-off. Jed Reardon has been added in jersey No.22.\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Bulldogs is number 1 Connor Tracey\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Bulldogs is number 2 Jacob Kiraz\nCentre for Panthers is number 3 Izack Tago 3 Centre for Bulldogs is number 3 Matt Burton\nCentre for Panthers is number 4 Casey McLean 4 Centre for Bulldogs is number 4 Bronson Xerri\nWinger for Panthers is number 5 Brian To'o 5 Winger for Bulldogs is number 5 Enari Tuala\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Bulldogs is number 6 Stephen Crichton\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Bulldogs is number 7 Lachlan Galvin\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Bulldogs is number 8 Max King\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Bulldogs is number 9 Bailey Hayward\nProp for Panthers is number 10 Liam Henry 10 Prop for Bulldogs is number 10 Leo Thompson\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Bulldogs is number 11 Viliame Kikau\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Bulldogs is number 12 Jacob Preston\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Bulldogs is number 13 Jaeman Salmon\n13\nInterchange\nInterchange for Panthers is number 14 Billy Scott 14 Interchange for Bulldogs is number 14 Jake Turpin\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Bulldogs is number 15 Alekolasimi Jones\n15\nInterchange for Panthers is number 16 Luke Garner 16 Interchange for Bulldogs is number 16 Harry Hayes\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Bulldogs is number 17 Josh Curran\n17\nInterchange for Panthers is number 18 Blaize Talagi 18 19 Interchange for Bulldogs is number 19 Sean O'Sullivan\n18 19\nInterchange for Panthers is number 19 Jaxen Edgar 19 22 Interchange for Bulldogs is number 22 Jed Reardon\n19 22\nReserves\nReserve for Panthers is number 20 Kalani Leuluai-Going 20 23 Reserve for Bulldogs is number 23 Cooper Toy\n20 23\nPanthers Ins\nBlaize Talagi\nJaxen Edgar\nKalani Leuluai-Going\nBulldogs Ins\nCooper Toy\nEnari Tuala\nJed Reardon\nPanthers Outs\nJack Cogger\nLuron Patea\nJonathan Sua\n",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.338487691111112,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1b6fb04fb0edee16",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Bulldogs Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/panthers-vs-bulldogs-preview-betting-tips-nrl-round-26-2026",
+            "published_at": "2026-08-27T02:17:11+00:00",
+            "snippet": "Panthers vs Bulldogs Preview & Betting Tips: NRL Round 26 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Panthers vs Bulldogs Preview & Betting Tips: NRL Round 26 2026\nAugust 26 th 2026, 7:14pm , By: Scooby\nThe main game on Friday night heads to Sydney with the Panthers hosting the Bulldogs . This highly-anticipated contest promises to be a high-quality fixture with more than just 2 competition points on the line. With the NRL Finals just around the corner, a win in this game could set the victor up for future success. We're here to assist with a detailed preview of what is ahead in this match, with the aim of finding you a winner or two to add to your enjoyment.\nBefore You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content. And if you're looking for a new site to try then click on the banner below to join Picklebet and take advantage of their fantastic NRL offers!\nPanthers vs Bulldogs Predictions & Tips: NRL Round 26 2026\nA class above\nIt was a ruthless opening to their road trip to Melbourne last week with the Panthers powering their way to a 22-0 lead inside 30 minutes. As the weather turned, the intensity appeared to drop, with fatigue building from indiscretions. This limited their effectiveness but there was no doubting how strong they were in the opening exchanges on their way to a 22-14 victory. With just a 44% share of possession they completed at 82%, running for 8.9m per carry, and having 5 line breaks. Their defence scrambled well at times but the standard this team sets will want to address the 40 missed tackles they allowed.\nMaking a statement\nWith their Finals hopes hanging by a thread, the Bulldogs made a statement with a 44-14 road victory over the Dragons. Blitzing their opponents in the first half, they jumped to a 24-nil HT lead. There was no change in the second half either as the visitors attacking was firing and gaining in confidence. It is no surprise that this outcome coincided with an 85% completion rate (51% possession), 9.6m per carry, 555 PCM’s, and 7 line breaks. They were relentless with the ball in hand and will want to maintain that level of execution if they are a chance of winning this game.\nStats that matter\n- The home side have won 5 out of the past 6 game including the Bulldogs 32-16 Round 6 victory over the Panthers. That doesn’t bode well for the Bulldogs with just a 30% strike rate at this ground (Panthers 58%).\n- Only 2 of the past 5 games have been decided by fewer than 16 points. This has the average margin of victory at 13.6 points. They’ve been low scoring contests though, with the average points scored sitting at 38.4.\n- It is no surprise that the Panthers are the superior team on both sides of the ball this season. They score 28ppg in attack while allowing only 14ppg. In contrast, the Bulldogs score just 20ppg but concede 21ppg.\nConsistency is the key\nIt is a simple phrase but that is what has been missing from both teams of late.\nUnusually for the Panthers, they are not playing for 80 minutes and teams lift to a high standard each week to play them. The same can be expected of the Bulldogs. In equal measure, the home team will want revenge for their loss earlier in the season. Proving how capable they were last week, the Bulldogs also lack consistency in matches. Appearing as though they are heading in the right direction, they will face a higher intensity than they have experienced in the past few weeks. If they are not at their best, they will be quickly ambushed by a superior opponent. The loss of Cogger for the Panthers further disrupts their spine, increasing the pressure on Cleary. As Edwards continues to regain match fitness, his ability to relive pressure in this area becomes vital. The relentless approach shown by the Panthers in the opening stages of their match last week indicates the Bulldogs will struggle in this game. While they are expected to be competitive with their season on the line, it will likely only take them so far, wi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.078765468888886,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5fe99cd3bb55234b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers v Bulldogs: Round 26 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/26/panthers-v-bulldogs-round-26/",
+            "published_at": "2026-08-26T05:29:58+00:00",
+            "snippet": "Panthers v Bulldogs: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:09 Broncos v Storm: Round 26\nBroncos v Storm: Round 26\nRelated /\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nBulldogs\nLach us in: Bulldogs back Galvin t",
+            "body_excerpt": "Panthers v Bulldogs: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:09 Broncos v Storm: Round 26\nBroncos v Storm: Round 26\nRelated /\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nBulldogs\nLach us in: Bulldogs back Galvin to keep the dream alive\nMatch Highlights\nPanthers v Bulldogs - Finals Week 1, 2016\nFantasy\nFirst take: Panthers v Bulldogs\nMatch Preview\nDragons v Bulldogs: Atkinson settles in; Xerri's fresh chance\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.86570991333333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5c06d9cece26bae9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 26 Match Preview: Final Battle of the West - Bulldogs",
+            "url": "https://www.bulldogs.com.au/news/2026/08/26/nrl-round-26-match-preview-final-battle-of-the-west/",
+            "published_at": "2026-08-25T23:47:20+00:00",
+            "snippet": "NRL Round 26 Match Preview: Final Battle of the West\nIt's the final Battle of the West for the regular season this Friday night as we head to Parramatta to face the Penrith Panthers in a mouthwatering match up.\nThe season is on the line for the Bulldogs with just two weeks remain",
+            "body_excerpt": "NRL Round 26 Match Preview: Final Battle of the West\nIt's the final Battle of the West for the regular season this Friday night as we head to Parramatta to face the Penrith Panthers in a mouthwatering match up.\nThe season is on the line for the Bulldogs with just two weeks remaining before finals, while Penrith won't have the luxury of resting players as they reach for the Minor Premiership as they battle a three-way tie against the Warriors and Roosters.\nIf the last few clashes are anything to go by, this one is going to be a doozy.\nDownload Your 2026 NRL Team Poster here!\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nPanthers\n2nd Position\naway Team\nBulldogs\n9th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nAs usual, there is plenty of team news, stats and info to unpack in our Round 26 Match Preview.\nTeamlists and Team News\nHistory vs Panthers and Last Time Out\nKey Match Up\nWhat They Said\nStat Attack\nWhere to Watch\nEnari Tuala returns on the wing after missing last week's game with a knee injury. Utility Kurt Mann (groin) is sidelined so Jack Underhill has been added to the six-man bench.\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Bulldogs is number 1 Connor Tracey\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Bulldogs is number 2 Jacob Kiraz\nCentre for Panthers is number 3 Izack Tago 3 Centre for Bulldogs is number 3 Matt Burton\nCentre for Panthers is number 4 Casey McLean 4 Centre for Bulldogs is number 4 Bronson Xerri\nWinger for Panthers is number 5 Brian To'o 5 Winger for Bulldogs is number 5 Enari Tuala\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Bulldogs is number 6 Stephen Crichton\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Bulldogs is number 7 Lachlan Galvin\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Bulldogs is number 8 Max King\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Bulldogs is number 9 Bailey Hayward\nProp for Panthers is number 10 Liam Henry 10 Prop for Bulldogs is number 10 Leo Thompson\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Bulldogs is number 11 Viliame Kikau\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Bulldogs is number 12 Jacob Preston\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Bulldogs is number 13 Jaeman Salmon\n13\nInterchange\nInterchange for Panthers is number 14 Billy Scott 14 Interchange for Bulldogs is number 14 Jake Turpin\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Bulldogs is number 15 Alekolasimi Jones\n15\nInterchange for Panthers is number 16 Luke Garner 16 Interchange for Bulldogs is number 16 Harry Hayes\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Bulldogs is number 17 Josh Curran\n17\nInterchange for Panthers is number 18 Blaize Talagi 18 19 Interchange for Bulldogs is number 19 Sean O'Sullivan\n18 19\nInterchange for Panthers is number 19 Jaxen Edgar 19 22 Interchange for Bulldogs is number 22 Jed Reardon\n19 22\nReserves\nReserve for Panthers is number 20 Kalani Leuluai-Going 20 23 Reserve for Bulldogs is number 23 Cooper Toy\n20 23\nPanthers Ins\nBlaize Talagi\nJaxen Edgar\nKalani Leuluai-Going\nBulldogs Ins\nCooper Toy\nEnari Tuala\nJed Reardon\nPanthers Outs\nJack Cogger\nLuron Patea\nJonathan Sua\nKurt Mann\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Drew Oultram\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 8/27/2026 9:58:03 AM\nJack Cole takes over at five-eighth with Jack Cogger serving a three-game ban for a careless high tackle. Blaize Talagi has been added to the bench after playing NSW Cup the past two weeks while impressive young fullback Jaxen Edgar also joins the interchange.\nHistory vs Panthers and Last Time Out: Round 6, 2026\nAnother classic Western Sydney derby is among us, and for over 60 years the Bulldogs and Panthers have fough",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 49.576265468888884,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ac58a3c9863f2cde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 26 Team News: Penultimate Panthers Test - Bulldogs",
+            "url": "https://www.bulldogs.com.au/news/2026/08/25/nrl-round-26-team-news-penultimate-panthers-test/",
+            "published_at": "2026-08-25T05:49:55+00:00",
+            "snippet": "Presented By\nNRL Round 26 Team News: Penultimate Panthers Test\nThe Canterbury-Bankstown Bulldogs side to face the Penrith Panthers at CommBank Stadium has been named.\nThe Bulldogs head to CommBank Stadium to face fierce foes Penrith in a bid to claim consecutive victories over th",
+            "body_excerpt": "Presented By\nNRL Round 26 Team News: Penultimate Panthers Test\nThe Canterbury-Bankstown Bulldogs side to face the Penrith Panthers at CommBank Stadium has been named.\nThe Bulldogs head to CommBank Stadium to face fierce foes Penrith in a bid to claim consecutive victories over the Panthers in a match that will have big ramifications for the top eight.\nCameron Ciraldo has named Enari Tuala to return from a knee injury after missing last week's big win over the Dragons, with Jonathan Su'a sidelined with a one-week suspension.\nNRL Match Highlights: Bulldogs v Panthers - Round 6, 2026\nKurt Mann has suffered a groin injury, and has been replaced with Jake Turpin, with Jack Underhill coming onto the interchange bench.\nYoung trio Logan Spinks, Jed Reardon and Cooper Toy have been named in the reserves.\nDownload your 2026 NRL Team Poster here!\nDate: Friday, August 28 Venue: CommBank Stadium, Parramatta, NSW Bulldogs vs Panthers Kick-Off: 8:00pm (AEST)\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nPanthers\n2nd Position\naway Team\nBulldogs\n9th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nDon't let a bet take you away from the match.\nReclaim the Game, be gamble aware.\nThe Round 26 team presented by CBS Complete Building Solutions is as follows:\nNo.\nPlayer\nSponsor\nConnor Tracey\nPPC Moulding Services\nJacob Kiraz\nChemistworks\nMatt Burton\nPlatinum Rehabilitation Group\nBronson Xerri\nGuardian Venue Management\nEnari Tuala\nSydney City Building Group\nStephen Crichton (c)\nWaterview in Bicentennial Park\nLachlan Galvin\nLeading Services Australia\nMax King\nPenny's Crispy Pork Crackling\nBailey Hayward\nBrushwood Engineering Group\n10\nLeo Thompson\nKogan.com\n11\nViliame Kikau\nLending Hub\n12\nJacob Preston\nIntello IT Solutions\n13\nJaeman Salmon\nAllied X\nInterchange\nSafety Partners\n14\nJake Turpin\nCorellian\n15\nAlekolasimi Jones\nG Class Luxury Car Hire\n16\nHarry Hayes\nKhalil Lawyers\n17\nJosh Curran\nDental On Evaline\n19\nSean O'Sullivan\n20\nJack Underhill\nReserves\n21\nLogan Spinks\n22\nJed Reardon\n23\nCooper Toy\nCoaching Staff\nName\nHead Coach\nCameron Ciraldo\nKumho Tyre\nRelated /\nNRL.com: Bulldogs Back Galvin to Keep Dream Alive\nNRL Round 26 Match Preview: Final Battle of the West\nTeam Lists\nTeam News: NRL Round 25 Final Squad\nNRL Round 25 Team News: Old Foes, New Ground\nRound 24 Team News: NRL Final Squad",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.53320991333334,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8dc0a6088e6f79e7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Penrith Panthers vs Canterbury Bulldogs Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/27/penrith-panthers-vs-canterbury-bulldogs-predictions/",
+            "published_at": "2026-08-27T02:27:03+00:00",
+            "snippet": "Penrith Panthers vs Canterbury Bulldogs Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Penrith Panthers host Canterbury Bulldogs in Round 26 of the 2026 NRL season at CommBank Stadium on Friday, 28th August at 8:00 PM AEST. Read on for our full match preview, expert NRL betting tips , and best Rugby League odds .\nThe Bulldogs won’t mathematically be out the finals equation with a loss here, but this blockbuster against the Panthers has a must-win feel about.\nFORM: After losing five of their previous eight, the Panthers made hard work of a 22-14 win over the out-of-contention Storm – leading 22-0 before having three players sin-binned. Brian To’o bagged a hat-trick in the tense victory.\nThe Bulldogs bounced back from consecutive losses to the Roosters (20-18) and Rabbitohs (20-18) with a 44-14 cruise against the Dragons, with Matt Burton grabbing a double.\nINS AND OUTS: Jack Cole comes in at five-eighth for Penrith with Jack Cogger suspended, while Blaize Talagi and Jaxen Edgar come onto the bench.\nThe Bulldogs get Enari Tuala back on the wing. Jack Underhill replaces the injured Kurt Mann on the bench. It remains to be seen whether the club’s COVID crisis forces any changes.\nKEY MATCH-UP: NSW squad teammates Casey McLean and Matt Burton are set for a titanic centre battle.\nHISTORY: The Panthers have won nine of their last 11 against the Bulldogs, but the Bulldogs carved out a stunning 32-16 win in Round 6 this year – the Panthers’ only loss in the first 14 rounds.\nKEY STAT: The Bulldogs have held the Panthers to 16 points or less in four of their last five meetings.\nVERDICT: The Panthers are still searching for some elusive momentum and rhythm as the finals draw near. They’ve only scored more than 24 points twice in their past nine games. A finals-intensity clash with a desperate Bulldogs side laced with ex-Panthers may shake them out of this malaise.\nThe Bulldogs’ preparations have been disrupted by a COVID outbreak, but they will be confident after the last meeting between the clubs and a tough, tense low-scorer is on the cards here.\nPrediction: Back the Bulldogs to Cover the Line (+8.5) @ $1.90\nSGM: EITHER TEAM BY UNDER 10.5 POINTS / UNDER 40.5 TOTAL POINTS / BRIAN TO’O ANYTIME TRYSCORER / STEPHEN CRICHTON ANYTIME TRYSCORER @ $31.41\nPenrith Panthers vs Canterbury Bulldogs Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Penrith Panthers vs Canterbury Bulldogs matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nCommBank Stadium • Friday 28th Aug\nTeam\nOdds\nCanterbury Bulldogs (8.5)\n1.90\nBet Now\nPenrith Panthers (-8.5)\nNRL odds correct as of 28/08/2026 and subject to change. Event scheduled to start at 28/08/2026 8:00pm AEST.\nThomas Jenkins (Penrith Panthers)\n6.80\nBrian To'o (Penrith Panthers)\n8.25\nCasey McLean (Penrith Panthers)\n11.50\nJacob Kiraz (Canterbury Bulldogs)\n13.00\nDylan Edwards (Penrith Panthers)\nEnari Tuala (Canterbury Bulldogs)\nBronson Xerri (Canterbury Bulldogs)\n16.00\nIzack Tago (Penrith Panthers)\nNathan Cleary (Penrith Panthers)\n17.00\nLuke Garner (Penrith Panthers)\n19.00\nJacob Preston (Canterbury Bulldogs)\nMatt Burton (Canterbury Bulldogs)\nLiam Martin (Penrith Panthers)\n21.00\nStephen Crichton (Canterbury Bulldogs)\nJack Cole (Penrith Panthers)\n23.00\nLachlan Galvin (Canterbury Bulldogs)\nViliame Kikau (Canterbury Bulldogs)\nConnor Tracey (Canterbury Bulldogs)\n26.00\nBilly Scott (Penrith Panthers)\n29.00\nIsaiah Papali'i (Penrith Panthers)\nFreddy Lussick (Penrith Panthers)\n31.00\nLiam Henry (Penrith Panthers)\n34.00\nBilly Phillips (Penrith Panthers)\n41.00\nAlekolasimi Jones (Canterbury Bulldogs)\nScott Sorensen (Penrith Panthers)\nLindsay Smith (Penrith Panthers)\nMoses Leota (Penrith Panthers)\n51.00\nJaeman Salmon (Canterbury Bulldogs)\nJosh Curran (Canterbury Bulldogs)\nHarry Hayes (Canterbury Bulldogs)\n67.00\nLeo Thompson (Canterbury Bulldogs)\nJake Turpin (Canterbury Bulldogs)\nBailey Hayward (Canterbury Bulldogs)\nMax King (Canterbury Bulldogs)\n81.00\nNo Scorer\n701.00\nParramatta Eels vs Cronulla Sharks Predictio",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.914321024444444,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "e44a567c84ed5a05",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Bulldogs - Round 26, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/panthers-bulldogs-round-26-2026-mc10396535-237316/",
+            "published_at": "2026-08-23T19:52:27+00:00",
+            "snippet": "Panthers vs Bulldogs - Round 26, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 26, 2026 PANTHERS V BULLDOGS KICK OFF CommBank Stadium #NRLPanthersBulldogs 2026-08-28T10:00:00Z Preview\nPANTHERS\nBULLDOGS\nPreview\nPanthers vs Bulldogs – Round 26, 2026\nThe Penrith Panthers face the Canterbury-Bankstown Bulldogs in Round 26 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at CommBank Stadium. Ladder Position Injury Report Panthers NAME REASON EXPECTED RETURN Jack Cogger Suspension Finals Mitch Kenny Leg Finals Paul Alamoti Hamstring TBC Isaah Yeo Pectoral TBC Bulldogs NAME REASON EXPECTED RETURN Jonathan Sua Suspension Round 27 Jethro Rinakama Knee TBC Sitili Tupouniua Hamstring TBC Kurt Mann Groin TBC Samuel Hughes Neck TBC Previous 5 Games Panthers DATE OPP RESULT 20/8/26 Storm W 14 - 22 13/8/26 Roosters L 6 - 12 7/8/26 Warriors L 28 - 12 1/8/26 Raiders W 42 - 18 23/7/26 Eels W 18 - 24 Bulldogs DATE OPP RESULT 22/8/26 Dragons W 14 - 44 14/8/26 Rabbitohs L 6 - 22 7/8/26 Roosters L 20 - 18 31/7/26 Storm W 22 - 36 25/7/26 Warriors W 18 - 6\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nJack Cogger\nSuspension\nFinals\nMitch Kenny\nLeg\nPaul Alamoti\nHamstring\nTBC\nIsaah Yeo\nPectoral\nJonathan Sua\nRound 27\nJethro Rinakama\nKnee\nSitili Tupouniua\nKurt Mann\nGroin\nSamuel Hughes\nNeck\nPrevious 5 Games\nDATE\nOPP\nRESULT\n20/8/26\nStorm\nW 14 - 22\n13/8/26\nRoosters\nL 6 - 12\n7/8/26\nWarriors\nL 28 - 12\n1/8/26\nRaiders\nW 42 - 18\n23/7/26\nEels\nW 18 - 24\n22/8/26\nDragons\nW 14 - 44\n14/8/26\nRabbitohs\nL 6 - 22\nL 20 - 18\n31/7/26\nW 22 - 36\n25/7/26\nW 18 - 6\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nDylan Edwards Dylan Edwards\nThomas Jenkins Thomas Jenkins\nIzack Tago Izack Tago\nCasey McLean Casey McLean\nBrian To'o Brian To'o\nJack Cole Jack Cole\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\n10\nLiam Henry Liam Henry\n11\nIsaiah Papali'i Isaiah Papali'i\n12\nLiam Martin Liam Martin\n13\nLindsay Smith Lindsay Smith\nINTERCHANGE\n14\nBilly Scott Billy Scott\n15\nScott Sorensen Scott Sorensen\n16\nLuke Garner Luke Garner\n17\nBilly Phillips Billy Phillips\n18\nBlaize Talagi Blaize Talagi\n19\nJaxen Edgar Jaxen Edgar\nRESERVES\n20\nK. Leuluai-Going Kalani Leuluai-Going\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nBronson Xerri Bronson Xerri\nEnari Tuala Enari Tuala\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\nLeo Thompson Leo Thompson\nViliame Kikau Viliame Kikau\nJacob Preston Jacob Preston\nJaeman Salmon Jaeman Salmon\nJake Turpin Jake Turpin\nAlekolasimi Jones Alekolasimi Jones\nHarry Hayes Harry Hayes\nJosh Curran Josh Curran\nSean O'Sullivan Sean O'Sullivan\nJed Reardon Jed Reardon\n22\nCooper Toy Cooper Toy\n23",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 101.49098769111112,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "529484687691105a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Update: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/27/nrl-team-update-round-26-vs.-sea-eagles/",
+            "published_at": "2026-08-27T08:00:00+00:00",
+            "snippet": "NRL Team Update: Round 26 vs. Sea Eagles &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team Update: Round 26 vs. Sea Eagles\nDean Young has named his squad to take on the Manly Warringah Sea Eagles at 4 Pines Park in Round 26.\n24-Hour Update: Luciano Leilua and Ryan Hutchinson drop out of the squad.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nJacob Liddle (calf) is out for the Red V with Damien Cook starting at hooker and Connor Muhleisen coming onto the interchange for his first NRL outing since Round 27, 2024.\nThe 25-year-old suffered an ACL rupture in the club’s Knock-On Effect NSW Cup Grand Final last year and made an awaited return to the field earlier this month.\nROUND 26 TEAM LIST\nROUND 26\nTEAM LIST\nPLAYER PARTNER\nDaniel ATKINSON\nPorta Restaurant\nMathew FEAGAI\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nToby COUCHMAN\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nConnor MUHLEISEN\nWollongong City Jetski\n15\nJosh KERR\nClassic Sportswear\n16\nJacob HALANGAHU\nBill & Toni’s Restaurant\n17\nJacob WEBSTER\nJAC Motors\n18\nBlake LAWRIE\nGearbox\n19\nSetu TU\ni98FM\n21\nKade REED\nWIN TV\nRelated /\nNRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off\nTeam Lists\nNRL Team List: Round 26 vs. Sea Eagles\nNRL Final Team: Round 25 vs. Bulldogs\nNRL Team Update: Round 25 vs. Bulldogs\nNRL Team List: Round 25 vs. Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.36515435777778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "1dd27979b3d6aea0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/27/nrl-round-26-match-preview-dragons-journey-to-northern-beaches-for-friday-face-off/",
+            "published_at": "2026-08-27T05:14:46+00:00",
+            "snippet": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off\nThe St George Illawarra Dragons make the trip up to 4 Pines Park for a Friday evening clash with the Manly Warringah Sea Eagles.\nGET YOUR TICKETS!\nNRL TEAM LIST\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nKEY INFO\nDate: Friday, August 28th\nVenue: 4 Pines Park, Brookvale\nWatch: Kayo & Foxtel\nNRL: 6:00pm\nMUHLEISEN BACK IN THE NRL\nJacob Liddle's season-ending calf injury opens the door for Connor Muhleisen to make his first NRL appearance since Round 27, 2024.\nMuhleisen played a starring role in the club's run to the 2025 Knock-On Effect NSW Cup Grand Final tallying a competition-best 806 tackles at 96 per cent efficiency before suffering an ACL rupture in the first half of the decider.\nHe made his return to the field in the club's Round 22 Knock-On Effect NSW Cup fixture this year and this week earns an opportunity on the big stage.\nA native of Buxton in the Wollondilly Shire, Muhleisen grew up playing his juniors with the Thirlmere-Tahmoor Roosters before linking up with Illawarra as a teenager.\nHe represented the Steelers at Harold Matthews Cup and SG Ball level helping lead the side to a 2019 SG Ball Grand Final win.\nHe made the leap up to Jersey Flegg the following year before earning a maiden NSW Cup nod in Round 8, 2021.\nA gritty No.9, Muhleisen grew into an integral member of the side before being rewarded with an NRL debut in Round 22, 2023.\nCOOK EAGER TO END ON HIGH\nIt's been an impressive ride for veteran rake Damien Cook who is on the home stretch of an illustrious, 14-year NRL career.\nCook made a long-awaited homecoming to the Dragons in 2025 having made his NRL debut for the club back in Round 6, 2013.\nA Helensburgh Tigers junior, Cook would spend the 2014 and 2015 seasons with the Bulldogs before making the move to the Rabbitohs where he blossomed into one of the game’s elite No.9s over the course of nine seasons.\nHe made his State of Origin debut in Game I, 2018 before earning a Kangaroos debut later that year against New Zealand.\nThe 34-year-old now boasts a resumé including 261 NRL appearances, 17 State of Origin nods, four Kangaroos caps and a Dally M Hooker of the Year Award.\nCook: “Trying to enjoy myself”\nTEAM NEWS\nJacob Liddle (calf) is out for the Red V with Damien Cook starting at hooker and Connor Muhleisen coming onto the interchange for his first NRL outing since Round 27, 2024.\nWith Tolutau Koula (ankle) sidelined, Josh Feledy starts at centre and 19-year-old Onitoni Large has been added to the interchange for his NRL debut.\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dragons is number 9 Damien Cook\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dragons is number 10 Toby Couchman\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Sea Eagles is number 12 Ben Trbojevic 12 2nd Row for Dragons is number 12 Hamish Stewart\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dr",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.119043246666664,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "b710c1eca4f911b3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Blow for Penrith Panthers fans as unsung hero confirms he's signed with Bulldogs for 2027 - Yahoo News Australia",
+            "url": "https://au.news.yahoo.com/blow-for-penrith-panthers-fans-as-unsung-hero-confirms-hes-signed-with-bulldogs-for-2027-032608495.html",
+            "published_at": "2026-08-27T03:26:00+00:00",
+            "snippet": "Blow for Penrith Panthers fans as unsung hero confirms he's signed with Bulldogs for 2027 &nbsp;&nbsp; Yahoo News Australia",
+            "body_excerpt": "Penrith Panthers fans will be sad to see Freddy Lussick depart the club after the dummy-half confirmed he is heading to the Bulldogs next NRL season. The Panthers signed Lussick from the Warriors on a one-year deal for 2026 to add depth in the No.9 position.\nLussick stepped into the starting No.9 role when Mitch Kenny fractured his leg, and didn't miss a beat to help the Panthers sit second on the ladder. Lussick has started in every game since Round 8 and has been one of the unsung stars of the team often making around 40 tackles a game.\nFreddy Lussick (third from right) has confirmed he is leaving the club to join the Bulldogs next season. (Photo by Hannah Peters/Getty Images)\nHowever, there had been reports in recent weeks that Lussick would out the door at season's end with the 25-year-old looking for a new contract. NRL 360 host (and former Bulldogs star) Braith Anasta put it to Lussick this week over whether he had signed for Canterbury next season.\nLussick confirmed he has but said he was trying to focus on the game this weekend, which will be against his new club. \"Obviously I have got to put that in the back pocket, not think about that too much. Exciting for next year, but I have a job to do this week,\" Lussick said. \"It's a good opportunity for me to head over there…I am looking forward to it.\"\nWhile the move is yet to be confirmed by either club, Lussick will join a competitive Bulldogs squad and compete for the dummy-half role with Bailey Hayward next season. The Bulldogs' spine has come under plenty of criticism across the last 12 months and the departure of Reed Mahoney at No.9 also raised eyebrows considering his form for the Cowboys.\nThe No.9 will be hoping to lock down a role under coach Cameron Ciraldo. Although he will also be looking to leave Penrith as a premiership winner.\nFreddy Lussick (pictured) appears to be on his way to the Bulldogs next season. (Photo by Jeremy Ng/Getty Images)\nPenrith Panthers seeking premiership glory\nThe Panthers would like to send Lussick out a winner this season with Ivan Cleary's side sitting equal-top of the ladder with the Warriors and Roosters. A win this weekend against the Bulldogs will put them in a good position to finish Top 2 on the ladder.\nThis would mean avoiding a trip to New Zealand to play the Warriors in the first round of the NRL finals. The Panthers played the Wests Tigers in the final round of the season.\nWhile Lussick is heading to the Bulldogs, fans will be keen to see Liam Martin re-sign. Martin has been in contract negotiations with the Panthers with his deal ending at the end of next season. But reports suggest the call has now been made to put talks on hold until after the NRL finals.\nFreddy Lussick (pictured) is set to join the Bulldogs next year. (Photo by Daniel Pockett/Getty Images)\nAbout our ads",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.931821024444442,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4fe307267bcdcf39",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "The Bulldogs embarrassed Penrith last time they met. Casey McLean wants to make amends - SMH.com.au",
+            "url": "https://www.smh.com.au/sport/nrl/the-bulldogs-embarrassed-penrith-last-time-they-met-casey-mclean-wants-to-make-amends-20260826-p60rl7.html",
+            "published_at": "2026-08-26T05:34:25+00:00",
+            "snippet": "The Bulldogs embarrassed Penrith last time they met. Casey McLean wants to make amends &nbsp;&nbsp; SMH.com.au",
+            "body_excerpt": "The most valuable lessons Casey McLean has learnt in his short NRL career came when he last faced Canterbury.\nThat was in round six, when the previously undefeated Penrith lost their first match of the season. It was a particularly sobering experience for McLean, who was sent to the sin bin and subsequently suspended for a shoulder charge on Bulldogs prop Max King, who was left with a broken jaw.\n“Obviously I’m very sorry for what happened to him, but he’s been killing it since he’s come back,” McLean said.\n“I had a little reflection in the sin bin. I sat in there [wondering], ‘I think this is actually the only time I’ve been sin binned’.”\nMcLean has also reflected on his defensive performance that night. The Bulldogs constantly targeted his left edge, where Lachlan Galvin and Jacob Preston in particular created several line breaks in a 32-16 win.\nThe NSW three-quarter will have a different pivot playing alongside him for Friday’s rematch – Jack Cole will wear the No.6 jersey in the absence of the suspended Jack Cogger – while Blaize Talagi, who was also exposed defensively in that initial Bulldogs clash, has been named on the bench.\nCasey McLean is sin binned for a hit that broke Max King’s jaw. Getty Images\n“We started the year well, but then the Bulldogs came and gave us a little punch in the face,” McLean said. “So it’s about not getting too comfortable.”\nThere are few deficiencies in a Panthers outfit that is the favourite to take out the title. However, the Bulldogs exposed their edge defence in that last outing and McLean views Friday’s clash at CommBank Stadium as an opportunity to get back on track before the finals.\n“You’re never going to be perfect, but you’re always striving to be,” he said.\n“So, getting as many reps and banking as much as we can together at training – even off the field, a bit of connection – that’s what we’re trying to build,” he said.\nCasey McLean made his Origin debut this year. Getty Images\n“Their right edge is exceptionally strong, so this will be a good challenge for us coming forward. On Friday, it’ll be a good challenge not just for our edge, but the whole team.”\nIt has been a rapid rise for McLean, who at the age of 20 has won a premiership and represented New Zealand and NSW. Last week, he signed a new contract that will keep him at the foot of the mountains until the end of 2030.\nThe Blacktown product had no desire to test his value on the open market, even though the PNG Chiefs are about to enter the fray with their tax-free dollars.\n“Growing up playing for Penrith pretty much my whole life and growing up in the area, knowing that they wanted me around helped me a lot as well,” he said. “It’s been such a great club for so long; I didn’t really want to leave. Being able to flourish at this club will hopefully be a good stepping stone for my future.\n“This club and all the coaching staff, they gave me the opportunity to be who I am today. I feel like I’m still at an age where some people would still be playing younger grades, but they gave me the opportunity and the chance to showcase not just who I am as a player, but a person. So I wanted to give back to this club and respect what they’ve done for me.”\nMcLean said he had gained confidence from being part of NSW’s State of Origin series victory.\n“I found myself just backing what I’ve been told to do,” he said. “Obviously, led by skip Yeoy [Penrith and NSW captain Isaah Yeo] – ever since getting into that camp, a little bit of him just telling me, ‘You’re here for a reason’, and stuff like that.\n“He’s been a big reason for why my form might have been as good as it was.”\nWhile McLean has recommitted to the Panthers, teammate and older brother Jesse has agreed to terms with Friday’s opponents, Canterbury.\nYou have reached your maximum number of saved items.\nRemove items from your saved list to add more.\nMore:\nNRL 2026\nPenrith Panthers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.79154324666666,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "9c65ee718de02fc9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Lach us in: Bulldogs back Galvin to keep the dream alive - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/26/lach-us-in-bulldogs-back-galvin-to-keep-the-dream-alive/",
+            "published_at": "2026-08-26T04:18:28+00:00",
+            "snippet": "Lach us in: Bulldogs back Galvin to keep the dream alive\nLachlan Galvin has never lacked confidence and he'll need every bit of it if he's to outwit the game's premier playmaker and keep the Bulldogs' season alive.\nNathan Cleary is Galvin's senior by seven years and 146 NRL games",
+            "body_excerpt": "Lach us in: Bulldogs back Galvin to keep the dream alive\nLachlan Galvin has never lacked confidence and he'll need every bit of it if he's to outwit the game's premier playmaker and keep the Bulldogs' season alive.\nNathan Cleary is Galvin's senior by seven years and 146 NRL games, not to mention four premierships. But that won't stop the 21-year-old from taking the game up to Cleary as Canterbury look to emulate a Round 6 win over the Panthers and remain in the finals hunt.\nGalvin's teammates have marvelled at his progress across the season and are backing him to stand tall on the back of two try assists, 123 run metres and a try in last week's demolition of the Dragons.\n“Lachie doesn’t feel much pressure as it is,” said fullback Connor Tracey.\n“He's been playing good all year and doesn’t deserve the stuff he cops.\n“He’s a really exciting young kid.”\nWith two games remaining, the Bulldogs must beat the Panthers and Broncos, and rely on the Rabbitohs and Cowboys stumbling to keep their top-eight hopes alive.\nLachlan Galvin Try\nAnd to make matters worse they have had to deal with an outbreak of COVID, with up to 10 players struck down in a throwback to the uncertain times of 2020 and '21.\n“It was a tricky week with heaps of boys out, but the way everyone turned up with the right attitude [against the Dragons] just shows what we’ve got here,” said centre Matt Burton.\n“It was a good step in the right direction. We attacked really well and it flowed great.\n“We need to fine-tune a few things against Penrith. We know what side they are, you can’t be clunky against them, otherwise they’ll make you pay.”\nVintage Burto\nThe 32-16 win over the Panthers back in April was a triumph for Galvin with four line break assists and Enari Tuala, who broke seven tackles and ran for 180 metres.\nSadly for the Dogs they weren't able to back that up, falling to five straight losses after the Panthers upset, summing up the rollercoaster nature of their season.\nTracey is adamant the chance to test themselves against the best team of the modern era in a do-or-die match is one to embrace.\n“Last few times we’ve played them it’s been pretty close,” he said.\nRelated NRL News\nBattle for the 8: It's all on the line in the fight for September\n“It’s cool playing Penrith, the benchmark of the competition for the last few years. It’s exciting to be playing them this time of year.\n“It’s pretty simple for the rest of the season, win this week and win the next game as well.\n“It’s exciting to play Penrith with all the stakes that are on that.”\nMatch: Panthers v Bulldogs\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nPanthers\n2nd Position\naway Team\nBulldogs\n9th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nMatch Preview\nPanthers v Bulldogs: Round 26\nFantasy\nFirst take: Panthers v Bulldogs\nPress Conference\nNRL Press Conference: Dragons v Bulldogs - Round 25, 2026\nNRL Press Conference: Bulldogs v Rabbithos - Round 24, 2026",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.057376579999996,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3082c04f3fa48b98",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "First take: Panthers v Bulldogs - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/25/first-look-panthers-v-bulldogs/",
+            "published_at": "2026-08-25T06:46:20+00:00",
+            "snippet": "First take: Panthers v Bulldogs\nThe NRL Fantasy crew preview Round 26\nUp Next\n03:07 Panthers v Bulldogs: Round 26\nPanthers v Bulldogs: Round 26\n04:59 Panthers v Bulldogs - Finals Week 1, 2016\nPanthers v Bulldogs - Finals Week 1, 2016\n01:02 Barkin' Bargain Round 26: Damien Cook\nBa",
+            "body_excerpt": "First take: Panthers v Bulldogs\nThe NRL Fantasy crew preview Round 26\nUp Next\n03:07 Panthers v Bulldogs: Round 26\nPanthers v Bulldogs: Round 26\n04:59 Panthers v Bulldogs - Finals Week 1, 2016\nPanthers v Bulldogs - Finals Week 1, 2016\n01:02 Barkin' Bargain Round 26: Damien Cook\nBarkin' Bargain Round 26: Damien Cook\n02:46 First take: Broncos v Storm\nFirst take: Broncos v Storm\n03:33 First take: Warriors v Knights\nFirst take: Warriors v Knights\nRelated /\nPanthers v Bulldogs: Cole in for Cogger; Tuala good to go\nMatch Preview\nBulldogs\nLach us in: Bulldogs back Galvin to keep the dream alive\nMatch Highlights\nFantasy\nFirst take: Dragons v Bulldogs\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 66.59293213555556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "868143c56eca9e6a",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Why Friday night shapes as the biggest challenge of Cleary’s club career",
+            "url": "https://www.smh.com.au/sport/nrl/why-friday-night-shapes-as-the-biggest-challenge-of-cleary-s-club-career-20260827-p60s06.html",
+            "published_at": "2026-08-23T01:22:11+00:00",
+            "snippet": "He conquered Origin seven weeks ago. On Friday night, the Panthers halfback faces an even greater challenge in clubland.",
+            "body_excerpt": "Nathan Cleary conquered the State of Origin arena just seven weeks ago. Now the Penrith halfback faces arguably the greatest challenge of his club career.\nCleary will run out in Friday night’s must-win match against Canterbury without the club’s first-choice lock, hooker or five-eighth.\nNathan Cleary will lead the under-strength Panthers into battle against Canterbury. Getty Images\nThe last time Cleary played without three key members of the Penrith spine was 2019, before the club embarked on its premiership era. Matt Burton, who will line up for the Bulldogs on Friday, debuted for Penrith in that game in the halves for the suspended James Maloney.\nWhen halves partner Jarome Luai succumbed to a shoulder injury during the 2023 grand final, Cleary still had co-captain Isaah Yeo, hooker Mitch Kenny and fullback Dylan Edwards to lean on.\nThe Panthers are expected to welcome Kenny back from a leg and ankle injury next weekend, while there remains a slim chance Yeo could also play after suffering a pectoral injury three weeks ago.\nIn the meantime, Cleary will need to make it work at CommBank Stadium with back-up lock and hooker Lindsay Smith and Freddy Lussick, as well as Jack Cole, who plays just his third NRL game this season in place of suspended No.6 Jack Cogger.\nTwo of the finest playmakers to wear the Penrith jersey not only backed Cleary to deliver – again – but only if the pack did their part and dominated the Dogs.\n“Without Mitch and Isaah and now a No.6, this is a massive challenge,” Greg Alexander said. “Nathan still has Dylan Edwards, who has had an outstanding year, at the back, but there’s a lot of pressure on him to create something.\n“And while Isaah has always been that link man, Lindsay Smith is still providing Nathan with a little something, and helping him get wider.\n“Cam Murray does the same thing for Cody Walker at Souths, and Victor Radley allows ‘DCE’ [Daly Cherry-Evans] and Sam Walker to get wider.\n“Nat will have to touch the ball as many times as possible. Jack Cole is only playing his third game, but he can play, and if the Dogs only focus on Nat, Jack will hurt them.\n“Canterbury played their best game against Penrith earlier this year. The forced errors from the get-go with their defensive pressure. But Penrith were coming off a hell of an opening five weeks where they won games against tough teams. Nat would have taken a lot of lessons away from that night. He’s always looking at ways to improve.\n“Yes, with the injuries and suspension, we’re starting to get down the list, but it’s still a good list.”\nMaloney said of Cleary: “There’s a lot more pressure on Nathan, but the footy is still the same. He’ll just have to wait for his opportunities when he’s on the front foot, then he can go at the defence and dictate them. But he needs his teammates to get him on to that front foot. He can’t do that himself.\n“The danger when you’ve only got one recognised threat is defensive sides will load up and follow Nathan wherever he goes. Most teams will always do that to any player who has that much influence on the game.\nJames Maloney was Cleary’s halves partner early in his Penrith career. NRL Photos\n“I’ve played in games where everywhere you go, they’ll pump numbers to you. By doing that, they leave opportunities for the players around you. It’s up to those players to call for the ball and take advantage of those opportunities.\n“Nathan won’t care if they score four tries and he doesn’t have a hand in any of them because the Dogs sat on him all day.”\nA win will keep Penrith’s top-two hopes alive with one round remaining, and also end the Dogs’ season.\nCanterbury coach Cameron Ciraldo, who declared the playing group was free of COVID and Influenza A after the virus ripped through the club over the past fortnight, said they would look to learn from that excellent performance against Penrith in round six.\n“We’ve been playing this team for a number of years now, and that was three years of lessons leading up to that game,”",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 119.99543213555556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2f488eb3d95b4fe9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487",
+            "published_at": "2026-08-27T08:35:29+00:00",
+            "snippet": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Robbo’s big Teddy reveal with star fullback racing the clock ahead of blockbuster — Late Mail\nRoosters coach Trent Robinson has provided an update on James Tedesco, with the fullback not fully cleared to return from injury just yet.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, The Rabbitohs’ likely plan for Latrell Mitchell this weekend has been revealed while a Bulldogs star is set to play through the pain.\nRead below for the Round 26 NRL Team Lists and Late Mail!\nTHURSDAY AUGUST 27\nBrisbane Broncos vs Melbourne Storm @ Suncorp Stadium, 7.50pm\nBroncos team: 1. Hayze Perham 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Ben Hunt 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan 14. Blake Mozer 15. Aublix Tawha 16. Jack Gosiewski 17. Va’a Semu 18. Thomas Duffy 19. Gehamat Shibasaki\nPlayers cut: 20. Ben Talty, 21. Jesse Arthars 22. Luke Gale\nLate Mail: To come.\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 3. Tyran Wishart 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Jahrome Hughes 8. Stefano Utoikamanu 9. Harry Grant 10. Josh King 11. Shawn Blore 12. Oryn Keeley 13. Trent Loiero 14. Trent Toelau 15. Alec MacDonald 16. Jack Hetherington 17. Cooper Clarke 18. Angus Hinchey 19. Marion Seve\nPlayers cut:20. Davvy Moale 21. Hugo Peel 22. Hayden Watson\nLate Mail: Craig Bellamy had named star halfback Jahrome Hughes in the No. 7 jersey after missing the three previous games with a hamstring injury. But he’s not a definite starter just yet. “If he does end up playing, that would be great for us. He’ll have to get through today’s (Wednesday) session and he’s really keen to get back so we’ll give him every chance,” Bellamy said. Presuming Hughes does get through today’s training session, Tyrone Wishart will move to the centres with Jack Howarth dropped. Marion Seve has been named the bench. He comes into it off two NSW Cup games following a lay-off with a triceps injury. “He’s a great clubman. He’s always working hard, but he’s just been dogged by injury so hopefully we can give him a run in the last two weeks at some stage,” Bellamy said.\nMelbourne Storm coach Craig Bellamy. Source: FOX SPORTS\nFRIDAY AUGUST 28\nManly Sea Eagles vs St. George Illawarra Dragons @ 4 Pines Park, 6pm\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Josh Feledy 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Onitoni Large 19. Fletcher Baker 20. Blake Wilson\nPlayers cut: 21. Jackson Shereb 22. Hugo Hart\nLate Mail: Sea Eagles coach Kieran Foran has confirmed Tolu Koula will miss at least a month in a major blow to their hopes of making the finals. Koula was injured in a hip drop tackle from Dominic Young as Manly broke it’s losing streak against the Knights. Young was sin binned and handed a one-week ban. On Thursday Foran confirmed the injury blow. “Yeah, he’s alright. He’s in a moon boot,” Foran said.“I think it was a high grade 2 syndesmosis, so looking like he’ll be out for about a month, disappointing, but not much he can do about it. Foran did, however, reveal Koula was still in line to feature at the Rugby League World Cup after avoiding surgery. “They’re pretty comfortable and confident that they’ll be able to rehab it without surgery, so that’s a bonus for him. “He’s looking to get himself right for that campaign.”\nDragons team: 1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook 10. Toby Couchman 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Connor Muhle",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.77376546888889,
+            "relevance_score": 1.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f9b60db82d7cd313",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL teams: Warrior shock inclusion for SuperCoach grand final - CODE Sports",
+            "url": "https://www.codesports.com.au/nrl/supercoach-news/nrl-teams-round-26-samuela-fainu-escapes-serious-injury-javon-andrews-goes-down/news-story/935065644d6930611a394410df8250f9",
+            "published_at": "2026-08-26T07:21:53+00:00",
+            "snippet": "NRL teams: Warrior shock inclusion for SuperCoach grand final &nbsp;&nbsp; CODE Sports",
+            "body_excerpt": "NRL teams Round 26: Te Maire Martin shock inclusion for SuperCoach grand final\nThe top-averaging five-eighth in SuperCoach 2026 has been named to return from a hamstring injury in a huge boost for grand final week.\nSuperCoach\nDon't miss out on the headlines from SuperCoach. Followed categories will be added to My News.\nWests Tigers star Samuela Fainu has escaped a serious injury on his foot after the barnstorming back-rower was helped off the field during Sunday’s win against the Roosters.\nFainu, who was extremely influential in the club’s 25-24 victory over the at-time first-placed Roosters, raised eyebrows after he was seen limping off the field following the game.\nThe 23-year-old missed over 10 weeks this season after requiring surgery on the foot injury that plagued the Tigers’ edge attack.\nLooking towards the future, the Tigers will be without young and upcoming half Javon Andrews, with the 21-year-old expected to miss the club’s final two games with a calf strain. Andrews, who many believe will partner Adam Doueihi in the halves next year, was carried off the field in the Western Suburbs Magpies’ NSW Cup game last week.\nSTAR COWBOYS DUO SET TO RETURN FOR FINALS CHARGE\n— Mitch Turner\nThe Cowboys’ finals hopes have received a massive double boost, with Origin superstars Tom Dearden and Jeremiah Nanai named to take on the Wests Tigers on Saturday night.\nBut they may have to go through the rest of the regular season without Murray Taulagi after their first-choice winger sustained his third significant head knock this season.\nREAD THE FULL STORY HERE .\nSUPERCOACH WINNERS FROM TEAMS\n* Te Maire Martin - The top-averaging five-eighth in SuperCoach 2026 has been named to return from a hamstring injury in a huge boost for grand final week.\n* James Tedesco - Named to return from an ankle injury after three false starts. Crucial extra number for many on grand final week.\n* Tom Dearden - Returns from a shin injury in a massive boost for the Cowboys as they look to hang onto eighth spot.\n* The Bulldogs - A Covid outbreak saw eight players miss training on Monday, but all were named. Keep an eye on Late Mail.\n* Jacob Kiraz - Named despite fighting through another torn calf for the last three weeks.\n* Francis Manuleleua - Back from concussion. Producing keeper scores (5RA 80) since the season-ending injury to Dylan Lucas.\nTe Maire Martin returns from a hamstring injury. Picture: Chris Hyde/Getty Images\nSUPERCOACH LOSERS FROM TEAMS\n* Latrell Mitchell - Makes a long-awaited return from a nerve injury for the Rabbitohs. But he’s been named as a supersub off the bench and therefore won’t be of any use for SuperCoach, particularly at over $1million.\n* Alex Twal - Out with concussion after going down inside the first minute on the weekend.\n* Dom Young - Suspended for a week for a hip drop and therefore a popular sell.\n* Tolutau Koula - Out for the remainder of the regular season due to a moderate syndesmosis injury.\n* Simi Sasagi and Joe Tapine - Popular Raiders on the bye.\nTOP GRAND FINAL PODS\n* Scott Drinkwater - As captain at home against the struggling Tigers (currently under 4%).\n* Braidon Burns - Has this same easy match-up and has snuck under the radar the average 72 this season.\n* Tom Trbojevic - For the resurgent Sea Eagles against the Dragons at 4 Pines.\n* Matt Dufty - Great matchup against the Titans at 3pm on the Gold Coast and has averaged over 80 in 80 minute games this season\nFull Buy, Hold, Sell for grand final week here\nLatrell Mitchell will play from the bench. Picture: Thomas Lisson\nNRL ROUND 26 TEAMS\nBRONCOS V STORM\nThursday August 27, 7:50pm, Suncorp Stadium, Brisbane\nBroncos\n1. Hayze Perham 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Ben Hunt 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan\nInterchange: 14. Blake Mozer 15. Aublix Tawha 16. Jack Gosiewski 17.Va’a Semu 18. Thomas Duffy 19. Gehamat Shibasaki\nReserves: 20. Ben T",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.000432135555556,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Panthers vs Bulldogs NRL round 26 preview",
+          "Panthers Bulldogs NRL odds OR price OR favourite",
+          "Panthers Bulldogs NRL finals race OR ladder stakes",
+          "Panthers Bulldogs NRL",
+          "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Panthers Bulldogs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 26 Panthers OR Bulldogs"
+        ],
+        "filter_summary": {
+          "dropped_stale": 44,
+          "dropped_wrong_round": 1,
+          "dropped_noise": 11,
+          "dropped_irrelevant": 30,
+          "kept": 21,
+          "deferred_pending_body": 69,
+          "promoted_after_body": 9,
+          "dropped_roundup_no_fixture_team": 8,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "41462a537f07",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-28T01:21:54.553895+00:00",
+      "finished_at": "2026-08-28T01:24:34.601332+00:00",
+      "duration_ms": 160047,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Bulldogs",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-08-28T20:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7197,
+        "home_win_probability": 0.7197,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.84 log-strength) — contribution 0.189 (18% of total)",
+            "Ladder points differential per game (+14.8 points) — contribution 0.148 (14% of total)",
+            "Elo rating advantage (+100 points) — contribution 0.146 (14% of total)",
+            "Away travel to venue (7 km) — contribution 0.067 (6% of total)",
+            "Rest-day advantage (+2.0 days) — contribution 0.033 (3% of total)"
+          ],
+          "negative_drivers": [
+            "Travel-distance advantage (-20 km for away) — contribution 0.025 (2% of total)",
+            "Pythagorean form (last 10) (+4% expected-win gap) — contribution 0.025 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: penalties conceded (-1.60) — contribution 0.021 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: points against (+1.20) — contribution 0.019 (2% of total)",
+            "5-game form: errors (-1.80) — contribution 0.016 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.8124,
+            "total_toward_away": 0.2219,
+            "net": 0.5905,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "Pythagorean form (last 10) (+4% expected-win gap)",
+            "5-game form: penalties conceded (-1.60)",
+            "5-game form: errors (-1.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Panthers",
+          "away_team": "Bulldogs",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-08-28T20:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

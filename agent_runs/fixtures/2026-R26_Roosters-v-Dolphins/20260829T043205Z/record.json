@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "run_id": "20260829T043205Z-57ceff60",
+  "run": {
+    "predicted_at_utc": "2026-08-29T04:41:59.096044+00:00",
+    "predicted_at_local": "2026-08-29T14:41:59.096044+10:00",
+    "started_at_utc": "2026-08-29T04:32:05.300431+00:00",
+    "wall_seconds": 593.8,
+    "hours_before_kickoff": 2.8,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Roosters",
+    "away_team": "Dolphins",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-08-29T17:30:00+10:00",
+    "kickoff_local": "2026-08-29T17:30:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Roosters",
+      "position": 3,
+      "played": 22,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 38,
+      "points_for": 587,
+      "points_against": 425,
+      "points_difference": 162,
+      "points_difference_per_game": 7.36,
+      "recent_form_last_4": "4 - 1",
+      "streak": "1L",
+      "home_record": "8 - 3",
+      "away_record": "8 - 3"
+    },
+    "away": {
+      "team": "Dolphins",
+      "position": 4,
+      "played": 22,
+      "wins": 15,
+      "drawn": 0,
+      "lost": 7,
+      "competition_points": 36,
+      "points_for": 612,
+      "points_against": 474,
+      "points_difference": 138,
+      "points_difference_per_game": 6.27,
+      "recent_form_last_4": "4 - 0",
+      "streak": "4W",
+      "home_record": "8 - 4",
+      "away_record": "7 - 3"
+    },
+    "comparison": {
+      "higher_on_ladder": "Roosters",
+      "ladder_positions_gap": 1,
+      "points_difference_per_game_gap": 1.09,
+      "points_difference_favours": "Roosters"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Roosters",
+    "predicted_side": "home",
+    "confidence": 0.6,
+    "home_win_probability": 0.6
+  },
+  "math_model": {
+    "home_win_probability": 0.603,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.30 log-strength) — contribution 0.152 (18% of total)",
+        "Ladder points differential per game (+1.1 points) — contribution 0.058 (7% of total)",
+        "Head-to-head average margin (last 5) (+9.2 points) — contribution 0.046 (5% of total)",
+        "Elo rating advantage (+26 points) — contribution 0.040 (5% of total)",
+        "Head-to-head record (last 5) (80% to the home side) — contribution 0.036 (4% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: all run metres (-186.80) — contribution 0.083 (10% of total)",
+        "3-game form: errors (-2.00) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: all run metres (-243.67) — contribution 0.024 (3% of total)",
+        "5-game form: missed tackles (+3.00) — contribution 0.024 (3% of total)",
+        "3-game form: kicking metres (+172.00) — contribution 0.023 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-2.00)",
+        "3-game form: kicking metres (+172.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Roosters vs Dolphins NRL round 26 preview",
+      "Roosters Dolphins NRL odds OR price OR favourite",
+      "Roosters Dolphins NRL finals race OR ladder stakes",
+      "Roosters Dolphins NRL",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters Dolphins NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Roosters OR Dolphins"
+    ],
+    "items_kept": 17,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 26 - Cleary set to debut Presented by 23 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-29T04:09:09+00:00",
+        "age_hours": 0.3898888772222222,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "Roosters vs Dolphins Preview (Round 26, 2026): Team News, Team Lists & Prediction",
+        "source": "rugbyleaguezone.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-28T04:32:48+00:00",
+        "age_hours": 23.995722210555556,
+        "url": "https://rugbyleaguezone.com/roosters-vs-dolphins-round-26-preview-2026-437475/"
+      },
+      {
+        "title": "Dolphins Team List: Round 26 v Roosters - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:51+00:00",
+        "age_hours": 94.54488887722222,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/08/25/dolphins-team-list-round-26-v-roosters/"
+      },
+      {
+        "title": "Match Preview Roosters v Dolphins: Teddy set to play; Donoghoe good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-28T07:34:27+00:00",
+        "age_hours": 20.968222210555556,
+        "url": "https://www.nrl.com/news/2026/08/25/roosters-v-dolphins-teddy-set-to-play-donoghoe-eyes-return/"
+      },
+      {
+        "title": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:21:44+00:00",
+        "age_hours": 50.180166655,
+        "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-dolphins-tips-odds-teams-predictions-nrl-round-26-2026/610056"
+      },
+      {
+        "title": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T23:17:35+00:00",
+        "age_hours": 53.24933332166667,
+        "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-dolphins-tips-odds-teams-predictions-nrl-round-26-2026/610056/amp"
+      },
+      {
+        "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T22:07:42+00:00",
+        "age_hours": 54.41405554388889,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/"
+      },
+      {
+        "title": "Dolphins Life of Brian: Dolphins rookie Pouniu ready to ride the wave",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-24T23:54:04+00:00",
+        "age_hours": 100.64127776611112,
+        "url": "https://www.nrl.com/news/2026/08/25/life-of-brian-dolphins-rookie-pouniu-ready-to-ride-the-wave/"
+      },
+      {
+        "title": "Match Preview: Round 26 – Dolphins v Roosters - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T23:45:23+00:00",
+        "age_hours": 4.785999988333333,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/08/29/match-preview-round-26--dolphins-v-roosters/"
+      },
+      {
+        "title": "Dolphins Nothing to fear here: Dolphins up for finals audition",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-28T21:01:21+00:00",
+        "age_hours": 7.519888877222222,
+        "url": "https://www.nrl.com/news/2026/08/29/dolphins-embrace-top-four-test-against-chooks-in-run-to-finals/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T18:55:27+00:00",
+        "age_hours": 9.618222210555555,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "24 Hour Update | Round 26 v Dolphins - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T06:01:00+00:00",
+        "age_hours": 22.525722210555557,
+        "url": "https://www.roosters.com.au/news/2026/08/28/nrl-team-list--round-26-v-dolphins/"
+      },
+      {
+        "title": "Roosters vs Dolphins Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T07:00:00+00:00",
+        "age_hours": 45.54238887722222,
+        "url": "https://www.beforeyoubet.com.au/roosters-vs-dolphins-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Roosters v Dolphins: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:17:41+00:00",
+        "age_hours": 71.247666655,
+        "url": "https://www.nrl.com/news/2026/08/26/roosters-v-dolphins-round-26/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 26 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T04:28:00+00:00",
+        "age_hours": 96.07572221055555,
+        "url": "https://www.weststigers.com.au/news/2026/08/25/wests-tigers-injury-report-round-26/"
+      },
+      {
+        "title": "Live Blog Super Saturday: We stand with Jai at Cbus Super Presented by 6 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-29T04:25:59+00:00",
+        "age_hours": 0.10933332166666668,
+        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/"
+      },
+      {
+        "title": "Joey’s major concern for Roosters in ‘make or break’ clash - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T20:57:24+00:00",
+        "age_hours": 7.585722210555555,
+        "url": "https://www.nine.com.au/sport/nrl/news-sydney-roosters-dolphins-preview-andrew-johns-exclusive-comments-top-four-finals-premiership-20260828-p60sit.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": true,
+    "audit_issues": [],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Tedesco's ankle injury is in nrl_news; Dolphins' 4-game streak is in scene; Roosters' loss to Tigers is in duckduckgo; ladder positions are in scene; bookmaker favorites are in google_news_rss."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Tedesco is described as returning, which matches the source 'set to make his comeback'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry strength advantage is correctly attributed to the Roosters."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research (Tedesco injury)."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.6) is a slight downward adjustment from the math prior (0.603) to account for Dolphins' momentum."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant driver (Bradley-Terry) is highlighted as the primary math factor."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "pass",
+        "evidence": "Material drivers are Bradley-Terry (named) and 5-game form (alluded to via 'strong form' and 'momentum')."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Roosters are favoured by the math model and bookmakers, with the return of James Tedesco from an ankle injury providing a key boost (NRL news). While the Dolphins carry strong form with a four-game winning streak, the Roosters maintain a strength advantage and home-ground edge. Confidence is set at 0.60, aligning with the math prior and the positive news of Tedesco's return, while accounting for the Dolphins' current momentum.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Bradley-Terry strength advantage provided the largest contribution to the model's prior (18% of total SHAP mass)."
+      },
+      {
+        "source": "research",
+        "detail": "Skipper James Tedesco is set to make his comeback from an ankle injury (NRL news)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Roosters hold a slight edge on the official ladder, sitting 3rd compared to the Dolphins in 4th."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Dolphins enter the match with significant momentum on a four-game winning streak, while the Roosters are coming off a shock loss to the Tigers.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Roosters-v-Dolphins/20260829T043205Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Roosters-v-Dolphins/20260829T043205Z/summary.md"
+  }
+}

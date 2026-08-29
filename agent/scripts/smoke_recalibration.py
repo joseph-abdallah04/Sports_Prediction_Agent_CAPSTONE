@@ -141,8 +141,8 @@ def main() -> int:
         hughes, {"items": [{"title": "t"}]}, {"home_win_probability": 0.3892, "prediction": "Away Win"}
     )
     fails += _check(
-        "specific loss reason blocks 0.68",
-        "confidence_too_high_for_specific_loss_reason" in hughes_issues,
+        "named loss reason does not force a 0.65 cap",
+        hughes_issues == [],
     )
     hughes_ok = dict(hughes, confidence=0.61)
     hughes_ok_issues = _check_judgement_grounding(

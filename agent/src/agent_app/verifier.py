@@ -105,15 +105,11 @@ def _check_judgement_grounding(
                 issues.append("confidence_copied_math_without_research_confirm")
             if confidence > CLEAR_EDGE_ABOVE and not confirmed:
                 issues.append("confidence_above_clear_edge_without_research_confirm")
-            if stance == "conflicts" and confidence > CLEAR_EDGE_ABOVE:
-                issues.append("confidence_too_high_for_research_conflict")
             if stance == "conflicts" and math_p is not None and (
                 copied or float(confidence) >= math_p
             ):
                 # Two-decimal paste (0.83 vs 0.8306) is keeping the prior.
                 issues.append("confidence_not_discounted_despite_research_conflict")
-            if specific is True and confidence > CLEAR_EDGE_ABOVE:
-                issues.append("confidence_too_high_for_specific_loss_reason")
     return issues
 
 

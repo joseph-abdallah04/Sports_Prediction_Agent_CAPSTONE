@@ -1,0 +1,1266 @@
+{
+  "schema_version": 2,
+  "run_id": "20260828T010843Z-6d1509ba",
+  "at_a_glance": {
+    "fixture": "Sea Eagles v Dragons",
+    "round": 26,
+    "kickoff": "2026-08-28T18:00:00+10:00",
+    "venue": "4 Pines Park",
+    "predicted_winner": "Sea Eagles",
+    "confidence": 0.65,
+    "model_home_win_probability": 0.7499,
+    "model_prediction": "Home Win",
+    "research_items_kept": 21,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-28T01:08:43.445909+00:00",
+  "updated_at": "2026-08-28T01:18:53.126954+00:00",
+  "request": {
+    "home_team": "Sea Eagles",
+    "away_team": "Dragons",
+    "season": null,
+    "round_number": 26,
+    "force_refresh": true,
+    "user_question": "Who wins Sea Eagles vs Dragons?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Sea Eagles",
+    "away_team": "Dragons",
+    "confidence": 0.65,
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "Centre Tolu Koula is ruled out for the remainder of the regular season with an ankle injury.",
+    "loss_reason_specific": true,
+    "summary": "The Sea Eagles are strong favourites based on a high math prior and the return of Tom Trbojevic. The Dragons are guaranteed the wooden spoon (Before You Bet) and coming off a heavy defeat, while Manly has high motivation to keep slim finals hopes alive. Confidence is capped at 0.65 due to the specific loss of centre Tolu Koula.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating advantage (+121 points) and Bradley-Terry strength advantage."
+      },
+      {
+        "source": "research",
+        "detail": "The return of Tom Trbojevic and the Dragons being guaranteed the wooden spoon (Before You Bet)."
+      },
+      {
+        "source": "scene",
+        "detail": "Sea Eagles hold a significant 7-position advantage on the official ladder."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 21,
+      "items_mentioning_both_teams": 21,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 4
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 18
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 6
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Sea Eagles vs Dragons NRL round 26 preview",
+      "Sea Eagles Dragons NRL odds OR price OR favourite",
+      "Sea Eagles Dragons NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Tolu Koula injury found in 'Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles'; Trbojevic return in 'Sea Eagles It's not the journey but the destination that counts now: Turbo'; wooden spoon in 'Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet'; ladder gap in set_fixture_scene."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Tolu Koula is correctly described as out and Tom Trbojevic as returning."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Sea Eagles."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from research (Trbojevic return and wooden spoon)."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence was reduced from the 0.75 prior to 0.65 due to a specific loss (Tolu Koula), which is consistent with the rules."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor drivers are treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Material drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' are not addressed."
+        }
+      ],
+      "issues": [
+        "Material SHAP drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' were omitted from the evaluation."
+      ],
+      "instruction": "Math drivers include 'Ladder points differential per game' and '5-game momentum: penalty gap seconds'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Ladder points differential per game' and '5-game momentum: penalty gap seconds'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Sea Eagles",
+      "away_team": "Dragons",
+      "confidence": 0.65,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "Centre Tolu Koula is ruled out for the remainder of the regular season with an ankle injury.",
+      "loss_reason_specific": true,
+      "summary": "The Sea Eagles are strong favourites based on a high math prior and the return of Tom Trbojevic. The Dragons are guaranteed the wooden spoon (Before You Bet) and coming off a heavy defeat, while Manly has high motivation to keep slim finals hopes alive. Confidence is capped at 0.65 due to the specific loss of centre Tolu Koula.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Elo rating advantage (+121 points) and Bradley-Terry strength advantage."
+        },
+        {
+          "source": "research",
+          "detail": "The return of Tom Trbojevic and the Dragons being guaranteed the wooden spoon (Before You Bet)."
+        },
+        {
+          "source": "scene",
+          "detail": "Sea Eagles hold a significant 7-position advantage on the official ladder."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-28T01:09:22.220359+00:00",
+      "thinking": "*   Home Team: Sea Eagles\n    *   Away Team: Dragons\n    *   Round Number: 26\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Sea Eagles).\n    *   Query 2: Away team availability (Dragons).\n    *   Query 3: Fixture preview (Sea Eagles vs Dragons Round 26).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure). Since it's Round 26 (late season), \"finals race\" or \"ladder stakes\" is the most relevant angle.\n\n    *   Q1: `Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q2: `Dragons NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q3: `Sea Eagles vs Dragons NRL round 26 preview`\n    *   Q4: `Sea Eagles Dragons NRL odds OR price OR favourite`\n    *   Q5: `Sea Eagles Dragons NRL finals race OR ladder stakes` (or similar). Let's go with `Sea Eagles Dragons NRL finals race OR ladder stakes`.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Sea Eagles, Dragons).\n    *   JSON format? Yes.",
+      "chars": 1123
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-28T01:15:26.238253+00:00",
+      "thinking": "*   Home Team: Sea Eagles\n    *   Away Team: Dragons\n    *   Venue: 4 Pines Park\n    *   Round: 26\n\n    *   `home_win_probability`: 0.7499 (Strong Home Win)\n    *   `prediction`: \"Home Win\"\n    *   SHAP Drivers (Home): Elo rating (+121), Bradley-Terry strength (+0.85), Ladder points differential (+16.3), 5-game momentum (penalty gap), Away travel.\n    *   SHAP Drivers (Away): 5-game form (run metres), 3-game form (tackle breaks), 3-game form (run metres), 5-game form (effective tackle %), 5-game form (missed tackles).\n    *   `attribution_balance`: Net 0.7393 (Strongly leans home).\n    *   `standings`: Sea Eagles (10th, 10 wins), Dragons (17th, 4 wins). Gap of 7 positions.\n\n    *   Sea Eagles:\n        *   Coming off a big win over Knights (44-24) to snap a 6-game losing streak.\n        *   Tom Trbojevic is back and playing.\n        *   Josh Feledy starts in place of injured Tolu Koula (ankle).\n        *   Finals hopes are slim but alive (must win remaining games).\n    *   Dragons:\n        *   Guaranteed wooden spoon (per \"Before You Bet\").\n        *   Coming off a 44-14 loss to Canterbury.\n        *   Jacob Liddle (calf) is out.\n        *   Connor Muhleisen returns to NRL.\n    *   Market: Sea Eagles are favourites (sportsnews.com.au tips them at $1.42).\n\n    *   Math Prior: 0.7499.\n    *   Research Stance: `confirms`.\n        *   Sea Eagles have high motivation (finals hopes).\n        *   Tom Trbojevic is back.\n        *   Dragons are guaranteed the wooden spoon (low motivation/poor form).\n        *   Sea Eagles just snapped a losing streak with a dominant win.\n    *   Pick: Home (Sea Eagles).\n    *   Confidence: The prior is 0.75. Research confirms (Turbo back, Dragons wooden spoon, motivation gap). However, the \"loss reason\" is that Sea Eagles had a 6-game losing streak recently (though they just broke it).\n    *   Confidence Band: 0.75-0.85 is for large ratings gaps *confirmed* by news. The prior is 0.75. The news (Turbo back, Dragons wooden spoon) is strong confirmation.\n    *   Wait, check `loss_reason_specific`. Is there a specific reason they could lose?\n        *   Tolu Koula is out (injured ankle). This is a specific loss.\n        *   If `loss_reason_specific` is true, I must stay at or below 0.65.\n        *   Wait, the rule says: \"If it is true, stay at or below 0.65 — including when stance is `confirms`.\"\n        *   Tolu Koula is a centre. Josh Feledy replaces him. Feledy scored a hat-trick last week. Is this a \"strongest reason they could lose\"? Maybe. But the Dragons' form is abysmal.\n        *   Let's look for other loss reasons. The Sea Eagles' recent 6-game losing streak (though broken) shows instability.\n        *   Actually, the most specific negative for Manly is the loss of Tolu Koula.\n        *   Let's re-evaluate the confidence. Prior is 0.75. Research confirms. But the rule on `loss_reason_specific` is strict.\n        *   Is there a specific reason the *Dragons* could win? Connor Muhleisen returning? Not really a game-changer.\n        *   The most specific \"loss reason\" for Manly is the injury to Tolu Koula.\n        *   If I set `loss_reason_specific` to true, I must be $\\le 0.65$.\n        *   If I set it to false (generic variance), I can go higher.\n        *   Is Koula's injury \"strongest\"? Probably not compared to the Dragons' overall collapse.\n        *   However, the prompt says: \"Set `loss_reason_specific` true when that reason is a named this-week fact that helps the other side or hurts yours (a player out for your pick...).\" Koula is out. That's a named fact.\n        *   Therefore, `loss_reason_specific` = true.\n        *   Confidence must be $\\le 0.65$.\n        *   Since the prior is 0.75 and research confirms, I'll put it at 0.65 (the ceiling for specific loss reasons).\n\n    *   Winner: home\n    *   Confidence: 0.65\n    *   Research Stance: confirms (Turbo back, Dragons wooden spoon, motivation).\n    *   Strongest reason could lose: Tolu Koula is ruled out for the remainder of the season with an ankle injury.\n    *   Loss reason specific: true.\n    *   Summary: Sea Eagles are strong favourites based on a high math prior and the return of Tom Trbojevic. The Dragons are guaranteed the wooden spoon and coming off a heavy defeat, while Manly has high motivation to keep slim finals hopes alive. Confidence is capped at 0.65 due to the loss of centre Tolu Koula.\n    *   Key Factors:\n        1.  Math: Elo and Bradley-Terry strength advantage.\n        2.  Research: Return of Tom Trbojevic and Dragons' guaranteed wooden spoon (per \"Before You Bet\").\n        3.  Scene: Sea Eagles are 7 positions higher on the ladder.\n\n    *   `research_stance`: `confirms` (Turbo back, Dragons wooden spoon).\n    *   `confidence`: 0.65 (Capped because `loss_reason_specific` is true).\n    *   `loss_reason_specific`: true (Tolu Koula out).\n    *   `disagreements_with_math`: null.\n    *   `key_factors`:\n        *   Math: Elo rating advantage (+121 points).\n        *   Research: Tom Trbojevic's return and Dragons' guaranteed wooden spoon (Before You Bet).\n        *   Scene: 7-position ladder gap.\n\n    *   Check SHAP drivers: \"Elo rating advantage (+121 points)\" is in `favouring_Sea Eagles_home_win`. Correct.\n    *   Check standings: Sea Eagles 10th, Dragons 17th. Correct.\n    *   Check market: $1.42 for Manly. Correct.\n\n    *   Wait, the rule says: \"Going more sure than the prior is the rare exception... News that merely confirms who was already expected to play... is not a reason to get surer.\"\n    *   The prior is 0.75. I am going *down* to 0.65 because of the specific loss reason. This is correct.\n\n    *   One more check on `loss_reason_specific`: \"Tolu Koula (ankle)... will miss the remainder of the regular season\". This is a specific fact.\n\n    *   Final check on `research_stance`: \"confirms\" because Turbo is back and Dragons are wooden spooners.\n\n    *   Summary construction: \"The Sea Eagles enter as strong favourites with a high math prior, bolstered by the return of Tom Trbojevic and the Dragons' lack of motivation after being guaranteed the wooden spoon (Before You Bet). Manly's recent dominant win over Newcastle and their slim finals hopes provide significant urgency. Confidence is set at 0.65 due to the specific loss of centre Tolu Koula.\"",
+      "chars": 6268
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-28T01:18:53.126489+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, etc.) in the research body/title/price_quote/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.65) justified based on the rules?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Sea Eagles\n- Away: Dragons\n- Math Prior (home_win_probability): 0.7499\n- Final Confidence: 0.65\n- Research Stance: confirms\n- Winner: home\n\n- \"Tolu Koula is ruled out for the remainder of the regular season with an ankle injury.\" -> Found in `google_news_rss` title \"Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles\": \"Josh Feledy comes into the starting side to replace injured centre Tolu Koula (ankle). Koula will miss the remainder of the regular season...\" (Pass)\n- \"Tom Trbojevic return\" -> Found in `nrl_news` title \"Sea Eagles It's not the journey but the destination that counts now: Turbo\": \"Tom Trbojevic’s return has come at exactly the right time for Manly...\" (Pass)\n- \"Dragons are guaranteed the wooden spoon (Before You Bet)\" -> Found in `google_news_rss` title \"Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet\": \"The Dragons, meanwhile, are now guaranteed to finish with the wooden spoon...\" (Pass)\n- \"Dragons... coming off a heavy defeat\" -> Found in `google_news_rss` title \"Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet\": \"...coming off a 44-14 hiding from Canterbury.\" (Pass)\n- \"Manly has high motivation to keep slim finals hopes alive\" -> Found in `google_news_rss` title \"Manly Sea Eagles vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions\": \"Manly kept its remote finals hopes alive... giving this home assignment genuine urgency.\" (Pass)\n- \"7-position advantage on the official ladder\" -> Found in `set_fixture_scene` response: \"ladder_positions_gap\": 7. (Pass)\n\n- Tolu Koula: Out (Source says out). (Pass)\n- Tom Trbojevic: Return (Source says return). (Pass)\n\n- \"Strong Elo rating advantage (+121 points)\" -> `favouring_Sea Eagles_home_win`: \"Elo rating advantage (+121 points)\". (Pass)\n- \"Bradley-Terry strength advantage\" -> `favouring_Sea Eagles_home_win`: \"Bradley-Terry strength advantage (+0.85 log-strength)\". (Pass)\n\n- Weather is \"Fine\". Not mentioned as a key factor in the judgement. (Pass)\n\n- Key factor 2: \"The return of Tom Trbojevic and the Dragons being guaranteed the wooden spoon (Before You Bet).\" (Pass)\n\n- Math Prior: 0.7499.\n- Final Confidence: 0.65.\n- Research Stance: \"confirms\".\n- `loss_reason_specific`: true (Tolu Koula injury).\n- Rule (b): Confidence above 0.65 is forbidden if `loss_reason_specific` is true. Here it is exactly 0.65.\n- Rule (c): `conflicts` (none here) or research should generally lower the prior. 0.75 -> 0.65 is a decrease.\n- Rule (e): Summary says \"Confidence is capped at 0.65 due to the specific loss of centre Tolu Koula.\" (Pass)\n\n- No minor drivers are treated as decisive. (Pass)\n\n- Material drivers (>= 8%):\n    1. Elo rating advantage (15%) - Mentioned.\n    2. Bradley-Terry strength advantage (15%) - Mentioned.\n    3. Ladder points differential per game (10%) - Not explicitly named, but \"7-position advantage on the official ladder\" is mentioned. Wait, \"Ladder points differential per game\" is a specific metric. Is \"7-position advantage\" a clear allusion to it? The prompt says \"A passing acknowledgement can be a key_factor, a clause in the summary, or an explicit discount\". The 7-position gap is from the scene, not the SHAP driver. The SHAP driver is \"Ladder points differential per game (+16.3 points)\".\n    4. 5-game momentum: penalty gap seconds (8%) - Not mentioned.\n- Let's re-evaluate:\n    - Elo: Mentioned.\n    - Bradley-Terry: Mentioned.\n    - Ladder points differential: Not mentioned. (The 7-position gap is a different stat from the scene).\n    - 5-game momentum (penalty gap): Not mentioned.\n- Result: Fail.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Material drivers \"Ladder points differential per game\" and \"5-game momentum: penalty gap seconds\" are missing.\n\nWait, let me double check the \"Ladder points differential per game\". The judgement mentions \"Sea Eagles hold a significant 7-position advantage on the official ladder\". This is from the `scene` tool. The SHAP driver is \"Ladder points differential per game (+16.3 points)\". These are different metrics.\nThe \"5-game momentum: penalty gap seconds\" is definitely missing.\n\nInstruction: \"Math drivers include 'Ladder points differential per game' and '5-game momentum: penalty gap seconds'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 5295
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-28T01:09:22.229556+00:00",
+      "payload": {
+        "queries": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sea Eagles vs Dragons NRL round 26 preview",
+          "Sea Eagles Dragons NRL odds OR price OR favourite",
+          "Sea Eagles Dragons NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-28T01:15:26.238721+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Sea Eagles",
+          "away_team": "Dragons",
+          "confidence": 0.65,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "Centre Tolu Koula is ruled out for the remainder of the regular season with an ankle injury.",
+          "loss_reason_specific": true,
+          "summary": "The Sea Eagles are strong favourites based on a high math prior and the return of Tom Trbojevic. The Dragons are guaranteed the wooden spoon (Before You Bet) and coming off a heavy defeat, while Manly has high motivation to keep slim finals hopes alive. Confidence is capped at 0.65 due to the specific loss of centre Tolu Koula.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Elo rating advantage (+121 points) and Bradley-Terry strength advantage."
+            },
+            {
+              "source": "research",
+              "detail": "The return of Tom Trbojevic and the Dragons being guaranteed the wooden spoon (Before You Bet)."
+            },
+            {
+              "source": "scene",
+              "detail": "Sea Eagles hold a significant 7-position advantage on the official ladder."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-28T01:18:53.126809+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Tolu Koula injury found in 'Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles'; Trbojevic return in 'Sea Eagles It's not the journey but the destination that counts now: Turbo'; wooden spoon in 'Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet'; ladder gap in set_fixture_scene."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Tolu Koula is correctly described as out and Tom Trbojevic as returning."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Sea Eagles."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from research (Trbojevic return and wooden spoon)."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence was reduced from the 0.75 prior to 0.65 due to a specific loss (Tolu Koula), which is consistent with the rules."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor drivers are treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Material drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' are not addressed."
+            }
+          ],
+          "issues": [
+            "Material SHAP drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' were omitted from the evaluation."
+          ],
+          "instruction": "Math drivers include 'Ladder points differential per game' and '5-game momentum: penalty gap seconds'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "16f8e55ae188",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-28T01:08:43.446058+00:00",
+      "finished_at": "2026-08-28T01:08:46.744338+00:00",
+      "duration_ms": 3298,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dragons",
+        "season": null,
+        "round_number": 26,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dragons",
+          "season": null,
+          "round_number": 26
+        },
+        "retrieved_at": "2026-08-28T01:08:43.446128+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 26,
+          "round_title": "Round 26",
+          "home_team": "Sea Eagles",
+          "away_team": "Dragons",
+          "kickoff": "2026-08-28T18:00:00+10:00",
+          "venue": "4 Pines Park",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/sea-eagles-v-dragons/",
+          "match_mode": "Pre",
+          "match_id": "20261112620",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Touch Judge",
+              "name": "Jon Stone"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Adam Gee"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Tom Trbojevic",
+                "position": "Fullback",
+                "player_id": 501505
+              },
+              {
+                "number": 2,
+                "name": "Jason Saab",
+                "position": "Winger",
+                "player_id": 507670
+              },
+              {
+                "number": 3,
+                "name": "Josh Feledy",
+                "position": "Centre",
+                "player_id": 100006630
+              },
+              {
+                "number": 4,
+                "name": "Reuben Garrick",
+                "position": "Centre",
+                "player_id": 503443
+              },
+              {
+                "number": 5,
+                "name": "Lehi Hopoate",
+                "position": "Winger",
+                "player_id": 100011191
+              },
+              {
+                "number": 6,
+                "name": "Clayton Faulalo",
+                "position": "Five-Eighth",
+                "player_id": 100000346
+              },
+              {
+                "number": 7,
+                "name": "Jamal Fogarty",
+                "position": "Halfback",
+                "player_id": 501175
+              },
+              {
+                "number": 8,
+                "name": "Simione Laiafi",
+                "position": "Prop",
+                "player_id": 100011203
+              },
+              {
+                "number": 9,
+                "name": "Brandon Wakeham",
+                "position": "Hooker",
+                "player_id": 504307
+              },
+              {
+                "number": 10,
+                "name": "Nathan Brown",
+                "position": "Prop",
+                "player_id": 500647
+              },
+              {
+                "number": 11,
+                "name": "Haumole Olakau'atu",
+                "position": "2nd Row",
+                "player_id": 508033
+              },
+              {
+                "number": 12,
+                "name": "Ben Trbojevic",
+                "position": "2nd Row",
+                "player_id": 507850
+              },
+              {
+                "number": 13,
+                "name": "Jake Trbojevic",
+                "position": "Lock",
+                "player_id": 500751
+              },
+              {
+                "number": 14,
+                "name": "Jake Simpkin",
+                "position": "Interchange",
+                "player_id": 508629
+              },
+              {
+                "number": 15,
+                "name": "Nicholas Lenaz",
+                "position": "Interchange",
+                "player_id": 100003907
+              },
+              {
+                "number": 16,
+                "name": "Corey Waddell",
+                "position": "Interchange",
+                "player_id": 503341
+              },
+              {
+                "number": 17,
+                "name": "Caleb Navale",
+                "position": "Interchange",
+                "player_id": 509548
+              },
+              {
+                "number": 18,
+                "name": "Onitoni Large",
+                "position": "Interchange",
+                "player_id": 100013788
+              },
+              {
+                "number": 19,
+                "name": "Fletcher Baker",
+                "position": "Interchange",
+                "player_id": 509851
+              },
+              {
+                "number": 20,
+                "name": "Blake Wilson",
+                "position": "Reserve",
+                "player_id": 506375
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Daniel Atkinson",
+                "position": "Fullback",
+                "player_id": 100004700
+              },
+              {
+                "number": 2,
+                "name": "Mathew Feagai",
+                "position": "Winger",
+                "player_id": 507925
+              },
+              {
+                "number": 3,
+                "name": "Moses Suli",
+                "position": "Centre",
+                "player_id": 504101
+              },
+              {
+                "number": 4,
+                "name": "Valentine Holmes",
+                "position": "Centre",
+                "player_id": 500845
+              },
+              {
+                "number": 5,
+                "name": "Tyrell Sloan",
+                "position": "Winger",
+                "player_id": 509484
+              },
+              {
+                "number": 6,
+                "name": "Lyhkan King-Togia",
+                "position": "Five-Eighth",
+                "player_id": 100012312
+              },
+              {
+                "number": 7,
+                "name": "Kyle Flanagan",
+                "position": "Halfback",
+                "player_id": 504363
+              },
+              {
+                "number": 8,
+                "name": "Loko Jnr Pasifiki Tonga",
+                "position": "Prop",
+                "player_id": 100014137
+              },
+              {
+                "number": 9,
+                "name": "Damien Cook",
+                "position": "Hooker",
+                "player_id": 501600
+              },
+              {
+                "number": 10,
+                "name": "Toby Couchman",
+                "position": "Prop",
+                "player_id": 100011308
+              },
+              {
+                "number": 11,
+                "name": "Dylan Egan",
+                "position": "2nd Row",
+                "player_id": 100006243
+              },
+              {
+                "number": 12,
+                "name": "Hamish Stewart",
+                "position": "2nd Row",
+                "player_id": 100006241
+              },
+              {
+                "number": 13,
+                "name": "Ryan Couchman",
+                "position": "Lock",
+                "player_id": 100008396
+              },
+              {
+                "number": 14,
+                "name": "Connor Muhleisen",
+                "position": "Interchange",
+                "player_id": 505952
+              },
+              {
+                "number": 15,
+                "name": "Josh Kerr",
+                "position": "Interchange",
+                "player_id": 503533
+              },
+              {
+                "number": 16,
+                "name": "Jacob Halangahu",
+                "position": "Interchange",
+                "player_id": 100011655
+              },
+              {
+                "number": 17,
+                "name": "Jacob Webster",
+                "position": "Interchange",
+                "player_id": 100004153
+              },
+              {
+                "number": 18,
+                "name": "Blake Lawrie",
+                "position": "Interchange",
+                "player_id": 503440
+              },
+              {
+                "number": 19,
+                "name": "Setu Tu",
+                "position": "Interchange",
+                "player_id": 510696
+              },
+              {
+                "number": 21,
+                "name": "Kade Reed",
+                "position": "Reserve",
+                "player_id": 100011297
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 26,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Sea Eagles",
+            "position": 10,
+            "played": 22,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 12,
+            "competition_points": 26,
+            "points_for": 549,
+            "points_against": 483,
+            "points_difference": 66,
+            "points_difference_per_game": 3.0,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1W",
+            "home_record": "5 - 6",
+            "away_record": "5 - 6"
+          },
+          "away": {
+            "team": "Dragons",
+            "position": 17,
+            "played": 22,
+            "wins": 4,
+            "drawn": 0,
+            "lost": 18,
+            "competition_points": 14,
+            "points_for": 358,
+            "points_against": 651,
+            "points_difference": -293,
+            "points_difference_per_game": -13.32,
+            "recent_form_last_4": "2 - 3",
+            "streak": "1L",
+            "home_record": "2 - 9",
+            "away_record": "2 - 9"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sea Eagles",
+            "ladder_positions_gap": 7,
+            "points_difference_per_game_gap": 16.32,
+            "points_difference_favours": "Sea Eagles"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-28T18:00",
+            "temperature_c": 14.7,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 13.1,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.788,
+            "longitude": 151.286,
+            "venue": "4 Pines Park",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.788&longitude=151.286&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-28T01:08:46.738725+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=26&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/sea-eagles-v-dragons/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.788&longitude=151.286&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "6ce6df03aa85",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-28T01:09:22.245659+00:00",
+      "finished_at": "2026-08-28T01:10:59.945163+00:00",
+      "duration_ms": 97699,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dragons",
+        "kickoff": "2026-08-28T18:00:00+10:00",
+        "round_number": 26,
+        "venue": "4 Pines Park",
+        "queries": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sea Eagles vs Dragons NRL round 26 preview",
+          "Sea Eagles Dragons NRL odds OR price OR favourite",
+          "Sea Eagles Dragons NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dragons",
+          "kickoff": "2026-08-28T18:00:00+10:00",
+          "round_number": 26,
+          "venue": "4 Pines Park",
+          "queries": [
+            "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Sea Eagles vs Dragons NRL round 26 preview",
+            "Sea Eagles Dragons NRL odds OR price OR favourite",
+            "Sea Eagles Dragons NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-28T01:09:22.296257+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 18
+          }
+        },
+        "items": [
+          {
+            "id": "7d2501f1fa6779bb",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 26",
+            "url": "https://www.nrl.com/news/2026/08/25/nrl-team-lists-round-26/",
+            "published_at": "2026-08-25T05:59:01+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 26\nOfficial team lists, updates and injury news for Round 26 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nBroncos v Storm, Thursday 7.50pm at Suncorp Stadium\nMatch: Broncos v Storm\nRound 26 - Round 26 ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 26\nOfficial team lists, updates and injury news for Round 26 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nBroncos v Storm, Thursday 7.50pm at Suncorp Stadium\nMatch: Broncos v Storm\nRound 26 - Round 26 - Thursday 27 Aug\nhome Team\nBroncos\naway Team\nStorm\nTeam Lists\nBacks\nFullback for Broncos is number 1 Hayze Perham 1 Fullback for Storm is number 1 Sualauvi Faalogo\nWinger for Broncos is number 2 Josiah Karapani 2 Winger for Storm is number 2 Siulagi Tuimalatu-Brown\nCentre for Broncos is number 3 Kotoni Staggs 3 Centre for Storm is number 3 Tyran Wishart\nCentre for Broncos is number 4 Deine Mariner 4 Centre for Storm is number 4 Nick Meaney\nWinger for Broncos is number 5 Grant Anderson 5 Winger for Storm is number 5 Moses Leo\nFive-Eighth for Broncos is number 6 Ezra Mam 6 Five-Eighth for Storm is number 6 Cameron Munster\nHalfback for Broncos is number 7 Ben Hunt 7 Halfback for Storm is number 7 Jahrome Hughes\nForwards\nProp for Broncos is number 8 Xavier Willison 8 Prop for Storm is number 8 Stefano Utoikamanu\nHooker for Broncos is number 9 Billy Walters 9 Hooker for Storm is number 9 Harry Grant\nProp for Broncos is number 10 Payne Haas 10 Prop for Storm is number 10 Josh King\n10\n2nd Row for Broncos is number 11 Jaiyden Hunt 11 2nd Row for Storm is number 11 Shawn Blore\n11\n2nd Row for Broncos is number 12 Jordan Riki 12 2nd Row for Storm is number 12 Oryn Keeley\n12\nLock for Broncos is number 13 Patrick Carrigan 13 Lock for Storm is number 13 Trent Loiero\n13\nInterchange\nInterchange for Broncos is number 14 Blake Mozer 14 15 Interchange for Storm is number 15 Alec MacDonald\n14 15\nInterchange for Broncos is number 15 Aublix Tawha 15 17 Interchange for Storm is number 17 Cooper Clarke\n15 17\nInterchange for Broncos is number 16 Jack Gosiewski 16 18 Interchange for Storm is number 18 Angus Hinchey\n16 18\nInterchange for Broncos is number 17 Va'a Semu 17 19 Interchange for Storm is number 19 Marion Seve\n17 19\nReserve for Broncos is number 18 Thomas Duffy 18 14 Reserve for Storm is number 14 Trent Toelau\n18 14\nReserve for Broncos is number 19 Gehamat Shibasaki 19 16 Reserve for Storm is number 16 Jack Hetherington\n19 16\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Kasey Badger\nSenior Review Official: Ashley Klein\nLast updated: 8/28/2026 12:12:03 AM\nBroncos: On the back of a stunning comeback win in Canberra, Michael Maguire sticks with the same 19-man squad with Ben Hunt again the starting half and Tom Duffy on the bench. Hayze Perham retains the No.1 jersey on the back of a standout display against the Raiders.\nStorm: Jahrome Hughes has been named to return at halfback after three games out with a hamstring injury. Tyran Wishart moves to the centres after playing No.7 last week. He takes over from Jack Howarth, who has been stood down for the remainder of the year to undergo surgery on a previous shoulder injury. Marion Seve joins the interchange after two games in NSW Cup following an extended break with a triceps injury.\nSea Eagles v Dragons, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nSea Eagles\nDragons\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is nu",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 67.17258229361111,
+            "relevance_score": 10.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "51f4c66e821a9938",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 26 - Teddy, Trell target returns",
+            "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/",
+            "published_at": "2026-08-27T10:00:38+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 26 - Teddy, Trell target returns\nRoosters skipper James Tedesco will again look to make his comeback from an ankle injury after being named to face the Dolphins.\nTedesco suffered the injury in Round 22 against the Cowboys and has struggled to get",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 26 - Teddy, Trell target returns\nRoosters skipper James Tedesco will again look to make his comeback from an ankle injury after being named to face the Dolphins.\nTedesco suffered the injury in Round 22 against the Cowboys and has struggled to get it right across the past fortnight, twice being named to play before being a late withdrawal.\nThe Rabbitohs have superstar Latrell Mitchell on track to play first game since Round 11 after overcoming a nerve issue in his back.\nMitchell will be used from bench in the clash with the Titans at Cbus Super Stadium and then look to crank it up in Round 27 against old foes the Roosters.\nSee all the late mail, official team news and updates for Round 26 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 26\nSea Eagles v Dragons, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\naway Team\nDragons\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dragons is number 9 Damien Cook\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dragons is number 10 Toby Couchman\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Sea Eagles is number 12 Ben Trbojevic 12 2nd Row for Dragons is number 12 Hamish Stewart\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dragons is number 13 Ryan Couchman\n13\nInterchange\nInterchange for Sea Eagles is number 14 Jake Simpkin 14 Interchange for Dragons is number 14 Connor Muhleisen\n14\nInterchange for Sea Eagles is number 15 Nicholas Lenaz 15 Interchange for Dragons is number 15 Josh Kerr\n15\nInterchange for Sea Eagles is number 16 Corey Waddell 16 Interchange for Dragons is number 16 Jacob Halangahu\n16\nInterchange for Sea Eagles is number 17 Caleb Navale 17 Interchange for Dragons is number 17 Jacob Webster\n17\nInterchange for Sea Eagles is number 18 Onitoni Large 18 Interchange for Dragons is number 18 Blake Lawrie\n18\nInterchange for Sea Eagles is number 19 Fletcher Baker 19 Interchange for Dragons is number 19 Setu Tu\n19\nReserves\nReserve for Sea Eagles is number 20 Blake Wilson 20 21 Reserve for Dragons is number 21 Kade Reed\n20 21\nSea Eagles Ins\nBlake Wilson\nOnitoni Large\nDragons Ins\nConnor Muhleisen\nKade Reed\nSea Eagles Outs\nTolutau Koula\nJacob Liddle\nMatch Officials\nTouch Judge: Jon Stone\nSenior Review Official: Adam Gee\nLast updated: 8/28/2026 12:01:14 AM\nSea Eagles: Tolu Koula suffered a moderate grade syndesmosis injury against Newcastle and will only play again this season should Manly sneak into the finals. Josh Feledy starts at centre and 19-year-old playmaker Onitoni Large has been added to the interchange for his NRL debut. \"We know he is ready if called upon and we need to throw him into the action,\" coach Kieran Foran said on Thursday. Manly’s 1996 premiership-winning team will be honoured at 4 Pines Park on Friday night. No changes in Thursday's 24-hour update.\nDragons: A big moment for Connor Muhleisen as he joins the bench for his first NRL game since Round 27, 2024 against the Raiders. The 2",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.145637849166667,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "d5f227c3d1c84f4f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/25/team-list-nrl-round-26-vs-dragons/",
+            "published_at": "2026-08-25T05:59:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 26 vs Dragons\nSea Eagles coach Kieran Foran has named a 22-man squad for Friday night’s Round 26 match against the St George Illawarra Dragons at 4 Pines Park\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 26 vs Dragons\nSea Eagles coach Kieran Foran has named a 22-man squad for Friday night’s Round 26 match against the St George Illawarra Dragons at 4 Pines Park\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nThere is just one change to the team following last weekend’s big win over the Knights in Newcastle.\nJosh Feledy comes into the starting side to replace injured centre Tolu Koula (ankle). Koula will miss the remainder of the regular season after suffering a moderate grade syndesmosis injury against Newcastle.\nFeledy, a local junior, bagged a 16-minute hat-trick of tries against the Knights after replacing Koula late in the first half. They were his first three tries for Manly.\nNineteen-year-old five-eighth Onitoni Large, who is yet to make his NRL debut, has been named on the interchange.\nNathan Brown will play his 200 th game, 13 years after making his NRL debut.\nManly’s 1996 premiership-winning team will be in attendance on Friday night, 30 years after defeating the Dragons to claim the Club’s sixth premiership.\nThis Round 26 fixture is the Sea Eagles’ Community Round. More than 150 children will be involved in junior clinics before the game and 66 players from local junior footy clubs will take part in a Junior League Relay at half time.\nTeam List: Round 26 vs Dragons\nBrought to you by\n1.\nTom Trbojevic (c)\n2.\nJason Saab\n3.\nJosh Feledy\n4.\nReuben Garrick\n5.\nLehi Hopoate\n6.\nClayton Faulalo\n7.\nJamal Fogarty\n8.\nSimione Laiafi\n9.\nBrandon Wakeham\n10.\nNathan Brown\n11.\nHaumole Olakau'atu\n12.\nBen Trbojevic\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNic Lenaz\n16.\nCorey Waddell\n17.\nCaleb Navale\n18.\nOnitoni Large\n19.\nFletcher Baker\nReserves\n20.\nBlake Wilson\n21.\nJackson Shereb\n22.\nHugo Hart\nRelated /\nTeam Update: Community Round vs Dragons\nDragons on Friday: Another 'must win' game\nFrom SCG to back fence at Brookie\nMatch Preview\nMatch Preview: NRL Round 26 vs Dragons\nCommunity\nGallery: Community Round Prep",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.1728600713889,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f180b04d79b191be",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knock-On Effect NSW Cup Team List: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/25/knock-on-effect-nsw-cup-team-list-round-26-vs.-sea-eagles/",
+            "published_at": "2026-08-25T05:57:12+00:00",
+            "snippet": "Knock-On Effect NSW Cup Team List: Round 26 vs. Sea Eagles &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Knock-On Effect NSW Cup Team List: Round 26 vs. Sea Eagles\nWillie Talau has named his squad to face the Manly Warringah Sea Eagles in Round 26 of the 2026 Knock-On Effect NSW Cup season at Lionel Watts Park.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nSea Eagles\n14th Position\naway Team\nDragons\n11th Position\nVenue: Lionel Watts Park, Sydney\nMatch broadcasters:\nBarTV\nNSW CUP TEAM LIST ROUND 26\nNSW CUP TEAM LIST\nROUND 26\nTyler PECKHAM-HARRIS\nTom KIRK\nBrandon MORKOS\nNick TSOUGRANIS\nSaifiti Junior SAIFITI\nJoseph O’NEILL (c)\nKade REED\nNick QUINN\n10\nRyan HUTCHINSON\n11\nDylan COUTTS\n12\nLuciano LEILUA\n13\nCyrus STANLEY-TRAILL\n14\n15\nDrew LANGDON\n17\nLachlan WEIR\n22\nWes PRING\nRelated /\nNRL Team Update: Round 26 vs. Sea Eagles\nTeam Lists\nJersey Flegg Team List: Round 26 vs. Sea Eagles\nNRLW Team List: Round 9 vs. Warriors\nNRL Team List: Round 26 vs. Sea Eagles\nKnock-On Effect NSW Cup Team List: Round 25 vs. Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.2028600713889,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "4794f6232ae5fa0d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/25/nrl-team-list-round-26-vs.-sea-eagles/",
+            "published_at": "2026-08-25T05:57:11+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 26 vs. Sea Eagles\nDean Young has named his squad to take on the Manly Warringah Sea Eagles at 4 Pines Park in Round 26.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Posi",
+            "body_excerpt": "Presented By\nNRL Team List: Round 26 vs. Sea Eagles\nDean Young has named his squad to take on the Manly Warringah Sea Eagles at 4 Pines Park in Round 26.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nJacob Liddle (calf) is out for the Red V with Damien Cook starting at hooker and Connor Muhleisen coming onto the interchange for his first NRL outing since Round 27, 2024.\nThe 25-year-old suffered an ACL rupture in the club’s Knock-On Effect NSW Cup Grand Final last year and made an awaited return to the field earlier this month.\nROUND 26 TEAM LIST\nROUND 26\nTEAM LIST\nPLAYER PARTNER\nDaniel ATKINSON\nPorta Restaurant\nMathew FEAGAI\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nToby COUCHMAN\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nConnor MUHLEISEN\nWollongong City Jetski\n15\nJosh KERR\nClassic Sportswear\n16\nJacob HALANGAHU\nBill & Toni’s Restaurant\n17\nJacob WEBSTER\nJAC Motors\n18\nBlake LAWRIE\nGearbox\n19\nSetu TU\ni98FM\n20\nLuciano LEILUA\nSt George Leagues Club\n21\nKade REED\nWIN TV\n22\nRyan HUTCHINSON\nRelated /\nNRL Team Update: Round 26 vs. Sea Eagles\nMatch Preview\nNRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off\nTeam Lists\nNRL Final Team: Round 25 vs. Bulldogs\nNRL Team Update: Round 25 vs. Bulldogs\nNRL Team List: Round 25 vs. Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.20313784916667,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f8b8f64e76753b6c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Manly Sea Eagles vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/manly-sea-eagles-vs-st-george-illawarra-dragons-tips-odds-teams-predictions-nrl-round-26-2026/610053/amp",
+            "published_at": "2026-08-26T23:08:33+00:00",
+            "snippet": "Manly Sea Eagles vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions – NRL Round 26 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "4 Pines Park will play host to Friday's Round 26 NRL game between Manly Sea Eagles and St. George Illawarra Dragons. The game kicks off at 6:00 pm with Manly Sea Eagles heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Manly Sea Eagles vs. St. George Illawarra Dragons game and give you our free tips and bets.\nWhen: Friday August 28, 2026 at 6:00 pm\nWhere: 4 Pines Park\nBet: Bet On This Match HERE\nManly Sea Eagles vs St. George Illawarra Dragons Odds\nManly Sea Eagles vs St. George Illawarra Dragons Preview\nManly kept its remote finals hopes alive by ending a six-match losing run with a 44-24 victory over Newcastle. The Sea Eagles must continue winning and rely on other results, giving this home assignment genuine urgency. St George Illawarra’s bid for three straight victories ended in a 44-14 loss to Canterbury, leaving the Dragons close to the wooden spoon. Josh Feledy replaces the injured Tolutau Koula in Manly’s centres and Onitoni Large could debut from the bench. For the Dragons, Damien Cook starts at hooker after Jacob Liddle was ruled out, with Connor Muhleisen added to the interchange. Manly won the Round 6 meeting 28-18, and its speed through Tom Trbojevic, Jason Saab and Lehi Hopoate should create enough chances to control this contest.\nHead To Head Bet\nWe're tipping Manly Sea Eagles to win at $1.42 odds.\nFirst Try Scorer\nFirst Try Scorer: Jason Saab at $8.50 .\nManly Sea Eagles vs St. George Illawarra Dragons Teams\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Josh Feledy 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Onitoni Large 19. Fletcher Baker 20. Blake Wilson 21. Jackson Shereb 22. Hugo Hart\nDragons team: 1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook 10. Toby Couchman 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Connor Muhleisen 15. Josh Kerr 16. Jacob Halangahu 17. Jacob Webster 18. Blake Lawrie 19. Setu Tu 20. Luciano Leilua 21. Kade Reed 22. Ryan Hutchinson",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.013693404722222,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6824cea3d63eecf6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "World Cup",
+            "title": "'I set myself that goal': Caleb's Bati dream alive after fairytale comeback",
+            "url": "https://www.nrl.com/news/2026/08/28/i-set-myself-that-goal-navales-world-cup-dream-back-on-after-fairytale-comeback/",
+            "published_at": "2026-08-27T20:46:52+00:00",
+            "snippet": "'I set myself that goal': Caleb's Bati dream alive after fairytale comeback\nSix months ago, Caleb Navale thought his Rugby League World Cup dream was over.\nA ruptured ACL during Manly's pre-season left the the 23-year-old lock fearing he would miss the biggest moment of his caree",
+            "body_excerpt": "'I set myself that goal': Caleb's Bati dream alive after fairytale comeback\nSix months ago, Caleb Navale thought his Rugby League World Cup dream was over.\nA ruptured ACL during Manly's pre-season left the the 23-year-old lock fearing he would miss the biggest moment of his career so far, representing Fiji on the game's ultimate stage.\nNow, after defying the odds with a remarkable return to the NRL just six months and three days after the training mishap, Navale has put himself firmly back in the frame for this year's World Cup.\n“I set myself that goal when I was watching the last World Cup,” Navale told NRL.com.\n“I was pretty devastated at the time, thinking I'd miss out on it.”\nCaleb Navale Try\nInstead, his comeback has felt like something out of a movie.\nAfter months of rehabilitation, Navale returned in Round 25 against Newcastle, helping Manly snap a six-game losing streak and capping the afternoon with a try in his first game back.\n“It was like a fairytale game for myself,” he said. “I'd been thinking about it for a while when it happened in pre-season.\n\"Just how it unfolded, coming off six losses, Saturday afternoon, scoring a try in my comeback game ... it was awesome.”\nThe comeback has reignited a dream that started long before he reached the NRL.\nWatching the Rugby League World Cup as a young fan, Navale promised himself he would get there one day.\n“Watching it when I was younger, I always dreamt of playing in one,” he said.\n“It's becoming a reality very soon, which is amazing.\n“Seeing all the boys like Tui (Kamikamica) and (Viliame) Kikau, and seeing how much it means to them coming from that little island in the middle of the Pacific, it's hard to put into words how much it means to my family and everyone.”\nMatch: Fiji v Cook Islands\nRound 1 - Round 1 - Sunday 18 Oct\nhome Team\nFiji\naway Team\nCook Islands\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nChannel 7\nRepresenting Fiji has always carried extra meaning for Navale.\nHe made his international debut during the 2023 Pacific Championships, but wearing the Bati jersey brings back his connection to family.\nRepresenting the Bati jersey means a lot to Caleb Navale. ©Scott Davis/NRL Photos\nHis father, Eparama, also represented Fiji at the 2000 Rugby League World Cup, creating a bond few father-and-son combinations get to share.\n“Not many people can say they and their dad have represented the same country,\" Caleb said.\n“When you're doing it for your country and your family, it's just different.”\nThe Bati open their World Cup campaign against Cook Islands at McDonald Jones Stadium on October 18 before meeting the Kangaroos at Suncorp Stadium on October 25 and the Kiwis at Cbus Super Stadium on October 31.\nMatch: Australia v Fiji\nRound 2 - Round 2 - Sunday 25 Oct\nAustralia\nVenue: Suncorp Stadium, Brisbane\nGrowing up, rugby league was never far from home, and neither was his father's advice.\nEven now, as Navale chases a place in Fiji's World Cup squad, the message hasn't changed.\n“The main message is to back my instinct,” he said.\n“There's a reason I'm here and there's a reason I've got this far.\n“Don't overthink it too much - he’s always drilled that into me.”\nMatch: New Zealand v Fiji\nRound 3 - Round 3 - Saturday 31 Oct\nNew Zealand\nVenue: Cbus Super Stadium, Gold Coast\nRugby League World Cup 2026 returns to Australia, New Zealand, and Papua New Guinea. Where nations clash, heroes rise, and legends are forged. 3 World Cups. 26 Teams. The World’s Best. Tickets are now on sale from $19. Don’t miss the pinnacle of global Rugby League.\nRelated /\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nSea Eagles\nIt's not the journey but the destination that counts now: Turbo\nMatch Preview\nSea Eagles v Dragons: Round 26\nPress Conference\nNRL Press Conference: Knights v Sea Eagles - Round 25, 2026\nWorld Cup\n'Memories I'll cherish forever': Tui's Bati pride",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 4.375082293611111,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f379da8bdf0359f9",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Sea Eagles v Dragons: Feledy set to start; Cook steps up",
+            "url": "https://www.nrl.com/news/2026/08/25/sea-eagles-v-dragons-feledy-set-to-start-cook-steps-up/",
+            "published_at": "2026-08-27T08:07:49+00:00",
+            "snippet": "Presented By\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nThe equation for Manly is simple - win both of their remaining games and hope for a stumble from the Rabbitohs, Cowboys and Bulldogs.\nIt's a big ask but if the Sea Eagles can produce the sort of football they t",
+            "body_excerpt": "Presented By\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nThe equation for Manly is simple - win both of their remaining games and hope for a stumble from the Rabbitohs, Cowboys and Bulldogs.\nIt's a big ask but if the Sea Eagles can produce the sort of football they turned on in Newcastle last weekend and take care of the Dragons they could set up a monster clash with the Warriors in Round 27 to sneak into the eight.\nWith Tom Trbojevic back on deck and looking to finish an injury-plagued season on a high, the Sea Eagles are capable of beating anyone on their day - as they showed across a 7-1 stretch when Kieran Foran took over.\nThe Dragons have shown plenty of positive signs in the past month but they were well off the pace against the Bulldogs and will need to lift their defensive intensity to contain the Sea Eagles' speed men.\nThe last time these sides met in Round 6 it was Manly prevailing 28-18 at WIN Stadium on the back of 240 run metres and a try double from Reuben Garrick as well as 195 run metres from Turbo.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nSea Eagles: With Tolu Koula sidelined by an ankle injury, Josh Feledy starts at centre and 19-year-old Onitoni Large has been added to the interchange for his NRL debut. No changes in Thursday's 24-hour update with Jackson Shereb and Hugo Hart making way.\nDragons: The loss of Jacob Liddle to a calf injury sees skipper Damien Cook move into the starting hooker role and Connor Muhleisen added to the bench for his first NRL game since Round 27, 2024 against the Raiders. Muhleisen suffered an ACL rupture in last year's NSW Cup grand final and has played four games back in NSW Cup in August. No changes in Thursday's 24-hour update with Luciano Leilua and Ryan Hutchinson dropping out.\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dragons is number 9 Damien Cook\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dragons is number 10 Toby Couchman\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Sea Eagles is number 12 Ben Trbojevic 12 2nd Row for Dragons is number 12 Hamish Stewart\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dragons is number 13 Ryan Couchman\n13\nInterchange\nInterchange for Sea Eagles is number 14 Jake Simpkin 14 Interchange for Dragons is number 14 Connor Muhleisen\n14\nInterchange for Sea Eagles is number 15 Nicholas Lenaz 15 Interchange for Dragons is number 15 Josh Kerr\n15\nInterchange for Sea Eagles is number 16 Corey Waddell 16 Interchange for Dragons is number 16 Jacob Halangahu\n16\nInterchange for Sea Eagles is number 17 Caleb Navale 17 Interchange for Dragons is number 17 Jacob Webster\n17\nInterchange for Sea Eagles is number 18 Onitoni Large 18 Interchange for Dragons is number 18 Blake Lawrie\n18\nInterchange for Sea Eagles is number 19 Fletcher Baker 19 Interchange for Dragons is number 19 Setu Tu\n19\nReserves\nReserve for Sea Eagles is number 20 Blake Wilson 20 21 Reserve for Dragons ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.025915626944446,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "529484687691105a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Update: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/27/nrl-team-update-round-26-vs.-sea-eagles/",
+            "published_at": "2026-08-27T08:00:00+00:00",
+            "snippet": "NRL Team Update: Round 26 vs. Sea Eagles &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team Update: Round 26 vs. Sea Eagles\nDean Young has named his squad to take on the Manly Warringah Sea Eagles at 4 Pines Park in Round 26.\n24-Hour Update: Luciano Leilua and Ryan Hutchinson drop out of the squad.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nJacob Liddle (calf) is out for the Red V with Damien Cook starting at hooker and Connor Muhleisen coming onto the interchange for his first NRL outing since Round 27, 2024.\nThe 25-year-old suffered an ACL rupture in the club’s Knock-On Effect NSW Cup Grand Final last year and made an awaited return to the field earlier this month.\nROUND 26 TEAM LIST\nROUND 26\nTEAM LIST\nPLAYER PARTNER\nDaniel ATKINSON\nPorta Restaurant\nMathew FEAGAI\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nToby COUCHMAN\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nConnor MUHLEISEN\nWollongong City Jetski\n15\nJosh KERR\nClassic Sportswear\n16\nJacob HALANGAHU\nBill & Toni’s Restaurant\n17\nJacob WEBSTER\nJAC Motors\n18\nBlake LAWRIE\nGearbox\n19\nSetu TU\ni98FM\n21\nKade REED\nWIN TV\nRelated /\nNRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off\nTeam Lists\nNRL Team List: Round 26 vs. Sea Eagles\nNRL Final Team: Round 25 vs. Bulldogs\nNRL Team Update: Round 25 vs. Bulldogs\nNRL Team List: Round 25 vs. Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.156193404722224,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1dd27979b3d6aea0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/27/nrl-round-26-match-preview-dragons-journey-to-northern-beaches-for-friday-face-off/",
+            "published_at": "2026-08-27T05:14:46+00:00",
+            "snippet": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off\nThe St George Illawarra Dragons make the trip up to 4 Pines Park for a Friday evening clash with the Manly Warringah Sea Eagles.\nGET YOUR TICKETS!\nNRL TEAM LIST\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nKEY INFO\nDate: Friday, August 28th\nVenue: 4 Pines Park, Brookvale\nWatch: Kayo & Foxtel\nNRL: 6:00pm\nMUHLEISEN BACK IN THE NRL\nJacob Liddle's season-ending calf injury opens the door for Connor Muhleisen to make his first NRL appearance since Round 27, 2024.\nMuhleisen played a starring role in the club's run to the 2025 Knock-On Effect NSW Cup Grand Final tallying a competition-best 806 tackles at 96 per cent efficiency before suffering an ACL rupture in the first half of the decider.\nHe made his return to the field in the club's Round 22 Knock-On Effect NSW Cup fixture this year and this week earns an opportunity on the big stage.\nA native of Buxton in the Wollondilly Shire, Muhleisen grew up playing his juniors with the Thirlmere-Tahmoor Roosters before linking up with Illawarra as a teenager.\nHe represented the Steelers at Harold Matthews Cup and SG Ball level helping lead the side to a 2019 SG Ball Grand Final win.\nHe made the leap up to Jersey Flegg the following year before earning a maiden NSW Cup nod in Round 8, 2021.\nA gritty No.9, Muhleisen grew into an integral member of the side before being rewarded with an NRL debut in Round 22, 2023.\nCOOK EAGER TO END ON HIGH\nIt's been an impressive ride for veteran rake Damien Cook who is on the home stretch of an illustrious, 14-year NRL career.\nCook made a long-awaited homecoming to the Dragons in 2025 having made his NRL debut for the club back in Round 6, 2013.\nA Helensburgh Tigers junior, Cook would spend the 2014 and 2015 seasons with the Bulldogs before making the move to the Rabbitohs where he blossomed into one of the game’s elite No.9s over the course of nine seasons.\nHe made his State of Origin debut in Game I, 2018 before earning a Kangaroos debut later that year against New Zealand.\nThe 34-year-old now boasts a resumé including 261 NRL appearances, 17 State of Origin nods, four Kangaroos caps and a Dally M Hooker of the Year Award.\nCook: “Trying to enjoy myself”\nTEAM NEWS\nJacob Liddle (calf) is out for the Red V with Damien Cook starting at hooker and Connor Muhleisen coming onto the interchange for his first NRL outing since Round 27, 2024.\nWith Tolutau Koula (ankle) sidelined, Josh Feledy starts at centre and 19-year-old Onitoni Large has been added to the interchange for his NRL debut.\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dragons is number 9 Damien Cook\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dragons is number 10 Toby Couchman\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Sea Eagles is number 12 Ben Trbojevic 12 2nd Row for Dragons is number 12 Hamish Stewart\n12\nLock for Sea Eagles is number 13 Jake Trbojevic 13 Lock for Dr",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.910082293611108,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "bec4281adf705002",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "World Cup",
+            "title": "Sea Eagles It's not the journey but the destination that counts now: Turbo",
+            "url": "https://www.nrl.com/news/2026/08/27/its-not-the-journey-but-the-destination-that-counts-now-turbo/",
+            "published_at": "2026-08-26T20:01:21+00:00",
+            "snippet": "It's not the journey but the destination that counts now: Turbo\nTom Trbojevic’s return has come at exactly the right time for Manly, with the Sea Eagles skipper back on deck as they prepare for the two biggest games of their season.\nAfter helping his team snap a six-game losing s",
+            "body_excerpt": "It's not the journey but the destination that counts now: Turbo\nTom Trbojevic’s return has come at exactly the right time for Manly, with the Sea Eagles skipper back on deck as they prepare for the two biggest games of their season.\nAfter helping his team snap a six-game losing streak with a win over the Knights, Trbojevic has given the Sea Eagles renewed belief heading into the final two rounds, even if their top-eight hopes hang by a thread.\nThe first part of the assignment is Friday's clash with the Dragons at 4 Pines Park before travelling to Auckland in Round 27 to face the Warriors.\nThe ninth-placed Sea Eagles know they must win both games and then rely on results elsewhere to sneak into the top eight. Otherwise it's no finals for a second year running.\n“All we can control is these two games of footy,” Trbojevic said.\n“Unfortunately, we have put ourselves in this situation and it’s disappointing considering where we were.\nKnights v Sea Eagles – Round 25, 2026\n“Ultimately, we have two games of footy left and we need to win both.”\nThe 29-year-old pulled up well from his first game back after a hamstring injury, playing a key role in Manly’s 44-24 win over the Knights.\n“Pulled up good,” Trbojevic said.\n“It was good to get back out there and get the two points.”\nHis return has provided a timely boost for a Sea Eagles side that looked destined for finals oblivion after six losses in a row between Round 18 and 24.\nGood to be back: Tom Trbojevic with wife Kristi after his comeback game in Newcastle. ©Shane Myers\nManly had enjoyed a promising start under Kieran Foran, but a mounting injury toll to key players disrupted their momentum.\nNow, with their captain back and just two games remaining, Trbojevic believes there is still plenty of good footy to play.\n“When we are at our best, we are a really good footy side,” he said.\n“There’s been periods this year that we have been so far away from that. There’s too big a gap from our best and our worst.\n“Overall this year we are really growing as a side.\n“Two games to go to continue to do that and, if the stars align, we’ll see where we are at.”\nThe Sea Eagles also received another boost against Newcastle, with Josh Feledy making the most of his opportunity after replacing the injured Tolu Koula.\nFeledy finds the line\nThe young centre scored a hat-trick and could be the attacking difference Manly has needed, as he prepares to line up in the starting side against the Dragons.\n“Foz has really simplified it: prepare like you are going to play,” Feledy said.\n“We need to go out there with a good mindset and we need to win both games, and that’s what we’re going to do.”\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nMatch Preview\nSea Eagles v Dragons: Round 26\nFantasy\nFirst take: Sea Eagles v Dragons\nPress Conference\nNRL Press Conference: Knights v Sea Eagles - Round 25, 2026",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 29.13369340472222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6ebbf75492fbac1f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/sea-eagles-vs-dragons-preview-betting-tips-nrl-round-26-2026",
+            "published_at": "2026-08-26T06:20:17+00:00",
+            "snippet": "Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026\nAugust 26 th 2026, 3:57pm , By: Ben Bridge\nFriday Night Football at 4 Pines Park gives us a matchup between two sides whose seasons have taken very different paths, even if neither has ultimately reached the position they hoped for. Manly’s finals hopes remain incredibly slim, but they are still mathematically alive after finally snapping a six-game losing streak with a stunning 44-24 win over Newcastle. The Dragons, meanwhile, are now guaranteed to finish with the wooden spoon and are coming off a 44-14 hiding from Canterbury.\nCheck out our full preview and NRL betting tips for the Sea Eagles vs Dragons below!\nIf you're looking for somewhere new to bet on the NRL, then help support our site by clicking on the banner below to join BetRaven ! They are a brand new site with some exciting features. Find out more in our BetRaven review .\nSea Eagles vs Dragons Prediction & Tips: 2026 NRL Round 26\nThe fact that the Sea Eagles are still mathematically alive in the race for finals is a distinction that matters from a betting angle. Manly at least have something tangible left to chase, and their response last weekend showed there is still some fight in the group. St George Illawarra have spent the past month producing a couple of spirited efforts, but the Bulldogs result looked like a side finally running out of road.\nThe market is close to my ratings, so Sea Eagles -8.5 is only a relatively small play. My trust in Manly has diminished significantly over the past six weeks, but Tom Trbojevic is back, they return to 4 Pines Park, and the Dragons now have very little beyond pride to play for.\nTolu Koula is out with an ankle injury, forcing Josh Feledy into the centres, while 19 year old Onitoni Large is set for his NRL debut from the bench. For the Dragons, Jacob Liddle is out with a calf injury, meaning Damien Cook moves into the starting hooker role.\nSea Eagles Finally Show Signs of Life\nManly’s 44-24 upset of Newcastle was exactly the response they needed after six consecutive defeats had threatened to completely bury their season. The Sea Eagles arrived at McDonald Jones Stadium as outsiders against a Knights side pushing for a top 4 finish, yet played with far more energy and intent than they had shown throughout their slump.\nThe biggest difference was Tom Trbojevic. Returning from his hamstring injury, Turbo ran for 154 metres and immediately gave Manly a more dangerous attacking shape. Josh Feledy scored the first try of his career, which turned into a hat-trick, while Lehi Hopoate produced nine tackle breaks and 151 metres and Reuben Garrick added 156 metres. The outside backs completely overwhelmed Newcastle in yardage and gave Manly the platform they had lacked during their losing run.\nThat performance was a reminder that this roster still has plenty of attacking upside when its best players are available. Turbo’s support play completely changes the way Manly can attack around the middle, while Jason Saab, Garrick and Hopoate provide speed and finishing on the edges.\nThe issue remains whether one good performance can be trusted after such a poor month. Manly lost six straight before the Newcastle win, repeatedly conceding soft points and failing to close games they had opportunities to win.\nTolu Koula’s ankle injury is another blow this week, although Feledy’s form last Saturday makes the positional reshuffle easier to absorb. Manly still have Jamal Fogarty controlling territory, Haumole Olakau’atu giving them an elite right edge weapon and Jake Trbojevic providing experience through the middle.\nMost importantly, they are back at 4 Pines Park. Their finals equation requires them to win both remaining games and hope other results fall their way. It is a long shot, but it is still something to play for.\nDragons Finally Look Like Wooden Spooners\nSt George Illawarra’s 44-14 loss to Canterbury was one of their poorest performances during what had otherwise been a more c",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.81813784916667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "66c6a38c7aba70d1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/26/match-preview-nrl-round-26-vs-dragons/",
+            "published_at": "2026-08-26T06:00:38+00:00",
+            "snippet": "Presented By\nMatch Preview: NRL Round 26 vs Dragons\nThe Sea Eagles take on the Dragons at 4 Pines Park on Friday night in the penultimate round of the regular season.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDrag",
+            "body_excerpt": "Presented By\nMatch Preview: NRL Round 26 vs Dragons\nThe Sea Eagles take on the Dragons at 4 Pines Park on Friday night in the penultimate round of the regular season.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nThe scenes that followed last Saturday’s big win in Newcastle show just how much it meant to the players to end a six-game losing streak.\nRelief. Belief. And still in the hunt.\nThe 44-24 victory over the Knights was the club’s 1000th premiership win, which keeps the team’s slim finals hopes alive.\nHat-trick hero Josh Feledy with delighted Manly fans after last weekend's win in Newcastle\nNext up are the Dragons.\nIt’s another must-win game and the team’s final appearance at 4 Pines Park for the season as the club searches for its 500th win at Brookvale.\nThere to cheer the boys on, some 30 years after their Grand Final triumph over the Dragons, will be Manly’s premiership-winning team from 1996.\nBrownie on the burst against the Knights in Round 25\nAdding to the occasion on Friday is a major milestone for Nathan Brown who will play his 200th game, 13 years after making his NRL debut against the Dragons at the SCG.\nAnd there's more\nAfter eight seasons at Manly, Reuben Garrick will play his final home game for the Club. Garrick is three tries short of becoming the fifth player in 80 years to score 100 or more tries for Manly.\nA milestone also for Jake Trbojevic on Friday. When our Co-captain runs out he will surpass legendary five-eighth Alan Thompson (263 games) as the fifth most capped Sea Eagles' player.\nIt’s certainly been a long season for St George Illawarra, with just four wins from 22 games.\nManly’s 28-18 victory in Round 6 was part of an 11-game losing streak for the Dragons who had to wait until Round 13 for their first win of the season.\nTurbo causing turmoil against the Dragons in Wollongong in Round 6\nThat win in Wollongong saw Tom Trbojevic and Reuben Garrick chalk up some big numbers with ‘Gaz’ scoring twice and running for 240 metres, and Turbo not too far behind him.\nWhile the Dragons might be four points adrift at the bottom of the ladder, they have won two of their past three games.\nLast weekend’s heavy loss to the Bulldogs followed victories over the Wests Tigers and the Cronulla Sharks.\nJacob Liddle is carried off with a serious calf injury against the Bulldogs in Round 25\nIn team news for Manly Josh Feledy – who scored three tries in 16 minutes against the Knights – replaces injured centre Tolu Koula (ankle), with Onitoni Large added to the interchange.\nDamien Cook moves into the starting hooker role for the Dragons in place of Jacob Liddle (calf) with Connor Muhleisen added to the bench for his first NRL game since 2024.\nTeam Lists\nBacks\nFullback for Sea Eagles is number 1 Tom Trbojevic 1 Fullback for Dragons is number 1 Daniel Atkinson\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dragons is number 2 Mathew Feagai\nCentre for Sea Eagles is number 3 Josh Feledy 3 Centre for Dragons is number 3 Moses Suli\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Sea Eagles is number 6 Clayton Faulalo 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Sea Eagles is number 7 Jamal Fogarty 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Sea Eagles is number 8 Simione Laiafi 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Sea Eagles is number 9 Brandon Wakeham 9 Hooker for Dragons is number 9 Damien Cook\nProp for Sea Eagles is number 10 Nathan Brown 10 Prop for Dragons is number 10 Toby Couchman\n10\n2nd Row for Sea Eagles is number 11 Haumole Olakau'atu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Sea Eagles is number 12 Ben Trbojevic 1",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.14563784916667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f0e9a28e6f273ee1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles v Dragons: Round 26 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/26/sea-eagles-v-dragons-round-26/",
+            "published_at": "2026-08-26T05:24:59+00:00",
+            "snippet": "Sea Eagles v Dragons: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:07 Panthers v Bulldogs: Round 26\nPanthers v Bulldogs: Round 26\n03:09 Broncos v Storm: Round 26\nBroncos v Storm: Round 26\nRelated /\nSea Eagles v Dragons: Feledy set t",
+            "body_excerpt": "Sea Eagles v Dragons: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:07 Panthers v Bulldogs: Round 26\nPanthers v Bulldogs: Round 26\n03:09 Broncos v Storm: Round 26\nBroncos v Storm: Round 26\nRelated /\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nSea Eagles\nIt's not the journey but the destination that counts now: Turbo\nFantasy\nFirst take: Sea Eagles v Dragons\nLive Blog\nAs it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights\nMatch Preview\nDragons v Bulldogs: Atkinson settles in; Xerri's fresh chance\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.739804515833335,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2f488eb3d95b4fe9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487",
+            "published_at": "2026-08-27T08:35:29+00:00",
+            "snippet": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Robbo’s big Teddy reveal with star fullback racing the clock ahead of blockbuster — Late Mail\nRoosters coach Trent Robinson has provided an update on James Tedesco, with the fullback not fully cleared to return from injury just yet.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, The Rabbitohs’ likely plan for Latrell Mitchell this weekend has been revealed while a Bulldogs star is set to play through the pain.\nRead below for the Round 26 NRL Team Lists and Late Mail!\nTHURSDAY AUGUST 27\nBrisbane Broncos vs Melbourne Storm @ Suncorp Stadium, 7.50pm\nBroncos team: 1. Hayze Perham 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Ben Hunt 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan 14. Blake Mozer 15. Aublix Tawha 16. Jack Gosiewski 17. Va’a Semu 18. Thomas Duffy 19. Gehamat Shibasaki\nPlayers cut: 20. Ben Talty, 21. Jesse Arthars 22. Luke Gale\nLate Mail: To come.\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 3. Tyran Wishart 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Jahrome Hughes 8. Stefano Utoikamanu 9. Harry Grant 10. Josh King 11. Shawn Blore 12. Oryn Keeley 13. Trent Loiero 14. Trent Toelau 15. Alec MacDonald 16. Jack Hetherington 17. Cooper Clarke 18. Angus Hinchey 19. Marion Seve\nPlayers cut:20. Davvy Moale 21. Hugo Peel 22. Hayden Watson\nLate Mail: Craig Bellamy had named star halfback Jahrome Hughes in the No. 7 jersey after missing the three previous games with a hamstring injury. But he’s not a definite starter just yet. “If he does end up playing, that would be great for us. He’ll have to get through today’s (Wednesday) session and he’s really keen to get back so we’ll give him every chance,” Bellamy said. Presuming Hughes does get through today’s training session, Tyrone Wishart will move to the centres with Jack Howarth dropped. Marion Seve has been named the bench. He comes into it off two NSW Cup games following a lay-off with a triceps injury. “He’s a great clubman. He’s always working hard, but he’s just been dogged by injury so hopefully we can give him a run in the last two weeks at some stage,” Bellamy said.\nMelbourne Storm coach Craig Bellamy. Source: FOX SPORTS\nFRIDAY AUGUST 28\nManly Sea Eagles vs St. George Illawarra Dragons @ 4 Pines Park, 6pm\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Josh Feledy 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Onitoni Large 19. Fletcher Baker 20. Blake Wilson\nPlayers cut: 21. Jackson Shereb 22. Hugo Hart\nLate Mail: Sea Eagles coach Kieran Foran has confirmed Tolu Koula will miss at least a month in a major blow to their hopes of making the finals. Koula was injured in a hip drop tackle from Dominic Young as Manly broke it’s losing streak against the Knights. Young was sin binned and handed a one-week ban. On Thursday Foran confirmed the injury blow. “Yeah, he’s alright. He’s in a moon boot,” Foran said.“I think it was a high grade 2 syndesmosis, so looking like he’ll be out for about a month, disappointing, but not much he can do about it. Foran did, however, reveal Koula was still in line to feature at the Rugby League World Cup after avoiding surgery. “They’re pretty comfortable and confident that they’ll be able to rehab it without surgery, so that’s a bonus for him. “He’s looking to get himself right for that campaign.”\nDragons team: 1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook 10. Toby Couchman 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Connor Muhle",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.564804515833334,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0e1566930f23438f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dragons confirm Jacob Liddle injury blow, return timeline - Zero Tackle",
+            "url": "https://www.zerotackle.com/dragons-confirm-jacob-liddle-injury-blow-return-timeline-237435/",
+            "published_at": "2026-08-27T06:31:12+00:00",
+            "snippet": "Dragons confirm Jacob Liddle injury blow, return timeline &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "St George Illawarra Dragons have confirmed dummy half Jacob Liddle has been ruled out for the rest of the season with a calf strain.\nWhen Liddle went down in the first half of their Round 25 clash with the Canterbury Bulldogs there were fears he had injured his Achilles.\nWhen speaking with Dragons media, head of performance Dan Lawson revealed the club was initially concerned by the severity of the injury, saying, “It looked pretty bad, we were quite concerned to start off with.”\nIn an X (formerly known as Twitter) post, Nrl Physio revealed that the non-contact mechanism when pushing up off the line to then turning around to \"see who kicked me\" motion pointed towards an Achilles injury.\nLiddle missed the start of the Dragons' 2026 campaign after suffering a high-grade hamstring injury during pre-season training in January.\nThe Dragons began the season without any dummy half back-up as reserve grade regular Connor Muhleisen was in rehab for an ACL injury he suffered during the 2025 Knock-On Effect NSW Cup Grand Final.\nConnor Muhleisen in action. (Photo: Flickr- @NAPARAZZI)\nAfter making his first appearance for 2026 off the bench in Round 3, Liddle was set to make his first start in Round 7 after a late change by Coach Shane Flanagan at the time.\nHowever, he re-aggravated his hamstring injury in the warm-up which would send him for another stint on the sidelines.\nThe club have provided an update on the injury with Dan Lawson stating that \"the scans were positive, he has a calf strain, not as bad as previously thought.\"\nWith the Dragons out of contention for the finals series and the nature of the injury with a three-week turnaround, Liddle won't play for the Red V again in 2026.\nLiddle will now set his sights on a strong pre-season where he aims to retain the starting hooking position that he won late on this year with Damien Cook departing the club for the Castleford Tigers on a 2-year-deal at season's end.\nWOLLONGONG, AUSTRALIA - MARCH 15: Damien Cook of the Dragons runs the ball during the round two NRL match between St George Illawarra Dragons and South Sydney Rabbitohs at WIN Stadium, on March 15, 2025, in Wollongong, Australia. (Photo by Brett Hemmings/Getty Images)\nCook will return to the starting role this week as the Dragons take on the Manly Sea Eagles , with Muhleisen being recalled to first grade for the first time since Round 27, 2024 in the no.14 position.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.63619340472222,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "1706b9f00553ee32",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Manly Sea Eagles vs St George Illawarra Dragons Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/27/manly-sea-eagles-vs-st-george-illawarra-dragons-predictions/",
+            "published_at": "2026-08-27T02:23:38+00:00",
+            "snippet": "Manly Sea Eagles vs St George Illawarra Dragons Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Manly Sea Eagles host St George Illawarra Dragons in Round 26 of the 2026 NRL season at 4 Pines Park on Friday, 28th August at 6:00 PM AEST. Read on for our full match preview, insider Rugby League betting tips , and best NRL odds .\nClinging to the slimmest of 2026 NRL finals hopes, Manly will nevertheless be alive in the race when it kicks off against last-placed St George Illawarra on Friday.\nFORM: The Sea Eagles snapped a six-match losing streak with a 44-24 upset in Newcastle last Saturday, with Josh Feledy scoring three of their eight tries from the bench.\nThe spoon-bound Dragons followed up their first back-to-back wins – getting up against Cronulla and Wests Tigers – with a flat 44-14 loss to the Bulldogs in Round 25, trailing 24-0 at halftime.\nINS AND OUTS: Tolu Koula is out for the season, which brings Feledy into the centres for Manly with debutant Onitoni Large joining the interchange.\nDamien Cook starts at hooker for the Dragons with Jacob Liddle (calf) out, while Connor Muhleisen comes onto the bench.\nKEY MATCH-UP: Sea Eagles’ No.6 novice Clayton Faulalo and Dragons tyro Lyhkan King-Tongia are staking their claims for 2027.\nHISTORY: The clubs have split their last 10 clashes, but Manly have won the last two – including a 28-18 result in Wollongong in Round 6.\nKEY STAT: The Saints have scored more than 24 points just once this season.\nVERDICT: The Sea Eagles in all likelihood have pulled out of their skid far too late, but last week’s turnaround in Newcastle has nevertheless given them plenty to play for ahead of this clash. Faulalo impressed at five-eighth, as did centre fill-in Feledy.\nDespite some very spirited efforts over the past month or two, last week’s showing against the Bulldogs hinted at a team eager to get to Mad Monday and another finals hopeful should be able to take advantage at home.\nPrediction: Back the Sea Eagles to Score Over 28.5 Points @ $1.90\nSGM: SEA EAGLES WIN / OVER 48.5 TOTAL POINTS / JASON SAAB TO SCORE 2 OR MORE TRIES / JOSH FELEDY ANYTIME TRYSCORER / HAMISH STEWART ANYTIME TRYSCORER @ $49.42\nManly Sea Eagles vs St George Illawarra Dragons Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Manly Sea Eagles vs St George Illawarra Dragons matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\n4 Pines Park • Friday 28th Aug\nTeam\nOdds\nSt George Illawarra Dragons (8.5)\n1.90\nBet Now\nManly Sea Eagles (-8.5)\nNRL odds correct as of 28/08/2026 and subject to change. Event scheduled to start at 28/08/2026 6:00pm AEST.\nLehi Hopoate (Manly Sea Eagles)\n8.00\nJason Saab (Manly Sea Eagles)\n8.75\nTom Trbojevic (Manly Sea Eagles)\n11.00\nTyrell Sloan (St George Illawarra Dragons)\n10.50\nMathew Feagai (St George Illawarra Dragons)\n11.50\nJosh Feledy (Manly Sea Eagles)\n14.00\nReuben Garrick (Manly Sea Eagles)\n15.00\nHaumole Olakau'atu (Manly Sea Eagles)\nClayton Faulalo (Manly Sea Eagles)\n16.00\nValentine Holmes (St George Illawarra Dragons)\nDaniel Atkinson (St George Illawarra Dragons)\n21.00\nHamish Stewart (St George Illawarra Dragons)\nBen Trbojevic (Manly Sea Eagles)\nMoses Suli (St George Illawarra Dragons)\n23.00\nNicholas Lenaz (Manly Sea Eagles)\n26.00\nJamal Fogarty (Manly Sea Eagles)\nCaleb Navale (Manly Sea Eagles)\nDylan Egan (St George Illawarra Dragons)\n29.00\nLyhkan King-Togia (St George Illawarra Dragons)\nCorey Waddell (Manly Sea Eagles)\n31.00\nJacob Webster (St George Illawarra Dragons)\n34.00\nDamien Cook (St George Illawarra Dragons)\nBrandon Wakeham (Manly Sea Eagles)\nKyle Flanagan (St George Illawarra Dragons)\nConnor Muhleisen (St George Illawarra Dragons)\nJake Simpkin (Manly Sea Eagles)\n41.00\nRyan Couchman (St George Illawarra Dragons)\n51.00\nToby Couchman (St George Illawarra Dragons)\nJacob Halangahu (St George Illawarra Dragons)\nNathan Brown (Manly Sea Eagles)\nSimione Laiafi (Manly Sea Eagles)\n67.00\nLoko Jnr Pasifiki Tonga (St George Illawarra Dragons)\nJake Trbojevic (Manly Sea Eagles)\nJosh Kerr (St George Ill",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.762304515833332,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "16bffd2bdb338ed2",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Live Blog As it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights",
+            "url": "https://www.nrl.com/news/2026/08/22/super-saturday-knights-v-sea-eagles-rabbitohs-v-warriors-dragons-v-bulldogs/",
+            "published_at": "2026-08-22T12:37:09+00:00",
+            "snippet": "Presented By\nAs it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights\nThree enormous matches with top-eight consequences light up a sensational Saturday of NRL action with Manly kicking off the day with a stunning 44-24 upset over the Knights.\nAfter six losses on",
+            "body_excerpt": "Presented By\nAs it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights\nThree enormous matches with top-eight consequences light up a sensational Saturday of NRL action with Manly kicking off the day with a stunning 44-24 upset over the Knights.\nAfter six losses on the trot the Sea Eagles were desperate to hit back and they did it in style with Tom Trbojevic running for 154m in his comeback match and Josh Feledy grabbing his first career hat-trick.\nThe win keeps Manly's faint finals hopes alive and leaves the Knights in danger of missing the top four and the double chance.\nThe Warriors then piled on a big score to rack up their 16th win of the season and join the Panthers and Roosters on 38 competition points as the race for the minor premiership goes down to the wire.\nThe final score at Accor Stadium was 45-26 as props Mitch Barnett and James Fisher-Harris both grabbed tries and Taine Tuaupiki had a night out with the boot as he nailed eight from eight.\nThat field goal from Luke Hanson also propelled the Warriors to top of table at least until tomorrow night .... by one point on for and against.\nWe wind down our Saturday triple with the Dragons and Bulldogs squaring off at Allianz Stadium.\nHaving put together back-to-back wins for the first time in a year the Dragons were playing with new-found confidence and would have loved to take a slice of revenge for a heartbreaking golden point loss to the Bulldogs in the season opener in Vegas.\nHowever, they made far too many errors and could not execute their attack - whereas the Bulldogs were able to make their plays stick.\nRacing to a 24-0 lead by the break, the Bulldogs were able to withstand a show of resistance in the second half from the Dragons to get the important win.\nFollow all the action from Round 25 of the NRL Telstra Premiership on NRL.com's live blog.\nDragons v Bulldogs at Allianz Stadium\nMatch: Dragons v Bulldogs\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nDragons\n17th Position\naway Team\nBulldogs\n9th Position\nVenue: Allianz Stadium, Sydney\nMedia conferences\nDragons: Round 25\nBulldogs: Round 25\nFull-time: The Bulldogs have capitalised on an error-riddled and execution poor Dragons to score a big 44-14 win. They scored seven tries, with Matt Burton over for a double - despite spending 10 minutes off the field with a sin bin.\n80th min: The Bulldogs add to their points tally with the resulting penalty with Stephen Crichton slotting the penalty goal for 44-14.\n80th min: Another player sent to the sin bin to close out the night, another professional foul with Moses Suli finishing the game a few seconds early.\n79th min: Another captain's challenge from the Dragons is successful with Valentine Holmes correct in saying Matt Burton was actually the reason why he lost the ball. Burton is also penalised.\n78th min: A late captain's challenge from the Dragons contesting the Ryan Couchman was taken out before he caught the ball has been successful.\n75th min: The Bulldogs get the momentum back with Connor Tracey getting himself into a small gap in the defence, running in support of a play off Galvin and Preston, with the second rower popping the ball back in for his fullback. Crichton converts once more and the score bumps out to 42-14 .\nConnor Tracey Try\n69th min: A double for Mat Feagai after some good lead-up work on the other side of the field from Tyrell Sloan to keep the ball in and the momentum rolling. In a try to that looks similar to the one he just scored, he gets the ball out wide and puts his head down and charges to the try line. Holmes misses the conversion attempt - this time to the left - and the score remains 36-14 .\n64th min: The Dragons use their number and Mat Feagai is over on the right corner. Holmes can't convert so it stays 36-10 .\n63rd min: A professional foul from Matt Burton who holds on far too long after the Dragons show some spark and kick ahead, with Lyhkan King-Togia the first to the ball. Burton gets 10 in the sin bin.\n57th min: Mo",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 132.53702673805554,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "24ad66aba5f485b5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dragons Prediction & NRL Betting Preview - 28/8/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/sea-eagles-vs-dragons-prediction-betting-tips-friday-28-august-2026/",
+            "published_at": "2026-08-27T15:43:45+00:00",
+            "snippet": "Sea Eagles vs Dragons Prediction & NRL Betting Preview - 28/8/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Sea Eagles vs Dragons Prediction: Hosts Manly to down Dragons\n| Thursday 27th August 2026, 16:43\nThursday 27th August 2026, 16:43\nThe Manly Sea Eagles will look to keep their NRL finals hopes alive on Friday (7:50pm local, 10:50am BST, Watch NRL) when they welcome the St. George Illawarra Dragons to 4 Pines Park.\nBelow are my Sea Eagles vs Dragons predictions, as well as all the essential team news and match odds for the showdown in Sydney.\nSea Eagles vs Dragons Betting Tips\nSea Eagles -9.5 handicap @ 5/6\nJason Saab first tryscorer @ 15/2\n*odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Acca Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nTeam News\nThe Sea Eagles, who will be without the injured Tolu Koula, boast a dangerous backline that features Tom Trbojevic, Jason Saab, Josh Feledy, Reuben Garrick, Lehi Hopoate, Clayton Faulalo and Jamal Fogarty.\nSimione Laiafi, Brandon Wakeham, Nathan Brown, Haumole Olakau'atu, Ben Trbojevic and Jake Trbojevic start in the forwards for the hosts.\nAs for the Dragons, who have lost Jacob Liddle to a calf injury, Daniel Atkinson, Mathew Feagai, Moses Suli, Valentine Holmes, Tyrell Sloan, Lyhkan King-Togia and Kyle Flanagan start in the backs.\nIn the forwards, the Dragons have gone with a pack of Loko Jnr Pasifiki Tonga, Damien Cook, Toby Couchman, Dylan Egan, Hamish Stewart and Ryan Couchman.\nSea Eagles vs Dragons Odds\nThe Sea Eagles are the 4/11 favourites to get the job done and secure the win on Friday morning, while the Dragons are 23/10 underdogs to spoil the party at 4 Pines Park.\nA draw is currently 18/1 , while the Sea Eagles to win by 1-12 points are 21/10 .\nManly's hopes of finishing in the top eight hang by a thread, but all the Sea Eagles can do is win their remaining games and hope the South Sydney Roosters, North Queensland Cowboys and Canterbury Bulldogs stumble.\nThe Sea Eagles can only focus on their job and they look to be good value to win and cover the handicap against the rock-bottom Dragons on Friday.\nManly have a strong record in this fixture at 4 Pines Park, winning six of the last eight games they have hosted the Dragons there.\nWith the Dragons only winning two of their last 18 away matches, the Sea Eagles to win and cover the -9.5 handicap gets the nod.\nOdds correct at time of publishing.\nThe Sea Eagles will look to come flying out of the blocks at 4 Pines Park and Jason Saab is fancied to bag the opening try of Friday's contest in Sydney.\nThe winger has scored five tries in his last four games at this ground and against a Dragons' defence that has leaked 651 points, the most conceded in the NRL this season, Saab is back to score the first try in this one.\nShare Article\nBetfred Rugby League Markets\nRugby League Odds\nBetfred Super League Odds\nBetfred Challenge Cup Odds\nBetfred Championship Odds\nBetfred League One Odds\nRugby League Insights\nSuper League Tips\nChallenge Cup Tips\nNew customers only. Register , deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nMost Popluar\nHull KR vs Warrington Wolves Prediction: Rovers to close on… 17th August\nRabbitohs vs Warriors Prediction: Bunnies to go down swinging 22nd August\nStorm vs Panthers Prediction: Melbourne can dig in on home soil 19th August\nWigan Warriors vs Hull KR Prediction: Hosts to maintain their… 27th August\nBroncos vs Storm Prediction: Broncos to bag bragging rights 26th August",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 9.427026738055556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e166ce485de95c65",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team Update: Community Round vs Dragons - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/27/team-update-community-round-vs-dragons/",
+            "published_at": "2026-08-27T05:32:38+00:00",
+            "snippet": "Presented By\nTeam Update: Community Round vs Dragons\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Friday's Round 26 match against the Dragons at 4 Pines Park.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th P",
+            "body_excerpt": "Presented By\nTeam Update: Community Round vs Dragons\nSea Eagles coach Kieran Foran has trimmed his squad to 20 players ahead of Friday's Round 26 match against the Dragons at 4 Pines Park.\nMatch: Sea Eagles v Dragons\nRound 26 - Round 26 - Friday 28 Aug\nhome Team\nSea Eagles\n10th Position\naway Team\nDragons\n17th Position\nVenue: 4 Pines Park, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nDropping out of the squad in the 24-hour update are Jackson Shereb and Hugo Hart.\nThe team will be reduced to 19 players 90 minutes before kick-off.\nTeam List: Round 26 vs Dragons\nBrought to you by\n1.\nTom Trbojevic (c)\n2.\nJason Saab\n3.\nJosh Feledy\n4.\nReuben Garrick\n5.\nLehi Hopoate\n6.\nClayton Faulalo\n7.\nJamal Fogarty\n8.\nSimione Laiafi\n9.\nBrandon Wakeham\n10.\nNathan Brown\n11.\nHaumole Olakau'atu\n12.\nBen Trbojevic\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNic Lenaz\n16.\nCorey Waddell\n17.\nCaleb Navale\n18.\nOnitoni Large\n19.\nFletcher Baker\nReserves\n20.\nBlake Wilson\nRelated /\nDragons on Friday: Another 'must win' game\nFrom SCG to back fence at Brookie\nMatch Preview\nMatch Preview: NRL Round 26 vs Dragons\nCommunity\nGallery: Community Round Prep\nTeam Lists\nTeam List: NRL Round 26 vs Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.612304515833333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "09adc75e44760d41",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "First take: Sea Eagles v Dragons - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/25/first-look-sea-eagles-v-dragons/",
+            "published_at": "2026-08-25T06:45:43+00:00",
+            "snippet": "First take: Sea Eagles v Dragons\nThe NRL Fantasy crew preview Round 26\nUp Next\n03:10 Sea Eagles v Dragons: Round 26\nSea Eagles v Dragons: Round 26\n01:02 Barkin' Bargain Round 26: Damien Cook\nBarkin' Bargain Round 26: Damien Cook\n02:46 First take: Broncos v Storm\nFirst take: Bronc",
+            "body_excerpt": "First take: Sea Eagles v Dragons\nThe NRL Fantasy crew preview Round 26\nUp Next\n03:10 Sea Eagles v Dragons: Round 26\nSea Eagles v Dragons: Round 26\n01:02 Barkin' Bargain Round 26: Damien Cook\nBarkin' Bargain Round 26: Damien Cook\n02:46 First take: Broncos v Storm\nFirst take: Broncos v Storm\n03:33 First take: Warriors v Knights\nFirst take: Warriors v Knights\n03:19 First take: Roosters v Dolphins\nFirst take: Roosters v Dolphins\nRelated /\nSea Eagles v Dragons: Feledy set to start; Cook steps up\nSea Eagles\nIt's not the journey but the destination that counts now: Turbo\nMatch Preview\nLive Blog\nAs it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights\nFantasy\nFirst take: Dragons v Bulldogs\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 66.39424896027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sea Eagles vs Dragons NRL round 26 preview",
+          "Sea Eagles Dragons NRL odds OR price OR favourite",
+          "Sea Eagles Dragons NRL finals race OR ladder stakes",
+          "Sea Eagles Dragons NRL",
+          "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dragons NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sea Eagles Dragons NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 26 Sea Eagles OR Dragons"
+        ],
+        "filter_summary": {
+          "dropped_stale": 37,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 8,
+          "dropped_irrelevant": 30,
+          "kept": 21,
+          "deferred_pending_body": 55,
+          "promoted_after_body": 6,
+          "dropped_roundup_no_fixture_team": 2,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "c252cf630b1f",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-28T01:09:22.245661+00:00",
+      "finished_at": "2026-08-28T01:10:59.945165+00:00",
+      "duration_ms": 97699,
+      "request": {
+        "home_team": "Sea Eagles",
+        "away_team": "Dragons",
+        "venue": "4 Pines Park",
+        "kickoff": "2026-08-28T18:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7499,
+        "home_win_probability": 0.7499,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Elo rating advantage (+121 points) — contribution 0.196 (15% of total)",
+            "Bradley-Terry strength advantage (+0.85 log-strength) — contribution 0.191 (15% of total)",
+            "Ladder points differential per game (+16.3 points) — contribution 0.128 (10% of total)",
+            "5-game momentum: penalty gap seconds (-214.97) — contribution 0.101 (8% of total)",
+            "Away travel to venue (25 km) — contribution 0.065 (5% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: all run metres (-162.60) — contribution 0.077 (6% of total)",
+            "3-game form: tackle breaks (-10.33) — contribution 0.028 (2% of total)",
+            "3-game form: all run metres (-150.67) — contribution 0.024 (2% of total)",
+            "5-game form: effective tackle pct (-2.33) — contribution 0.019 (1% of total)",
+            "5-game form: missed tackles (+3.80) — contribution 0.019 (1% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.0124,
+            "total_toward_away": 0.2731,
+            "net": 0.7393,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": []
+        },
+        "fixture": {
+          "home_team": "Sea Eagles",
+          "away_team": "Dragons",
+          "venue": "4 Pines Park",
+          "kickoff": "2026-08-28T18:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

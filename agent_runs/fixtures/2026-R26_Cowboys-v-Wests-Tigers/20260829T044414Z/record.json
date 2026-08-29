@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "run_id": "20260829T044414Z-f2cb1bfb",
+  "run": {
+    "predicted_at_utc": "2026-08-29T04:52:33.878226+00:00",
+    "predicted_at_local": "2026-08-29T14:52:33.878226+10:00",
+    "started_at_utc": "2026-08-29T04:44:14.458508+00:00",
+    "wall_seconds": 499.4,
+    "hours_before_kickoff": 4.7,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Cowboys",
+    "away_team": "Wests Tigers",
+    "venue": "Queensland Country Bank Stadium",
+    "kickoff": "2026-08-29T19:35:00+10:00",
+    "kickoff_local": "2026-08-29T19:35:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Cowboys",
+      "position": 8,
+      "played": 22,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 30,
+      "points_for": 514,
+      "points_against": 592,
+      "points_difference": -78,
+      "points_difference_per_game": -3.55,
+      "recent_form_last_4": "2 - 2",
+      "streak": "1L",
+      "home_record": "6 - 4",
+      "away_record": "6 - 6"
+    },
+    "away": {
+      "team": "Wests Tigers",
+      "position": 14,
+      "played": 22,
+      "wins": 8,
+      "drawn": 0,
+      "lost": 14,
+      "competition_points": 22,
+      "points_for": 425,
+      "points_against": 637,
+      "points_difference": -212,
+      "points_difference_per_game": -9.64,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1W",
+      "home_record": "5 - 7",
+      "away_record": "3 - 7"
+    },
+    "comparison": {
+      "higher_on_ladder": "Cowboys",
+      "ladder_positions_gap": 6,
+      "points_difference_per_game_gap": 6.09,
+      "points_difference_favours": "Cowboys"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Cowboys",
+    "predicted_side": "home",
+    "confidence": 0.72,
+    "home_win_probability": 0.72
+  },
+  "math_model": {
+    "home_win_probability": 0.723,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Elo rating advantage (+125 points) — contribution 0.199 (17% of total)",
+        "Bradley-Terry strength advantage (+0.81 log-strength) — contribution 0.194 (16% of total)",
+        "Ladder points differential per game (+6.1 points) — contribution 0.133 (11% of total)",
+        "5-game momentum: penalty gap seconds (-204.94) — contribution 0.116 (10% of total)",
+        "Head-to-head record (last 5) (80% to the home side) — contribution 0.034 (3% of total)"
+      ],
+      "negative_drivers": [
+        "3-game form: points against (+19.33) — contribution 0.083 (7% of total)",
+        "3-game form: errors (-1.33) — contribution 0.030 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: play the ball speed (-0.23) — contribution 0.027 (2% of total)",
+        "5-game form: points for (+7.20) — contribution 0.025 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: all run metres (-143.67) — contribution 0.024 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-1.33)",
+        "5-game form: points for (+7.20)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Cowboys vs Wests Tigers NRL round 26 preview",
+      "Cowboys Wests Tigers NRL odds OR price OR favourite",
+      "Cowboys NRL finals race OR ladder stakes round 26",
+      "Cowboys Wests Tigers NRL",
+      "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Wests Tigers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Cowboys Wests Tigers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Cowboys OR Wests Tigers"
+    ],
+    "items_kept": 19,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 26 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T04:28:00+00:00",
+        "age_hours": 96.27848460555555,
+        "url": "https://www.weststigers.com.au/news/2026/08/25/wests-tigers-injury-report-round-26/"
+      },
+      {
+        "title": "Updated Cowboys NRL team list: Round 26 v Tigers - North Queensland Cowboys",
+        "source": "cowboys.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T09:30:00+00:00",
+        "age_hours": 19.245151272222223,
+        "url": "https://www.cowboys.com.au/news/2026/08/28/cowboys-nrl-team-list-round-26-v-tigers-miah-in/"
+      },
+      {
+        "title": "Team List: NRL Round 26 v Cowboys - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:00:00+00:00",
+        "age_hours": 94.74515127222222,
+        "url": "https://www.weststigers.com.au/news/2026/08/25/team-list-nrl-round-26-v-cowboys/"
+      },
+      {
+        "title": "Cowboys NRL team list: Round 26 v Tigers - North Queensland Cowboys",
+        "source": "cowboys.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:57:00+00:00",
+        "age_hours": 94.79515127222221,
+        "url": "https://www.cowboys.com.au/news/2026/08/25/cowboys-nrl-team-list-round-26-v-tigers-td-/"
+      },
+      {
+        "title": "North Queensland Cowboys vs Wests Tigers Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T23:20:35+00:00",
+        "age_hours": 53.402095716666665,
+        "url": "https://www.sportsnews.com.au/nrl/north-queensland-cowboys-vs-wests-tigers-tips-odds-teams-predictions-nrl-round-26-2026/610057/amp"
+      },
+      {
+        "title": "Team Lists NRL Late Mail: Round 26 - Cleary set to debut Presented by 35 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-29T04:09:09+00:00",
+        "age_hours": 0.5926512722222222,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "Wests Tigers 'Just like any other game': Pole remains humble ahead of 100 milestone",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-28T20:01:21+00:00",
+        "age_hours": 8.722651272222222,
+        "url": "https://www.nrl.com/news/2026/08/29/just-like-any-other-game-pole-remains-humble-ahead-of-100-milestone/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T18:55:27+00:00",
+        "age_hours": 9.820984605555555,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "Match Preview Cowboys v Wests Tigers: Dearden, Nanai big ins; Aho eyes debut",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-28T09:45:11+00:00",
+        "age_hours": 18.992095716666668,
+        "url": "https://www.nrl.com/news/2026/08/25/cowboys-v-wests-tigers-dearden-nanai-big-ins-turuva-set-for-return/"
+      },
+      {
+        "title": "NRL Squad Update: Round 26 v Cowboys - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T09:30:00+00:00",
+        "age_hours": 19.245151272222223,
+        "url": "https://www.weststigers.com.au/news/2026/08/28/squad-update-nrl-round-26-v-cowboys/"
+      },
+      {
+        "title": "Cowboys vs Tigers Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T03:27:13+00:00",
+        "age_hours": 49.29154016111111,
+        "url": "https://www.beforeyoubet.com.au/cowboys-vs-tigers-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Cowboys v Wests Tigers: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:18:48+00:00",
+        "age_hours": 71.43181793888888,
+        "url": "https://www.nrl.com/news/2026/08/26/cowboys-v-wests-tigers-round-26/"
+      },
+      {
+        "title": "NRL Squad Update: Round 26 v Cowboys",
+        "source": "weststigers.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-20T04:44:51+00:00",
+        "age_hours": 215.9976512722222,
+        "url": "https://www.weststigers.com.au/news/2026/08/28/squad-update-nrl-round-26-v-cowboys2/"
+      },
+      {
+        "title": "Bulldogs Senior Pathways Team List: Round 26 - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:36+00:00",
+        "age_hours": 94.75181793888889,
+        "url": "https://www.bulldogs.com.au/news/2026/08/25/bulldogs-senior-pathways-team-list-round-26/"
+      },
+      {
+        "title": "Live Blog Super Saturday: We stand with Jai at Cbus Super Presented by 18 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-29T04:25:59+00:00",
+        "age_hours": 0.3120957166666667,
+        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/"
+      },
+      {
+        "title": "Cowboys vs Wests Tigers - Round 26, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-23T19:52:27+00:00",
+        "age_hours": 128.87098460555555,
+        "url": "https://www.zerotackle.com/cowboys-wests-tigers-round-26-2026-mc10396538-237310/"
+      },
+      {
+        "title": "Massive twist in minor premiership race as Jett debuts; Roosters’ Teddy update — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T02:49:18+00:00",
+        "age_hours": 1.9234846055555554,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487"
+      },
+      {
+        "title": "Curtains to draw on Cowboys star’s NRL career after cruel injury blow - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T04:48:08+00:00",
+        "age_hours": 23.94292905,
+        "url": "https://www.zerotackle.com/curtains-to-draw-on-cowboys-stars-nrl-career-after-cruel-injury-blow-237468/"
+      },
+      {
+        "title": "Joey’s major concern for Roosters in ‘make or break’ clash - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T20:57:24+00:00",
+        "age_hours": 7.788484605555556,
+        "url": "https://www.nine.com.au/sport/nrl/news-sydney-roosters-dolphins-preview-andrew-johns-exclusive-comments-top-four-finals-premiership-20260828-p60sit.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The material SHAP driver '5-game momentum: penalty gap seconds' was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Matched Dearden/Nanai returns, Taulagi absence, Roosters upset, $1.28 price, and ladder positions to research and scene data."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Correctly identifies Dearden and Nanai as returning and Taulagi as missing."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Cowboys."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research regarding player returns."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.72) is slightly lower than the math prior (0.723), which is a standard research adjustment."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the primary SHAP drivers."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material driver '5-game momentum: penalty gap seconds (-204.94)' (10% of total) is not addressed."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Cowboys enter as strong favourites backed by a high math prior (0.723) and a significant ladder gap. Research confirms this edge with the return of key players Tom Dearden and Jeremiah Nanai (nrl.com), which offsets the loss of Murray Taulagi. While the Tigers are coming off a major upset win, the Cowboys' ratings advantage and home ground edge make them the clear pick, aligning with the market price of $1.28.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating (+125 points) and Bradley-Terry strength advantage."
+      },
+      {
+        "source": "research",
+        "detail": "Key players Tom Dearden and Jeremiah Nanai return from injury for this fixture (nrl.com)."
+      },
+      {
+        "source": "scene",
+        "detail": "Cowboys hold a significant ladder advantage, sitting 8th compared to the Tigers in 14th."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "Wests Tigers carry significant momentum after a thrilling upset win over the Roosters last week.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Cowboys-v-Wests-Tigers/20260829T044414Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Cowboys-v-Wests-Tigers/20260829T044414Z/summary.md"
+  }
+}

@@ -153,13 +153,12 @@ your pick more likely than the prior. News that merely confirms who was
 already expected to play, plus ladder, standings, or SHAP, is not a reason
 to get surer.
 - `confirms` means research agrees, so you MAY keep the prior. You may still
-  come down if the loss reason is specific. It is not a bonus for finding a
-  team list.
+  come down if there is a genuine this-week reason you could lose. It is not
+  a bonus for finding a team list.
 - `silent` / `mixed`: same side is fine; do not paste the prior; stay at or
   below it unless that rare shock applies.
-- `conflicts`: same side is still allowed, but you MUST come down — stay at
-  or below 0.65, and **below the prior** (do not keep or raise the math
-  number).
+- `conflicts`: same side is still allowed, but you MUST come down from the
+  prior (do not keep or raise the math number). How far is your call.
 
 IF MATH IS "Too close"
 There is no side from math. Start from `home_win_probability` and let
@@ -170,9 +169,10 @@ LOSS REASON
 Name the strongest reason your pick could lose in `strongest_reason_could_lose`.
 Set `loss_reason_specific` true when that reason is a named this-week fact
 that helps the other side or hurts yours (a player out for your pick, a player
-back for them, this venue / last home game / farewell). Set it false only for
-generic variance ("upsets happen", "NRL is random"). If it is true, stay at
-or below 0.65 — including when stance is `confirms`.
+back for them, this venue / last home game / farewell). Set it false for
+generic variance ("upsets happen", "NRL is random"). If it is true, that fact
+must affect the confidence you output. You decide how much. Do not treat the
+bands as a required landing number.
 
 CONFIDENCE BANDS (where a number *belongs*, not a ladder to climb)
 - 0.50-0.55  evenly matched, or your evidence points both ways
@@ -186,7 +186,7 @@ CONFIDENCE BANDS (where a number *belongs*, not a ladder to climb)
 - above 0.85 do not use
 
 Code will reject: pasting the math P without real `confirms`; going above
-0.65 without `confirms`; going above 0.65 when `loss_reason_specific` is true.
+0.65 without `confirms`; `conflicts` that keep or raise the math number.
 
 In your summary, say what set the confidence where it is.
 
@@ -240,14 +240,15 @@ whoever reads this later needs to see what you actually matched.
    sourced from research and identifies the article.
 6. `confidence_justified` — Confidence is P(the picked side wins). Fail if:
    (a) the number matches math P(that side) to two decimals without real
-   `confirms`; (b) it is above 0.65 without `confirms`, or with `conflicts`,
-   or with `loss_reason_specific` true; (c) `conflicts` kept or raised the
-   math number instead of coming down; (d) it got surer than the math prior
-   on news the model already knew, or by counting ladder/SHAP as extra votes;
-   (e) the summary never says what set the number. Going less sure than the
-   prior is the usual research adjustment. Getting surer is rare and needs a
-   real this-week shock — do not require a particular kind of shock, and do
-   not tell the judge which side to pick.
+   `confirms`; (b) it is above 0.65 without `confirms`; (c) `conflicts` kept
+   or raised the math number instead of coming down; (d) it got surer than
+   the math prior on news the model already knew, or by counting ladder/SHAP
+   as extra votes; (e) the summary never says what set the number. A named
+   this-week loss reason should move the number; do not require a landing
+   score. Going less sure than the prior is the usual research adjustment.
+   Getting surer is rare and needs a real this-week shock — do not require a
+   particular kind of shock, and do not tell the judge which side to pick
+   or which confidence to land on.
 7. `driver_proportionality` — A minor SHAP factor is not being treated as
    decisive over the top drivers.
 8. `omitted_math_signals` — Coverage of *material* drivers only. A driver is
@@ -299,13 +300,13 @@ Reconsider winner and confidence against the full evidence packet. Change them
 only if the newly addressed material actually moves your call; otherwise keep
 them and show that you evaluated what was missing.
 
-If the issue is copied math, a specific loss reason ignored, or research
-that conflicts with the favourite: keep the side if the tools still support
-it, but come **down** from the math number. Going less sure than the prior is
-the usual adjustment. Getting surer is rare and needs a real this-week shock
-the model could not have known — do not invent a required type of shock. If
-`loss_reason_specific` is true, stay at or below 0.65. Matching math to two
-decimals is allowed only with real `confirms`.
+If the issue is copied math or research that conflicts with the favourite:
+keep the side if the tools still support it, but come **down** from the math
+number. How far is your call. A genuine this-week reason you could lose
+should move confidence; do not treat any band edge as a required landing
+number. Getting surer is rare and needs a real this-week shock the model
+could not have known. Matching math to two decimals is allowed only with
+real `confirms`.
 
 Verifier issues:
 {issues}

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "run_id": "20260828T010843Z-6d1509ba",
+  "run": {
+    "predicted_at_utc": "2026-08-28T01:18:53.126954+00:00",
+    "predicted_at_local": "2026-08-28T11:18:53.126954+10:00",
+    "started_at_utc": "2026-08-28T01:08:43.445909+00:00",
+    "wall_seconds": 609.7,
+    "hours_before_kickoff": 6.7,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Sea Eagles",
+    "away_team": "Dragons",
+    "venue": "4 Pines Park",
+    "kickoff": "2026-08-28T18:00:00+10:00",
+    "kickoff_local": "2026-08-28T18:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Sea Eagles",
+      "position": 10,
+      "played": 22,
+      "wins": 10,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 26,
+      "points_for": 549,
+      "points_against": 483,
+      "points_difference": 66,
+      "points_difference_per_game": 3.0,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1W",
+      "home_record": "5 - 6",
+      "away_record": "5 - 6"
+    },
+    "away": {
+      "team": "Dragons",
+      "position": 17,
+      "played": 22,
+      "wins": 4,
+      "drawn": 0,
+      "lost": 18,
+      "competition_points": 14,
+      "points_for": 358,
+      "points_against": 651,
+      "points_difference": -293,
+      "points_difference_per_game": -13.32,
+      "recent_form_last_4": "2 - 3",
+      "streak": "1L",
+      "home_record": "2 - 9",
+      "away_record": "2 - 9"
+    },
+    "comparison": {
+      "higher_on_ladder": "Sea Eagles",
+      "ladder_positions_gap": 7,
+      "points_difference_per_game_gap": 16.32,
+      "points_difference_favours": "Sea Eagles"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Sea Eagles",
+    "predicted_side": "home",
+    "confidence": 0.65,
+    "home_win_probability": 0.65
+  },
+  "math_model": {
+    "home_win_probability": 0.7499,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Elo rating advantage (+121 points) — contribution 0.196 (15% of total)",
+        "Bradley-Terry strength advantage (+0.85 log-strength) — contribution 0.191 (15% of total)",
+        "Ladder points differential per game (+16.3 points) — contribution 0.128 (10% of total)",
+        "5-game momentum: penalty gap seconds (-214.97) — contribution 0.101 (8% of total)",
+        "Away travel to venue (25 km) — contribution 0.065 (5% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: all run metres (-162.60) — contribution 0.077 (6% of total)",
+        "3-game form: tackle breaks (-10.33) — contribution 0.028 (2% of total)",
+        "3-game form: all run metres (-150.67) — contribution 0.024 (2% of total)",
+        "5-game form: effective tackle pct (-2.33) — contribution 0.019 (1% of total)",
+        "5-game form: missed tackles (+3.80) — contribution 0.019 (1% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": []
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Sea Eagles NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Dragons NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Sea Eagles vs Dragons NRL round 26 preview",
+      "Sea Eagles Dragons NRL odds OR price OR favourite",
+      "Sea Eagles Dragons NRL finals race OR ladder stakes",
+      "Sea Eagles Dragons NRL",
+      "Sea Eagles NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Dragons NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sea Eagles Dragons NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Sea Eagles OR Dragons"
+    ],
+    "items_kept": 21,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Team Lists: Round 26",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-25T05:59:01+00:00",
+        "age_hours": 67.17258229361111,
+        "url": "https://www.nrl.com/news/2026/08/25/nrl-team-lists-round-26/"
+      },
+      {
+        "title": "NRL Late Mail: Round 26 - Teddy, Trell target returns",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-27T10:00:38+00:00",
+        "age_hours": 15.145637849166667,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:00+00:00",
+        "age_hours": 67.1728600713889,
+        "url": "https://www.seaeagles.com.au/news/2026/08/25/team-list-nrl-round-26-vs-dragons/"
+      },
+      {
+        "title": "Knock-On Effect NSW Cup Team List: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:57:12+00:00",
+        "age_hours": 67.2028600713889,
+        "url": "https://www.dragons.com.au/news/2026/08/25/knock-on-effect-nsw-cup-team-list-round-26-vs.-sea-eagles/"
+      },
+      {
+        "title": "NRL Team List: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:57:11+00:00",
+        "age_hours": 67.20313784916667,
+        "url": "https://www.dragons.com.au/news/2026/08/25/nrl-team-list-round-26-vs.-sea-eagles/"
+      },
+      {
+        "title": "Manly Sea Eagles vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T23:08:33+00:00",
+        "age_hours": 26.013693404722222,
+        "url": "https://www.sportsnews.com.au/nrl/manly-sea-eagles-vs-st-george-illawarra-dragons-tips-odds-teams-predictions-nrl-round-26-2026/610053/amp"
+      },
+      {
+        "title": "'I set myself that goal': Caleb's Bati dream alive after fairytale comeback",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "World Cup",
+        "published_at": "2026-08-27T20:46:52+00:00",
+        "age_hours": 4.375082293611111,
+        "url": "https://www.nrl.com/news/2026/08/28/i-set-myself-that-goal-navales-world-cup-dream-back-on-after-fairytale-comeback/"
+      },
+      {
+        "title": "Sea Eagles v Dragons: Feledy set to start; Cook steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-27T08:07:49+00:00",
+        "age_hours": 17.025915626944446,
+        "url": "https://www.nrl.com/news/2026/08/25/sea-eagles-v-dragons-feledy-set-to-start-cook-steps-up/"
+      },
+      {
+        "title": "NRL Team Update: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T08:00:00+00:00",
+        "age_hours": 17.156193404722224,
+        "url": "https://www.dragons.com.au/news/2026/08/27/nrl-team-update-round-26-vs.-sea-eagles/"
+      },
+      {
+        "title": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T05:14:46+00:00",
+        "age_hours": 19.910082293611108,
+        "url": "https://www.dragons.com.au/news/2026/08/27/nrl-round-26-match-preview-dragons-journey-to-northern-beaches-for-friday-face-off/"
+      },
+      {
+        "title": "Sea Eagles It's not the journey but the destination that counts now: Turbo",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "World Cup",
+        "published_at": "2026-08-26T20:01:21+00:00",
+        "age_hours": 29.13369340472222,
+        "url": "https://www.nrl.com/news/2026/08/27/its-not-the-journey-but-the-destination-that-counts-now-turbo/"
+      },
+      {
+        "title": "Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T06:20:17+00:00",
+        "age_hours": 42.81813784916667,
+        "url": "https://www.beforeyoubet.com.au/sea-eagles-vs-dragons-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Match Preview: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T06:00:38+00:00",
+        "age_hours": 43.14563784916667,
+        "url": "https://www.seaeagles.com.au/news/2026/08/26/match-preview-nrl-round-26-vs-dragons/"
+      },
+      {
+        "title": "Sea Eagles v Dragons: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:24:59+00:00",
+        "age_hours": 43.739804515833335,
+        "url": "https://www.nrl.com/news/2026/08/26/sea-eagles-v-dragons-round-26/"
+      },
+      {
+        "title": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T08:35:29+00:00",
+        "age_hours": 16.564804515833334,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487"
+      },
+      {
+        "title": "Dragons confirm Jacob Liddle injury blow, return timeline - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T06:31:12+00:00",
+        "age_hours": 18.63619340472222,
+        "url": "https://www.zerotackle.com/dragons-confirm-jacob-liddle-injury-blow-return-timeline-237435/"
+      },
+      {
+        "title": "Manly Sea Eagles vs St George Illawarra Dragons Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:23:38+00:00",
+        "age_hours": 22.762304515833332,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/manly-sea-eagles-vs-st-george-illawarra-dragons-predictions/"
+      },
+      {
+        "title": "Live Blog As it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-22T12:37:09+00:00",
+        "age_hours": 132.53702673805554,
+        "url": "https://www.nrl.com/news/2026/08/22/super-saturday-knights-v-sea-eagles-rabbitohs-v-warriors-dragons-v-bulldogs/"
+      },
+      {
+        "title": "Sea Eagles vs Dragons Prediction & NRL Betting Preview - 28/8/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T15:43:45+00:00",
+        "age_hours": 9.427026738055556,
+        "url": "https://insights.betfred.com/rugby-league/sea-eagles-vs-dragons-prediction-betting-tips-friday-28-august-2026/"
+      },
+      {
+        "title": "Team Update: Community Round vs Dragons - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T05:32:38+00:00",
+        "age_hours": 19.612304515833333,
+        "url": "https://www.seaeagles.com.au/news/2026/08/27/team-update-community-round-vs-dragons/"
+      },
+      {
+        "title": "First take: Sea Eagles v Dragons - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:45:43+00:00",
+        "age_hours": 66.39424896027778,
+        "url": "https://www.nrl.com/news/2026/08/25/first-look-sea-eagles-v-dragons/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Tolu Koula injury found in 'Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles'; Trbojevic return in 'Sea Eagles It's not the journey but the destination that counts now: Turbo'; wooden spoon in 'Sea Eagles vs Dragons Preview & Betting Tips: NRL Round 26 2026 - Before You Bet'; ladder gap in set_fixture_scene."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Tolu Koula is correctly described as out and Tom Trbojevic as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Sea Eagles."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research (Trbojevic return and wooden spoon)."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence was reduced from the 0.75 prior to 0.65 due to a specific loss (Tolu Koula), which is consistent with the rules."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "No minor drivers are treated as decisive."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material drivers 'Ladder points differential per game' and '5-game momentum: penalty gap seconds' are not addressed."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Sea Eagles are strong favourites based on a high math prior and the return of Tom Trbojevic. The Dragons are guaranteed the wooden spoon (Before You Bet) and coming off a heavy defeat, while Manly has high motivation to keep slim finals hopes alive. Confidence is capped at 0.65 due to the specific loss of centre Tolu Koula.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating advantage (+121 points) and Bradley-Terry strength advantage."
+      },
+      {
+        "source": "research",
+        "detail": "The return of Tom Trbojevic and the Dragons being guaranteed the wooden spoon (Before You Bet)."
+      },
+      {
+        "source": "scene",
+        "detail": "Sea Eagles hold a significant 7-position advantage on the official ladder."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "Centre Tolu Koula is ruled out for the remainder of the regular season with an ankle injury.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Sea-Eagles-v-Dragons/20260828T010843Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Sea-Eagles-v-Dragons/20260828T010843Z/summary.md"
+  }
+}

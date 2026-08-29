@@ -12,8 +12,9 @@ After any official prediction run, check the run against
 The math model is the starting number. This week’s news (what the ratings cannot
 see) is used to agree or disagree. Do not treat ladder, SHAP, and standings as
 three extra votes. Agree means keep the side; do not climb just for finding an
-article. Disagree means come down (or flip only with a concrete research fact).
-A specific named loss reason stays at or below 0.65.
+article. Disagree means come down from the prior (the agent chooses how far),
+or flip only with a concrete research fact. A genuine this-week reason the pick
+could lose should move confidence — do not require a landing score such as 0.65.
 
 When reporting a run, say whether this logic held. Do not treat the final score
 as proof the process was right or wrong.

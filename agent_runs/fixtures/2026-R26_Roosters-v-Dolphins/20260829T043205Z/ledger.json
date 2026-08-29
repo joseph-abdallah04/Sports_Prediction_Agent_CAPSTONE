@@ -1,0 +1,1190 @@
+{
+  "schema_version": 2,
+  "run_id": "20260829T043205Z-57ceff60",
+  "at_a_glance": {
+    "fixture": "Roosters v Dolphins",
+    "round": 26,
+    "kickoff": "2026-08-29T17:30:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Roosters",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.603,
+    "model_prediction": "Home Win",
+    "research_items_kept": 17,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": true,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-29T04:32:05.300431+00:00",
+  "updated_at": "2026-08-29T04:41:59.096044+00:00",
+  "request": {
+    "home_team": "Roosters",
+    "away_team": "Dolphins",
+    "season": null,
+    "round_number": 26,
+    "force_refresh": true,
+    "user_question": "Who wins Roosters vs Dolphins?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Roosters",
+    "away_team": "Dolphins",
+    "confidence": 0.6,
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Dolphins enter the match with significant momentum on a four-game winning streak, while the Roosters are coming off a shock loss to the Tigers.",
+    "loss_reason_specific": true,
+    "summary": "The Roosters are favoured by the math model and bookmakers, with the return of James Tedesco from an ankle injury providing a key boost (NRL news). While the Dolphins carry strong form with a four-game winning streak, the Roosters maintain a strength advantage and home-ground edge. Confidence is set at 0.60, aligning with the math prior and the positive news of Tedesco's return, while accounting for the Dolphins' current momentum.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Bradley-Terry strength advantage provided the largest contribution to the model's prior (18% of total SHAP mass)."
+      },
+      {
+        "source": "research",
+        "detail": "Skipper James Tedesco is set to make his comeback from an ankle injury (NRL news)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Roosters hold a slight edge on the official ladder, sitting 3rd compared to the Dolphins in 4th."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 17,
+      "items_mentioning_both_teams": 16,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 9
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Roosters vs Dolphins NRL round 26 preview",
+      "Roosters Dolphins NRL odds OR price OR favourite",
+      "Roosters Dolphins NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": true,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Tedesco's ankle injury is in nrl_news; Dolphins' 4-game streak is in scene; Roosters' loss to Tigers is in duckduckgo; ladder positions are in scene; bookmaker favorites are in google_news_rss."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Tedesco is described as returning, which matches the source 'set to make his comeback'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength advantage is correctly attributed to the Roosters."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from research (Tedesco injury)."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.6) is a slight downward adjustment from the math prior (0.603) to account for Dolphins' momentum."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The most significant driver (Bradley-Terry) is highlighted as the primary math factor."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "pass",
+          "evidence": "Material drivers are Bradley-Terry (named) and 5-game form (alluded to via 'strong form' and 'momentum')."
+        }
+      ],
+      "issues": [],
+      "instruction": ""
+    },
+    "instruction": "",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Roosters",
+      "away_team": "Dolphins",
+      "confidence": 0.6,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Dolphins enter the match with significant momentum on a four-game winning streak, while the Roosters are coming off a shock loss to the Tigers.",
+      "loss_reason_specific": true,
+      "summary": "The Roosters are favoured by the math model and bookmakers, with the return of James Tedesco from an ankle injury providing a key boost (NRL news). While the Dolphins carry strong form with a four-game winning streak, the Roosters maintain a strength advantage and home-ground edge. Confidence is set at 0.60, aligning with the math prior and the positive news of Tedesco's return, while accounting for the Dolphins' current momentum.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Bradley-Terry strength advantage provided the largest contribution to the model's prior (18% of total SHAP mass)."
+        },
+        {
+          "source": "research",
+          "detail": "Skipper James Tedesco is set to make his comeback from an ankle injury (NRL news)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Roosters hold a slight edge on the official ladder, sitting 3rd compared to the Dolphins in 4th."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-29T04:32:32.595773+00:00",
+      "thinking": "*   Home Team: Roosters\n    *   Away Team: Dolphins\n    *   Round Number: 26\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1 (Home Team Availability): `Roosters NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Query 2 (Away Team Availability): `Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Query 3 (Fixture Preview): `Roosters vs Dolphins NRL round 26 preview`\n    *   Query 4 (Market Prices): `Roosters Dolphins NRL odds OR price OR favourite`\n    *   Query 5 (Specific Angle): Round 26 is the final round of the regular season. This usually means finals race/ladder stakes.\n        *   Angle: `Roosters Dolphins NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Roosters, Dolphins).\n    *   JSON format? Yes.",
+      "chars": 975
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-29T04:38:28.246814+00:00",
+      "thinking": "*   Home Team: Roosters\n    *   Away Team: Dolphins\n    *   Math Prediction: Home Win (Probability: 0.603)\n    *   Standings: Roosters (3rd, 16-6), Dolphins (4th, 15-7). Gap is 1 place.\n    *   SHAP Drivers:\n        *   Favouring Roosters: Bradley-Terry strength (18%), Ladder points diff (7%), H2H avg margin (5%), Elo (5%), H2H record (4%).\n        *   Favouring Dolphins: 5-game run metres (10%), 3-game errors (3% - CONFLICT), 3-game run metres (3%), 5-game missed tackles (3%), 3-game kicking metres (3% - CONFLICT).\n    *   Research:\n        *   Roosters: James Tedesco is set to return from an ankle injury (confirmed by NRL news and official Roosters update).\n        *   Dolphins: Unchanged 17 (confirmed by Dolphins official site).\n        *   Form: Roosters coming off a shock loss to Tigers; Dolphins on a 4-game winning streak (confirmed by standings and research).\n        *   Market: Roosters are bookmaker favourites (sportsnews.com.au), though one tipster suggests Dolphins at $2.45.\n\n    *   Math prior: 0.603 (Home Win).\n    *   Research:\n        *   Positive for Roosters: James Tedesco returning (key player).\n        *   Positive for Dolphins: Strong form (4W streak), Roosters coming off a loss.\n    *   Stance: `confirms`. The return of James Tedesco is a concrete, named player fact that supports the Roosters' side. While Dolphins have better recent form, the return of a star fullback is a significant positive.\n    *   Decision: Stick with Home Win.\n    *   Confidence: The prior is 0.603. Research confirms (Tedesco return), but there's a counter-weight (Dolphins' 4-game win streak vs Roosters' recent loss). This is a \"modest edge\" scenario. I'll keep it around 0.60.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Roosters\"\n    *   `away_team`: \"Dolphins\"\n    *   `confidence`: 0.60 (Prior is 0.603, research confirms Tedesco's return, but Dolphins' form keeps it from climbing).\n    *   `research_stance`: \"confirms\" (Tedesco return).\n    *   `strongest_reason_could_lose`: Dolphins are on a four-game winning streak and have significant momentum compared to the Roosters' recent shock loss to the Tigers.\n    *   `loss_reason_specific`: false (General form/momentum is not a \"named this-week fact\" like a specific injury, though it's strong). Wait, the prompt says \"specific this-week form/availability fact\". A 4-game win streak is a form fact. However, the prompt also says \"generic variance ('upsets happen', 'NRL is random')\". Form is more specific than randomness. But is it a \"named this-week fact\"? Usually, that refers to a player. Let's look at the rules: \"a named player ruled out or returning, or a specific this-week form/availability fact\". The 4-game streak is a form fact. I'll set it to true.\n    *   `summary`: The Roosters are favoured by the math model and bookmakers, supported by the return of James Tedesco from an ankle injury (NRL news). While the Dolphins enter with a four-game winning streak, the Roosters hold a strength advantage and home-ground edge. Confidence is set at 0.60, reflecting the math prior and the positive news of Tedesco's return, tempered by the Dolphins' current form.\n    *   `key_factors`:\n        1.  Math: Bradley-Terry strength advantage (18% contribution).\n        2.  Research: Return of James Tedesco from an ankle injury (NRL news).\n        3.  Scene: Roosters hold a slight ladder advantage (3rd vs 4th).\n    *   `disagreements_with_math`: null.\n\n    *   `research_stance`: \"confirms\" because Tedesco is returning.\n    *   `confidence`: 0.60. Prior is 0.603. Research confirms (Tedesco), but Dolphins' form is a reason to be cautious. 0.60 is in the \"modest edge\" band (0.55-0.65).\n    *   `loss_reason_specific`: True (Dolphins' 4-game win streak).\n    *   `key_factors`: Must quote/name article. \"NRL news\" or \"nrl.com\" for Tedesco.\n\n    *   Check SHAP drivers: \"Bradley-Terry strength advantage\" is the biggest.\n    *   Check standings: Roosters 3rd, Dolphins 4th.\n    *   Check market: Roosters are favourites.\n    *   Check return: Tedesco \"set to play\" / \"look to make his comeback\". This is an availability positive.\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.60\n    *   `research_stance`: \"confirms\"\n    *   `loss_reason_specific`: true\n    *   `strongest_reason_could_lose`: The Dolphins enter the match with significant momentum on a four-game winning streak, while the Roosters are coming off a shock loss to the Tigers.",
+      "chars": 4431
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-29T04:41:59.094345+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, etc.) in the research body/title/price_quote/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.6) justified based on the math prior (0.603) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Roosters\n- Away: Dolphins\n- Math Prior: 0.603 (Home Win)\n- Material SHAP Drivers:\n    - Bradley-Terry strength advantage (18% - Home)\n    - 5-game form: all run metres (10% - Away)\n\n- Winner: Home (Roosters)\n- Confidence: 0.6\n- Research Stance: confirms\n- Summary: Mentions Roosters favoured by math/bookmakers, Tedesco return (NRL news), Dolphins 4-game streak, Roosters strength advantage and home-ground edge.\n- Key Factors:\n    - Math: Bradley-Terry strength advantage (18%).\n    - Research: James Tedesco comeback from ankle injury (NRL news).\n    - Scene: Roosters 3rd, Dolphins 4th.\n\n- \"James Tedesco from an ankle injury\": Found in `nrl_news` body: \"Roosters skipper James Tedesco will again look to make his comeback from an ankle injury after being named to face the Dolphins.\" (Pass)\n- \"Dolphins... four-game winning streak\": Found in `set_fixture_scene` standings: \"recent_form_last_4\": \"4 - 0\", \"streak\": \"4W\". (Pass)\n- \"Roosters... shock loss to the Tigers\": Found in `duckduckgo` body: \"The Roosters will be looking to bounce back from their shock loss to the Tigers\". (Pass)\n- \"Roosters... 3rd compared to the Dolphins in 4th\": Found in `set_fixture_scene` standings. (Pass)\n- \"bookmakers\" (Roosters favourites): Found in `google_news_rss` body: \"Sydney Roosters heading into the game as favourites with the bookmakers.\" (Pass)\n\n- Tedesco is returning/set to play. Judgement says \"return of James Tedesco\". (Pass)\n\n- \"Bradley-Terry strength advantage\" is in `favouring_Roosters_home_win`. Judgement attributes it to Roosters. (Pass)\n\n- Weather is \"Fine\". Not mentioned as a key factor in the judgement. (Pass)\n\n- Key factor 2 is sourced from research (Tedesco injury). (Pass)\n\n- Math prior: 0.603.\n- Judgement confidence: 0.6.\n- The judgement says \"aligning with the math prior and the positive news of Tedesco's return, while accounting for the Dolphins' current momentum.\"\n- The number 0.6 is almost exactly the prior (0.603).\n- The judgement claims it's \"aligning\" with the prior.\n- It doesn't go above 0.65.\n- It doesn't get surer than the prior.\n- It's a slight decrease (0.603 -> 0.6), which is the \"usual research adjustment\" for news like the Dolphins' momentum. (Pass)\n\n- Bradley-Terry (18%) is the top driver and is highlighted. (Pass)\n\n- Material drivers:\n    - Bradley-Terry strength advantage (18%): Mentioned in key factors.\n    - 5-game form: all run metres (10%): This is a driver favouring the Dolphins.\n- Does the judgement address \"5-game form: all run metres\"?\n- The summary mentions \"Dolphins carry strong form with a four-game winning streak\" and \"accounting for the Dolphins' current momentum\".\n- While it doesn't explicitly say \"all run metres\", it addresses the \"5-game form\" aspect of the Dolphins' advantage. However, the prompt says \"If any material driver is neither named nor clearly alluded to... fail\".\n- \"5-game form: all run metres\" is a specific metric. \"Strong form\" or \"momentum\" is a general allusion to form. Is this enough?\n- Usually, \"form\" is a clear allusion to \"X-game form\" drivers. (Pass)\n\nWait, let me double check the \"all run metres\" part. The driver is specifically about run metres. The judgement mentions \"strong form\" and \"momentum\". This is a general allusion to the form drivers.\n\nLet's re-verify the material drivers:\n1. Bradley-Terry strength advantage (18%) -> Mentioned.\n2. 5-game form: all run metres (10%) -> Alluded to via \"strong form\" and \"momentum\".\n\nEverything seems to pass.\n\nOne detail: \"bookmakers\" - the judgement says \"favoured by the math model and bookmakers\". The research says \"Sydney Roosters heading into the game as favourites with the bookmakers.\" (Pass)\n\nOne detail: \"Dolphins... four-game winning streak\". Scene says \"streak: 4W\". (Pass)\n\nOne detail: \"Tedesco... ankle injury\". Research says \"comeback from an ankle injury\". (Pass)\n\nConfidence: 0.603 -> 0.6. This is a very minor adjustment. The judgement says it's aligning with the prior while accounting for momentum. This is acceptable.\n\nFinal check on `omitted_math_signals`:\nMaterial drivers are Bradley-Terry (18%) and 5-game form: all run metres (10%).\nBradley-Terry is explicitly named.\n5-game form is alluded to as \"strong form\" and \"momentum\".\nThis is sufficient.\n\nWait, looking at the `sourced_claims` again.\n\"Roosters... shock loss to the Tigers\" -> \"The Roosters will be looking to bounce back from their shock loss to the Tigers\" (DuckDuckGo).\n\"Dolphins... four-game winning streak\" -> \"streak: 4W\" (Scene).\n\"Tedesco... ankle injury\" -> \"comeback from an ankle injury\" (NRL News).\n\"Roosters... 3rd... Dolphins... 4th\" -> Scene.\n\"bookmakers\" -> \"Sydney Roosters heading into the game as favourites with the bookmakers\" (Google News).\n\nAll checks pass.",
+      "chars": 5493
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-29T04:32:32.596374+00:00",
+      "payload": {
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Roosters vs Dolphins NRL round 26 preview",
+          "Roosters Dolphins NRL odds OR price OR favourite",
+          "Roosters Dolphins NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-29T04:38:28.247534+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Dolphins",
+          "confidence": 0.6,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Dolphins enter the match with significant momentum on a four-game winning streak, while the Roosters are coming off a shock loss to the Tigers.",
+          "loss_reason_specific": true,
+          "summary": "The Roosters are favoured by the math model and bookmakers, with the return of James Tedesco from an ankle injury providing a key boost (NRL news). While the Dolphins carry strong form with a four-game winning streak, the Roosters maintain a strength advantage and home-ground edge. Confidence is set at 0.60, aligning with the math prior and the positive news of Tedesco's return, while accounting for the Dolphins' current momentum.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Bradley-Terry strength advantage provided the largest contribution to the model's prior (18% of total SHAP mass)."
+            },
+            {
+              "source": "research",
+              "detail": "Skipper James Tedesco is set to make his comeback from an ankle injury (NRL news)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Roosters hold a slight edge on the official ladder, sitting 3rd compared to the Dolphins in 4th."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-29T04:41:59.095761+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": true,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Tedesco's ankle injury is in nrl_news; Dolphins' 4-game streak is in scene; Roosters' loss to Tigers is in duckduckgo; ladder positions are in scene; bookmaker favorites are in google_news_rss."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Tedesco is described as returning, which matches the source 'set to make his comeback'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength advantage is correctly attributed to the Roosters."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from research (Tedesco injury)."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.6) is a slight downward adjustment from the math prior (0.603) to account for Dolphins' momentum."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The most significant driver (Bradley-Terry) is highlighted as the primary math factor."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "pass",
+              "evidence": "Material drivers are Bradley-Terry (named) and 5-game form (alluded to via 'strong form' and 'momentum')."
+            }
+          ],
+          "issues": [],
+          "instruction": ""
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "7f8c5567fb7c",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-29T04:32:05.300577+00:00",
+      "finished_at": "2026-08-29T04:32:08.771476+00:00",
+      "duration_ms": 3470,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Dolphins",
+        "season": null,
+        "round_number": 26,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Dolphins",
+          "season": null,
+          "round_number": 26
+        },
+        "retrieved_at": "2026-08-29T04:32:05.300642+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 26,
+          "round_title": "Round 26",
+          "home_team": "Roosters",
+          "away_team": "Dolphins",
+          "kickoff": "2026-08-29T17:30:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/roosters-v-dolphins/",
+          "match_mode": "Pre",
+          "match_id": "20261112650",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Todd Smith"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "James Tedesco",
+                "position": "Fullback",
+                "player_id": 500663
+              },
+              {
+                "number": 2,
+                "name": "Billy Smith",
+                "position": "Winger",
+                "player_id": 509128
+              },
+              {
+                "number": 3,
+                "name": "Hugo Savala",
+                "position": "Centre",
+                "player_id": 509599
+              },
+              {
+                "number": 4,
+                "name": "Robert Toia",
+                "position": "Centre",
+                "player_id": 100008243
+              },
+              {
+                "number": 5,
+                "name": "Mark Nawaqanitawase",
+                "position": "Winger",
+                "player_id": 100018452
+              },
+              {
+                "number": 6,
+                "name": "Daly Cherry-Evans",
+                "position": "Five-Eighth",
+                "player_id": 500024
+              },
+              {
+                "number": 7,
+                "name": "Sam Walker",
+                "position": "Halfback",
+                "player_id": 100004843
+              },
+              {
+                "number": 8,
+                "name": "Naufahu Whyte",
+                "position": "Prop",
+                "player_id": 100006390
+              },
+              {
+                "number": 9,
+                "name": "Reece Robson",
+                "position": "Hooker",
+                "player_id": 503944
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Collins",
+                "position": "Prop",
+                "player_id": 501781
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Siua Wong",
+                "position": "2nd Row",
+                "player_id": 100004373
+              },
+              {
+                "number": 13,
+                "name": "Nat Butcher",
+                "position": "Lock",
+                "player_id": 503639
+              },
+              {
+                "number": 14,
+                "name": "Connor Watson",
+                "position": "Interchange",
+                "player_id": 503327
+              },
+              {
+                "number": 15,
+                "name": "Spencer Leniu",
+                "position": "Interchange",
+                "player_id": 505560
+              },
+              {
+                "number": 16,
+                "name": "Egan Butcher",
+                "position": "Interchange",
+                "player_id": 504678
+              },
+              {
+                "number": 17,
+                "name": "Taylor Losalu",
+                "position": "Interchange",
+                "player_id": 100000336
+              },
+              {
+                "number": 18,
+                "name": "Cody Ramsey",
+                "position": "Interchange",
+                "player_id": 509404
+              },
+              {
+                "number": 19,
+                "name": "Tommy Talau",
+                "position": "Interchange",
+                "player_id": 505642
+              },
+              {
+                "number": 21,
+                "name": "Benaiah Ioelu",
+                "position": "Reserve",
+                "player_id": 100007527
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Hamiso Tabuai-Fidow",
+                "position": "Fullback",
+                "player_id": 100001936
+              },
+              {
+                "number": 2,
+                "name": "Jamayne Isaako",
+                "position": "Winger",
+                "player_id": 502014
+              },
+              {
+                "number": 3,
+                "name": "Jack Bostock",
+                "position": "Centre",
+                "player_id": 100007515
+              },
+              {
+                "number": 4,
+                "name": "Herbie Farnworth",
+                "position": "Centre",
+                "player_id": 508300
+              },
+              {
+                "number": 5,
+                "name": "Selwyn Cobbo",
+                "position": "Winger",
+                "player_id": 100004649
+              },
+              {
+                "number": 6,
+                "name": "Kodi Nikorima",
+                "position": "Five-Eighth",
+                "player_id": 500265
+              },
+              {
+                "number": 7,
+                "name": "Isaiya Katoa",
+                "position": "Halfback",
+                "player_id": 100006258
+              },
+              {
+                "number": 8,
+                "name": "Thomas Flegler",
+                "position": "Prop",
+                "player_id": 504315
+              },
+              {
+                "number": 9,
+                "name": "Jeremy Marshall-King",
+                "position": "Hooker",
+                "player_id": 502511
+              },
+              {
+                "number": 10,
+                "name": "Tom Gilbert",
+                "position": "Prop",
+                "player_id": 506156
+              },
+              {
+                "number": 11,
+                "name": "Max Plath",
+                "position": "2nd Row",
+                "player_id": 100002172
+              },
+              {
+                "number": 12,
+                "name": "Kulikefu Finefeuiaki",
+                "position": "2nd Row",
+                "player_id": 100007811
+              },
+              {
+                "number": 13,
+                "name": "Morgan Knowles",
+                "position": "Lock",
+                "player_id": 505736
+              },
+              {
+                "number": 14,
+                "name": "Ray Stone",
+                "position": "Interchange",
+                "player_id": 503964
+              },
+              {
+                "number": 15,
+                "name": "Francis Molo",
+                "position": "Interchange",
+                "player_id": 500264
+              },
+              {
+                "number": 16,
+                "name": "Felise Kaufusi",
+                "position": "Interchange",
+                "player_id": 500598
+              },
+              {
+                "number": 17,
+                "name": "Brian Pouniu",
+                "position": "Interchange",
+                "player_id": 100011973
+              },
+              {
+                "number": 18,
+                "name": "Bradley Schneider",
+                "position": "Interchange",
+                "player_id": 100002660
+              },
+              {
+                "number": 20,
+                "name": "Tevita Naufahu",
+                "position": "Reserve",
+                "player_id": 100017017
+              },
+              {
+                "number": 22,
+                "name": "Kurt Donoghoe",
+                "position": "Interchange",
+                "player_id": 100005899
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 26,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Roosters",
+            "position": 3,
+            "played": 22,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 38,
+            "points_for": 587,
+            "points_against": 425,
+            "points_difference": 162,
+            "points_difference_per_game": 7.36,
+            "recent_form_last_4": "4 - 1",
+            "streak": "1L",
+            "home_record": "8 - 3",
+            "away_record": "8 - 3"
+          },
+          "away": {
+            "team": "Dolphins",
+            "position": 4,
+            "played": 22,
+            "wins": 15,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 36,
+            "points_for": 612,
+            "points_against": 474,
+            "points_difference": 138,
+            "points_difference_per_game": 6.27,
+            "recent_form_last_4": "4 - 0",
+            "streak": "4W",
+            "home_record": "8 - 4",
+            "away_record": "7 - 3"
+          },
+          "comparison": {
+            "higher_on_ladder": "Roosters",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": 1.09,
+            "points_difference_favours": "Roosters"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-29T17:00",
+            "temperature_c": 15.4,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 10.1,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-29T04:32:08.769335+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=26&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/roosters-v-dolphins/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "0e9c1e8e8f62",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-29T04:32:32.598748+00:00",
+      "finished_at": "2026-08-29T04:34:26.579785+00:00",
+      "duration_ms": 113981,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Dolphins",
+        "kickoff": "2026-08-29T17:30:00+10:00",
+        "round_number": 26,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Roosters vs Dolphins NRL round 26 preview",
+          "Roosters Dolphins NRL odds OR price OR favourite",
+          "Roosters Dolphins NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Dolphins",
+          "kickoff": "2026-08-29T17:30:00+10:00",
+          "round_number": 26,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Roosters vs Dolphins NRL round 26 preview",
+            "Roosters Dolphins NRL odds OR price OR favourite",
+            "Roosters Dolphins NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-29T04:32:32.599958+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 9
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "51f4c66e821a9938",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Team Lists NRL Late Mail: Round 26 - Cleary set to debut Presented by 23 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/",
+            "published_at": "2026-08-29T04:09:09+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 26 - Cleary set to debut\nHalfback Jett Cleary will make his debut alongside Luke Hanson after the Warriors chose to rest Te Maire Martin and Chanel Harris-Tavita.\nMartin was named on Tuesday to return from a hamstring complaint which kept him out",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 26 - Cleary set to debut\nHalfback Jett Cleary will make his debut alongside Luke Hanson after the Warriors chose to rest Te Maire Martin and Chanel Harris-Tavita.\nMartin was named on Tuesday to return from a hamstring complaint which kept him out of the last three matches against Penrith, Brisbane and South Sydney.\nHowever, he has been omitted as has Harris-Tavita who has a minor hamstring issue. Both will train fully next week to line up in the final regular season match against the Sea Eagles.\nRoosters skipper James Tedesco will again look to make his comeback from an ankle injury after being named to face the Dolphins.\nTedesco suffered the injury in Round 22 against the Cowboys and has struggled to get it right across the past fortnight, twice being named to play before being a late withdrawal.\nSee all the late mail, official team news and updates for Round 26 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 26\nTitans v Rabbitohs, Saturday 3.00pm at Cbus Super Stadium\nMatch: Titans v Rabbitohs\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nTitans\naway Team\nRabbitohs\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Rabbitohs is number 1 Matthew Dufty\nWinger for Titans is number 5 Phillip Sami 5 2 Winger for Rabbitohs is number 2 Alex Johnston\n5 2\nCentre for Titans is number 2 Jaylan De Groot 2 3 Centre for Rabbitohs is number 3 Tallis Duncan\n2 3\nCentre for Titans is number 4 AJ Brimson 4 Centre for Rabbitohs is number 4 Jack Wighton\nWinger for Titans is number 18 Siale Faeamani 18 5 Winger for Rabbitohs is number 5 Campbell Graham\n18 5\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Rabbitohs is number 6 Cody Walker\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Rabbitohs is number 7 Jayden Sullivan\nForwards\nProp for Titans is number 8 Klese Haas 8 Prop for Rabbitohs is number 8 Tevita Tatola\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Rabbitohs is number 9 Brandon Smith\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Rabbitohs is number 10 Keaon Koloamatangi\n10\n2nd Row for Titans is number 11 Josh Patston 11 2nd Row for Rabbitohs is number 11 David Fifita\n11\n2nd Row for Titans is number 12 Kurtis Morrin 12 2nd Row for Rabbitohs is number 12 Euan Aitken\n12\nLock for Titans is number 13 Cooper Bai 13 23 Lock for Rabbitohs is number 23 Jai Arrow\n13 23\nInterchange\nInterchange for Titans is number 14 Moeaki Fotuaika 14 13 Interchange for Rabbitohs is number 13 Cameron Murray\n14 13\nInterchange for Titans is number 15 Chris Randall 15 14 Interchange for Rabbitohs is number 14 Jye Gray\n15 14\nInterchange for Titans is number 16 Bodhi Sharpley 16 15 Interchange for Rabbitohs is number 15 Lachlan Hubner\n16 15\nInterchange for Titans is number 17 Luke Sommerton 17 16 Interchange for Rabbitohs is number 16 Sean Keppie\n17 16\nInterchange for Titans is number 19 Arama Hau 19 17 Interchange for Rabbitohs is number 17 Jamie Humphreys\n19 17\nInterchange for Titans is number 20 Max Feagai 20 18 Interchange for Rabbitohs is number 18 Adam Elliott\n20 18\n19 Interchange for Rabbitohs is number 19 Latrell Mitchell\n19\nTitans Ins\nJosh Patston\nMax Feagai\nRabbitohs Ins\nAdam Elliott\nJai Arrow\nJamie Humphreys\nLatrell Mitchell\nTitans Outs\nBeau Fermor\nJojo Fifita\nEdward Kosi\nLiam Le Blanc\nPeter Mamouzelos\nMatch Officials\nReferee: Liam Kennedy\nSenior Review Official: Ashley Klein\nLast updated: 8/29/2026 3:52:02 AM\nTitans: Jojo Fifita has dropped out due to a hip pointer injury so Jaylan De Groot moves in to centre and Siale Faeamani comes onto the wing in jersey No.18 with Max Feagai added to the bench. Back-rower Beau Fermor suffered a rib injury against the Sharks and is replaced by Josh Patston who returns from concussion protocols. The Titans will don their Stand with Jai jersey for the special occasion, depicting Arrow during his time on the Gold Coast from 2018 t",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.3898888772222222,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "92521ef22c165f15",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Roosters vs Dolphins Preview (Round 26, 2026): Team News, Team Lists & Prediction",
+            "url": "https://rugbyleaguezone.com/roosters-vs-dolphins-round-26-preview-2026-437475/",
+            "published_at": "2026-08-28T04:32:48+00:00",
+            "snippet": "A top-four shootout awaits on Saturday night at Allianz Stadium as the Roosters and Dolphins clash in what could be a dress ...",
+            "body_excerpt": "A top-four shootout awaits on Saturday night at Allianz Stadium as the Roosters and Dolphins clash in what could be a dress rehearsal for finals football. With just two rounds remaining in the regular season, both sides remain firmly in the hunt for a coveted top-four finish and a potential double chance in September. The Roosters will be looking to bounce back from their shock loss to the Tigers, while the Dolphins have the opportunity to prove they belong among the competition’s genuine premiership contenders.\nRead Full Previews\nBroncos vs Storm → Read full preview: broncos-vs-storm-round-26-preview-2026\nSea Eagles vs Dragons → Read full preview: sea-eagles-vs-dragons-round-26-preview-2026\nPanthers vs Bulldogs → Read full preview: panthers-vs-bulldogs-round-26-preview-2026\nTitans vs Rabbitohs → Read full preview: titans-vs-rabbitohs-round-26-preview-2026\nRoosters vs Dolphins → Read full preview: roosters-vs-dolphins-round-26-preview-2026\nCowboys vs Wests Tigers → Read full preview: cowboys-vs-wests-tigers-round-26-preview-2026\nWarriors vs Knights → Read full preview: warriors-vs-knights-round-26-preview-2026\nEels vs Sharks → Read full preview: eels-vs-sharks-round-26-preview-2026\nMatchday Details\nSaturday, 29 August 2026 – 5:30pm AEST – Allianz Stadium, Sydney 📺 Foxtel / Kayo Referee: Todd Smith | Senior Review Official: Chris Butler\nSydney Roosters: 1. James Tedesco (c), 2. Billy Smith, 3. Hugo Savala, 4. Robert Toia, 5. Mark Nawaqanitawase, 6. Daly Cherry-Evans, 7. Sam Walker, 8. Naufahu Whyte, 9. Reece Robson, 10. Lindsay Collins, 11. Salesi Foketi, 12. Siua Wong, 13. Nat Butcher, 14. Connor Watson, 15. Spencer Leniu, 16. Egan Butcher, 17. Taylor Losalu, 18. Cody Ramsey, 19. Tommy Talau, 20. Benaiah Ioelu, 21. Rex Bassingthwaighte, 22. Toby Rodwell\nThe Dolphins: 1. Hamiso Tabuai-Fidow, 2. Jamayne Isaako, 3. Jack Bostock, 4. Herbie Farnworth, 5. Selwyn Cobbo, 6. Kodi Nikorima, 7. Isaiya Katoa (c), 8. Thomas Flegler, 9. Jeremy Marshall-King, 10. Tom Gilbert, 11. Max Plath, 12. Kulikefu Finefeuiaki, 13. Morgan Knowles, 14. Ray Stone, 15. Francis Molo, 16. Felise Kaufusi, 17. Brian Pouniu, 18. Bradley Schneider, 19. Jake Averillo, 20. Tevita Naufahu, 21. Sebastian Su’a, 22. Kurt Donoghoe\nMatch Preview\nThe Roosters’ recent winning streak had them looking the goods for the minor premiership, but a second upset loss to the Tigers in consecutive seasons last weekend saw them lose ground for top spot to the Warriors. They sit third only on points difference to the Warriors and Penrith, but such is the competitiveness in the top teams this season that a loss to the Dolphins of 12 points or more could see this week’s opponents overtake them and keep alive the slenderest of minor premiership hopes.\nOne does wonder if the timing of the Tigers’ loss last weekend will be a good or bad thing for the Dolphins. Was it the beginning of a late-season wobble, or just a blip that the Dolphins will get punished for this weekend? The eight-game winning run before last weekend’s loss suggests it’s a blip, but it’s interesting to note in that eight-game run the average winning margin was only eight points, if you exclude the 72-point lesson they handed the Cowboys. Also worth noting that most opponents in that run were top half teams or the fallen giants Broncos and Melbourne. The Roosters record vs current top eight sides is seven wins and four losses. The Dolphins, for the record, are six wins and five losses.\nYou could certainly argue the Dolphins are one of the form teams in the competition too, currently on a five-game winning streak, and have won 13 of their last 15. But it could be argued that there’s still plenty of upside to the Dolphins, who continue to start games slow, and are yet to put together even 60 minutes of their best rugby league for a while now. They have shown less than half of that can win regular season football games, but it surely won’t be enough against the best in the finals. But it’s progress at least from previous se",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.995722210555556,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "fa5939bf06ea3689",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins Team List: Round 26 v Roosters - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/08/25/dolphins-team-list-round-26-v-roosters/",
+            "published_at": "2026-08-25T05:59:51+00:00",
+            "snippet": "Dolphins Team List: Round 26 v Roosters &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nDolphins Team List: Round 26 v Roosters\nKristian Woolf has backed the side that secured victory over the Eels last Friday night, naming an unchanged 17 to face the Roosters in Round 26.\nMax Plath returns to the back row after a late change to the final team last Friday saw Brian Pouniu elevated into the starting side.\nPouniu remains in the 17 for his third NRL appearance after an impressive 80-minute performance against the Eels.\nSebastian Su’a and Kurt Donoghoe come into the extended squad, joining the reserves for the clash with the Roosters.\nThe Dolphins will head to Sydney for the Round 26 showdown as they continue preparations for their maiden NRL finals campaign.\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Roosters is number 2 Billy Smith 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Roosters is number 3 Hugo Savala 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Roosters is number 4 Robert Toia 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Roosters is number 13 Nat Butcher 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Dolphins is number 14 Ray Stone\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Dolphins is number 15 Francis Molo\n15\nInterchange for Roosters is number 16 Egan Butcher 16 Interchange for Dolphins is number 16 Felise Kaufusi\n16\nInterchange for Roosters is number 17 Taylor Losalu 17 Interchange for Dolphins is number 17 Brian Pouniu\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Roosters is number 19 Tommy Talau 19 22 Interchange for Dolphins is number 22 Kurt Donoghoe\n19 22\nReserves\nReserve for Roosters is number 21 Benaiah Ioelu 21 20 Reserve for Dolphins is number 20 Tevita Naufahu\n21 20\nRoosters Ins\nBenaiah Ioelu\nJames Tedesco\nTaylor Losalu\nDolphins Ins\nKurt Donoghoe\nTevita Naufahu\nRoosters Outs\nRex Bassingthwaighte\nVictor Radley\nJake Averillo\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Matt Noyen\nSenior Review Official: Chris Butler\nLast updated: 8/28/2026 12:40:38 PM\nRelated /\nMatch Preview: Round 26 – Dolphins v Roosters\nPress Conference\nDolphins: Round 25\nNRL News\nFrom the field: Selwyn Cobbo\nDolphins Team List: Round 25 v Eels\nDolphins Team List: Round 24 v Sea Eagles",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.54488887722222,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b03d416f61467736",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Roosters v Dolphins: Teddy set to play; Donoghoe good to go",
+            "url": "https://www.nrl.com/news/2026/08/25/roosters-v-dolphins-teddy-set-to-play-donoghoe-eyes-return/",
+            "published_at": "2026-08-28T07:34:27+00:00",
+            "snippet": "Presented By\nRoosters v Dolphins: Teddy set to play; Donoghoe good to go\nA heavyweight battle awaits as the Roosters look to bounce back following a shock loss to Wests Tigers against an in-form Dolphins outfit.\nThe Roosters were looking to consolidate their two-top position with",
+            "body_excerpt": "Presented By\nRoosters v Dolphins: Teddy set to play; Donoghoe good to go\nA heavyweight battle awaits as the Roosters look to bounce back following a shock loss to Wests Tigers against an in-form Dolphins outfit.\nThe Roosters were looking to consolidate their two-top position with a win against Wests Tigers, but their opposition had other ideas, showing great spirit to steal a stunning 25-24 upset.\nThe loss saw the Roosters instead drop to third place on the ladder, just one place ahead of this week's rivals the Dolphins who were able to right the ship after a poor start against the Eels.\nIn what's become a bit of a concerning habit for Kristian Woolf's men, the conceded early points against the Parramatta - much like they had done in Round 23 against the Broncos - but were able to snap back into gear with some fantastic tries.\nAgainst a stinging Roosters side looking to also make amends for the 48-10 loss they suffered last time these two sides met in Round 15, they can ill afford to give up such a head start.\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\n3rd Position\naway Team\nDolphins\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nRoosters: Skipper James Tedesco has again been named to return from the ankle injury that has sidelined him for three games so Cody Ramsey moves to the bench. Nat Butcher starts at lock in place of Victor Radley (head knock) with Taylor Losalu joining the interchange. No changes in Friday's 24-hour update.\nDolphins: Utility Kurt Donoghoe has joined the 19-man squad after initially being listed among the reserves as he returns from a thumb injury. After being promoted to the starting side last week in his second NRL match, Brian Pouniu reverts to the bench with Max Plath named in the back row. Connelly Lemuelu (hamstring) remains sidelined and will target a return in week one of the finals.\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Roosters is number 2 Billy Smith 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Roosters is number 3 Hugo Savala 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Roosters is number 4 Robert Toia 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Roosters is number 13 Nat Butcher 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Dolphins is number 14 Ray Stone\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Dolphins is number 15 Francis Molo\n15\nInterchange for Roosters is number 16 Egan Butcher 16 Interchange for Dolphins is number 16 Felise Kaufusi\n16\nInterchange for Roosters is number 17 Taylor Losalu 17 Interchange for Dolphins is number 17 Brian Pouniu\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Roosters is number 19 Tommy Talau 19 22 Interchange for Dolphins is number 22 Kurt Donoghoe\n19 22\nReserves\nReserve for Roosters is number 21 Benaiah Ioelu 21 20 Reserve for Dolphins is number 20 Tevita Na",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.968222210555556,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "b9b778b80d55aac1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-dolphins-tips-odds-teams-predictions-nrl-round-26-2026/610056",
+            "published_at": "2026-08-27T02:21:44+00:00",
+            "snippet": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Allianz Stadium will play host to Saturday's Round 26 NRL game between Sydney Roosters and Dolphins. The game kicks off at 5:30 pm with Sydney Roosters heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Sydney Roosters vs. Dolphins game and give you our free tips and bets.\nWhen: Saturday August 29, 2026 at 5:30 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nSydney Roosters vs Dolphins Odds\nSydney Roosters vs Dolphins Preview\nThe Roosters’ eight-match winning streak ended with a 25-24 loss to Wests Tigers, dropping them from first to third and tightening the race for a home qualifying final. The Dolphins strengthened their top-four position by beating Parramatta 34-16 and arrive with a settled squad. James Tedesco has again been named for Sydney after three consecutive late withdrawals, while Victor Radley is out following a head knock. The Dolphins retain the combination that handled the Eels and will draw confidence from their emphatic 48-10 win over the Roosters in Round 15. Sydney’s home record and powerful middle make this a demanding assignment, but the visitors’ speed through Hamiso Tabuai-Fidow, Jamayne Isaako and Selwyn Cobbo can punish any defensive hesitation. The Dolphins are capable of confirming that earlier result with another upset.\nHead To Head Bet\nWe're tipping Dolphins to win at $2.45 odds.\nFirst Try Scorer\nFirst Try Scorer: Billy Smith at $8.50 .\nSydney Roosters vs Dolphins Teams\nRoosters team: 1. James Tedesco 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Nat Butcher 14. Connor Watson 15. Spencer Leniu 16. Egan Butcher 17. Taylor Losalu 18. Cody Ramsey 19. Tommy Talau 20. Benaiah Ioelu 21. Rex Bassingthwaighte 22. Toby Rodwell\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Ray Stone 15. Francis Molo 16. Felise Kaufusi 17. Brian Pouniu 18. Brad Schneider 19. Jake Averillo 20. Tevita Naufahu 21. Sebastian Su’a 22. Kurt Donoghoe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 50.180166655,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "d792844405437820",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-dolphins-tips-odds-teams-predictions-nrl-round-26-2026/610056/amp",
+            "published_at": "2026-08-26T23:17:35+00:00",
+            "snippet": "Sydney Roosters vs Dolphins Tips, Odds, Teams & Predictions – NRL Round 26 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Allianz Stadium will play host to Saturday's Round 26 NRL game between Sydney Roosters and Dolphins. The game kicks off at 5:30 pm with Sydney Roosters heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Sydney Roosters vs. Dolphins game and give you our free tips and bets.\nWhen: Saturday August 29, 2026 at 5:30 pm\nWhere: Allianz Stadium\nBet: Bet On This Match HERE\nSydney Roosters vs Dolphins Odds\nSydney Roosters vs Dolphins Preview\nThe Roosters’ eight-match winning streak ended with a 25-24 loss to Wests Tigers, dropping them from first to third and tightening the race for a home qualifying final. The Dolphins strengthened their top-four position by beating Parramatta 34-16 and arrive with a settled squad. James Tedesco has again been named for Sydney after three consecutive late withdrawals, while Victor Radley is out following a head knock. The Dolphins retain the combination that handled the Eels and will draw confidence from their emphatic 48-10 win over the Roosters in Round 15. Sydney’s home record and powerful middle make this a demanding assignment, but the visitors’ speed through Hamiso Tabuai-Fidow, Jamayne Isaako and Selwyn Cobbo can punish any defensive hesitation. The Dolphins are capable of confirming that earlier result with another upset.\nHead To Head Bet\nWe're tipping Dolphins to win at $2.45 odds.\nFirst Try Scorer\nFirst Try Scorer: Billy Smith at $8.50 .\nSydney Roosters vs Dolphins Teams\nRoosters team: 1. James Tedesco 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Nat Butcher 14. Connor Watson 15. Spencer Leniu 16. Egan Butcher 17. Taylor Losalu 18. Cody Ramsey 19. Tommy Talau 20. Benaiah Ioelu 21. Rex Bassingthwaighte 22. Toby Rodwell\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Ray Stone 15. Francis Molo 16. Felise Kaufusi 17. Brian Pouniu 18. Brad Schneider 19. Jake Averillo 20. Tevita Naufahu 21. Sebastian Su’a 22. Kurt Donoghoe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 53.24933332166667,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "97b862ca906c2597",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/",
+            "published_at": "2026-08-26T22:07:42+00:00",
+            "snippet": "The penultimate round of the 2026 NRL regular season features a bounty of high-profile encounter – headlined by Canterbury’s must-win clash against Penrith and a top-four showdown between the Roosters and Dolphins.\nManly, North Queensland and South Sydney all face vital assignmen",
+            "body_excerpt": "The penultimate round of the 2026 NRL regular season features a bounty of high-profile encounter – headlined by Canterbury’s must-win clash against Penrith and a top-four showdown between the Roosters and Dolphins.\nManly, North Queensland and South Sydney all face vital assignments against also-ran opposition, while Newcastle heads to Auckland in an attempt to slow down the Warriors juggernaut.\nRead on for our complete 2026 NRL Round 26 predictions, tips and best Rugby League bets to place this weekend!\nLast year’s grand final opponents are playing for pride only on Thursday night, but both are coming off spirited performances.\nFORM: After losing 12 of their previous 13, the Broncos produced a remarkable 34-30 comeback win over a desperate Canberra side at GIO Stadium last Friday.\nThe Storm have lost four of their last five but followed up a 42-20 thrashing of Manly in Perth with a 22-14 home loss to heavyweight Penrith last week.\nINS AND OUTS: The Broncos are unchanged, with Michael Maguire controversially denying Adam Reynolds an NRL farewell.\nJahrome Hughes returns for the Storm, with Tyran Wishart moving to centre as Jack Howarth sits out the rest of the year. Marion Seve comes onto the interchange.\nKEY MATCH-UP: Hayze Perham has impressed whenever given the opportunity to deputise for Reece Walsh, while Sua Faalogo will be eager to finish a breakout year in style.\nHISTORY: After winning just one of their previous 18 against the Storm, the Broncos have won the teams’ last three encounters – including an 18-14 result in Round 3 to snap a decade-long drought in Melbourne.\nKEY STAT: The Storm boast a 32-13 record at Suncorp Stadium but have won only one of their last five at the venue.\nVERDICT: The Broncos’ brave fightback in Canberra really came out of nowhere, but can they back it up to snap an eye-watering eight-match losing streak at Suncorp Stadium? The bubbling controversy over Reynolds’ non-selection doesn’t help.\nWhile it’s not reflected by a 9-13 record, the Storm have rarely been overwhelmed during this difficult campaign and haven’t lost to bad teams. With their ‘big three’ back on deck, they are an appealing favourite here.\nPrediction: Back the Storm to Cover the Line (-2.5) @ $1.90\nSGM: STORM WIN / OVER 49.5 TOTAL POINTS / SUA FAALOGO ANYTIME TRYSCORER / DEINE MARINER ANYTIME TRYSCORER / JAHROME HUGHES ANYTIME TRYSCORER @ $29.33\nClinging to the slimmest of 2026 NRL finals hopes, Manly will nevertheless be alive in the race when it kicks off against last-placed St George Illawarra on Friday.\nFORM: The Sea Eagles snapped a six-match losing streak with a 44-24 upset in Newcastle last Saturday, with Josh Feledy scoring three of their eight tries from the bench.\nThe spoon-bound Dragons followed up their first back-to-back wins – getting up against Cronulla and Wests Tigers – with a flat 44-14 loss to the Bulldogs in Round 25, trailing 24-0 at halftime.\nINS AND OUTS: Tolu Koula is out for the season, which brings Feledy into the centres for Manly with debutant Onitoni Large joining the interchange.\nDamien Cook starts at hooker for the Dragons with Jacob Liddle (calf) out, while Connor Muhleisen comes onto the bench.\nKEY MATCH-UP: Sea Eagles’ No.6 novice Clayton Faulalo and Dragons tyro Lyhkan King-Tongia are staking their claims for 2027.\nHISTORY: The clubs have split their last 10 clashes, but Manly have won the last two – including a 28-18 result in Wollongong in Round 6.\nKEY STAT: The Saints have scored more than 24 points just once this season.\nVERDICT: The Sea Eagles in all likelihood have pulled out of their skid far too late, but last week’s turnaround in Newcastle has nevertheless given them plenty to play for ahead of this clash. Faulalo impressed at five-eighth, as did centre fill-in Feledy.\nDespite some very spirited efforts over the past month or two, last week’s showing against the Bulldogs hinted at a team eager to get to Mad Monday and another finals hopeful should be able to take advantage at home.\nPred",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 54.41405554388889,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "72486f0790846855",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Dolphins Life of Brian: Dolphins rookie Pouniu ready to ride the wave",
+            "url": "https://www.nrl.com/news/2026/08/25/life-of-brian-dolphins-rookie-pouniu-ready-to-ride-the-wave/",
+            "published_at": "2026-08-24T23:54:04+00:00",
+            "snippet": "Life of Brian: Dolphins rookie Pouniu ready to ride the wave\nDolphins rookie Brian Pouniu announced himself as a player of the future with his breakout performance in the win over the Eels, looking more than comfortable in just his second NRL game.\nA ‘late’ promotion to start in ",
+            "body_excerpt": "Life of Brian: Dolphins rookie Pouniu ready to ride the wave\nDolphins rookie Brian Pouniu announced himself as a player of the future with his breakout performance in the win over the Eels, looking more than comfortable in just his second NRL game.\nA ‘late’ promotion to start in the second row in place of the injured Connelly Lemuelu, the Auckland-born talent topped the Dolphins' tackle count with 39 and also made the most metres for a forward (179).\nBrian Pouniu makes a run for the Dolphins. ©Zain Mohammed / NRL Images\nStill only 18 years old, after making his NRL debut back in Round 12 at centre in the win over the Raiders, Pouniu has spent most of this season developing his game with the Redcliffe Dolphins in Queensland’s Hostplus Cup.\nHe also made a cameo for the NRL Dolphins NRLQ Under 21 side in their Round 11 win over the Titans.\nFor the club, there is even more reason to celebrate his progress as Pouniu becomes the first player to come through and play at every level of their academy.\n“(I felt) really good (playing in the second row) … it was actually Max Plath that was meant to come as a starter, but Woolfy [coach Kristian Woolf] trusted my ability to start and then play the full 80, so I'm just grateful,\" Pouniu said.\n“He had a plan straight after Connolly got injured, he said I'll play the next week, and then he just said you'll start …\n“I guess being at a young age (I am) extremely grateful the coaches trusted me with the job...\n'He's got great football IQ': Pouniu embracing new Titans role\n“I'm just really grateful for this club … playing my first Cup game this year and then playing my first NRL game this year.\n\"I think the jump is pretty major from Cup to NRL, but it was a good experience from coming from Cup to NRL.”\nPouniu’s rise top the grade has plenty of extra meaning for the youngster. He is also living the dream of his older brother Joseph, who was also a talented forward before suffering a serious spinal cord injury during a game that cut short his promising rugby league career.\nNow working as an analyst with the Gold Coast Titans, the club where he was signed as a player, the younger Pouniu was still taking advice from his big brother.\n“If you know me, obviously know my brother,” Pouniu said.\n“I'm certain he would have played NRL if he was still playing and I carry him on my back every time I play.\n“He is (still involved in rugby league); extremely grateful for the Titans for giving him the opportunity to still work there after everything.\n“He still loves his footy, so I'm glad.\n“(He still gives me advice) 100 percent.\n“He cut some videos up for me, so it's good.”\nBrian Pouniu embraces with Daine Laurie after making his NRL debut in Canberra in Round 12. ©NRL Images\nWith Redcliffe sitting in second spot on the Cup ladder, Pouniu will be playing finals football either way later this season and was making sure he would be ready to perform if given another opportunity to feature in the NRL.\nTaking on tips from some of the most experienced players in the NRL squad, including Lemuelu, Pouniu was excited to see what was coming next.\n“I'm just worrying about my own job,\" Pouniu said.\n“Whenever someone gets injured, it's next man up mentality, so I just try to play for the boys.\n“(I look up to) heaps of the older boys, Fus [Felise Kaufusi], Connolly Lemuelu, Kodi Nikorima and Herbie Farnworth.\n“Having them on the left edge makes my job more easier.\n“We'll see what the next few weeks hold for me, but I will do anything that the coach asks of me … but basically the first job is finals.\n“If someone in the backrow gets injured, then I'll put my hand up for that job.”\nThe Dolphins will next take on the Roosters in a battle between third and fourth on Saturday.\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\n3rd Position\naway Team\nDolphins\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nAll Tries - Dolphins v Eels - Round 25, 2026\nIsaako in the ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 100.64127776611112,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "9d34c0257d64e7a0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: Round 26 – Dolphins v Roosters - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/08/29/match-preview-round-26--dolphins-v-roosters/",
+            "published_at": "2026-08-28T23:45:23+00:00",
+            "snippet": "Match Preview: Round 26 – Dolphins v Roosters &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nMatch Preview: Round 26 – Dolphins v Roosters\nThe finals are locked in, but there is still plenty on the line when the Dolphins head to Sydney for a top-four showdown with the Roosters.\nThird meets fourth in Round 26, giving the Dolphins another opportunity to test themselves against one of the competition’s leading sides as September approaches.\nThe Dolphins arrive in Sydney with momentum after their victory over the Eels last Friday night, while the Roosters will be looking to respond following a loss to the Tigers.\nThe two sides last met during the Origin period in Round 15, when the Dolphins produced a dominant 48-10 victory at Suncorp Stadium.\nThis time, the challenge comes in Sydney and with both sides preparing for finals football.\nThe Dolphins will take confidence from their record on the road, having won all three games they have played in Sydney this season.\nJamayne Isaako also enters the clash on the verge of another club record. The winger needs five points to surpass his own Dolphins record for most points in a season, having set the benchmark with 278 points in 2025.\nIsaako is also within reach of rare territory, sitting 26 points away from becoming just the fourth player to score 300 points in an NRL season.\nTeam News\nDolphins\nKristian Woolf has backed the side that secured victory over the Eels last Friday night, naming an unchanged 17 to face the Roosters.\nMax Plath returns to the back row after a late change to the final team last Friday saw Brian Pouniu elevated into the starting side.\nPouniu remains in the 17 for his third NRL appearance after an impressive 80-minute performance against the Eels.\nRoosters\nJames Tedesco has again been named to return from the ankle injury that has sidelined him for three games, with Cody Ramsey moving to the bench.\nNat Butcher starts at lock in place of Victor Radley, who is unavailable following a head knock, while Taylor Losalu joins the interchange.\nMatch-Up\nJack Bostock v Robert Toia\nTwo of Origin’s emerging centres will go head-to-head in a match-up that could have a major say in the contest.\nRobert Toia has been a constant threat for the Roosters this season, scoring 11 tries and providing 12 try assists across 19 appearances. He has also recorded 89 tackle breaks and 12 line breaks while averaging 111 running metres per game.\nJack Bostock has been just as influential for the Dolphins. Across 12 appearances, he has scored five tries and produced 11 try assists, along with 28 tackle breaks and five line breaks. His work with the ball has also been a feature, averaging 162 running metres per game.\nWith both centres capable of creating opportunities on their respective edges, their defence will need to be on point. Limiting each other's time and space could be crucial as Bostock and Toia go head-to-head in Sydney.\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\n3rd Position\naway Team\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nDolphins Team List: Round 26 v Roosters\nPress Conference\nDolphins: Round 25\nNRL News\nFrom the field: Selwyn Cobbo\nMatch Preview\nMatch Preview: Round 25 – Dolphins v Eels\nMatch Preview: Round 24 – Dolphins v Sea Eagles",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 4.785999988333333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "21b48a91b9a76a26",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Dolphins Nothing to fear here: Dolphins up for finals audition",
+            "url": "https://www.nrl.com/news/2026/08/29/dolphins-embrace-top-four-test-against-chooks-in-run-to-finals/",
+            "published_at": "2026-08-28T21:01:21+00:00",
+            "snippet": "Nothing to fear here: Dolphins up for finals audition\nAs the Dolphins approach their first finals campaign, experienced campaigners Felise Kaufusi and Morgan Knowles know what to expect and can't wait for the challenge.\nInaugural signing and club leader Kaufusi has won two premie",
+            "body_excerpt": "Nothing to fear here: Dolphins up for finals audition\nAs the Dolphins approach their first finals campaign, experienced campaigners Felise Kaufusi and Morgan Knowles know what to expect and can't wait for the challenge.\nInaugural signing and club leader Kaufusi has won two premierships with the Storm, while Knowles boasts four titles with St Helens - both view the Round 26 match-up with the Roosters as the ideal September audition.\n“I think it's come at a good time of year,” Kaufusi said.\n“We're coming up against the No.3 team, the Sydney Roosters and I'm sure they'll be up for a big one, especially after last week's performance.\n“It's a good little audition I think for us for times to come.\nRelated Match Preview\nRoosters v Dolphins: Teddy set to play; Donoghoe good to go\n“I think it's pretty exciting (to be heading into finals soon), it's uncharted waters for us as a club to be playing the finals, so it’s an exciting time.\n“We've played some good footy (during the) last month and I still think you've got to take it week by week.\n“We've still got two more regular season games before the new competition kicks off, so all our focus is on this week.”\nMorgan Knowles with the ball for the Dolphins. ©Anthony Kourembanas / NRL Images\nFor Englishman Knowles, who has a remarkable strike rate of never missing finals in 12 years of playing in Super League and NRL, the Roosters provide the ideal test of their credentials.\n\"We've probably known for a couple of weeks that we're going to be in the finals and it's obviously new for the club and the group,\" Knowles said.\n\"It's exciting and we're obviously looking ahead to this week first and then Gold Coast, but we're really looking forward to what's to come and trying to peak at the right time.\n\"We are just looking for a good performance this week against the Roosters, a top team that are there in the four with us as well, so we'll be looking for a good performance.\n\"It's not the be all and end all (if we don't win), but we're looking for good performance and hopefully get the result.\n\"It's clear to see, just looking at the Roosters' team sheet, how many good players they've got right across the park, so it's not a case of circling out of any one individual or anything.\n\"They're a great team and that's why they've won lot of to competitions, so we have to be really good this weekend.\"\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\n3rd Position\naway Team\nDolphins\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nMatch Preview\nRoosters v Dolphins: Round 26\nFantasy\nFirst take: Roosters v Dolphins\nPress Conference\nNRL Press Conference: Dolphins v Eels - Round 25, 2026\nNRL Press Conference: Sea Eagles v Dolphins- Round 24, 2026",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 7.519888877222222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "c047a26347ec7075",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 26 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc",
+            "published_at": "2026-08-28T18:55:27+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 26\nPeter Maniaty\nGetty Images\nRound 26 began with a replay of the 2025 NRL grand final as the Storm ",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 26\nPeter Maniaty\nGetty Images\nRound 26 began with a replay of the 2025 NRL grand final as the Storm humbled the Broncos 46-20 at Suncorp.\nOn Friday night the Panthers put a 24-10 dent in the Bulldogs ' finals hopes.\nThe Roosters host the Dolphins in a heavyweight finals preview on Saturday.\nThe Warriors take on the Knights on Sunday afternoon in Auckland in another match that will shape the order of the top eight.\nThe Raiders have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 26\nGold Coast Titans vs. South Sydney Rabbitohs\n(Saturday, August 29 at Cbus Super Stadium , 3:00pm AEST)\nGold Coast team:\n1. Keano Kini 2. Jaylan De Groot 18. Siale Faeamani 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Klese Haas 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Josh Patston 12. Kurtis Morrin 13. Cooper Bai\n14. Moeaki Fotuaika 15. Chris Randall 16. Bodhi Sharpley 17. Luke Sommerton 19. Arama Hau 20. Max Feagai\nTitans team news:\nJosh Patston (concussion) is back this week and takes the place of Beau Fermor who left the field with an abdominal injury in the loss to the Sharks . Arama Hau and Moeaki Fotuaika were both bumped to bench in Round 25 and Klese Haas and Kurtis Morrin are once again named to start. Jojo Fifita (hip) has been replaced in the centres by Siale Faeamani.\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton* 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 23. Jai Arrow (c)\n13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott\nRabbitohs team news:\nLatrell Mitchell (nerve) could be back after a long injury layoff after being named on the extended reserves, while Jamie Humphreys (ankle) returns on the bench. Centre Jack Wighton is in doubt with a hamstring issue. In a touching move Jai Arrow will start at lock - and captain - for the opening moments of the match before being replaced by Cameron Murray.\nSydney Roosters vs. Dolphins\n(Saturday, August 29 at Allianz Stadium , 5:30pm AEST)\nRoosters team:\n1. James Tedesco (c) 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Nat Butcher\n14. Connor Watson 15. Spencer Leniu 16. Egan Butcher 17. Taylor Losalu 18. Cody Ramsay 19. Tommy Talau\nRoosters team news:\nJames Tedesco (ankle) has missed the past three matches and while he is again named at fullback there's no guarantee he will play. Victor Radley is unlikely to play again before the finals after suffering a Category1 concussion late in the loss to the Tigers. Angus Crichton (foot) and Daniel Tupou (shoulder) remain out, while Lindsay Collins moves back into the starting pack with Spencer Leniu to come off the bench.\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Ray Stone 15. Francis Molo 16. Felise Kaufusi 17. Brian Pouniu 18. Brad Schneider 22. Kurt Donoghoe\nDolphins team news:\nKurt Donoghoe returns on the bench after recovering from minor hand surgery. Connelly Lemuelu (hamstring) will miss another week with Max Plath again starting in the second row.\nNorth Queensland Cowboys vs. Wests Tigers\n(Saturday, August 29 at Queensland Country Bank Stadium , 7:35pm AEST)\nNorth Queensland team:\n1. Scott Drinkwater 2. Braidon Burns 3. Jaxon Purdue 4. Tom Chester 5. Zac Labutt 6. Jake Clifford 7. Tom Dearden (c) 8. Griffin Neame 9. Reed Mahoney 10. Jason Taumalolo",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 9.618222210555555,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "a01c9f35081f471f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Update | Round 26 v Dolphins - Sydney Roosters",
+            "url": "https://www.roosters.com.au/news/2026/08/28/nrl-team-list--round-26-v-dolphins/",
+            "published_at": "2026-08-28T06:01:00+00:00",
+            "snippet": "Presented By\n24 Hour Update | Round 26 v Dolphins\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Round 26 clash against the Dolphins at Allianz Stadium.\nView teamlist here:\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRooster",
+            "body_excerpt": "Presented By\n24 Hour Update | Round 26 v Dolphins\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Round 26 clash against the Dolphins at Allianz Stadium.\nView teamlist here:\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Roosters is number 2 Billy Smith 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Roosters is number 3 Hugo Savala 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Roosters is number 4 Robert Toia 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Roosters is number 13 Nat Butcher 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Dolphins is number 14 Ray Stone\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Dolphins is number 15 Francis Molo\n15\nInterchange for Roosters is number 16 Egan Butcher 16 Interchange for Dolphins is number 16 Felise Kaufusi\n16\nInterchange for Roosters is number 17 Taylor Losalu 17 Interchange for Dolphins is number 17 Brian Pouniu\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 Interchange for Dolphins is number 18 Bradley Schneider\n18\nInterchange for Roosters is number 19 Tommy Talau 19 22 Interchange for Dolphins is number 22 Kurt Donoghoe\n19 22\nReserves\nReserve for Roosters is number 21 Benaiah Ioelu 21 20 Reserve for Dolphins is number 20 Tevita Naufahu\n21 20\nRoosters Ins\nBenaiah Ioelu\nJames Tedesco\nTaylor Losalu\nDolphins Ins\nKurt Donoghoe\nTevita Naufahu\nRoosters Outs\nRex Bassingthwaighte\nVictor Radley\nJake Averillo\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Matt Noyen\nSenior Review Official: Chris Butler\nLast updated: 8/28/2026 12:40:38 PM\nBe There for the Final Home Game of the Regular Season\nThere’s plenty happening on and off the field as we celebrate our Members and close out the regular season at home.\nJoin us at Allianz Stadium this Saturday 29th August as the Roosters take on the Sharks in the NRLW at 3:15pm, before the NRL side faces the Dolphins from 5:30pm.\nIt’s Member Appreciation Round, thanks to Red Rooster, so get in early, enjoy everything happening around the Stadium and be there to back the Red, White and Blue one more time at home during the regular season.\nSecure your tickets and be there at Allianz Stadium.\nBUY TICKETS\nOriginally Published 08.25.2026:\nThe Sydney Roosters have named their side for Saturday’s Round 26 clash against the Dolphins at Allianz Stadium.\nJames Tedesco captains the Tricolours from fullback. Billy Smith and Mark Nawaqanitawase have been named on the wings, with Hugo Savala and Robert Toia lining up in the centres. Sam Walker will steer the side from halfback alongside five-eighth Daly Cherry-Evans.\nReece Robson starts at hooker, with Lindsay Collins and Naufahu Whyte named in the front row. Siua Wong and Salesi Foketi line up in the second row, while Nat Butcher starts at lock.\nRelated Club News\nGame Day Hub | Double Header at Allianz\nConnor Watson, Spencer Leniu, Egan Butcher and Taylor Losal",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.525722210555557,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7754abdbfe673da1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters vs Dolphins Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/roosters-vs-dolphins-preview-betting-tips-nrl-round-26-2026",
+            "published_at": "2026-08-27T07:00:00+00:00",
+            "snippet": "Roosters vs Dolphins Preview & Betting Tips: NRL Round 26 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Roosters vs Dolphins Preview & Betting Tips: NRL Round 26 2026\nAugust 27 th 2026, 10:12am , By: Ben Bridge\nSaturday evening at Allianz Stadium delivers the game of the round, and potentially one of the most important matches of the entire regular season. The Roosters sit third, the Dolphins fourth, and the winner puts itself in prime position for a top 2 finish if either the Warriors or Panthers slip over the final fortnight.\nBen Bridge is back with his preview and NRL tips for the Roosters vs Dolphins !\nBefore You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content. And if you're looking for a new site to join, then look no further than Dabble where you can copy our tips with a single click! Click the banner below to join now!\nRoosters vs Dragons Predictions & Tips: NRL Round 26 2026\nThe stakes could hardly be higher, and that is exactly why I prefer a margin market rather than trying to force a side. Either side to win by 1-12 points is the best betting angle in a contest I expect to remain tight deep into the second half.\nThe Roosters are coming off the upset of the season, somehow losing 25-24 to the Tigers after entering as enormous favourites. The Dolphins, meanwhile, overcame a slow start to beat Parramatta 34-16 and remain firmly inside the top four.\nJames Tedesco has again been named to return after three games out with an ankle injury, although his status remains one to monitor. Victor Radley is out after a head knock, with Nat Butcher starting at lock. The Dolphins are virtually unchanged from last week and have Max Plath back in the starting side.\nRoosters Cop Massive Reality Check\nThe Roosters’ 25-24 loss to Wests Tigers was an extraordinary result and a reminder that no team can afford to coast at this stage of the season. Sydney had an opportunity to consolidate top spot and instead became victims of one of the biggest upsets of 2026, with Jock Madden kicking the winning field goal in the 79th minute.\nThe decisive moment came after Naufahu Whyte attempted a loose offload while the Roosters were attacking. Terrell May intercepted, Wests moved into position and Madden calmly slotted the field goal from around 30 metres out.\nIt was a costly defeat. The Chooks dropped from first to third and now have almost no margin for error in the race for a top 2 finish. That makes this week fascinating.\nThe Roosters have been one of the competition’s best teams across the second half of the season, and one poor result does not erase that. Daly Cherry-Evans and Sam Walker remain one of the best halves combinations in the competition, Reece Robson has added enormous control at hooker and their forward pack can match almost anyone.\nTedesco’s possible return would be massive. He has been named several times recently without ultimately taking the field, so his status needs watching, but if he plays, he restores the home team’s best yardage player and support runner.\nRadley’s absence takes away some middle aggression and defensive leadership, but Nat Butcher is a reliable replacement.\nMost importantly, there should be absolutely no complacency this week. The Tigers loss was the warning shot. Against a Dolphins side capable of putting 40 on anyone, the Roosters will know another slow performance could cost them a home final.\nDolphins Clinch Their Opportunity\nThe Dolphins’ 34-16 victory over Parramatta was another example of their ability to recover after a poor start. The Eels raced to a 10-0 lead, but the Dolphins eventually overwhelmed them with their back five power and superior middle depth.\nHerbie Farnworth and Selwyn Cobbo were enormous, combining for 480 run metres from 39 carries and 16 tackle breaks, while Jamayne Isaako added two tries and five goals. Young forward Brian Pouniu also produced an outstanding performance in just his second career game, running for 148 metres and making 39 t",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.54238887722222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5ea2e3066630c08c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters v Dolphins: Round 26 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/26/roosters-v-dolphins-round-26/",
+            "published_at": "2026-08-26T05:17:41+00:00",
+            "snippet": "Roosters v Dolphins: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:52 Cowboys v Wests Tigers: Round 26\nCowboys v Wests Tigers: Round 26\n03:10 Sea Eagles v Dragons: Round 26\nSea Eagles v Dragons: Round 26\n03:07 Panthers v Bulldogs: Ro",
+            "body_excerpt": "Roosters v Dolphins: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:52 Cowboys v Wests Tigers: Round 26\nCowboys v Wests Tigers: Round 26\n03:10 Sea Eagles v Dragons: Round 26\nSea Eagles v Dragons: Round 26\n03:07 Panthers v Bulldogs: Round 26\nPanthers v Bulldogs: Round 26\n03:09 Broncos v Storm: Round 26\nBroncos v Storm: Round 26\nRelated /\nSuper Saturday: We stand with Jai at Cbus Super\nDolphins\nNothing to fear here: Dolphins up for finals audition\nMatch Preview\nRoosters v Dolphins: Teddy set to play; Donoghoe good to go\nFantasy\nFirst take: Roosters v Dolphins\nRoosters v Wests Tigers: Teddy still out; Madden steps up\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.247666655,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "11c9a7bb2877a2cd",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 26 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/25/wests-tigers-injury-report-round-26/",
+            "published_at": "2026-08-25T04:28:00+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 26\nWests Tigers can provide the latest NRL injury update heading into Round 26 against the Nth Qld Cowboys.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a retu",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 26\nWests Tigers can provide the latest NRL injury update heading into Round 26 against the Nth Qld Cowboys.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\nAlex Twal\nInjury: Concussion (Rd 25 vs Roosters)\nReturn: TBA\nJavon Andrews\nInjury: Right calf strain\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights)\nReturn: Round 1, 2027\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans)\nAdam Doueihi\nInjury: Shoulder reconstruction.\nRelated /\nNRL Squad Update: Round 26 v Cowboys\nTeam Lists\nNRL News\nWests Tigers ready for disruptor role in finals race\nClub History\n50th Game between Wests Tigers and Cowboys\nFonua Pole remains humble to the very end",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 96.07572221055555,
+            "relevance_score": 5.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "7efe14cb35329a08",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Live Blog Super Saturday: We stand with Jai at Cbus Super Presented by 6 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+            "published_at": "2026-08-29T04:25:59+00:00",
+            "snippet": "Presented By\nSuper Saturday: We stand with Jai at Cbus Super\nCan the Rabbitohs lock up their first finals berth since 2022 or will the Titans play spoiler on an emotional afternoon at Cbus Super Stadium?\nCan the Dolphins confirm a top-four spot and a double chance or will the Roo",
+            "body_excerpt": "Presented By\nSuper Saturday: We stand with Jai at Cbus Super\nCan the Rabbitohs lock up their first finals berth since 2022 or will the Titans play spoiler on an emotional afternoon at Cbus Super Stadium?\nCan the Dolphins confirm a top-four spot and a double chance or will the Roosters reignite their minor premiership push after a shock loss last week?\nCan the Wests Tigers cut down another tall poppy or will the enigmatic Cowboys move one step closer to finals footy?\nAll these questions and more will be answered a supercharged Saturday and you can follow every big play on NRL.com's live blog.\nRelated Rabbitohs\n'A beautiful scene': Walker ready for Arrow's special milestone\nTitans v Rabbitohs at Cbus Super Stadium\nMatch: Titans v Rabbitohs\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nTitans\n16th Position\naway Team\nRabbitohs\n7th Position\nVenue: Cbus Super Stadium, Gold Coast\nMatch broadcasters:\nFoxtel\nKayo\nTitans v Rabbitohs: Round 26\nLate Mail\nTitans: Jojo Fifita has dropped out due to a hip pointer injury so Jaylan De Groot moves in to centre and Siale Faeamani comes onto the wing in jersey No.18 with Max Feagai added to the bench. Back-rower Beau Fermor suffered a rib injury against the Sharks and is replaced by Josh Patston who returns from concussion protocols. The Titans will don their Stand with Jai jersey for the special occasion, depicting Arrow during his time on the Gold Coast from 2018 to 2020.\nRabbitohs: The wait is over for Latrell Mitchell after 12 games on the sideline due to nerve issues in his lower back. The superstar will make his return off the bench and looms as a real X-factor as the Bunnies look to secure a finals berth. \"He's totally clear to play - there's no needles, no painkillers involved - he's 100 per cent fit,\" coach Wayne Bennett said on Friday. Jai Arrow is part of the squad in No.23 as he 'plays' his 99th game for the Rabbitohs. Arrow has been named co-captain and will suit up for, and take part in, the opening seconds at Cbus and again in Round 27 to allow him to rack up 100 games for the Bunnies. Mitchell is listed as a reserve and will join the six-man interchange once Arrow has left the field.\nNumbers Game\nThe Titans have not defeated the Rabbitohs at Cbus Super Stadium since 2009.\nThe Rabbitohs have won their last 10 games against the Titans.\nRabbitohs winger Alex Johnston has scored 10 tries in his last six games against the Titans.\nTitans winger Phillip Sami has scored 10 tries in his last 11 games.\nRoosters v Dolphins at Allianz Stadium\nMatch: Roosters v Dolphins\nRoosters\n3rd Position\nDolphins\n4th Position\nVenue: Allianz Stadium, Sydney\nRoosters v Dolphins: Round 26\nCowboys v Wests Tigers at Queensland Country Bank Stadium\nMatch: Cowboys v Wests Tigers\nCowboys\n8th Position\nWests Tigers\n14th Position\nVenue: Queensland Country Bank Stadium, Townsville\nNine Network\nNine Now\nCowboys v Wests Tigers: Round 26\nRelated /\nTitans v Rabbitohs: Fifita sidelined; Trell on track\nMatch Preview\nCowboys v Wests Tigers: Dearden, Nanai big ins; Aho eyes debut\nRoosters v Dolphins: Teddy set to play; Donoghoe good to go\nLive Blog\nAs it happened: Tigers rattle Roosters; Sharks in comeback win",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.10933332166666668,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "7d19b14224385e4f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Joey’s major concern for Roosters in ‘make or break’ clash - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-sydney-roosters-dolphins-preview-andrew-johns-exclusive-comments-top-four-finals-premiership-20260828-p60sit.html",
+            "published_at": "2026-08-28T20:57:24+00:00",
+            "snippet": "Joey’s major concern for Roosters in ‘make or break’ clash &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Andrew Johns has raised question marks over the Sydney Roosters ′ premiership credentials ahead of their “make or break” clash with the Dolphins .\nAfter climbing to the top of the NRL ladder a fortnight ago with a gritty win over Penrith , things have unravelled slightly for the boys from Bondi.\nRoosters halfback Sam Walker. Getty Images\nIn one of the biggest upsets of the year, the Roosters went down 25-24 to the struggling Wests Tigers , which saw them slide to third on the table.\nTrent Robinson ’s men face an incredibly tough final two games of the regular season, first against the dangerous Dolphins before a round 27 showdown with local rivals South Sydney, who are expected to have Latrell Mitchell back.\nSpeaking on Wide World of Sports’ Immortal Behaviour to preview the Saturday evening blockbuster, Johns conceded that a loss to the Dolphins could result in the Roosters dropping out of the top-four and dashing their title hopes.\n“It’s make or break for both, it’s so important for both these teams and I think more for the Roosters,” the rugby league Immortal said.\n“I wouldn’t say it’s their biggest game of the year, but it’s the one with the biggest implications. They don’t wanna lose going into the last round against Souths.\nRead more\n‘A big thing’: Bennett reveals how ‘special’ Arrow plan was hatched\n“If the Roosters lose [to the Dolphins], they can drop out of the four. This game has got huge implications, and you can’t win outside the top four, no team has done it and there’s a reason for that because it’s too hard.\n“You look at that game against the Panthers and do you say it took it out of them? We’re gonna see where they’re at this weekend. If they lose, wow - it puts so much pressure on them going into that game against South Sydney.\n“If the Roosters lose, I think they’ll miss the top four.”\nAs it stands, the Roosters are on 38 competition points – one win ahead of the Dolphins and two wins ahead of Cronulla – but two losses in the final two weeks would likely see them slip to fifth on the ladder due to points differential.\nOn the flip side, a victory for the Dolphins over one of the NRL heavyweights could hold them in good stead heading into their maiden finals campaign.\n“They’re a big chance and if you get them in the semis and they catch fire, no one is beating them,” Johns said.\n“If they beat the Roosters, I say they are a genuine chance.”\nJohns believes the strike power in the Dolphins’ backline, led by the likes of Herbie Farnworth and Hamiso Tabuai-Fidow , could cause issues for the Tricolours.\nHerbie Farnworth has cemented himself as the NRL’s best centre. Getty Images\nHe also pointed to the defensive issues on both of the Roosters’ edges as an area the Dolphins could look to expose, while labelling the absence of Victor Radley as a “really big out” after he was concussed against the Tigers.\nThe highly-anticipated match between the Roosters and Dolphins kicks off at 5.30pm on Saturday evening at Allianz Stadium.\nReynolds hits back at ‘rift’ claims after snubbing Madge in farewell speech\nLockyer’s gutting admission as ‘inexplicable’ Broncos detail laid bare\nPNG Chiefs board member warned over Cleary comments\n‘We got that wrong’: Broncos sorry after final Reynolds insult",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 7.585722210555555,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Roosters vs Dolphins NRL round 26 preview",
+          "Roosters Dolphins NRL odds OR price OR favourite",
+          "Roosters Dolphins NRL finals race OR ladder stakes",
+          "Roosters Dolphins NRL",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters Dolphins NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 26 Roosters OR Dolphins"
+        ],
+        "filter_summary": {
+          "dropped_stale": 49,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 13,
+          "dropped_irrelevant": 20,
+          "kept": 17,
+          "deferred_pending_body": 48,
+          "promoted_after_body": 8,
+          "dropped_roundup_no_fixture_team": 6,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 5
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "7399ad1458c5",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-29T04:32:32.598749+00:00",
+      "finished_at": "2026-08-29T04:34:26.579788+00:00",
+      "duration_ms": 113981,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Dolphins",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-08-29T17:30:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.603,
+        "home_win_probability": 0.603,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.30 log-strength) — contribution 0.152 (18% of total)",
+            "Ladder points differential per game (+1.1 points) — contribution 0.058 (7% of total)",
+            "Head-to-head average margin (last 5) (+9.2 points) — contribution 0.046 (5% of total)",
+            "Elo rating advantage (+26 points) — contribution 0.040 (5% of total)",
+            "Head-to-head record (last 5) (80% to the home side) — contribution 0.036 (4% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: all run metres (-186.80) — contribution 0.083 (10% of total)",
+            "3-game form: errors (-2.00) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "3-game form: all run metres (-243.67) — contribution 0.024 (3% of total)",
+            "5-game form: missed tackles (+3.00) — contribution 0.024 (3% of total)",
+            "3-game form: kicking metres (+172.00) — contribution 0.023 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.464,
+            "total_toward_away": 0.3768,
+            "net": 0.0872,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (-2.00)",
+            "3-game form: kicking metres (+172.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Roosters",
+          "away_team": "Dolphins",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-08-29T17:30:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

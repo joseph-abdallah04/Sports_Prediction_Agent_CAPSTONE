@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "run_id": "20260828T012127Z-2883d879",
+  "run": {
+    "predicted_at_utc": "2026-08-28T01:31:30.178724+00:00",
+    "predicted_at_local": "2026-08-28T11:31:30.178724+10:00",
+    "started_at_utc": "2026-08-28T01:21:27.994288+00:00",
+    "wall_seconds": 602.2,
+    "hours_before_kickoff": 8.5,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Panthers",
+    "away_team": "Bulldogs",
+    "venue": "CommBank Stadium",
+    "kickoff": "2026-08-28T20:00:00+10:00",
+    "kickoff_local": "2026-08-28T20:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Panthers",
+      "position": 2,
+      "played": 22,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 38,
+      "points_for": 621,
+      "points_against": 327,
+      "points_difference": 294,
+      "points_difference_per_game": 13.36,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "8 - 2",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Bulldogs",
+      "position": 9,
+      "played": 22,
+      "wins": 11,
+      "drawn": 0,
+      "lost": 11,
+      "competition_points": 28,
+      "points_for": 446,
+      "points_against": 478,
+      "points_difference": -32,
+      "points_difference_per_game": -1.45,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "7 - 4",
+      "away_record": "4 - 7"
+    },
+    "comparison": {
+      "higher_on_ladder": "Panthers",
+      "ladder_positions_gap": 7,
+      "points_difference_per_game_gap": 14.81,
+      "points_difference_favours": "Panthers"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Panthers",
+    "predicted_side": "home",
+    "confidence": 0.65,
+    "home_win_probability": 0.65
+  },
+  "math_model": {
+    "home_win_probability": 0.7197,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.84 log-strength) — contribution 0.189 (18% of total)",
+        "Ladder points differential per game (+14.8 points) — contribution 0.148 (14% of total)",
+        "Elo rating advantage (+100 points) — contribution 0.146 (14% of total)",
+        "Away travel to venue (7 km) — contribution 0.067 (6% of total)",
+        "Rest-day advantage (+2.0 days) — contribution 0.033 (3% of total)"
+      ],
+      "negative_drivers": [
+        "Travel-distance advantage (-20 km for away) — contribution 0.025 (2% of total)",
+        "Pythagorean form (last 10) (+4% expected-win gap) — contribution 0.025 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: penalties conceded (-1.60) — contribution 0.021 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: points against (+1.20) — contribution 0.019 (2% of total)",
+        "5-game form: errors (-1.80) — contribution 0.016 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "Pythagorean form (last 10) (+4% expected-win gap)",
+        "5-game form: penalties conceded (-1.60)",
+        "5-game form: errors (-1.80)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Panthers vs Bulldogs NRL round 26 preview",
+      "Panthers Bulldogs NRL odds OR price OR favourite",
+      "Panthers Bulldogs NRL finals race OR ladder stakes",
+      "Panthers Bulldogs NRL",
+      "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Panthers Bulldogs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Panthers OR Bulldogs"
+    ],
+    "items_kept": 21,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T18:53:26+00:00",
+        "age_hours": 30.47459880222222,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "Lone Scout's Fantasy team list analysis: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T08:30:08+00:00",
+        "age_hours": 64.86293213555555,
+        "url": "https://www.nrl.com/news/2026/08/25/lone-scouts-fantasy-team-list-analysis-round-26/"
+      },
+      {
+        "title": "Bulldogs Senior Pathways Team List: Round 26 - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:36+00:00",
+        "age_hours": 67.37182102444444,
+        "url": "https://www.bulldogs.com.au/news/2026/08/25/bulldogs-senior-pathways-team-list-round-26/"
+      },
+      {
+        "title": "NRL Team List: Round 26 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:00+00:00",
+        "age_hours": 67.38182102444445,
+        "url": "https://www.penrithpanthers.com.au/news/2026/08/25/nrl-team-list-round-26/"
+      },
+      {
+        "title": "Penrith Panthers vs Canterbury Bulldogs Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T23:11:33+00:00",
+        "age_hours": 26.172654357777777,
+        "url": "https://www.sportsnews.com.au/nrl/penrith-panthers-vs-canterbury-bulldogs-tips-odds-teams-predictions-nrl-round-26-2026/610054/amp"
+      },
+      {
+        "title": "Panthers v Bulldogs: Cole in for Cogger; Tuala good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-27T10:01:36+00:00",
+        "age_hours": 15.338487691111112,
+        "url": "https://www.nrl.com/news/2026/08/25/panthers-v-bulldogs-cole-in-for-cogger-tuala-good-to-go/"
+      },
+      {
+        "title": "Panthers vs Bulldogs Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:17:11+00:00",
+        "age_hours": 23.078765468888886,
+        "url": "https://www.beforeyoubet.com.au/panthers-vs-bulldogs-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Panthers v Bulldogs: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:29:58+00:00",
+        "age_hours": 43.86570991333333,
+        "url": "https://www.nrl.com/news/2026/08/26/panthers-v-bulldogs-round-26/"
+      },
+      {
+        "title": "NRL Round 26 Match Preview: Final Battle of the West - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T23:47:20+00:00",
+        "age_hours": 49.576265468888884,
+        "url": "https://www.bulldogs.com.au/news/2026/08/26/nrl-round-26-match-preview-final-battle-of-the-west/"
+      },
+      {
+        "title": "NRL Round 26 Team News: Penultimate Panthers Test - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:49:55+00:00",
+        "age_hours": 67.53320991333334,
+        "url": "https://www.bulldogs.com.au/news/2026/08/25/nrl-round-26-team-news-penultimate-panthers-test/"
+      },
+      {
+        "title": "Penrith Panthers vs Canterbury Bulldogs Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:27:03+00:00",
+        "age_hours": 22.914321024444444,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/penrith-panthers-vs-canterbury-bulldogs-predictions/"
+      },
+      {
+        "title": "Panthers vs Bulldogs - Round 26, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-23T19:52:27+00:00",
+        "age_hours": 101.49098769111112,
+        "url": "https://www.zerotackle.com/panthers-bulldogs-round-26-2026-mc10396535-237316/"
+      },
+      {
+        "title": "NRL Team Update: Round 26 vs. Sea Eagles - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T08:00:00+00:00",
+        "age_hours": 17.36515435777778,
+        "url": "https://www.dragons.com.au/news/2026/08/27/nrl-team-update-round-26-vs.-sea-eagles/"
+      },
+      {
+        "title": "NRL Round 26 Match Preview: Dragons journey to Northern Beaches for Friday face-off - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T05:14:46+00:00",
+        "age_hours": 20.119043246666664,
+        "url": "https://www.dragons.com.au/news/2026/08/27/nrl-round-26-match-preview-dragons-journey-to-northern-beaches-for-friday-face-off/"
+      },
+      {
+        "title": "Blow for Penrith Panthers fans as unsung hero confirms he's signed with Bulldogs for 2027 - Yahoo News Australia",
+        "source": "au.news.yahoo.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T03:26:00+00:00",
+        "age_hours": 21.931821024444442,
+        "url": "https://au.news.yahoo.com/blow-for-penrith-panthers-fans-as-unsung-hero-confirms-hes-signed-with-bulldogs-for-2027-032608495.html"
+      },
+      {
+        "title": "The Bulldogs embarrassed Penrith last time they met. Casey McLean wants to make amends - SMH.com.au",
+        "source": "smh.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:34:25+00:00",
+        "age_hours": 43.79154324666666,
+        "url": "https://www.smh.com.au/sport/nrl/the-bulldogs-embarrassed-penrith-last-time-they-met-casey-mclean-wants-to-make-amends-20260826-p60rl7.html"
+      },
+      {
+        "title": "Lach us in: Bulldogs back Galvin to keep the dream alive - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T04:18:28+00:00",
+        "age_hours": 45.057376579999996,
+        "url": "https://www.nrl.com/news/2026/08/26/lach-us-in-bulldogs-back-galvin-to-keep-the-dream-alive/"
+      },
+      {
+        "title": "First take: Panthers v Bulldogs - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:46:20+00:00",
+        "age_hours": 66.59293213555556,
+        "url": "https://www.nrl.com/news/2026/08/25/first-look-panthers-v-bulldogs/"
+      },
+      {
+        "title": "Why Friday night shapes as the biggest challenge of Cleary’s club career",
+        "source": "smh.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-23T01:22:11+00:00",
+        "age_hours": 119.99543213555556,
+        "url": "https://www.smh.com.au/sport/nrl/why-friday-night-shapes-as-the-biggest-challenge-of-cleary-s-club-career-20260827-p60s06.html"
+      },
+      {
+        "title": "Foran confirms Manly brutal finals blow, Bulldogs make call after COVID outbreak — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T08:35:29+00:00",
+        "age_hours": 16.77376546888889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-melbourne-storm-coach-craig-bellamys-news-on-jahrome-hughes-comeback-injury-broncos-late-mail/news-story/4cacb66cfa59fee93b417931fabbb487"
+      },
+      {
+        "title": "NRL teams: Warrior shock inclusion for SuperCoach grand final - CODE Sports",
+        "source": "codesports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T07:21:53+00:00",
+        "age_hours": 42.000432135555556,
+        "url": "https://www.codesports.com.au/nrl/supercoach-news/nrl-teams-round-26-samuela-fainu-escapes-serious-injury-javon-andrews-goes-down/news-story/935065644d6930611a394410df8250f9"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": true,
+    "audit_issues": [],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Mitch Kenny (leg) and Jack Cogger (suspension) are in Zero Tackle body; Enari Tuala return is in Bulldogs news body; $1.35 price is in sportsnews.com.au price_quote; ladder positions are in scene."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims for Kenny/Cogger as missing and Tuala as returning match the research excerpts."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry and Elo drivers are correctly attributed to the Panthers' advantage."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 3 is sourced from research regarding player availability."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence was correctly reduced from the 0.72 prior to 0.65 based on specific research conflicts (absences)."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the material drivers (BT, Elo, Ladder) rather than minor ones."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "pass",
+        "evidence": "All material drivers (Bradley-Terry, Ladder differential, Elo) are addressed in the summary or key factors."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Panthers are strong favourites based on a 0.72 math prior and a significant ladder advantage (2nd vs 9th). However, confidence is reduced to 0.65 because research identifies key absences for Penrith, specifically Mitch Kenny and Jack Cogger, while the Bulldogs welcome back Enari Tuala. The market aligns with the pick, pricing the Panthers at $1.35.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry strength advantage (18% contribution) and Elo rating advantage (14% contribution)."
+      },
+      {
+        "source": "scene",
+        "detail": "Panthers hold a significant ladder advantage, sitting 2nd compared to the Bulldogs in 9th."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers are missing Mitch Kenny (leg) and Jack Cogger (suspension) according to Zero Tackle and nrl.com, while the Bulldogs have Enari Tuala returning from injury (bulldogs.com.au)."
+      }
+    ],
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Panthers are missing key players including Mitch Kenny and Jack Cogger, while the Bulldogs are fighting for their finals lives.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Panthers-v-Bulldogs/20260828T012127Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Panthers-v-Bulldogs/20260828T012127Z/summary.md"
+  }
+}

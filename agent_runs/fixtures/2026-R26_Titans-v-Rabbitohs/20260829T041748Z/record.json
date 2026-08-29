@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "run_id": "20260829T041748Z-c96c4a30",
+  "run": {
+    "predicted_at_utc": "2026-08-29T04:29:21.781323+00:00",
+    "predicted_at_local": "2026-08-29T14:29:21.781323+10:00",
+    "started_at_utc": "2026-08-29T04:17:48.815814+00:00",
+    "wall_seconds": 693.0,
+    "hours_before_kickoff": 0.5,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Titans",
+    "away_team": "Rabbitohs",
+    "venue": "Cbus Super Stadium",
+    "kickoff": "2026-08-29T15:00:00+10:00",
+    "kickoff_local": "2026-08-29T15:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Titans",
+      "position": 16,
+      "played": 22,
+      "wins": 6,
+      "drawn": 0,
+      "lost": 16,
+      "competition_points": 18,
+      "points_for": 435,
+      "points_against": 597,
+      "points_difference": -162,
+      "points_difference_per_game": -7.36,
+      "recent_form_last_4": "1 - 4",
+      "streak": "4L",
+      "home_record": "3 - 7",
+      "away_record": "3 - 9"
+    },
+    "away": {
+      "team": "Rabbitohs",
+      "position": 7,
+      "played": 22,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 30,
+      "points_for": 602,
+      "points_against": 539,
+      "points_difference": 63,
+      "points_difference_per_game": 2.86,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1L",
+      "home_record": "8 - 3",
+      "away_record": "4 - 7"
+    },
+    "comparison": {
+      "higher_on_ladder": "Rabbitohs",
+      "ladder_positions_gap": -9,
+      "points_difference_per_game_gap": -10.22,
+      "points_difference_favours": "Rabbitohs"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Rabbitohs",
+    "predicted_side": "away",
+    "confidence": 0.62,
+    "home_win_probability": 0.38
+  },
+  "math_model": {
+    "home_win_probability": 0.3331,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "5-game form: all run metres (+103.60) — contribution 0.042 (3% of total)",
+        "Home travel to venue (0 km) — contribution 0.020 (2% of total)",
+        "3-game form: kicking metres (-59.67) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "5-game momentum: penalty cluster rate (+1.20) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "3-game form: points against (+7.00) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-10.2 points) — contribution 0.302 (23% of total)",
+        "Elo rating advantage (-143 points) — contribution 0.290 (22% of total)",
+        "Bradley-Terry strength advantage (-0.87 log-strength) — contribution 0.184 (14% of total)",
+        "Pythagorean form (last 10) (-23% expected-win gap) — contribution 0.071 (5% of total)",
+        "Away travel to venue (680 km) — contribution 0.037 (3% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: kicking metres (-59.67)",
+        "5-game momentum: penalty cluster rate (+1.20)",
+        "3-game form: points against (+7.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Titans vs Rabbitohs NRL round 26 preview",
+      "Titans Rabbitohs NRL odds OR price OR favourite",
+      "Titans Rabbitohs NRL finals race OR ladder stakes round 26",
+      "Titans Rabbitohs NRL",
+      "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Titans Rabbitohs NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Titans OR Rabbitohs"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 26 - Cleary set to debut Presented by 9 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-29T04:09:09+00:00",
+        "age_hours": 0.15401866416666665,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "NRL Round 26 Teams: Arrow starts for Rabbitohs as Bronco denied farewell game by injury - Flashscore.com",
+        "source": "flashscore.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T02:56:00+00:00",
+        "age_hours": 97.37318533083334,
+        "url": "https://www.flashscore.com/news/nrl-round-26-teams-2026/IJiWHvH7/"
+      },
+      {
+        "title": "Gold Coast Titans vs South Sydney Rabbitohs Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:21:44+00:00",
+        "age_hours": 49.944296441944445,
+        "url": "https://www.sportsnews.com.au/nrl/gold-coast-titans-vs-south-sydney-rabbitohs-tips-odds-teams-predictions-nrl-round-26-2026/610055"
+      },
+      {
+        "title": "Super Saturday: We stand with Jai at Cbus Super Presented by 20 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-29T03:57:51+00:00",
+        "age_hours": 0.3423519975,
+        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/"
+      },
+      {
+        "title": "Updated Match Preview Titans v Rabbitohs: Fifita sidelined; Trell on track Presented by 43 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-29T03:34:33+00:00",
+        "age_hours": 0.7306853308333334,
+        "url": "https://www.nrl.com/news/2026/08/25/titans-v-rabbitohs-patston-back-on-deck-trell-nears-return/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T18:55:27+00:00",
+        "age_hours": 9.3823519975,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "Titans vs Rabbitohs Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T03:27:13+00:00",
+        "age_hours": 48.85290755305556,
+        "url": "https://www.beforeyoubet.com.au/titans-vs-rabbitohs-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Rabbitohs 'A beautiful scene': Walker ready for Arrow's special milestone",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-27T03:01:21+00:00",
+        "age_hours": 49.284018664166666,
+        "url": "https://www.nrl.com/news/2026/08/27/a-beautiful-scene-walker-ready-for-arrows-special-milestone/"
+      },
+      {
+        "title": "Titans v Rabbitohs: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:14:18+00:00",
+        "age_hours": 71.06818533083333,
+        "url": "https://www.nrl.com/watch/news/titans-v-rabbitohs-round-26-1982048/"
+      },
+      {
+        "title": "Round 26 team: Edge forward returns as Titans Stand with Jai for Rabbitohs clash - titans.com.au",
+        "source": "titans.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:21+00:00",
+        "age_hours": 94.3173519975,
+        "url": "https://www.titans.com.au/news/2026/08/25/round-26-team-edge-forward-returns-as-titans-stand-with-jai-against-rabbitohs/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 26 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T04:28:00+00:00",
+        "age_hours": 95.8398519975,
+        "url": "https://www.weststigers.com.au/news/2026/08/25/wests-tigers-injury-report-round-26/"
+      },
+      {
+        "title": "NRL Team List: Round 26 v Eels - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:00+00:00",
+        "age_hours": 94.32318533083334,
+        "url": "https://www.sharks.com.au/news/2026/08/25/nrl-team-list-round-26-v-eels/"
+      },
+      {
+        "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T22:07:42+00:00",
+        "age_hours": 54.17818533083334,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/"
+      },
+      {
+        "title": "Titans vs Rabbitohs Prediction & NRL Betting Preview - 29/8/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T11:00:28+00:00",
+        "age_hours": 17.298740886388888,
+        "url": "https://insights.betfred.com/rugby-league/titans-vs-rabbitohs-prediction-betting-tips-saturday-29-august-2026/"
+      },
+      {
+        "title": "‘A big thing’: Bennett reveals how ‘special’ Arrow plan was hatched - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T06:36:33+00:00",
+        "age_hours": 21.6973519975,
+        "url": "https://www.nine.com.au/sport/nrl/news-jai-arrow-south-sydney-rabbitohs-games-milestone-explained-wayne-bennett-comments-press-conference-20260828-p60sia.html"
+      },
+      {
+        "title": "Locked in: Faeamani gets nod with Jojo a no go against Rabbitohs - titans.com.au",
+        "source": "titans.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T04:59:00+00:00",
+        "age_hours": 23.323185330833333,
+        "url": "https://www.titans.com.au/news/2026/08/28/locked-in-faeamani-gets-nod-with-jojo-a-no-go-against-rabbitohs/"
+      },
+      {
+        "title": "Three words that could shake up NRL title race - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T03:46:42+00:00",
+        "age_hours": 24.528185330833335,
+        "url": "https://www.news.com.au/sport/nrl/he-will-wayne-bennett-confirms-latrell-mitchell-will-play-in-a-huge-boost-for-the-bunnies-ahead-of-the-finals/news-story/8c5aa3e8a5378f844844b46cf401db25"
+      },
+      {
+        "title": "Titans Rimoni ready to rumble as Titans aim to build on team record",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-27T04:08:33+00:00",
+        "age_hours": 48.16401866416667,
+        "url": "https://www.nrl.com/news/2026/08/27/rimoni-ready-to-rumble-as-titans-aim-to-build-on-team-record/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": false,
+    "checklist_issues": [
+      "research_stance_confirms_without_team_news",
+      "confidence_above_clear_edge_without_research_confirm"
+    ],
+    "audit_pass": false,
+    "audit_issues": [
+      "Confidence increased from the math prior (0.6669 to 0.68) despite a named loss reason (Fifita sidelined), which should typically lower or maintain the confidence.",
+      "Material SHAP driver 'Bradley-Terry strength advantage' (14%) was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Claims about Fifita being sidelined, Rabbitohs' finals incentive, Titans' 4-game losing streak, and 16th position are all found in the research body excerpts or standings."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "The source states Fifita is sidelined, and the judgement correctly describes the Rabbitohs as being without him."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo rating and ladder points differential are correctly attributed to the Rabbitohs as they appear in the 'favouring_Rabbitohs_away_win' group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include research-sourced details regarding the finals spot and the Titans' losing streak."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "fail",
+        "evidence": "The math prior for an away win is 0.6669 (1 - 0.3331), but confidence was raised to 0.68 despite the identification of a specific loss reason (Fifita sidelined)."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the primary SHAP drivers (Elo and Ladder points)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "The material driver 'Bradley-Terry strength advantage' (14%) is not explicitly addressed in the evaluation."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.68
+  },
+  "reasoning": {
+    "summary": "The Rabbitohs are strong favourites based on a significant ratings gap and the high motivation of securing a finals berth. However, confidence is adjusted downward from the math prior due to the loss of David Fifita. The Titans' poor form (four consecutive losses) suggests the Rabbitohs remain the likely winners despite the missing personnel.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating, ladder points differential, and a Bradley-Terry strength advantage (14% contribution) favour the Rabbitohs."
+      },
+      {
+        "source": "research",
+        "detail": "A win in this match would secure the Rabbitohs a finals spot for the first time since 2022 (nrl.com)."
+      },
+      {
+        "source": "research",
+        "detail": "The Titans have lost four matches in a row, dropping them to 16th on the ladder (nrl.com)."
+      }
+    ],
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Rabbitohs are without David Fifita, who is sidelined for this match (nrl.com).",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Titans-v-Rabbitohs/20260829T041748Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Titans-v-Rabbitohs/20260829T041748Z/summary.md"
+  }
+}

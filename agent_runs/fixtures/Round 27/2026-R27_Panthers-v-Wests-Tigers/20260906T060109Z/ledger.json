@@ -1,0 +1,1213 @@
+{
+  "schema_version": 2,
+  "run_id": "20260906T060109Z-f801ae28",
+  "at_a_glance": {
+    "fixture": "Panthers v Wests Tigers",
+    "round": 27,
+    "kickoff": "2026-09-06T16:05:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Panthers",
+    "confidence": 0.82,
+    "model_home_win_probability": 0.8159,
+    "model_prediction": "Home Win",
+    "research_items_kept": 19,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": true,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-06T06:01:09.229841+00:00",
+  "updated_at": "2026-09-06T06:09:42.490829+00:00",
+  "request": {
+    "home_team": "Panthers",
+    "away_team": "Wests Tigers",
+    "season": null,
+    "round_number": 27,
+    "force_refresh": true,
+    "user_question": "Who wins Panthers vs Wests Tigers?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Panthers",
+    "away_team": "Wests Tigers",
+    "confidence": 0.82,
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Wests Tigers are capable of an occasional upset, as seen in their Round 25 victory over the Roosters.",
+    "loss_reason_specific": false,
+    "summary": "The Panthers are heavy favorites backed by a dominant math prior and a 13-position ladder gap. Research confirms this edge with the return of captain Isaah Yeo from a pectoral injury and the team's motivation to secure the minor premiership. The market strongly aligns with this outcome, pricing the Panthers at $1.08.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating advantage (+253 points) and Bradley-Terry strength advantage."
+      },
+      {
+        "source": "research",
+        "detail": "Captain Isaah Yeo returns to the squad from a pectoral injury ('NRL Late Mail: Round 27 - Yeo back on deck')."
+      },
+      {
+        "source": "scene",
+        "detail": "Significant ladder differential with the Panthers in 2nd and Wests Tigers in 15th."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 19,
+      "items_mentioning_both_teams": 18,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 10
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 13
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 4
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Panthers vs Wests Tigers NRL round 27 preview",
+      "Panthers Wests Tigers NRL odds OR price OR favourite",
+      "Panthers Wests Tigers NRL ladder stakes OR finals race"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": true,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Matched '13-position ladder gap' to scene (2nd vs 15th), 'Isaah Yeo... pectoral injury' to 'NRL Late Mail: Round 27 - Yeo back on deck', 'minor premiership' to 'Panthers vs Tigers Preview', '$1.08' to price_quote, and 'Round 25 victory over the Roosters' to 'Match Preview Panthers v Wests Tigers'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source states Yeo is 'set to return' and judgement describes it as a 'return'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo and Bradley-Terry advantages are correctly attributed to the Panthers (home win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from research article 'NRL Late Mail: Round 27 - Yeo back on deck'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.82) matches the math prior (0.8159) rounded to two decimals and is supported by 'confirms' research stance."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP drivers are treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "pass",
+          "evidence": "All material drivers (Elo, Bradley-Terry, and Ladder differential) are addressed in the summary or key factors."
+        }
+      ],
+      "issues": [],
+      "instruction": ""
+    },
+    "instruction": "",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Wests Tigers",
+      "confidence": 0.82,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Wests Tigers are capable of an occasional upset, as seen in their Round 25 victory over the Roosters.",
+      "loss_reason_specific": false,
+      "summary": "The Panthers are heavy favorites backed by a dominant math prior and a 13-position ladder gap. Research confirms this edge with the return of captain Isaah Yeo from a pectoral injury and the team's motivation to secure the minor premiership. The market strongly aligns with this outcome, pricing the Panthers at $1.08.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Elo rating advantage (+253 points) and Bradley-Terry strength advantage."
+        },
+        {
+          "source": "research",
+          "detail": "Captain Isaah Yeo returns to the squad from a pectoral injury ('NRL Late Mail: Round 27 - Yeo back on deck')."
+        },
+        {
+          "source": "scene",
+          "detail": "Significant ladder differential with the Panthers in 2nd and Wests Tigers in 15th."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-06T06:01:51.389809+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Wests Tigers\n    *   Round Number: 27\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Panthers).\n    *   Query 2: Away team availability (Wests Tigers).\n    *   Query 3: Fixture preview (Panthers vs Wests Tigers Round 27).\n    *   Query 4: Market prices (Panthers vs Wests Tigers odds).\n    *   Query 5: Specific context (form/ladder/pressure).\n\n    *   Q1: `Panthers NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Q2: `Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Q3: `Panthers vs Wests Tigers NRL round 27 preview`\n    *   Q4: `Panthers Wests Tigers NRL odds OR price OR favourite`\n    *   Q5: (Context) Panthers are usually top of the ladder, Wests Tigers usually struggle. Let's look for \"finals race\" or \"form\". Since it's Round 27 (late season), finals race/ladder stakes is most relevant.\n    *   Q5 refined: `Panthers Wests Tigers NRL ladder stakes OR finals race` (or maybe just `Wests Tigers NRL form slump OR coach pressure`). Let's go with `Panthers Wests Tigers NRL ladder stakes OR finals race`.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Panthers, Wests Tigers).\n    *   JSON format? Yes.",
+      "chars": 1402
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-06T06:06:46.395605+00:00",
+      "thinking": "*   Home Team: Panthers (2nd on ladder)\n    *   Away Team: Wests Tigers (15th on ladder)\n    *   Venue: CommBank Stadium\n    *   Math Prediction: Home Win (Probability: 0.8159)\n    *   SHAP Drivers: Strong home advantage (Elo, Bradley-Terry, Ladder differential).\n    *   Standings: Panthers (2nd, 17-6), Wests Tigers (15th, 8-15). Gap of 13 positions.\n\n    *   Panthers: Captain Isaah Yeo is returning from a pectoral injury (elevated to interchange bench) according to \"NRL Late Mail: Round 27 - Yeo back on deck\". This is a significant boost.\n    *   Wests Tigers: Injury report shows several players out (Tony Sukkar, Alex Twal, Javon Andrews, Taylan May, Kai Pearce-Paul, Adam Doueihi).\n    *   Motivation: Panthers are chasing the minor premiership (neck-and-neck with Warriors).\n    *   Market: Panthers are heavy favorites ($1.08 according to sportsnews.com.au).\n\n    *   Math prior: 0.8159 (Home Win).\n    *   Research stance: `confirms`. The return of captain Isaah Yeo is a concrete, positive fact for the Panthers.\n    *   Confidence: The math prior is already very high (0.8159). Research confirms this with the return of a key player (Yeo) and the motivation for the minor premiership.\n    *   Confidence Band: 0.75-0.85 is for large ratings gaps confirmed by news. 0.8159 fits here.\n\n    *   Winner: home (Panthers)\n    *   Confidence: 0.82 (keeping it close to the math prior as research confirms).\n    *   Research Stance: `confirms` (Yeo returning).\n    *   Strongest reason could lose: Generic variance or an unexpected upset (Tigers did stun Roosters in Rd 25). However, the gap is huge.\n    *   Loss reason specific: False (no specific news helping Tigers).\n\n    *   Math: Elo advantage, Bradley-Terry strength, Ladder differential.\n    *   Research: Return of captain Isaah Yeo (\"NRL Late Mail: Round 27 - Yeo back on deck\").\n    *   Scene: 13-position ladder gap.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Panthers\"\n    *   `away_team`: \"Wests Tigers\"\n    *   `confidence`: 0.82\n    *   `research_stance`: \"confirms\"\n    *   `strongest_reason_could_lose`: \"The Wests Tigers are capable of an occasional upset, as seen in their Round 25 victory over the Roosters.\"\n    *   `loss_reason_specific`: false\n    *   `summary`: \"The Panthers enter as heavy favorites with a significant ratings and ladder advantage. The return of captain Isaah Yeo from injury provides a further boost to their side. They are also highly motivated to secure the minor premiership.\"\n    *   `key_factors`:\n        *   Math: Elo rating advantage (+253 points) and Bradley-Terry strength.\n        *   Research: Return of captain Isaah Yeo (\"NRL Late Mail: Round 27 - Yeo back on deck\").\n        *   Scene: 13-position gap on the official ladder.\n    *   `disagreements_with_math`: \"null\"",
+      "chars": 2789
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-06T06:09:42.490126+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, prices) in the research/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right team?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.82) justified based on the math prior (0.8159) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Panthers\n- Away: Wests Tigers\n- Math Prior (home_win_probability): 0.8159\n- Final Confidence: 0.82\n- Research Stance: confirms\n\n- \"13-position ladder gap\": Scene says Panthers 2nd, Tigers 15th. (15-2=13). Pass.\n- \"return of captain Isaah Yeo from a pectoral injury\": Research \"NRL Late Mail: Round 27 - Yeo back on deck\" says \"Panthers skipper Isaah Yeo... After three games out with a pectoral injury, Yeo is set to return\". Pass.\n- \"motivation to secure the minor premiership\": Research \"Panthers vs Tigers Preview\" says \"Penrith chase the minor premiership\". Pass.\n- \"pricing the Panthers at $1.08\": Research \"Penrith Panthers vs Wests Tigers Tips, Odds, Teams & Predictions\" price_quote says \"We're tipping Penrith Panthers to win at $1.08 odds.\" Pass.\n- \"Round 25 victory over the Roosters\": Research \"Match Preview Panthers v Wests Tigers\" says \"Wests Tigers will be hoping they can repeat their heroics of Round 25, where they stunned the Roosters to win 25-24\". Pass.\n\n- Isaah Yeo: Source says \"set to return\", judgement says \"return\". Pass.\n\n- \"Strong Elo rating advantage (+253 points)\": In `favouring_Panthers_home_win`. Judgement attributes to Panthers. Pass.\n- \"Bradley-Terry strength advantage\": In `favouring_Panthers_home_win`. Judgement attributes to Panthers. Pass.\n\n- Weather is \"Fine\". Not mentioned in summary or key factors. Pass.\n\n- Key factor 2: \"Captain Isaah Yeo returns... ('NRL Late Mail: Round 27 - Yeo back on deck')\". Pass.\n\n- Math prior: 0.8159.\n- Final confidence: 0.82.\n- Research stance: \"confirms\".\n- The number is almost identical to the math prior (0.8159 -> 0.82).\n- (a) Does it match math P to two decimals? 0.8159 rounds to 0.82.\n- (b) Is it above 0.65 without confirms? It has `confirms`.\n- (c) Did conflicts raise the number? No conflicts mentioned in research.\n- (d) Did it get surer than math prior on news already known? It's basically the same.\n- (e) Summary says \"backed by a dominant math prior... Research confirms this edge\". Pass.\n\n- No minor drivers used as decisive. Pass.\n\n- Material drivers (>= 8%):\n    1. Elo rating advantage (+253 points) - 17%\n    2. Bradley-Terry strength advantage (+1.70 log-strength) - 15%\n    3. Ladder points differential per game (+23.2 points) - 11%\n- Judgement coverage:\n    - \"Strong Elo rating advantage (+253 points)\" - Named.\n    - \"Bradley-Terry strength advantage\" - Named.\n    - \"13-position ladder gap\" (Summary) / \"Significant ladder differential\" (Key factor) - This alludes to the ladder points differential per game. Pass.\n\nAll checks pass.",
+      "chars": 3304
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-06T06:01:51.401987+00:00",
+      "payload": {
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Panthers vs Wests Tigers NRL round 27 preview",
+          "Panthers Wests Tigers NRL odds OR price OR favourite",
+          "Panthers Wests Tigers NRL ladder stakes OR finals race"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-06T06:06:46.395883+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Wests Tigers",
+          "confidence": 0.82,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Wests Tigers are capable of an occasional upset, as seen in their Round 25 victory over the Roosters.",
+          "loss_reason_specific": false,
+          "summary": "The Panthers are heavy favorites backed by a dominant math prior and a 13-position ladder gap. Research confirms this edge with the return of captain Isaah Yeo from a pectoral injury and the team's motivation to secure the minor premiership. The market strongly aligns with this outcome, pricing the Panthers at $1.08.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Elo rating advantage (+253 points) and Bradley-Terry strength advantage."
+            },
+            {
+              "source": "research",
+              "detail": "Captain Isaah Yeo returns to the squad from a pectoral injury ('NRL Late Mail: Round 27 - Yeo back on deck')."
+            },
+            {
+              "source": "scene",
+              "detail": "Significant ladder differential with the Panthers in 2nd and Wests Tigers in 15th."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-06T06:09:42.490654+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": true,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Matched '13-position ladder gap' to scene (2nd vs 15th), 'Isaah Yeo... pectoral injury' to 'NRL Late Mail: Round 27 - Yeo back on deck', 'minor premiership' to 'Panthers vs Tigers Preview', '$1.08' to price_quote, and 'Round 25 victory over the Roosters' to 'Match Preview Panthers v Wests Tigers'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source states Yeo is 'set to return' and judgement describes it as a 'return'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo and Bradley-Terry advantages are correctly attributed to the Panthers (home win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from research article 'NRL Late Mail: Round 27 - Yeo back on deck'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.82) matches the math prior (0.8159) rounded to two decimals and is supported by 'confirms' research stance."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP drivers are treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "pass",
+              "evidence": "All material drivers (Elo, Bradley-Terry, and Ladder differential) are addressed in the summary or key factors."
+            }
+          ],
+          "issues": [],
+          "instruction": ""
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "ca488d1d4d11",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-06T06:01:09.229990+00:00",
+      "finished_at": "2026-09-06T06:01:12.633038+00:00",
+      "duration_ms": 3403,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Wests Tigers",
+        "season": null,
+        "round_number": 27,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Wests Tigers",
+          "season": null,
+          "round_number": 27
+        },
+        "retrieved_at": "2026-09-06T06:01:09.230055+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 27,
+          "round_title": "Round 27",
+          "home_team": "Panthers",
+          "away_team": "Wests Tigers",
+          "kickoff": "2026-09-06T16:05:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/panthers-v-wests-tigers/",
+          "match_mode": "Pre",
+          "match_id": "20261112780",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Adam Gee"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Dylan Edwards",
+                "position": "Fullback",
+                "player_id": 503340
+              },
+              {
+                "number": 2,
+                "name": "Thomas Jenkins",
+                "position": "Winger",
+                "player_id": 100007927
+              },
+              {
+                "number": 3,
+                "name": "Luke Garner",
+                "position": "Centre",
+                "player_id": 501271
+              },
+              {
+                "number": 4,
+                "name": "Casey McLean",
+                "position": "Centre",
+                "player_id": 100011678
+              },
+              {
+                "number": 5,
+                "name": "Brian To'o",
+                "position": "Winger",
+                "player_id": 505410
+              },
+              {
+                "number": 6,
+                "name": "Jack Cole",
+                "position": "Five-Eighth",
+                "player_id": 100003896
+              },
+              {
+                "number": 7,
+                "name": "Nathan Cleary",
+                "position": "Halfback",
+                "player_id": 504120
+              },
+              {
+                "number": 8,
+                "name": "Moses Leota",
+                "position": "Prop",
+                "player_id": 501461
+              },
+              {
+                "number": 9,
+                "name": "Mitch Kenny",
+                "position": "Hooker",
+                "player_id": 505414
+              },
+              {
+                "number": 10,
+                "name": "Liam Henry",
+                "position": "Prop",
+                "player_id": 100007929
+              },
+              {
+                "number": 11,
+                "name": "Isaiah Papali'i",
+                "position": "2nd Row",
+                "player_id": 505976
+              },
+              {
+                "number": 12,
+                "name": "Liam Martin",
+                "position": "2nd Row",
+                "player_id": 504125
+              },
+              {
+                "number": 13,
+                "name": "Lindsay Smith",
+                "position": "Lock",
+                "player_id": 505555
+              },
+              {
+                "number": 14,
+                "name": "Freddy Lussick",
+                "position": "Interchange",
+                "player_id": 504830
+              },
+              {
+                "number": 16,
+                "name": "Luron Patea",
+                "position": "Interchange",
+                "player_id": 100006263
+              },
+              {
+                "number": 17,
+                "name": "Billy Phillips",
+                "position": "Interchange",
+                "player_id": 100008487
+              },
+              {
+                "number": 18,
+                "name": "Blaize Talagi",
+                "position": "Interchange",
+                "player_id": 100006848
+              },
+              {
+                "number": 19,
+                "name": "Billy Scott",
+                "position": "Interchange",
+                "player_id": 100006259
+              },
+              {
+                "number": 22,
+                "name": "Isaah Yeo",
+                "position": "Interchange",
+                "player_id": 500534
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Jahream Bula",
+                "position": "Fullback",
+                "player_id": 100012669
+              },
+              {
+                "number": 2,
+                "name": "Junior Tupou",
+                "position": "Winger",
+                "player_id": 507765
+              },
+              {
+                "number": 3,
+                "name": "Solomone Saukuru",
+                "position": "Centre",
+                "player_id": 100004050
+              },
+              {
+                "number": 4,
+                "name": "Patrick Herbert",
+                "position": "Centre",
+                "player_id": 504007
+              },
+              {
+                "number": 5,
+                "name": "Jeral Skelton",
+                "position": "Winger",
+                "player_id": 100013303
+              },
+              {
+                "number": 6,
+                "name": "Jarome Luai",
+                "position": "Five-Eighth",
+                "player_id": 504121
+              },
+              {
+                "number": 7,
+                "name": "Jock Madden",
+                "position": "Halfback",
+                "player_id": 505701
+              },
+              {
+                "number": 8,
+                "name": "Terrell May",
+                "position": "Prop",
+                "player_id": 508065
+              },
+              {
+                "number": 9,
+                "name": "Apisai Koroisau",
+                "position": "Hooker",
+                "player_id": 500109
+              },
+              {
+                "number": 10,
+                "name": "Fonua Pole",
+                "position": "Prop",
+                "player_id": 100004194
+              },
+              {
+                "number": 11,
+                "name": "Samuela Fainu",
+                "position": "2nd Row",
+                "player_id": 510577
+              },
+              {
+                "number": 12,
+                "name": "Sione Fainu",
+                "position": "2nd Row",
+                "player_id": 509297
+              },
+              {
+                "number": 13,
+                "name": "Alex Seyfarth",
+                "position": "Lock",
+                "player_id": 504609
+              },
+              {
+                "number": 14,
+                "name": "Latu Fainu",
+                "position": "Interchange",
+                "player_id": 100006631
+              },
+              {
+                "number": 15,
+                "name": "Vaka Aho",
+                "position": "Interchange",
+                "player_id": 100004277
+              },
+              {
+                "number": 16,
+                "name": "Ethan Roberts",
+                "position": "Interchange",
+                "player_id": 100006516
+              },
+              {
+                "number": 17,
+                "name": "Bunty Afoa",
+                "position": "Interchange",
+                "player_id": 501744
+              },
+              {
+                "number": 18,
+                "name": "Heath Mason",
+                "position": "Interchange",
+                "player_id": 100006657
+              },
+              {
+                "number": 19,
+                "name": "Sunia Turuva",
+                "position": "Interchange",
+                "player_id": 509455
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 27,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Panthers",
+            "position": 2,
+            "played": 23,
+            "wins": 17,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 40,
+            "points_for": 645,
+            "points_against": 337,
+            "points_difference": 308,
+            "points_difference_per_game": 13.39,
+            "recent_form_last_4": "3 - 2",
+            "streak": "2W",
+            "home_record": "9 - 2",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Wests Tigers",
+            "position": 15,
+            "played": 23,
+            "wins": 8,
+            "drawn": 0,
+            "lost": 15,
+            "competition_points": 22,
+            "points_for": 435,
+            "points_against": 661,
+            "points_difference": -226,
+            "points_difference_per_game": -9.83,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1L",
+            "home_record": "5 - 7",
+            "away_record": "3 - 8"
+          },
+          "comparison": {
+            "higher_on_ladder": "Panthers",
+            "ladder_positions_gap": 13,
+            "points_difference_per_game_gap": 23.22,
+            "points_difference_favours": "Panthers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-06T16:00",
+            "temperature_c": 23.0,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 13.0,
+            "weather_code": 3,
+            "summary": "Overcast",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-06T06:01:12.624912+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=27&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/panthers-v-wests-tigers/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "28fe43af57dc",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-06T06:01:51.419472+00:00",
+      "finished_at": "2026-09-06T06:03:32.061084+00:00",
+      "duration_ms": 100641,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Wests Tigers",
+        "kickoff": "2026-09-06T16:05:00+10:00",
+        "round_number": 27,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Panthers vs Wests Tigers NRL round 27 preview",
+          "Panthers Wests Tigers NRL odds OR price OR favourite",
+          "Panthers Wests Tigers NRL ladder stakes OR finals race"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Wests Tigers",
+          "kickoff": "2026-09-06T16:05:00+10:00",
+          "round_number": 27,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Panthers vs Wests Tigers NRL round 27 preview",
+            "Panthers Wests Tigers NRL odds OR price OR favourite",
+            "Panthers Wests Tigers NRL ladder stakes OR finals race"
+          ]
+        },
+        "retrieved_at": "2026-09-06T06:01:51.476880+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 10
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 13
+          }
+        },
+        "items": [
+          {
+            "id": "0f75680b95fe1597",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 27 - Yeo back on deck",
+            "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/",
+            "published_at": "2026-09-06T04:55:11+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 27 - Yeo back on deck\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost for Penr",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 27 - Yeo back on deck\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost for Penrith.\nSee all the late mail, official team news and updates for Round 27 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 27\nPanthers v Wests Tigers, Sunday 4.05pm at CommBank Stadium\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\naway Team\nWests Tigers\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Wests Tigers is number 1 Jahream Bula\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Wests Tigers is number 2 Junior Tupou\nCentre for Panthers is number 3 Luke Garner 3 Centre for Wests Tigers is number 3 Solomone Saukuru\nCentre for Panthers is number 4 Casey McLean 4 Centre for Wests Tigers is number 4 Patrick Herbert\nWinger for Panthers is number 5 Brian To'o 5 Winger for Wests Tigers is number 5 Jeral Skelton\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Wests Tigers is number 6 Jarome Luai\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Wests Tigers is number 7 Jock Madden\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Wests Tigers is number 8 Terrell May\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Wests Tigers is number 9 Apisai Koroisau\nProp for Panthers is number 10 Liam Henry 10 Prop for Wests Tigers is number 10 Fonua Pole\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Wests Tigers is number 11 Samuela Fainu\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Wests Tigers is number 12 Sione Fainu\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Wests Tigers is number 13 Alex Seyfarth\n13\nInterchange\nInterchange for Panthers is number 14 Freddy Lussick 14 Interchange for Wests Tigers is number 14 Latu Fainu\n14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Wests Tigers is number 15 Vaka Aho\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Wests Tigers is number 16 Ethan Roberts\n17 16\nInterchange for Panthers is number 18 Blaize Talagi 18 17 Interchange for Wests Tigers is number 17 Bunty Afoa\n18 17\nInterchange for Panthers is number 19 Billy Scott 19 18 Interchange for Wests Tigers is number 18 Heath Mason\n19 18\nInterchange for Panthers is number 22 Isaah Yeo 22 19 Interchange for Wests Tigers is number 19 Sunia Turuva\n22 19\nPanthers Ins\nIsaah Yeo\nLuron Patea\nMitch Kenny\nWests Tigers Ins\nLatu Fainu\nSunia Turuva\nVaka Aho\nPanthers Outs\nIzack Tago\nKalani Leuluai-Going\nScott Sorensen\nFaaletino Tavana\nTony Sukkar\nTristan Hope\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Matt Noyen\nSenior Review Official: Adam Gee\nLast updated: 9/6/2026 6:00:25 AM\nPanthers: No late changes on game day. Skipper Isaah Yeo will come from the bench as he makes his return after three games out with a pectoral injury. Hooker Mitch Kenny will play just his seventh game of the season as he returns from a leg injury. In a special tribute to the late John Farragher OAM, was originally named in jersey No.23. The Panthers will wear a Special Event Jersey celebrating his lifelong impact on the Panthers community.\nWests Tigers: The Tigers are 1-19 with no late changes on game day. Latu Fainu joins the interchange for his first game since Round 20 after recovering from a hamstring injury while prop Vaka Aho will make his NRL debut off the bench. Sione Fainu comes into the team for Tony Sukkar (delayed concussion symptoms). Prop Terrell May lines up for his 100th NRL game.\nRelated /\nSunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory\nInstant Highlights\nConnor Muhleisen Try\nPress Conference\nNRL Press Conference: Dragons v Eels - Round 27, 2026\nNRL ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.1112435777777778,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "2cd6c85cfbac7776",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 27 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/09/01/wests-tigers-nrl-injury-report-round-27/",
+            "published_at": "2026-09-01T05:50:00+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as t",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\nTony Sukkar\nInjury: Delayed concussion symptoms (Rd 26 vs Cowboys)\nReturn: Round 1, 2027\nAlex Twal\nInjury: Delayed concussion symptoms (Rd 25 vs Roosters)\nJavon Andrews\nInjury: Right calf strain\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights)\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans)\nAdam Doueihi\nInjury: Shoulder reconstruction.\nRelated /\nLate Mail: NRL Round 27 v Panthers\nTeam Lists\nSquad Update: NRL Round 27 v Panthers\nNRL News\nBenji Marshall praises Jarome Luai for postive club impact\nTerrell May milestone a driving factor for Tigers\nFamily pride for Terrell May ahead of milestone",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 120.19763246666666,
+            "relevance_score": 8.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "742a8ddbd1a89824",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Updated Team List: Round 27 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/09/05/nrl-updated-team-list-round-27/",
+            "published_at": "2026-09-05T05:59:00+00:00",
+            "snippet": "NRL Updated Team List: Round 27\nPanthers Head Coach Ivan Cleary has updated his squad for a huge Sunday showdown against the Tigers at CommBank Stadium.\nThe late Panthers Legend John Farragher OAM will be honoured this Sunday as the Panthers wear a Special Event Jersey celebratin",
+            "body_excerpt": "NRL Updated Team List: Round 27\nPanthers Head Coach Ivan Cleary has updated his squad for a huge Sunday showdown against the Tigers at CommBank Stadium.\nThe late Panthers Legend John Farragher OAM will be honoured this Sunday as the Panthers wear a Special Event Jersey celebrating his lifelong impact on the club's community.\nThe clash also marks Former Players Round and the Panthers final home game at CommBank Stadium before returning to Helloworld Stadium in 2027.\nSPECIAL TICKET OFFERS $67 Family Offer in the North Grandstand. Use promo code PANTHERS67\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nGameday Guide: Panthers v Bulldogs\nTeam Lists\nNRL Late Mail: Round 27\nCoach Media\nIvan Cleary thanks Panthers members and fans for ongoing support\nPlayer Media\nSmith: You want Yeoy in your side no matter what\nCole on Kenny: He’s a hungry dog",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 24.047632466666666,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6f36ee759bff60ff",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Panthers vs Tigers Preview (Round 27, 2026): Team News, Team Lists & Prediction",
+            "url": "https://rugbyleaguezone.com/panthers-vs-wests-tigers-round-27-preview-2026-437721/",
+            "published_at": "2026-09-03T03:13:00+00:00",
+            "snippet": "The final game of the regular season could have major implications at the top of the ladder as Penrith chase the minor premiership against a Tigers side",
+            "body_excerpt": "The final game of the regular season could have major implications at the top of the ladder as Penrith chase the minor premiership against a Tigers side eager to finish its campaign on a positive note. The Panthers have found their best form at the right time and will be looking to build momentum heading into the finals, while the Tigers are determined to send their departing stars and supporters into the off-season with a strong performance. With Tom Jenkins chasing the Ken Irvine Medal and Penrith still playing for silverware, there is plenty at stake despite the contrasting fortunes of the two clubs.\nRead Full Previews\nBulldogs vs Broncos → bulldogs-vs-broncos-round-27-preview-2026\nTitans vs Dolphins → titans-vs-dolphins-round-27-preview-2026\nRabbitohs vs Roosters → rabbitohs-vs-roosters-round-27-preview-2026\nWarriors vs Sea Eagles → warriors-vs-sea-eagles-round-27-preview-2026\nCowboys vs Raiders → cowboys-vs-raiders-round-27-preview-2026\nSharks vs Storm → sharks-vs-storm-round-27-preview-2026\nDragons vs Eels → dragons-vs-eels-round-27-preview-2026\nPanthers vs Wests Tigers → panthers-vs-wests-tigers-round-27-preview-2026\nMatchday Details\nSunday 6 September 2026 – 4:05pm (AEST) – CommBank Stadium, Sydney 📺 Broadcast: Nine / Fox League / Kayo Referee: Ashley Klein | Senior Review Official: Adam Gee\nPenrith Panthers: 1. Dylan Edwards, 2. Thomas Jenkins, 3. Luke Garner, 4. Casey McLean, 5. Brian To’o, 6. Jack Cole, 7. Nathan Cleary (c), 8. Moses Leota, 9. Mitch Kenny, 10. Liam Henry, 11. Isaiah Papali’i, 12. Liam Martin, 13. Lindsay Smith, 14. Freddy Lussick, 15. Scott Sorensen, 16. Luron Patea, 17. Billy Phillips, 18. Blaize Talagi, 19. Billy Scott, 20. Kalani Leuluai-Going, 21. Jesse McLean, 22. Isaah Yeo, 23. John Farragher.\nWests Tigers: 1. Jahream Bula, 2. Junior Tupou, 3. Solomone Saukuru, 4. Patrick Herbert, 5. Jeral Skelton, 6. Jarome Luai (c), 7. Jock Madden, 8. Terrell May, 9. Apisai Koroisau, 10. Fonua Pole, 11. Samuela Fainu, 12. Sione Fainu, 13. Alex Seyfarth, 14. Latu Fainu, 15. Vaka Aho, 16. Ethan Roberts, 17. Bunty Afoa, 18. Heath Mason, 19. Sunia Turuva, 20. Tristan Hope, 21. Charlie Murray, 22. Faaletino Tavana\nMatch Preview\nThe final game of Round 27 and the regular season kicks off on Sunday at CommBank Stadium, with the finals-bound Panthers taking on a Tigers side playing for pride in their jersey.\nThe Panthers sit second and need a big win to give themselves the best chance at securing the minor premiership. Last week they were clinical in their 24-10 win over the Bulldogs. The Tigers, on the other hand, sit in 14th and are coming off a tough 24-10 loss to the Cowboys last week.\nFor the Panthers, they’ve opted against resting their stars. Isaah Yeo is named in the reserves as he looks to return from a pectoral injury. Mitch Kenny returns at hooker, which sees Freddy Lussick move to the bench. Izack Tago is out with a knee injury and is replaced by Luke Garner at centre. Luron Patea returns to the bench. There’s also a special tribute for the late John Farragher OAM, who is named in jersey 23. The Panthers are wearing a Special Event jersey to celebrate his lifelong impact to the Panthers community.\nFor the Tigers, Latu Fainu returns on the bench for his first game since Round 20. Vaka Aho is named to make his NRL debut off the bench. Sione Fainu replaces Tony Sukkar, who’s out with delayed concussion symptoms.\nThe key for the Panthers is sticking to the disciplined style of footy that’s worked for them the past few weeks. They’ve found their finals mojo with clinical displays against the Storm and Bulldogs in recent weeks. The return of Dylan Edwards has been a huge help, not only to their fluidity in attack but to their defensive structures. With Kenny returning for this game, their starting spine is back together and they’ll be looking to test the Tigers all over the park to tune-up their attack. In the back of their minds will be Tom Jenkins’ race to be Ken Irvine Medallist this season as top try-score",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 74.81429913333332,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ce7add62ff77e7aa",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Team List: NRL Round 27 v Panthers",
+            "url": "https://www.weststigers.com.au/news/2026/09/01/team-list-nrl-round-27-v-panthers/",
+            "published_at": "2026-09-01T16:00:00+00:00",
+            "snippet": "Wests Tigers NRL Head Coach Benji Marshall has named his squad to play the Penrith Panthers at CommBank Stadium on Sunday, 6 September in Round 27 of the Telstra Premiership.",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 27 v Panthers\nWests Tigers NRL Head Coach Benji Marshall has named his squad to play the Penrith Panthers at CommBank Stadium on Sunday, 6 September in Round 27 of the Telstra Premiership.\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nProp Terrell May plays his 100th NRL game after making his first grade debut at the Sydney Roosters in 2022. May has played 46 games for the Tigers.\nProp Vaka Aho will make his NRL debut after playing 21 games for the Western Suburbs Magpies in the NSW Cup this season.\nThe 23-year-old Tongan forward played SG Ball and Jersey Flegg for the Balmain Tigers.\nLatu Fainu returns from a hamstring injury in his first game since Round 20 against the Bulldogs. Sione Fainu comes into the team for Tony Sukkar (delayed concussion symptoms).\nSee the Round 27 Wests Tigers injury report here\nReserves:\n20 Tristan Hope\n21 Charlie Murray\n22 Tino Tavana\nMatch details\nPenrith Panthers vs Wests Tigers\nSunday, 6 September CommBank Stadium, Parramatta\nKick-off: 4.05pm\nBroadcast: Live on Channel 9, 9Now, Kayo Sports, Fox League\nRelated /\nLate Mail: NRL Round 27 v Panthers\nTeam Lists\nSquad Update: NRL Round 27 v Panthers\nNRL News\nBenji Marshall praises Jarome Luai for postive club impact\nTerrell May milestone a driving factor for Tigers\nFamily pride for Terrell May ahead of milestone",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 110.03096579999999,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "493dc619e5429044",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 27 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/09/01/nrl-team-list-round-27/",
+            "published_at": "2026-09-01T05:59:00+00:00",
+            "snippet": "NRL Team List: Round 27\nPanthers Head Coach Ivan Cleary has named his squad for a huge Sunday showdown against the Tigers at CommBank Stadium.\nThe late Panthers Legend John Farragher OAM will be honoured this Sunday, named at No. 23 in the team list as the Panthers wear a Special",
+            "body_excerpt": "NRL Team List: Round 27\nPanthers Head Coach Ivan Cleary has named his squad for a huge Sunday showdown against the Tigers at CommBank Stadium.\nThe late Panthers Legend John Farragher OAM will be honoured this Sunday, named at No. 23 in the team list as the Panthers wear a Special Event Jersey celebrating his lifelong impact on the Panthers community.\nThe clash also marks Former Players Round and the Panthers final home game at CommBank Stadium before returning to Helloworld Stadium in 2027.\nSPECIAL TICKET OFFERS $67 Family Offer in the North Grandstand. Use promo code PANTHERS67\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nGameday Guide: Panthers v Bulldogs\nTeam Lists\nNRL Late Mail: Round 27\nNRL Updated Team List: Round 27\nCoach Media\nIvan Cleary thanks Panthers members and fans for ongoing support\nPlayer Media\nSmith: You want Yeoy in your side no matter what",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 120.04763246666666,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "79d4468aee12a5d9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Penrith Panthers vs Wests Tigers Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/penrith-panthers-vs-wests-tigers-tips-odds-teams-predictions-nrl-round-27-2026/610133",
+            "published_at": "2026-09-02T07:10:07+00:00",
+            "snippet": "Penrith Panthers vs Wests Tigers Tips, Odds, Teams & Predictions – NRL Round 27 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "CommBank Stadium will play host to Sunday's Round 27 NRL game between Penrith Panthers and Wests Tigers. The game kicks off at 4:05 pm with Penrith Panthers heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Penrith Panthers vs. Wests Tigers game and give you our free tips and bets.\nWhen: Sunday September 6, 2026 at 4:05 pm\nWhere: CommBank Stadium\nBet 💰: Bet On This Match HERE\nPenrith Panthers vs Wests Tigers Odds\nPenrith Panthers vs Wests Tigers Preview\nPenrith completes the regular season at CommBank Stadium after ending Canterbury’s finals hopes with a controlled 24-10 victory. Mitch Kenny returns at hooker after a long absence, while Luke Garner starts in the centres for the injured Izack Tago. Captain Isaah Yeo is listed among the reserves as he pushes to return from the pectoral injury suffered in Round 23, giving the Panthers another potential lift before September. Wests Tigers has cleared Jarome Luai to face his former club, with Latu Fainu and Sunia Turuva available from the extended interchange. The Tigers can create problems through Jahream Bula and a physical middle, but Penrith retains its core combination of Dylan Edwards, Nathan Cleary and a seasoned pack. That continuity, defensive discipline and finals preparation should keep the Panthers in control.\nHead To Head Bet\nWe're tipping Penrith Panthers to win at $1.08 odds.\nFirst Try Scorer\nFirst Try Scorer: Brian To'o at $6.75 .\nPenrith Panthers vs Wests Tigers Teams\nPanthers team: 1. Dylan Edwards 2. Thomas Jenkins 3. Luke Garner 4. Casey McLean 5. Brian To’o 6. Jack Cole 7. Nathan Cleary 8. Moses Leota 9. Mitch Kenny 10. Liam Henry 11. Isaiah Papali’i 12. Liam Martin 13. Lindsay Smith 14. Freddy Lussick 15. Scott Sorensen 16. Luron Patea 17. Billy Phillips 18. Blaize Talagi 19. Billy Scott 20. Kalani Leuluai-going 21. Jesse McLean 22. Isaah Yeo 23. John Farragher\nTigers team: 1. Jahream Bula 2. Junior Tupou 3. Solomane Saukuru 4. Patrick Herbert 5. Jeral Skelton 6. Jarome Luai 7. Jock Madden 8. Terrell May 9. Apisai Koroisau 10. Fonua Pole 11. Samuela Fainu 12. Sione Fainu 13. Alex Seyfarth 14. Latu Fainu 15. Vaka Aho 16. Ethan Roberts 17. Bunty Afoa 18. Heath Mason 19. Sunia Turuva 20. Tristan Hope 21. Charlie Murray 22. Faaletino Tavana",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.86235468888889,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "7f213c994d8a0619",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 27",
+            "url": "https://www.nrl.com/news/2026/09/01/nrl-team-lists-round-27/",
+            "published_at": "2026-09-01T06:00:05+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 27\nOfficial team lists, updates and injury news for Round 27 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nBulldogs v Broncos, Thursday 7.50pm at Accor Stadium\nMatch: Bulldogs v Broncos\nRound 27 - Round",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 27\nOfficial team lists, updates and injury news for Round 27 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nBulldogs v Broncos, Thursday 7.50pm at Accor Stadium\nMatch: Bulldogs v Broncos\nRound 27 - Round 27 - Thursday 3 Sep\nhome Team\nBulldogs\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Bulldogs is number 1 Connor Tracey 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Bulldogs is number 2 Jacob Kiraz 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Bulldogs is number 3 Matt Burton 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Bulldogs is number 4 Bronson Xerri 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Bulldogs is number 5 Enari Tuala 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Bulldogs is number 6 Stephen Crichton 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Bulldogs is number 7 Lachlan Galvin 7 Halfback for Broncos is number 7 Ben Hunt\nForwards\nProp for Bulldogs is number 8 Max King 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Bulldogs is number 9 Bailey Hayward 9 Hooker for Broncos is number 9 Billy Walters\nProp for Bulldogs is number 10 Leo Thompson 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Bulldogs is number 11 Viliame Kikau 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Bulldogs is number 12 Jacob Preston 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Bulldogs is number 13 Jaeman Salmon 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Bulldogs is number 14 Jake Turpin 14 Interchange for Broncos is number 14 Thomas Duffy\n14\nInterchange for Bulldogs is number 15 Alekolasimi Jones 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Bulldogs is number 16 Harry Hayes 16 17 Interchange for Broncos is number 17 Aublix Tawha\n16 17\nInterchange for Bulldogs is number 17 Josh Curran 17\n17\nReserve for Bulldogs is number 19 Jed Reardon 19 18 Reserve for Broncos is number 18 Gehamat Shibasaki\n19 18\nReserve for Bulldogs is number 22 Sean O'Sullivan 22 19 Reserve for Broncos is number 19 Ben Talty\n22 19\n20 Reserve for Broncos is number 20 Cameron Bukowski\n20\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/4/2026 8:42:02 AM\nBulldogs: No changes to Cameron Ciraldo's starting side but Kurt Mann could be a chance for a late call-up after being listed among the reserves. Mann missed last week's loss to the Panthers with a groin injury. Jed Reardon and Jack Underhill are the new faces on the interchange.\nBroncos: The Broncos stick with the same starting side for their final match with the only change on the bench where Blake Mozer (concussion) is replaced by Ben Talty. Forward Preston Riki is listed among the reserves and could get a late call-up after five games out with a syndesmosis injury.\nTitans v Dolphins, Friday 6.00pm at Cbus Super Stadium\nMatch: Titans v Dolphins\nRound 27 - Round 27 - Friday 4 Sep\nTitans\nDolphins\nFullback for Titans is number 1 Keano Kini 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Titans is number 2 Siale Faeamani 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Titans is number 4 AJ Brimson 4 3 Centre for Dolphins is number 3 Jack Bostock\n4 3\nCentre for Titans is number 12 Beau Fermor 12 4 Centre for Dolphins is number 4 Herbie Farnworth\n12 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Dolphins is number 5 Tevita Naufahu\nFive-Eighth for Titans is number 6 Jayden Campbell 6 20 Five-Eighth for Dolphins is number 20 Jake Averillo\n6 20\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Dolphins is number 7 Isaiya Katoa\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Titans is number 9 Luke Sommerton 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Titans is n",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 120.0295769111111,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "nrl_official_roundup",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "b2eb69f73bd9bab0",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Panthers v Wests Tigers: Yeo good to go; Fainu back on the bench",
+            "url": "https://www.nrl.com/news/2026/09/01/panthers-v-wests-tigers-yeo-nears-return-fainu-back-on-the-bench/",
+            "published_at": "2026-09-06T04:56:01+00:00",
+            "snippet": "Presented By\nPanthers v Wests Tigers: Yeo good to go; Fainu back on the bench\nAlthough the two sides sit at opposite ends of the ladder, there are plenty of contests within the contest of Panthers v Wests Tigers.\nWith a number of Panthers having made their way to Western Sydney r",
+            "body_excerpt": "Presented By\nPanthers v Wests Tigers: Yeo good to go; Fainu back on the bench\nAlthough the two sides sit at opposite ends of the ladder, there are plenty of contests within the contest of Panthers v Wests Tigers.\nWith a number of Panthers having made their way to Western Sydney rivals West Tigers in recent seasons, there is plenty on the line for players in the derby.\nPenrith however will be looking for a win to try and reclaim top spot on the ladder to take out the minor premiership, with it being a neck-and-neck race currently with the Warriors.\nWests Tigers will be hoping they can repeat their heroics of Round 25, where they stunned the Roosters to win 25-24 in a upset of the year contender.\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nPanthers: No late changes on game day. Skipper Isaah Yeo has been elevated from the reserves to the interchange in the 24-hour squad update as he firms for a return after three games out with a pectoral injury. Scott Sorensen is the player to make way, while Kalani Leuluai-Going was omitted from the reserves. Hooker Mitch Kenny will play just his seventh game of the season as he returns from a leg injury. In a special tribute to the late John Farragher OAM, was originally named in jersey No.23. The Panthers will wear a Special Event Jersey celebrating his lifelong impact on the Panthers community.\nWests Tigers: No late changes on game day. Latu Fainu joins the interchange for his first game since Round 20 after recovering from a hamstring injury while prop Vaka Aho will make his NRL debut off the bench. Sione Fainu comes into the team for Tony Sukkar (delayed concussion symptoms). Prop Terrell May lines up for his 100th NRL game. There were no changes to the squad in the 24-hour update.\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Wests Tigers is number 1 Jahream Bula\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Wests Tigers is number 2 Junior Tupou\nCentre for Panthers is number 3 Luke Garner 3 Centre for Wests Tigers is number 3 Solomone Saukuru\nCentre for Panthers is number 4 Casey McLean 4 Centre for Wests Tigers is number 4 Patrick Herbert\nWinger for Panthers is number 5 Brian To'o 5 Winger for Wests Tigers is number 5 Jeral Skelton\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Wests Tigers is number 6 Jarome Luai\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Wests Tigers is number 7 Jock Madden\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Wests Tigers is number 8 Terrell May\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Wests Tigers is number 9 Apisai Koroisau\nProp for Panthers is number 10 Liam Henry 10 Prop for Wests Tigers is number 10 Fonua Pole\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Wests Tigers is number 11 Samuela Fainu\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Wests Tigers is number 12 Sione Fainu\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Wests Tigers is number 13 Alex Seyfarth\n13\nInterchange\nInterchange for Panthers is number 14 Freddy Lussick 14 Interchange for Wests Tigers is number 14 Latu Fainu\n14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Wests Tigers is number 15 Vaka Aho\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Wests Tigers is number 16 Ethan Roberts\n17 16\nInterchange for Panthers is number 18 Blaize Talagi 18 17 Interchange for Wests Tigers is number 17 Bunty Afoa\n18 17\nInterchange for Panthers is number 19 Billy Scott 19 18 Interchange for Wests Tigers is number 18 Heath Mason\n19 18\nInterchange for Panthers is number 22 Isaah Yeo 22 19 Interchange for Wests Tigers is number 19 Sunia Turuva\n22 19\nPanthers Ins\nIsaah Yeo\nLuron Patea\nMitch Kenn",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.097354688888889,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4d0ae2cb5f31382d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026. Confirmed lineups, results for Round 27 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69",
+            "published_at": "2026-09-05T10:07:49+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026. Confirmed lineups, results for Round 27\nPeter Maniaty\nGetty Images\nThe final round of the 2026 regular season has arrived and the all-imp",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026. Confirmed lineups, results for Round 27\nPeter Maniaty\nGetty Images\nThe final round of the 2026 regular season has arrived and the all-important order of the top eight is set to be decided along with the minor premiership.\nTwo teams that won't play finals kicked things off on Thursday night with the Broncos beating the Bulldogs 34-20.\nFriday night saw the Dolphins beat the Titans 24-20 before the Rabbitohs blitzed an understrength Roosters 50-20 at Allianz Stadium.\nThe Warriors edged the Sea Eagles 31-30 on Saturday afternoon to leave the race for the 2026 minor premiership very much open for the Panthers who face the Tigers close out the regular season on Sunday.\nThe Knights have the final round bye while a swathe of stars are set to be rested ahead of the finals.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 27\nSt. George Illawarra Dragons vs. Parramatta Eels\n(Sunday, September 6 at WIN Stadium, 2:00pm AEST)\nSt. George Illawarra team:\n1. Daniel Atkinson 2. Mathew Feagai 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Toby Couchman 9. Damien Cook (c) 10. Blake Lawrie 11. Dylan Egan 12. Hamish Stewart 13. Loko Jnr Pasifiki Tonga\n14. Connor Muhleisen 15. Ryan Couchman 16. Josh Kerr 17. Jacob Halangahu 18. Jacob Webster 19. Setu Tu\nDragons team news:\nThe end of a long and at times painful season. The Dragons were humbled by the Sea Eagles in Round 26 and will want to deliver a much-improved showing for their home fans in Wollongong for Damien Cook's last game for the Red V - along with host of others.\nParramatta team:\n1. Apa Twidle 2. Brian Kelly 3. Will Penisini 4. Jordan Samrani 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses (c) 8. Luca Moretti 9. Tallyn Da Silva 10. Junior Paulo 11. Jack Williams 12. Kitione Kautoga 13. Saxon Pryke\n14. Harrison Edwards 15. Jack De Bellin 16. Teancum Brown 17. Dylan Walker 18. Tyrese Lokeni 19. Sean Russell\nEels team news:\nDylan Walker, Sean Russell and Apa Twidle are all set to play their final match for the club while an extended reserves spot is as close as Kelma Tuilagi and Jonah Pezet get to on-field farewells. Junior Paulo was put on report for a hip-drop in Round 26 but escaped with a fine.\nPenrith Panthers vs. Wests Tigers\n(Sunday, September 6 at CommBank Stadium , 4:05pm AEST)\nPenrith team:\n1. Dylan Edwards 2. Thomas Jenkins 3. Luke Garner 4. Casey McLean 5. Brian To'o 6. Jack Cole 7. Nathan Cleary (c) 8. Moses Leota 9. Mitch Kenny 10. Liam Henry 11. Isaiah Papali'i 12. Liam Martin 13. Lindsay Smith\n14. Freddy Lussick 16. Luron Patea 17. Billy Phillips 18. Blaize Talagi 19. Billy Scott 22. Isaah Yeo\nPanthers team news:\nThe race for the minor premiership is still up for grabs and Ivan Cleary has resisted the temptation to rest his stars. Centre Izack Tago (knee) is set for multiple weeks on the sidelines and is replaced by Luke Garner with Paul Alamoti still on the sidelines. Significantly, first-choice hooker Mitch Kenny (leg) makes his return after months on the sidelines while Isaah Yeo (pectoral) comes on to the bench for Scott Sorreson.\nTigers team:\n1. Jahream Bula 2. Junior Tupou 3. Solomone Saukuru 4. Patrick Herbert 5. Jeral Skelton 6. Jarome Luai (c) 7. Jock Madden 8. Terrell May 9. Api Koroisau 10. Fonua Pole 11. Samuela Fainu 12. Sione Fainu 13. Alex Seyfarth\n14. Latu Fainu 15. Vaha Aho 16. Ethan Roberts 17. Bunty Afoa 18. Heath Mason 19. Sunia Taruva\nTigers team news:\nAlex Twal (concussion) remains out while Tony Sukkar has been dropped. Jarome Luai suffered a leg injury against the Cowboys last Saturday night but has been named to play his final game before joining the Eels in 2027.\nNRL RESULTS, SCORES ROUND 27:\nBrisbane Broncos 34 def. Canterbury Bulldogs 20\n(Thursday, September 3 at Accor Stadium , 7:50pm AEST)\nCanterbury team:\n1. Connor Trac",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.900688022222223,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ee1828387fe76d51",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Tigers Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/panthers-vs-tigers-preview-betting-tips-nrl-round-27-2026",
+            "published_at": "2026-09-05T07:38:29+00:00",
+            "snippet": "Panthers vs Tigers Preview & Betting Tips: NRL Round 27 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Panthers vs Tigers Preview & Betting Tips: NRL Round 27 2026\nSeptember 5 th 2026, 5:06pm , By: Ben Bridge\nThe final Sunday afternoon game of the regular season is one of the strangest betting propositions of Round 27 because we will know considerably more by kick-off than we do when betting early in the week.\nPenrith and the Warriors enter Round 27 locked on 40 competition points, with New Zealand holding a differential advantage of just +309 to +308. The Warriors play Manly on Saturday afternoon, meaning Ivan Cleary’s side will know exactly what is required to claim the minor premiership before taking the field at CommBank Stadium.\nThat makes Wests Tigers +19.5 the early play. If Manly upset the Warriors, Penrith need only win. If the Warriors scrape home by a small margin, the Panthers may still need some points differential, but nowhere near the type of enormous score the current spread implies.\nThere is also the finals management factor. Isaah Yeo remains among the reserves as he nears a return from a pectoral injury, while Mitch Kenny returns from a long injury lay off. Izack Tago is out with a knee injury and Luke Garner shifts into the centres.\nWests have also shown considerably more fight over the past fortnight than they did through their horrific mid-season slump.\nPanthers vs Tigers Prediction & Tips: 2026 NRL Round 27\nPanthers Professional Rather Than Spectacular\nPenrith’s 24-10 win over Canterbury last Friday was exactly the sort of performance you would expect from a team preparing for September. They were not spectacular. They did not need to be.\nThe Panthers completed an extraordinary 38 of 41 sets, controlled field position and simply kept the Bulldogs at arm’s length for the entire evening. That is important when assessing a 19.5-point handicap.\nPenrith are capable of producing enormous attacking numbers, nobody needs reminding after the 68-0 result against these Tigers earlier in the year, but Ivan Cleary’s focus now is preparation for the finals rather than entertaining the crowd.\nNathan Cleary remains the best game manager in the competition and can dictate exactly how much risk Penrith need to take once the Saturday result is known.\nDylan Edwards is back at fullback, Brian To’o remains on the wing and Mitch Kenny’s return gives the spine greater stability. Jack Cole continues at five-eighth.\nThe forward pack is still strong even with Yeo uncertain. Moses Leota, Liam Henry, Isaiah Papali’i, Liam Martin and Lindsay Smith provide more than enough quality to control the Tigers through the middle.\nYeo being listed among the reserves adds another late mail variable. If he returns, Penrith become stronger, but his minutes could easily be managed before finals.\nThe same logic applies across the team. If Penrith are 20 points ahead after an hour and the minor premiership is secured, there is no reason to keep key players unnecessarily exposed.\nThat is exactly why laying -19.5 early in the week is dangerous.\nTigers Show Some Backbone in Townsville\nWests’ 24-10 loss to North Queensland ended the brief high created by their stunning Roosters upset, but the performance was far from the type of capitulation we saw earlier in the season.\nThe Tigers remained competitive for most of the night and were still threatening to make things interesting late, with Terrell May having a try disallowed for obstruction in the 65th minute. North Queensland did not finally secure the result until Tom Chester scored with three minutes remaining.\nThat followed the extraordinary 25-24 victory over the Roosters. Two games do not repair a dreadful season, but they do suggest Benji Marshall has managed to get some late fight back into the group.\nJarome Luai and Jock Madden remain in the halves, with Jahream Bula at fullback and Api Koroisau controlling the ruck. Terrell May and Fonua Pole give Wests enough size through the middle to ensure Penrith cannot simply coast through contact.\nLatu Fainu returns from a hamstring injury on the bench, wh",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.38957691111111,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "45a0a5eeba7b2198",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Squad Update: NRL Round 27 v Panthers - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/09/05/squad-update-nrl-round-27-v-panthers/",
+            "published_at": "2026-09-05T06:05:00+00:00",
+            "snippet": "Presented By\nSquad Update: NRL Round 27 v Panthers\nWests Tigers NRL Head Coach Benji Marshall has cut his squad to play the Penrith Panthers at CommBank Stadium on Sunday, 6 September in Round 27 of the Telstra Premiership.\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sun",
+            "body_excerpt": "Presented By\nSquad Update: NRL Round 27 v Panthers\nWests Tigers NRL Head Coach Benji Marshall has cut his squad to play the Penrith Panthers at CommBank Stadium on Sunday, 6 September in Round 27 of the Telstra Premiership.\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nCharlie Murray and Tino Tavana drop out of the squad named on Tuesday.\nProp Terrell May plays his 100th NRL game after making his first-grade debut at the Sydney Roosters in 2022. May has played 46 games for the Tigers.\nProp Vaka Aho will make his NRL debut after playing 21 games for the Western Suburbs Magpies in the NSW Cup this season.\nThe 23-year-old Tongan forward played SG Ball and Jersey Flegg for the Balmain Tigers.\nReserve:\n20 Tristan Hope\nMatch details\nPenrith Panthers vs Wests Tigers\nSunday, 6 September CommBank Stadium, Parramatta\nKick-off: 4.05pm\nBroadcast: Live on Channel 9, 9Now, Kayo Sports, Fox League\nRelated /\nLate Mail: NRL Round 27 v Panthers\nNRL News\nBenji Marshall praises Jarome Luai for postive club impact\nTerrell May milestone a driving factor for Tigers\nFamily pride for Terrell May ahead of milestone\nTeam Lists\nTeam List: NRL Round 27 v Panthers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.94763246666667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "76ffcdd7dad2842f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/",
+            "published_at": "2026-09-02T07:43:58+00:00",
+            "snippet": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe fina",
+            "body_excerpt": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe final round begins with a dead rubber at Accor Stadium as two of 2025’s top-four outfits wrap up their campaigns.\nFORM: The Bulldogs have lost three of their last four, with their finals hopes extinguished thanks to a 24-10 loss to the Panthers last week.\nThe Broncos have lost 13 of their last 15, following up a comeback win in Canberra with a 46-20 home defeat to the Storm last week.\nINS AND OUTS: The Bulldogs are unchanged, though Kurt Mann could be a late inclusion. The Broncos’ only change is on the bench with Blake Mozer replaced by Ben Talty.\nKEY MATCH-UP: Payne Haas will be eager to inflict some damage in his last game for the Broncos. Max King and Leo Thompson need to meet Haas and twin tower Xavier Willison head on.\nHISTORY: The Broncos have won eight of their last nine against the Bulldogs, including a 32-12 result in Round at Suncorp Stadium.\nKEY STAT: The Bulldogs haven’t beaten the Broncos in Sydney since 2019.\nVERDICT: While this may be a deflating exercise for the Bulldogs after their finals bid officially ended last week, their form has been strong overall and they showed plenty of backbone against the Panthers.\nThe Broncos have been gagging for the end of a disastrous title defence for some time and have conceded 30-plus points in five straight games. It’s a road trip this injury-ravaged side doesn’t want to be on.\nTip: Back the Bulldogs to Score Over 31.5 Total Points @ $1.80\nSGM: BULLDOGS -10.5 / UNDER 52.5 TOTAL POINTS / MATT BURTON ANYTIME TRYSCORER / STEPHEN CRICHTON ANYTIME TRYSCORER @ $17.63\nThe Dolphins finalise their preparations for a maiden post-season foray against the lowly Titans.\nFORM: The Titans are on a five-game losing streak, going down 42-22 to the Rabbitohs at home last Saturday.\nThe Dolphins have won six straight, moving to third spot via an impressive 26-12 defeat of the Roosters at Allianz Stadium.\nINS AND OUTS: Beau Fermor is back for the Titans, while Luke Sommerton replaces Oliver Pascoe (concussion). Dolphins winger Selwyn Cobbo is out, which sees Tevita Naufahu come in.\nKEY MATCH-UP: Kodi Nikorima has been in hot playmaking form for the Dolphins. Titans No.6 Jayden Campbell will be eager to finish the season with a flourish.\nHISTORY: The Dolphins have established a 6-1 record in this derby, including a tight 18-14 win at Suncorp Stadium in Round 2.\nKEY STAT: Phillip Sami and Hamiso Tabuai-Fidow have both scored four tries in six Titans-Dolphins games.\nVERDICT: While finishing third or fourth is much of a muchness, the Dolphins will be eager to head into the finals with the momentum of another win – particularly after naming near enough to their strongest line-up.\nThe Titans have been meandering towards the end of the season and showing an increasingly lacklustre attitude towards defending, leaking 30-plus points in their past five games – after only doing so six times in their previous 17 games. It’s been a tough rivalry for the Titans and that should continue.\nTip: Back the Dolphins to Cover the Line (-13.5) @ $1.90\nSGM: DOLPHINS BY 21-30 / OVER 10.5 TOTAL TRIES / PHILLIP SAMI ANYTIME TRYSCORER / HERBIE FARNWORTH ANYTIME TRYSCORER @ $18.72\nA key grudge match and traditional final-round showdown has been tipped on its head by the Roosters pre-finals resting strategy.\nFORM: The up-and-down Rabbitohs have won three of their last four, responding to a 46-25 loss to the Warriors with a 42-22 win over the Titans last week.\nThe Roosters’ eight-match winning streak seems a distant memory after back-to-back losses to the Tigers (25-24) and Dolphins (26-12).\nINS AND OUTS: Latrell Mitchell starts at centre, Jye Gray has been promoted to fullback with Matt Dufty to come off the bench, and Adam Elliott starts in the back-r",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.29818802222222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "36aeb0e0b41465ac",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers v Wests Tigers: Round 27 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/02/panthers-v-wests-tigers-round-27/",
+            "published_at": "2026-09-02T05:10:48+00:00",
+            "snippet": "Panthers v Wests Tigers: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:59 Warriors v Sea Eagles: Round 27\nWarriors v Sea Eagles: Round 27\n03:29 Sharks v Storm: Round 27\nSharks v Storm: Round 27\n03:26 Cowboys v Raiders: Round 27\nCow",
+            "body_excerpt": "Panthers v Wests Tigers: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:59 Warriors v Sea Eagles: Round 27\nWarriors v Sea Eagles: Round 27\n03:29 Sharks v Storm: Round 27\nSharks v Storm: Round 27\n03:26 Cowboys v Raiders: Round 27\nCowboys v Raiders: Round 27\n02:57 Titans v Dolphins: Round 27\nTitans v Dolphins: Round 27\n03:11 Rabbitohs v Roosters: Round 27\nRabbitohs v Roosters: Round 27\nRelated /\nSunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory\nMatch Preview\nPanthers v Wests Tigers: Yeo good to go; Fainu back on the bench\nPanthers\nA jersey for John: Panthers go old school to honour a legend\nFantasy\nFirst take: Panthers v Wests Tigers\nState of Origin\n2026 Brad Fittler medalist: Nathan Cleary\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 96.8509658,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "67afb5cb575aba89",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Panthers vs Wests Tigers Draftstars DFS Preview and Projections for Round 27, 2026",
+            "url": "https://www.statsinsider.com.au/news/nrl-panthers-vs-wests-tigers-draftstars-dfs-preview-and-projections-for-round-27-2026",
+            "published_at": "2026-09-02T03:08:00+00:00",
+            "snippet": "Draftstars Australia's NRL Panthers vs Wests Tigers Round 27 DFS contest kicks off at 4:05pm AEST on September 6, 2026, and Fantasy Insider has crunched the numbers for each player in the game to help you create winning line-ups.",
+            "body_excerpt": "Origin\nAFL\nNRL\nNBA\nNFL\nCFB\nCollege Basketball\nMLB\nNHL\nTennis\nPremier League\nLa Liga\nMLS\nGolf\nNRL Panthers vs Wests Tigers Draftstars DFS Preview and Projections for Round 27, 2026\nDraftstars Australia's NRL Panthers vs Wests Tigers Round 27 DFS contest commences at 4:05pm AEST on September 6, 2026, and Fantasy Insider has looked at the data for each player in the game to help you make winning line-ups.\nAn accurate Draftstars cheat sheet is crucial for NRL fantasy players. This DFS preview is designed to help you assemble your fantasy teams for Draftstars' NRL contests and improve your Supercoach team for Round 27.\nFantasy Insider, renowned for its world-class DFS tools and projections since 2015, employs the same machine learning models as Stats Insider to deliver some of the most accurate DFS projections available.\nWith the best NRL fantasy insights and DFS strategies from Fantasy Insider, you're set to win in more NRL fantasy contests.\nCheat Sheet and Projections\nWe've reviewed players from each team in the Penrith Panthers vs Wests Tigers match-up to help you find the best choices on Sunday's slate.\nSelection\nPlayer\nSalary\nProj. Pts\nPts/$1K\nStud\nNathan Cleary (PEN, HH/FLEX)\n$23,120\n83.4\n3.6\nValue\nJack Cole (PEN, FLEX/HH)\n$9,510\n42.4\n4.5\nFade\nIsaah Yeo (PEN, FLEX/FWD)\n$16,650\n16.6\nCheapie\nLuke Garner (PEN, OB/FLEX)\n$9,280\n40.6\n4.4\nAccording to Fantasy Insider's DFS model, our \"stud\" is the highest projected scorer across the slate, while \"value\" picks offer the most \"bang for your buck,\" meaning they are expected to perform well relative to their salary.\nConversely, a \"fade\" is a player considered to offer lower value for money, based on their expected score relative to their salary. For those needing to stay under the salary cap, \"cheapie\" options highlight the best value players at lower price points not already mentioned.\nIn fantasy sports, understanding value—assessing a player's potential output against their salary—is crucial, as players scoring high relative to their cost are key in crafting the optimal line-up.\nThe \"Pts/$1K\" metric shows the predicted points for every $1,000 of a player's salary. A higher number indicates better value, making it easier to spot players who could outperform their cost.\nPositional Breakdown\nOB (Outside Back)\nDylan Edwards (PEN)\n$13,640\n56\n4.1\nLuke Garner (PEN)\nBrian To'o (PEN)\n$14,200\n49.2\n3.5\nJahream Bula (WST)\n$8,000\n30.5\n3.8\nHH (Half/Hooker)\nNathan Cleary (PEN)\nJack Cole (PEN)\nBlaize Talagi (PEN)\n$11,430\n14\n1.2\nLatu Fainu (WST)\n17\n2.1\nFWD (Forward)\nTerrell May (WST)\n$19,050\n66.9\nAlex Seyfarth (WST)\n$10,560\n42\nIsaah Yeo (PEN)\nSione Fainu (WST)\n$9,610\n35.9\n3.7\nConclusion\nIn DFS, creating an optimal line-up requires understanding key concepts and metrics. When building your NRL Panthers vs Wests Tigers Round 27 teams, consider starting with a value player like Jack Cole. To secure one of the highest projected scorers, Nathan Cleary is a strong option. If you're seeking budget-friendly choices to free up salary cap for more studs, check out our cheapie options, including Luke Garner.\nOn the other hand, according to our model, Isaah Yeo is one of the lowest value options on the slate, suggesting you might want to limit exposure to him if building out multiple line-ups.\nReady to go? Draftstars' NRL Panthers vs Wests Tigers slate closes at 4:05pm AEST on Sunday. ENTER NOW!\nAs with all NRL DFS contests, whether you start with our studs or build around our value picks, leveraging Fantasy Insider's data-driven NRL fantasy news and strategies, combined with your own research, can enhance your chances of winning in the NRL Panthers vs Wests Tigers Round 27 contest. The unique insights here can help you maximize points while adhering to the salary cap when you make your NRL DFS line-ups.\nFor the latest projections and optimised NRL Panthers vs Wests Tigers line-ups, check out the Fantasy Insider Cruncher on Draftstars! It's free to use when you're logged in.\nFor more on this game, dive into our f",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 98.89763246666666,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4125d04af857fc9a",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL Sunday Draftstars DFS Preview and Projections for Round 27, 2026",
+            "url": "https://www.statsinsider.com.au/news/nrl-sunday-draftstars-dfs-preview-and-projections-for-round-27-2026",
+            "published_at": "2026-09-02T03:08:00+00:00",
+            "snippet": "Draftstars Australia's NRL Sunday Round 27 DFS contest starts at 2:00pm AEST on September 6, 2026, and Fantasy Insider has crunched the numbers for each player on the slate to help you create winning line-ups.",
+            "body_excerpt": "Origin\nAFL\nNRL\nNBA\nNFL\nCFB\nCollege Basketball\nMLB\nNHL\nTennis\nPremier League\nLa Liga\nMLS\nGolf\nNRL Sunday Draftstars DFS Preview and Projections for Round 27, 2026\nDraftstars Australia's NRL Sunday Round 27 DFS contest commences at 2:00pm AEST on September 6, 2026, and Fantasy Insider has looked at the data for every player on the slate to help you build winning line-ups.\nAn accurate Draftstars cheat sheet is crucial for NRL fantasy players. This DFS preview is designed to help you put together your fantasy teams for Draftstars' NRL contests and improve your Supercoach team for Round 27.\nFeatured NRL Games\nDraftstars' NRL Sunday slate includes the following games:\n[St. George Illawarra Dragons vs Parramatta Eels](https://www.statsinsider.com.au/sport-hub/nrl/schedule/2024_27_St. George Illawarra Dragons_par)\nPenrith Panthers vs Wests Tigers\nFantasy Insider, renowned for its world-class DFS tools and projections since 2015, employs the same machine learning models as Stats Insider to deliver some of the best DFS projections in the world.\nWith the best NRL fantasy insights and DFS strategies from Fantasy Insider, you're set to win in more NRL fantasy contests.\nCheat Sheet and Projections\nWe've reviewed every player from every team to help you make the best choices on Sunday's slate.\nSelection\nPlayer\nSalary\nProj. Pts\nPts/$1K\nStud\nNathan Cleary (PEN, FLEX/HH)\n$23,120\n83.4\n3.6\nValue\nLyhkan King-Togia (STG, HH/FLEX)\n$8,000\n41.4\n5.2\nFade\nApa Twidle (PAR, OB/FLEX)\n$10,780\n4.3\n0.4\nCheapie\nSean Russell (PAR, OB/FLEX)\n36.8\n4.6\nAccording to Fantasy Insider's DFS model, our \"stud\" is the highest projected scorer across the slate, while \"value\" picks provide the most \"bang for your buck,\" meaning they are expected to perform well relative to their salary.\nConversely, a \"fade\" is a player considered to offer lower value for money, based on their expected score relative to their salary. For budget-conscious strategies, \"cheapie\" options highlight the best value players at lower price points not already mentioned.\nIn fantasy sports, understanding value—assessing a player's potential output against their salary—is crucial, as players scoring high relative to their cost are key in crafting the optimal line-up.\nThe \"Pts/$1K\" metric shows the predicted points for every $1,000 of a player's salary. A higher number indicates better value, making it easier to spot players who could outperform their cost.\nPositional Breakdown\nOB (Outside Back)\nDylan Edwards (PEN)\n$13,640\n56\n4.1\nSean Russell (PAR)\nApa Twidle (PAR)\nMoses Suli (STG)\n$9,320\n41.9\n4.5\nHH (Half/Hooker)\nNathan Cleary (PEN)\nLyhkan King-Togia (STG)\nBlaize Talagi (PEN)\n$11,430\n14\n1.2\nDamien Cook (STG)\n$9,980\n45.5\nFWD (Forward)\nTerrell May (WST)\n$19,050\n66.9\n3.5\nBlake Lawrie (STG)\n32.4\nIsaah Yeo (PEN)\n$16,650\n16.6\nSione Fainu (WST)\n$9,610\n35.9\n3.7\nConclusion\nIn DFS, creating an optimal line-up requires understanding key concepts and metrics. When building your NRL Sunday Round 27 teams, consider starting with a value player like Lyhkan King-Togia. To secure one of the highest projected scorers, Nathan Cleary is a strong option. If you're looking for budget-friendly choices to free up salary cap for more studs, take a look at our cheapie options, including Sean Russell.\nOn the other hand, according to our model, Apa Twidle is one of the lowest value options on the slate, suggesting you might want to limit exposure to him if building multiple line-ups.\nReady to go? Draftstars' NRL Sunday slate closes at 2:00pm AEST on Sunday. ENTER NOW!\nAs with all NRL DFS contests, whether you start with our studs or build around our value picks, leveraging Fantasy Insider's data-driven NRL fantasy news and strategies, combined with your own research, can enhance your chances of winning in the NRL Sunday Round 27 contest. The unique insights here can help you maximize points while adhering to the salary cap when you make your NRL DFS line-ups.\nFor the latest projections and optimised NRL Sunday line-ups, check out t",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 98.89763246666666,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1bebfa5e3227a81a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Live Blog Sunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory Presented by 3 mins ago",
+            "url": "https://www.nrl.com/news/2026/09/06/sunday-arvo-footy-dragons-v-eels-panthers-v-wests-tigers/",
+            "published_at": "2026-09-06T05:58:35+00:00",
+            "snippet": "Presented By\nSunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory\nThe final two games of the regular season hold plenty of interest with the minor premiership to be decided in the last game of the round.\nSunday's opening game however saw the Eels out to cont",
+            "body_excerpt": "Presented By\nSunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory\nThe final two games of the regular season hold plenty of interest with the minor premiership to be decided in the last game of the round.\nSunday's opening game however saw the Eels out to continue their late resurgence/\nIn the lead-up, the Eels had knocked off Wests Tigers, Cowboys and Sharks across the past five rounds and almost pulled off the biggest comeback in NRL history against Souths.\nThey headed to Wollongong to confront a Dragons team desperate to finish a horror season on a positive note before a host of key signings come on board in 2027.\nIn an entertaining and seesawing match, the home side prevailed, with departing Dragons Blake Lawrie and Tyrell Sloan amongst the try scorers - with Sloan slotting the winning two-point field goal to boot in the 24-22 win.\nThe final regular season fixture pits the Panthers against Wests Tigers, another team keen to put 2026 in the rearview mirror after being unable to carry the momentum of a 5-2 start to the season.\nA win by two points by the Panthers would see them clinch the minor premiership.\nFollow all the action from Round 27 of the NRL Telstra Premiership on NRL.com's live blog.\nPanthers v Wests Tigers at CommBank Stadium\nMatch: Panthers v Wests Tigers\nRound 27 - Round 27 - Sunday 6 Sep\nhome Team\nPanthers\n2nd Position\naway Team\nWests Tigers\n15th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nMatch preview\nPanthers v Wests Tigers: Round 27\nLate Mail\nPanthers: No late changes on game day. Skipper Isaah Yeo will come from the bench as he makes his return after three games out with a pectoral injury. Hooker Mitch Kenny will play just his seventh game of the season as he returns from a leg injury. In a special tribute to the late John Farragher OAM, was originally named in jersey No.23. The Panthers will wear a Special Event Jersey celebrating his lifelong impact on the Panthers community.\nWests Tigers: The Tigers are 1-19 with no late changes on game day. Latu Fainu joins the interchange for his first game since Round 20 after recovering from a hamstring injury while prop Vaka Aho will make his NRL debut off the bench. Sione Fainu comes into the team for Tony Sukkar (delayed concussion symptoms). Prop Terrell May lines up for his 100th NRL game.\nDragons v Eels at WIN Stadium\nMatch: Dragons v Eels\nDragons\n17th Position\nEels\n13th Position\nVenue: WIN Stadium, Wollongong\nFull-time: The Dragons come from behind with a massive 40-metre, two-point field goal from Tyrell Sloan getting the job done for a 24-22 win.\n78th min: Blake Lawrie is back on the field from the sin bin and into the action - effecting a one-one-one steal to keep the Dragons on the front foot.\n75th min: Next minute - Tyrell Sloan boots a huge two-point field, super nonchalant, for a 24-22 lead.\n74th min: A good set up, but a field goal attempt from Mitch Moses is rendered off target by some rushing Dragons defence.\n71st min - injury alert: Play stopped while medical staff tend to Jordan Samrani after a nasty head clash. He comes from the field.\n68th min: A massive collision and Blake Lawrie is sent to the sin bin for a shoulder charge on Dylan Walker. While not high, the match officials held concern for the level of force and he's off for 10.\n67th min: Back-to-back-to-back errors from the Eels are punished by the Dragons with youngster Connor Muhleisen over for a try in his second NRL game back from a long-term injury. Flanagan kicks the conversion - and once again this afternoon - scores are locked up. Teams are 22-22 with just over 12 minutes to play.\n57th min: A popular try scorer with the home fans, with Blake Lawrie charging over under the posts in his last game for the Red V. Flanagan converts to narrow the scores to 22-16 .\nBlake Lawrie Try\n50th min: The Eels are on the board first in the second half and centre Jordan Samrani is over for his second. Parramatta had been buildin",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.05457691111111111,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "592ab98e0607799e",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "LIVE NRL: Panthers' shot at minor premiership glory to close out stellar campaign",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/live-nrl-penrith-panthers-vs-wests-tigers-live-blog-scores-match-centre-videos-minor-premiership-nrl-ladder/news-story/765e705a563a0ca0bf6cbd5626059b55",
+            "published_at": "2026-09-06T01:28:00+00:00",
+            "snippet": "The Panthers have an opportunity to seize the minor premiership when they face the Tigers on Sunday afternoon. Coming into the final round of the season, the Warriors held a one-point advantage on differential and a field goal secured a 31-30 win for Andrew Webster's side over the Sea Eagles on Saturday.",
+            "body_excerpt": "LIVE NRL: Panthers’ shot at minor premiership glory to close out stellar campaign\nThe Panthers have an opportunity to seize the minor premiership when they face the Tigers on Sunday afternoon.\nComing into the final round of the season, the Warriors held a one-point advantage on differential and a field goal secured a 31-30 win for Andrew Webster’s side over the Sea Eagles on Saturday.\nTherefore, Ivan Cleary’s side only need to win by more than two points to secure the J. J. Giltinan Shield, an award the Panthers have won three times since the start of the 2020 season.\nMATCH CENTRE: Penrith Panthers vs Wests Tigers live scores, videos, teams\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nCatch all the action below in our live blog, if you can’t see it click here!",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 4.564299133333333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b12bd64da310792e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Joey: Jett Cleary’s Panthers deal spells trouble for out-of-favour star - nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-penrith-panthers-jett-cleary-ivan-nathan-blaize-talagi-jack-cole-cogger-andrew-johns-exclusive-20260904-p60umk.html",
+            "published_at": "2026-09-05T20:05:13+00:00",
+            "snippet": "Joey: Jett Cleary’s Panthers deal spells trouble for out-of-favour star &nbsp;&nbsp; nine.com.au",
+            "body_excerpt": "Rugby league Immortal Andrew Johns has questioned if out-of-favour Panthers playmaker Blaize Talagi has a future at the foot of the mountains, in light of Jett Cleary’s stellar NRL debut and Penrith’s other halves.\nThe Panthers must beat Wests Tigers by more than two points at CommBank Stadium on Sunday if they are to claim the minor premiership, after the Warriors edged the Sea Eagles 31-30 in an Auckland thriller on Saturday.\nNathan Cleary (left) and Blaize Talagi. NRL Imagery.\nIntriguingly, Panthers coach Ivan Cleary has again opted against using Talagi as the halves partner of his champion son Nathan , instead going for Jack Cole.\nCogger, who is unavailable for the final-round match because of a suspension, has been preferred over Talagi at five-eighth in other weeks.\nAnd Talagi’s mission to win back the No.6 jumper will become even harder when Jett Cleary crosses from the Warriors to the Panthers in the off-season, although Cole is off to the Bears.\nPenrith went all chips in on Talagi after the exit of Jarome Luai following the 2024 season, and the 21-year-old is contracted to the Panthers until the end of 2027, but his future at the premiership powerhouse is murky.\n“Moving forward, I don’t know if he’s got a future there at Penrith,” Johns said on Wide World of Sports’ Immortal Behaviour .\nRead more\nTurbo blunder duds Manly as field goal snatches victory for Warriors\n“Jett Cleary’s coming back, then you’ve got Jack Cole and Jack Cogger. So he’s gone down the pecking order. Interesting to see.\n“Big off-season for Blaize.”\nJett Cleary, who like Talagi is 21, had a magnificent NRL debut against the Knights in Auckland last week.\nLining up at halfback, the former Panthers junior set up three tries and kicked brilliantly to steer the Warriors to a 46-32 win.\nHis famous dad and brother, Ivan and Nathan, watched from the stands as he made his mark on the NRL stage.\nThere’s no doubting Talagi’s attacking spark, but Johns cast doubt over his defence.\nJett Cleary and his family after his brilliant NRL debut. Hannah Peters/Getty Images\n“Blaize early in the year, when Canterbury put a score on them [the Panthers], Jacob Preston terrorised them – terrorised Blaize and also Casey McLean, with that gap between them,” the legendary halfback said.\n“And I’ve sort of felt since then his confidence has been knocked around, but also he’s been targeted defensively. And if you show any weaknesses, teams just sit on it, so it’s an area of his game he’s got to improve, Blaize.\n“Ivan’s got a mentality of defence. Jack Cole’s a really good defender, Jack Cogger will come back in.\n“... They put him on late against the Chooks and he looked a bit all at sea, threw an intercept, and his confidence is down.”\nAs for Jett Cleary?\n“He’s good,” Johns said.\n“He’s a tough boy.”\nJoey: Jett Cleary’s Panthers deal spells trouble for out-of-favour star\nBroncos reject breaks record in ‘one of the best debuts ever seen’\n‘We’re not playing touch’: NRL’s rules cop heavy press conference criticism\nTV company apologises for jolting Arrow blunder",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 9.944021355555556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Panthers vs Wests Tigers NRL round 27 preview",
+          "Panthers Wests Tigers NRL odds OR price OR favourite",
+          "Panthers Wests Tigers NRL ladder stakes OR finals race",
+          "Panthers Wests Tigers NRL",
+          "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Wests Tigers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Panthers Wests Tigers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 27 Panthers OR Wests Tigers"
+        ],
+        "filter_summary": {
+          "dropped_stale": 53,
+          "dropped_wrong_round": 2,
+          "dropped_noise": 7,
+          "dropped_irrelevant": 32,
+          "kept": 19,
+          "deferred_pending_body": 52,
+          "promoted_after_body": 5,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "336adaa962b2",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-06T06:01:51.419474+00:00",
+      "finished_at": "2026-09-06T06:03:32.061086+00:00",
+      "duration_ms": 100641,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Wests Tigers",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-09-06T16:05:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.8159,
+        "home_win_probability": 0.8159,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Elo rating advantage (+253 points) — contribution 0.254 (17% of total)",
+            "Bradley-Terry strength advantage (+1.70 log-strength) — contribution 0.229 (15% of total)",
+            "Ladder points differential per game (+23.2 points) — contribution 0.161 (11% of total)",
+            "Pythagorean form (last 10) (+50% expected-win gap) — contribution 0.110 (7% of total)",
+            "5-game momentum: penalty gap seconds (-215.20) — contribution 0.098 (7% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: effective tackle pct (-0.57) — contribution 0.024 (2% of total)",
+            "Travel-distance advantage (-11 km for away) — contribution 0.022 (1% of total)",
+            "3-game form: kicking metres (+60.33) — contribution 0.020 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Home travel to venue (27 km) — contribution 0.018 (1% of total)",
+            "5-game form: missed tackles (+3.60) — contribution 0.017 (1% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.297,
+            "total_toward_away": 0.1841,
+            "net": 1.1129,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: kicking metres (+60.33)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Panthers",
+          "away_team": "Wests Tigers",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-09-06T16:05:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

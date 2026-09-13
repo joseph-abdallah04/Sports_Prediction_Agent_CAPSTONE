@@ -1,0 +1,1183 @@
+{
+  "schema_version": 2,
+  "run_id": "20260905T065410Z-4e6e3510",
+  "at_a_glance": {
+    "fixture": "Cowboys v Raiders",
+    "round": 27,
+    "kickoff": "2026-09-05T17:30:00+10:00",
+    "venue": "Queensland Country Bank Stadium",
+    "predicted_winner": "Cowboys",
+    "confidence": 0.56,
+    "model_home_win_probability": 0.6011,
+    "model_prediction": "Home Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-05T06:54:10.456710+00:00",
+  "updated_at": "2026-09-05T07:03:31.925120+00:00",
+  "request": {
+    "home_team": "Cowboys",
+    "away_team": "Raiders",
+    "season": null,
+    "round_number": 27,
+    "force_refresh": true,
+    "user_question": "Who wins Cowboys vs Raiders?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Cowboys",
+    "away_team": "Raiders",
+    "confidence": 0.56,
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Cowboys are missing key representative players Jeremiah Nanai and Griffin Neame, as well as Zac Laybutt due to concussion.",
+    "loss_reason_specific": true,
+    "summary": "The Cowboys are the mathematical and market favourites, holding a ladder advantage and a strong home record. However, research conflicts with this edge as they are missing significant talent in Jeremiah Nanai and Griffin Neame (per 'Before You Bet'). While the Raiders are coming off a bye and playing for retirement (Josh Papalii), they are also debuting a new halfback, Coby Black, which limits their upside.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model favours the Cowboys based on ladder points differential per game and a 20-point Elo rating advantage."
+      },
+      {
+        "source": "research",
+        "detail": "The Cowboys will be without Jeremiah Nanai (medial ligament) and Griffin Neame (rested/toe), according to 'Before You Bet' and 'nrl.com'."
+      },
+      {
+        "source": "scene",
+        "detail": "The Cowboys sit 8th on the ladder compared to the Raiders in 12th."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "items_mentioning_both_teams": 14,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 2
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 18
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 2
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Raiders NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Cowboys vs Raiders NRL round 27 preview",
+      "Cowboys Raiders NRL odds OR price OR favourite",
+      "Cowboys Raiders NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims regarding Nanai (medial ligament), Neame (toe/rest), Laybutt (concussion), Papalii (retirement), and Black (debut) are all found in the body excerpts of 'Before You Bet', 'nrl_news', and 'raiders.com.au'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Research states Nanai, Neame, and Laybutt are missing; judgement correctly describes them as missing."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Ladder points differential and Elo rating advantage are correctly attributed to the Cowboys from the 'favouring_Cowboys_home_win' group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from 'Before You Bet' and 'nrl.com'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence was reduced from the math prior of 0.60 to 0.56 based on research 'conflicts' regarding missing players."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP factors are treated as decisive over the primary drivers."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "The material driver 'Pythagorean form (last 10)' (10% of total) is not mentioned or alluded to in the judgement."
+        }
+      ],
+      "issues": [
+        "Material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+      ],
+      "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output."
+    },
+    "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Cowboys",
+      "away_team": "Raiders",
+      "confidence": 0.56,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The Cowboys are missing key representative players Jeremiah Nanai and Griffin Neame, as well as Zac Laybutt due to concussion.",
+      "loss_reason_specific": true,
+      "summary": "The Cowboys are the mathematical and market favourites, holding a ladder advantage and a strong home record. However, research conflicts with this edge as they are missing significant talent in Jeremiah Nanai and Griffin Neame (per 'Before You Bet'). While the Raiders are coming off a bye and playing for retirement (Josh Papalii), they are also debuting a new halfback, Coby Black, which limits their upside.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model favours the Cowboys based on ladder points differential per game and a 20-point Elo rating advantage."
+        },
+        {
+          "source": "research",
+          "detail": "The Cowboys will be without Jeremiah Nanai (medial ligament) and Griffin Neame (rested/toe), according to 'Before You Bet' and 'nrl.com'."
+        },
+        {
+          "source": "scene",
+          "detail": "The Cowboys sit 8th on the ladder compared to the Raiders in 12th."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-05T06:54:47.064831+00:00",
+      "thinking": "*   Home Team: Cowboys\n    *   Away Team: Raiders\n    *   Round Number: 27\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Cowboys).\n    *   Query 2: Away team availability (Raiders).\n    *   Query 3: Fixture preview (Cowboys vs Raiders Round 27).\n    *   Query 4: Market prices (Odds/Favorite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure).\n\n    *   Query 1: `Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Query 2: `Raiders NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Query 3: `Cowboys vs Raiders NRL round 27 preview`\n    *   Query 4: `Cowboys Raiders NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 27 (very late in the season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Cowboys Raiders NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames used? Yes.\n    *   JSON format? Yes.",
+      "chars": 1077
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-05T07:00:30.919896+00:00",
+      "thinking": "*   Home Team: Cowboys\n    *   Away Team: Raiders\n    *   Venue: Queensland Country Bank Stadium\n    *   Math Prediction: Home Win (Probability: 0.6011)\n    *   Standings: Cowboys (8th, 13-10), Raiders (12th, 10-13). Gap of 4 positions.\n    *   SHAP Drivers:\n        *   Favouring Cowboys: Ladder points diff per game (11%), Elo rating (6%), H2H margin (6%), H2H record (5%), 3-game form errors (5% - CONFLICT).\n        *   Favouring Raiders: Pythagorean form (10%), Rest-day advantage (7%), Away rest (4%), 5-game completion rate (3%), 5-game missed tackles (2%).\n    *   Market: Cowboys are favourites (one source says $1.55).\n\n    *   Cowboys:\n        *   Secured finals berth (8th).\n        *   Missing: Jeremiah Nanai (medial ligament), Griffin Neame (rested/toe), Zac Laybutt (concussion).\n        *   Returning/Starting: Tom Dearden (returned last week), John Bateman (first start of 2026), Robert Derby (recall).\n    *   Raiders:\n        *   Eliminated from finals.\n        *   Josh Papalii playing his final match (retirement).\n        *   Debuts: Coby Black (halfback), Malachi Smith (bench).\n        *   Coming off a bye (Round 26).\n\n    *   Math prior: 0.6011 (Home Win).\n    *   Research:\n        *   Cowboys are missing key players (Nanai, Neame, Laybutt). This is a negative for the home side.\n        *   Raiders are playing for pride/retirement (Papalii) and coming off a bye.\n        *   Cowboys have already secured finals, which might reduce motivation (though they want improvement).\n        *   Raiders are debuting players (Black, Smith), which suggests a transition/experimental phase rather than a full-strength attack.\n    *   Stance: The research shows the Cowboys are missing significant talent (Nanai, Neame), which *conflicts* with the math's strong home lean (though they are still the better team on paper). However, the Raiders are also debuting players and are out of finals contention.\n    *   Wait, let's re-evaluate `research_stance`.\n        *   `confirms`: Named team news backs the pick.\n        *   `conflicts`: Named team news cuts against the math favourite.\n        *   The Cowboys (math favourite) are missing Nanai, Neame, and Laybutt. This is a concrete reason the Cowboys could be weaker than the model's prior. This is a `conflicts` stance.\n\n    *   Winner: Home (Cowboys). Despite missing players, the Raiders are debuting a halfback and are out of finals. The math prior is 0.60.\n    *   Confidence: The math prior is 0.60. Research shows the Cowboys are missing key players (Nanai, Neame), which is a significant blow. This should lower the confidence from the prior.\n    *   Confidence Band: 0.55-0.65 is the modest edge. Since research conflicts (missing stars), I must come down from the prior (0.60). I'll set it at 0.56.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Cowboys\"\n    *   `away_team`: \"Raiders\"\n    *   `confidence`: 0.56\n    *   `research_stance`: \"conflicts\"\n    *   `strongest_reason_could_lose`: \"The Cowboys are missing key representative players Jeremiah Nanai and Griffin Neame, while Zac Laybutt is out with concussion.\"\n    *   `loss_reason_specific`: true\n    *   `summary`: \"The Cowboys enter as favourites with a math prior of 0.60 and a ladder advantage. However, research indicates they are missing key players Jeremiah Nanai and Griffin Neame, which reduces their edge. The Raiders are coming off a bye and playing for retirement (Josh Papalii), but are debuting a new halfback (Coby Black).\"\n    *   `key_factors`:\n        *   Math: Ladder points differential and Elo rating advantage.\n        *   Research: Absence of Jeremiah Nanai and Griffin Neame (from \"Before You Bet\" / \"nrl.com\").\n    *   `disagreements_with_math`: \"null\" (I'm picking with the math, just lowering confidence).\n\n    *   Did I invent stats? No.\n    *   Did I use research? Yes (Nanai/Neame absences).\n    *   Did I quote/name the article? Yes.\n    *   Did I handle SHAP correctly? Yes (didn't overstate the conflicted error driver).\n    *   Did I handle the market? Yes (acknowledged Cowboys as favourites).\n    *   Did I handle the confidence band? Prior was 0.60, research conflicts, so I moved down to 0.56.\n    *   Did I use weather? No.\n    *   Did I use `standings`? Yes (Cowboys 8th, Raiders 12th).",
+      "chars": 4266
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-05T07:03:31.923999+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all injuries, players, quotes, team-lists, and prices sourced from the research body excerpts?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right team?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.56) justified based on the math prior (0.6011) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Cowboys\n- Away: Raiders\n- Math Prior (home_win_probability): 0.6011\n- Final Confidence: 0.56\n- Research Stance: conflicts\n- Winner: home\n\n- \"Jeremiah Nanai and Griffin Neame, as well as Zac Laybutt due to concussion\" (Strongest reason could lose)\n- \"Jeremiah Nanai and Griffin Neame (per 'Before You Bet')\" (Summary)\n- \"Josh Papalii\" (Summary)\n- \"Coby Black\" (Summary)\n- \"Jeremiah Nanai (medial ligament) and Griffin Neame (rested/toe), according to 'Before You Bet' and 'nrl.com'\" (Key Factors)\n\n- \"Before You Bet\" body: \"The Cowboys are without Jeremiah Nanai, Griffin Neame and Zac Laybutt. Nanai has a medial ligament issue, Neame is being rested after battling turf toe... and Laybutt is in concussion protocols.\" -> Matches.\n- \"nrl_news\" (Match Preview Cowboys v Raiders): \"Neame, Nanai sidelined\". -> Matches.\n- \"raiders.com.au\" (NRL Team List): \"Josh Papalii will play his final match\", \"Coby Black (halfback)... named to make their NRL debuts\". -> Matches.\n- \"sportsnews.com.au\" price_quote: \"tipping North Queensland Cowboys to win at $1.55 odds\". (Not explicitly mentioned in summary, but \"market favourites\" is mentioned).\n\n- Nanai, Neame, Laybutt are missing. Judgement says they are missing. -> Pass.\n\n- Judgement mentions \"ladder points differential per game\" and \"20-point Elo rating advantage\".\n- SHAP drivers:\n    - `favouring_Cowboys_home_win`: \"Ladder points differential per game (+0.0 points)\", \"Elo rating advantage (+20 points)\".\n- Attribution: Both are in the `favouring_Cowboys_home_win` group and attributed to Cowboys. -> Pass.\n\n- Weather is \"Fine\". Not mentioned as a key factor. -> Pass.\n\n- Key factor 2 is sourced from research ('Before You Bet' and 'nrl.com'). -> Pass.\n\n- Math prior: 0.6011.\n- Final confidence: 0.56.\n- Research stance: \"conflicts\" (missing key players).\n- The confidence decreased from 0.60 to 0.56 due to the \"conflicts\" (missing players). This is a standard research adjustment. -> Pass.\n\n- Top drivers are Ladder points diff (11%) and Pythagorean form (10%).\n- Judgement focuses on Ladder points diff and Elo (6%).\n- It doesn't overstate the Elo driver as the *only* reason, but uses it as part of the math edge. -> Pass.\n\n- Material drivers (>= 8%):\n    1. \"Ladder points differential per game (+0.0 points)\" (11%) - Mentioned in key factors.\n    2. \"Pythagorean form (last 10) (-26% expected-win gap)\" (10%) - NOT mentioned in summary or key factors.\n- Failure: \"Pythagorean form (last 10)\" is a material driver (10%) and is not addressed.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. \"Pythagorean form (last 10)\" is missing.\n\n- `instruction`: \"Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output.\"",
+      "chars": 3713
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-05T06:54:47.074236+00:00",
+      "payload": {
+        "queries": [
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Cowboys vs Raiders NRL round 27 preview",
+          "Cowboys Raiders NRL odds OR price OR favourite",
+          "Cowboys Raiders NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-05T07:00:30.920129+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Cowboys",
+          "away_team": "Raiders",
+          "confidence": 0.56,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Cowboys are missing key representative players Jeremiah Nanai and Griffin Neame, as well as Zac Laybutt due to concussion.",
+          "loss_reason_specific": true,
+          "summary": "The Cowboys are the mathematical and market favourites, holding a ladder advantage and a strong home record. However, research conflicts with this edge as they are missing significant talent in Jeremiah Nanai and Griffin Neame (per 'Before You Bet'). While the Raiders are coming off a bye and playing for retirement (Josh Papalii), they are also debuting a new halfback, Coby Black, which limits their upside.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours the Cowboys based on ladder points differential per game and a 20-point Elo rating advantage."
+            },
+            {
+              "source": "research",
+              "detail": "The Cowboys will be without Jeremiah Nanai (medial ligament) and Griffin Neame (rested/toe), according to 'Before You Bet' and 'nrl.com'."
+            },
+            {
+              "source": "scene",
+              "detail": "The Cowboys sit 8th on the ladder compared to the Raiders in 12th."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-05T07:03:31.924774+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims regarding Nanai (medial ligament), Neame (toe/rest), Laybutt (concussion), Papalii (retirement), and Black (debut) are all found in the body excerpts of 'Before You Bet', 'nrl_news', and 'raiders.com.au'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Research states Nanai, Neame, and Laybutt are missing; judgement correctly describes them as missing."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Ladder points differential and Elo rating advantage are correctly attributed to the Cowboys from the 'favouring_Cowboys_home_win' group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from 'Before You Bet' and 'nrl.com'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence was reduced from the math prior of 0.60 to 0.56 based on research 'conflicts' regarding missing players."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP factors are treated as decisive over the primary drivers."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "The material driver 'Pythagorean form (last 10)' (10% of total) is not mentioned or alluded to in the judgement."
+            }
+          ],
+          "issues": [
+            "Material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+          ],
+          "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "d8a8ba7bda93",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-05T06:54:10.456880+00:00",
+      "finished_at": "2026-09-05T06:54:13.891188+00:00",
+      "duration_ms": 3434,
+      "request": {
+        "home_team": "Cowboys",
+        "away_team": "Raiders",
+        "season": null,
+        "round_number": 27,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Cowboys",
+          "away_team": "Raiders",
+          "season": null,
+          "round_number": 27
+        },
+        "retrieved_at": "2026-09-05T06:54:10.456978+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 27,
+          "round_title": "Round 27",
+          "home_team": "Cowboys",
+          "away_team": "Raiders",
+          "kickoff": "2026-09-05T17:30:00+10:00",
+          "venue": "Queensland Country Bank Stadium",
+          "venue_city": "Townsville",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/cowboys-v-raiders/",
+          "match_mode": "Pre",
+          "match_id": "20261112750",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Senior Review Official",
+              "name": "Ashley Klein"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Scott Drinkwater",
+                "position": "Fullback",
+                "player_id": 504087
+              },
+              {
+                "number": 2,
+                "name": "Braidon Burns",
+                "position": "Winger",
+                "player_id": 506040
+              },
+              {
+                "number": 3,
+                "name": "Jaxon Purdue",
+                "position": "Centre",
+                "player_id": 100008940
+              },
+              {
+                "number": 4,
+                "name": "Tom Chester",
+                "position": "Centre",
+                "player_id": 100004781
+              },
+              {
+                "number": 5,
+                "name": "Robert Derby",
+                "position": "Winger",
+                "player_id": 100007686
+              },
+              {
+                "number": 6,
+                "name": "Jake Clifford",
+                "position": "Five-Eighth",
+                "player_id": 505894
+              },
+              {
+                "number": 7,
+                "name": "Tom Dearden",
+                "position": "Halfback",
+                "player_id": 506424
+              },
+              {
+                "number": 8,
+                "name": "Coen Hess",
+                "position": "Prop",
+                "player_id": 500405
+              },
+              {
+                "number": 9,
+                "name": "Reed Mahoney",
+                "position": "Hooker",
+                "player_id": 505460
+              },
+              {
+                "number": 10,
+                "name": "Jason Taumalolo",
+                "position": "Prop",
+                "player_id": 500301
+              },
+              {
+                "number": 11,
+                "name": "Heilum Luki",
+                "position": "2nd Row",
+                "player_id": 100001946
+              },
+              {
+                "number": 12,
+                "name": "John Bateman",
+                "position": "2nd Row",
+                "player_id": 502214
+              },
+              {
+                "number": 13,
+                "name": "Reuben Cotter",
+                "position": "Lock",
+                "player_id": 504374
+              },
+              {
+                "number": 14,
+                "name": "Soni Luke",
+                "position": "Interchange",
+                "player_id": 502756
+              },
+              {
+                "number": 15,
+                "name": "Sam McIntyre",
+                "position": "Interchange",
+                "player_id": 504065
+              },
+              {
+                "number": 16,
+                "name": "Thomas Mikaele",
+                "position": "Interchange",
+                "player_id": 504377
+              },
+              {
+                "number": 17,
+                "name": "Kaiden Lahrs",
+                "position": "Interchange",
+                "player_id": 100012039
+              },
+              {
+                "number": 18,
+                "name": "Kai O'Donnell",
+                "position": "Interchange",
+                "player_id": 506555
+              },
+              {
+                "number": 19,
+                "name": "Ethan King",
+                "position": "Interchange",
+                "player_id": 100010520
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kaeo Weekes",
+                "position": "Fullback",
+                "player_id": 507846
+              },
+              {
+                "number": 2,
+                "name": "Jed Stuart",
+                "position": "Winger",
+                "player_id": 100012912
+              },
+              {
+                "number": 3,
+                "name": "Simi Sasagi",
+                "position": "Centre",
+                "player_id": 100000129
+              },
+              {
+                "number": 4,
+                "name": "Matthew Timoko",
+                "position": "Centre",
+                "player_id": 509757
+              },
+              {
+                "number": 5,
+                "name": "Xavier Savage",
+                "position": "Winger",
+                "player_id": 510220
+              },
+              {
+                "number": 6,
+                "name": "Ethan Strange",
+                "position": "Five-Eighth",
+                "player_id": 100006524
+              },
+              {
+                "number": 7,
+                "name": "Coby Black",
+                "position": "Halfback",
+                "player_id": 100011844
+              },
+              {
+                "number": 8,
+                "name": "Josh Papalii",
+                "position": "Prop",
+                "player_id": 500973
+              },
+              {
+                "number": 9,
+                "name": "Owen Pattie",
+                "position": "Hooker",
+                "player_id": 100009202
+              },
+              {
+                "number": 10,
+                "name": "Joseph Tapine",
+                "position": "Prop",
+                "player_id": 500555
+              },
+              {
+                "number": 11,
+                "name": "Noah Martin",
+                "position": "2nd Row",
+                "player_id": 100006323
+              },
+              {
+                "number": 12,
+                "name": "Matty Nicholson",
+                "position": "2nd Row",
+                "player_id": 100010807
+              },
+              {
+                "number": 13,
+                "name": "Ata Mariota",
+                "position": "Lock",
+                "player_id": 100004109
+              },
+              {
+                "number": 14,
+                "name": "Malachi Smith",
+                "position": "Interchange",
+                "player_id": 100008549
+              },
+              {
+                "number": 15,
+                "name": "Joe Roddy",
+                "position": "Interchange",
+                "player_id": 100006817
+              },
+              {
+                "number": 16,
+                "name": "Morgan Smithies",
+                "position": "Interchange",
+                "player_id": 100006166
+              },
+              {
+                "number": 17,
+                "name": "Vena Patuki-Case",
+                "position": "Interchange",
+                "player_id": 100006509
+              },
+              {
+                "number": 18,
+                "name": "Tom Starling",
+                "position": "Interchange",
+                "player_id": 504072
+              },
+              {
+                "number": 19,
+                "name": "Daine Laurie",
+                "position": "Interchange",
+                "player_id": 507645
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 27,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Cowboys",
+            "position": 8,
+            "played": 23,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 32,
+            "points_for": 538,
+            "points_against": 602,
+            "points_difference": -64,
+            "points_difference_per_game": -2.78,
+            "recent_form_last_4": "2 - 2",
+            "streak": "1W",
+            "home_record": "7 - 4",
+            "away_record": "6 - 6"
+          },
+          "away": {
+            "team": "Raiders",
+            "position": 12,
+            "played": 23,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 13,
+            "competition_points": 26,
+            "points_for": 531,
+            "points_against": 596,
+            "points_difference": -65,
+            "points_difference_per_game": -2.83,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1L",
+            "home_record": "5 - 7",
+            "away_record": "5 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Cowboys",
+            "ladder_positions_gap": 4,
+            "points_difference_per_game_gap": 0.05,
+            "points_difference_favours": "Cowboys"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-05T17:00",
+            "temperature_c": 23.3,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 10.3,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -19.316,
+            "longitude": 146.762,
+            "venue": "Queensland Country Bank Stadium",
+            "venue_city": "Townsville"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-19.316&longitude=146.762&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-05T06:54:13.887764+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=27&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/cowboys-v-raiders/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-19.316&longitude=146.762&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "1c1cff398600",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-05T06:54:47.088805+00:00",
+      "finished_at": "2026-09-05T06:56:46.539717+00:00",
+      "duration_ms": 119450,
+      "request": {
+        "home_team": "Cowboys",
+        "away_team": "Raiders",
+        "kickoff": "2026-09-05T17:30:00+10:00",
+        "round_number": 27,
+        "venue": "Queensland Country Bank Stadium",
+        "queries": [
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Cowboys vs Raiders NRL round 27 preview",
+          "Cowboys Raiders NRL odds OR price OR favourite",
+          "Cowboys Raiders NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Cowboys",
+          "away_team": "Raiders",
+          "kickoff": "2026-09-05T17:30:00+10:00",
+          "round_number": 27,
+          "venue": "Queensland Country Bank Stadium",
+          "queries": [
+            "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Raiders NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Cowboys vs Raiders NRL round 27 preview",
+            "Cowboys Raiders NRL odds OR price OR favourite",
+            "Cowboys Raiders NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-05T06:54:47.112194+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 18
+          }
+        },
+        "items": [
+          {
+            "id": "0f75680b95fe1597",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 27 - Yeo on track to return Presented by 45 mins ago",
+            "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/",
+            "published_at": "2026-09-05T06:09:19+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 27 - Yeo on track to return\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost fo",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 27 - Yeo on track to return\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost for Penrith.\nThe Sharks have chosen to rest a number of their stars from the game against Melbourne with Nicho Hynes , Blayke Brailey and Teig Wilton getting a break.\nSee all the late mail, official team news and updates for Round 27 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 27\nCowboys v Raiders, Saturday 5.30pm at Queensland Country Bank Stadium\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMorgan Smithies\nNoah Martin\nCowboys Outs\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nCorey Horsburgh\nEthan Sanders\nSavelio Tamale\nZac Hosking\nMatch Officials\nSenior Review Official: Ashley Klein\nLast updated: 9/5/2026 5:58:02 AM\nCowboys: The Cowboys will run out 1-19 as named on Tuesday. Earlier in the week, coach Todd Payten revealed that prop Griffin Neame has been playing with turf toe since Round 2 and that's affecting other parts of his body, so the call was made to give him a rest. Jeremiah Nanai has tweaked his medial ligament and will also take a break, but Payten said his star back-rower should be fine for next week. Robert Derby's experience got him the nod over Ronald Philitoga in the battle for the wing spot vacated by Zac Laybutt (concussion).\nRaiders: Two-time Maroons Under 19s halfback Coby Black has been confirmed to make his first NRL start, with hooker Malachi Smith hoping to the same off the bench as the Raiders go into their clash 1-19 as named on Tuesday. Back-rower Noah Martin returns from a quad injury and fills the void left by Zac Hosking (hamstring). Prop Corey Horsburgh is done for the year after undergoing shoulder surgery.\nSharks v Storm, Saturday 7.35pm at Ocean Protect Stadium",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.7578089427777778,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c4b259985324b517",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Final Cowboys NRL team list: Round 27 v Raiders - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/09/05/upda-ted-cowboys-nrl-team-list-round-27-v-raiders-griff-miah-out22/",
+            "published_at": "2026-09-05T06:00:00+00:00",
+            "snippet": "Final Cowboys NRL team list: Round 27 v Raiders &nbsp;&nbsp; North Queensland Cowboys",
+            "body_excerpt": "Final Cowboys NRL team list: Round 27 v Raiders\nNorth Queensland Toyota Cowboys NRL Head Coach Todd Payten has finalised his team for tonight's clash with the Canberra Raiders.\nThe side is 1-19 as named on Tuesday, with Liam Sutton the final player to drop out of the squad.\nSaturday’s game kicks off at 5.30pm.\nCowboys team to play Raiders:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Jaxon Purdue\n4. Tom Chester\n5. Robert Derby\n6. Jake Clifford\n7. Tom Dearden (c)\n8. Coen Hess\n9. Reed Mahoney\n10. Jason Taumalolo\n11. Heilum Luki\n12. John Bateman\n13. Reuben Cotter (c)\nInterchange\n14. Soni Luke\n15. Sam McIntyre\n16. Tom Mikaele\n17. Kaiden Lahrs\n18. Kai O’Donnell\n19. Ethan King\nRelated /\nCowboys NRL team list: Round 27 v Raiders\nTeam Lists\nCowboys NRLW team list: Round 10 v Roosters\nFinal Cowboys NRLW team list: Round 9 v Knights\nUpdated Cowboys NRL team list: Round 26 v Tigers\nUpdated Cowboys NRLW team list: Round 9 v Knights",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.9130867205555555,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "aa87d04119641a19",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cowboys NRL team list: Round 27 v Raiders - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/09/01/cowboys-nrl-team-list-round-27-v-raiders-griff-miah-out/",
+            "published_at": "2026-09-01T05:58:00+00:00",
+            "snippet": "Cowboys NRL team list: Round 27 v Raiders\nNorth Queensland Toyota Cowboys representative duo Griffin Neame and Jeremiah Nanai will miss Saturday’s regular season finale against the Canberra Raiders at Queensland Country Bank Stadium.\nNeame has been rested due to a lingering toe i",
+            "body_excerpt": "Cowboys NRL team list: Round 27 v Raiders\nNorth Queensland Toyota Cowboys representative duo Griffin Neame and Jeremiah Nanai will miss Saturday’s regular season finale against the Canberra Raiders at Queensland Country Bank Stadium.\nNeame has been rested due to a lingering toe injury, while Nanai sustained a minor knee injury during the win over the Wests Tigers.\nBoth players are expected to be fit for the opening week of the finals.\nCoen Hess starts in the front row, while John Bateman will make his first start of the 2026 season in the second row.\nRobert Derby has been named on the wing, with Zac Laybutt ruled out due to concussion.\nSaturday’s game kicks off at 5.30pm.\nCowboys team to play Raiders:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Jaxon Purdue\n4. Tom Chester\n5. Robert Derby\n6. Jake Clifford\n7. Tom Dearden (c)\n8. Coen Hess\n9. Reed Mahoney\n10. Jason Taumalolo\n11. Heilum Luki\n12. John Bateman\n13. Reuben Cotter (c)\nInterchange\n14. Soni Luke\n15. Sam McIntyre\n16. Tom Mikaele\n17. Kaiden Lahrs\n18. Kai O’Donnell\n19. Ethan King\n20. Mason Kira\n21. Ronald Philitoga\n22. Liam Sutton\nRelated /\nFinal Cowboys NRL team list: Round 27 v Raiders\nTeam Lists\nCowboys NRLW team list: Round 10 v Roosters\nFinal Cowboys NRLW team list: Round 9 v Knights\nUpdated Cowboys NRL team list: Round 26 v Tigers\nUpdated Cowboys NRLW team list: Round 9 v Knights",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 96.94642005388889,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c9fb497ca0a19d5a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "North Queensland Cowboys vs Canberra Raiders Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/north-queensland-cowboys-vs-canberra-raiders-tips-odds-teams-predictions-nrl-round-27-2026/610130",
+            "published_at": "2026-09-02T04:12:12+00:00",
+            "snippet": "North Queensland Cowboys vs Canberra Raiders Tips, Odds, Teams & Predictions – NRL Round 27 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Queensland Country Bank Stadium will play host to Saturday's Round 27 NRL game between North Queensland Cowboys and Canberra Raiders. The game kicks off at 5:30 pm with North Queensland Cowboys heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the North Queensland Cowboys vs. Canberra Raiders game and give you our free tips and bets.\nWhen: Saturday September 5, 2026 at 5:30 pm\nWhere: Queensland Country Bank Stadium\nBet 💰: Bet On This Match HERE\nNorth Queensland Cowboys vs Canberra Raiders Odds\nNorth Queensland Cowboys vs Canberra Raiders Preview\nNorth Queensland hosts Canberra after securing its finals place, but both coaches have used the final round to adjust their line-ups. Robert Derby replaces the concussed Zac Laybutt on the Cowboys’ wing, while Coen Hess and John Bateman move into the starting pack as Griffin Neame and Jeremiah Nanai are rested. Canberra gives Coby Black and Malachi Smith their NRL debuts, restores Morgan Smithies after concussion and welcomes Noah Martin back from a quad injury. The afternoon will also carry particular significance for Josh Papali’i, who is set to make his 342nd and final Raiders appearance. Canberra’s youthful changes add enthusiasm but also uncertainty in key organising roles. With Scott Drinkwater and Tom Dearden directing a settled spine, the Cowboys should be better placed to control field position in Townsville.\nHead To Head Bet\nWe're tipping North Queensland Cowboys to win at $1.55 odds.\nFirst Try Scorer\nFirst Try Scorer: Braidon Burns at $8.25 .\nNorth Queensland Cowboys vs Canberra Raiders Teams\nCowboys team: 1. Scott Drinkwater 2. Braidon Burns 3. Jaxon Purdue 4. Tomas Chester 5. Robert Derby 6. Jake Clifford 7. Tom Dearden 8. Coen Hess 9. Reed Mahoney 10. Jason Taumalolo 11. Heilum Luki 12. John Bateman 13. Reuben Cotter 14. Soni Luke 15. Sam McIntyre 16. Thomas Mikaele 17. Kaiden Lahrs 18. Kai O’Donnell 19. Ethan King 20. Mason Kira 21. Ronald Philitoga 22. Liam Sutton\nRaiders team: 1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Coby Black 8. Josh Papali’i 9. Owen Pattie 10. Joseph Tapine 11. Noah Martin 12. Matt Nicholson 13. Ata Mariota 14. Malachi Smith 15. Joseph Roddy 16. Morgan Smithies 17. Vena Patuki-Case 18. Tom Starling 19. Daine Laurie 20. Ethan Sanders 21. Mark Tuialii 22. Jesse Milin",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 74.70975338722222,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "cee06295e15ac7c0",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Cowboys v Raiders: Neame, Nanai sidelined; Black set for NRL debut Presented by 50 mins ago",
+            "url": "https://www.nrl.com/news/2026/09/01/cowboys-v-raiders-derby-earns-recall-black-set-for-nrl-debut/",
+            "published_at": "2026-09-05T06:04:34+00:00",
+            "snippet": "Presented By\nCowboys v Raiders: Neame, Nanai sidelined; Black set for NRL debut\nAlthough a finals berth has been secured, the Cowboys will be eyeing plenty of improvement when they take on the Raiders in their final game.\nLast week, North Queensland did just enough at home to dow",
+            "body_excerpt": "Presented By\nCowboys v Raiders: Neame, Nanai sidelined; Black set for NRL debut\nAlthough a finals berth has been secured, the Cowboys will be eyeing plenty of improvement when they take on the Raiders in their final game.\nLast week, North Queensland did just enough at home to down Wests Tigers, with Canberra no doubt keen to end their season on a high with an upset win to close out their disappointing season.\nCowboys skipper and halfback Tom Dearden marked a successful return from injury in the win and will been keen to build on that performance, with coach Todd Payten looking for improvements across the board.\nFor Canberra, the side will be looking to farewell some of their stalwarts with a strong performance, with spiritual leader Josh Papalii retiring at the end of the season, while others like Morgan Smithies (Perth Bears) are heading to other clubs.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\n8th Position\naway Team\nRaiders\n12th Position\nVenue: Queensland Country Bank Stadium, Townsville\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nCowboys: The Cowboys will run out 1-19 as named on Tuesday. Earlier in the week, coach Todd Payten revealed that prop Griffin Neame has been playing with turf toe since Round 2 and that's affecting other parts of his body, so the call was made to give him a rest. Jeremiah Nanai has tweaked his medial ligament and will also take a break, but Payten said his star back-rower should be fine for next week. Robert Derby's experience got him the nod over Ronald Philitoga in the battle for the wing spot vacated by Zac Laybutt (concussion).\nRaiders: Two-time Maroons Under 19s halfback Coby Black has been confirmed to make his first NRL start, with hooker Malachi Smith hoping to the same off the bench as the Raiders go into their clash 1-19 as named on Tuesday. Back-rower Noah Martin returns from a quad injury and fills the void left by Zac Hosking (hamstring). Prop Corey Horsburgh is done for the year after undergoing shoulder surgery.\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMo",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.8369756094444444,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "177c5a9d7e801167",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cowboys vs Raiders Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/cowboys-vs-raiders-preview-betting-tips-nrl-round-27-2026",
+            "published_at": "2026-09-04T11:30:58+00:00",
+            "snippet": "Cowboys vs Raiders Preview & Betting Tips: NRL Round 27 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Cowboys vs Raiders Preview & Betting Tips: NRL Round 27 2026\nSeptember 4 th 2026, 6:54pm , By: Ben Bridge\nSaturday evening in Townsville gives us an interesting betting scenario where the home favourite has already achieved its primary objective.\nNorth Queensland’s 24-10 victory over Wests Tigers secured eighth position and locked the Cowboys into the finals. Canberra, meanwhile, were eliminated during Round 25 and had the bye last weekend. Neither side therefore enters with conventional must win motivation. That makes the team lists particularly important.\nThe Cowboys are without Jeremiah Nanai, Griffin Neame and Zac Laybutt. Nanai has a medial ligament issue, Neame is being rested after battling turf toe for much of the season and Laybutt is in concussion protocols. Robert Derby comes onto the wing, while Coen Hess and John Bateman move into the starting pack.\nCanberra is not at full strength either. Ethan Sanders is being rested after playing all 23 games this season, with highly rated youngster Coby Black making his NRL debut at halfback. Zac Hosking and Corey Horsburgh are also out, but Morgan Smithies returns, and the Raiders retain Kaeo Weekes, Ethan Strange, Matt Timoko, Xavier Savage, Josh Papalii and Joseph Tapine.\nAt Raiders +6.5, I think the market has gone too far. My ratings have this much closer to a pick em’. Let's break it all down.\nIf you're looking for somewhere new to bet on the NRL, then help support our site by clicking on the banner below to join BetRaven ! They are a brand new site with some exciting features. Find out more in our BetRaven review .\nCowboys vs Raiders Prediction & Tips: 2026 NRL Round 27\nCowboys Do Enough to Lock Away Finals\nNorth Queensland’s 24-10 victory over the Tigers was far from spectacular, but it delivered exactly what Todd Payten needed: a guaranteed finals berth.\nThe Tigers threatened to produce another upset after their remarkable win over the Roosters, but North Queensland stayed patient and eventually pulled away late. Tom Chester scored the sealing try in the 77th minute as the Cowboys booked their third finals appearance in six seasons.\nTom Dearden’s return was a major positive. The Cowboys captain had missed four matches with an ankle injury and immediately restored some stability to a spine that had been shuffled repeatedly in his absence.\nNorth Queensland were still not particularly convincing, which matters when assessing a spread above a converted try.\nThis team currently sits eighth with a poor points differential, and there is little realistic opportunity to dramatically change its finals seeding. The priority is arriving at next weekend healthy rather than trying to put 40 on Canberra. That attitude is already visible in selection.\nNeame has been carrying turf toe since Round 2 and will finally receive a rest, while Nanai will be protected after tweaking his medial ligament. Laybutt’s concussion forces a further backline change.\nThere is still enormous experience in the side. Scott Drinkwater, Dearden and Jake Clifford control the spine, while Jason Taumalolo, Reuben Cotter, Reed Mahoney and Heilum Luki headline the pack. That should be enough to win.\nIt does not necessarily mean they win comfortably.\nRaiders Fresh After Bye\nCanberra have had a fortnight to think about their extraordinary 34-30 loss to Brisbane, which ended their already faint finals hopes.\nThe Raiders led 30-16 with 20 minutes remaining in Josh Papalii’s final home match before conceding three late tries and somehow losing. It was one of the most painful defeats of their season and a fitting example of why a side that competed well for long stretches ultimately missed September.\nPapalii now plays the final game of his NRL career in Townsville. That should provide Canberra with some motivation despite their season being over.\nThe loss of Sanders creates uncertainty. He has played every match this season and developed a strong partnership with Ethan Strange, so asking Coby Black to debut at Queensl",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.396975609444446,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4d0ae2cb5f31382d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026. Confirmed lineups, results for Round 27 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69",
+            "published_at": "2026-09-04T05:28:00+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026. Confirmed lineups, results for Round 27\nPeter Maniaty\nGetty Images\nThe final round of the 2026 regular season has arrived and the all-imp",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026. Confirmed lineups, results for Round 27\nPeter Maniaty\nGetty Images\nThe final round of the 2026 regular season has arrived and the all-important order of the top eight is set to be decided along with the minor premiership.\nTwo teams that won't play finals kicked things off on Thursday night with the Broncos beating the Bulldogs 34-20.\nFriday night saw the Dolphins beat the Titans 24-20 before the Rabbitohs blitzed an understrength Roosters 50-20 at Allianz Stadium.\nThe Warriors host the Sea Eagles on Saturday afternoon with the 2026 minor premiership almost within reach, before the Panthers and Tigers close out the regular season on Sunday.\nThe Knights have the final round bye while a swathe of stars are set to be rested ahead of the finals.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 27\nNew Zealand Warriors vs. Manly Sea Eagles\n(Saturday, September 5 at Go Media Stadium , 3:00pm AEST)\nWarriors team:\n18. Taine Tuaupiki 2. Adam Pompey 3. Ali Leiataua 1. Charnze Nicoll-Klokstad 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris (c) 9. Sam Healey 10. Mitch Barnett 11. Eddie Ieremia-Toeava 12. Jacob Laban 13. Erin Clark\n14. Maika Tafua 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Morgan Gannon 19. Kayliss Fatialofa 21. Jett Cleary\nWarriors team news:\nCharnze Nicoll-Klokstad is available after serving his two-week suspension and comes into the centres for Leka Halasima (ankle) who is being rested, with Taine Tuaupiki returning to the starting 13 at fullback. Te Maire Martin (hamstring) and Chanel Harris-Tavita both sat out Round 26 but return this week for a pre-finals hit-out. Luke Laulilii is in concussion protocols after a Category 1 HIA against the Knights with Adam Pompey coming on to the wing. Kurt Capewell picked up an accidental head knock from teammate Leka Halasima and is being rested, as is Wayde Egan who is replaced at hooker by Sam Healey.\nManly team:\n1. Tom Trbojevic (c) 2. Jason Saab 3. Josh Feledy 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Ben Trbojevic 13. Jake Trbojevic\n14. Jake Simpkin 16. Corey Waddell 17. Caleb Navale 18. Onitoni Large 19. Fletcher Baker 22. Jackson Shereb\nSea Eagles team news:\nNo changes to the starting 13 this week as the Sea Eagles look to end their season with an upset over the Wahs in Auckland.\nNorth Queensland Cowboys vs. Canberra Raiders\n(Saturday, September 5 at Queensland Country Bank Stadium , 5:30pm AEST)\nNorth Queensland team:\n1. Scott Drinkwater 2. Braidon Burns 3. Jaxon Purdue 4. Tom Chester 5. Robert Derby 6. Jake Clifford 7. Tom Dearden (c) 8. Coen Hess 9. Reed Mahoney 10. Jason Taumalolo 11. Heilum Luki 12. John Bateman 13. Rueben Cotter\n14. Soni Luke 15. Sam McIntyre 16. Tom Mikaele 17. Kaiden Lahrs 18. Kai O'Donnell 19. Ethan King\nCowboys team news:\nJeremiah Nanai (knee) and Griffin Neame (foot) are being rested while Zac Laybutt (concussion) is out with Robert Derby taking his place on the wing.\nCanberra team:\n1. Kaeo Weekes 2. Jed Stuart 3. Simi Sasagi 4. Matthew Timoko 5. Xavier Savage 6. Ethan Strange 7. Coby Black 8. Josh Papalii 9. Owen Pattie 10. Joe Tapine (c) 11. Noah Martin 12. Matty Nicholson 13. Ata Mariota\n14. Malachi Smith 15. Joe Roddy 16. Morgan Smithies 17. Vena Patuki-Case 18. Tom Starling 19. Daine Laurie\nRaiders team news:\nJosh Papali'i makes his final NRL appearance while Corey Horsburgh has not been named and won't feature again before linking with the Bears in 2027. Zac Hosking is out with a hamstring injury while Simi Sasagi comes into the centres for Savelio Tamale. Former Bronco Coby Black will make his NRL debut at halfback with Ethan Sanders named on the extended reserves.\nCronulla Sharks vs. Melbourne Storm\n(Saturd",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 25.44642005388889,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e0d94ace163f4fc1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cowboys v Raiders: Round 27 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/cowboys-v-raiders-round-27-1986595/",
+            "published_at": "2026-09-02T05:16:45+00:00",
+            "snippet": "Cowboys v Raiders: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 27\nRabbitohs v Roosters: Round 27\nTitans v Dolphins: Round 27\nTelstra Women's Premiership\n2026 / Round 10\nDragons v Broncos\nWests ",
+            "body_excerpt": "Cowboys v Raiders: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 27\nRabbitohs v Roosters: Round 27\nTitans v Dolphins: Round 27\nTelstra Women's Premiership\n2026 / Round 10\nDragons v Broncos\nWests Tigers v Titans\nRaiders v Eels\nKnights v Bulldogs\nWarriors v Sharks\nCowboys v Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.63392005388889,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2cd6c85cfbac7776",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 27 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/09/01/wests-tigers-nrl-injury-report-round-27/",
+            "published_at": "2026-09-01T05:50:00+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as t",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\nTony Sukkar\nInjury: Delayed concussion symptoms (Rd 26 vs Cowboys)\nReturn: Round 1, 2027\nAlex Twal\nInjury: Delayed concussion symptoms (Rd 25 vs Roosters)\nJavon Andrews\nInjury: Right calf strain\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights)\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans)\nAdam Doueihi\nInjury: Shoulder reconstruction.\nRelated /\nSquad Update: NRL Round 27 v Panthers\nNRL News\nBenji Marshall praises Jarome Luai for postive club impact\nTerrell May milestone a driving factor for Tigers\nFamily pride for Terrell May ahead of milestone\nTeam Lists\nTeam List: NRL Round 27 v Panthers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 97.07975338722221,
+            "relevance_score": 5.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "fef6324a88f81fcd",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Late Mail: Raiders v Cowboys - raiders.com.au",
+            "url": "https://www.raiders.com.au/news/2026/09/05/nrl-late-mail-raiders-v-cowboys/",
+            "published_at": "2026-09-05T05:53:40+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have finalised their squad ahead of tonight's match against the North Queensland Cowboys.\nThe team is 1-19.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Tea",
+            "body_excerpt": "Presented By\nNRL Late Mail: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have finalised their squad ahead of tonight's match against the North Queensland Cowboys.\nThe team is 1-19.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMorgan Smithies\nNoah Martin\nCowboys Outs\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nCorey Horsburgh\nEthan Sanders\nSavelio Tamale\nZac Hosking\nMatch Officials\nSenior Review Official: Ashley Klein\nLast updated: 9/5/2026 5:58:02 AM\nRelated /\nNRLW Captain's Run Gallery: Round 10 v Eels\nCoby Black debut jersey presentation\nMalachi Smith debut jersey presentation\nNRL Squad Update: Raiders v Cowboys\nCaptain's Run Gallery: Round 27 v Cowboys",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.0186422761111111,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "2f04ecc7f784e7f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Raiders v Cowboys - raiders.com.au",
+            "url": "https://www.raiders.com.au/news/2026/09/01/nrl-team-list-raiders-v-cowboys/",
+            "published_at": "2026-09-01T05:55:52+00:00",
+            "snippet": "Presented By\nNRL Team List: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have named their team for Saturday evening's match against the North Queensland Cowboys at Queensland Country Bank Stadium.\nClub legend Josh Papalii will play his final match for the club in what ",
+            "body_excerpt": "Presented By\nNRL Team List: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have named their team for Saturday evening's match against the North Queensland Cowboys at Queensland Country Bank Stadium.\nClub legend Josh Papalii will play his final match for the club in what will be his 342nd and final appearance for the Green Machine.\nCoby Black (halfback) and Malachi Smith (bench) have been named to make their NRL debuts this weekend, while Vena Patuki-Case will make his second appearance for the season after his debut earlier in the year.\nRaiders Coach Ricky Stuart said the opportunity has been presented to give some players a chance at NRL level to begin preparations for next year.\n“Coby, Malachi and Vena get a chance this week. We don’t want to waste a game regarding our preparation for next season, and all three deserve the chance to see what they can show at NRL level.”\n“It will be a special occasion for Coby and Malachi to make their debuts for the club, and Vena will benefit from another opportunity at NRL level.”\n“I appreciate Daine, Ethan (Sanders) and Tommy understanding that I am looking at the bigger picture in giving some younger players the opportunity to experience the intensity and physicality of the NRL. All three boys have been tremendous for us all season and will continue to be big parts of this squad moving forward.”\nCorey Horsburgh will not make the trip north after undergoing shoulder surgery today, while Savelio Tamale (knee) and Zac Hosking (hamstring) are not named in the squad due to injury.\nNoah Martin will replace Zac Hosking in the starting side after returning from a quad injury.\nMorgan Smithies comes back into the side after missing last week with concussion, in what will be his final match for the club before departing at the end of the season.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMorgan Smithies\nNoah Martin\nCowboys Outs\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nCorey Horsburgh\nEthan Sanders\nSave",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 96.98197560944445,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b04680c6f0122851",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Raiders v Cowboys - raiders.com.au",
+            "url": "https://www.raiders.com.au/news/2026/09/03/nrl-match-preview-raiders-v-cowboys/",
+            "published_at": "2026-09-03T01:00:24+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders are set for their final showdown of the 2026 season, traveling to Townsville to take on the North Queensland Cowboys at Queensland Country Bank Stadium on Saturday evening.\nMatch: Cowboys v Ra",
+            "body_excerpt": "Presented By\nNRL Match Preview: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders are set for their final showdown of the 2026 season, traveling to Townsville to take on the North Queensland Cowboys at Queensland Country Bank Stadium on Saturday evening.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\n8th Position\naway Team\nRaiders\n12th Position\nVenue: Queensland Country Bank Stadium, Townsville\nMatch broadcasters:\nFoxtel\nKayo\nOff the back of a bye in round 26 the Green Machine are set and raring to go, with the inclusion of a few unfamiliar faces set to give an insight to what the future holds for the club.\nNearly a year on from joining the club, exciting young halfback Coby Black will get his first taste of the NRL this Saturday night, earnt off the back of some impressive performances in the NSW Cup.\nJoining Black on debut will be Malachi Smith, who’s versatility has earnt him a spot on the bench alongside Vena Patuki-Case, who is set for his second NRL appearance after debuting earlier in the season.\nThe inclusion of these three sees Ethan Sanders shift to the reserves, with Tom Starling and Daine Laurie rounding out the six-man bench.\nElsewhere, Noah Martin returns from a quad injury in place of Zac Hosking in the second row, as Morgan Smithies returns to the bench in place of Corey Horsburgh.\nFinally, Josh Papalii will run out for his final game for the Green Machine, marking his 342nd appearance and bringing an end to his stellar career.\nFor the Cowboys, Griffin Neame and Jeremiah Nanai front a host of exclusions for the home side, with Cohen Hess and former Raider John Bateman starting in their absence.\nWith a finals birth secured for the Townsville based outfit, they will be eager to build upon their -24-10 win against the Tigers in round 26 and hit the ground running in week one.\nTalking Points:\nJosh Papalii will play his 342nd and final game for the club.\nCoby Black and Malachi Smith will make their NRL debut’s.\nVena Patuki-Case will bring up his second NRL appearance.\nNoah Martin returns for his first game since round 20.\nThe Cowboys have won seven of their last eight games against the Raiders.\nLast Time They Met: The Raiders defeated the Cowboys 26-12 at GIO Stadium, Canberra, in round 13 this season.\n“We’re representing the club, and we’ve got a special moment for Paps as well. Never take any game in the NRL lightly, you gotta compete every game.”\n- #336 Joe Tapine\nKey Matchup: Noah Martin v Heilum Luki Queensland Country Bank Stadium is set to host a belter on Saturday evening, as fans have the opportunity to witness the showdown between two of the league’s most exciting backrowers, with Noah Martin and Heilum Luki coming face-to-face.\nDebuting in 2025, Martin has worked hard to become a staple within the lime green jersey in 2026, despite injury limiting his playing time throughout.\nOff the back of his endless ticker on either side of the ball, Martin boasts a tackle efficiency of 95%, while averaging 75 running metres per game.\nReturning from a quad injury this Saturday, Martin will be eager to cap off 2026 on a high and remind fans of what’s been missing over the last six weeks since his last appearance against the Rabbitohs in round 20.\nOn Saturday evening, Martin will chance his arm against Heilum Luki, another exciting edge forward who is not unfamiliar with working their way back from injury.\nAfter suffering an ACL injury at the back end of 2024, Luki endured a long road back to the NRL after missing the entirety of the 2025 season.\nFeaturing in every game so far this season, Luki has produced some formidable numbers with a tackle efficiency of 94.8% and 105 average running metres.\nLuki’s efforts this season have seen him cross the line on 11 occasions, as well as featuring amongst the Queensland Maroons squad throughout the Origin period.\nSaturday’s showdown between the two workhorses is a terrific way to see out the final key matchup for 2026, one that will surely h",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 53.90642005388889,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "c429d958491b715e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "North Queensland Cowboys vs Canberra Raiders Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/03/north-queensland-cowboys-vs-canberra-raiders-predictions/",
+            "published_at": "2026-09-02T20:48:33+00:00",
+            "snippet": "North Queensland Cowboys vs Canberra Raiders Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "North Queensland Cowboys host Canberra Raiders in Round 27 of the 2026 NRL season at QLD Country Bank Stadium on Saturday, 5th September at 5:30 PM AEST. Read on for our full match preview, betting tips, and best odds.\nWith eighth spot sealed, the Cowboys gear for the finals with a home clash against last year’s disappointing minor premiers.\nFORM: The Cowboys clinched their spot in the finals with a 24-10 home win over the Tigers last Saturday.\nThe Raiders have lost three of their last four, going into the Round 26 bye on the back of a demoralising collapse in a 34-30 home loss to the Broncos.\nINS AND OUTS: Robert Derby replaces Zac Laybutt (concussion) on the wing for the Cowboys, while John Bateman and Coen Hess come into the pack for injured duo Jeremiah Nanai and Griffin Neame.\nCoby Black will make his NRL debut for the Raiders, replacing Ethan Sanders. Noah Martin is back from injury for an unavailable Zac Hosking, Corey Horsburgh is out and Morgan Smithies returns.\nKEY MATCH-UP: Gear up for a high-octane fullback battle as Scott Drinkwater and Kaeo Weekes square off.\nHISTORY: The Raiders have won seven of the teams’ last eight encounters, but the Cowboys carved out a 26-12 upset in Canberra in Round 3 to snap a long losing streak.\nKEY STAT: None of the last 16 Cowboys-Raiders clashes have produced more than 50 points.\nVERDICT: The Cowboys are locked into eighth spot, win or lose, so it’s about consolidating combinations and building momentum – still important for a team that has conceded 82 points to the Roosters and lost to the Eels in their last four games.\nThe Raiders’ finals hopes disappeared completely prior to last week’s bye, but Ricky Stuart isn’t the type of coach to let them go through the motions despite having only pride – and sending Josh Papalii out a winner – to play for.\nTip: Back the Raiders to Cover the Line (+5.5) @ $1.90\nSGM: RAIDERS WIN / OVER 55.5 TOTAL POINTS / KAEO WEEKES ANYTIME TRYSCORER / XAVIER SAVAGE ANYTIME TRYSCORER / TOM CHESTER ANYTIME TRYSCORER / HEILUM LUKI @ $59.54\nNorth Queensland Cowboys vs Canberra Raiders Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the North Queensland Cowboys vs Canberra Raiders matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nQueensland Country Bank Stadium • Saturday 5th Sep\nTeam\nOdds\nCanberra Raiders (5.5)\n1.96\nBet Now\nNorth Queensland Cowboys (-5.5)\n1.85\nNRL odds correct as of 05/09/2026 and subject to change. Event scheduled to start at 05/09/2026 5:30pm AEST.\nBraidon Burns (North Queensland Cowboys)\n8.25\nRobert Derby (North Queensland Cowboys)\n9.75\nJed Stuart (Canberra Raiders)\n11.50\nScott Drinkwater (North Queensland Cowboys)\nXavier Savage (Canberra Raiders)\nKaeo Weekes (Canberra Raiders)\n12.50\nSimi Sasagi (Canberra Raiders)\n15.00\nHeilum Luki (North Queensland Cowboys)\nTom Chester (North Queensland Cowboys)\nJaxon Purdue (North Queensland Cowboys)\n16.00\nTom Dearden (North Queensland Cowboys)\n17.00\nEthan Strange (Canberra Raiders)\n19.00\nMatthew Timoko (Canberra Raiders)\nJake Clifford (North Queensland Cowboys)\n21.00\nNoah Martin (Canberra Raiders)\n26.00\nJohn Bateman (North Queensland Cowboys)\nMatty Nicholson (Canberra Raiders)\n29.00\nCoby Black (Canberra Raiders)\nVena Patuki-Case (Canberra Raiders)\n31.00\nJoe Roddy (Canberra Raiders)\n34.00\nOwen Pattie (Canberra Raiders)\nJason Taumalolo (North Queensland Cowboys)\nReed Mahoney (North Queensland Cowboys)\nJosh Papalii (Canberra Raiders)\n41.00\nReuben Cotter (North Queensland Cowboys)\nAta Mariota (Canberra Raiders)\n51.00\nMalachi Smith (Canberra Raiders)\nKaiden Lahrs (North Queensland Cowboys)\nJoseph Tapine (Canberra Raiders)\nSoni Luke (North Queensland Cowboys)\nSam McIntyre (North Queensland Cowboys)\nMorgan Smithies (Canberra Raiders)\n67.00\nCoen Hess (North Queensland Cowboys)\nThomas Mikaele (North Queensland Cowboys)\nNo Scorer\n1001.00",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 58.103920053888885,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "caeef691f6506582",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Squad Update: Raiders v Cowboys - raiders.com.au",
+            "url": "https://www.raiders.com.au/news/2026/09/04/nrl-squad-update-raiders-v-cowboys/",
+            "published_at": "2026-09-04T07:31:21+00:00",
+            "snippet": "Presented By\nNRL Squad Update: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have reduced their squad to 20 ahead of tomorrow's match against the Cowboys.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\n",
+            "body_excerpt": "Presented By\nNRL Squad Update: Raiders v Cowboys\nThe Toyota Forklifts Canberra Raiders have reduced their squad to 20 ahead of tomorrow's match against the Cowboys.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMorgan Smithies\nNoah Martin\nCowboys Outs\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nCorey Horsburgh\nEthan Sanders\nSavelio Tamale\nZac Hosking\nMatch Officials\nSenior Review Official: Ashley Klein\nLast updated: 9/5/2026 5:58:02 AM\nRelated /\nNRL Late Mail: Raiders v Cowboys\nNRLW Captain's Run Gallery: Round 10 v Eels\nCoby Black debut jersey presentation\nMalachi Smith debut jersey presentation\nCaptain's Run Gallery: Round 27 v Cowboys",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.390586720555557,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "9c3a73463fc64a0d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Game Day Guide: Everything you need to know for our last home game! - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/09/04/game-day-guide-everything-you-need-to-know-for-our-last-home-game/",
+            "published_at": "2026-09-04T02:32:00+00:00",
+            "snippet": "Game Day Guide: Everything you need to know for our last home game! &nbsp;&nbsp; North Queensland Cowboys",
+            "body_excerpt": "Presented By\nGame Day Guide: Everything you need to know for our last home game!\nYour North Queensland Toyota Cowboys are back at home for a massive double header this Saturday in the final home game of the season.\nFrom special farewell’s to exciting activations, find out everything you need to know to finish off the regular season.\nFIND OUT ALL YOU NEED TO KNOW IN THE GAME DAY GUIDE\nSECURE YOUR SEAT\nFarewell Our Departing Cowboys\nWith Saturday marking the final home game of the season, Cowboys fans will have the chance to farewell the players leaving the club at season’s end.\nMake sure to be in your seat following fulltime of the NRLW clash, as we honour inaugural NRLW Cowboys Co-Captain and NRLW Cowboy #2, Tallisha Harden with a Lap of Honour following the announcement of her retirement.\nFans will have the opportunity to show their appreciation for the players departing the NRL squad at 5.10pm, and are encouraged to stay in their seats following fulltime as we pay tribute to Scott Drinkwater and Murray Taulagi with a Lap of Honour around QLD Country Bank Stadium.\n4.50pm // Tallisha Harden’s Lap of Honour\n5.10pm // Farewelling departing NRL players\nNRL FT // Scott Drinkwater & Murray Taulagi Lap of Honour\nGrab a YETI on Game Day and make it uniquely yours!\nPurchase any YETI product from the Cowboys TeamShop on game day, and head to the YETI Container on the Northern Green for complimentary personalisation (subject to availability).\nKey Timings\n2.45pm\nGates Open\n3.15pm\nNRLW kick-off - Cowboys v Roosters\n3.50pm\nNRLW halftime\nToyota Mini League\nToyota Torpedo\n4.00pm\nNRLW second half\n4.35pm\nNRLW fulltime\nMcDonald's Player of the Match\n4.45pm\nPre-Game Show\n4.50pm\nTallisha Harden Lap of Honour\nMaurice Blackburn Fan of the Match\nMother Mullet Cam\n5.10pm\nFarewell Departing NRL Players\nYETI match ball delivery\n5.30pm\nNRL kick-off - Cowboys v Raiders\n6.10pm\nNRL halftime\nToyota Road to Your HiLux giveaway\nTownsville Bulletin Fan Cam\n6.25pm\nNRL second half\n7.05pm\nNRL fulltime\nScott Drinkwater & Murray Taulagi Lap of Honour\nTeam News\nCowboys representative duo Griffin Neame and Jeremiah Nanai will miss Saturday’s regular season finale against the Canberra Raiders. Zac Laybutt has also been ruled out with concussion, with Coen Hess, John Bateman and Robert Derby elevated to the starting side.\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Co",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 28.379753387222223,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "76ffcdd7dad2842f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/",
+            "published_at": "2026-09-02T07:43:58+00:00",
+            "snippet": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe fina",
+            "body_excerpt": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe final round begins with a dead rubber at Accor Stadium as two of 2025’s top-four outfits wrap up their campaigns.\nFORM: The Bulldogs have lost three of their last four, with their finals hopes extinguished thanks to a 24-10 loss to the Panthers last week.\nThe Broncos have lost 13 of their last 15, following up a comeback win in Canberra with a 46-20 home defeat to the Storm last week.\nINS AND OUTS: The Bulldogs are unchanged, though Kurt Mann could be a late inclusion. The Broncos’ only change is on the bench with Blake Mozer replaced by Ben Talty.\nKEY MATCH-UP: Payne Haas will be eager to inflict some damage in his last game for the Broncos. Max King and Leo Thompson need to meet Haas and twin tower Xavier Willison head on.\nHISTORY: The Broncos have won eight of their last nine against the Bulldogs, including a 32-12 result in Round at Suncorp Stadium.\nKEY STAT: The Bulldogs haven’t beaten the Broncos in Sydney since 2019.\nVERDICT: While this may be a deflating exercise for the Bulldogs after their finals bid officially ended last week, their form has been strong overall and they showed plenty of backbone against the Panthers.\nThe Broncos have been gagging for the end of a disastrous title defence for some time and have conceded 30-plus points in five straight games. It’s a road trip this injury-ravaged side doesn’t want to be on.\nTip: Back the Bulldogs to Score Over 31.5 Total Points @ $1.80\nSGM: BULLDOGS -10.5 / UNDER 52.5 TOTAL POINTS / MATT BURTON ANYTIME TRYSCORER / STEPHEN CRICHTON ANYTIME TRYSCORER @ $17.63\nThe Dolphins finalise their preparations for a maiden post-season foray against the lowly Titans.\nFORM: The Titans are on a five-game losing streak, going down 42-22 to the Rabbitohs at home last Saturday.\nThe Dolphins have won six straight, moving to third spot via an impressive 26-12 defeat of the Roosters at Allianz Stadium.\nINS AND OUTS: Beau Fermor is back for the Titans, while Luke Sommerton replaces Oliver Pascoe (concussion). Dolphins winger Selwyn Cobbo is out, which sees Tevita Naufahu come in.\nKEY MATCH-UP: Kodi Nikorima has been in hot playmaking form for the Dolphins. Titans No.6 Jayden Campbell will be eager to finish the season with a flourish.\nHISTORY: The Dolphins have established a 6-1 record in this derby, including a tight 18-14 win at Suncorp Stadium in Round 2.\nKEY STAT: Phillip Sami and Hamiso Tabuai-Fidow have both scored four tries in six Titans-Dolphins games.\nVERDICT: While finishing third or fourth is much of a muchness, the Dolphins will be eager to head into the finals with the momentum of another win – particularly after naming near enough to their strongest line-up.\nThe Titans have been meandering towards the end of the season and showing an increasingly lacklustre attitude towards defending, leaking 30-plus points in their past five games – after only doing so six times in their previous 17 games. It’s been a tough rivalry for the Titans and that should continue.\nTip: Back the Dolphins to Cover the Line (-13.5) @ $1.90\nSGM: DOLPHINS BY 21-30 / OVER 10.5 TOTAL TRIES / PHILLIP SAMI ANYTIME TRYSCORER / HERBIE FARNWORTH ANYTIME TRYSCORER @ $18.72\nA key grudge match and traditional final-round showdown has been tipped on its head by the Roosters pre-finals resting strategy.\nFORM: The up-and-down Rabbitohs have won three of their last four, responding to a 46-25 loss to the Warriors with a 42-22 win over the Titans last week.\nThe Roosters’ eight-match winning streak seems a distant memory after back-to-back losses to the Tigers (25-24) and Dolphins (26-12).\nINS AND OUTS: Latrell Mitchell starts at centre, Jye Gray has been promoted to fullback with Matt Dufty to come off the bench, and Adam Elliott starts in the back-r",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.18030894277777,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "0c8582917433aa70",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘Godsend’ or major risk? Round of sidelined stars might not matter - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-round-27-top-eight-finals-picture-potential-matches-finishes-resting-players-phil-gould-brad-fittler-20260903-p60u0y.html",
+            "published_at": "2026-09-03T00:57:52+00:00",
+            "snippet": "‘Godsend’ or major risk? Round of sidelined stars might not matter &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Phil Gould believes there is “risk” involved with resting players in the final round of the season, while Brad Fittler believes it will be a “godsend” for the Roosters .\nSpeaking on Nine’s Freddy and The Eighth this week, the former Roosters skipper had no problem with the club resting nine players and believes it would hold them in good stead heading into September, especially without Sam Walker .\nSam Walker is sidelined with an ankle injury. Getty Images\n“Not at all - what they are relying on is their big-game experience,” Fittler said.\n“They’ve lost their last two games, but they’re saying ‘you know what, let’s get healthy’. Being healthy is better than one game against South Sydney, which is gonna be a grind and a tough game.\n“I think what Robbo [Trent Robinson] has done is the right thing, he’s thinking about winning a comp. To get a week off at this time of the year, especially considering where the Roosters are at, is a godsend for them.”\nGould sees things a little bit differently and believes top-four teams resting their star players in the final round of the regular season can be fraught with danger.\n“Resting players in the last round has never been a good formula,” he said on Wide World of Sports’ Six Tackles With Gus .\nRead more\nGould’s next test after two players’ bad luck bent Dogs out of shape\n“If you finish in the top-four and rest players in the final round, the risk is if you win week one of the finals, you then get another fortnight off and you go into a preliminary final having one game in a month and that’s really hard to manage.\n“A week off at this time of year is great, but if you get two of them back-to-back like that, that can be hard to manage and you can be left a little bit rusty.”\nRabbitohs star Cody Walker also warned his rivals – not that he would care what the Roosters do with their premiership plans – telling The Sydney Morning Herald that he “felt a lot worse” after an unplanned week off due to suspension.\nCanberra rested most of their team in the final round of 2025 after securing the minor premiership, only to go out in straight-sets in the finals.\nAs debate around resting players and whether it’s the right option continues, with the way the finals picture is shaping up, how much will it really matter?\nGoing into round 27, the top-eight is already locked away , with a few potential changes inside of it depending on results this weekend.\nIn fact, the only positions that are likely to alter are the top-two, with the Warriors and Panthers locked in a tight battle for the NRL minor premiership.\nAs it stands, the Warriors are ahead of Penrith on points differential by a single point after last weekend’s high-scoring win over Newcastle.\nThis week, the high-flying Wahs will host the Sea Eagles, while the second-placed Panthers will host the Wests Tigers, with the coveted JJ Giltinan Shield still very much in the balance, even if both teams record victories.\nIt’s been a year to remember for the Warriors. Getty Images\nAndrew Webster and Ivan Cleary have both named strong outfits – the Warriors will sit out hooker Wayde Egan and back-rower Kurt Capewell, while the Panthers haven’t rested any of their big guns at this stage and have co-captain Isaah Yeo on the extended bench as he recovers from a pectoral injury .\nPenrith’s hopes of the minor premiership, and what coach Cleary does with his final team, could hinge on the Warriors vs Manly result on Saturday.\nIf the first-placed Warriors can record a convincing win and put a decent buffer in terms of points differential, Penrith may decide to rest some players if Cleary thinks chasing down the deficit would be too big an ask on Sunday afternoon.\nIf it’s a close game between the Warriors and Sea Eagles – or if Manly manage to pull off an upset – the Panthers will likely trot out as many of their high-profile players as possible and zero in on beating the Tigers.\nAside from those top-two spots and the race for the minor premiership, the rest of the finals ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 53.94864227611111,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "2f5aca6c9023c087",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Shock return in huge Panthers call as two teams rest stars; classy Raiders move - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-27-team-lists-as-players-rested-before-finals-injury-updates-latrell-mitchell-isaah-yeo-named/news-story/4bb504b2e71f3db53cd4298f74f8af06",
+            "published_at": "2026-09-01T08:01:14+00:00",
+            "snippet": "Shock return in huge Panthers call as two teams rest stars; classy Raiders move &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "NRL Team Lists: Shock return in huge Panthers call as two teams rest stars; classy Raiders move\nTeam lists are in for the final round of the regular season, with a Panthers superstar in line to make a stunning return.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nElsewhere, two teams have opted to rest their big names while the Rabbitohs are unleashing Latrell Mitchell ahead of the finals.\nRead on for the Round 27 Team Lists!\nTHURSDAY SEPTEMBER 3\nCanterbury Bulldogs vs Brisbane Broncos @ Accor Stadium, 7:50pm\nBulldogs Team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Bronson Xerri 5. Enari Tuala 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Jake Turpin 15. Alekolasimi Jones 16. Harry Hayes 17. Josh Curran 19. Jed Reardon 20. Jack Underhill 21. Logan Spinks 22. Sean O’Sullivan 23. Kurt Mann\nAnalysis: At the moment it doesn’t look like there will be any changes to the side that went down to the Panthers, although Kurt Mann (groin) has been listed on the reserves and could bump Jake Turpin out of the side if he recovers in time.\nBroncos Team: 1. Hayze Perham 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Ben Hunt 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan 14. Thomas Duffy 15. Va’a Semu 16. Jack Gosiewski 17. Aublix Tawha 18. Gehamat Shibasaki 19. Ben Talty 20. Cameron Bukowski 21. Jesse Arthars 22. Preston Riki\nAnalysis: The Broncos may be coming off a heavy loss to the Storm but coach Michael Maguire has resisted the urge to make any major changes or experiment with new line-ups despite having nothing to lose. Instead, he has stuck solid with the same starting side with the only change seeing Ben Talty replace Blake Mozer (concussion) on the bench. Preston Riki (syndesmosis) could also be a late inclusion after missing the past month or so.\nFRIDAY SEPTEMBER 4\nGold Coast Titans vs Dolphins @ Cbus Super Stadium, 6pm\nTitans Team: 1. Keano Kini 2. Sialetili Faeamani 3. Jaylan De Groot 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Luke Sommerton 10. Tino Fa’asuamaleaui 11. Kurtis Morrin 12. Beau Fermor 13. Chris Randall 14. Klese Haas 15. Cooper Bai 16. Bodhi Sharpley 17. Sam Verrills 18. Josh Patston 19. Sunny Kama 20. Tony Francis 21. Jett Liu 22. Adam Christensen\nAnalysis: There is no Oliver Pascoe (category 1 concussion symptoms) with Luke Sommerton replacing him in the starting side at hooker. In welcome news, Beau Fermor is back from his rib injury. Elsewhere, Chris Randall and Moeaki Fotuaika are back in the starting side with Klese Haas and Cooper Bai dropping back to the bench. Sunny Kama , meanwhile, is in line to get a shot at making his debut having been named on the six-man interchange.\nDolphins Team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Tevita Naufahu 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Felise Kaufusi 18. Brian Pouniu 19. Brad Schneider 20. Jake Averillo 21. Connelly Lemuelu 22. Sebastian Su’a\nAnalysis: While the Roosters have opted to rest their big names, the Dolphins have taken the opposite approach with Selwyn Cobbo (ankle) the only star to be rested. Tevita Naufahu replaces him. Otherwise, the Dolphins look to be in prime position to finish in third place with Connelly Lemuelu even named on the reserves as he looks to return from a hamstring injury.\nSouth Sydney Rabbitohs vs Sydney Roosters @ Allianz Stadium, 8pm\nRabbitohs Team: 1. Jye Gray 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 23. Jai Arrow ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.892531165,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Raiders NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Cowboys vs Raiders NRL round 27 preview",
+          "Cowboys Raiders NRL odds OR price OR favourite",
+          "Cowboys Raiders NRL finals race OR ladder stakes",
+          "Cowboys Raiders NRL",
+          "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Raiders NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Cowboys Raiders NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 27 Cowboys OR Raiders"
+        ],
+        "filter_summary": {
+          "dropped_stale": 43,
+          "dropped_wrong_round": 2,
+          "dropped_noise": 11,
+          "dropped_irrelevant": 30,
+          "kept": 18,
+          "deferred_pending_body": 47,
+          "promoted_after_body": 5,
+          "dropped_roundup_no_fixture_team": 8,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "edf318237e7f",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-05T06:54:47.088808+00:00",
+      "finished_at": "2026-09-05T06:56:46.539719+00:00",
+      "duration_ms": 119450,
+      "request": {
+        "home_team": "Cowboys",
+        "away_team": "Raiders",
+        "venue": "Queensland Country Bank Stadium",
+        "kickoff": "2026-09-05T17:30:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6011,
+        "home_win_probability": 0.6011,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (+0.0 points) — contribution 0.081 (11% of total)",
+            "Elo rating advantage (+20 points) — contribution 0.046 (6% of total)",
+            "Head-to-head average margin (last 5) (+10.6 points) — contribution 0.044 (6% of total)",
+            "Head-to-head record (last 5) (80% to the home side) — contribution 0.035 (5% of total)",
+            "3-game form: errors (+3.00) — contribution 0.035 (5% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+          ],
+          "negative_drivers": [
+            "Pythagorean form (last 10) (-26% expected-win gap) — contribution 0.080 (10% of total)",
+            "Rest-day advantage (-8.1 days) — contribution 0.052 (7% of total)",
+            "Away rest (15.0 days) — contribution 0.033 (4% of total)",
+            "5-game form: completion rate (-10.40) — contribution 0.020 (3% of total)",
+            "5-game form: missed tackles (+1.00) — contribution 0.018 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.422,
+            "total_toward_away": 0.3433,
+            "net": 0.0787,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (+3.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Cowboys",
+          "away_team": "Raiders",
+          "venue": "Queensland Country Bank Stadium",
+          "kickoff": "2026-09-05T17:30:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

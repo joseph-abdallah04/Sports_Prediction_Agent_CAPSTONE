@@ -20,7 +20,9 @@ reasoning for the Agent to weigh in its final call.
 | [`Glossary.md`](Glossary.md) | Plain-English definitions of the ML, data-engineering and agent terms used throughout. |
 | [`key_design_decisions.md`](key_design_decisions.md) | Log of architectural crossroads and the reasoning behind each choice. |
 | [`Limitations.md`](Limitations.md) | Honest account of accuracy, the 70% question, and what the system cannot do. |
-| [`agent_runs/README.md`](agent_runs/README.md) | Where results are written and how to read a run ledger. |
+| [`agent_runs/README.md`](agent_runs/README.md) | Where **new-system** results are written and how to read a run ledger. |
+| [`docs/agent_judgement/`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) | How the agent is supposed to judge (Round 26 on), why it was recalibrated, and how to run the old system beside the new one. |
+| [`legacy/`](docs/agent_judgement/TWO_SYSTEMS.md) | Local-only git worktree: the exact pre-recalibration agent (`dccb09c`). Git-ignored; not on `main`. |
 
 ## Build status
 
@@ -418,13 +420,110 @@ fresh team lists (DD-40).
 
 ---
 
+## Two prediction systems (old and new)
+
+From Round 26 the agent’s judgement rules changed (prompts, verifier, research
+filter, confidence ceiling). Rounds 23–25 were produced by the **old** system.
+To compare the two fairly on upcoming fixtures, both stay runnable. This is not
+a `--legacy` flag in the current code — that would be easy to contaminate. The
+old system is the **exact commit** that produced Rounds 23–25, checked out as a
+second working copy.
+
+The operator runbook (symlinks, worktree recreate, smoke check) is
+[`docs/agent_judgement/TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md).
+Why the change: [`FINDINGS_AFTER_ROUND25.md`](docs/agent_judgement/FINDINGS_AFTER_ROUND25.md)
+and [`SYSTEM_RECALIBRATION.md`](docs/agent_judgement/SYSTEM_RECALIBRATION.md).
+What a new-system run should do:
+[`EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md).
+
+| | Old system | New system |
+| --- | --- | --- |
+| What it is | Commit `dccb09c` (`final predictions for round 25`, 23 Aug 2026) | Current `main` |
+| Where the code lives | `legacy/` — a git worktree at detached HEAD `dccb09c` | This repo (`agent/`) |
+| Where results go | `legacy/agent_runs/` | `agent_runs/` |
+| Official log | `legacy/agent_runs/predictions_log.csv` | `agent_runs/predictions_log.csv` |
+| Official rounds in that log | 23–25 (run on the old code at the time) | 26 onwards |
+| Side-by-side on the same fixture | From Finals Week 1 (round 28) | Same fixtures, this tree |
+| Confidence ceiling in code | 0.95 | 0.85 |
+| Judgement rules | Pre-recalibration prompts and verifier | [`EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) |
+
+`legacy/` is in [`.gitignore`](.gitignore). It is a local checkout, not part of
+`main`. Do not commit it. Do not merge the two CSVs.
+
+### What they share, and what they do not
+
+Both trees use the **same trained XGBoost model and the same match data**, so a
+difference in pick or confidence is a difference in **judgement**, not in
+training data. Inside the worktree, `models`, `data_lake`, and `feature_store`
+are symlinks back to `tools/mathematical_engine/` on this repo. `legacy/agent/.env`
+points at `agent/.env`.
+
+Run the weekly ETL from **this** tree only. The worktree picks up the retrained
+model automatically.
+
+The old tree keeps its own prompts, verifier, research filter, and `explain.py`.
+It does not emit the post-recalibration `Too close` math label. That is the
+point.
+
+You cannot replay Rounds 26–27 on the old system after the fact: research would
+see today’s news. Compare going forward on the same upcoming fixtures.
+
+### How to run a fixture on both
+
+One CLI process at a time. A Cursor interrupt does **not** kill the Python
+process — confirm the previous run has actually exited:
+
+```bash
+pgrep -f agent_app.cli    # expect no output
+```
+
+New system (repo root → `agent/`):
+
+```bash
+cd agent
+uv run python -m agent_app.cli --home Panthers --away Roosters --round 28 --force-refresh -v
+```
+
+Old system (only after the other CLI has fully exited):
+
+```bash
+cd legacy/agent
+uv run python -m agent_app.cli --home Panthers --away Roosters --round 28 --force-refresh -v
+```
+
+Either order is fine. Pick one and keep it for a whole round so neither system
+systematically gets fresher news. Budget ~8–12 minutes per run on local Ollama
+(~25 minutes for the pair). Start well before kickoff.
+
+Wests Tigers needs the full nickName: `--away "Wests Tigers"`.
+
+If `legacy/` is missing, or the engine symlinks dropped after recreating the
+worktree, follow the recreate steps in
+[`TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md). A quick identity check:
+the old smoke reports a 0.95 confidence ceiling; the new smoke reports 0.85.
+
+### Reporting a dual run
+
+Always say which tree produced the pick. Hold the **new** run against
+[`EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md). Do not
+hold the old run to that file — that file *is* the new logic. Do not treat the
+final score as proof the process was right or wrong.
+
+New-system rows append only to `agent_runs/predictions_log.csv`. Old-system
+rows append only to `legacy/agent_runs/predictions_log.csv`. Copy old-system
+output out by hand if you need it in a report; do not paste those rows into the
+new log.
+
+---
+
 ## Quick reference table
 
 | Command | Frequency | Purpose |
 | --- | --- | --- |
 | `weekly_incremental_etl.run` | **Weekly** | Scrape new games + rebuild features + retrain model |
 | `python -m gateway` (in `tools/mcp_gateway/`) | **When exposing tools via MCP** | MCP server for fact tools |
-| `python -m agent_app.cli` (in `agent/`) | **When running a full prediction** | Orchestrator + ledger |
+| `python -m agent_app.cli` (in `agent/`) | **When running a full prediction (new system)** | Orchestrator + ledger → `agent_runs/` |
+| `python -m agent_app.cli` (in `legacy/agent/`) | **Same fixture, old system** | Frozen commit `dccb09c` → `legacy/agent_runs/` (see [Two prediction systems](#two-prediction-systems-old-and-new)) |
 | `python -m agent_app.harness` (in `agent/`) | **Weekly, around a round** | Batch-run a whole round, then score it against actuals |
 | `model.predict` | **As needed** | Get prediction JSON for an upcoming fixture (CLI) |
 | `model.evaluate` | Occasional | Refresh holdout metrics and `reports/` plots |
@@ -553,6 +652,10 @@ See [`tools/fixture_scene/README.md`](tools/fixture_scene/README.md) and
 - [`Architecture.md`](Architecture.md) — system, control-loop and data-flow diagrams.
 - [`Limitations.md`](Limitations.md) — measured accuracy ceiling, what would move it, and what the agent cannot do.
 - [`agent/Architecture.md`](agent/Architecture.md) — Orchestrator control loop and agency.
+- [`docs/agent_judgement/TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md) — old vs new: worktree, shared model, both CLIs, separate logs.
+- [`docs/agent_judgement/EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) — intended new-system judgement (Round 26 on).
+- [`docs/agent_judgement/SYSTEM_RECALIBRATION.md`](docs/agent_judgement/SYSTEM_RECALIBRATION.md) — what changed in the prompts and verifier.
+- [`docs/agent_judgement/FINDINGS_AFTER_ROUND25.md`](docs/agent_judgement/FINDINGS_AFTER_ROUND25.md) — why the recalibration happened.
 - [`agent/adrs/`](agent/adrs/) — the eight agent design decisions, one file each ([index](agent/README.md#design-decisions)).
 - [`tools/mathematical_engine/README.md`](tools/mathematical_engine/README.md) — engine layout and technical detail.
 - [`tools/mathematical_engine/Overview.md`](tools/mathematical_engine/Overview.md) — system architecture.

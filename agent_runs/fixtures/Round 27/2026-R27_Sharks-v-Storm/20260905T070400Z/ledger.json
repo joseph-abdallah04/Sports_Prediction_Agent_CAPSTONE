@@ -1,0 +1,1241 @@
+{
+  "schema_version": 2,
+  "run_id": "20260905T070400Z-5de39f67",
+  "at_a_glance": {
+    "fixture": "Sharks v Storm",
+    "round": 27,
+    "kickoff": "2026-09-05T19:35:00+10:00",
+    "venue": "Ocean Protect Stadium",
+    "predicted_winner": "Storm",
+    "confidence": 0.58,
+    "model_home_win_probability": 0.6743,
+    "model_prediction": "Home Win",
+    "research_items_kept": 15,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": false,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-05T07:04:00.613319+00:00",
+  "updated_at": "2026-09-05T07:17:05.416218+00:00",
+  "request": {
+    "home_team": "Sharks",
+    "away_team": "Storm",
+    "season": null,
+    "round_number": 27,
+    "force_refresh": true,
+    "user_question": "Who wins Sharks vs Storm?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Sharks",
+    "away_team": "Storm",
+    "confidence": 0.58,
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Sharks possess superior underlying metrics, including a significant advantage in run metres and a strong Pythagorean expected-win gap, which could still see them prevail despite missing stars.",
+    "loss_reason_specific": false,
+    "summary": "While the math model strongly favours the Sharks based on their Elo rating, Pythagorean form, and a dominant 5-game run metre advantage (+162.20), this is outweighed by the news that the Sharks are resting key stars Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter in strong form after a 46-20 win over Brisbane and are heavy market favourites ($1.36). Confidence is kept to a modest edge to account for the strong underlying ratings still favouring the home side.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+      },
+      {
+        "source": "math",
+        "detail": "The model's prior is driven by the Sharks' strong 5-game run metre advantage (+162.20) and a +17% Pythagorean expected-win gap."
+      },
+      {
+        "source": "research",
+        "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+      }
+    ],
+    "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 15,
+      "items_mentioning_both_teams": 12,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 4
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 3
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Storm NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Sharks vs Storm NRL round 27 preview",
+      "Sharks Storm NRL odds OR price OR favourite",
+      "Sharks Storm NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": false,
+      "issues": [
+        "confidence_not_discounted_despite_research_conflict"
+      ]
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims about resting Hynes, Brailey, and Wilton are found in nrl_news and google_news_rss; Storm's 46-20 win is in nrl_news; $1.36 odds are in google_news_rss price_quote."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Research states Sharks are resting players, and the judgement correctly describes them as resting."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "The 'head-to-head record (last 5)' driver is correctly attributed to the Storm as it appears in the 'favouring_Storm_away_win' group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors include the resting of Sharks players and Storm's recent form, both sourced from research."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.65 is justified by the significant availability shock (resting stars) and market odds of $1.36, flipping the 0.67 prior."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The minor H2H driver (4%) is used as supporting evidence, while the primary driver for the pick is the research-based availability shock."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Material drivers '5-game form: all run metres' (18%) and 'Pythagorean form (last 10)' (12%) are not addressed in the summary or key factors."
+        }
+      ],
+      "issues": [
+        "Material SHAP drivers '5-game form: all run metres' and 'Pythagorean form (last 10)' were omitted from the evaluation."
+      ],
+      "instruction": "Math drivers include '5-game form: all run metres' and 'Pythagorean form (last 10)'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '5-game form: all run metres' and 'Pythagorean form (last 10)'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Sharks",
+      "away_team": "Storm",
+      "confidence": 0.65,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The Sharks maintain a significant ratings and ladder advantage over the Storm, who are playing without the pressure of finals contention.",
+      "loss_reason_specific": false,
+      "summary": "Although the math model favours the Sharks based on season-long ratings, research indicates the Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter the match in strong form following a 46-20 win over Brisbane and are heavy market favourites at $1.36. This significant availability shock justifies flipping the pick against the math prior.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+        },
+        {
+          "source": "research",
+          "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+        },
+        {
+          "source": "math",
+          "detail": "The model identifies the head-to-head record (last 5) as a driver favouring the Storm."
+        }
+      ],
+      "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Sharks",
+      "away_team": "Storm",
+      "confidence": 0.58,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The Sharks possess superior underlying metrics, including a significant advantage in run metres and a strong Pythagorean expected-win gap, which could still see them prevail despite missing stars.",
+      "loss_reason_specific": false,
+      "summary": "While the math model strongly favours the Sharks based on their Elo rating, Pythagorean form, and a dominant 5-game run metre advantage (+162.20), this is outweighed by the news that the Sharks are resting key stars Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter in strong form after a 46-20 win over Brisbane and are heavy market favourites ($1.36). Confidence is kept to a modest edge to account for the strong underlying ratings still favouring the home side.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+        },
+        {
+          "source": "math",
+          "detail": "The model's prior is driven by the Sharks' strong 5-game run metre advantage (+162.20) and a +17% Pythagorean expected-win gap."
+        },
+        {
+          "source": "research",
+          "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+        }
+      ],
+      "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+    },
+    "issues": [
+      "confidence_not_discounted_despite_research_conflict",
+      "Material SHAP drivers '5-game form: all run metres' and 'Pythagorean form (last 10)' were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-05T07:04:27.488706+00:00",
+      "thinking": "*   Home Team: Sharks\n    *   Away Team: Storm\n    *   Round Number: 27\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Sharks).\n    *   Query 2: Away team availability (Storm).\n    *   Query 3: Fixture preview (Sharks vs Storm Round 27).\n    *   Query 4: Market prices/odds (Sharks vs Storm).\n    *   Query 5: Specific angle (form, ladder, etc.). Since it's Round 27 (very late in the season), finals race/ladder stakes are most relevant.\n\n    *   Q1: `Sharks NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Q2: `Storm NRL injury OR \"late mail\" OR \"team list\" round 27`\n    *   Q3: `Sharks vs Storm NRL round 27 preview`\n    *   Q4: `Sharks Storm NRL odds OR price OR favourite`\n    *   Q5: `Sharks Storm NRL finals race OR ladder stakes` (or maybe \"Storm NRL form streak\" or \"Sharks NRL finals hopes\"). Let's go with finals race/ladder stakes given it's Round 27.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Sharks, Storm).\n    *   JSON format? Yes.",
+      "chars": 1148
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-05T07:11:07.239800+00:00",
+      "thinking": "*   Home Team: Sharks\n    *   Away Team: Storm\n    *   Math Prediction: Home Win (Probability: 0.6743)\n    *   Standings: Sharks (5th, 14-9), Storm (11th, 10-13). Sharks have a significant ladder advantage.\n    *   SHAP Drivers:\n        *   Favouring Sharks: Run metres, Ladder points diff, Pythagorean form, Elo rating, Bradley-Terry strength.\n        *   Favouring Storm: Head-to-head, Travel (small), Tackle %, Points against (conflicted), Penalty gap.\n    *   Market: Storm are favourites ($1.36 according to sportsnews.com.au).\n\n    *   *NRL Late Mail (nrl.com):* \"The Sharks have chosen to rest a number of their stars from the game against Melbourne with Nicho Hynes, Blayke Brailey and Teig Wilton getting a break.\"\n    *   *Sharks.com.au:* Riley Jones (debut), Michael Gabrael (debut), Riley Pollard (debut) are named.\n    *   *Sportsnews.com.au:* Confirms Nicho Hynes, Blayke Brailey, and Teig Wilton are being rested.\n    *   *Ladbrokes:* \"The fifth-placed Sharks have rested a host of players... Nicho Hynes has also been rested.\"\n    *   *Storm Form:* Storm coming off a big win over Brisbane (46-20). Sharks coming off a 38-18 loss to Eels.\n    *   *Storm Status:* Out of finals contention (11th), but playing with \"fight and spirit\".\n\n    *   Math says Home Win (0.6743).\n    *   Research says: Sharks are resting key stars (Hynes, Brailey, Wilton) and playing debutants (Jones, Gabrael, Pollard).\n    *   This is a massive availability shock. Nicho Hynes is the primary playmaker. Resting him and other stars significantly weakens the Sharks' actual strength for this specific game compared to their season-long ratings (which the math model uses).\n    *   The market has reacted strongly, making Storm heavy favourites ($1.36).\n    *   Research stance: `conflicts`. The news (resting stars) directly contradicts the math's \"Home Win\" prior.\n\n    *   The math prior is 0.6743 for Sharks.\n    *   However, the research provides a concrete reason to flip: key players (Hynes, Brailey, Wilton) are rested.\n    *   According to EVIDENCE RULES: \"You may pick against a Home Win / Away Win label only when research gives a concrete reason: a named player ruled out or returning...\". Resting stars counts as being \"ruled out\" for this match.\n    *   Therefore, I can flip to Storm.\n\n    *   Math prior was for Sharks. I am flipping to Storm.\n    *   The Storm are in good form (recent wins over Sea Eagles and Broncos).\n    *   The Sharks are resting stars and playing debutants.\n    *   The market is very confident in Storm ($1.36).\n    *   Confidence: The math prior for Sharks was 0.67. The flip is based on a significant team selection change. I'll place confidence in the 0.60-0.70 range. Let's go with 0.62. (Wait, if I flip, I start from the probability of the other side? No, I start from the math and let research move me. The math probability for Storm was 1 - 0.6743 = 0.3257. Research (resting stars) is a huge boost. This moves the probability significantly. Given the market price of $1.36, the implied probability is ~73%. I'll set confidence at 0.65).\n\n    *   `winner`: \"away\" (Storm)\n    *   `home_team`: \"Sharks\"\n    *   `away_team`: \"Storm\"\n    *   `confidence`: 0.65\n    *   `research_stance`: \"conflicts\"\n    *   `strongest_reason_could_lose`: \"The Sharks still hold a significant ladder and ratings advantage, and the Storm are playing without finals pressure.\"\n    *   `loss_reason_specific`: false (generic variance/ratings gap).\n    *   `summary`: \"While the math model favours the Sharks based on season-long ratings and ladder position, research reveals the Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton. The Storm are in strong form following a big win over Brisbane and are heavily favoured by the market. This availability shock justifies a pick against the math prior.\"\n    *   `key_factors`:\n        1.  Research: Sharks resting stars Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com).\n        2.  Research: Storm coming off a 46-20 win over Brisbane (nrl_news).\n        3.  Math: Storm's head-to-head record (last 5) favours the away side (math).\n    *   `disagreements_with_math`: \"Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton).\"\n\n    *   Did I invent stats? No.\n    *   Did I use research for the flip? Yes (resting stars).\n    *   Did I cite the article? Yes (nrl.com).\n    *   Did I use SHAP correctly? Yes (Head-to-head).\n    *   Did I handle the market correctly? Yes (acknowledged $1.36).\n    *   Is confidence within bands? 0.65 is a modest edge.\n    *   Is `research_stance` correct? `conflicts` because news cuts against the math favourite.",
+      "chars": 4680
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-05T07:14:42.403570+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, prices) in the research body/title/price_quote?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.65) justified based on the math prior (0.6743) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Sharks\n- Away: Storm\n- Math Prior: Home Win (0.6743)\n- Final Pick: Away (Storm)\n- Confidence: 0.65\n- Research Stance: conflicts\n\n- \"Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com)\" -> Found in `nrl_news` (\"The Sharks have chosen to rest a number of their stars... Nicho Hynes, Blayke Brailey and Teig Wilton getting a break\") and `google_news_rss` (\"Nicho Hynes, Blayke Brailey and Teig Wilton are among the Sharks being rested\").\n- \"Storm enter the match in strong form following a 46-20 win over Brisbane\" -> Found in `nrl_news` (\"standout last week in their 46-20 Round 26 win over the Broncos\").\n- \"heavy market favourites at $1.36\" -> Found in `google_news_rss` price_quote (\"We're tipping Melbourne Storm to win at $1.36 odds\").\n- \"head-to-head record (last 5) as a driver favouring the Storm\" -> Found in `predict_match` shap_drivers (`favouring_Storm_away_win`: \"Head-to-head record (last 5)...\").\n\n- Sharks resting players: Source says they are resting. Judgement says they are resting. (Pass)\n\n- \"head-to-head record (last 5)\" is listed under `favouring_Storm_away_win`. Judgement attributes it to Storm. (Pass)\n\n- Weather is \"Fine\". Not mentioned as a key factor. (Pass)\n\n- Key factors include Sharks resting players (research) and Storm form (research). (Pass)\n\n- Math Prior: 0.6743 (Home).\n- Final Pick: Away.\n- Confidence: 0.65.\n- The model flipped the pick due to a \"significant availability shock\" (resting stars).\n- The confidence is 0.65.\n- Rule (b): Confidence above 0.65 without `confirms` fails. Here it is exactly 0.65.\n- Rule (e): Summary says \"This significant availability shock justifies flipping the pick against the math prior.\"\n- The prior was 0.67 for Sharks. The new confidence is 0.65 for Storm. This is a significant shift.\n- Does it meet the criteria? It's not *above* 0.65. It's exactly 0.65.\n- The research indicates a heavily altered side (resting stars) and market odds of $1.36 (implied prob ~73%).\n- The confidence 0.65 is justified by the research (resting stars + market odds). (Pass)\n\n- The judgement focuses on the availability shock and form. It mentions the H2H record (which is a minor driver at 4%). It doesn't treat it as the *decisive* factor, but as a supporting point. The decisive factor is the resting of stars. (Pass)\n\n- Material drivers (>= 8%):\n    1. `5-game form: all run metres (+162.20)` (18%) - NOT mentioned.\n    2. `Ladder points differential per game (+6.0 points)` (16%) - Mentioned in summary (\"season-long ratings\") and \"strongest_reason_could_lose\" (\"significant ratings and ladder advantage\").\n    3. `Pythagorean form (last 10) (+17% expected-win gap)` (12%) - NOT mentioned.\n    4. `Elo rating advantage (+51 points)` (8%) - Mentioned in summary (\"season-long ratings\") and \"strongest_reason_could_lose\" (\"significant ratings... advantage\").\n- The \"all run metres\" (18%) and \"Pythagorean form\" (12%) are not explicitly named or clearly alluded to. \"Season-long ratings\" is a general term that might cover Elo and Ladder, but not necessarily specific 5-game run metres or Pythagorean form.\n- Specifically, \"5-game form: all run metres\" is the top driver (18%) and is completely ignored.\n- \"Pythagorean form\" (12%) is ignored.\n- This is a failure of `omitted_math_signals`.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Material drivers \"5-game form: all run metres\" and \"Pythagorean form (last 10)\" are missing.\n\n- `sourced_claims`: \"Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton\" matches \"The Sharks have chosen to rest a number of their stars... Nicho Hynes, Blayke Brailey and Teig Wilton getting a break\".\n- `availability_direction`: Pass.\n- `shap_attribution`: \"head-to-head record (last 5)\" is in `favouring_Storm_away_win`.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Material drivers \"5-game form: all run metres\" and \"Pythagorean form (last 10)\" are not addressed.\n\nWait, let me double check \"season-long ratings\". Does that cover Pythagorean form? Maybe. But \"all run metres\" is a specific 5-game form metric, not a season-long rating. It's 18% of the total. It must be addressed.\n\nInstruction: \"Math drivers include '5-game form: all run metres' and 'Pythagorean form (last 10)'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 5416
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-05T07:17:05.415085+00:00",
+      "thinking": "*   Fixture: Sharks (Home) vs Storm (Away).\n    *   Math Prior: Home Win (0.6743).\n    *   SHAP Drivers (Home): Run metres (+162.20), Ladder points diff (+6.0), Pythagorean form (+17%), Elo (+51), Bradley-Terry.\n    *   SHAP Drivers (Away): H2H (40% home), Travel (700km), Tackle pct, Points against (Conflict), Penalty gap.\n    *   Research: Sharks resting stars (Nicho Hynes, Blayke Brailey, Teig Wilton). Storm in good form (beat Broncos 46-20). Market favourite: Storm ($1.36).\n    *   Previous Pick: Away (Storm).\n    *   Previous Confidence: 0.65.\n    *   Research Stance: `conflicts` (because research cuts against the math favourite).\n\n    *   `confidence_not_discounted_despite_research_conflict`: The verifier says I didn't discount confidence despite research conflict.\n    *   `Material SHAP drivers omitted`: '5-game form: all run metres' and 'Pythagorean form (last 10)' were not mentioned.\n\n    *   *Math Prior:* 0.6743 (Home).\n    *   *Research:* Major availability shock (Hynes, Brailey, Wilton rested).\n    *   *Decision:* Flip to Away (Storm).\n    *   *Confidence Adjustment:*\n        *   The math prior was 0.67 for Home.\n        *   I flipped to Away.\n        *   The \"prior\" for Away is $1 - 0.6743 = 0.3257$.\n        *   Research (resting stars) is a \"real this-week shock\" that the model didn't know.\n        *   This moves the probability from 0.3257 upwards.\n        *   However, the verifier notes that I didn't \"discount\" confidence. Wait, if I flip the pick, the confidence is based on the *new* pick (Storm).\n        *   The \"prior\" for Storm is low (0.32). The research (resting stars) is a huge boost.\n        *   But the verifier says \"confidence_not_discounted_despite_research_conflict\". In the context of the rules: \"If you pick against a Home Win / Away Win label only when research gives a concrete reason...\".\n        *   The rule \"IF MATH IS 'Too close'\" doesn't apply here.\n        *   The rule \"IF YOU PICK WITH MATH\" doesn't apply here.\n        *   I am picking *against* the math label.\n        *   The confidence should reflect the strength of the evidence.\n        *   The math model strongly favours Sharks (0.67). The research strongly favours Storm (resting stars).\n        *   This is a clash. A confidence of 0.65 is a \"modest edge\".\n        *   Given the math prior is so strongly for the other side (0.67), flipping to 0.65 for the other side is a huge swing.\n        *   Actually, if the math says Home 67%, and I pick Away, I am essentially saying the \"resting stars\" factor is worth >35% probability.\n        *   The verifier says I didn't discount. This usually means I should be more cautious when the math and research are in direct conflict.\n        *   If the math is 0.67 Home, and research is \"Storm win\", the resulting confidence in Storm should probably be in the 0.55-0.65 range (modest edge) because the underlying ratings (Elo, Pythagorean, etc.) still favour the Sharks.\n\n    *   '5-game form: all run metres' (+162.20) and 'Pythagorean form (last 10)' (+17% expected-win gap) both strongly favour the Sharks.\n    *   These are season-long/recent-form metrics.\n    *   They explain *why* the math prior is 0.67.\n    *   I must acknowledge these drivers to show I've considered the strength of the Sharks' side before deciding that the \"resting stars\" news overrides them.\n\n    *   Winner: Away (Storm).\n    *   Confidence: 0.60 (Lowering slightly from 0.65 to reflect the strong math prior for the Sharks).\n    *   Research Stance: `conflicts`.\n    *   Key Factors:\n        1.  Research: Resting stars (Hynes, Brailey, Wilton).\n        2.  Math: Acknowledge the strong drivers for Sharks (run metres, Pythagorean form) but explain why they are outweighed.\n        3.  Research: Storm's recent form (beat Broncos).\n    *   Summary: Mention the math's strength (run metres, Pythagorean form) but emphasize the availability shock.\n\n    *   `research_stance`: `conflicts` (Research cuts against math favourite).\n    *   `confidence`: 0.60 (Modest edge).\n    *   `strongest_reason_could_lose`: The Sharks' underlying strength (run metres and Pythagorean form) suggests they are the superior team on paper.\n    *   `loss_reason_specific`: false (generic variance/ratings gap).\n\n    *   Did I cite the research? Yes (nrl.com).\n    *   Did I cite SHAP drivers? Yes (run metres, Pythagorean form).\n    *   Did I avoid inventing stats? Yes.\n    *   Did I handle the \"conflict\" correctly? Yes, picking against math due to named players rested.\n    *   Confidence band: 0.55-0.65 is for a modest edge. Since the math prior is 0.67 for the *other* side, a confidence of 0.60 for Storm is a significant move, but reasonable given the star players missing.\n\n    *   *Self-Correction on Confidence:* If the math is 0.67 Home, the \"Away\" probability is 0.33. To move from 0.33 to 0.60 requires a massive shift. The resting of Nicho Hynes (star halfback) is a massive shift. However, the verifier warned about not discounting. I will set it to 0.58 to be safe, staying in the \"modest edge\" band.",
+      "chars": 5046
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-05T07:04:27.491296+00:00",
+      "payload": {
+        "queries": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Sharks vs Storm NRL round 27 preview",
+          "Sharks Storm NRL odds OR price OR favourite",
+          "Sharks Storm NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-05T07:11:07.240187+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "confidence": 0.65,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Sharks maintain a significant ratings and ladder advantage over the Storm, who are playing without the pressure of finals contention.",
+          "loss_reason_specific": false,
+          "summary": "Although the math model favours the Sharks based on season-long ratings, research indicates the Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter the match in strong form following a 46-20 win over Brisbane and are heavy market favourites at $1.36. This significant availability shock justifies flipping the pick against the math prior.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+            },
+            {
+              "source": "research",
+              "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+            },
+            {
+              "source": "math",
+              "detail": "The model identifies the head-to-head record (last 5) as a driver favouring the Storm."
+            }
+          ],
+          "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-05T07:14:42.404084+00:00",
+      "payload": {
+        "checklist": {
+          "pass": false,
+          "issues": [
+            "confidence_not_discounted_despite_research_conflict"
+          ]
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims about resting Hynes, Brailey, and Wilton are found in nrl_news and google_news_rss; Storm's 46-20 win is in nrl_news; $1.36 odds are in google_news_rss price_quote."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Research states Sharks are resting players, and the judgement correctly describes them as resting."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "The 'head-to-head record (last 5)' driver is correctly attributed to the Storm as it appears in the 'favouring_Storm_away_win' group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors include the resting of Sharks players and Storm's recent form, both sourced from research."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.65 is justified by the significant availability shock (resting stars) and market odds of $1.36, flipping the 0.67 prior."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The minor H2H driver (4%) is used as supporting evidence, while the primary driver for the pick is the research-based availability shock."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Material drivers '5-game form: all run metres' (18%) and 'Pythagorean form (last 10)' (12%) are not addressed in the summary or key factors."
+            }
+          ],
+          "issues": [
+            "Material SHAP drivers '5-game form: all run metres' and 'Pythagorean form (last 10)' were omitted from the evaluation."
+          ],
+          "instruction": "Math drivers include '5-game form: all run metres' and 'Pythagorean form (last 10)'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-05T07:17:05.415816+00:00",
+      "payload": {
+        "issues": [
+          "confidence_not_discounted_despite_research_conflict",
+          "Material SHAP drivers '5-game form: all run metres' and 'Pythagorean form (last 10)' were omitted from the evaluation."
+        ],
+        "instruction": "Math drivers include '5-game form: all run metres' and 'Pythagorean form (last 10)'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "confidence": 0.65,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Sharks maintain a significant ratings and ladder advantage over the Storm, who are playing without the pressure of finals contention.",
+          "loss_reason_specific": false,
+          "summary": "Although the math model favours the Sharks based on season-long ratings, research indicates the Sharks are resting key stars including Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter the match in strong form following a 46-20 win over Brisbane and are heavy market favourites at $1.36. This significant availability shock justifies flipping the pick against the math prior.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+            },
+            {
+              "source": "research",
+              "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+            },
+            {
+              "source": "math",
+              "detail": "The model identifies the head-to-head record (last 5) as a driver favouring the Storm."
+            }
+          ],
+          "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "confidence": 0.58,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Sharks possess superior underlying metrics, including a significant advantage in run metres and a strong Pythagorean expected-win gap, which could still see them prevail despite missing stars.",
+          "loss_reason_specific": false,
+          "summary": "While the math model strongly favours the Sharks based on their Elo rating, Pythagorean form, and a dominant 5-game run metre advantage (+162.20), this is outweighed by the news that the Sharks are resting key stars Nicho Hynes, Blayke Brailey, and Teig Wilton (nrl.com). The Storm enter in strong form after a 46-20 win over Brisbane and are heavy market favourites ($1.36). Confidence is kept to a modest edge to account for the strong underlying ratings still favouring the home side.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Sharks are resting key players Nicho Hynes, Blayke Brailey, and Teig Wilton for this fixture (nrl.com)."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prior is driven by the Sharks' strong 5-game run metre advantage (+162.20) and a +17% Pythagorean expected-win gap."
+            },
+            {
+              "source": "research",
+              "detail": "Storm are in strong form, coming off a 46-20 victory over the Broncos (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "Picked against Home Win label due to Sharks resting key players (Hynes, Brailey, Wilton)."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "6d8102bdec74",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-05T07:04:00.613482+00:00",
+      "finished_at": "2026-09-05T07:04:04.015230+00:00",
+      "duration_ms": 3401,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Storm",
+        "season": null,
+        "round_number": 27,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "season": null,
+          "round_number": 27
+        },
+        "retrieved_at": "2026-09-05T07:04:00.613550+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 27,
+          "round_title": "Round 27",
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "kickoff": "2026-09-05T19:35:00+10:00",
+          "venue": "Ocean Protect Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/sharks-v-storm/",
+          "match_mode": "Pre",
+          "match_id": "20261112760",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Todd Smith"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Adam Gee"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Riley Jones",
+                "position": "Centre",
+                "player_id": 100009035
+              },
+              {
+                "number": 4,
+                "name": "Michael Gabrael",
+                "position": "Centre",
+                "player_id": 100011237
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Riley Pollard",
+                "position": "Five-Eighth",
+                "player_id": 100011342
+              },
+              {
+                "number": 7,
+                "name": "Niwhai Puru",
+                "position": "Halfback",
+                "player_id": 509464
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Hohepa Puru",
+                "position": "Hooker",
+                "player_id": 507815
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Billy Burns",
+                "position": "2nd Row",
+                "player_id": 505413
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Lock",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Siosifa Talakai",
+                "position": "Interchange",
+                "player_id": 504175
+              },
+              {
+                "number": 15,
+                "name": "Toby Rudolf",
+                "position": "Interchange",
+                "player_id": 504326
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Braden Uele",
+                "position": "Interchange",
+                "player_id": 500213
+              },
+              {
+                "number": 18,
+                "name": "Jayden Berrell",
+                "position": "Interchange",
+                "player_id": 500150
+              },
+              {
+                "number": 20,
+                "name": "Liam Ison",
+                "position": "Reserve",
+                "player_id": 100006251
+              },
+              {
+                "number": 22,
+                "name": "KL Iro",
+                "position": "Interchange",
+                "player_id": 508649
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Sualauvi Faalogo",
+                "position": "Fullback",
+                "player_id": 100006297
+              },
+              {
+                "number": 2,
+                "name": "Siulagi Tuimalatu-Brown",
+                "position": "Winger",
+                "player_id": 100011324
+              },
+              {
+                "number": 3,
+                "name": "Tyran Wishart",
+                "position": "Centre",
+                "player_id": 507680
+              },
+              {
+                "number": 4,
+                "name": "Nick Meaney",
+                "position": "Centre",
+                "player_id": 505537
+              },
+              {
+                "number": 5,
+                "name": "Moses Leo",
+                "position": "Winger",
+                "player_id": 100018554
+              },
+              {
+                "number": 6,
+                "name": "Cameron Munster",
+                "position": "Five-Eighth",
+                "player_id": 501459
+              },
+              {
+                "number": 7,
+                "name": "Jahrome Hughes",
+                "position": "Halfback",
+                "player_id": 500826
+              },
+              {
+                "number": 8,
+                "name": "Stefano Utoikamanu",
+                "position": "Prop",
+                "player_id": 505628
+              },
+              {
+                "number": 9,
+                "name": "Harry Grant",
+                "position": "Hooker",
+                "player_id": 505904
+              },
+              {
+                "number": 10,
+                "name": "Josh King",
+                "position": "Prop",
+                "player_id": 501247
+              },
+              {
+                "number": 11,
+                "name": "Shawn Blore",
+                "position": "2nd Row",
+                "player_id": 504788
+              },
+              {
+                "number": 12,
+                "name": "Oryn Keeley",
+                "position": "2nd Row",
+                "player_id": 510366
+              },
+              {
+                "number": 13,
+                "name": "Trent Loiero",
+                "position": "Lock",
+                "player_id": 100001560
+              },
+              {
+                "number": 14,
+                "name": "Trent Toelau",
+                "position": "Interchange",
+                "player_id": 508341
+              },
+              {
+                "number": 15,
+                "name": "Cooper Clarke",
+                "position": "Interchange",
+                "player_id": 100013815
+              },
+              {
+                "number": 16,
+                "name": "Jack Hetherington",
+                "position": "Interchange",
+                "player_id": 503336
+              },
+              {
+                "number": 17,
+                "name": "Alec MacDonald",
+                "position": "Interchange",
+                "player_id": 100007566
+              },
+              {
+                "number": 18,
+                "name": "Angus Hinchey",
+                "position": "Interchange",
+                "player_id": 100009124
+              },
+              {
+                "number": 19,
+                "name": "Hugo Peel",
+                "position": "Interchange",
+                "player_id": 100013692
+              },
+              {
+                "number": 22,
+                "name": "Hayden Watson",
+                "position": "Reserve",
+                "player_id": 100014714
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 27,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Sharks",
+            "position": 5,
+            "played": 23,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 9,
+            "competition_points": 34,
+            "points_for": 652,
+            "points_against": 499,
+            "points_difference": 153,
+            "points_difference_per_game": 6.65,
+            "recent_form_last_4": "2 - 3",
+            "streak": "1L",
+            "home_record": "8 - 3",
+            "away_record": "6 - 6"
+          },
+          "away": {
+            "team": "Storm",
+            "position": 11,
+            "played": 23,
+            "wins": 10,
+            "drawn": 0,
+            "lost": 13,
+            "competition_points": 26,
+            "points_for": 570,
+            "points_against": 556,
+            "points_difference": 14,
+            "points_difference_per_game": 0.61,
+            "recent_form_last_4": "2 - 2",
+            "streak": "1W",
+            "home_record": "7 - 5",
+            "away_record": "3 - 8"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sharks",
+            "ladder_positions_gap": 6,
+            "points_difference_per_game_gap": 6.04,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-05T19:00",
+            "temperature_c": 23.2,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 24,
+            "wind_speed_kmh": 17.9,
+            "weather_code": 2,
+            "summary": "Partly cloudy",
+            "latitude": -33.972,
+            "longitude": 151.129,
+            "venue": "Ocean Protect Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.972&longitude=151.129&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-05T07:04:04.009586+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=27&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/sharks-v-storm/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.972&longitude=151.129&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "8eb76aa3c87e",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-05T07:04:27.494422+00:00",
+      "finished_at": "2026-09-05T07:07:05.214390+00:00",
+      "duration_ms": 157719,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Storm",
+        "kickoff": "2026-09-05T19:35:00+10:00",
+        "round_number": 27,
+        "venue": "Ocean Protect Stadium",
+        "queries": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Sharks vs Storm NRL round 27 preview",
+          "Sharks Storm NRL odds OR price OR favourite",
+          "Sharks Storm NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "kickoff": "2026-09-05T19:35:00+10:00",
+          "round_number": 27,
+          "venue": "Ocean Protect Stadium",
+          "queries": [
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Storm NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Sharks vs Storm NRL round 27 preview",
+            "Sharks Storm NRL odds OR price OR favourite",
+            "Sharks Storm NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-05T07:04:27.497718+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "0f75680b95fe1597",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 27 - Yeo on track to return",
+            "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/",
+            "published_at": "2026-09-05T06:09:19+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 27 - Yeo on track to return\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost fo",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 27 - Yeo on track to return\nPanthers skipper Isaah Yeo has been elevated to the interchange bench for Sunday's clash with Wests Tigers.\nAfter three games out with a pectoral injury, Yeo is set to return for a pre-finals hit-out in a huge boost for Penrith.\nThe Sharks have chosen to rest a number of their stars from the game against Melbourne with Nicho Hynes , Blayke Brailey and Teig Wilton getting a break.\nSee all the late mail, official team news and updates for Round 27 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 27\nCowboys v Raiders, Saturday 5.30pm at Queensland Country Bank Stadium\nMatch: Cowboys v Raiders\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nCowboys\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Cowboys is number 1 Scott Drinkwater 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Cowboys is number 2 Braidon Burns 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Cowboys is number 3 Jaxon Purdue 3 Centre for Raiders is number 3 Simi Sasagi\nCentre for Cowboys is number 4 Tom Chester 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Cowboys is number 5 Robert Derby 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Cowboys is number 6 Jake Clifford 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Cowboys is number 7 Tom Dearden 7 Halfback for Raiders is number 7 Coby Black\nForwards\nProp for Cowboys is number 8 Coen Hess 8 Prop for Raiders is number 8 Josh Papalii\nHooker for Cowboys is number 9 Reed Mahoney 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Cowboys is number 10 Jason Taumalolo 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Cowboys is number 11 Heilum Luki 11 2nd Row for Raiders is number 11 Noah Martin\n11\n2nd Row for Cowboys is number 12 John Bateman 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Cowboys is number 13 Reuben Cotter 13 Lock for Raiders is number 13 Ata Mariota\n13\nInterchange\nInterchange for Cowboys is number 14 Soni Luke 14 Interchange for Raiders is number 14 Malachi Smith\n14\nInterchange for Cowboys is number 15 Sam McIntyre 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Cowboys is number 16 Thomas Mikaele 16 Interchange for Raiders is number 16 Morgan Smithies\n16\nInterchange for Cowboys is number 17 Kaiden Lahrs 17 Interchange for Raiders is number 17 Vena Patuki-Case\n17\nInterchange for Cowboys is number 18 Kai O'Donnell 18 Interchange for Raiders is number 18 Tom Starling\n18\nInterchange for Cowboys is number 19 Ethan King 19 Interchange for Raiders is number 19 Daine Laurie\n19\nCowboys Ins\nKaiden Lahrs\nRobert Derby\nSam McIntyre\nRaiders Ins\nCoby Black\nMalachi Smith\nMorgan Smithies\nNoah Martin\nCowboys Outs\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nCorey Horsburgh\nEthan Sanders\nSavelio Tamale\nZac Hosking\nMatch Officials\nSenior Review Official: Ashley Klein\nLast updated: 9/5/2026 7:01:03 AM\nCowboys: The Cowboys will run out 1-19 as named on Tuesday. Earlier in the week, coach Todd Payten revealed that prop Griffin Neame has been playing with turf toe since Round 2 and that's affecting other parts of his body, so the call was made to give him a rest. Jeremiah Nanai has tweaked his medial ligament and will also take a break, but Payten said his star back-rower should be fine for next week. Robert Derby's experience got him the nod over Ronald Philitoga in the battle for the wing spot vacated by Zac Laybutt (concussion).\nRaiders: Two-time Maroons Under 19s halfback Coby Black has been confirmed to make his first NRL start, with hooker Malachi Smith hoping to the same off the bench as the Raiders go into their clash 1-19 as named on Tuesday. Back-rower Noah Martin returns from a quad injury and fills the void left by Zac Hosking (hamstring). Prop Corey Horsburgh is done for the year after undergoing shoulder surgery.\nSharks v Storm, Saturday 7.35pm at Ocean Protect Stadium",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.919027143888889,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "04420347bbc9541d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 27 v Storm - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/01/nrl-team-list-round-27-v-storm/",
+            "published_at": "2026-09-01T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 27 v Storm\nPlenty of changes for the Sharks in their final round clash against the Storm on Saturday night.\nRiley Jones #567 is set to make his Cronulla club debut, while Michael Gabrael #568 and Riley Pollard #569 have been named to make their N",
+            "body_excerpt": "Presented By\nNRL Team List: Round 27 v Storm\nPlenty of changes for the Sharks in their final round clash against the Storm on Saturday night.\nRiley Jones #567 is set to make his Cronulla club debut, while Michael Gabrael #568 and Riley Pollard #569 have been named to make their NRL debuts.\nJones is a 24-year-old from Gosford, who debuted for the Knights at hooker in 2023 before making the switch to the Sharks, where he's dominated for the Jets this season. He's a versatile centre who has played everywhere in the backline and at hooker.\nHis centre partner, Gabrael, is a Wentworthville product with lightning speed who came to Cronulla in 2023. The 21-year-old was the equal 3rd top try scorer in NSW Cup last year and has 27 tries and 10 assists from his 32 games for Newtown.\nPollard is another Jet setting the Cup alight, and the young halfback from Penrith will now take the next step. The 20-year-old graduated from Jersey Flegg last year and has now played 33 games for Newtown, scoring 11 tries, setting up 21 assists and kicking 51 goals at 75%.\nPollard will partner Niwhai Puru in the halves, with Hohepa Puru at 9 and the ever-reliable Will Kennedy at the back making up the spine.\nOutside back Mawene Hiroti succumbed to a rib injury in the club's recent loss to the Eels and will now miss the Melbourne match.\nNicho Hynes, Blayke Brailey, Teig Wilton and KL Iro will all be rested with the Sharks locked into either 5th or 6th on the ladder.\nCronulla cult hero Toby Rudolf has been named on the bench to play his first NRL game since injuring his knee in the club's round 15 win over the Warriors in Auckland.\nThe Sharks will celebrate Old Boys Round and the 10-year anniversary of the 2016 premiership on Saturday against the Storm.\nSee the two team lists below.\nMatch: Sharks v Storm\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nSharks\naway Team\nStorm\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Storm is number 1 Sualauvi Faalogo\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Storm is number 2 Siulagi Tuimalatu-Brown\nCentre for Sharks is number 3 Riley Jones 3 Centre for Storm is number 3 Tyran Wishart\nCentre for Sharks is number 4 Michael Gabrael 4 Centre for Storm is number 4 Nick Meaney\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Storm is number 5 Moses Leo\nFive-Eighth for Sharks is number 6 Riley Pollard 6 Five-Eighth for Storm is number 6 Cameron Munster\nHalfback for Sharks is number 7 Niwhai Puru 7 Halfback for Storm is number 7 Jahrome Hughes\nForwards\nProp for Sharks is number 8 Addin Fonua-Blake 8 Prop for Storm is number 8 Stefano Utoikamanu\nHooker for Sharks is number 9 Hohepa Puru 9 Hooker for Storm is number 9 Harry Grant\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Storm is number 10 Josh King\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Storm is number 11 Shawn Blore\n11\n2nd Row for Sharks is number 12 Billy Burns 12 2nd Row for Storm is number 12 Oryn Keeley\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Storm is number 13 Trent Loiero\n13\nInterchange\nInterchange for Sharks is number 14 Siosifa Talakai 14 Interchange for Storm is number 14 Trent Toelau\n14\nInterchange for Sharks is number 15 Toby Rudolf 15 Interchange for Storm is number 15 Cooper Clarke\n15\nInterchange for Sharks is number 16 Oregon Kaufusi 16 Interchange for Storm is number 16 Jack Hetherington\n16\nInterchange for Sharks is number 17 Braden Uele 17 Interchange for Storm is number 17 Alec MacDonald\n17\nInterchange for Sharks is number 18 Jayden Berrell 18 Interchange for Storm is number 18 Angus Hinchey\n18\nInterchange for Sharks is number 22 KL Iro 22 19 Interchange for Storm is number 19 Hugo Peel\n22 19\nReserves\nReserve for Sharks is number 20 Liam Ison 20 22 Reserve for Storm is number 22 Hayden Watson\n20 22\nSharks Ins\nBraden Uele\nHohepa Puru\nJayden Berrell\nLiam Ison\nMichael Gabrael\nToby Rudolf\nStorm Ins\nHayden Watson\nHugo Peel\nSharks Outs\nBlayke Brailey\nMaw",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 97.09097158833335,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "87042a8fae12898e",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Sharks v Storm: Gabrael set for debut; Peel back for more",
+            "url": "https://www.nrl.com/news/2026/09/01/sharks-v-storm-gabrael-set-for-debut-peel-back-for-more/",
+            "published_at": "2026-09-04T09:46:36+00:00",
+            "snippet": "Presented By\nSharks v Storm: Gabrael set for debut; Peel back for more\nWith finals fast approaching, the Sharks are desperately seeking form and will face a much-needed tough hit-out against the Storm.\nWhile Melbourne will be missing finals for the first time in 16 years after en",
+            "body_excerpt": "Presented By\nSharks v Storm: Gabrael set for debut; Peel back for more\nWith finals fast approaching, the Sharks are desperately seeking form and will face a much-needed tough hit-out against the Storm.\nWhile Melbourne will be missing finals for the first time in 16 years after enduring a particularly challenging year - they have shown plenty of fight and spirit throughout the season and will love nothing more than spoiling the party at Ocean Protect Stadium.\nThe Storm come into the game with a big win over Brisbane behind them, while the Sharks were shocked by the Eels last week - another team who won't be playing post-season football.\nCoach Craig Fitzgibbon voiced his frustrations with the performance of his team in the 38-18 loss to Parramatta and will be keen to see his players respond against Melbourne.\nMatch: Sharks v Storm\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nSharks\n5th Position\naway Team\nStorm\n11th Position\nVenue: Ocean Protect Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nSharks: One change in the 24-update, with KL Iro coming on to the bench in place of Tukupa-Ke Hau Tapuha. Two new centres for the Sharks with Michael Gabrael set to make his NRL debut alongside Riley Jones with Mawene Hiroti nursing a rib injury and Iro on the bench. Niwhai Puru moves to halfback and Riley Pollard debuts at five-eighth with Nicho Hynes being rested ahead of the finals. Hooker Blayke Brailey and back-rower Teig Wilson also get a rest with Hohepa Puru named in No.9 and Billy Burns in No.12. Braden Uele and Jayden Berrell and have been added to the interchange. Tom Hazelton is serving a one-game ban for a hip drop and will return for the elimination final.\nStorm: No changes in the 24-hour update, with Hayden Watson remaining in the reserves. Craig Bellamy goes with an unchanged starting side for the final game of the season. Tyran Wishart has been named to make his 100th Storm appearance in his final game for the club, lining up alongside fellow departee Nick Meaney in the centres. On the bench, Hugo Peel has been added in place of Marion Seve.\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Storm is number 1 Sualauvi Faalogo\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Storm is number 2 Siulagi Tuimalatu-Brown\nCentre for Sharks is number 3 Riley Jones 3 Centre for Storm is number 3 Tyran Wishart\nCentre for Sharks is number 4 Michael Gabrael 4 Centre for Storm is number 4 Nick Meaney\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Storm is number 5 Moses Leo\nFive-Eighth for Sharks is number 6 Riley Pollard 6 Five-Eighth for Storm is number 6 Cameron Munster\nHalfback for Sharks is number 7 Niwhai Puru 7 Halfback for Storm is number 7 Jahrome Hughes\nForwards\nProp for Sharks is number 8 Addin Fonua-Blake 8 Prop for Storm is number 8 Stefano Utoikamanu\nHooker for Sharks is number 9 Hohepa Puru 9 Hooker for Storm is number 9 Harry Grant\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Storm is number 10 Josh King\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Storm is number 11 Shawn Blore\n11\n2nd Row for Sharks is number 12 Billy Burns 12 2nd Row for Storm is number 12 Oryn Keeley\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Storm is number 13 Trent Loiero\n13\nInterchange\nInterchange for Sharks is number 14 Siosifa Talakai 14 Interchange for Storm is number 14 Trent Toelau\n14\nInterchange for Sharks is number 15 Toby Rudolf 15 Interchange for Storm is number 15 Cooper Clarke\n15\nInterchange for Sharks is number 16 Oregon Kaufusi 16 Interchange for Storm is number 16 Jack Hetherington\n16\nInterchange for Sharks is number 17 Braden Uele 17 Interchange for Storm is number 17 Alec MacDonald\n17\nInterchange for Sharks is number 18 Jayden Berrell 18 Interchange for Storm is number 18 Angus Hinchey\n18\nInterchange for Sharks is number 22 KL Iro 22 19 Interchange for Storm is number 19 Hugo Peel\n22 19\nReserves\nReserve fo",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.297638255,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "cbc63509d17e3af1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cronulla Sharks vs Melbourne Storm Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/cronulla-sharks-vs-melbourne-storm-tips-odds-teams-predictions-nrl-round-27-2026/610131",
+            "published_at": "2026-09-02T04:12:12+00:00",
+            "snippet": "Cronulla Sharks vs Melbourne Storm Tips, Odds, Teams & Predictions – NRL Round 27 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Ocean Protect Stadium will play host to Saturday's Round 27 NRL game between Cronulla Sharks and Melbourne Storm. The game kicks off at 7:35 pm with Melbourne Storm heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Cronulla Sharks vs. Melbourne Storm game and give you our free tips and bets.\nWhen: Saturday September 5, 2026 at 7:35 pm\nWhere: Ocean Protect Stadium\nBet 💰: Bet On This Match HERE\nCronulla Sharks vs Melbourne Storm Odds\nCronulla Sharks vs Melbourne Storm Preview\nCronulla meets Melbourne at Ocean Protect Stadium with a heavily altered side ahead of the finals. Nicho Hynes, Blayke Brailey and Teig Wilton are among the Sharks being rested, while Riley Pollard, Riley Jones and Michael Gabrael have been named for NRL debuts. Niwhai Puru shifts to halfback and Hohepa Puru starts at hooker, placing considerable responsibility on an inexperienced combination against an established Storm spine. Melbourne retains its starting side after a 46-20 victory over Brisbane, with Cameron Munster, Jahrome Hughes and Harry Grant providing continuity through the middle. The Sharks still possess power through Addin Fonua-Blake and dangerous finishers in Sione Katoa and Ronaldo Mulitalo. However, Melbourne’s cohesion and greater experience in the key positions should allow the visitors to handle the decisive passages more effectively.\nHead To Head Bet\nWe're tipping Melbourne Storm to win at $1.36 odds.\nFirst Try Scorer\nFirst Try Scorer: Sualauvi Faalogo at $8.00 .\nCronulla Sharks vs Melbourne Storm Teams\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Riley Jones 4. Michael Gabrael 5. Ronaldo Mulitalo 6. Riley Pollard 7. Niwhai Puru 8. Addin Fonua-Blake 9. Hohepa Puru 10. Jesse Colquhoun 11. Briton Nikora 12. Billy Burns 13. Cameron McInnes 14. Siosifa Talakai 15. Toby Rudolf 16. Oregon Kaufusi 17. Braden Hamlin-Uele 18. Jayden Berrell 19. Tuku Hau Tapuha 20. Liam Ison 21. Samuel Stonestreet 22. KL Iro\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 3. Tyran Wishart 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Jahrome Hughes 8. Stefano Utoikamanu 9. Harry Grant 10. Josh King 11. Shawn Blore 12. Oryn Keeley 13. Trent Loiero 14. Trent Toelau 15. Cooper Clarke 16. Jack Hetherington 17. Alec MacDonald 18. Angus Hinchey 19. Hugo Peel 20. Davvy Moale 21. Manaia Waitere 22. Hayden Watson",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 74.87097158833335,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "a5b5bcdb31750f40",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks vs Storm Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/sharks-vs-storm-preview-betting-tips-nrl-round-27-2026",
+            "published_at": "2026-09-04T11:30:58+00:00",
+            "snippet": "Sharks vs Storm Preview & Betting Tips: NRL Round 27 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Sharks vs Storm Preview & Betting Tips: NRL Round 27 2026\nSeptember 4 th 2026, 6:55pm , By: Scooby\nThe concluding game of NRL Super Saturday heads to Sydney as the Sharks look to solidify a spot in the Top 4 as they host the Storm . Out of contention, the Storm will take plenty of joy in upsetting the fortunes of the team who defeated them in the 2016 NRL Grand Final. With a vocal home crowd expected, this game is a must-watch match. Before You Bet is here to add to your enjoyment by finding you a winner or two with an in depth look at what is ahead in this contest.\nBefore You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content. And if you're looking for a new site to join, then look no further than Dabble where you can copy our tips with a single click! Click the banner below to join now!\nSharks vs Storm Predictions & Tips: NRL Round 27 2026\nHitting horrible form\nThe Sharks were upset 38-18 on the road by the Eels last week, failing to compete with a team that is out of Finals contention. Failing to resemble a team that is fighting for a spot in the Top 4, the Sharks were poor in several areas. With 48% possession and a 86% completion rate, they ran for 9.5m per carry and had 500 PCM’s. This was in vain as they failed to convert this into points. Several questions about their execution will continue to be asked and a change is needed if they’re to be successful in the Finals.\nFinishing on a positive\nOut of contention, the Storm produced a strong 46-20 road victory over the Broncos. Outclassing their opponents in all areas, they were strong, and the game was all but over at HT as they lead 30-10. Their dominance was made more amazing by the fact they completed at just 68%; they overcame this by running for 9.3m per carry and having strong defence (missing just 18 tackles). Wins like this, at this stage of the season, will give them the confidence to excel ahead of the 2027 preseason campaign.\nStats that matter\n- The Sharks have a 59% record at home, with the Storm winning just 44% of matches here.\n- In the past 5 games between these two sides, 3 have been decided by 8 points or less. Two blowout victories has the average margin high though, at 14.2 points. The average total points in the same games is 43.8.\n- The Sharks are superior on both sides of the ball in 2026. They score 28ppg in attack and allow 21ppg defensively. The Storm average 24ppg for both.\nThe stronger team will prevail\nOn the eve of the Finals, the Sharks have opted to rest several key players, namely Hynes and Brailey. This weakens them in attack, while the players omitted on their edges limits their defensive structure. When you compare that to the strength of the Storm, a team who is playing for pride, it doesn’t come close to what they can offer.\nGiven the Sharks are coming off several poor performances, perhaps an opportunity to rest players allows them a break from negative headlines. Whatever the reason, it puts the Storm in the box seat to win this game. Not only should they be on the right side of the score board at the end of fulltime, but the increase in confidence also following a strong performance last week, should ensure that they account for the line at the end of 80 minutes.\nStorm -9.5\n$1.90 (2 units)\nSharks vs Storm Same Game Multi\nLeg 1 = Total points under 51.5 – see above for justification.\nLeg 2 = Wishart to score – in his 100th game for the club, which is also his last, Wishart will want to build on his strong recent record, which has seen him score 5 tries – including a double – in his past 5 games.\nLeg 3 = Hughes to score – he enjoys playing the Sharks and will want to have an impact on this contest. With 3 tries from his past 5 games against them, Hughes is well placed to succeed.\nSame Game Multi\n$18.52\nSharks vs Storm Betting Odds & Match Info\nDate: Saturday 5th September Location: Ocean Protect ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.558193810555554,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "609ecc17a32848a1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Round 27 v Storm - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/04/nrl-match-preview-round-27-v-storm/",
+            "published_at": "2026-09-04T00:26:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Round 27 v Storm\nOn old boys’ day around 180 Great White Sharks will be in attendance, including the majority of the 2016 Premiership winning squad, when the Sharks play the Storm in the final game of the home and away season at Ocean Protect Stadi",
+            "body_excerpt": "Presented By\nNRL Match Preview: Round 27 v Storm\nOn old boys’ day around 180 Great White Sharks will be in attendance, including the majority of the 2016 Premiership winning squad, when the Sharks play the Storm in the final game of the home and away season at Ocean Protect Stadium on Saturday night .\nCurrently fifth, despite winning just one of their past four games, the Sharks will host a Storm side which has found form of late but sit in 11th position with no chance of taking part in the NRL Finals for just the fourth time in Club history.\nHowever, while entrenched in the top eight and set to host a finals match next week, coach Craig Fitzgibbon was hoping to see his team gain some confidence against a difficult opponent, while building momentum for the games to come.\n“It’s been an up and down period over the last month, but we’re playing Melbourne who are playing really well, and we are excited about this opportunity.\n“It’s been a real challenge for us to not think ahead and about playing finals and we’ve taken some lessons from the last few weeks, but we want to play like Sharks, not play not to lose.\n“It’s old boys day, the 10-year reunion, we’ve got three debutants, so there’s plenty of excitement around the group.”\nWith their position in the top eight assured, Fitzgibbon has decided to rest a handful of regulars, while giving Michael Gabrael, Riley Jones and Riley Pollard, the opportunity to show what they can produce at the elite level.\n“They’ve all been close (to playing NRL) and now all three get a chance at the one time,” Fitzgibbon said.\nHalf back Pollard, at 21 years of age and while still Jersey Flegg eligible, has impressed playing for the Jets in the NSW Cup, centre Michael Gabrael has genuine speed and an ability to find the try line, while utility Riley Jones, with one NRL game to his name at the Knights as a hooker, has made a success of a permanent move into the backline while playing for Newtown in 2026.\nThe trio come into the side for the likes of Nicho Hynes, Braydon Trindall and KL Iro, Mawene Hiroti is unavailable with a rib problem, Tom Hazelton is serving a one match suspension, while hooker and co-captain Blayke Brailey and backrower Teig Wilton will also sit out Saturday's game.\nIn looking into the history of games played between the two teams, on the 50 occasions they have met, the Sharks have won 18 and the Storm 32, including the two most recent matches and three of the past four games.\nAt Ocean Protect Stadium the record favours the Sharks, with 10 wins from 18 games against Melbourne, including the last four. The Cronulla team also have a 7-2 record at their home ground this season.\nThe Sharks and Storm haven’t played in 2026, their last meeting coming in the 2025 Preliminary Final, with Melbourne progressing to play the Broncos in the Grand Final following a 22-14 victory at AAMI Park.\nObviously the most memorable clash between the two took place in 2016 in the competition decider, a match which saw the Sharks claim their maiden premiership title with a 14-12 victory.\nIn diving deeper into the stats, the Sharks are scoring the second most points per game (28.3) of any team in the NRL this year, trailing only the Warriors (30.3). They have never finished a season with a higher average.\nThe Sharks have won 12 of the 13 games when leading at halftime, only two of 10 when trailing at the break, and 11 of 14 games when scoring the first try, but just three of nine when conceding the first try.\nWith the best win percentage (62.5%) of any Cronulla coach, Fitzgibbon will become the first to lead the Sharks to five straight Finals series\nIn relation to their opponents, the 2026 season will be just the fourth time the Storm have failed to make the Finals, and the first time under Craig Bellamy (excluding 2010 when they were punished for salary cap breaches).\nMelbourne has won four of 12 away from home in 2026, with two of these coming in their most recent away games, against Manly in Perth and the Bro",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 30.640971588333333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b109eb97164bb264",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Storm Wings of change as home-grown Tuimalatu-Brown rises",
+            "url": "https://www.nrl.com/news/2026/09/04/wings-of-change-as-home-grown-tuimalatu-brown-rises/",
+            "published_at": "2026-09-03T21:01:23+00:00",
+            "snippet": "Wings of change as home-grown Tuimalatu-Brown rises\nAlthough the Storm may be missing the finals for the first time in 16 years, the emergence of players like Siulagi Tuimalatu-Brown are a sign of the green shoots of success to come into the future.\nA standout last week in their ",
+            "body_excerpt": "Wings of change as home-grown Tuimalatu-Brown rises\nAlthough the Storm may be missing the finals for the first time in 16 years, the emergence of players like Siulagi Tuimalatu-Brown are a sign of the green shoots of success to come into the future.\nA standout last week in their 46-20 Round 26 win over the Broncos, the Victorian Altona Roosters product scored three tries – including one length-of-the-field intercept – ran 170 run metres and had three tackle breaks.\nWhile devastating, the club’s crippling injury toll this year, including to representative winger Xavier Coates who took no part in the season, has given players like “Lagi” the opportunity to gain valuable experience in the NRL.\nNamed on the wing for his 13th game as the Storm draw the curtain on their season on Saturday against Cronulla, Tuimalatu-Brown said he was grateful for what he had learnt this year.\nMatch: Sharks v Storm\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nSharks\n5th Position\naway Team\nStorm\n11th Position\nVenue: Ocean Protect Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\n“I've only played a couple of games … I'm counting every game as it goes, but just really grateful to be here,” Tuimalatu-Brown said.\n“At the very start of the year I was struggling quite a bit with my footy, I feel like my biggest enemy was myself.\n“I was really struggling on the mental side of everything, but every game that goes by, the boys, they get around me and they kind of just explain there's always another game.\n“So just having that mentality, just getting into every game, taking one game at a time.\nSiulagi Tuimalatu-Brown stars for the Storm\n“My goal for the next game is obviously just to be consistent with everything.\n“I've always been an inconsistent player growing up, so the biggest work on, especially what Craig [Bellamy] and staff have been helping me with is my routine.\n“Sometimes it gets a bit scary when Craig comes to have a chat, but you get used to it and you realise it's just passion and he wants the best for you.\n“He is one of the best coaches in the game, so I'm so glad that I have him as a mentor.”\nRelated NRL News\nAgents of change: Storm double-down as Victorian expansion gathers pace\nThe winger, who made his NRL debut last year and played one game, was also one of four Victorian-bred talents to feature for the Storm this year (alongside Sua Fa’alogo, Hugo Peel and Trent Toelau), with the club working hard to grow that number in the future.\n“I'm a Melbourne boy … so I feel like I play extra hard knowing that it's actually where I'm from,” Tuimalatu-Brown said.\n“I'm actually representing my city, so I've got the whole family back at home.\n“I've been Melbourne Storm fans my whole life, so the culture at the Storm has been great.\n“Honestly, I'm so proud of being a part of such a good club and also being from the city.\n“The boys, they give me a lot of confidence and the coaching staff are actually one of the best people in the world.”\nSiulagi Tuimalatu-Brown with the ball against the Broncos. ©Chloe Davis / NRL Images\nWhile proud of his Victorian heritage, he said one day he’d like to represent his family on the biggest representative stage there is and feature in international matches.\n“I'd love to play for a country, my Mum's actually English and Dad's Samoan, so (I would just be) grateful to be a part of any team and I'd love to play for a country to represent my family,” Tuimalatu-Brown said.\n“For now, I am just trying to play my best footy, one game at a time.\n“But if the team decides to pick me, I'm all for it.”\nWhile the Storm club welcome experienced winger Jamayne Isaako to their squad next season and are hopeful to see Coates back in action, coach Craig Bellamy challenged Tuimalatu-Brown to push for a starting spot next year.\n“With all due respect, he's got all the physical attributes of a good rugby league player and especially, a good winger,” Bellamy told reporters after the Broncos win.\n“He probably just needs to get hi",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 34.05124936611111,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3a098a73987fb194",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks v Storm: Round 27 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/02/sharks-v-storm-round-27/",
+            "published_at": "2026-09-02T05:14:27+00:00",
+            "snippet": "Sharks v Storm: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:26 Cowboys v Raiders: Round 27\nCowboys v Raiders: Round 27\n02:57 Titans v Dolphins: Round 27\nTitans v Dolphins: Round 27\n03:11 Rabbitohs v Roosters: Round 27\nRabbitohs v",
+            "body_excerpt": "Sharks v Storm: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:26 Cowboys v Raiders: Round 27\nCowboys v Raiders: Round 27\n02:57 Titans v Dolphins: Round 27\nTitans v Dolphins: Round 27\n03:11 Rabbitohs v Roosters: Round 27\nRabbitohs v Roosters: Round 27\n04:02 Bulldogs v Broncos: Round 27\nBulldogs v Broncos: Round 27\nRelated /\nSuper Saturday: Warriors v Sea Eagles; Cowboys v Raiders; Sharks v Storm\nMatch Preview\nSharks v Storm: Gabrael set for debut; Peel back for more\nStorm\nWings of change as home-grown Tuimalatu-Brown rises\nNRL News\nMcInnes: 'The pressure is always there'\nFantasy\nFirst take: Sharks v Storm\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.83347158833334,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1442cea2c8813c40",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks v Storm: Round 27 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/sharks-v-storm-round-27-1986591/",
+            "published_at": "2026-09-02T05:14:27+00:00",
+            "snippet": "Sharks v Storm: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 27\nRabbitohs v Roosters: Round 27\nTitans v Dolphins: Round 27\nTelstra Women's Premiership\n2026 / Round 10\nDragons v Broncos\nWests Tig",
+            "body_excerpt": "Sharks v Storm: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 27\nRabbitohs v Roosters: Round 27\nTitans v Dolphins: Round 27\nTelstra Women's Premiership\n2026 / Round 10\nDragons v Broncos\nWests Tigers v Titans\nRaiders v Eels\nKnights v Bulldogs\nWarriors v Sharks\nCowboys v Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.83347158833334,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f66f439d87c4280f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Gameday Guide: Round 27 v Storm - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/02/nrl-gameday-guide-round-27-v-storm/",
+            "published_at": "2026-09-02T01:42:00+00:00",
+            "snippet": "NRL Gameday Guide: Round 27 v Storm\nThe Cronulla-Sutherland Sharks are celebrating Old Boys Round and the 10-year anniversary of the 2016 premiership this Saturday when the 2026 team take on the Melbourne Storm.\nThe 5th-placed Sharks return to Ocean Protect Stadium for their last",
+            "body_excerpt": "NRL Gameday Guide: Round 27 v Storm\nThe Cronulla-Sutherland Sharks are celebrating Old Boys Round and the 10-year anniversary of the 2016 premiership this Saturday when the 2026 team take on the Melbourne Storm.\nThe 5th-placed Sharks return to Ocean Protect Stadium for their last home game of the regular season, hoping to gain momentum before finals.\nThe Storm will be out to spoil the party after missing out on the NRL's top 8 for the first time since 2010.\nThere'll be plenty of action for fans on and off the field with Cronulla calling for fans to get behind them, and the old boys will be in the house to spur them on.\nHere's all you need to know in our round 27 game day guide!\nKey Timings: Saturday, September 5th 5.35pm – Gates Open 5.45pm – SCORE Sharks v SCORE Dragons Equal Access Exhibition Game 7.00pm - Cronulla Old Boys lap of honour 7.35pm – NRL Kick-Off: Sharks v Storm 8.25pm - Half-Time Tribute to 2016 Sharks 9.20pm – NRL Full-Time (approx.)\nMatch: Sharks v Storm\nRound 27 - Round 27 - Saturday 5 Sep\nhome Team\nSharks\n5th Position\naway Team\nStorm\n11th Position\nVenue: Ocean Protect Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nOld Boys Day and 2016 Premiers Celebration Catch the 2016 Sharks returning to Ocean Protect Stadium and celebrate the 10-year anniversary of the historic premiership with them.\nPaul Gallen and his team of champions will have their reunion earlier in the day before joining a host of other Cronulla old boys at the game, where they'll do a lap of honour at 7pm. Fans are encouraged to arrive early to cheer them on.\nThen a special tribute to the 2016 team at half-time, with the premiership-winning side presented to the crowd.\nMake sure you stick around after the game as we farewell our departing players with a special lap of honour.\nAnd check out the new mural of Andrew Fifita's 2016 match-winning try, which is painted on the southern side of the ET Grandstand, Thanks to Telstra celebrating 25 years as the NRL's major sponsor.\nMembership & Ticketing The Sharks currently have 17,740 members in 2026 and are aiming to break last year’s membership record of 17,923 with a strong push this weekend.\nOffering a Premiership Pass Membership for the Storm match from $40 for kids and $50 for adults, which gets you into the game, makes you a member and gives you access to exclusive merch.\nOther tickets are also available – secure your spot today through Ticketek!\nCheck out the Membership Services Marquee for all your Membership needs. See our friendly staff from 5pm outside the Gate Two entrance to the stadium on Saturday.\nFind your name on our new Member Wall or write a letter to your favourite Shark in our Kids Station, located right near the Membership Services Marquee.\nTrouble getting into Ocean Protect Stadium or forgot your Membership card? We've got you covered! Visit the Membership Services Window at the Gate 1 Ticket Box from 5pm and we'll help you get inside and into your seat.\nHave a group of ten or more? Group Ticketing is the perfect way to get your friends and family together at discount prices with exclusive money-can't-buy experiences. CLICK HERE for more information.\nIf general public allocation is exhausted, there's always a chance to score a ticket through the Member Seat Resale feature. Simply stay posted to the Ticketek page to see if any tickets are back on the market. Members unable to attend can put their seats up for resale via the Sharks Membership portal .\nParking Casual and season parking at Woolooware Bay Central, next door to the stadium, can be purchased through the Membership Services Team or the Member Portal .\nPlease call 1300 SHARKS for assistance with booking casual parking.\nWith free street parking extremely limited, the Sharks also encourage patrons to make use of public transport when travelling to Ocean Protect Stadium.\nMatch Ticket Entitlements Valid pre-purchased tickets to 2026 Cronulla Sharks season home games at Ocean Protect Stadium include travel",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 77.37430492166668,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3ea25c3f52d2f78b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Round 27 v Bulldogs - Brisbane Broncos",
+            "url": "https://www.broncos.com.au/news/2026/09/01/nrl-team-list-round-27-v-bulldogs/",
+            "published_at": "2026-09-01T05:18:00+00:00",
+            "snippet": "Presented By\nNRL Team List Round 27 v Bulldogs\nBroncos Coach Michael Maguire has named an unchanged starting line-up to play the Bulldogs at Accor Stadium on Thursday night.\nTom Duffy will wear the number 14 jersey with Blake Mozer ruled out due to a concussion.\nKick-off is 7:50p",
+            "body_excerpt": "Presented By\nNRL Team List Round 27 v Bulldogs\nBroncos Coach Michael Maguire has named an unchanged starting line-up to play the Bulldogs at Accor Stadium on Thursday night.\nTom Duffy will wear the number 14 jersey with Blake Mozer ruled out due to a concussion.\nKick-off is 7:50pm.\nMatch: Bulldogs v Broncos\nRound 27 - Round 27 - Thursday 3 Sep\nhome Team\nBulldogs\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Bulldogs is number 1 Connor Tracey 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Bulldogs is number 2 Jacob Kiraz 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Bulldogs is number 3 Matt Burton 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Bulldogs is number 4 Bronson Xerri 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Bulldogs is number 5 Enari Tuala 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Bulldogs is number 6 Stephen Crichton 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Bulldogs is number 7 Lachlan Galvin 7 Halfback for Broncos is number 7 Ben Hunt\nForwards\nProp for Bulldogs is number 8 Max King 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Bulldogs is number 9 Bailey Hayward 9 Hooker for Broncos is number 9 Billy Walters\nProp for Bulldogs is number 10 Leo Thompson 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Bulldogs is number 11 Viliame Kikau 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Bulldogs is number 12 Jacob Preston 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Bulldogs is number 13 Jaeman Salmon 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Bulldogs is number 14 Jake Turpin 14 Interchange for Broncos is number 14 Thomas Duffy\n14\nInterchange for Bulldogs is number 15 Alekolasimi Jones 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Bulldogs is number 16 Harry Hayes 16 17 Interchange for Broncos is number 17 Aublix Tawha\n16 17\nInterchange for Bulldogs is number 17 Josh Curran 17\n17\nReserve for Bulldogs is number 19 Jed Reardon 19 18 Reserve for Broncos is number 18 Gehamat Shibasaki\n19 18\nReserve for Bulldogs is number 22 Sean O'Sullivan 22 19 Reserve for Broncos is number 19 Ben Talty\n22 19\n20 Reserve for Broncos is number 20 Cameron Bukowski\n20\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/4/2026 8:42:02 AM\nRelated /\nPost Match Press Conference: Round 27 v Bulldogs\nNRLW Team List Round 10 v Dragons\nPress Conference\nPost Match Press Conference: Round 26 v Storm\nNRL Team List Round 26 v Storm\nNRL Team List Round 25 v Raiders",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 97.77430492166667,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7dcf16a6f735533b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cronulla Sharks vs Melbourne Storm Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/03/cronulla-sharks-vs-melbourne-storm-predictions/",
+            "published_at": "2026-09-02T20:48:33+00:00",
+            "snippet": "Cronulla Sharks vs Melbourne Storm Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Cronulla Sharks host Melbourne Storm in Round 27 of the 2026 NRL season at Ocean Protect Stadium on Saturday, 5th September at 7:35 PM AEST. Read on for our full match preview, betting tips, and best odds.\nThe fifth-placed Sharks have rested a host of players from this relatively inconsequential clash with the 11th-placed Storm.\nFORM: The wheels have fallen off for the Sharks, losing three of their last four – including an inexplicable 38-18 defeat to the Eels last Sunday.\nThe Storm have bookended a 22-14 loss to the Panthers with high-scoring wins over the Sea Eagles (42-20) and Broncos (46-20) in their past three.\nINS AND OUTS: Debutant Michael Gabrael and one-gamer Riley Jones are the Sharks’ centres with Mawene Hiroti and KL Iro out. Nicho Hynes has also been rested, so Niwhai Puru and Riley Pollard are in the halves. Hohepa Puru and Billy Burns replace rested duo Blayke Brailey and Teig Wilton.\nThe Storm are unchanged.\nKEY MATCH-UP: Addin Fonua-Blake needs to find some mongrel ahead of the finals. A clash with fellow NSW rep Stefano Utoikamanu provides that opportunity.\nHISTORY: The Storm have won nine of their last 12 against the Sharks, winning 30-6 during the regular season and 22-14 in the preliminary final last season – both at AAMI Park – after the Sharks had won 31-26 at home earlier in the year.\nKEY STAT: The Sharks are 7-2 at Ocean Protect Stadium in 2026. The Storm are 4-8 away from Melbourne.\nVERDICT: The Sharks’ performance last week was borderline disgraceful when they were still in the Top 4 hunt and the only thing saving from a likely immediate finals exit is a probable week one date with the Cowboys.\nOpting to rest Hynes, Brailey and their centres, the Sharks have shown little interest in winning this game. Although they’ll finish with a losing record for the first time since 2002, the Storm have shown character all season – particularly over the past couple of months in the face of injuries.\nWith the big three on deck and a couple of farewells providing motivation, expect the Storm to win easily.\nTip: Back the Storm to Cover the Line (9.5) @ $1.90\nSGM: STORM BY 11-20 / OVER 51.5 TOTAL POINTS / NICK MEANEY ANYTIME TRYSCORER / SIONE KATOA ANYTIME TRYSCORER @ $24.45\nCronulla Sharks vs Melbourne Storm Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Cronulla Sharks vs Melbourne Storm matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nOcean Protect Stadium • Saturday 5th Sep\nTeam\nOdds\nMelbourne Storm (-9.5)\n1.90\nBet Now\nCronulla Sharks (9.5)\nNRL odds correct as of 05/09/2026 and subject to change. Event scheduled to start at 05/09/2026 7:35pm AEST.\nSualauvi Faalogo (Melbourne Storm)\n8.00\nSiulagi Tuimalatu-Brown (Melbourne Storm)\n8.50\nMoses Leo (Melbourne Storm)\nRonaldo Mulitalo (Cronulla Sharks)\n10.00\nSione Katoa (Cronulla Sharks)\n11.00\nTyran Wishart (Melbourne Storm)\n14.00\nMichael Gabrael (Cronulla Sharks)\n16.00\nJahrome Hughes (Melbourne Storm)\n17.00\nWilliam Kennedy (Cronulla Sharks)\nNick Meaney (Melbourne Storm)\nHarry Grant (Melbourne Storm)\nRiley Jones (Cronulla Sharks)\n19.00\nCameron Munster (Melbourne Storm)\nBriton Nikora (Cronulla Sharks)\n23.00\nTrent Toelau (Melbourne Storm)\nRiley Pollard (Cronulla Sharks)\n26.00\nOryn Keeley (Melbourne Storm)\nBilly Burns (Cronulla Sharks)\n31.00\nSiosifa Talakai (Cronulla Sharks)\n34.00\nShawn Blore (Melbourne Storm)\nCooper Clarke (Melbourne Storm)\n41.00\nAddin Fonua-Blake (Cronulla Sharks)\nJosh King (Melbourne Storm)\nJack Hetherington (Melbourne Storm)\nStefano Utoikamanu (Melbourne Storm)\nNiwhai Puru (Cronulla Sharks)\nHohepa Puru (Cronulla Sharks)\n51.00\nTrent Loiero (Melbourne Storm)\n67.00\nJesse Colquhoun (Cronulla Sharks)\nAlec MacDonald (Melbourne Storm)\nCameron McInnes (Cronulla Sharks)\nBraden Uele (Cronulla Sharks)\nToby Rudolf (Cronulla Sharks)\n81.00\nOregon Kaufusi (Cronulla Sharks)\nNo Scorer\n1001.00",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 58.265138255,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "b526d897152a4d5a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks vs Storm - Round 27, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/sharks-storm-round-27-2026-mc10396547-237546/",
+            "published_at": "2026-08-30T22:43:25+00:00",
+            "snippet": "Sharks vs Storm - Round 27, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 27, 2026 SHARKS V STORM KICK OFF Ocean Protect Stadium #NRLSharksStorm 2026-09-05T09:30:00Z Preview\nSHARKS\nSTORM\nPreview\nSharks vs Storm – Round 27, 2026\nThe Cronulla Sharks face the Melbourne Storm in Round 27 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Ocean Protect Stadium. Ladder Position Injury Report Sharks NAME REASON EXPECTED RETURN Thomas Hazelton Suspension Finals Jesse Ramien Pectoral Next Season Mawene Hiroti Ribs TBC Braydon Trindall Shoulder TBC Storm NAME REASON EXPECTED RETURN Eliesa Katoa Medical Episode Indefinite Xavier Coates Achilles Next Season Will Warbrick Achilles Next Season Jack Howarth Shoulder Next Season Ativalu Lisati Ankle TBC Previous 5 Games Sharks DATE OPP RESULT 30/8/26 Eels L 38 - 18 23/8/26 Titans W 22 - 30 15/8/26 Raiders L 20 - 24 9/8/26 Dragons L 24 - 16 2/8/26 Rabbitohs W 32 - 16 Storm DATE OPP RESULT 27/8/26 Broncos W 20 - 46 20/8/26 Panthers L 14 - 22 8/8/26 Sea Eagles W 42 - 20 31/7/26 Bulldogs L 22 - 36 24/7/26 Rabbitohs L 28 - 26\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nThomas Hazelton\nSuspension\nFinals\nJesse Ramien\nPectoral\nNext Season\nMawene Hiroti\nRibs\nTBC\nBraydon Trindall\nShoulder\nEliesa Katoa\nMedical Episode\nIndefinite\nXavier Coates\nAchilles\nWill Warbrick\nJack Howarth\nAtivalu Lisati\nAnkle\nPrevious 5 Games\nDATE\nOPP\nRESULT\n30/8/26\nEels\nL 38 - 18\n23/8/26\nTitans\nW 22 - 30\n15/8/26\nRaiders\nL 20 - 24\n9/8/26\nDragons\nL 24 - 16\n2/8/26\nRabbitohs\nW 32 - 16\n27/8/26\nBroncos\nW 20 - 46\n20/8/26\nPanthers\nL 14 - 22\n8/8/26\nSea Eagles\nW 42 - 20\n31/7/26\nBulldogs\nL 22 - 36\n24/7/26\nL 28 - 26\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nWilliam Kennedy William Kennedy\nSione Katoa Sione Katoa\nRiley Jones Riley Jones\nMichael Gabrael Michael Gabrael\nRonaldo Mulitalo Ronaldo Mulitalo\nRiley Pollard Riley Pollard\nNiwhai Puru Niwhai Puru\nAddin Fonua-Blake Addin Fonua-Blake\nHohepa Puru Hohepa Puru\n10\nJesse Colquhoun Jesse Colquhoun\n11\nBriton Nikora Briton Nikora\n12\nBilly Burns Billy Burns\n13\nCameron McInnes Cameron McInnes\nINTERCHANGE\n14\nSiosifa Talakai Siosifa Talakai\n15\nToby Rudolf Toby Rudolf\n16\nOregon Kaufusi Oregon Kaufusi\n17\nBraden Uele Braden Uele\n18\nJayden Berrell Jayden Berrell\n22\nKL Iro KL Iro\nRESERVES\n20\nLiam Ison Liam Ison\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nSua Fa'alogo Sua Fa'alogo\nS. Tuimalatu-Brown Siulagi Tuimalatu-Brown\nTyran Wishart Tyran Wishart\nNick Meaney Nick Meaney\nMoses Leo Moses Leo\nCameron Munster Cameron Munster\nJahrome Hughes Jahrome Hughes\nStefano Utoikamanu Stefano Utoikamanu\nHarry Grant Harry Grant\nJosh King Josh King\nShawn Blore Shawn Blore\nOryn Keeley Oryn Keeley\nTrent Loiero Trent Loiero\nTrent Toelau Trent Toelau\nCooper Clarke Cooper Clarke\nJack Hetherington Jack Hetherington\nAlec MacDonald Alec MacDonald\nAngus Hinchey Angus Hinchey\nHugo Peel Hugo Peel\n19\nHayden Watson Hayden Watson",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 128.35069381055555,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "76ffcdd7dad2842f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/",
+            "published_at": "2026-09-02T07:43:58+00:00",
+            "snippet": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe fina",
+            "body_excerpt": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe final round begins with a dead rubber at Accor Stadium as two of 2025’s top-four outfits wrap up their campaigns.\nFORM: The Bulldogs have lost three of their last four, with their finals hopes extinguished thanks to a 24-10 loss to the Panthers last week.\nThe Broncos have lost 13 of their last 15, following up a comeback win in Canberra with a 46-20 home defeat to the Storm last week.\nINS AND OUTS: The Bulldogs are unchanged, though Kurt Mann could be a late inclusion. The Broncos’ only change is on the bench with Blake Mozer replaced by Ben Talty.\nKEY MATCH-UP: Payne Haas will be eager to inflict some damage in his last game for the Broncos. Max King and Leo Thompson need to meet Haas and twin tower Xavier Willison head on.\nHISTORY: The Broncos have won eight of their last nine against the Bulldogs, including a 32-12 result in Round at Suncorp Stadium.\nKEY STAT: The Bulldogs haven’t beaten the Broncos in Sydney since 2019.\nVERDICT: While this may be a deflating exercise for the Bulldogs after their finals bid officially ended last week, their form has been strong overall and they showed plenty of backbone against the Panthers.\nThe Broncos have been gagging for the end of a disastrous title defence for some time and have conceded 30-plus points in five straight games. It’s a road trip this injury-ravaged side doesn’t want to be on.\nTip: Back the Bulldogs to Score Over 31.5 Total Points @ $1.80\nSGM: BULLDOGS -10.5 / UNDER 52.5 TOTAL POINTS / MATT BURTON ANYTIME TRYSCORER / STEPHEN CRICHTON ANYTIME TRYSCORER @ $17.63\nThe Dolphins finalise their preparations for a maiden post-season foray against the lowly Titans.\nFORM: The Titans are on a five-game losing streak, going down 42-22 to the Rabbitohs at home last Saturday.\nThe Dolphins have won six straight, moving to third spot via an impressive 26-12 defeat of the Roosters at Allianz Stadium.\nINS AND OUTS: Beau Fermor is back for the Titans, while Luke Sommerton replaces Oliver Pascoe (concussion). Dolphins winger Selwyn Cobbo is out, which sees Tevita Naufahu come in.\nKEY MATCH-UP: Kodi Nikorima has been in hot playmaking form for the Dolphins. Titans No.6 Jayden Campbell will be eager to finish the season with a flourish.\nHISTORY: The Dolphins have established a 6-1 record in this derby, including a tight 18-14 win at Suncorp Stadium in Round 2.\nKEY STAT: Phillip Sami and Hamiso Tabuai-Fidow have both scored four tries in six Titans-Dolphins games.\nVERDICT: While finishing third or fourth is much of a muchness, the Dolphins will be eager to head into the finals with the momentum of another win – particularly after naming near enough to their strongest line-up.\nThe Titans have been meandering towards the end of the season and showing an increasingly lacklustre attitude towards defending, leaking 30-plus points in their past five games – after only doing so six times in their previous 17 games. It’s been a tough rivalry for the Titans and that should continue.\nTip: Back the Dolphins to Cover the Line (-13.5) @ $1.90\nSGM: DOLPHINS BY 21-30 / OVER 10.5 TOTAL TRIES / PHILLIP SAMI ANYTIME TRYSCORER / HERBIE FARNWORTH ANYTIME TRYSCORER @ $18.72\nA key grudge match and traditional final-round showdown has been tipped on its head by the Roosters pre-finals resting strategy.\nFORM: The up-and-down Rabbitohs have won three of their last four, responding to a 46-25 loss to the Warriors with a 42-22 win over the Titans last week.\nThe Roosters’ eight-match winning streak seems a distant memory after back-to-back losses to the Tigers (25-24) and Dolphins (26-12).\nINS AND OUTS: Latrell Mitchell starts at centre, Jye Gray has been promoted to fullback with Matt Dufty to come off the bench, and Adam Elliott starts in the back-r",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.34152714388888,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "5762cbc2f9a8cc1f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Ivan’s ‘extraordinary’ reveal on superstar; Sharks set for huge finals boost: NRL Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-27-team-news-finals-teams-injuries-ins-and-outs-changes-news-videos-highlights-newcastle-knights-francis-manuleleua/news-story/ef0f1c01d9c1ef1db68c8a64d47a11a0",
+            "published_at": "2026-09-04T09:32:19+00:00",
+            "snippet": "Ivan’s ‘extraordinary’ reveal on superstar; Sharks set for huge finals boost: NRL Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Ivan’s ‘extraordinary’ reveal on superstar; Sharks set for huge finals boost: NRL Late Mail\nTrent Robinson has provided the latest update on Sam Walker and defended his decision to rest a host of stars.\nElsewhere, the Sharks are set for a huge boost next week and Ivan Cleary has lifted the lid on Isaah Yeo’s “quite extraordinary” comeback bid.\nRead below for all the latest team news ahead of Round 27!\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nFRIDAY SEPTEMBER 4\nGold Coast Titans vs Dolphins @ Cbus Super Stadium, 6pm\nTitans Team: 1. Keano Kini 2. Sialetili Faeamani 4. AJ Brimson 12. Beau Fermor 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Luke Sommerton 10. Tino Fa’asuamaleaui 11. Kurtis Morrin 18. Josh Patston 13. Chris Randall 14. Klese Haas 15. Cooper Bai 16. Bodhi Sharpley 17. Sam Verrills 19. Sunny Kama 22. Adam Christensen\nPlayers cut: 3. Jaylan De Groot 20. Tony Francis 21. Jett Liu\nLate Mail: Beau Fermor moves to the centres with Jaylan De Groot out due to a knee complaint.\nDolphins Team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Tevita Naufahu 19. Brad Schneider 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 18. Brian Pouniu 13. Morgan Knowles 14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Felise Kaufusi 20. Jake Averillo 21. Connelly Lemuelu\nPlayers cut: 6. Kodi Nikorima 12. Kulikefu Finefeuiaki 22. Sebastian Su’a\nLate Mail: Dolphins coach Kristian Woolf wants to give a couple of his star players the week off and not play against the Titans on Friday. The Dolphins already have a top four spot locked in and don’t want to risk a few players who are carrying minor niggles. They didn’t name winger Selwyn Cobbo , and Kodi Nikorima and Kulikefu Finefeuiaki , while named on Tuesday, will also drop out of this week’s team. Cobbo (ankle), Nikorima (hamstring) and Finefeuiaki (knee) will be given an extra week to get themselves right for the club’s first finals appearance next week. “Selwyn’s had a bit of an ankle injury that has just been pestering him for a little while so it was a good opportunity for us to rest that up,” Woolf said. “Kodi had a tight hamstring through the game the other day that we were worried about. The last thing we need is a soft tissue injury at this time of the year. (Finefeuiaki) had a little bit of a bad knee, but again, it was just smart not to aggravate that again,” Woolf said. The coach confirmed that Jake Averillo will replace Nikorima at six.\nSouth Sydney Rabbitohs vs Sydney Roosters @ Allianz Stadium, 8pm\nRabbitohs Team: 1. Jye Gray 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 23. Jai Arrow 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 6. Cody Walker 14. Matthew Dufty 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Euan Aitken 19. Latrell Siegwalt\nPlayers cut: 20. Liam Le Blanc 22. Peter Mamouzelos 21. Talanoa Penitani\nLate Mail: Wayne Bennett has opted to start Jye Gray and Adam Elliott , with the Rabbitohs coach explaining he wanted both players match fit for the finals. Gray has been riding the bench since Matthew Dufty’s emergence while Elliott is back from a groin injury. Meanwhile, it is unlikely that Latrell Mitchell plays 80 minutes despite being named in the starting side. “We’re in the risk business, so I’m not thinking about the risk,” Bennett said. “I’m thinking about him getting out there and playing well and getting the job done. After that we’ll make some other decisions if he’s tired and can’t get through the 80 minutes because he’s been out so long. But I’m not thinking that we can’t risk him.”\nRoosters Team: 1. Cody Ramsey 2. Daniel Tupou 3. Fetalaiga Pauga 4. Tommy Talau 5. Rex Bassingthwaight",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.535693810555554,
+            "relevance_score": 1.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Storm NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Sharks vs Storm NRL round 27 preview",
+          "Sharks Storm NRL odds OR price OR favourite",
+          "Sharks Storm NRL finals race OR ladder stakes",
+          "Sharks Storm NRL",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Storm NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks Storm NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 27 Sharks OR Storm"
+        ],
+        "filter_summary": {
+          "dropped_stale": 50,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 9,
+          "dropped_irrelevant": 37,
+          "kept": 15,
+          "deferred_pending_body": 49,
+          "promoted_after_body": 2,
+          "dropped_roundup_no_fixture_team": 5,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "6361309e6748",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-05T07:04:27.494424+00:00",
+      "finished_at": "2026-09-05T07:07:05.214391+00:00",
+      "duration_ms": 157719,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Storm",
+        "venue": "Ocean Protect Stadium",
+        "kickoff": "2026-09-05T19:35:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6743,
+        "home_win_probability": 0.6743,
+        "shap_explanations": {
+          "positive_drivers": [
+            "5-game form: all run metres (+162.20) — contribution 0.153 (18% of total)",
+            "Ladder points differential per game (+6.0 points) — contribution 0.136 (16% of total)",
+            "Pythagorean form (last 10) (+17% expected-win gap) — contribution 0.102 (12% of total)",
+            "Elo rating advantage (+51 points) — contribution 0.066 (8% of total)",
+            "Bradley-Terry strength advantage (+0.04 log-strength) — contribution 0.020 (2% of total)"
+          ],
+          "negative_drivers": [
+            "Head-to-head record (last 5) (40% to the home side) — contribution 0.031 (4% of total)",
+            "Away travel to venue (700 km) — contribution 0.022 (2% of total)",
+            "5-game form: effective tackle pct (-2.76) — contribution 0.016 (2% of total)",
+            "5-game form: points against (-0.40) — contribution 0.015 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game momentum: penalty gap seconds (+7.35) — contribution 0.015 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.624,
+            "total_toward_away": 0.2408,
+            "net": 0.3832,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: points against (-0.40)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Sharks",
+          "away_team": "Storm",
+          "venue": "Ocean Protect Stadium",
+          "kickoff": "2026-09-05T19:35:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

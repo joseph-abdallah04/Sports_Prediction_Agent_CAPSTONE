@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "run_id": "20260830T022201Z-df867ac0",
+  "run": {
+    "predicted_at_utc": "2026-08-30T02:31:47.667697+00:00",
+    "predicted_at_local": "2026-08-30T12:31:47.667697+10:00",
+    "started_at_utc": "2026-08-30T02:22:01.483648+00:00",
+    "wall_seconds": 586.2,
+    "hours_before_kickoff": 1.5,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Warriors",
+    "away_team": "Knights",
+    "venue": "Go Media Stadium",
+    "kickoff": "2026-08-30T14:00:00+10:00",
+    "kickoff_local": "2026-08-30T14:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Warriors",
+      "position": 2,
+      "played": 22,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 38,
+      "points_for": 651,
+      "points_against": 356,
+      "points_difference": 295,
+      "points_difference_per_game": 13.41,
+      "recent_form_last_4": "4 - 1",
+      "streak": "4W",
+      "home_record": "8 - 2",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Knights",
+      "position": 7,
+      "played": 23,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 32,
+      "points_for": 601,
+      "points_against": 545,
+      "points_difference": 56,
+      "points_difference_per_game": 2.43,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1L",
+      "home_record": "8 - 4",
+      "away_record": "6 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Warriors",
+      "ladder_positions_gap": 5,
+      "points_difference_per_game_gap": 10.98,
+      "points_difference_favours": "Warriors"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Warriors",
+    "predicted_side": "home",
+    "confidence": 0.65,
+    "home_win_probability": 0.65
+  },
+  "math_model": {
+    "home_win_probability": 0.7642,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.50 log-strength) — contribution 0.169 (14% of total)",
+        "Ladder points differential per game (+11.0 points) — contribution 0.161 (13% of total)",
+        "5-game form: all run metres (+199.20) — contribution 0.142 (11% of total)",
+        "Elo rating advantage (+95 points) — contribution 0.118 (9% of total)",
+        "Pythagorean form (last 10) (+28% expected-win gap) — contribution 0.106 (9% of total)"
+      ],
+      "negative_drivers": [
+        "3-game form: errors (-3.00) — contribution 0.032 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: kicking metres (+175.00) — contribution 0.027 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: effective tackle pct (-0.40) — contribution 0.023 (2% of total)",
+        "5-game form: missed tackles (+3.60) — contribution 0.022 (2% of total)",
+        "5-game form: penalties conceded (-0.80) — contribution 0.019 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-3.00)",
+        "3-game form: kicking metres (+175.00)",
+        "5-game form: penalties conceded (-0.80)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Warriors vs Knights NRL round 26 preview",
+      "Warriors Knights NRL odds OR price OR favourite",
+      "Warriors Knights NRL finals race OR ladder stakes",
+      "Warriors Knights NRL",
+      "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Warriors Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Warriors OR Knights"
+    ],
+    "items_kept": 19,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 26 - Cleary debuts for Wahs",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-29T08:14:40+00:00",
+        "age_hours": 18.1333958625,
+        "url": "https://www.nrl.com/news/2026/08/26/nrl-late-mail-round-26/"
+      },
+      {
+        "title": "New Zealand Warriors vs Newcastle Knights Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:21:44+00:00",
+        "age_hours": 72.01561808472222,
+        "url": "https://www.sportsnews.com.au/nrl/new-zealand-warriors-vs-newcastle-knights-tips-odds-teams-predictions-nrl-round-26-2026/610058"
+      },
+      {
+        "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T22:07:42+00:00",
+        "age_hours": 76.24950697361112,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/"
+      },
+      {
+        "title": "Match Preview Warriors v Knights: Cleary set to debut; Gagai good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Replays",
+        "published_at": "2026-08-29T04:06:51+00:00",
+        "age_hours": 22.26367364027778,
+        "url": "https://www.nrl.com/news/2026/08/25/warriors-v-knights-tmm-back-in-the-halves-gagai-good-to-go/"
+      },
+      {
+        "title": "24 Hour Update | Round 26 - Newcastle Knights",
+        "source": "newcastleknights.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T04:01:21+00:00",
+        "age_hours": 22.355340306944445,
+        "url": "https://www.newcastleknights.com.au/news/2026/08/25/nrl-team-list--round-26/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 26 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T18:55:27+00:00",
+        "age_hours": 31.453673640277778,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-26-2026-lineups-injuries-results/f63f8b323e417cdfa9e267fc"
+      },
+      {
+        "title": "Warriors vs Knights Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T10:58:14+00:00",
+        "age_hours": 39.407284751388886,
+        "url": "https://www.beforeyoubet.com.au/warriors-vs-knights-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Warriors v Knights: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:04:57+00:00",
+        "age_hours": 93.29534030694445,
+        "url": "https://www.nrl.com/news/2026/08/26/warriors-v-knights-round-26/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 26 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T04:28:00+00:00",
+        "age_hours": 117.91117364027778,
+        "url": "https://www.weststigers.com.au/news/2026/08/25/wests-tigers-injury-report-round-26/"
+      },
+      {
+        "title": "Jett Cleary set to make long-awaited NRL debut as Warriors’ injury crisis deepens - 7NEWS",
+        "source": "7news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T07:04:00+00:00",
+        "age_hours": 19.31117364027778,
+        "url": "https://7news.com.au/sport/rugby-league/jett-cleary-set-to-make-long-awaited-nrl-debut-as-warriors-injury-crisis-deepens-c-22794860"
+      },
+      {
+        "title": "Warriors v Knights: Jett Cleary to debut, when they play, kick-off time, team list, injuries, NRL ladder - what to know - RNZ",
+        "source": "rnz.co.nz",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T06:58:31+00:00",
+        "age_hours": 19.40256252916667,
+        "url": "https://www.rnz.co.nz/news/sport/1169055/warriors-v-knights-jett-cleary-to-debut-when-they-play-kick-off-time-team-list-injuries-nrl-ladder-what-to-know"
+      },
+      {
+        "title": "NRL Team List: Martin returns, Laulilii to make club debut - Warriors",
+        "source": "warriors.kiwi",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:24+00:00",
+        "age_hours": 116.38784030694445,
+        "url": "https://www.warriors.kiwi/news/2026/08/25/nrl-team-list-martin-returns-laulilii-to-make-debut/"
+      },
+      {
+        "title": "Team List: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:00+00:00",
+        "age_hours": 116.39450697361112,
+        "url": "https://www.seaeagles.com.au/news/2026/08/25/team-list-nrl-round-26-vs-dragons/"
+      },
+      {
+        "title": "NSW Cup Match Preview: Must-win game to make finals - Warriors",
+        "source": "warriors.kiwi",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T23:18:27+00:00",
+        "age_hours": 3.0703403069444444,
+        "url": "https://www.warriors.kiwi/news/2026/08/30/nsw-cup-match-preview-must-win-game-to-make-finals/"
+      },
+      {
+        "title": "Match Report: NRL Round 26 vs Dragons - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T11:49:22+00:00",
+        "age_hours": 38.55506252916666,
+        "url": "https://www.seaeagles.com.au/news/2026/08/28/match-report-nrl-round-26-vs-dragons2/"
+      },
+      {
+        "title": "Cleary to debut as Warriors forced into late changes - 1News",
+        "source": "1news.co.nz",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T22:54:03+00:00",
+        "age_hours": 3.477006973611111,
+        "url": "https://www.1news.co.nz/2026/08/29/cleary-to-debut-as-warriors-forced-into-late-changes/"
+      },
+      {
+        "title": "NRL Match Preview: Back home chasing top two finish - Warriors",
+        "source": "warriors.kiwi",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T20:36:24+00:00",
+        "age_hours": 5.7711736402777785,
+        "url": "https://www.warriors.kiwi/news/2026/08/30/nrl-match-preview-back-home-chasing-top-two-finish/"
+      },
+      {
+        "title": "‘Lot like his brother’: Cleary to make long-awaited NRL debut - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T05:19:58+00:00",
+        "age_hours": 21.045062529166668,
+        "url": "https://www.nine.com.au/sport/nrl/news-jett-cleary-warriors-debut-confirmed-newcastle-knights-mark-geyer-comments-20260829-p60sn4.html"
+      },
+      {
+        "title": "Webby and the Jett: Cleary set for Warriors debut against Knights - NZ Herald",
+        "source": "nzherald.co.nz",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T04:09:30+00:00",
+        "age_hours": 22.21950697361111,
+        "url": "https://www.nzherald.co.nz/sport/rugby-league/warriors/warriors-v-knights-jett-cleary-to-debut-line-ups-kickoff-time-how-to-watch-all-you-need-to-know/YPY6M5TS7ZDFNDOEXZPBCB7GWE/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP drivers '5-game form: all run metres', 'Elo rating advantage', and 'Pythagorean form (last 10)' were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Claims regarding halves crisis (NRL Late Mail, RNZ), Knights returns (24 Hour Update), and $1.28 odds (sportsnews.com.au price_quote) are all present in the research."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims that Martin/Harris-Tavita are out and Gagai/Manuleleua are returning match the source text."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry and Ladder points differential are correctly attributed to the Warriors."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include research on the Warriors' halves and Knights' returning players."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence was correctly reduced from the 0.76 prior to 0.65 due to the loss of both starting halves."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the top SHAP drivers and research; no minor drivers are treated as decisive."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material drivers '5-game form: all run metres', 'Elo rating advantage', and 'Pythagorean form (last 10)' are not addressed."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Warriors are strong favourites based on a high math prior and ladder dominance, but research reveals a significant halves crisis with both starting playmakers out. While the market remains confident in the home side ($1.28), the debut of Jett Cleary in an inexperienced pairing creates a vulnerability. The Knights receive a boost with the return of Dane Gagai and Francis Manuleleua, though they are coming off a heavy loss to Manly.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model heavily favours the Warriors based on Bradley-Terry strength (14% contribution) and a significant ladder points differential per game (13% contribution)."
+      },
+      {
+        "source": "research",
+        "detail": "The Warriors are missing both established halves, Te Maire Martin and Chanel Harris-Tavita, resulting in a debut for Jett Cleary in what is described as the least experienced halves combination in club history (NRL Late Mail, RNZ)."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights receive a 'massive boost' with the return of Dane Gagai and Francis Manuleleua (Newcastle Knights 24 Hour Update)."
+      }
+    ],
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Warriors are fielding their least experienced halves pairing in history after resting/losing both established playmakers Te Maire Martin and Chanel Harris-Tavita.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "Confidence reduced from the 0.76 prior due to the loss of both starting halves."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Warriors-v-Knights/20260830T022201Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Warriors-v-Knights/20260830T022201Z/summary.md"
+  }
+}

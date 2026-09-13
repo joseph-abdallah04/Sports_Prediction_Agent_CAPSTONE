@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "run_id": "20260904T023540Z-a7007821",
+  "run": {
+    "predicted_at_utc": "2026-09-04T02:48:51.018585+00:00",
+    "predicted_at_local": "2026-09-04T12:48:51.018585+10:00",
+    "started_at_utc": "2026-09-04T02:35:40.915636+00:00",
+    "wall_seconds": 790.1,
+    "hours_before_kickoff": 7.2,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 27,
+    "home_team": "Rabbitohs",
+    "away_team": "Roosters",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-09-04T20:00:00+10:00",
+    "kickoff_local": "2026-09-04T20:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 27,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Rabbitohs",
+      "position": 7,
+      "played": 23,
+      "wins": 13,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 32,
+      "points_for": 644,
+      "points_against": 561,
+      "points_difference": 83,
+      "points_difference_per_game": 3.61,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "8 - 3",
+      "away_record": "5 - 7"
+    },
+    "away": {
+      "team": "Roosters",
+      "position": 4,
+      "played": 23,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 7,
+      "competition_points": 38,
+      "points_for": 599,
+      "points_against": 451,
+      "points_difference": 148,
+      "points_difference_per_game": 6.43,
+      "recent_form_last_4": "3 - 2",
+      "streak": "2L",
+      "home_record": "8 - 4",
+      "away_record": "8 - 3"
+    },
+    "comparison": {
+      "higher_on_ladder": "Roosters",
+      "ladder_positions_gap": -3,
+      "points_difference_per_game_gap": -2.82,
+      "points_difference_favours": "Roosters"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+  },
+  "prediction": {
+    "predicted_winner": "Rabbitohs",
+    "predicted_side": "home",
+    "confidence": 0.7,
+    "home_win_probability": 0.7
+  },
+  "math_model": {
+    "home_win_probability": 0.3634,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Away travel to venue (0 km) — contribution 0.063 (5% of total)",
+        "5-game form: missed tackles (+10.40) — contribution 0.056 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Ladder points differential per game (-2.8 points) — contribution 0.039 (3% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Away rest (6.1 days) — contribution 0.011 (1% of total)",
+        "Rest-day advantage (+0.1 days) — contribution 0.009 (1% of total)"
+      ],
+      "negative_drivers": [
+        "Elo rating advantage (-97 points) — contribution 0.202 (16% of total)",
+        "Bradley-Terry strength advantage (-0.63 log-strength) — contribution 0.148 (12% of total)",
+        "Pythagorean form (last 10) (-31% expected-win gap) — contribution 0.101 (8% of total)",
+        "5-game momentum: penalty cluster rate (-1.20) — contribution 0.091 (7% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: all run metres (-103.40) — contribution 0.058 (5% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: missed tackles (+10.40)",
+        "Ladder points differential per game (-2.8 points)",
+        "5-game momentum: penalty cluster rate (-1.20)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Rabbitohs vs Roosters NRL round 27 preview",
+      "Rabbitohs Roosters NRL odds OR price OR favourite",
+      "Rabbitohs Roosters NRL finals race OR ladder stakes",
+      "Rabbitohs Roosters NRL",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs Roosters NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 27 Rabbitohs OR Roosters"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 27 - Phins stars rested; Yeo in frame",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-03T10:02:28+00:00",
+        "age_hours": 16.56239647888889,
+        "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/"
+      },
+      {
+        "title": "24 Hour Team List | NRL Round 27 v Rabbitohs - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T06:00:09+00:00",
+        "age_hours": 68.60100759,
+        "url": "https://www.roosters.com.au/news/2026/09/01/team-list--nrl-round-27-v-rabbitohs/"
+      },
+      {
+        "title": "NRL Team Lists Round 27: Finals teams face huge calls over resting stars - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:57:00+00:00",
+        "age_hours": 68.65350759,
+        "url": "https://www.zerotackle.com/round-27-team-lists-2026-237598/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 27 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:44:06+00:00",
+        "age_hours": 68.86850759000001,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69"
+      },
+      {
+        "title": "South Sydney Rabbitohs vs Sydney Roosters Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T07:10:07+00:00",
+        "age_hours": 43.43489647888889,
+        "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-sydney-roosters-tips-odds-teams-predictions-nrl-round-27-2026/610128"
+      },
+      {
+        "title": "Arrow to the heart: Bunnies and Roosters set to unite for Jai",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Rabbitohs",
+        "published_at": "2026-09-04T00:24:44+00:00",
+        "age_hours": 2.1912853677777777,
+        "url": "https://www.nrl.com/news/2026/09/02/arrow-to-the-heart-bunnies-and-roosters-set-to-unite-for-jai/"
+      },
+      {
+        "title": "Why Trent Robinson has made an enormous Round 27 mistake - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T20:42:25+00:00",
+        "age_hours": 5.896563145555556,
+        "url": "https://www.zerotackle.com/why-trent-robinson-has-made-an-enormous-round-27-mistake-237675/"
+      },
+      {
+        "title": "Match Preview Rabbitohs v Roosters: Trell set to start; Robbo rests stars",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Rabbitohs",
+        "published_at": "2026-09-03T10:02:42+00:00",
+        "age_hours": 16.55850759,
+        "url": "https://www.nrl.com/news/2026/09/01/rabbitohs-v-roosters-trell-set-to-start-robbo-rests-stars/"
+      },
+      {
+        "title": "Rabbitohs vs Roosters Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T04:14:44+00:00",
+        "age_hours": 22.357952034444445,
+        "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-roosters-preview-betting-tips-nrl-round-27-2026"
+      },
+      {
+        "title": "Roosters Lead from the front: Collins takes youngsters under his wing for grudge match",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Rabbitohs",
+        "published_at": "2026-09-03T03:10:50+00:00",
+        "age_hours": 23.422952034444446,
+        "url": "https://www.nrl.com/news/2026/09/03/leading-from-the-front-collins-taking-youngsters-under-his-wing-for-grudge-match/"
+      },
+      {
+        "title": "NRL Coach Media | Round 27 v Rabbitohs - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T01:18:33+00:00",
+        "age_hours": 25.294340923333333,
+        "url": "https://www.roosters.com.au/news/2026/09/03/nrl-coach-media--round-27-v-rabbitohs/"
+      },
+      {
+        "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T07:43:58+00:00",
+        "age_hours": 42.87072981222222,
+        "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/"
+      },
+      {
+        "title": "Rabbitohs v Roosters: Round 27 - nrl.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T05:24:10+00:00",
+        "age_hours": 45.20072981222222,
+        "url": "https://www.nrl.com/news/2026/09/02/rabbitohs-v-roosters-round-27/"
+      },
+      {
+        "title": "Roosters It's the little things that count for high-flying Roosters: Kelly",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Rabbitohs",
+        "published_at": "2026-08-30T22:42:19+00:00",
+        "age_hours": 99.89822981222223,
+        "url": "https://www.nrl.com/news/2026/08/31/its-the-little-things-that-count-for-high-flying-roosters-kelly/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 27 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:50:00+00:00",
+        "age_hours": 68.77017425666666,
+        "url": "https://www.weststigers.com.au/news/2026/09/01/wests-tigers-nrl-injury-report-round-27/"
+      },
+      {
+        "title": "Roosters coach provides injury update on Sam Walker - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T22:37:37+00:00",
+        "age_hours": 3.9765631455555552,
+        "url": "https://www.zerotackle.com/roosters-coach-provides-injury-update-on-sam-walker-237701/"
+      },
+      {
+        "title": "Dolphins Team List: Round 27 v Titans - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T06:00:00+00:00",
+        "age_hours": 68.60350759,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/09/01/dolphins-team-list-round-27-v-titans/"
+      },
+      {
+        "title": "Rabbitohs vs Roosters - Round 27, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-31T00:20:19+00:00",
+        "age_hours": 98.26489647888889,
+        "url": "https://www.zerotackle.com/rabbitohs-roosters-round-27-2026-mc10396544-237552/"
+      },
+      {
+        "title": "Live Blog As it happened: Knights strike back; Roosters undefeated, Titans go eight straight",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Rabbitohs",
+        "published_at": "2026-08-29T12:12:52+00:00",
+        "age_hours": 134.38906314555555,
+        "url": "https://www.nrl.com/news/2026/08/29/nrlw-saturday-blog-titans-raiders-battle-kicks-us-off/"
+      },
+      {
+        "title": "Rabbitohs vs Roosters Prediction & NRL Betting Preview - 4/9/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T15:32:47+00:00",
+        "age_hours": 11.057118701111111,
+        "url": "https://insights.betfred.com/rugby-league/rabbitohs-vs-raiders-prediction-betting-tips-friday-4-september-2026/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": false,
+    "checklist_issues": [
+      "confidence_above_clear_edge_without_research_confirm",
+      "confidence_not_discounted_despite_research_conflict"
+    ],
+    "audit_pass": false,
+    "audit_issues": [
+      "The material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Claims regarding Roosters resting stars (Zero Tackle), Sam Walker injury (Zero Tackle), Latrell Mitchell return (sportsnews.com.au), and $1.10 odds (sportsnews.com.au) are all present in the research."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Availability claims for Roosters stars (resting), Sam Walker (injured), and Latrell Mitchell (returning) match the source text."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo rating and Bradley-Terry drivers are correctly attributed to the Roosters' prior."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors 1, 2, and 3 are sourced from research articles."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.75 is justified by a massive team-list shock (10 stars rested) and a very short market price ($1.10)."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the most significant math drivers and the research shock."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "The material driver 'Pythagorean form (last 10)' (8% contribution) is not mentioned or addressed in the judgement."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.75
+  },
+  "reasoning": {
+    "summary": "Although the math model favors the Roosters based on Elo, Bradley-Terry strength, and a strong Pythagorean form (last 10), this prior is overridden by a massive availability shock. Research confirms the Roosters are resting approximately ten star players, including James Tedesco and Daly Cherry-Evans, while key playmaker Sam Walker is injured. The Rabbitohs are further bolstered by the return of Latrell Mitchell and are heavy market favourites ($1.10), justifying a flip from the math prior to a clear home edge.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+      },
+      {
+        "source": "research",
+        "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+      },
+      {
+        "source": "research",
+        "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+      },
+      {
+        "source": "math",
+        "detail": "The model's prior for the Roosters was driven by Elo rating, Bradley-Terry strength, and Pythagorean form (8% contribution), all of which reflect a squad that is significantly depleted for this specific fixture."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Roosters may still possess enough squad depth or motivation for their youngsters to remain competitive despite the absences.",
+    "loss_reason_specific": false,
+    "disagreements_with_math": "Picked home win despite math predicting away win (0.6366) due to the Roosters resting a large portion of their starting lineup and the absence of Sam Walker."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Rabbitohs-v-Roosters/20260904T023540Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Rabbitohs-v-Roosters/20260904T023540Z/summary.md"
+  }
+}

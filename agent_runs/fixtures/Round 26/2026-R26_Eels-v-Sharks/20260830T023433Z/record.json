@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "run_id": "20260830T023433Z-84b48036",
+  "run": {
+    "predicted_at_utc": "2026-08-30T02:47:33.912175+00:00",
+    "predicted_at_local": "2026-08-30T12:47:33.912175+10:00",
+    "started_at_utc": "2026-08-30T02:34:33.860170+00:00",
+    "wall_seconds": 780.1,
+    "hours_before_kickoff": 3.3,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 26,
+    "home_team": "Eels",
+    "away_team": "Sharks",
+    "venue": "CommBank Stadium",
+    "kickoff": "2026-08-30T16:05:00+10:00",
+    "kickoff_local": "2026-08-30T16:05:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 26,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Eels",
+      "position": 13,
+      "played": 22,
+      "wins": 8,
+      "drawn": 0,
+      "lost": 14,
+      "competition_points": 22,
+      "points_for": 437,
+      "points_against": 636,
+      "points_difference": -199,
+      "points_difference_per_game": -9.05,
+      "recent_form_last_4": "2 - 3",
+      "streak": "1L",
+      "home_record": "5 - 6",
+      "away_record": "3 - 8"
+    },
+    "away": {
+      "team": "Sharks",
+      "position": 5,
+      "played": 22,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 34,
+      "points_for": 634,
+      "points_against": 461,
+      "points_difference": 173,
+      "points_difference_per_game": 7.86,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "8 - 3",
+      "away_record": "6 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Sharks",
+      "ladder_positions_gap": -8,
+      "points_difference_per_game_gap": -16.91,
+      "points_difference_favours": "Sharks"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+  },
+  "prediction": {
+    "predicted_winner": "Sharks",
+    "predicted_side": "away",
+    "confidence": 0.62,
+    "home_win_probability": 0.38
+  },
+  "math_model": {
+    "home_win_probability": 0.3011,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "5-game form: missed tackles (+11.40) — contribution 0.058 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Away travel to venue (29 km) — contribution 0.054 (3% of total)",
+        "Rest-day advantage (+1.8 days) — contribution 0.026 (2% of total)",
+        "Home travel to venue (0 km) — contribution 0.021 (1% of total)",
+        "Head-to-head average margin (last 5) (+4.0 points) — contribution 0.014 (1% of total)"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-16.9 points) — contribution 0.279 (17% of total)",
+        "Elo rating advantage (-148 points) — contribution 0.279 (17% of total)",
+        "Bradley-Terry strength advantage (-0.93 log-strength) — contribution 0.240 (15% of total)",
+        "Pythagorean form (last 10) (-43% expected-win gap) — contribution 0.092 (6% of total)",
+        "5-game momentum: penalty cluster rate (-1.00) — contribution 0.090 (6% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: missed tackles (+11.40)",
+        "5-game momentum: penalty cluster rate (-1.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Eels vs Sharks NRL round 26 preview",
+      "Eels Sharks NRL odds OR price OR favourite",
+      "Eels Sharks NRL finals race OR ladder stakes round 26",
+      "Eels Sharks NRL",
+      "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Eels Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 26 Eels OR Sharks"
+    ],
+    "items_kept": 21,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Team List Update: Round 26 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T06:05:00+00:00",
+        "age_hours": 20.49950910638889,
+        "url": "https://www.parraeels.com.au/news/2026/08/29/nrl-team-list-update-round-26/"
+      },
+      {
+        "title": "NRL Injury Report: Round 26 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:00:00+00:00",
+        "age_hours": 116.58284243972221,
+        "url": "https://www.parraeels.com.au/news/2026/08/25/nrl-injury-report-round-26/"
+      },
+      {
+        "title": "NRL Team List: Round 26 v Eels - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:00+00:00",
+        "age_hours": 116.59950910638888,
+        "url": "https://www.sharks.com.au/news/2026/08/25/nrl-team-list-round-26-v-eels/"
+      },
+      {
+        "title": "Parramatta Eels vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-27T02:21:44+00:00",
+        "age_hours": 72.2206202175,
+        "url": "https://www.sportsnews.com.au/nrl/parramatta-eels-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-26-2026/610059"
+      },
+      {
+        "title": "Eels v Sharks: Walker's on track; Jones joins bench",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-29T06:11:21+00:00",
+        "age_hours": 20.393675773055556,
+        "url": "https://www.nrl.com/news/2026/08/25/eels-v-sharks-walkers-on-track-uele-back-to-boost-bench/"
+      },
+      {
+        "title": "NRL Match Preview: Round 26 v Eels - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T06:05:00+00:00",
+        "age_hours": 20.49950910638889,
+        "url": "https://www.sharks.com.au/news/2026/08/29/nrl-match-preview-round-26-v-eels/"
+      },
+      {
+        "title": "Eels vs Sharks Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-28T10:58:14+00:00",
+        "age_hours": 39.61228688416667,
+        "url": "https://www.beforeyoubet.com.au/eels-vs-sharks-preview-betting-tips-nrl-round-26-2026"
+      },
+      {
+        "title": "Eels v Sharks: Round 26 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T05:06:14+00:00",
+        "age_hours": 93.47895355083332,
+        "url": "https://www.nrl.com/watch/news/eels-v-sharks-round-26-1982045/"
+      },
+      {
+        "title": "Game Day Guide: Round 26 v Sharks at CommBank Stadium - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-23T23:32:57+00:00",
+        "age_hours": 147.03367577305556,
+        "url": "https://www.parraeels.com.au/news/2026/08/24/game-day-guide-round-26-v-sharks/"
+      },
+      {
+        "title": "Sharks v Eels: Byers back in the pack; Joseph reaches milestone",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-23T06:53:56+00:00",
+        "age_hours": 163.68395355083334,
+        "url": "https://www.nrl.com/news/2026/08/19/sharks-v-eels-byers-back-in-the-pack-joseph-reaches-miletone/"
+      },
+      {
+        "title": "NSW Cup Team List: Round 26 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:00:00+00:00",
+        "age_hours": 116.58284243972221,
+        "url": "https://www.parraeels.com.au/news/2026/08/25/nsw-cup-team-list-round-26/"
+      },
+      {
+        "title": "Dolphins Team List: Round 26 v Roosters - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:59:51+00:00",
+        "age_hours": 116.58534243972221,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/08/25/dolphins-team-list-round-26-v-roosters/"
+      },
+      {
+        "title": "NRL Team List Round 26 v Storm - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T05:39:45+00:00",
+        "age_hours": 116.92034243972222,
+        "url": "https://www.broncos.com.au/news/2026/08/25/nrl-team-list-round-26-v-storm/"
+      },
+      {
+        "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-26T22:07:42+00:00",
+        "age_hours": 76.45450910638888,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/"
+      },
+      {
+        "title": "Eels vs Sharks Prediction & NRL Betting Preview - 30/8/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T14:37:29+00:00",
+        "age_hours": 11.9581202175,
+        "url": "https://insights.betfred.com/rugby-league/eels-vs-sharks-prediction-betting-tips-sunday-30-august-2026/"
+      },
+      {
+        "title": "Top 8 locked in: Cowboys, Bunnies secure play-off spots; Dolphins eye home final - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T11:31:55+00:00",
+        "age_hours": 15.050897995277777,
+        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/"
+      },
+      {
+        "title": "Surgery likely to rule Sam Walker out for season in brutal Roosters blow",
+        "source": "smh.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-28T02:35:26+00:00",
+        "age_hours": 47.992286884166674,
+        "url": "https://www.smh.com.au/sport/nrl/surgery-to-rule-sam-walker-out-for-season-in-brutal-roosters-blow-20260830-p60spx.html"
+      },
+      {
+        "title": "First take: Eels v Sharks - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-25T06:47:15+00:00",
+        "age_hours": 115.79534243972222,
+        "url": "https://www.nrl.com/news/2026/08/25/first-look-eels-v-sharks/"
+      },
+      {
+        "title": "Walker’s season over as Chooks dealt huge premiership blow - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T23:53:40+00:00",
+        "age_hours": 2.6883979952777777,
+        "url": "https://www.nine.com.au/sport/nrl/news-sam-walker-injury-sydney-roosters-dolphins-result-video-highlights-20260829-p60snv.html"
+      },
+      {
+        "title": "Luai’s Tigers farewell at risk as Cowboys lock in top eight spot - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T11:59:46+00:00",
+        "age_hours": 14.58673132861111,
+        "url": "https://www.nine.com.au/sport/nrl/news-jarome-luai-injury-wests-tigers-north-queensland-cowboys-result-top-eight-20260829-p60soj.html"
+      },
+      {
+        "title": "As it happened: Knights strike back; Roosters undefeated, Titans go eight straight - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-29T12:12:52+00:00",
+        "age_hours": 14.368397995277778,
+        "url": "https://www.nrl.com/news/2026/08/29/nrlw-saturday-blog-titans-raiders-battle-kicks-us-off/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": false,
+    "checklist_issues": [
+      "research_stance_confirms_without_team_news",
+      "confidence_copied_math_without_research_confirm",
+      "confidence_above_clear_edge_without_research_confirm"
+    ],
+    "audit_pass": false,
+    "audit_issues": [
+      "The claim regarding the win over the Titans is incorrectly attributed to sportsnews.com.au, which actually reports a win over Gold Coast.",
+      "The material SHAP driver 'Bradley-Terry strength advantage' (15%) was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The judgement attributes the 'win over the Titans' to sportsnews.com.au, but that source explicitly states the Sharks 'defeat Gold Coast 30-22'."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "No specific player availability claims were made in the judgement."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks (away win group)."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research (sportsnews.com.au)."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.7) matches the math prior (1 - 0.3011 = 0.6989) and is supported by 'confirms' research stance."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "No minor SHAP factors are treated as decisive."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material driver 'Bradley-Terry strength advantage' (15% of total) is not mentioned or alluded to in the judgement."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.7
+  },
+  "reasoning": {
+    "summary": "The Sharks are the clear mathematical and ladder favourites, supported by a strong Bradley-Terry strength advantage and Elo rating. However, research is mixed; while the Sharks are in form following wins over Gold Coast (sportsnews.com.au) and the Titans (sharks.com.au), the Eels have a strong recent record at CommBank Stadium. Confidence is set below the math prior of 0.70 to account for this venue risk.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model heavily favours the Sharks, driven by Elo rating (17%), ladder points differential (17%), and Bradley-Terry strength advantage (15%)."
+      },
+      {
+        "source": "research",
+        "detail": "The Sharks enter with significant finals incentive and recent momentum, including a 30-22 win over Gold Coast (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "There is a significant 8-position gap on the official ladder, with the Sharks in 5th and the Eels in 13th."
+      }
+    ],
+    "research_stance": "mixed",
+    "strongest_reason_could_lose": "The Eels have won three of their last four matches at CommBank Stadium, suggesting a strong venue-specific advantage.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Eels-v-Sharks/20260830T023433Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R26_Eels-v-Sharks/20260830T023433Z/summary.md"
+  }
+}

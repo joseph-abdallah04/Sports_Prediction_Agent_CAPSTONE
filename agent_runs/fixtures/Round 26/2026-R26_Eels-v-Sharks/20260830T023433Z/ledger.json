@@ -1,0 +1,1378 @@
+{
+  "schema_version": 2,
+  "run_id": "20260830T023433Z-84b48036",
+  "at_a_glance": {
+    "fixture": "Eels v Sharks",
+    "round": 26,
+    "kickoff": "2026-08-30T16:05:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Sharks",
+    "confidence": 0.62,
+    "model_home_win_probability": 0.3011,
+    "model_prediction": "Away Win",
+    "research_items_kept": 21,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": false,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-30T02:34:33.860170+00:00",
+  "updated_at": "2026-08-30T02:47:33.912175+00:00",
+  "request": {
+    "home_team": "Eels",
+    "away_team": "Sharks",
+    "season": null,
+    "round_number": 26,
+    "force_refresh": true,
+    "user_question": "Who wins Eels vs Sharks?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Eels",
+    "away_team": "Sharks",
+    "confidence": 0.62,
+    "research_stance": "mixed",
+    "strongest_reason_could_lose": "The Eels have won three of their last four matches at CommBank Stadium, suggesting a strong venue-specific advantage.",
+    "loss_reason_specific": true,
+    "summary": "The Sharks are the clear mathematical and ladder favourites, supported by a strong Bradley-Terry strength advantage and Elo rating. However, research is mixed; while the Sharks are in form following wins over Gold Coast (sportsnews.com.au) and the Titans (sharks.com.au), the Eels have a strong recent record at CommBank Stadium. Confidence is set below the math prior of 0.70 to account for this venue risk.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model heavily favours the Sharks, driven by Elo rating (17%), ladder points differential (17%), and Bradley-Terry strength advantage (15%)."
+      },
+      {
+        "source": "research",
+        "detail": "The Sharks enter with significant finals incentive and recent momentum, including a 30-22 win over Gold Coast (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "There is a significant 8-position gap on the official ladder, with the Sharks in 5th and the Eels in 13th."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 21,
+      "items_mentioning_both_teams": 13,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 7
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 20
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 2
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+      "Eels vs Sharks NRL round 26 preview",
+      "Eels Sharks NRL odds OR price OR favourite",
+      "Eels Sharks NRL finals race OR ladder stakes round 26"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": false,
+      "issues": [
+        "research_stance_confirms_without_team_news",
+        "confidence_copied_math_without_research_confirm",
+        "confidence_above_clear_edge_without_research_confirm"
+      ]
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The judgement attributes the 'win over the Titans' to sportsnews.com.au, but that source explicitly states the Sharks 'defeat Gold Coast 30-22'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "No specific player availability claims were made in the judgement."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks (away win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from research (sportsnews.com.au)."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.7) matches the math prior (1 - 0.3011 = 0.6989) and is supported by 'confirms' research stance."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP factors are treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Material driver 'Bradley-Terry strength advantage' (15% of total) is not mentioned or alluded to in the judgement."
+        }
+      ],
+      "issues": [
+        "The claim regarding the win over the Titans is incorrectly attributed to sportsnews.com.au, which actually reports a win over Gold Coast.",
+        "The material SHAP driver 'Bradley-Terry strength advantage' (15%) was omitted from the evaluation."
+      ],
+      "instruction": "Please correct the source attribution for the Sharks' recent win and evaluate the 'Bradley-Terry strength advantage' math signal."
+    },
+    "instruction": "Please correct the source attribution for the Sharks' recent win and evaluate the 'Bradley-Terry strength advantage' math signal.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Eels",
+      "away_team": "Sharks",
+      "confidence": 0.7,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Eels are playing their final home game of the season at CommBank Stadium, where they have won three of their last four matches.",
+      "loss_reason_specific": true,
+      "summary": "The Sharks enter as strong favourites with a math probability of 0.70 and a significant ladder advantage (5th vs 13th). Research confirms this edge, highlighting the Sharks' recent win over the Titans and their strong finals incentive, while the Eels are coming off a loss to the Dolphins. The market aligns with this view, pricing the Sharks at $1.50.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favours the Sharks based on Elo rating advantage and ladder points differential per game."
+        },
+        {
+          "source": "research",
+          "detail": "The Sharks bring significant finals incentive and a settled core following a 30-22 win over the Titans (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Sharks sit 5th on the ladder compared to the Eels in 13th, representing an 8-position gap."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Eels",
+      "away_team": "Sharks",
+      "confidence": 0.62,
+      "research_stance": "mixed",
+      "strongest_reason_could_lose": "The Eels have won three of their last four matches at CommBank Stadium, suggesting a strong venue-specific advantage.",
+      "loss_reason_specific": true,
+      "summary": "The Sharks are the clear mathematical and ladder favourites, supported by a strong Bradley-Terry strength advantage and Elo rating. However, research is mixed; while the Sharks are in form following wins over Gold Coast (sportsnews.com.au) and the Titans (sharks.com.au), the Eels have a strong recent record at CommBank Stadium. Confidence is set below the math prior of 0.70 to account for this venue risk.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model heavily favours the Sharks, driven by Elo rating (17%), ladder points differential (17%), and Bradley-Terry strength advantage (15%)."
+        },
+        {
+          "source": "research",
+          "detail": "The Sharks enter with significant finals incentive and recent momentum, including a 30-22 win over Gold Coast (sportsnews.com.au)."
+        },
+        {
+          "source": "scene",
+          "detail": "There is a significant 8-position gap on the official ladder, with the Sharks in 5th and the Eels in 13th."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "research_stance_confirms_without_team_news",
+      "confidence_copied_math_without_research_confirm",
+      "confidence_above_clear_edge_without_research_confirm",
+      "The claim regarding the win over the Titans is incorrectly attributed to sportsnews.com.au, which actually reports a win over Gold Coast.",
+      "The material SHAP driver 'Bradley-Terry strength advantage' (15%) was omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-30T02:34:58.228238+00:00",
+      "thinking": "*   Home Team: Eels\n    *   Away Team: Sharks\n    *   Round Number: 26\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Eels).\n    *   Query 2: Away team availability (Sharks).\n    *   Query 3: Fixture preview (Eels vs Sharks Round 26).\n    *   Query 4: Market prices (Eels vs Sharks odds).\n    *   Query 5: Specific context (form, ladder, etc.). Round 26 is the final round of the regular season, so \"finals race\" or \"ladder stakes\" is highly relevant.\n\n    *   Q1: `Eels NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q2: `Sharks NRL injury OR \"late mail\" OR \"team list\" round 26`\n    *   Q3: `Eels vs Sharks NRL round 26 preview`\n    *   Q4: `Eels Sharks NRL odds OR price OR favourite`\n    *   Q5: `Eels Sharks NRL finals race OR ladder stakes round 26`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Eels, Sharks).\n    *   JSON format? Yes.",
+      "chars": 1035
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-30T02:40:23.280148+00:00",
+      "thinking": "*   Home Team: Eels\n    *   Away Team: Sharks\n    *   Venue: CommBank Stadium\n    *   Math Prediction: Away Win (Probability: 0.6989)\n    *   Standings: Sharks (5th) vs Eels (13th). Gap of 8 positions.\n    *   SHAP Drivers:\n        *   Favouring Sharks: Ladder points differential per game (17%), Elo rating (17%), Bradley-Terry strength (15%), Pythagorean form (6%), Penalty cluster rate (6% - CONFLICT).\n        *   Favouring Eels: Missed tackles (4% - CONFLICT), Travel distance (3%), Rest-day advantage (2%), Home travel (1%), Head-to-head margin (1%).\n    *   Research:\n        *   Sharks: Unchanged 1-19. Coming off a win (30-22 vs Titans). Strong finals incentive (top 4 opportunity).\n        *   Eels: Coming off a loss (34-16 vs Dolphins). Final home game of the season.\n        *   Market: Sharks are favourites ($1.50).\n        *   Specifics: \"Before You Bet\" suggests Eels +6.5 due to venue and Sharks missing Braydon Trindall.\n\n    *   Math: Strong Away Win (0.70).\n    *   Standings: Strong Away advantage (5th vs 13th).\n    *   Research:\n        *   Sharks are in good form (won last game), have finals incentive, and are the market favourites.\n        *   Eels are struggling (lost last game, 13th on ladder).\n        *   One article (\"Before You Bet\") mentions Sharks are without Braydon Trindall, which might be a slight negative for the Sharks, but they are still heavily favoured.\n        *   The research generally confirms the Sharks' superiority.\n    *   Research Stance: `confirms`. The research (form, finals incentive, market price) aligns with the math prediction of an Away Win.\n\n    *   Math Prior: 0.6989.\n    *   Research: Confirms the gap (Sharks 5th, Eels 13th; Sharks coming off a win, Eels off a loss).\n    *   Confidence Band: 0.65-0.75 is for a clear edge where math prior is already there and research confirms.\n    *   The prior is ~0.70. Research confirms. I'll place it in the 0.65-0.75 band.\n\n    *   Strongest reason could lose: The Eels are playing their final home game of the season at CommBank Stadium, where they have won three of their last four.\n    *   Loss reason specific: True (final home game/venue history).\n\n    *   Winner: away (Sharks)\n    *   Confidence: 0.70 (matching the math prior as research confirms)\n    *   Research Stance: confirms\n    *   Key Factors:\n        1.  Math: Elo rating and ladder differential (SHAP).\n        2.  Research: Sharks' finals incentive and recent win over Titans (sportsnews.com.au).\n        3.  Scene: Sharks' 5th position vs Eels' 13th (standings).\n    *   Disagreements: None.\n\n    *   `research_stance`: `confirms` (Sharks' form and finals incentive back the pick).\n    *   `confidence`: 0.70 (Prior is 0.6989, research confirms).\n    *   `loss_reason_specific`: true (final home game).\n    *   `summary`: Sharks are strong favourites based on a significant ladder gap (5th vs 13th) and a math probability of 0.70. Research confirms their edge, noting their recent win over the Titans and strong finals incentive, while the Eels are coming off a loss to the Dolphins. The market also favours the Sharks at $1.50.",
+      "chars": 3110
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-30T02:45:13.808837+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, prices) in the research/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right team?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.7) justified based on the math prior (0.3011 for home, so 0.6989 for away) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Eels (13th)\n- Away: Sharks (5th)\n- Math Probability: Home Win = 0.3011 -> Away Win = 0.6989.\n- Material SHAP Drivers (Away):\n    - Ladder points differential per game (17%)\n    - Elo rating advantage (17%)\n    - Bradley-Terry strength advantage (15%)\n\n- Winner: Away (Sharks)\n- Confidence: 0.7\n- Research Stance: confirms\n- Summary:\n    - Math probability 0.70 (matches 1 - 0.3011 = 0.6989).\n    - Ladder advantage (5th vs 13th).\n    - Sharks win over Titans.\n    - Eels loss to Dolphins.\n    - Market price $1.50.\n- Key Factors:\n    - Math: Elo rating advantage, ladder points differential per game.\n    - Research: Finals incentive, settled core, 30-22 win over Titans (sportsnews.com.au).\n    - Scene: 5th vs 13th (8 position gap).\n\n- \"Sharks' recent win over the Titans\": Found in `sportsnews.com.au` (\"defeat Gold Coast 30-22\" - wait, the summary says Titans, the source says Gold Coast? Let me check other sources).\n    - `sportsnews.com.au` says: \"defeat Gold Coast 30-22\".\n    - `sharks.com.au` (NRL Team List) says: \"Cronulla's 30-22 win over the Titans last Sunday\".\n    - `nrl_news` (Eels v Sharks: Walker's on track) says: \"against the Titans in their Round 25 game... Cronulla getting back on track with a win\".\n    - `Before You Bet` says: \"enter after a 30-22 win over Gold Coast\".\n    - Wait, there's a conflict in the research. `sportsnews.com.au` says Gold Coast, `sharks.com.au` says Titans. The judgement says \"win over the Titans (sportsnews.com.au)\".\n    - Let's check `sportsnews.com.au` body again: \"defeat Gold Coast 30-22\".\n    - The judgement attributes the Titans win to `sportsnews.com.au`. This is a hallucination/misattribution. `sportsnews.com.au` says Gold Coast. `sharks.com.au` says Titans.\n- \"Eels are coming off a loss to the Dolphins\": Found in `sportsnews.com.au` (\"Parramatta was beaten 34-16 by the Dolphins\").\n- \"Sharks at $1.50\": Found in `sportsnews.com.au` price_quote (\"tipping Cronulla Sharks to win at $1.50 odds\").\n- \"5th vs 13th\": Found in `set_fixture_scene` standings.\n- \"8-position gap\": Found in `set_fixture_scene` comparison.\n\n- No specific availability claims (injuries) mentioned in the judgement.\n\n- \"Elo rating advantage\" and \"ladder points differential per game\" are attributed to the Sharks (Away).\n- In `predict_match`, these are in `favouring_Sharks_away_win`. Correct.\n\n- Weather is \"Fine\". Not mentioned as a key factor. Pass.\n\n- Key factor 2 is sourced from research (sportsnews.com.au). Pass.\n\n- Math prior for Away Win: $1 - 0.3011 = 0.6989$.\n- Judgement confidence: 0.7.\n- This is almost exactly the math prior.\n- Research stance is \"confirms\".\n- The summary says \"math probability of 0.70\".\n- The confidence 0.7 matches the math prior (0.6989) to two decimals.\n- Does it meet the criteria? (a) \"the number matches math P(that side) to two decimals without real confirms\".\n- The research stance is \"confirms\". The summary mentions the Titans win, finals incentive, and market price. These are \"confirms\".\n- However, the confidence is exactly the prior. Usually, if research confirms, it stays at the prior or goes up. If it's exactly the prior, it's generally acceptable as long as it's not *above* 0.65 without confirms. Here it is 0.7, and there are confirms.\n- Wait, (a) says \"fail if the number matches math P... without real confirms\". There are confirms here.\n- (b) \"above 0.65 without confirms\". There are confirms.\n- (c) \"conflicts kept or raised...\". No conflicts mentioned.\n- (d) \"got surer than the math prior on news the model already knew\". It didn't get surer; it stayed at the prior.\n- (e) \"summary never says what set the number\". Summary says \"math probability of 0.70\".\n- Verdict: Pass.\n\n- No minor drivers treated as decisive. Pass.\n\n- Material drivers:\n    - Ladder points differential per game (17%) - Mentioned in key factors.\n    - Elo rating advantage (17%) - Mentioned in key factors.\n    - Bradley-Terry strength advantage (15%) - NOT mentioned.\n- The Bradley-Terry strength advantage is a material driver (15%) and is not mentioned in the summary or key factors.\n- This is a failure.\n\n- `sourced_claims`: The judgement says \"win over the Titans (sportsnews.com.au)\". `sportsnews.com.au` actually says \"defeat Gold Coast 30-22\". `sharks.com.au` says Titans. This is a misattribution/hallucination of the source for that specific fact.\n- `omitted_math_signals`: Bradley-Terry strength advantage (15%) is missing.\n\n- `sourced_claims`: Fail. The claim \"win over the Titans\" is attributed to `sportsnews.com.au`, but that source says \"defeat Gold Coast 30-22\". The Titans win is mentioned in `sharks.com.au` and `nrl_news`.\n- `omitted_math_signals`: Fail. Bradley-Terry strength advantage (15%) is not addressed.\n\nLet's double check `sportsnews.com.au` again.\n`body_excerpt`: \"Cronulla steadied its campaign by overturning a halftime deficit to defeat Gold Coast 30-22\".\nYes, it says Gold Coast.\nThe judgement says: \"highlighting the Sharks' recent win over the Titans... (sportsnews.com.au)\".\nThis is a clear error.\n\nLet's double check `omitted_math_signals`.\nMaterial drivers:\n1. Ladder points differential per game (17%) - Included.\n2. Elo rating advantage (17%) - Included.\n3. Bradley-Terry strength advantage (15%) - Missing.\nVerdict: Fail.\n\nWait, let me check if \"Bradley-Terry\" is \"alluded to\".\nThe summary says \"significant ladder advantage\". That's the ladder points differential.\nThe key factors mention \"Elo rating advantage\" and \"ladder points differential\".\nBradley-Terry is a separate strength metric. It is not alluded to.\n\nFinal check on `confidence_justified`:\nPrior = 0.6989.\nConfidence = 0.7.\nThis is a rounding of the prior.\nResearch stance = \"confirms\".\nThis is acceptable.\n\nOne more look at `sourced_claims`.\n\"Eels are coming off a loss to the Dolphins\" -> `sportsnews.com.au` says \"Parramatta was beaten 34-16 by the Dolphins\". Correct.\n\"Sharks at $1.50\" -> `sportsnews.com.au` price_quote says \"$1.50 odds\". Correct.\n\"5th vs 13th\" -> `set_fixture_scene`. Correct.\n\nSo the only `sourced_claims` issue is the Titans/Gold Coast misattribution to `sportsnews.com.au`.\n\nWait, looking at `sharks.com.au` (NRL Team List): \"Cronulla's 30-22 win over the Titans last Sunday\".\nAnd `nrl_news` (Eels v Sharks: Walker's on track): \"against the Titans in their Round 25 game... Cronulla getting back on track with a win\".\nThe fact (win over Titans) is in the research, but the attribution to `sportsnews.com.au` is wrong because that specific source says Gold Coast.\n\nActually, looking at `Before You Bet`: \"enter after a 30-22 win over Gold Coast\".\nThere is a contradiction in the research itself (some say Titans, some say Gold Coast).\nThe agent picked \"Titans\" and attributed it to `sportsnews.com.au`.\n`sportsnews.com.au` says \"Gold Coast\".\nSo the agent hallucinated the source for the \"Titans\" claim.\n\nSummary of issues:\n1. `sourced_claims`: \"win over the Titans (sportsnews.com.au)\" is incorrect; `sportsnews.com.au` says \"defeat Gold Coast 30-22\".\n2. `omitted_math_signals`: \"Bradley-Terry strength advantage\" (15%) is missing.",
+      "chars": 7828
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-30T02:47:33.911551+00:00",
+      "thinking": "*   Winner: Sharks (Away)\n    *   Confidence: 0.70\n    *   Research Stance: `confirms`\n    *   Strongest Reason Could Lose: Eels final home game/venue record.\n    *   Loss Reason Specific: True.\n    *   Summary: Mentions math probability (0.70), ladder (5th vs 13th), research (win over Titans - *incorrectly attributed*), market ($1.50).\n\n    *   `research_stance_confirms_without_team_news`: I used \"confirms\" but the evidence provided (finals incentive, recent win) is general form/motivation, not specific \"team news\" (player returning/out). The rules state: \"Ladder, standings, SHAP, 'neither in finals', and 'unchanged lineup' are NOT confirmation.\" A recent win is form, not team news. I need to check if there is *actual* team news.\n        *   Research check:\n            *   Eels: Injury report lists players out for 2027 or Round 27. No specific \"this week\" shock.\n            *   Sharks: \"unchanged 1-19\".\n            *   Conclusion: There is no specific player-based team news that \"confirms\" the pick. The stance should be `silent` or `mixed` (since one article suggests Eels +6.5 due to venue).\n    *   `confidence_copied_math_without_research_confirm`: I set confidence to 0.70, which matches the math probability (0.6989). The rules say: \"Going more sure than the prior is the rare exception... News that merely confirms who was already expected to play, plus ladder, standings, or SHAP, is not a reason to get surer.\" Since I don't have a \"real this-week shock\", I cannot just paste the math number if the research doesn't provide a concrete player-based boost.\n    *   `confidence_above_clear_edge_without_research_confirm`: 0.70 is in the \"clear edge\" band (0.65-0.75). This band usually requires math prior AND research confirms. Since research is not \"confirming\" (no team news), I should likely be in the \"modest edge\" band (0.55-0.65).\n    *   `Incorrect attribution`: I said Sharks beat Titans (attributed to sportsnews.com.au). Looking at `sportsnews.com.au`, it says \"defeat Gold Coast 30-22\". The `sharks.com.au` article mentions the Titans win.\n    *   `Omitted SHAP driver`: 'Bradley-Terry strength advantage' (15%) was not mentioned.\n\n    *   `home_win_probability`: 0.3011 (Away win prob: 0.6989).\n    *   `prediction`: \"Away Win\".\n    *   `shap_drivers` (Away):\n        *   Ladder points differential per game (17%)\n        *   Elo rating advantage (17%)\n        *   Bradley-Terry strength advantage (15%) - *Must include this*.\n        *   Pythagorean form (6%)\n        *   Penalty cluster rate (6% - Conflict).\n    *   `standings`: Sharks 5th, Eels 13th.\n    *   `research`:\n        *   `sportsnews.com.au`: Sharks beat Gold Coast 30-22. Market favourite at $1.50.\n        *   `sharks.com.au`: Sharks beat Titans (last Sunday).\n        *   `beforeyoubet.com.au`: Suggests Eels +6.5 due to venue (won 3 of last 4 at CommBank Stadium). This is a reason they could lose.\n        *   `nrl.com`: Walker is on track.\n\n    *   `research_stance`: No specific player news (returns/outs) that changes the game. The \"unchanged\" status and general form are not \"confirms\". The `beforeyoubet` article actually provides a reason for the Eels to cover/win (venue), which makes the research `mixed` or `silent`. I'll go with `mixed` because one source explicitly argues for the Eels' edge at home.\n    *   `winner`: Sharks (Away). The math prior is strong (0.70), and the ladder gap is huge.\n    *   `confidence`: The math prior is ~0.70. However, research is `mixed` (venue advantage for Eels). According to the rules: \"If research is mixed... stay at or below [the prior]\". Since there's a specific reason the Sharks could lose (venue form), I should move down from 0.70. I'll place it in the \"modest edge\" band (0.55-0.65). Let's go with 0.62.\n    *   `strongest_reason_could_lose`: Eels' strong recent record at CommBank Stadium (won 3 of last 4).\n    *   `loss_reason_specific`: True.\n\n    *   Correct the Gold Coast/Titans win attribution.\n    *   Include Bradley-Terry strength advantage.\n    *   Adjust `research_stance` to `mixed`.\n    *   Adjust `confidence` to 0.62 (below math prior due to mixed research/venue risk).",
+      "chars": 4148
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-30T02:34:58.229257+00:00",
+      "payload": {
+        "queries": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Eels vs Sharks NRL round 26 preview",
+          "Eels Sharks NRL odds OR price OR favourite",
+          "Eels Sharks NRL finals race OR ladder stakes round 26"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-30T02:40:23.280836+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "confidence": 0.7,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Eels are playing their final home game of the season at CommBank Stadium, where they have won three of their last four matches.",
+          "loss_reason_specific": true,
+          "summary": "The Sharks enter as strong favourites with a math probability of 0.70 and a significant ladder advantage (5th vs 13th). Research confirms this edge, highlighting the Sharks' recent win over the Titans and their strong finals incentive, while the Eels are coming off a loss to the Dolphins. The market aligns with this view, pricing the Sharks at $1.50.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the Sharks based on Elo rating advantage and ladder points differential per game."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks bring significant finals incentive and a settled core following a 30-22 win over the Titans (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Sharks sit 5th on the ladder compared to the Eels in 13th, representing an 8-position gap."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-30T02:45:13.809417+00:00",
+      "payload": {
+        "checklist": {
+          "pass": false,
+          "issues": [
+            "research_stance_confirms_without_team_news",
+            "confidence_copied_math_without_research_confirm",
+            "confidence_above_clear_edge_without_research_confirm"
+          ]
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The judgement attributes the 'win over the Titans' to sportsnews.com.au, but that source explicitly states the Sharks 'defeat Gold Coast 30-22'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "No specific player availability claims were made in the judgement."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks (away win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from research (sportsnews.com.au)."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.7) matches the math prior (1 - 0.3011 = 0.6989) and is supported by 'confirms' research stance."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP factors are treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Material driver 'Bradley-Terry strength advantage' (15% of total) is not mentioned or alluded to in the judgement."
+            }
+          ],
+          "issues": [
+            "The claim regarding the win over the Titans is incorrectly attributed to sportsnews.com.au, which actually reports a win over Gold Coast.",
+            "The material SHAP driver 'Bradley-Terry strength advantage' (15%) was omitted from the evaluation."
+          ],
+          "instruction": "Please correct the source attribution for the Sharks' recent win and evaluate the 'Bradley-Terry strength advantage' math signal."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-30T02:47:33.911699+00:00",
+      "payload": {
+        "issues": [
+          "research_stance_confirms_without_team_news",
+          "confidence_copied_math_without_research_confirm",
+          "confidence_above_clear_edge_without_research_confirm",
+          "The claim regarding the win over the Titans is incorrectly attributed to sportsnews.com.au, which actually reports a win over Gold Coast.",
+          "The material SHAP driver 'Bradley-Terry strength advantage' (15%) was omitted from the evaluation."
+        ],
+        "instruction": "Please correct the source attribution for the Sharks' recent win and evaluate the 'Bradley-Terry strength advantage' math signal.",
+        "before": {
+          "winner": "away",
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "confidence": 0.7,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Eels are playing their final home game of the season at CommBank Stadium, where they have won three of their last four matches.",
+          "loss_reason_specific": true,
+          "summary": "The Sharks enter as strong favourites with a math probability of 0.70 and a significant ladder advantage (5th vs 13th). Research confirms this edge, highlighting the Sharks' recent win over the Titans and their strong finals incentive, while the Eels are coming off a loss to the Dolphins. The market aligns with this view, pricing the Sharks at $1.50.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the Sharks based on Elo rating advantage and ladder points differential per game."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks bring significant finals incentive and a settled core following a 30-22 win over the Titans (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Sharks sit 5th on the ladder compared to the Eels in 13th, representing an 8-position gap."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "confidence": 0.62,
+          "research_stance": "mixed",
+          "strongest_reason_could_lose": "The Eels have won three of their last four matches at CommBank Stadium, suggesting a strong venue-specific advantage.",
+          "loss_reason_specific": true,
+          "summary": "The Sharks are the clear mathematical and ladder favourites, supported by a strong Bradley-Terry strength advantage and Elo rating. However, research is mixed; while the Sharks are in form following wins over Gold Coast (sportsnews.com.au) and the Titans (sharks.com.au), the Eels have a strong recent record at CommBank Stadium. Confidence is set below the math prior of 0.70 to account for this venue risk.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model heavily favours the Sharks, driven by Elo rating (17%), ladder points differential (17%), and Bradley-Terry strength advantage (15%)."
+            },
+            {
+              "source": "research",
+              "detail": "The Sharks enter with significant finals incentive and recent momentum, including a 30-22 win over Gold Coast (sportsnews.com.au)."
+            },
+            {
+              "source": "scene",
+              "detail": "There is a significant 8-position gap on the official ladder, with the Sharks in 5th and the Eels in 13th."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "947aeed917e6",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-30T02:34:33.860312+00:00",
+      "finished_at": "2026-08-30T02:34:37.879966+00:00",
+      "duration_ms": 4019,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Sharks",
+        "season": null,
+        "round_number": 26,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "season": null,
+          "round_number": 26
+        },
+        "retrieved_at": "2026-08-30T02:34:33.860373+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 26,
+          "round_title": "Round 26",
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-30T16:05:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/eels-v-sharks/",
+          "match_mode": "Pre",
+          "match_id": "20261112680",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Liam Kennedy"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Apa Twidle",
+                "position": "Fullback",
+                "player_id": 100020440
+              },
+              {
+                "number": 2,
+                "name": "Brian Kelly",
+                "position": "Winger",
+                "player_id": 500872
+              },
+              {
+                "number": 3,
+                "name": "Will Penisini",
+                "position": "Centre",
+                "player_id": 507922
+              },
+              {
+                "number": 4,
+                "name": "Sean Russell",
+                "position": "Centre",
+                "player_id": 509762
+              },
+              {
+                "number": 5,
+                "name": "Josh Addo-Carr",
+                "position": "Winger",
+                "player_id": 501351
+              },
+              {
+                "number": 6,
+                "name": "Ronald Volkman",
+                "position": "Five-Eighth",
+                "player_id": 100000365
+              },
+              {
+                "number": 7,
+                "name": "Mitchell Moses",
+                "position": "Halfback",
+                "player_id": 500485
+              },
+              {
+                "number": 8,
+                "name": "Luca Moretti",
+                "position": "Prop",
+                "player_id": 505676
+              },
+              {
+                "number": 9,
+                "name": "Tallyn Da Silva",
+                "position": "Hooker",
+                "player_id": 100006658
+              },
+              {
+                "number": 10,
+                "name": "Junior Paulo",
+                "position": "Prop",
+                "player_id": 500687
+              },
+              {
+                "number": 11,
+                "name": "Jack Williams",
+                "position": "2nd Row",
+                "player_id": 502363
+              },
+              {
+                "number": 12,
+                "name": "Kitione Kautoga",
+                "position": "2nd Row",
+                "player_id": 507965
+              },
+              {
+                "number": 13,
+                "name": "Saxon Pryke",
+                "position": "Lock",
+                "player_id": 100006431
+              },
+              {
+                "number": 14,
+                "name": "Harrison Edwards",
+                "position": "Interchange",
+                "player_id": 505612
+              },
+              {
+                "number": 15,
+                "name": "Ryda Talagi",
+                "position": "Interchange",
+                "player_id": 100016128
+              },
+              {
+                "number": 16,
+                "name": "Teancum Brown",
+                "position": "Interchange",
+                "player_id": 100008613
+              },
+              {
+                "number": 17,
+                "name": "Dylan Walker",
+                "position": "Interchange",
+                "player_id": 500083
+              },
+              {
+                "number": 18,
+                "name": "Jack De Belin",
+                "position": "Interchange",
+                "player_id": 500619
+              },
+              {
+                "number": 20,
+                "name": "Kelma Tuilagi",
+                "position": "Reserve",
+                "player_id": 506628
+              },
+              {
+                "number": 21,
+                "name": "Jonah Pezet",
+                "position": "Reserve",
+                "player_id": 509524
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Mawene Hiroti",
+                "position": "Centre",
+                "player_id": 504666
+              },
+              {
+                "number": 4,
+                "name": "KL Iro",
+                "position": "Centre",
+                "player_id": 508649
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Niwhai Puru",
+                "position": "Five-Eighth",
+                "player_id": 509464
+              },
+              {
+                "number": 7,
+                "name": "Nicho Hynes",
+                "position": "Halfback",
+                "player_id": 502490
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Blayke Brailey",
+                "position": "Hooker",
+                "player_id": 504274
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Teig Wilton",
+                "position": "2nd Row",
+                "player_id": 507615
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Lock",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Siosifa Talakai",
+                "position": "Interchange",
+                "player_id": 504175
+              },
+              {
+                "number": 15,
+                "name": "Billy Burns",
+                "position": "Interchange",
+                "player_id": 505413
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Thomas Hazelton",
+                "position": "Interchange",
+                "player_id": 510238
+              },
+              {
+                "number": 18,
+                "name": "Hohepa Puru",
+                "position": "Interchange",
+                "player_id": 507815
+              },
+              {
+                "number": 20,
+                "name": "Riley Jones",
+                "position": "Interchange",
+                "player_id": 100009035
+              },
+              {
+                "number": 21,
+                "name": "Riley Pollard",
+                "position": "Reserve",
+                "player_id": 100011342
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 26,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Eels",
+            "position": 13,
+            "played": 22,
+            "wins": 8,
+            "drawn": 0,
+            "lost": 14,
+            "competition_points": 22,
+            "points_for": 437,
+            "points_against": 636,
+            "points_difference": -199,
+            "points_difference_per_game": -9.05,
+            "recent_form_last_4": "2 - 3",
+            "streak": "1L",
+            "home_record": "5 - 6",
+            "away_record": "3 - 8"
+          },
+          "away": {
+            "team": "Sharks",
+            "position": 5,
+            "played": 22,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 34,
+            "points_for": 634,
+            "points_against": 461,
+            "points_difference": 173,
+            "points_difference_per_game": 7.86,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "8 - 3",
+            "away_record": "6 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sharks",
+            "ladder_positions_gap": -8,
+            "points_difference_per_game_gap": -16.91,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-30T16:00",
+            "temperature_c": 19.4,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 8.5,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-30T02:34:37.876942+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=26&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-26/eels-v-sharks/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=26"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "b323b15d39d3",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-30T02:34:58.231631+00:00",
+      "finished_at": "2026-08-30T02:36:58.023157+00:00",
+      "duration_ms": 119791,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Sharks",
+        "kickoff": "2026-08-30T16:05:00+10:00",
+        "round_number": 26,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Eels vs Sharks NRL round 26 preview",
+          "Eels Sharks NRL odds OR price OR favourite",
+          "Eels Sharks NRL finals race OR ladder stakes round 26"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-30T16:05:00+10:00",
+          "round_number": 26,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+            "Eels vs Sharks NRL round 26 preview",
+            "Eels Sharks NRL odds OR price OR favourite",
+            "Eels Sharks NRL finals race OR ladder stakes round 26"
+          ]
+        },
+        "retrieved_at": "2026-08-30T02:34:58.232783+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 20
+          }
+        },
+        "items": [
+          {
+            "id": "6d8037d59965a1fc",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Update: Round 26 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/29/nrl-team-list-update-round-26/",
+            "published_at": "2026-08-29T06:05:00+00:00",
+            "snippet": "Presented By\nNRL Team List Update: Round 26\nThe Parramatta Eels have updated their NRL team to take on the Sharks tomorrow afternoon in Parradise.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Eels is number",
+            "body_excerpt": "Presented By\nNRL Team List Update: Round 26\nThe Parramatta Eels have updated their NRL team to take on the Sharks tomorrow afternoon in Parradise.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Eels is number 2 Brian Kelly 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Eels is number 3 Will Penisini 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Eels is number 4 Sean Russell 4 Centre for Sharks is number 4 KL Iro\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Eels is number 10 Junior Paulo 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Eels is number 13 Saxon Pryke 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Eels is number 14 Harrison Edwards 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Eels is number 15 Ryda Talagi 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Eels is number 16 Teancum Brown 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Eels is number 17 Dylan Walker 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Eels is number 18 Jack De Belin 18 Interchange for Sharks is number 18 Hohepa Puru\n18\n20 Interchange for Sharks is number 20 Riley Jones\n20\nReserves\nReserve for Eels is number 20 Kelma Tuilagi 20 21 Reserve for Sharks is number 21 Riley Pollard\n20 21\nReserve for Eels is number 21 Jonah Pezet 21\n21\nEels Ins\nDylan Walker\nJonah Pezet\nRyda Talagi\nSharks Ins\nRiley Jones\nRiley Pollard\nEels Outs\nJezaiah Funa\nJordan Samrani\nSamuel Stonestreet\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nSenior Review Official: Liam Kennedy\nLast updated: 8/30/2026 12:20:33 AM\nRelated /\nNRLW Late Mail: Round 9\nNRL Injury Report: Round 26\nNRL Team List: Round 26\nNRL Late Mail: Round 25\nNRL Team List Update: Round 25",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.49950910638889,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7a5f63899925c476",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Injury Report: Round 26 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/25/nrl-injury-report-round-26/",
+            "published_at": "2026-08-25T06:00:00+00:00",
+            "snippet": "NRL Injury Report: Round 26\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their final home game of the season, against the Sharks.\nInjury Report:\nPlayer\nInjury\nExpected Return\nMatt Doorey\nL Knee ACL\n2027\nCharlie Guymer\nR Knee - PCL Rupture\n",
+            "body_excerpt": "NRL Injury Report: Round 26\nThe Parramatta Eels can provide the following injury report on the NRL squad ahead of their final home game of the season, against the Sharks.\nInjury Report:\nPlayer\nInjury\nExpected Return\nMatt Doorey\nL Knee ACL\n2027\nCharlie Guymer\nR Knee - PCL Rupture\nJ'maine Hopgood\nR Knee ACL\nIsaiah Iongi\nR Knee MCL + PCL\nAraz Nanva\nShoulder\nRichard Penisini\nR Knee - Meniscus Tear\nJordan Samrani\nAdductor Strain\nRound 27\nSam Tuivaiti\nL Knee High Grade MCL\nRelated /\nNRLW Late Mail: Round 9\nTeam Lists\nNRL Team List Update: Round 26\nNRL Team List: Round 26\nNRL Late Mail: Round 25\nNRL Team List Update: Round 25",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.58284243972221,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "dc49455e999316ec",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 26 v Eels - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/25/nrl-team-list-round-26-v-eels/",
+            "published_at": "2026-08-25T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 26 v Eels\nThe Sharks have named an unchanged 1-19 for their clash against the Eels at CommBank Stadium on Saturday.\nCam McInnes and Tom Hazelton swapped roles before kick-off in Cronulla's 30-22 win over the Titans last Sunday.\nAlthough, co-capta",
+            "body_excerpt": "Presented By\nNRL Team List: Round 26 v Eels\nThe Sharks have named an unchanged 1-19 for their clash against the Eels at CommBank Stadium on Saturday.\nCam McInnes and Tom Hazelton swapped roles before kick-off in Cronulla's 30-22 win over the Titans last Sunday.\nAlthough, co-captain McInnes has been named at lock, and Hazelton has reverted back to the bench.\nThe Sharks have named double Rileys on the extended bench, with Riley Jones and Riley Pollard in jerseys #20 and #21.\nYoung halfback Pollard and versatile centre Jones are both coming off two try performances in Newtown's 40-30 win over North Sydney.\nKick-off is at 4:05pm between the Sharks and Eels at CommBank Stadium on Sunday.\nSee the two team lists below.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Eels is number 2 Brian Kelly 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Eels is number 3 Will Penisini 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Eels is number 4 Sean Russell 4 Centre for Sharks is number 4 KL Iro\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Eels is number 10 Junior Paulo 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Eels is number 13 Saxon Pryke 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Eels is number 14 Harrison Edwards 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Eels is number 15 Ryda Talagi 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Eels is number 16 Teancum Brown 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Eels is number 17 Dylan Walker 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Eels is number 18 Jack De Belin 18 Interchange for Sharks is number 18 Hohepa Puru\n18\n20 Interchange for Sharks is number 20 Riley Jones\n20\nReserves\nReserve for Eels is number 20 Kelma Tuilagi 20 21 Reserve for Sharks is number 21 Riley Pollard\n20 21\nReserve for Eels is number 21 Jonah Pezet 21\n21\nEels Ins\nDylan Walker\nJonah Pezet\nRyda Talagi\nSharks Ins\nRiley Jones\nRiley Pollard\nEels Outs\nJezaiah Funa\nJordan Samrani\nSamuel Stonestreet\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nSenior Review Official: Liam Kennedy\nLast updated: 8/30/2026 12:20:33 AM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Mawene Hiroti - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Niwhai Puru - Totally Workwear Kirrawee 7 - Nicho Hynes - John Ryan Freight Services 8 - Addin Fonua-Blake - Hicon 9 - Blayke Brailey - Elite Legal 10 - Jesse Colquhoun - Picker Financial 11 - Briton Nikora - Guardian Venue Management International 12 - Teig Wilton - White Wolf Constructions 13 - Cameron McInnes - Alltech Payroll Interchange 14 - Siosifa Talakai - O'Brien Palmer 15 - Billy Burns - Quest Apartment Hotels 16 - Oregon Kaufusi - Hamilton Elevators 17 - Tom Hazelton - Club Central Menai 18 - Hohepa Puru 19 - Braden Uele 20 - Riley Jones 21 - Riley Pollard 22 - Toby Rudolf Head Coach Craig Fitzgibbon - Aramex\nRelated /\nNRLW Late Mail: Round 9 v Roosters\nSenior Representative Team Lists: Round 26\nNSW Women's Premiership: Round 11 Tea",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.59950910638888,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f53e6ed2aff1bd0c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Parramatta Eels vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 26 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/parramatta-eels-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-26-2026/610059",
+            "published_at": "2026-08-27T02:21:44+00:00",
+            "snippet": "Parramatta Eels vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 26 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "CommBank Stadium will play host to Sunday's Round 26 NRL game between Parramatta Eels and Cronulla Sharks. The game kicks off at 4:05 pm with Cronulla Sharks heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Parramatta Eels vs. Cronulla Sharks game and give you our free tips and bets.\nWhen: Sunday August 30, 2026 at 4:05 pm\nWhere: CommBank Stadium\nBet 💰: Bet On This Match HERE\nParramatta Eels vs Cronulla Sharks Odds\nParramatta Eels vs Cronulla Sharks Preview\nCronulla steadied its campaign by overturning a halftime deficit to defeat Gold Coast 30-22, while Parramatta was beaten 34-16 by the Dolphins. The Sharks still have significant finals incentive and bring a settled core built around Nicho Hynes, Blayke Brailey and Cameron McInnes. Parramatta retains Mitchell Moses alongside Ronald Volkman, with Dylan Walker joining a bench that will need to lift the tempo through the middle. The Eels have enough speed through Josh Addo-Carr and Brian Kelly to challenge Cronulla’s edge defence, particularly if their forwards win early field position. However, the Sharks’ combination of Addin Fonua-Blake’s power and the finishing of Sione Katoa and Ronaldo Mulitalo gives them more dependable attacking routes. Cronulla should handle the pressure better and close the round with a valuable away win.\nHead To Head Bet\nWe're tipping Cronulla Sharks to win at $1.50 odds.\nFirst Try Scorer\nFirst Try Scorer: Sione Katoa at $7.75 .\nParramatta Eels vs Cronulla Sharks Teams\nEels team: 1. Apa Twidle 2. Brian Kelly 3. Viliami Penisini 4. Sean Russell 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses 8. Luca Moretti 9. Tallyn Da Silva 10. Junior Paulo 11. Jack Williams 12. Kitione Kautoga 13. Saxon Pryke 14. Harrison Edwards 15. Ryda Talagi 16. Teancum Brown 17. Dylan Walker 18. Jack de Belin 19. Bailey Simonsson 20. Kelma Tuilagi 21. Jonah Pezet 22. Ryley Smith\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Mawene Hiroti 4. KL Iro 5. Ronaldo Mulitalo 6. Niwhai Puru 7. Nicho Hynes 8. Addin Fonua-Blake 9. Blayke Brailey 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 14. Siosifa Talakai 15. Billy Burns 16. Oregon Kaufusi 17. Thomas Hazelton 18. Hohepa Puru 19. Braden Hamlin-Uele 20. Riley Jones 21. Riley Pollard 22. Toby Rudolf",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.2206202175,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "9f99c119215aa79b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Eels v Sharks: Walker's on track; Jones joins bench",
+            "url": "https://www.nrl.com/news/2026/08/25/eels-v-sharks-walkers-on-track-uele-back-to-boost-bench/",
+            "published_at": "2026-08-29T06:11:21+00:00",
+            "snippet": "Presented By\nEels v Sharks: Walker's on track; Jones joins bench\nIt was a tale of two halves for both the Eels and the Sharks last week, with the two teams recording differing results.\nParramatta came flying out of the blocks against the highly-fancied Dolphins to get out to a 10",
+            "body_excerpt": "Presented By\nEels v Sharks: Walker's on track; Jones joins bench\nIt was a tale of two halves for both the Eels and the Sharks last week, with the two teams recording differing results.\nParramatta came flying out of the blocks against the highly-fancied Dolphins to get out to a 10-0 lead mid-way through the first half.\nHowever, that shocked the Phins into action and they were able to run away with the game, despite a late rally in the second half by Parramatta.\nThe Sharks had a similar experience, but in reverse, against the Titans in their Round 25 game, with the side no doubt taking their lessons.\nA poor opening half saw them trailing 16-8 at the half-time break before Nicho Hynes helped spark the comeback with some sparkling passing to his edges, with Cronulla getting back on track with a win - albeit one they had to work hard for.\nThis week, with a top four finish still in play, they will need to start well against an Eels side that have shown they can still upset finals-bound opposition.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\n13th Position\naway Team\nSharks\n5th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nEels: NSW Under 19s prop Ryda Talagi will make his NRL debut off the bench after 13 appearances in NSW Cup this season. Dylan Walker returns from a wrist injury on the bench alongside Bailey Simonsson, who makes his first NRL appearance since dislocating his ankle in Round 5 against Wests Tigers. Apa Twidle has been named at fullback with Sean Russell in the centres although they could swap positions as they did against the Dolphins. No changes in Saturday's 24-hour update.\nSharks: Cam McInnes has been named to start at lock with Tom Hazelton on the bench but they could swap on game day as they did against the Titans. Winger Ronaldo Mulitalo will bring up 150 NRL appearances. Potential debutant Riley Jones has been added to the six-man interchange on Saturday in place of Braden Uele.\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Eels is number 2 Brian Kelly 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Eels is number 3 Will Penisini 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Eels is number 4 Sean Russell 4 Centre for Sharks is number 4 KL Iro\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Eels is number 7 Mitchell Moses 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Eels is number 8 Luca Moretti 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Eels is number 9 Tallyn Da Silva 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Eels is number 10 Junior Paulo 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Eels is number 11 Jack Williams 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Eels is number 12 Kitione Kautoga 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Eels is number 13 Saxon Pryke 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Eels is number 14 Harrison Edwards 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Eels is number 15 Ryda Talagi 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Eels is number 16 Teancum Brown 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Eels is number 17 Dylan Walker 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Eels is number 18 Jack De Belin 18 Interchange for Sharks is number 18 Hohepa Puru\n18\n20 Interchange for Sharks is number 20 Riley Jones\n20\nReserves\nReserve for Eels is number 20 Kelma Tuilagi 20 21 Reserve for Sharks is number 21 Riley Pollard\n20 21\nReserve for Eels is number 21 Jonah Pezet 21\n21\nEels Ins\nDylan Walker\nJonah Pezet\nRyda T",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.393675773055556,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "697abdff104ce463",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Round 26 v Eels - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/29/nrl-match-preview-round-26-v-eels/",
+            "published_at": "2026-08-29T06:05:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Round 26 v Eels\nThe Sharks come into tomorrow's match with the Eels on the back of a vital win that saw the side click back into gear after back-to-back losses.\nBoth clubs' annually play for the Johnny Mannah Cup, in tribute to the champion prop wh",
+            "body_excerpt": "Presented By\nNRL Match Preview: Round 26 v Eels\nThe Sharks come into tomorrow's match with the Eels on the back of a vital win that saw the side click back into gear after back-to-back losses.\nBoth clubs' annually play for the Johnny Mannah Cup, in tribute to the champion prop who sadly passed away in 2013.\nThe Sharks have held the trophy since regaining it in last year’s 28-18 win over Parramatta at Magic Round in Brisbane.\nCoach Craig Fitzgibbon said, \"we’d like to pay our respects to the Mannah family for this game. It’s not lost on us.”\n“Obviously, his brother Tim is a Parramatta legend and Johnny played for the Sharks. Shark #435 so it’s an important day for us too.”\nWith his side assured an NRL finals place this season, Fitzgibbon is set to become the first Cronulla coach to lead the club to 5 straight finals appearances.\nBut he’s made sure the Sharks are taking it game by game.\n“Our fans are up and about and looking forward to the end of the year, but we’ve got a couple of challenges ahead before we get there so it’s good to have the fans onside and excited.”\n“The Eels have shown some green shoots this year with a lot of improved players…so it’ll be a handful for us but we’re looking forward to the challenge,” he added.\nThe Sharks will also be motivated by more milestones.\nThe club's now second greatest try scorer of all-time, Ronaldo Mulitalo, will bring up his 150th NRL appearance for the club.\nCronulla have won 10/13 games since the winger returned from an ACL injury in round 11.\n“I haven’t seen too many guys do more in the community, and give their time to people, on behalf of the Sharks than Ronnie,\" Fitzgibbon shared.\n\"His passion can come across as an antagonist. He just wants to win and sometimes that spills over but he’s just a player that you love to have in your side.\n“His teammates adore him and other teams don’t like him, but that guy has got a big heart and we’re really lucky to have him that’s for sure.\"\nThe ever-impressive Jesse Colquhoun will bring up his 50th game for the club as well.\nThe 24-year-old was limited to just 11 games in his first three seasons due to injury, but his next 38 have flown by since returning in round 9 last year.\n\"Jesse came back from a broken foot, (another) broken foot and then an ACL, so the start to Jesse’s career has been littered with challenge and turbulence but he’s shown… what sort of player he’s going to be,\" Fitzgibbon continued.\n“We’re really happy that we’ve re-signed him for a long period of time because we think he’s the future in that position (lock).”\nCronulla has won three of the past four games against Parramatta, all three by 10 points or less, but at CommBank Stadium the Sharks have won one of three against the Eels.\nCronulla has won 12 of 13 games this season when leading at halftime, and won two of nine when trailing at the break, including last week’s come from behind victory over the Titans.\nThe Sharks have won 11 of 14 games when scoring the first try, but won three of eight when conceding first, and have conceded the last try in the past six games.\nNicho Hynes needs seven points to pass Luke Covell (948) for third most points for Cronulla and is also chasing his 100th NRL career win in what will be his 147th game.\nThe Sharks and Eels round 26 clash kicks off at 4:05pm tomorrow at CommBank Stadium.\nSee the 24-hour team lists below.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Eels is number 1 Apa Twidle 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Eels is number 2 Brian Kelly 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Eels is number 3 Will Penisini 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Eels is number 4 Sean Russell 4 Centre for Sharks is number 4 KL Iro\nWinger for Eels is number 5 Josh Addo-Carr 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Eels is number 6 Ronald Volkman 6 Five-Eighth for Sharks is number 6 Niwhai",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.49950910638889,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6baedceb2b5a40eb",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Eels vs Sharks Preview & Betting Tips: NRL Round 26 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/eels-vs-sharks-preview-betting-tips-nrl-round-26-2026",
+            "published_at": "2026-08-28T10:58:14+00:00",
+            "snippet": "Eels vs Sharks Preview & Betting Tips: NRL Round 26 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Eels vs Sharks Preview & Betting Tips: NRL Round 26 2026\nAugust 28 th 2026, 8:57pm , By: Ben Bridge\nSunday afternoon NRL at CommBank Stadium gives us the \"hold your nose\" bet of Round 26 for Eels vs Sharks .\nCronulla is clearly the better team. They are fifth, still have a top 4 opportunity and enter after a 30-22 win over Gold Coast. Parramatta sit near the bottom and are already thinking about 2027. And yet, I am taking Eels +6.5.\nThe reason is partly venue and partly matchup. Parramatta have won three of their past four at CommBank Stadium, with the only loss in that stretch coming by six points against Penrith. Cronulla, meanwhile, looked noticeably less fluent last weekend without Braydon Trindall and needed a strong second half to get past the Titans.\nThe Sharks remain without Trindall, leaving Nicho Hynes and Niwhai Puru in the halves. Braden Uele returns on the bench. Parramatta have Dylan Walker named after a wrist issue and largely retain the side that started strongly against the Dolphins last week.\nThis is not a bet built on believing Parramatta are suddenly good. It is a bet against asking Cronulla to win comfortably when their attack is still adjusting.\nBefore You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content. And if you're looking for a new site to join, then look no further than Dabble where you can copy our tips with a single click! Click the banner below to join now!\nEels vs Sharks Predictions & Tips: NRL Round 26 2026\nEels Start Fast but Cannot Finish\nParramatta’s 34-16 loss to the Dolphins was a genuine tale of two halves. The Eels started brilliantly and raced to a 10-0 lead midway through the opening half before the Dolphins gradually took control and ran away with the game.\nThat opening period is important for this handicap. Parramatta looked dangerous when they were able to play through Mitchell Moses and attack with early ball. Their problem was sustaining the effort once the Dolphins’ powerful back five started winning field position.\nThe Eels’ second half defence eventually cracked, but they at least demonstrated they still have enough attacking threat to trouble finals teams.\nCommBank Stadium has also quietly become a much better venue for them recently. Their home form is one of the few reasons for optimism in a difficult season, and Penrith are the only side to have beaten them there across their past four appearances, by just six.\nThis week’s task is about staying attached. Moses needs to kick them into corners, Parramatta need to complete above 80 per cent and their forwards must prevent Addin Fonua-Blake from owning the middle.\nDylan Walker’s availability should also help with ball movement and experience through the middle rotation if he is cleared to play.\nThe Eels are unlikely to win a free-flowing shootout. Their path to covering is to make this ugly, frustrate Cronulla and keep the margin inside a converted try heading into the final quarter.\nSharks Get Job Done Without Looking Smooth\nCronulla’s 30-22 victory over the Titans ended a two-game losing run, but it was not a particularly convincing first half. Gold Coast led 16-8 at halftime after the Sharks made several handling errors and repeatedly invited the Titans into good field position.\nThe second half was much better. Cronulla tightened their execution, Addin Fonua-Blake produced a huge second stint and Nicho Hynes began creating space on the edges. Sione Katoa scored an acrobatic try before Ronaldo Mulitalo crossed twice, including the decisive score after a Hynes cut out pass.\nThat response showed character, but the first half also highlighted the impact of Trindall’s absence.\nNiwhai Puru is a capable replacement, but Cronulla’s attack does not have the same rhythm. Hynes is being asked to organise more often, which can reduce his effectiveness as a running threat. That is my main reason f",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 39.61228688416667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ae9c07703ab39e42",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Eels v Sharks: Round 26 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/eels-v-sharks-round-26-1982045/",
+            "published_at": "2026-08-26T05:06:14+00:00",
+            "snippet": "Eels v Sharks: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 26\nPanthers v Bulldogs: Round 26\nSea Eagles v Dragons: Round 26\nTelstra Women's Premiership\n2026 / Round 9\nWests Tigers v Bulldogs\nEels ",
+            "body_excerpt": "Eels v Sharks: Round 26\nJoel Caine and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Round 26\nPanthers v Bulldogs: Round 26\nSea Eagles v Dragons: Round 26\nTelstra Women's Premiership\n2026 / Round 9\nWests Tigers v Bulldogs\nEels v Broncos\nCowboys v Knights\nRoosters v Sharks\nWarriors v Dragons\nTitans v Raiders",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.47895355083332,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3c7947461fc97702",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Game Day Guide: Round 26 v Sharks at CommBank Stadium - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/24/game-day-guide-round-26-v-sharks/",
+            "published_at": "2026-08-23T23:32:57+00:00",
+            "snippet": "Game Day Guide: Round 26 v Sharks at CommBank Stadium &nbsp;&nbsp; Parramatta Eels",
+            "body_excerpt": "Game Day Guide: Round 26 v Sharks at CommBank Stadium\nJoin us in PARRAdise at this Sunday's double header for Member Appreciation Round at CommBank Stadium, presented by Inchcape Subaru.\nMatch: Eels v Sharks\nRound 26 - Round 26 - Sunday 30 Aug\nhome Team\nEels\n13th Position\naway Team\nSharks\n5th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nEvent Details\nDate: Sunday August 30\nVenue: CommBank Stadium, O'Connell Street, Parramatta\nGates open: 12:45pm\nNRLW Kick Off - Eels v Broncos: 1:45pm\nNRL Kick Off - Eels v Sharks: 4:05pm\nTickets On Sale Now\nTickets for our final home game are on sale now.\nWhat's On\nKids can dive into Kids PARRAdise, with games, giveaways, and interactive fun, while fans of all ages can get involved in Parra Play, community activations, and grab a blue and gold flag to wave loud and proud.\nDuring NRLW halftime, watch two Junior League clubs go head-to-head in the People Care Inflatable Ball Race, followed by around 50 young players taking to the field for Mini Mods. While NRL halftime will see six contestants will compete for the chance to drive away in the Subaru Inchcape Raffle giveaway, with one lucky winner taking home a brand new Subaru Outback.\nFans on Field\nAfter the final whistle, players will join fans along the fence line for selfies and signatures before clearing the field to make way for Fans on Field. The celebrations continue as members and fans get the chance to head onto the field and get closer to the action, enjoy the post-match atmosphere and make the most of a special opportunity to celebrate the 2026 season together on the CommBank Stadium field*.\nMember Appreciation Round\nMember Appreciation Round is dedicated to thanking our members, with giveaways, laps of honour, player and legend appearances, and moments throughout the day.\nMembers can look forward to:\nExclusive Member-only discounts: Get 10% off food & beverages at the stadium*, and an extra 5% off merchandise at Eels Official Store outlets. Simply show your physical or digital membership card to redeem your discount.\nFree giveaways in the Member Lounge near Gate B (Aisle 122), including socks, Parra Pins and can coolers, for all Members through the gates before NRLW kick off.\nFree mini player head with every merch order from the Eels Official Store over $50, while stocks last.\nPolaroid wall: Member can have their photo taken and added to our Member Appreciation Wall.\nMember Raffle: Buy tickets into the member raffle from inside the Member Lounge, with prizes including a signed jersey, merch vouchers & merch packs.\nHospitality Upgrades: Bring your 2026 Member pack items with you for your chance to win an upgrade to a premium ticket in hospitality. Keep your eyes on the big screen for more details!\nDedicated Member-only entry gate: Members will be able to fast track their entry into the stadium via a dedicated Members-only entry gate at Gate B.\nPre-Game Fan March\nFor the 2026 season, fans can show their Parra Pride by joining in on our Fan March. Be part of a new game day tradition as the Blue & Gold Army marches together into the stadium. Build the hype, show your colours and arrive ready for kick off. Everyone who joins the march will receive a free Blue & Gold flag to wave as we walk in together.\nTimings: Meet outside the Parra Leagues Club multi-story car park at 3:00pm, with the March to start at 3:15pm.\nYour chance to win: Enter the 50-50 Raffle\nSupport the Eels Foundation for your chance to win, thanks to the 50-50 Raffle. Buy your raffle tickets online now or at the game on Sunday. You don’t need to be at the game to buy tickets or win the prize.\nThis season, the funds raised through the 50-50 Raffle will support the Eels Foundation’s programs, including our Social Impact and Community initiatives, Academy and Pathway Programs, and facilities.\nGetting To The Game\nTraffic may be heavier than usual, fans are encouraged to plan ahead and consider all the available travel options.\nMa",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 147.03367577305556,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5ae04b395f92eac3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Sharks v Eels: Byers back in the pack; Joseph reaches milestone",
+            "url": "https://www.nrl.com/news/2026/08/19/sharks-v-eels-byers-back-in-the-pack-joseph-reaches-miletone/",
+            "published_at": "2026-08-23T06:53:56+00:00",
+            "snippet": "Presented By\nSharks v Eels: Byers back in the pack; Joseph reaches milestone\nThis clash features two teams coming in hot off differing results in Round 7.\nParramatta finally broke through for its first win of the season with a convincing 30-18 win over Canterbury. The Eels were d",
+            "body_excerpt": "Presented By\nSharks v Eels: Byers back in the pack; Joseph reaches milestone\nThis clash features two teams coming in hot off differing results in Round 7.\nParramatta finally broke through for its first win of the season with a convincing 30-18 win over Canterbury. The Eels were dominant early, racing to a 24-0 half-time lead and displaying the attacking fluency that often eluded them in the opening rounds.\nCronulla, meanwhile, fell 30-18 to North Queensland, continuing a frustrating run of results despite again showing flashes of attacking quality.\nParramatta will arrive believing it can make consecutive wins a reality and Cronulla's challenge will be to turn promising periods into a complete performance.\nThis could be one of the more evenly matched contests of the weekend, with both sides viewing it as a must-win opportunity.\nMatch: Sharks v Eels\nRound 8 - Round 8 - Sunday 23 Aug\nhome Team\nSharks\n11th Position\naway Team\nEels\n10th Position\nVenue: Ocean Protect Stadium, Sydney\nTeam News\nSharks: Chantay Kiria-Ratu is confirmed to return at five-eighth in place of the injured Georgia Hannaway. Jacinta Carter is in at prop, Manilita Takapautola moves to lock and Anne-Marie Kiria-Ratu goes to the edge. China Polata is out, while Talei Holmes has been elevated to the bench. Earlier, there was a boost for Cronulla with Rhiannon Byers to return from a knee injury in the second row, taking the place of Jaydika Taufa who has been sidelined with a throat injury.\nEels: No late changes for the Eels. With Lindsay Tui sidelined with an ankle injury, Jasmin Morrisey shifts to the centres, with Zali Fay coming in on the wing. On the bench, forwards Ryvrr-Lee Alo and Chloe Jackson are both returning from concussions. Tess McWilliams is 18th player.\nTeam Lists\nBacks\nFullback for Sharks is number 1 Jada Taylor 1 Fullback for Eels is number 1 Abbi Church\nWinger for Sharks is number 2 Milla Elaro 2 Winger for Eels is number 2 Zali Fay\nCentre for Sharks is number 3 Tiana Penitani Gray 3 Centre for Eels is number 3 Rory Owen\nCentre for Sharks is number 4 Cassie Staples 4 Centre for Eels is number 4 Jasmin Morrissey\nWinger for Sharks is number 5 Marewakiterangi Samson 5 Winger for Eels is number 5 Martha Mataele\nFive-Eighth for Sharks is number 21 Chantay Kiria-Ratu 21 6 Five-Eighth for Eels is number 6 Cassey Tohi-Hiku\n21 6\nHalfback for Sharks is number 7 Madison Ashby 7 Halfback for Eels is number 7 Rachael Pearson\nForwards\nProp for Sharks is number 8 Ellie Johnston 8 Prop for Eels is number 8 Elsie Albert\nHooker for Sharks is number 9 Quincy Dodd 9 Hooker for Eels is number 9 Taneka Todhunter\nProp for Sharks is number 17 Jacinta Carter 17 10 Prop for Eels is number 10 Boss Kapua\n17 10\n2nd Row for Sharks is number 12 Rhiannon Byers 12 11 2nd Row for Eels is number 11 Fontayne Tufuga\n12 11\n2nd Row for Sharks is number 13 Anne-Marie Kiria-Ratu 13 12 2nd Row for Eels is number 12 Mahalia Murphy\n13 12\nLock for Sharks is number 10 Manilita Takapautolo 10 13 Lock for Eels is number 13 Keilee Joseph\n10 13\nInterchange\nInterchange for Sharks is number 14 Koffi Brookfield 14 Interchange for Eels is number 14 Layne Morgan\n14\nInterchange for Sharks is number 15 Tegan Dymock 15 Interchange for Eels is number 15 Ryvrr-Lee Alo\n15\nInterchange for Sharks is number 16 Caitlan Johnston-Green 16 Interchange for Eels is number 16 Chloe Jackson\n16\nInterchange for Sharks is number 18 Talei Holmes 18 17 Interchange for Eels is number 17 Khyliah Gray\n18 17\nReserves\nReplacement for Sharks is number 22 Filomina Hanisi 22 19 Replacement for Eels is number 19 Tess McWilliams\n22 19\nMatch Officials\nSenior Review Official: Todd Smith\nLast updated: 8/23/2026 12:14:05 PM\nStat Attack\nThe Sharks have won two of their three games against the Eels\nEels halfback Rachael Pearson has landed her last 10 attempts at goal\nThe Sharks have lost all three games at Ocean Protect Stadium this season\nEels lock Keilee Joseph will make her 50th NRLW appearance\nStats supplied by David Middleton, Leagu",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 163.68395355083334,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "efb8dd27106045bb",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NSW Cup Team List: Round 26 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/25/nsw-cup-team-list-round-26/",
+            "published_at": "2026-08-25T06:00:00+00:00",
+            "snippet": "NSW Cup Team List: Round 26\nThe Parramatta Eels have named their NSW Cup team to take on the Jets in their final game of the 2026 season.\nTeam List:\nJoash PAPALII\nDevonte VAILEA\nSiamani LEULUAI\nHarley WALKER\nJordan HILL\nLorenzo TALATAINA\nJonah PEZET\nMax TUPOU\nRyley SMITH\nUinitoni",
+            "body_excerpt": "NSW Cup Team List: Round 26\nThe Parramatta Eels have named their NSW Cup team to take on the Jets in their final game of the 2026 season.\nTeam List:\nJoash PAPALII\nDevonte VAILEA\nSiamani LEULUAI\nHarley WALKER\nJordan HILL\nLorenzo TALATAINA\nJonah PEZET\nMax TUPOU\nRyley SMITH\nUinitoni MATAELE\nJezaiah FUNA\nChris Petrus\nTyrese LOKENI\nKruz NIUTILI-SCHMIDT\nElijah TUPOU\nBruce WARD\nTrace BEATTIE\nRelated /\nNRLW Late Mail: Round 9\nTeam Lists\nNRL Team List Update: Round 26\nNRLW Team List Update: Round 9\nNSW Women's Premiership Team List: Round 11\nNSW Cup Team List: Round 25",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.58284243972221,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "fa5939bf06ea3689",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins Team List: Round 26 v Roosters - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/08/25/dolphins-team-list-round-26-v-roosters/",
+            "published_at": "2026-08-25T05:59:51+00:00",
+            "snippet": "Dolphins Team List: Round 26 v Roosters &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nDolphins Team List: Round 26 v Roosters\nKristian Woolf has backed the side that secured victory over the Eels last Friday night, naming an unchanged 17 to face the Roosters in Round 26.\nMax Plath returns to the back row after a late change to the final team last Friday saw Brian Pouniu elevated into the starting side.\nPouniu remains in the 17 for his third NRL appearance after an impressive 80-minute performance against the Eels.\nSebastian Su’a and Kurt Donoghoe come into the extended squad, joining the reserves for the clash with the Roosters.\nThe Dolphins will head to Sydney for the Round 26 showdown as they continue preparations for their maiden NRL finals campaign.\nMatch: Roosters v Dolphins\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nRoosters\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Roosters is number 2 Billy Smith 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Roosters is number 3 Hugo Savala 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Roosters is number 4 Robert Toia 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Roosters is number 13 Nat Butcher 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Dolphins is number 14 Ray Stone\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Dolphins is number 15 Francis Molo\n15\nInterchange for Roosters is number 16 Egan Butcher 16 22 Interchange for Dolphins is number 22 Kurt Donoghoe\n16 22\nInterchange for Roosters is number 19 Tommy Talau 19\n19\nReserve for Roosters is number 17 Taylor Losalu 17 16 Reserve for Dolphins is number 16 Felise Kaufusi\n17 16\nReserve for Roosters is number 18 Cody Ramsey 18 17 Reserve for Dolphins is number 17 Brian Pouniu\n18 17\n18 Reserve for Dolphins is number 18 Bradley Schneider\n18\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Matt Noyen\nSenior Review Official: Chris Butler\nLast updated: 8/29/2026 12:02:02 PM\nRelated /\nhe Dolphins defence are there again!\nMatch Highlights\nRoosters v Dolphins - Round 26, 2026\nInstant Highlights\nMarshall-King from close range\nPlath gets over before the half\nCobbo gets his second",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.58534243972221,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8abe2c95e9e11a5b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Round 26 v Storm - Brisbane Broncos",
+            "url": "https://www.broncos.com.au/news/2026/08/25/nrl-team-list-round-26-v-storm/",
+            "published_at": "2026-08-25T05:39:45+00:00",
+            "snippet": "Presented By\nNRL Team List Round 26 v Storm\nBroncos Coach Michael Maguire has named an unchanged line-up to play the Melbourne Storm at Suncorp Stadium on Thursday night in the final home game of the 2026 season.\nKick-off is 7:50pm.\nMatch: Broncos v Storm\nRound 26 - Round 26 - Th",
+            "body_excerpt": "Presented By\nNRL Team List Round 26 v Storm\nBroncos Coach Michael Maguire has named an unchanged line-up to play the Melbourne Storm at Suncorp Stadium on Thursday night in the final home game of the 2026 season.\nKick-off is 7:50pm.\nMatch: Broncos v Storm\nRound 26 - Round 26 - Thursday 27 Aug\nhome Team\nBroncos\naway Team\nStorm\nTeam Lists\nBacks\nFullback for Broncos is number 1 Hayze Perham 1 Fullback for Storm is number 1 Sualauvi Faalogo\nWinger for Broncos is number 2 Josiah Karapani 2 Winger for Storm is number 2 Siulagi Tuimalatu-Brown\nCentre for Broncos is number 3 Kotoni Staggs 3 Centre for Storm is number 3 Tyran Wishart\nCentre for Broncos is number 4 Deine Mariner 4 Centre for Storm is number 4 Nick Meaney\nWinger for Broncos is number 5 Grant Anderson 5 Winger for Storm is number 5 Moses Leo\nFive-Eighth for Broncos is number 6 Ezra Mam 6 Five-Eighth for Storm is number 6 Cameron Munster\nHalfback for Broncos is number 7 Ben Hunt 7 Halfback for Storm is number 7 Jahrome Hughes\nForwards\nProp for Broncos is number 8 Xavier Willison 8 Prop for Storm is number 8 Stefano Utoikamanu\nHooker for Broncos is number 9 Billy Walters 9 Hooker for Storm is number 9 Harry Grant\nProp for Broncos is number 10 Payne Haas 10 Prop for Storm is number 10 Josh King\n10\n2nd Row for Broncos is number 11 Jaiyden Hunt 11 2nd Row for Storm is number 11 Shawn Blore\n11\n2nd Row for Broncos is number 12 Jordan Riki 12 2nd Row for Storm is number 12 Oryn Keeley\n12\nLock for Broncos is number 13 Patrick Carrigan 13 Lock for Storm is number 13 Trent Loiero\n13\nInterchange\nInterchange for Broncos is number 14 Blake Mozer 14 15 Interchange for Storm is number 15 Alec MacDonald\n14 15\nInterchange for Broncos is number 15 Aublix Tawha 15 17 Interchange for Storm is number 17 Cooper Clarke\n15 17\nInterchange for Broncos is number 16 Jack Gosiewski 16 18 Interchange for Storm is number 18 Angus Hinchey\n16 18\nInterchange for Broncos is number 17 Va'a Semu 17 19 Interchange for Storm is number 19 Marion Seve\n17 19\nReserve for Broncos is number 18 Thomas Duffy 18 14 Reserve for Storm is number 14 Trent Toelau\n18 14\nReserve for Broncos is number 19 Gehamat Shibasaki 19 16 Reserve for Storm is number 16 Jack Hetherington\n19 16\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Kasey Badger\nSenior Review Official: Ashley Klein\nLast updated: 8/28/2026 1:06:13 PM\nRelated /\nPost Match Press Conference: Round 26 v Storm\nMatch Highlights\nMatch Highlights: NRL Round 26 v Storm\nNRLW Team List Round 9 v Eels\nNRL Team List Round 25 v Raiders\nNRL Team List Round 24 v Warriors",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.92034243972222,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "97b862ca906c2597",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 26 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/27/2026-nrl-round-26-predictions/",
+            "published_at": "2026-08-26T22:07:42+00:00",
+            "snippet": "The penultimate round of the 2026 NRL regular season features a bounty of high-profile encounter – headlined by Canterbury’s must-win clash against Penrith and a top-four showdown between the Roosters and Dolphins.\nManly, North Queensland and South Sydney all face vital assignmen",
+            "body_excerpt": "The penultimate round of the 2026 NRL regular season features a bounty of high-profile encounter – headlined by Canterbury’s must-win clash against Penrith and a top-four showdown between the Roosters and Dolphins.\nManly, North Queensland and South Sydney all face vital assignments against also-ran opposition, while Newcastle heads to Auckland in an attempt to slow down the Warriors juggernaut.\nRead on for our complete 2026 NRL Round 26 predictions, tips and best Rugby League bets to place this weekend!\nLast year’s grand final opponents are playing for pride only on Thursday night, but both are coming off spirited performances.\nFORM: After losing 12 of their previous 13, the Broncos produced a remarkable 34-30 comeback win over a desperate Canberra side at GIO Stadium last Friday.\nThe Storm have lost four of their last five but followed up a 42-20 thrashing of Manly in Perth with a 22-14 home loss to heavyweight Penrith last week.\nINS AND OUTS: The Broncos are unchanged, with Michael Maguire controversially denying Adam Reynolds an NRL farewell.\nJahrome Hughes returns for the Storm, with Tyran Wishart moving to centre as Jack Howarth sits out the rest of the year. Marion Seve comes onto the interchange.\nKEY MATCH-UP: Hayze Perham has impressed whenever given the opportunity to deputise for Reece Walsh, while Sua Faalogo will be eager to finish a breakout year in style.\nHISTORY: After winning just one of their previous 18 against the Storm, the Broncos have won the teams’ last three encounters – including an 18-14 result in Round 3 to snap a decade-long drought in Melbourne.\nKEY STAT: The Storm boast a 32-13 record at Suncorp Stadium but have won only one of their last five at the venue.\nVERDICT: The Broncos’ brave fightback in Canberra really came out of nowhere, but can they back it up to snap an eye-watering eight-match losing streak at Suncorp Stadium? The bubbling controversy over Reynolds’ non-selection doesn’t help.\nWhile it’s not reflected by a 9-13 record, the Storm have rarely been overwhelmed during this difficult campaign and haven’t lost to bad teams. With their ‘big three’ back on deck, they are an appealing favourite here.\nPrediction: Back the Storm to Cover the Line (-2.5) @ $1.90\nSGM: STORM WIN / OVER 49.5 TOTAL POINTS / SUA FAALOGO ANYTIME TRYSCORER / DEINE MARINER ANYTIME TRYSCORER / JAHROME HUGHES ANYTIME TRYSCORER @ $29.33\nClinging to the slimmest of 2026 NRL finals hopes, Manly will nevertheless be alive in the race when it kicks off against last-placed St George Illawarra on Friday.\nFORM: The Sea Eagles snapped a six-match losing streak with a 44-24 upset in Newcastle last Saturday, with Josh Feledy scoring three of their eight tries from the bench.\nThe spoon-bound Dragons followed up their first back-to-back wins – getting up against Cronulla and Wests Tigers – with a flat 44-14 loss to the Bulldogs in Round 25, trailing 24-0 at halftime.\nINS AND OUTS: Tolu Koula is out for the season, which brings Feledy into the centres for Manly with debutant Onitoni Large joining the interchange.\nDamien Cook starts at hooker for the Dragons with Jacob Liddle (calf) out, while Connor Muhleisen comes onto the bench.\nKEY MATCH-UP: Sea Eagles’ No.6 novice Clayton Faulalo and Dragons tyro Lyhkan King-Tongia are staking their claims for 2027.\nHISTORY: The clubs have split their last 10 clashes, but Manly have won the last two – including a 28-18 result in Wollongong in Round 6.\nKEY STAT: The Saints have scored more than 24 points just once this season.\nVERDICT: The Sea Eagles in all likelihood have pulled out of their skid far too late, but last week’s turnaround in Newcastle has nevertheless given them plenty to play for ahead of this clash. Faulalo impressed at five-eighth, as did centre fill-in Feledy.\nDespite some very spirited efforts over the past month or two, last week’s showing against the Bulldogs hinted at a team eager to get to Mad Monday and another finals hopeful should be able to take advantage at home.\nPred",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 76.45450910638888,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_26_match",
+              "mentions_fixture_team",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "79eb64d2d98d0d1c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Eels vs Sharks Prediction & NRL Betting Preview - 30/8/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/eels-vs-sharks-prediction-betting-tips-sunday-30-august-2026/",
+            "published_at": "2026-08-29T14:37:29+00:00",
+            "snippet": "Eels vs Sharks Prediction & NRL Betting Preview - 30/8/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Eels vs Sharks Prediction: Cronulla to maintain play-off charge\n| Saturday 29th August 2026, 15:37\nSaturday 29th August 2026, 15:37\nThe Cronulla Sharks will look to build some momentum ahead of the play-offs as they prepare to head to the CommBank Stadium to take on the Parramatta Eels on Sunday (4:05pm local/7:05am BST).\nCronulla are fifth and preparing themselves for the upcoming finals, while Parramatta are already looking ahead to next season in 13th.\nEels vs Sharks Betting Tips\nHandicap 3-way: Sharks -8 @ 11/10\nPrice Boost - Sharks to win, Ronaldo Mulitalo to score a try & Sione Katoa to score a try @ 9/4 7/4\n*Odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nRugby League Odds\nTeam News\nEels prop Ryda Talagi will make his NRL debut off the bench, while Dylan Walker returns from a wrist injury to join him among the replacements. Apa Twidle has been named at full-back, with Sean Russell switching to the centres.\nCam McInnes will start at lock for the Sharks with Tom Hazelton named on the bench. Winger Ronaldo Mulitalo is in line to make his 150th NRL appearance.\nEels vs Sharks Odds\nParramatta are 17/10 to claim the two points, with the draw 18/1, while the Sharks are 1/2 favourites.\nThe Eels are 4/5 to cover the +8 handicap, while the Sharks are 4/6 to win the first half.\nOver 54.5 Points is available at 10/11, while Mulitalo is the favourite to score anytime at 1/2.\nThe Sharks will be out for revenge this weekend, having lost the first meeting between the two clubs 40-6. The Sharks have won three of their last five games against the Eels, but they will need to be smart here without some of their key players.\nCronulla may have to adjust their tactics and play a simpler brand of rugby in order to make metres, but they still have enough individual talent to overcome an Eels team that continues to struggle defensively.\nParramatta have conceded at least 28 points in three consecutive games and the Sharks have been impressive away from home. Cronulla have won four of their last five games on the road, scoring 28, 66, 48 and 30 points during their successes.\nOdds correct at time of publishing.\nBoth Mulitalo and Sione Katoa are odds-on to score this weekend, but as part of an away win boost, they are good value to crash over once again.\nKatoa has scored four tries in his last five games and he now has 13 to his name in 16 appearances.\nMulitalo has a personal milestone to celebrate this weekend and he should be able to bring up 150 games in style. The winger has scored 12 tries in 13 appearances and should be one of Cronulla's main targets in attack and in the air.\nShare Article\nBetfred Rugby League Markets\nBetfred Super League Odds\nBetfred Challenge Cup Odds\nBetfred Championship Odds\nBetfred League One Odds\nRugby League Insights\nSuper League Tips\nChallenge Cup Tips\nNew customers only. Register , deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nMost Popluar\nHull KR vs Warrington Wolves Prediction: Rovers to close on… 17th August\nRoosters vs Dolphins Prediction: Visitors to succeed in Sydney 28th August\nRabbitohs vs Warriors Prediction: Bunnies to go down swinging 22nd August\nStorm vs Panthers Prediction: Melbourne can dig in on home soil 19th August\nSea Eagles vs Dragons Prediction: Hosts Manly to down Dragons 27th August",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.9581202175,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "65cf7b62057ac6cf",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Top 8 locked in: Cowboys, Bunnies secure play-off spots; Dolphins eye home final - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+            "published_at": "2026-08-29T11:31:55+00:00",
+            "snippet": "Top 8 locked in: Cowboys, Bunnies secure play-off spots; Dolphins eye home final &nbsp;&nbsp; NRL.com",
+            "body_excerpt": "Presented By\nTop 8 locked in: Cowboys, Bunnies secure play-off spots; Dolphins eye home final\nThe Final Eight has been locked in with the Rabbitohs and Cowboys securing their spots, while the Dolphins are eying a Top Two finish and a home final after a stunning win over the Roosters.\nOn an emotional Saturday afternoon at Cbus Super Stadium the Rabbitohs downed the Titans 42-22 to secure their first finals berth since 2022.\nWith the Cowboys beating Wests Tigers 24-10 in the last match of an enthralling Saturday, the Top 8 is now finalised and the finals hopes of the Bulldogs and Sea Eagles have been extinguished.\nTop 8\nPanthers (40 points +308)\nWarriors* (38 points +295)\nDolphins (38 points +152)\nRoosters (38 points +148)\nSharks* (34 points +178)\nRabbitohs (32 points +83)\nKnights* (32 points +56)\nCowboys (32 points -64)\n* Yet to play Round 26\nHowever, the finishing order of the Top 8 teams won't be determined until after next weekend's Round 27 matches.\nThe Sharks now need to beat the Eels on Sunday, otherwise the Panthers, Warriors, Dolphins and Roosters will make up the Top Four. Penrith are guaranteed a Top Two finish and a home final.\nThe Warriors can move a step closer to a home final if they beat the Knights on Sunday, with Ukraine international Jett Cleary making his NRL debut at halfback.\nA Warriors loss will open the door for the Dolphins or Roosters to snatch second spot.\nHowever, they may also face a fight to remain in the Top Four if the Sharks beat the Eels.\nThe Roosters face archrivals South Sydney at Allianz Stadium on Friday night - and they will have to do it without halfback Sam Walker after he suffered a syndesmosis injury.\nSam Walker leaves the field with an injury\nLatrell Mitchell returned for Souths against the Titans and they will be further boosted by the emotion of Jai Arrow's 100th match.\nFrom the field: Latrell Mitchell\nHowever, the Rabbitohs need the Knights to lose against the Warriors in Auckland on Sunday to have any hope of securing a home final as Newcastle have a bye in Round 27.\nAfter Arrow was given a rousing reception from the crowd of 22,108 at the start of the game as he took the field in jersey No.13, the Rabbitohs exploded out of the blocks with five tries in the first 25 minutes.\nSkipper Cameron Murray was supreme for the Rabbitohs while Latrell Mitchell's return from injury was an added boost for Wayne Bennett's men.\nFrom there we headed to Allianz Stadium where the Dolphins produced their finest win of the season to climb to third place on the ladder.\nPlaymakers Isaiya Katoa and Kodi Nikorima were dominant and Selwyn Cobbo grabbed a double as the Dolphins saluted 26-12.\nOur final stop was Townsville where Wests Tigers looked set to cut down another tall poppy but the Cowboys fought back to lock in their finals berth.\nRelive every big play on NRL.com's live blog.\nCowboys v Wests Tigers at Queensland Country Bank Stadium\nCowboys v Wests Tigers - Round 26, 2026\nMatch: Cowboys v Wests Tigers\nRound 26 - Round 26 - Saturday 29 Aug\nhome Team\nCowboys\n8th Position\naway Team\nWests Tigers\n14th Position\nVenue: Queensland Country Bank Stadium, Townsville\nMedia conferences\nCowboys: Round 26\nWests Tigers: Round 26\n80 min: Chester has secured North Queensland's third finals berth in six seasons with a late try. Cowboys 24 Tigers10\nTom Chester 2nd Try\n77 min: Luai has limped from the field and will watch the rest of the game from the bench.\n73 min: Jake Clifford has found touch from a long goal line drop out. The Cowboys are just minutes away from locking up a finals berth.\n68 min: Luai is on report for a high shot on Chester.\n67 min; Braidon Burns has been called back for a forward pass by Drinkwater as he looked set to score.\n65 min: Terrell May has had a try disallowed for an obstruction by fellow Wests Tiger prop Fonua Pole.\n58 min: Jaxon Purdue has scored after a Drinkwater kick hit the post and bounced in front of the Cowboys centre. Drinkwater converted. Cowboys 20 Tigers 10.\nJaxon Purdue Try\n5",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.050897995277777,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ee097eb073834fb8",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Surgery likely to rule Sam Walker out for season in brutal Roosters blow",
+            "url": "https://www.smh.com.au/sport/nrl/surgery-to-rule-sam-walker-out-for-season-in-brutal-roosters-blow-20260830-p60spx.html",
+            "published_at": "2026-08-28T02:35:26+00:00",
+            "snippet": "The Queensland Origin No.7 has had his worst fears confirmed on Sunday morning after suffering an ankle injury against the ...",
+            "body_excerpt": "Roosters star Sam Walker is set to undergo ankle surgery that will almost certainly end his season.\nScan results revealed that Walker suffered a high-grade syndesmosis strain in Saturday’s 26-12 loss to the Dolphins and requires a corrective operation to his ankle, potentially as early as Monday.\nWalker was sent for scans on Saturday night after he was collected in an awkward collision with Dolphins back-rower Kulikefu Finefeuiaki, with follow-up consultations on Sunday morning confirming the club’s worst fears.\nVeteran recruit Daly Cherry-Evans and utility Hugo Savala shape as a ready-made halves pairing in Walker’s absence.\nMultiple Roosters sources have confirmed Walker will undergo surgery, but the club is unwilling to rule a line through him completely given the typical 6-8 week recovery timeframe his operation entails.\nWith the NRL grand final 35 days away, a miracle comeback won’t be completely dismissed given Cherry-Evans has made a five-week return from ankle surgery previously. Former captain and assistant coach Boyd Cordner’s recovery from a badly broken ankle to play in the 2013 decider is also the stuff of legend at Roosters HQ.\nDaly Cherry-Evans will now take charge of the Roosters attack. Getty Images\nIn any case though, the injury is an especially cruel blow for Walker, who has been in career-best form after suffering a season-ending ACL rupture leading into the finals two years ago.\nWalker’s sidelining comes after he and the club parked contract talks – with Walker taking a lead role in that decision – when the Roosters most recent five-year, $5 million offer fell short of what his camp believes he can get on the open market when the NRL’s salary cap rises.\nBoth parties had agreed to wait until the Tricolours campaign ended before resuming negotiations. Walker’s preference has always been to ink a long-term extension at the club rather than go to market on November 1.\nThis masthead reported two weeks ago that the Walker camp was seeking around $250,000-$300,000 more per season than the Roosters had originally offered.\nSam Walker was in distress as he left the field on Saturday night. Getty Images\nOn the paddock, Trent Robinson’s side will take on arch-rivals South Sydney this Friday night, needing a win to guarantee a top-four finish.\nWalker’s absence is a telling blow, and comes alongside doubts around whether Victor Radley (concussion) will play or be kept on ice for another week leading into the finals.\nRadley suffered his eighth concussion or failed HIA in five years against the Wests Tigers last Sunday and is now required to gain clearance from an independent doctor to play again.\nHe is due to complete the NRL’s mandatory 11-day stand-down concussion protocols a day before kick-off against the Rabbitohs, but the Roosters have always taken an ultra-conservative approach with players returning from head knocks as well, and no call has yet been made on the English international’s return.\nVeteran winger Daniel Tupou (shoulder) is firming to return against Souths, while rugby-union-bound back-rower Angus Crichton (broken foot) will be back either this Friday or in week one of the finals.\nBack-to-back losses to the Tigers and Dolphins over the past two rounds have dropped Trent Robinson’s side from first to fourth on the ladder.\nLosing to the Rabbitohs would open the door for Cronulla to pinch fourth place if they can finish the regular season with wins over Parramatta and Melbourne.\nMeanwhile, scans will confirm if Jarome Luai has played his last game for the Wests Tigers.\nLuai failed to finish the game against the Cowboys on Saturday night, with club officials confirming he suffered a lower leg injury.\nCoach Benji Marshall was not asked about Luai after the loss, and made it clear he was unimpressed with some of the refereeing decisions, which he labelled “outrageous”.\nLuai announced earlier this year he would be joining the PNG Chiefs for the start of the 2028 season , with the club later agreeing to cut him",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 47.992286884166674,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7aef8014cf5d6337",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "First take: Eels v Sharks - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/25/first-look-eels-v-sharks/",
+            "published_at": "2026-08-25T06:47:15+00:00",
+            "snippet": "First take: Eels v Sharks\nThe NRL Fantasy crew preview Round 26\nUp Next\n02:50 Eels v Sharks: Round 26\nEels v Sharks: Round 26\n01:02 Barkin' Bargain Round 26: Damien Cook\nBarkin' Bargain Round 26: Damien Cook\n02:46 First take: Broncos v Storm\nFirst take: Broncos v Storm\n00:51 Home",
+            "body_excerpt": "First take: Eels v Sharks\nThe NRL Fantasy crew preview Round 26\nUp Next\n02:50 Eels v Sharks: Round 26\nEels v Sharks: Round 26\n01:02 Barkin' Bargain Round 26: Damien Cook\nBarkin' Bargain Round 26: Damien Cook\n02:46 First take: Broncos v Storm\nFirst take: Broncos v Storm\n00:51 Home Hardware player of the round: Herbie Farnworth\nHome Hardware player of the round: Herbie Farnworth\n03:19 First take: Roosters v Dolphins\nFirst take: Roosters v Dolphins\nRelated /\nEels v Sharks: Walker's on track; Jones joins bench\nMatch Preview\nFantasy\nFirst take: Titans v Sharks\nFirst take: Dolphins v Eels\nLive Blog\nAs it happened: Ruthless Wahs eye Top 2; Eels, Raiders spring upsets\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 115.79534243972222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "675d7f0b88f86217",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Walker’s season over as Chooks dealt huge premiership blow - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-sam-walker-injury-sydney-roosters-dolphins-result-video-highlights-20260829-p60snv.html",
+            "published_at": "2026-08-29T23:53:40+00:00",
+            "snippet": "Walker’s season over as Chooks dealt huge premiership blow &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Sam Walker ‘s season is over in a major blow to the Roosters ’ premiership hopes and Billy Slater has pinpointed the two stars who need to stand up in his absence.\nThe gun halfback left the field mid-way through the second half, having suffered an ankle injury in a tackle from Kulikefu Finefeuiaki in his side’s 26-12 loss against the Dolphins that has placed their top-four spot on shaky ground.\nSam Walker of the Roosters walks off injured. Getty Images\nWalker was caught awkwardly in the tackle and scans have since confirmed the Roosters star has suffered a high-grade syndesmosis injury.\nThe injury will require surgery, ruling Walker out for the rest of 2026.\nThere were initial concerns that Walker had been caught in a hip drop tackle, but the replay showed Finefeuiaki was already on the ground.\n“That’s just unfortunate ... no foul play,” Michael Ennis said on Fox League.\nThe news compounded an already tricky night for the Tricolours, who sunk to a second-straight loss and ruled them out of the minor premiership.\nRead more\nCleary will have ‘blessing of every person in Penrith’ to leave\nHugo Savala moved into the halves upon Walker’s departure, but was unable to steer the side to a comeback alongside Daly Cherry-Evans .\nThe hosts were provided every opportunity to get back into the match at Allianz Stadium with the Dolphins down to 11 men at one stage.\nTom Flegler had been sent to the sin bin in the 60th minute when it was 26-6 for repeat infringements. His teammate Morgan Knowles was then given the same punishment seven minutes later for a hip drop.\nSalesi Foketi crossed for a try to make it 26-12 with the two-man advantage, but substitute winger Tommy Talau bombed a couple of try-scoring opportunities late in the piece as the Dolphins cemented themselves as title contenders.\nBut the big story is the Roosters, who will now be forced to contend for their first premiership in seven years without their marquee playmaker.\nSpeaking on Nine’s Sunday Footy Show , Slater admitted that the pressure was now on a couple of Walker’s experienced teammates to fill the void.\n“[This will have a] huge impact. He’s one of their go-to players, he’s instrumental in all the good things they do, he is so creative and he’s unpredictable,” Slater said.\n“You need your best players on the field at this time of the year. Two weeks ago, the Roosters had won eight in a row and they were flying – how times can change.\nDaly Cherry-Evans will now take charge of the Roosters attack. Getty Images\n“It’s a tough situation for the Roosters at the moment, because how do they replace him? The two people who really need to stand up for me now are Victor Radley, he plays that ball-playing first receiver role in the middle of the field, he will take pressure off Daly Cherry-Evans, who is the other guy.\n“He’s one of the greatest kickers in the game’s history and he will need to stand up. He only does 50 per cent of the kicks – he will have to do 100 per cent now.”\nRoosters hooker Reece Robson also left the field in the final nine seconds.\nThey will meet local rivals South Sydney in round 27 and may need to win that game in order to keep the Sharks out of the top-four.\nBroncos ‘deeply saddened’ by death of iconic former boss\nEmotional Arrow scenes ignite Bunnies blitz before finals spot secured\nSlater urges two stars to ‘stand up’ after crushing Roosters blow\nReynolds hits back at ‘rift’ claims after snubbing Madge in farewell speech",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 2.6883979952777777,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "ec1d10a5b67a0d58",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Luai’s Tigers farewell at risk as Cowboys lock in top eight spot - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-jarome-luai-injury-wests-tigers-north-queensland-cowboys-result-top-eight-20260829-p60soj.html",
+            "published_at": "2026-08-29T11:59:46+00:00",
+            "snippet": "Luai’s Tigers farewell at risk as Cowboys lock in top eight spot &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Tigers fans could have seen Jarome Luai in the club’s jersey for the last time after he hobbled off the field late in a 20-10 loss to the Cowboys .\nWith five minutes left, Luai was swung around in a one-on-one tackle from Braidon Burns and stayed down before eventually playing the ball.\nTigers trainer Brett Hodgson attends to Jarome Luai. Getty Images\nThe Tigers half then left the field at Queensland Country Bank Stadium on a night where multiple players continued to slip over.\n“Could this be his final game as a Tiger?” caller Brenton Speed said on Nine.\nThe Tigers have one match left this season, against Penrith next Sunday, before Luai joins the Eels.\nLuai was also placed on report for high contact on Tom Chester.\nThe Cowboys’ win means they are now locked into the top eight with one match in hand but Billy Slater wasn’t convinced by their showing in Townsville.\nRead more\nSlater urges two stars to ‘stand up’ after crushing Roosters blow\n“I thought they were very underwhelming, I wasn’t impressed with their performance at all,” he said on Nine.\n“The only positive that came out of it was they got two points and booked a semi-final berth. They’ve got a fortnight now to get their game on ... if they play like this in September they won’t be going on for very long.”\nThe Cowboys were on the board first when Chester ran through a gaping hole created on the Tigers edge.\nFour minutes later the Tigers hit back when Jeral Skelton won the race to a Jarome Luai grubber.\nThen in the 22nd minute it looked like the Tigers had pulled off a sensational play when Luai ran 90 metres after a Cowboys error.\nHowever, the replay showed Api Koroisau had hit the ball out of Thomas Mikaele’s hands which led to a penalty and two points for the Cowboys.\nTom Chester. Getty Images\nThe Tigers managed to get points back when Junior Tupou scored to make it 10-8 at half-time.\nNorth Queensland came out of the sheds the better side, scoring three unanswered tries through Heilum Luki, Jaxon Purdue and Chester, to seal victory.\nJeremiah Nanai was an injury concern throughout the match for the Cowboys, appearing to struggle with a knee problem. However, he did play 68 minutes.\nNext week the Cowboys play the Raiders on Saturday.\nBroncos ‘deeply saddened’ by death of iconic former boss\nEmotional Arrow scenes ignite Bunnies blitz before finals spot secured\nReynolds hits back at ‘rift’ claims after snubbing Madge in farewell speech",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 14.58673132861111,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team"
+            ]
+          },
+          {
+            "id": "15239def9dcc1e9f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "As it happened: Knights strike back; Roosters undefeated, Titans go eight straight - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/29/nrlw-saturday-blog-titans-raiders-battle-kicks-us-off/",
+            "published_at": "2026-08-29T12:12:52+00:00",
+            "snippet": "As it happened: Knights strike back; Roosters undefeated, Titans go eight straight &nbsp;&nbsp; NRL.com",
+            "body_excerpt": "Presented By\nAs it happened: Knights strike back; Roosters undefeated, Titans go eight straight\nThe Titans kicked off Saturday's NRLW action by taking down the Raiders 26-20 in an entertaining contest at Cbus Super Stadium.\nThe two sides were hard to split for much of the first half until the Lauren Brown show really kicked off, orchestrating three tries in seven minutes leading into half-time to put the Titans in front 18-6.\nThe Titans marched on in the second half and the lead blew out to 26-6, but the Raiders were not going to let it end there, scoring three late tries to close the gap, with Mackenzie Wiki finishing with a hat-trick including a remarkable team try after the full-time siren.\nIt was the eight straight win for the Titans and solidifies them in second position on the ladder.\nIn the second game, the Roosters made it nine in a row against a Sharks outfit enduring a horror injury run. They were unfortunately struck again in the game with forward Rhiannon Byers suffering a knee injury in their 36-8 loss.\nThe final instalment of our Saturday triple took us to Townsville where the Cowboys were looking to continue a late charge that had seen them win three of their past four matches to climb from last on the ladder to ninth.\nHowever, the visiting Newcastle proved far too strong, overpowering the home side with a dominant 40-6 win, putting them back on track after a string of losses had seem them in danger of missing the finals for the first time since their inaugural season in 2021.\nFollow all the action of Round 9 of the NRLW Telstra Premiership on NRL.com's live blog.\nCowboys v Knights at Queensland Country Bank Stadium\nMatch: Cowboys v Knights\nRound 9 - Round 9 - Saturday 29 Aug\nhome Team\nCowboys\n9th Position\naway Team\nKnights\n6th Position\nVenue: Queensland Country Bank Stadium, Townsville\nMedia conferences\nKnights: Round 9\nCowboys: Round 9\nFull-time: A dominant win for the Knights, securing a 40-6 win, with winger Mercedez Taulelei-Siala getting a hat-trick. Centre Tenika Willison was a standout, scoring a try and setting up a number of others with some strong runs and good passing.\n69th min: One more try for the Knights before full-time, with Willison again involved in the set-up, helping get her halfback Georgia Roche over the line. Dibb converts to give her side a 40-6 lead.\n68th min: Mercedez Taulelei-Siala is denied a fourth after she is forced over the sideline by some committed Cowboys defence.\n66th min: Another quick try from the Knights, with Mercedez Taulelei-Siala over for her hat-trick, with good work from Willison again helping set this one up. Kirra Dibb's conversion for the far left is successful for a 34-6 lead.\n64th min: A nice play from a scrum sees Tenika Willison get over for another Knights try. The Māori All Stars representative has been one of the best on the field all game and is rewarded for her efforts with a four-pointer after another strong run through defenders. Kirra Dibb converts against for a 28-6 lead.\n46th min: Knights rookie Charley Lahmert has her first NRLW try in her second game after making her debut last week. Showing smarts at the tryline, she gets the ball over from dummy half. Kirra Dibb converts and the lead goes out to 22-6 .\nCharley Lahmert Try\n38th min: Injury alert - Cowboys winger Kayla Jackson comes from the field for a HIA.\n37th min: Cowboys do well to keep the Knights out after an impressive line break from Sidney Taylor. However, while she fends her way away from multiple defenders, she can't get a pass away and the home side hold her out.\nHalf-time: The Knights take a 16-6 lead into the break after an eventful first half. Newcastle have had the better of the possession with 61 percent and have completed at 77 percent (14/18), while the Cowboys have also had a strong completion rate of 85 percent (12/14). Knights winger Mercedez Taulelei-Siala has a double in the opening half.\n28th min: A first half double for Mercedez Taulelei-Siala who puts the visitors furthe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 14.368397995277778,
+            "relevance_score": -2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "live_coverage_penalty"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Eels NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 26",
+          "Eels vs Sharks NRL round 26 preview",
+          "Eels Sharks NRL odds OR price OR favourite",
+          "Eels Sharks NRL finals race OR ladder stakes round 26",
+          "Eels Sharks NRL",
+          "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Eels Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 26 Eels OR Sharks"
+        ],
+        "filter_summary": {
+          "dropped_stale": 36,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 16,
+          "dropped_irrelevant": 28,
+          "kept": 21,
+          "deferred_pending_body": 53,
+          "promoted_after_body": 8,
+          "dropped_roundup_no_fixture_team": 7,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "6f5e7969b11a",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-30T02:34:58.231633+00:00",
+      "finished_at": "2026-08-30T02:36:58.023158+00:00",
+      "duration_ms": 119791,
+      "request": {
+        "home_team": "Eels",
+        "away_team": "Sharks",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-08-30T16:05:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.6989,
+        "home_win_probability": 0.3011,
+        "shap_explanations": {
+          "positive_drivers": [
+            "5-game form: missed tackles (+11.40) — contribution 0.058 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "Away travel to venue (29 km) — contribution 0.054 (3% of total)",
+            "Rest-day advantage (+1.8 days) — contribution 0.026 (2% of total)",
+            "Home travel to venue (0 km) — contribution 0.021 (1% of total)",
+            "Head-to-head average margin (last 5) (+4.0 points) — contribution 0.014 (1% of total)"
+          ],
+          "negative_drivers": [
+            "Ladder points differential per game (-16.9 points) — contribution 0.279 (17% of total)",
+            "Elo rating advantage (-148 points) — contribution 0.279 (17% of total)",
+            "Bradley-Terry strength advantage (-0.93 log-strength) — contribution 0.240 (15% of total)",
+            "Pythagorean form (last 10) (-43% expected-win gap) — contribution 0.092 (6% of total)",
+            "5-game momentum: penalty cluster rate (-1.00) — contribution 0.090 (6% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2413,
+            "total_toward_away": 1.3622,
+            "net": -1.1209,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: missed tackles (+11.40)",
+            "5-game momentum: penalty cluster rate (-1.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Eels",
+          "away_team": "Sharks",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-08-30T16:05:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

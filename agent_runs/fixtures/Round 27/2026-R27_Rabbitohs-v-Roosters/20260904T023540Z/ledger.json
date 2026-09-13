@@ -1,0 +1,1389 @@
+{
+  "schema_version": 2,
+  "run_id": "20260904T023540Z-a7007821",
+  "at_a_glance": {
+    "fixture": "Rabbitohs v Roosters",
+    "round": 27,
+    "kickoff": "2026-09-04T20:00:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Rabbitohs",
+    "confidence": 0.7,
+    "model_home_win_probability": 0.3634,
+    "model_prediction": "Away Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": false,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-04T02:35:40.915636+00:00",
+  "updated_at": "2026-09-04T02:48:51.018585+00:00",
+  "request": {
+    "home_team": "Rabbitohs",
+    "away_team": "Roosters",
+    "season": null,
+    "round_number": 27,
+    "force_refresh": true,
+    "user_question": "Who wins Rabbitohs vs Roosters?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Rabbitohs",
+    "away_team": "Roosters",
+    "confidence": 0.7,
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Roosters may still possess enough squad depth or motivation for their youngsters to remain competitive despite the absences.",
+    "loss_reason_specific": false,
+    "summary": "Although the math model favors the Roosters based on Elo, Bradley-Terry strength, and a strong Pythagorean form (last 10), this prior is overridden by a massive availability shock. Research confirms the Roosters are resting approximately ten star players, including James Tedesco and Daly Cherry-Evans, while key playmaker Sam Walker is injured. The Rabbitohs are further bolstered by the return of Latrell Mitchell and are heavy market favourites ($1.10), justifying a flip from the math prior to a clear home edge.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+      },
+      {
+        "source": "research",
+        "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+      },
+      {
+        "source": "research",
+        "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+      },
+      {
+        "source": "math",
+        "detail": "The model's prior for the Roosters was driven by Elo rating, Bradley-Terry strength, and Pythagorean form (8% contribution), all of which reflect a squad that is significantly depleted for this specific fixture."
+      }
+    ],
+    "disagreements_with_math": "Picked home win despite math predicting away win (0.6366) due to the Roosters resting a large portion of their starting lineup and the absence of Sam Walker."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "items_mentioning_both_teams": 15,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 7
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 16
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 6
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Rabbitohs vs Roosters NRL round 27 preview",
+      "Rabbitohs Roosters NRL odds OR price OR favourite",
+      "Rabbitohs Roosters NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": false,
+      "issues": [
+        "confidence_above_clear_edge_without_research_confirm",
+        "confidence_not_discounted_despite_research_conflict"
+      ]
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims regarding Roosters resting stars (Zero Tackle), Sam Walker injury (Zero Tackle), Latrell Mitchell return (sportsnews.com.au), and $1.10 odds (sportsnews.com.au) are all present in the research."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Availability claims for Roosters stars (resting), Sam Walker (injured), and Latrell Mitchell (returning) match the source text."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating and Bradley-Terry drivers are correctly attributed to the Roosters' prior."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors 1, 2, and 3 are sourced from research articles."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.75 is justified by a massive team-list shock (10 stars rested) and a very short market price ($1.10)."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the most significant math drivers and the research shock."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "The material driver 'Pythagorean form (last 10)' (8% contribution) is not mentioned or addressed in the judgement."
+        }
+      ],
+      "issues": [
+        "The material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+      ],
+      "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output."
+    },
+    "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Roosters",
+      "confidence": 0.75,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The Roosters may still possess enough squad depth to remain competitive despite the absences.",
+      "loss_reason_specific": false,
+      "summary": "While the math model predicts a Roosters win based on season-long ratings, research reveals a massive availability shock: the Roosters are resting a huge number of stars, including James Tedesco and Daly Cherry-Evans, and key playmaker Sam Walker is injured. The Rabbitohs are further strengthened by the return of Latrell Mitchell and are heavy market favourites ($1.10). This specific team-list collapse for the Roosters overrides the mathematical prior.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+        },
+        {
+          "source": "research",
+          "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+        },
+        {
+          "source": "research",
+          "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+        },
+        {
+          "source": "math",
+          "detail": "The model's prior for the Roosters was driven by a significant Elo rating advantage (16% contribution) and Bradley-Terry strength (12% contribution), which are now mitigated by the resting of their star players."
+        }
+      ],
+      "disagreements_with_math": "Picked home win despite math predicting away win due to the Roosters resting approximately ten star players and the injury to Sam Walker."
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Roosters",
+      "confidence": 0.7,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Roosters may still possess enough squad depth or motivation for their youngsters to remain competitive despite the absences.",
+      "loss_reason_specific": false,
+      "summary": "Although the math model favors the Roosters based on Elo, Bradley-Terry strength, and a strong Pythagorean form (last 10), this prior is overridden by a massive availability shock. Research confirms the Roosters are resting approximately ten star players, including James Tedesco and Daly Cherry-Evans, while key playmaker Sam Walker is injured. The Rabbitohs are further bolstered by the return of Latrell Mitchell and are heavy market favourites ($1.10), justifying a flip from the math prior to a clear home edge.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+        },
+        {
+          "source": "research",
+          "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+        },
+        {
+          "source": "research",
+          "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+        },
+        {
+          "source": "math",
+          "detail": "The model's prior for the Roosters was driven by Elo rating, Bradley-Terry strength, and Pythagorean form (8% contribution), all of which reflect a squad that is significantly depleted for this specific fixture."
+        }
+      ],
+      "disagreements_with_math": "Picked home win despite math predicting away win (0.6366) due to the Roosters resting a large portion of their starting lineup and the absence of Sam Walker."
+    },
+    "issues": [
+      "confidence_above_clear_edge_without_research_confirm",
+      "confidence_not_discounted_despite_research_conflict",
+      "The material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-04T02:36:12.624433+00:00",
+      "thinking": "*   Home Team: Rabbitohs\n    *   Away Team: Roosters\n    *   Round Number: 27\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Rabbitohs).\n    *   Query 2: Away team availability (Roosters).\n    *   Query 3: Fixture preview (Rabbitohs vs Roosters Round 27).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure/Key player).\n\n    *   *Query 1 (Home Availability):* \"Rabbitohs NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 27\"\n    *   *Query 2 (Away Availability):* \"Roosters NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 27\"\n    *   *Query 3 (Fixture Preview):* \"Rabbitohs vs Roosters NRL round 27 preview\"\n    *   *Query 4 (Market Prices):* \"Rabbitohs Roosters NRL odds OR price OR favourite\"\n    *   *Query 5 (Specific Angle):* Since it's Round 27 (late season), \"finals race\" or \"ladder stakes\" is most appropriate. \"Rabbitohs Roosters NRL finals race OR ladder stakes\" or \"Rabbitohs Roosters form streak\". Let's go with finals race/ladder stakes given the late round.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes.\n    *   JSON format? Yes.",
+      "chars": 1285
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-04T02:42:28.825027+00:00",
+      "thinking": "*   Home Team: Rabbitohs\n    *   Away Team: Roosters\n    *   Math Prediction: Away Win (Probability: 0.6366)\n    *   Math SHAP Drivers:\n        *   Favouring Roosters: Elo rating advantage (16%), Bradley-Terry strength (12%), Pythagorean form (8%), 5-game momentum (7% - conflict), 5-game form run metres (5%).\n        *   Favouring Rabbitohs: Away travel (5%), 5-game form missed tackles (4% - conflict), Ladder points diff (3% - conflict), Away rest (1%), Rest-day advantage (1%).\n    *   Standings: Roosters (4th, 16 wins), Rabbitohs (7th, 13 wins). Roosters have a better points difference per game.\n    *   Research:\n        *   Roosters are resting a massive number of stars: James Tedesco, Billy Smith, Robert Toia, Mark Nawaqanitawase, Daly Cherry-Evans, Hugo Savala, Naufahu Whyte, Reece Robson, Nat Butcher, and Siua Wong (Zero Tackle).\n        *   Sam Walker is out injured (Zero Tackle).\n        *   Daniel Tupou is on track to return (NRL News).\n        *   Rabbitohs welcome Latrell Mitchell back into the starting centre (sportsnews.com.au).\n        *   Jai Arrow is playing his 100th game (NRL News).\n        *   Market: Rabbitohs are heavy favourites ($1.10 in one source, $1.32 for a 13+ point win in another).\n\n    *   The math model predicts an Away Win (Roosters) with 63.66% probability.\n    *   However, the research reveals a critical \"this-week shock\": the Roosters are resting almost their entire starting star lineup (Tedesco, Cherry-Evans, etc.) and their primary playmaker Sam Walker is injured.\n    *   Conversely, the Rabbitohs are welcoming back Latrell Mitchell.\n    *   This is a classic case where the math model (which uses historical ratings, Elo, and general form) is blind to the specific team lists of the final round where top teams rest players.\n    *   The research strongly *conflicts* with the math prediction.\n\n    *   The evidence for a Rabbitohs win is overwhelming:\n        1.  Roosters resting ~10 stars (Tedesco, Cherry-Evans, etc.).\n        2.  Roosters' key playmaker Sam Walker is out.\n        3.  Rabbitohs have Latrell Mitchell returning.\n        4.  Market prices are heavily skewed toward Rabbitohs ($1.10).\n    *   Decision: Flip the pick to Home Win (Rabbitohs).\n\n    *   Math prior was 0.6366 for Roosters (so 0.3634 for Rabbitohs).\n    *   The research is a \"real this-week shock\" (resting stars).\n    *   The market is extremely confident in Rabbitohs ($1.10).\n    *   Given the scale of the Roosters' absences (Tedesco, Cherry-Evans, Walker), this is a massive advantage for Souths.\n    *   Confidence should be high. However, the rules say: \"Stay in 0.50-0.65 unless several independent research facts agree.\"\n    *   Research facts:\n        1.  Roosters resting 10 stars (Zero Tackle).\n        2.  Sam Walker injured (Zero Tackle).\n        3.  Latrell Mitchell returning (sportsnews.com.au).\n    *   This is a clear edge. I'll place it in the 0.70-0.80 range, but I must be careful not to over-inflate. Let's go with 0.75.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Rabbitohs\"\n    *   `away_team`: \"Roosters\"\n    *   `confidence`: 0.75\n    *   `research_stance`: \"conflicts\" (because it flips the math prediction)\n    *   `strongest_reason_could_lose`: Roosters' depth or the fact that they are still a higher-rated team overall despite resting stars.\n    *   `loss_reason_specific`: false (generic variance/depth).\n    *   `summary`: The math model favours the Roosters based on season-long ratings, but research reveals a critical shift: the Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans, while Sam Walker is injured. The Rabbitohs are bolstered by the return of Latrell Mitchell and are heavy market favourites. This specific availability shock overrides the mathematical prior.\n    *   `key_factors`:\n        1.  Research: Roosters resting stars including James Tedesco and Daly Cherry-Evans (Zero Tackle).\n        2.  Research: Sam Walker is out injured (Zero Tackle).\n        3.  Research: Latrell Mitchell returning to the starting centre (sportsnews.com.au).\n        4.  Math: Elo and Bradley-Terry strength (though these are now mitigated by the resting of players).\n    *   `disagreements_with_math`: Picked home win despite math predicting away win due to Roosters resting stars and Walker's injury.\n\n    *   Did I invent stats? No.\n    *   Did I use the math model as prior? Yes.\n    *   Did I quote research? Yes (Zero Tackle, sportsnews.com.au).\n    *   Did I handle SHAP correctly? Yes (acknowledged the Roosters' ratings advantage but overrode it with research).\n    *   Did I handle the market? Yes (acknowledged $1.10).\n    *   Did I handle the confidence band? 0.75 is high, but justified by the \"real this-week shock\" of resting 10 stars + key injury.\n    *   Did I check availability direction? Yes (Tupou returning = available; Tedesco/Cherry-Evans resting = missing).",
+      "chars": 4906
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-04T02:45:56.447035+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, prices) in the research body/title/price_quote?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.75) justified?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) addressed?\n\n- Home: Rabbitohs\n- Away: Roosters\n- Math Prediction: Away Win (Prob: 0.3634 for home, so 0.6366 for away)\n- Final Judgement: Home Win\n- Confidence: 0.75\n- Research Stance: conflicts\n\n- \"Roosters are resting a huge number of stars, including James Tedesco and Daly Cherry-Evans\" -> Source: Zero Tackle (\"James Tedesco , Billy Smith , Robert Toia , Mark Nawaqanitawase , Daly Cherry-Evans , Hugo Savala , Naufahu Whyte , Reece Robson , Nat Butcher and Siua Wong have all been rested.\") and nrl_news (\"James Tedesco and Daly Cherry-Evans will sit out the clash against Souths\"). **Match.**\n- \"Sam Walker is injured\" -> Source: Zero Tackle (\"Sam Walker is also olut injured\"). **Match.**\n- \"Latrell Mitchell returns to the starting centres\" -> Source: sportsnews.com.au (\"welcome Latrell Mitchell into the starting centres\"). **Match.**\n- \"heavy market favourites ($1.10)\" -> Source: sportsnews.com.au price_quote (\"We're tipping South Sydney Rabbitohs to win at $1.10 odds.\"). **Match.**\n\n- Roosters resting stars: Source says they are resting. Judgement says they are resting. **Pass.**\n- Sam Walker injured: Source says injured. Judgement says injured. **Pass.**\n- Latrell Mitchell returning: Source says welcome back. Judgement says returns. **Pass.**\n\n- Judgement mentions \"Elo rating advantage (16% contribution)\" and \"Bradley-Terry strength (12% contribution)\".\n- Math output: `favouring_Roosters_away_win` contains \"Elo rating advantage (-97 points) — contribution 0.202 (16% of total)\" and \"Bradley-Terry strength advantage (-0.63 log-strength) — contribution 0.148 (12% of total)\".\n- Attribution: The judgement attributes these to the Roosters' prior. **Pass.**\n\n- Weather is \"Fine\". It is not mentioned in the summary or key factors. **Pass.**\n\n- Key factors 1, 2, and 3 are sourced from research (Zero Tackle, sportsnews.com.au). **Pass.**\n\n- Math prior for Home: 0.3634.\n- Final confidence: 0.75.\n- The judgement moves from 0.36 to 0.75.\n- Reason: \"massive availability shock\" (Roosters resting ~10 stars, including Tedesco and DCE, and Walker injured).\n- Market price: $1.10 (implies ~91% probability).\n- The move from 0.36 to 0.75 is a significant increase. Is it justified?\n- The research describes a \"dramatically reshaped Roosters side\" and \"team-list collapse\".\n- The market price is $1.10.\n- The confidence is 0.75. This is above 0.65.\n- Does it have `confirms`? The `research_stance` is \"conflicts\".\n- Wait, the rule says: \"it is above 0.65 without `confirms`\".\n- In this case, the research *conflicts* with the math prior. The model is using research to override the math.\n- The rule (6b) says \"it is above 0.65 without `confirms`\". Usually, `confirms` refers to research that supports the math prior. Here, the research *contradicts* the prior.\n- However, the research provides a very strong reason (10 stars rested + key injury) and the market price is extremely short ($1.10).\n- The confidence 0.75 is actually *lower* than the market implied probability (~0.91).\n- The prompt says: \"Getting surer is rare and needs a real this-week shock\". Resting 10 stars is a real this-week shock.\n- The confidence is justified by the specific team-list collapse and market price. **Pass.**\n\n- The judgement focuses on the material drivers (Elo, Bradley-Terry) and explains why they are mitigated. It doesn't rely on minor drivers. **Pass.**\n\n- Material drivers (>= 8%):\n    1. Elo rating advantage (16%) - Mentioned.\n    2. Bradley-Terry strength advantage (12%) - Mentioned.\n    3. Pythagorean form (last 10) (8%) - **NOT mentioned.**\n- The judgement mentions Elo and Bradley-Terry but ignores Pythagorean form.\n- This is a failure of `omitted_math_signals`.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Pythagorean form (8%) is missing.\n\n- `omitted_math_signals`: \"Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output.\"",
+      "chars": 4829
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-04T02:48:51.014010+00:00",
+      "thinking": "*   Fixture: Rabbitohs (Home) vs Roosters (Away).\n    *   Math Prior: Away Win (Probability 0.6366).\n    *   Research: Massive shock. Roosters resting stars (Tedesco, Cherry-Evans, etc.), Sam Walker injured. Rabbitohs have Latrell Mitchell returning.\n    *   Market: Rabbitohs heavy favorites ($1.10).\n    *   My previous pick: Home (Rabbitohs).\n    *   My previous confidence: 0.75.\n    *   My previous research_stance: `conflicts` (because research cuts against the math favorite).\n\n    *   `confidence_above_clear_edge_without_research_confirm`: I picked Home, but Math predicted Away. This is a \"pick against the math label\". The rules say I can do this with a concrete research fact (which I have: resting stars). However, the verifier says I'm above \"clear edge\" (0.65-0.75) without \"research confirm\".\n    *   Wait, the rules define `research_stance`:\n        *   `confirms` — named team news on THIS fixture backs your eventual pick.\n        *   `conflicts` — named team news cuts against the math favourite.\n    *   In my previous JSON, I set `research_stance` to `conflicts`. But the research *does* back my pick (Rabbitohs). According to the rules: \"`confirms` — named team news on THIS fixture backs your eventual pick\". Since I picked Rabbitohs and the news says Roosters are resting stars and Mitchell is back, the research *confirms* my pick.\n    *   Wait, the rule also says: \"`conflicts` — named team news cuts against the math favourite\".\n    *   Let's re-read carefully: \"Set `research_stance` from the ARTICLES, not from the size of the math probability... `confirms` — named team news on THIS fixture backs your eventual pick... `conflicts` — named team news cuts against the math favourite\".\n    *   These two definitions overlap when you pick against the math. If you pick Home and Math says Away, and research says Home will win, it both \"backs your eventual pick\" AND \"cuts against the math favourite\".\n    *   Usually, `confirms` is the correct label when the research supports the final decision.\n    *   `confidence_not_discounted_despite_research_conflict`: This is a bit confusing. If I pick against the math, I am using the research to flip. The verifier is saying that if there is a conflict between research and math, I should be cautious with confidence.\n    *   `Pythagorean form (last 10)`: I missed this SHAP driver. It contributed 8% toward the Roosters.\n\n    *   Math Prior: 0.6366 (Away).\n    *   Research: Roosters resting ~10 stars (Tedesco, Cherry-Evans, etc.), Sam Walker out. Rabbitohs have Latrell Mitchell back.\n    *   This is a \"real this-week shock the ratings model could not have known\".\n    *   The rules say: \"Going more sure than the prior is the rare exception — only when the news is a real this-week shock... and it clearly makes your pick more likely than the prior.\"\n    *   The prior was 0.6366 for Roosters. The research flips the advantage entirely.\n    *   However, the verifier is flagging my confidence (0.75) as too high.\n    *   Let's look at the bands:\n        *   0.55-0.65: Modest edge.\n        *   0.65-0.75: Clear edge.\n        *   0.75-0.85: Rare.\n    *   Is resting 10 stars and losing the primary playmaker (Walker) enough to move from a 0.36 (Home) to >0.75? Probably, but the verifier is warning me.\n    *   I should probably drop the confidence slightly to the 0.65-0.75 range or 0.70 to be safe, as the Roosters still have some depth (Lindsay Collins is captaining).\n\n    *   `Pythagorean form (last 10)`: This driver (8% contribution) favored the Roosters based on their expected win rate over the last 10 games. This is a historical/form metric. The current news (resting stars) is a \"this-week\" event that overrides historical form.\n\n    *   Winner: Home (Rabbitohs).\n    *   Research Stance: `confirms` (The news backs the Rabbitohs pick).\n    *   Confidence: 0.70 (A clear edge, but not \"rare\" territory, acknowledging that Roosters still have a squad).\n    *   Key Factors:\n        1.  Research: Roosters resting stars (Tedesco, Cherry-Evans).\n        2.  Research: Sam Walker injury.\n        3.  Research: Latrell Mitchell return.\n        4.  Math: Acknowledge the prior (Elo, Bradley-Terry, Pythagorean form) but explain why the news overrides it.\n\n    *   `research_stance`: `confirms` (because it backs the pick).\n    *   `confidence`: 0.70.\n    *   `strongest_reason_could_lose`: Roosters squad depth/youngsters stepping up.\n    *   `loss_reason_specific`: false (generic depth).\n    *   `summary`: Mention the math prior (including Pythagorean form) and how the resting of stars flips the game.\n\n    *   \"Pythagorean form (last 10) (-31% expected-win gap) — contribution 0.101 (8% of total)\" favoring Roosters.\n    *   This means the Roosters' recent performance suggests they are significantly stronger. However, that performance was achieved with the stars who are now being rested.\n\n    *   `confirms` means research agrees with the pick.\n    *   `conflicts` means research cuts against the math favourite.\n    *   Since I am picking Home and Math says Away, the research *both* confirms my pick and conflicts with the math. The prompt says: \"`confirms` — named team news on THIS fixture backs your eventual pick\". I will use `confirms`.\n\n    *   Math prior for Roosters: 0.6366.\n    *   Research: Massive shock (resting stars).\n    *   This allows me to flip the pick.\n    *   Confidence: 0.70 is a \"clear edge\". This feels appropriate given the scale of the Roosters' absences.\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.70\n    *   `research_stance`: \"confirms\"\n    *   `key_factors`: Include Pythagorean form.\n\n    *   Wait, the verifier said \"confidence_not_discounted_despite_research_conflict\". This usually happens when you pick the *same* side as math but research is mixed/conflicting. Here, I'm picking *against* math. The \"conflict\" is between the math model and the research.\n    *   If I pick against the math, I am relying on the research.\n    *   The verifier is essentially saying: \"Don't just jump to 0.75 because you found an article; be mindful of the prior.\"\n    *   I will move confidence to 0.70.\n\n    *   `Pythagorean form (last 10)`: Roosters had an 8% contribution advantage here. I will explicitly mention that this historical form is negated by the current team list.",
+      "chars": 6296
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-04T02:36:12.624778+00:00",
+      "payload": {
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Rabbitohs vs Roosters NRL round 27 preview",
+          "Rabbitohs Roosters NRL odds OR price OR favourite",
+          "Rabbitohs Roosters NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-04T02:42:28.825634+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "confidence": 0.75,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Roosters may still possess enough squad depth to remain competitive despite the absences.",
+          "loss_reason_specific": false,
+          "summary": "While the math model predicts a Roosters win based on season-long ratings, research reveals a massive availability shock: the Roosters are resting a huge number of stars, including James Tedesco and Daly Cherry-Evans, and key playmaker Sam Walker is injured. The Rabbitohs are further strengthened by the return of Latrell Mitchell and are heavy market favourites ($1.10). This specific team-list collapse for the Roosters overrides the mathematical prior.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prior for the Roosters was driven by a significant Elo rating advantage (16% contribution) and Bradley-Terry strength (12% contribution), which are now mitigated by the resting of their star players."
+            }
+          ],
+          "disagreements_with_math": "Picked home win despite math predicting away win due to the Roosters resting approximately ten star players and the injury to Sam Walker."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-04T02:45:56.447672+00:00",
+      "payload": {
+        "checklist": {
+          "pass": false,
+          "issues": [
+            "confidence_above_clear_edge_without_research_confirm",
+            "confidence_not_discounted_despite_research_conflict"
+          ]
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims regarding Roosters resting stars (Zero Tackle), Sam Walker injury (Zero Tackle), Latrell Mitchell return (sportsnews.com.au), and $1.10 odds (sportsnews.com.au) are all present in the research."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Availability claims for Roosters stars (resting), Sam Walker (injured), and Latrell Mitchell (returning) match the source text."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating and Bradley-Terry drivers are correctly attributed to the Roosters' prior."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors 1, 2, and 3 are sourced from research articles."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.75 is justified by a massive team-list shock (10 stars rested) and a very short market price ($1.10)."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the most significant math drivers and the research shock."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "The material driver 'Pythagorean form (last 10)' (8% contribution) is not mentioned or addressed in the judgement."
+            }
+          ],
+          "issues": [
+            "The material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+          ],
+          "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-04T02:48:51.018294+00:00",
+      "payload": {
+        "issues": [
+          "confidence_above_clear_edge_without_research_confirm",
+          "confidence_not_discounted_despite_research_conflict",
+          "The material SHAP driver 'Pythagorean form (last 10)' was omitted from the evaluation."
+        ],
+        "instruction": "Math drivers include 'Pythagorean form (last 10)'; it is not addressed in your evaluation — please consider it and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "confidence": 0.75,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The Roosters may still possess enough squad depth to remain competitive despite the absences.",
+          "loss_reason_specific": false,
+          "summary": "While the math model predicts a Roosters win based on season-long ratings, research reveals a massive availability shock: the Roosters are resting a huge number of stars, including James Tedesco and Daly Cherry-Evans, and key playmaker Sam Walker is injured. The Rabbitohs are further strengthened by the return of Latrell Mitchell and are heavy market favourites ($1.10). This specific team-list collapse for the Roosters overrides the mathematical prior.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prior for the Roosters was driven by a significant Elo rating advantage (16% contribution) and Bradley-Terry strength (12% contribution), which are now mitigated by the resting of their star players."
+            }
+          ],
+          "disagreements_with_math": "Picked home win despite math predicting away win due to the Roosters resting approximately ten star players and the injury to Sam Walker."
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "confidence": 0.7,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Roosters may still possess enough squad depth or motivation for their youngsters to remain competitive despite the absences.",
+          "loss_reason_specific": false,
+          "summary": "Although the math model favors the Roosters based on Elo, Bradley-Terry strength, and a strong Pythagorean form (last 10), this prior is overridden by a massive availability shock. Research confirms the Roosters are resting approximately ten star players, including James Tedesco and Daly Cherry-Evans, while key playmaker Sam Walker is injured. The Rabbitohs are further bolstered by the return of Latrell Mitchell and are heavy market favourites ($1.10), justifying a flip from the math prior to a clear home edge.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Roosters are resting a vast number of stars, including James Tedesco and Daly Cherry-Evans (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Key Roosters playmaker Sam Walker is out injured (Zero Tackle)."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell returns to the starting centre for the Rabbitohs (sportsnews.com.au)."
+            },
+            {
+              "source": "math",
+              "detail": "The model's prior for the Roosters was driven by Elo rating, Bradley-Terry strength, and Pythagorean form (8% contribution), all of which reflect a squad that is significantly depleted for this specific fixture."
+            }
+          ],
+          "disagreements_with_math": "Picked home win despite math predicting away win (0.6366) due to the Roosters resting a large portion of their starting lineup and the absence of Sam Walker."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "5d1862588c26",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-04T02:35:40.915776+00:00",
+      "finished_at": "2026-09-04T02:35:44.312729+00:00",
+      "duration_ms": 3396,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Roosters",
+        "season": null,
+        "round_number": 27,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "season": null,
+          "round_number": 27
+        },
+        "retrieved_at": "2026-09-04T02:35:40.915842+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 27,
+          "round_title": "Round 27",
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "kickoff": "2026-09-04T20:00:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/rabbitohs-v-roosters/",
+          "match_mode": "Pre",
+          "match_id": "20261112730",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Ziggy Przeklasa-Adamski"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Ashley Klein"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Jye Gray",
+                "position": "Fullback",
+                "player_id": 100009148
+              },
+              {
+                "number": 2,
+                "name": "Alex Johnston",
+                "position": "Winger",
+                "player_id": 500108
+              },
+              {
+                "number": 3,
+                "name": "Latrell Mitchell",
+                "position": "Centre",
+                "player_id": 502502
+              },
+              {
+                "number": 4,
+                "name": "Jack Wighton",
+                "position": "Centre",
+                "player_id": 500339
+              },
+              {
+                "number": 5,
+                "name": "Campbell Graham",
+                "position": "Winger",
+                "player_id": 504294
+              },
+              {
+                "number": 6,
+                "name": "Cody Walker",
+                "position": "Interchange",
+                "player_id": 500611
+              },
+              {
+                "number": 7,
+                "name": "Jayden Sullivan",
+                "position": "Halfback",
+                "player_id": 507928
+              },
+              {
+                "number": 8,
+                "name": "Tevita Tatola",
+                "position": "Prop",
+                "player_id": 503450
+              },
+              {
+                "number": 9,
+                "name": "Brandon Smith",
+                "position": "Hooker",
+                "player_id": 503419
+              },
+              {
+                "number": 10,
+                "name": "Keaon Koloamatangi",
+                "position": "Prop",
+                "player_id": 504174
+              },
+              {
+                "number": 11,
+                "name": "David Fifita",
+                "position": "2nd Row",
+                "player_id": 506482
+              },
+              {
+                "number": 12,
+                "name": "Adam Elliott",
+                "position": "2nd Row",
+                "player_id": 500128
+              },
+              {
+                "number": 13,
+                "name": "Cameron Murray",
+                "position": "Lock",
+                "player_id": 504176
+              },
+              {
+                "number": 14,
+                "name": "Matthew Dufty",
+                "position": "Interchange",
+                "player_id": 500448
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Hubner",
+                "position": "Interchange",
+                "player_id": 506446
+              },
+              {
+                "number": 16,
+                "name": "Sean Keppie",
+                "position": "Interchange",
+                "player_id": 504265
+              },
+              {
+                "number": 17,
+                "name": "Jamie Humphreys",
+                "position": "Interchange",
+                "player_id": 100006585
+              },
+              {
+                "number": 18,
+                "name": "Euan Aitken",
+                "position": "Interchange",
+                "player_id": 500441
+              },
+              {
+                "number": 19,
+                "name": "Latrell Siegwalt",
+                "position": "Reserve",
+                "player_id": 510485
+              },
+              {
+                "number": 21,
+                "name": "Talanoa Penitani",
+                "position": "Reserve",
+                "player_id": 100006223
+              },
+              {
+                "number": 23,
+                "name": "Jai Arrow",
+                "position": "Five-Eighth",
+                "player_id": 500149
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Cody Ramsey",
+                "position": "Fullback",
+                "player_id": 509404
+              },
+              {
+                "number": 2,
+                "name": "Daniel Tupou",
+                "position": "Winger",
+                "player_id": 500002
+              },
+              {
+                "number": 3,
+                "name": "Fetalaiga Pauga",
+                "position": "Centre",
+                "player_id": 504006
+              },
+              {
+                "number": 4,
+                "name": "Tommy Talau",
+                "position": "Centre",
+                "player_id": 505642
+              },
+              {
+                "number": 5,
+                "name": "Rex Bassingthwaighte",
+                "position": "Winger",
+                "player_id": 100013858
+              },
+              {
+                "number": 6,
+                "name": "Reece Foley",
+                "position": "Five-Eighth",
+                "player_id": 100008924
+              },
+              {
+                "number": 7,
+                "name": "Toby Rodwell",
+                "position": "Halfback",
+                "player_id": 100011333
+              },
+              {
+                "number": 8,
+                "name": "Spencer Leniu",
+                "position": "Prop",
+                "player_id": 505560
+              },
+              {
+                "number": 9,
+                "name": "Benaiah Ioelu",
+                "position": "Hooker",
+                "player_id": 100007527
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Collins",
+                "position": "Prop",
+                "player_id": 501781
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Egan Butcher",
+                "position": "2nd Row",
+                "player_id": 504678
+              },
+              {
+                "number": 13,
+                "name": "Connor Watson",
+                "position": "Lock",
+                "player_id": 503327
+              },
+              {
+                "number": 14,
+                "name": "Tom Rodwell",
+                "position": "Interchange",
+                "player_id": 100004271
+              },
+              {
+                "number": 15,
+                "name": "Taylor Losalu",
+                "position": "Interchange",
+                "player_id": 100000336
+              },
+              {
+                "number": 16,
+                "name": "De La Salle Va'a",
+                "position": "Interchange",
+                "player_id": 100008874
+              },
+              {
+                "number": 17,
+                "name": "Aston Warwick",
+                "position": "Interchange",
+                "player_id": 100007519
+              },
+              {
+                "number": 18,
+                "name": "Jake Elliott",
+                "position": "Interchange",
+                "player_id": 100006535
+              },
+              {
+                "number": 19,
+                "name": "Hayden Barton",
+                "position": "Interchange",
+                "player_id": 100007285
+              },
+              {
+                "number": 20,
+                "name": "Lui Lee",
+                "position": "Reserve",
+                "player_id": 100014943
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 27,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Rabbitohs",
+            "position": 7,
+            "played": 23,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 32,
+            "points_for": 644,
+            "points_against": 561,
+            "points_difference": 83,
+            "points_difference_per_game": 3.61,
+            "recent_form_last_4": "3 - 2",
+            "streak": "1W",
+            "home_record": "8 - 3",
+            "away_record": "5 - 7"
+          },
+          "away": {
+            "team": "Roosters",
+            "position": 4,
+            "played": 23,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 38,
+            "points_for": 599,
+            "points_against": 451,
+            "points_difference": 148,
+            "points_difference_per_game": 6.43,
+            "recent_form_last_4": "3 - 2",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "8 - 3"
+          },
+          "comparison": {
+            "higher_on_ladder": "Roosters",
+            "ladder_positions_gap": -3,
+            "points_difference_per_game_gap": -2.82,
+            "points_difference_favours": "Roosters"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-04T20:00",
+            "temperature_c": 16.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 7.5,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-04T02:35:44.310362+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=27&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-27/rabbitohs-v-roosters/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "f1269e72d32c",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-04T02:36:12.626566+00:00",
+      "finished_at": "2026-09-04T02:38:14.712423+00:00",
+      "duration_ms": 122085,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Roosters",
+        "kickoff": "2026-09-04T20:00:00+10:00",
+        "round_number": 27,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Rabbitohs vs Roosters NRL round 27 preview",
+          "Rabbitohs Roosters NRL odds OR price OR favourite",
+          "Rabbitohs Roosters NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "kickoff": "2026-09-04T20:00:00+10:00",
+          "round_number": 27,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+            "Rabbitohs vs Roosters NRL round 27 preview",
+            "Rabbitohs Roosters NRL odds OR price OR favourite",
+            "Rabbitohs Roosters NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-04T02:36:12.627324+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 16
+          }
+        },
+        "items": [
+          {
+            "id": "0f75680b95fe1597",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 27 - Phins stars rested; Yeo in frame",
+            "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/",
+            "published_at": "2026-09-03T10:02:28+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 27 - Phins stars rested; Yeo in frame\nPanthers skipper Isaah Yeo has been named in Ivan Cleary's extended squad as he closes in on a return from a pectoral injury.\nYeo may well be held back from the Tigers game but he is building nicely for the P",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 27 - Phins stars rested; Yeo in frame\nPanthers skipper Isaah Yeo has been named in Ivan Cleary's extended squad as he closes in on a return from a pectoral injury.\nYeo may well be held back from the Tigers game but he is building nicely for the Panthers' qualifying final mission the following week.\nAt the Roosters, a host of stars including James Tedesco and Daly Cherry-Evans will sit out the clash against Souths but veteran winger Daniel Tupou is on track to return from a shoulder injury.\nDolphins coach Kristian Woolf has chosen to rest Kodi Nikorima and Kulikefu Finefeuiaki after they were originally named on Tuesday.\nSee all the late mail, official team news and updates for Round 27 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 27\nTitans v Dolphins, Friday 6.00pm at Cbus Super Stadium\nMatch: Titans v Dolphins\nRound 27 - Round 27 - Friday 4 Sep\nhome Team\nTitans\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Titans is number 2 Siale Faeamani 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Titans is number 3 Jaylan De Groot 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Titans is number 4 AJ Brimson 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Titans is number 5 Phillip Sami 5 Winger for Dolphins is number 5 Tevita Naufahu\nFive-Eighth for Titans is number 6 Jayden Campbell 6 19 Five-Eighth for Dolphins is number 19 Bradley Schneider\n6 19\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Titans is number 9 Luke Sommerton 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Titans is number 11 Kurtis Morrin 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Titans is number 12 Beau Fermor 12 18 2nd Row for Dolphins is number 18 Brian Pouniu\n12 18\nLock for Titans is number 13 Chris Randall 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Titans is number 14 Klese Haas 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Titans is number 15 Cooper Bai 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Titans is number 16 Bodhi Sharpley 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Titans is number 17 Sam Verrills 17 Interchange for Dolphins is number 17 Felise Kaufusi\n17\nInterchange for Titans is number 19 Sunny Kama 19 20 Interchange for Dolphins is number 20 Jake Averillo\n19 20\nInterchange for Titans is number 20 Josh Patston 20 21 Interchange for Dolphins is number 21 Connelly Lemuelu\n20 21\nReserves\nReserve for Titans is number 22 Arama Hau 22 Reserve for Dolphins is number 22 Sebastian Su'a\n22\nTitans Ins\nBeau Fermor\nSam Verrills\nSunny Kama\nDolphins Ins\nConnelly Lemuelu\nJake Averillo\nSebastian Su'a\nTevita Naufahu\nTitans Outs\nMax Feagai\nOliver Pascoe\nKodi Nikorima\nKulikefu Finefeuiaki\nSelwyn Cobbo\nMatch Officials\nReferee: Wyatt Raymond\nSenior Review Official: Chris Butler\nLast updated: 9/3/2026 8:20:33 AM\nTitans: The loss of Oliver Pascoe to concussion sees Luke Sommerton take over in the No.9 with Sam Verrills joining the bench for his first NRL game since Round 23. Development player Sunny Kama has been named on the six-man bench but isn't expected to make his NRL debut. The 19-year-old played centre against the Dolphins in the Pre-Season Challenge and has racked up 13 Qld Cup appearances. Five-eighth Jayden Campbell notches his 100th NRL game.\nDolphins: Coach Kristian Woolf has made a couple of late changes with Kodi Nikorima (hamstring tightness) and Kulikefu Finefeuiaki (knee) being rested along with Selwyn Co",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 16.56239647888889,
+            "relevance_score": 9.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "967754e215d89030",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Team List | NRL Round 27 v Rabbitohs - Sydney Roosters",
+            "url": "https://www.roosters.com.au/news/2026/09/01/team-list--nrl-round-27-v-rabbitohs/",
+            "published_at": "2026-09-01T06:00:09+00:00",
+            "snippet": "24 Hour Team List | NRL Round 27 v Rabbitohs\nRoosters Team List Named for Round 27 Clash against the Rabbitohs\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Round 27 clash against the Rabbitohs at Allianz Stadium.\nNo changes have been made, with Nat Butc",
+            "body_excerpt": "24 Hour Team List | NRL Round 27 v Rabbitohs\nRoosters Team List Named for Round 27 Clash against the Rabbitohs\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Round 27 clash against the Rabbitohs at Allianz Stadium.\nNo changes have been made, with Nat Butcher and Max McCathie dropping out of the squad.\nOriginally published 1/9/2026\nHead coach Trent Robinson has named his squad for the Round 27 clash against the South Sydney Rabbitohs at Allianz Stadium on Friday night.\nThe Tricolours will take on the Rabbitohs at 8:00pm in the final round of the 2026 Telstra Premiership regular season.\nCody Ramsey will line up at fullback, with Daniel Tupou and Rex Bassingthwaite on the wings. Junior Pauga and Tommy Talau have been named in the centres.\nA new-look halves pairing will see Reece Foley partner Toby Rodwell, while Benaiah Ioelu has been named at hooker.\nUp front, Spencer Leniu and Lindsay Collins will lead the middle alongside lock Connor Watson, with Salesi Foketi and Egan Butcher named in the second row.\nTom Rodwell, Taylor Losalu, De La Salle Va'a and Aston Warwick named among the interchange.\nJake Elliott, Hayden Barton, Lui Lee, Max McCathie and Nat Butcher have also been named in the extended squad.\nThe Roosters will be looking to finish the regular season strongly when they face the Rabbitohs under lights at Allianz Stadium.\nRelated\nGAME DAY HUB\nView the team list here:\nMatch: Rabbitohs v Roosters\nRound 27 - Round 27 - Friday 4 Sep\nhome Team\nRabbitohs\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Jye Gray 1 Fullback for Roosters is number 1 Cody Ramsey\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Roosters is number 3 Fetalaiga Pauga\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Roosters is number 4 Tommy Talau\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Roosters is number 5 Rex Bassingthwaighte\nFive-Eighth for Rabbitohs is number 23 Jai Arrow 23 6 Five-Eighth for Roosters is number 6 Reece Foley\n23 6\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Roosters is number 7 Toby Rodwell\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Roosters is number 8 Spencer Leniu\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Roosters is number 9 Benaiah Ioelu\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Roosters is number 12 Egan Butcher\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Roosters is number 13 Connor Watson\n13\nInterchange\nInterchange for Rabbitohs is number 6 Cody Walker 6 14 Interchange for Roosters is number 14 Tom Rodwell\n6 14\nInterchange for Rabbitohs is number 14 Matthew Dufty 14 15 Interchange for Roosters is number 15 Taylor Losalu\n14 15\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 16 Interchange for Roosters is number 16 De La Salle Va'a\n15 16\nInterchange for Rabbitohs is number 16 Sean Keppie 16 17 Interchange for Roosters is number 17 Aston Warwick\n16 17\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 18 Interchange for Roosters is number 18 Jake Elliott\n17 18\nInterchange for Rabbitohs is number 18 Euan Aitken 18 19 Interchange for Roosters is number 19 Hayden Barton\n18 19\nReserves\nReserve for Rabbitohs is number 19 Latrell Siegwalt 19 20 Reserve for Roosters is number 20 Lui Lee\n19 20\nReserve for Rabbitohs is number 21 Talanoa Penitani 21\n21\nRabbitohs Ins\nLatrell Siegwalt\nTalanoa Penitani\nRoosters Ins\nAston Warwick\nBenaiah Ioelu\nDaniel Tupou\nDe La Salle Va'a\nFetalaiga Pauga\nHayden Barton\nJake Elliott\nLui Lee\nReece Foley\nRex Bassingthwaighte\nToby Rodwell\nTom Rodwell\nRabbitohs Outs\nTallis Duncan\nBilly Smith\nDaly Cherry-Evans\nHug",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.60100759,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "72b4be213a016686",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Lists Round 27: Finals teams face huge calls over resting stars - Zero Tackle",
+            "url": "https://www.zerotackle.com/round-27-team-lists-2026-237598/",
+            "published_at": "2026-09-01T05:57:00+00:00",
+            "snippet": "NRL Team Lists Round 27: Finals teams face huge calls over resting stars &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Round 27 NRL team lists for the 2026 season are in, with all clubs naming their squads for this week's matches. Stay across every lineup, late changes, and key ins and outs as they're confirmed.\nCheck out all team lists below, with updates added as official final teams are announced.\nBulldogs vs Broncos Team Lists: Round 27, 2026\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nBronson Xerri Bronson Xerri\nEnari Tuala Enari Tuala\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\n10\nLeo Thompson Leo Thompson\n11\nViliame Kikau Viliame Kikau\n12\nJacob Preston Jacob Preston\n13\nJaeman Salmon Jaeman Salmon\nINTERCHANGE\n14\nJake Turpin Jake Turpin\n15\nAlekolasimi Jones Alekolasimi Jones\n16\nHarry Hayes Harry Hayes\n17\nJosh Curran Josh Curran\n19\nJed Reardon Jed Reardon\n22\nSean O'Sullivan Sean O'Sullivan\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nHayze Perham Hayze Perham\nJosiah Karapani Josiah Karapani\nKotoni Staggs Kotoni Staggs\nDeine Mariner Deine Mariner\nGrant Anderson Grant Anderson\nEzra Mam Ezra Mam\nBen Hunt Ben Hunt\nXavier Willison Xavier Willison\nBilly Walters Billy Walters\nPayne Haas Payne Haas\nJaiyden Hunt Jaiyden Hunt\nJordan Riki Jordan Riki\nPatrick Carrigan Patrick Carrigan\nTom Duffy Tom Duffy\nVa'a Semu Va'a Semu\nAublix Tawha Aublix Tawha\nGehamat Shibasaki Gehamat Shibasaki\n18\nBen Talty Ben Talty\nCameron Bukowski Cameron Bukowski\n20\nTitans vs Dolphins Team Lists: Round 27, 2026\nKeano Kini Keano Kini\nSiale Faeamani Siale Faeamani\nJaylan De Groot Jaylan De Groot\nAJ Brimson AJ Brimson\nPhillip Sami Phillip Sami\nJayden Campbell Jayden Campbell\nLachlan Ilias Lachlan Ilias\nMoeaki Fotuaika Moeaki Fotuaika\nLuke Sommerton Luke Sommerton\nT. Fa'asuamaleaui Tino Fa'asuamaleaui\nKurtis Morrin Kurtis Morrin\nBeau Fermor Beau Fermor\nChris Randall Chris Randall\nKlese Haas Klese Haas\nCooper Bai Cooper Bai\nBodhi Sharpley Bodhi Sharpley\nSam Verrills Sam Verrills\nSunny Kama Sunny Kama\nJosh Patston Josh Patston\nRESERVES\nArama Hau Arama Hau\nH. Tabuai-Fidow Hamiso Tabuai-Fidow\nJamayne Isaako Jamayne Isaako\nJack Bostock Jack Bostock\nHerbie Farnworth Herbie Farnworth\nTevita Naufahu Tevita Naufahu\nBrad Schneider Brad Schneider\nIsaiya Katoa Isaiya Katoa\nTom Flegler Tom Flegler\nJ. Marshall-King Jeremy Marshall-King\nTom Gilbert Tom Gilbert\nMax Plath Max Plath\nBrian Pouniu Brian Pouniu\nMorgan Knowles Morgan Knowles\nKurt Donoghoe Kurt Donoghoe\nRay Stone Ray Stone\nFrancis Molo Francis Molo\nFelise Kaufusi Felise Kaufusi\nJake Averillo Jake Averillo\nConnelly Lemuelu Connelly Lemuelu\n21\nSebastian Su'a Sebastian Su'a\nRabbitohs vs Roosters Team Lists: Round 27, 2026\nJye Gray Jye Gray\nAlex Johnston Alex Johnston\nLatrell Mitchell Latrell Mitchell\nJack Wighton Jack Wighton\nCampbell Graham Campbell Graham\n23\nJai Arrow Jai Arrow\nJayden Sullivan Jayden Sullivan\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\nKeaon Koloamatangi Keaon Koloamatangi\nDavid Fifita David Fifita\nAdam Elliott Adam Elliott\nCameron Murray Cameron Murray\nCody Walker Cody Walker\nMatt Dufty Matt Dufty\nLachlan Hubner Lachlan Hubner\nSean Keppie Sean Keppie\nJamie Humphreys Jamie Humphreys\nEuan Aitken Euan Aitken\nLatrell Siegwalt Latrell Siegwalt\nTalanoa Penitani Talanoa Penitani\nCody Ramsey Cody Ramsey\nDaniel Tupou Daniel Tupou\nJunior Pauga Junior Pauga\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nReece Foley Reece Foley\nToby Rodwell Toby Rodwell\nSpencer Leniu Spencer Leniu\nBenaiah Ioelu Benaiah Ioelu\nLindsay Collins Lindsay Collins\nSalesi Foketi Salesi Foketi\nEgan Butcher Egan Butcher\nConnor Watson Connor Watson\nTom Rodwell Tom Rodwell\nTaylor Losalu Taylor Losalu\nDe La Salle Va'a De La Salle Va'a\nAston Warwick Aston Warwick\nJake Elliott Jake Elliott\nHayden Barton Hayden Barton\nLui Lee Lui Lee\nWarriors vs Sea Eagles Team Lists: Round 27, 2026\nC. Nicoll-Klokstad Charnze Nicoll-Klokstad\nAdam Pompey Adam Pompey\nAli Leiataua Ali Leiataua\nLeka Halasima Leka Halasima\nA. K",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.65350759,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "4d0ae2cb5f31382d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 27 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69",
+            "published_at": "2026-09-01T05:44:06+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 27 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026. Confirmed lineups, results for Round 27\nPeter Maniaty\nGetty Images\nThe final round of the 2026 regular season has arrived and the all-important order of the top eight is set to be decided along with the minor premiership.\nTwo teams that won't play finals kicked things off on Thursday night with the Broncos beating the Bulldogs 34-20.\nFriday night sees a pre-finals showdown between the Roosters and Rabbitohs at Allianz.\nThe Warriors host the Sea Eagles on Saturday afternoon with the 2026 minor premiership almost within reach, before the Panthers and Tigers close out the regular season on Sunday.\nThe Knights have the final round bye while a swathe of stars are set to be rested ahead of the finals.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 27\nGold Coast Titans vs. Dolphins\n(Friday, September 4 at Cbus Super Stadium, 6:00pm AEST)\nGold Coast team:\n1. Keano Kini 2. Siale Faeamani 3. Jaylan De Groot 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Luke Sommerton 10. Tino Fa'asuamaleaui (c) 11. Kurtis Morrin 12. Beau Fermor 13. Chris Randall\n14. Klese Haas 15. Cooper Bai 16. Bodhi Sharpley 17. Sam Verrills 18. Josh Patston 19. Sunny Kama\nTitans team news:\nJojo Fifita (hip) missed Round 26 and Siale Faeamani again takes his place in the backline with Jaylan De Groot pushing into the centres. Beau Fermor (ribs) returns while Oliver Pascoe left the field with a right shoulder injury against the Rabbitohs and his season is over a week early.\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Tevita Naufahu 19. Brad Schneider 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 18. Brian Pouniu 13. Morgan Knowles\n14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Felise Kaufusi 20. Jake Averillo 21. Connelly Lemuelu\nDolphins team news:\nConnelly Lemuelu (hamstring) returns on the bench with Max Plath again starting in the second row. Tom Flegler, Kurt Donoghoe and Morgan Knowles were all placed on report in the Roosters win but have escaped with fines and are free to play. Selwyn Cobbo (ankle) is out with Tevita Naufahu starting on the wing, while Kulikefu Finefeuiaki (knee) and Kodi Nokirima ( hamstring tightness) are both late withdrawals.\nSouth Sydney Rabbitohs vs. Sydney Roosters\n(Friday, September 4 at A llianz Stadium , 8:00pm AEST)\nSouth Sydney team:\n1. Jye Gray 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 23. Jai Arrow 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray (c)\n6. Cody Walker 14. Matt Dufty 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Euan Aitken\nRabbitohs team news:\nLatrell Mitchell (nerve) returns to the starting line-up while Tallis Duncan is rested. Jai Arrow will once again start the match to bring up 100 appearances for the Rabbitohs.\nRoosters team:\n1. Cody Ramsay 2. Daniel Tupou 3. Fetalaiga Pauga 4. Tommy Talau 5. Rex Bassingthwaighte 6. Reece Foley 7. Toby Rodwell 8. Spencer Leniu 9. Benaiah Ioelu 10. Lindsay Collins (c) 11. Salesi Foketi 12. Egan Butcher 13. Connor Watson\n14. Tom Rodwell 15. Taylor Losalu 16. De La Salle Va'a 17. Aston Warwick 18. Jake Elliott 19. Hayden Barton\nRoosters team news:\nIn a pre-finals disaster halfback Sam Walker limped off with a syndesmosis injury against the Dolphins and could miss the rest of the season. Daniel Tupou (shoulder) returns on the wing while Lindsay Collins has been named skipper as Trent Robinson rests the bulk of his first-grade starters ahead of the finals.\nNew Zealand Warriors vs. Manly Sea Eagles\n(Saturday, September 5 at Go Media Stadium , 3:00pm AEST)\nWarriors team:\n1. Charnze Nicoll-Klokstad 2. Adam Pompey 3. Ali Leiataua 4. Leka Halasima ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.86850759000001,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "2d7dc7cbdc35630c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "South Sydney Rabbitohs vs Sydney Roosters Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-sydney-roosters-tips-odds-teams-predictions-nrl-round-27-2026/610128",
+            "published_at": "2026-09-02T07:10:07+00:00",
+            "snippet": "South Sydney Rabbitohs vs Sydney Roosters Tips, Odds, Teams & Predictions – NRL Round 27 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Allianz Stadium will play host to Friday's Round 27 NRL game between South Sydney Rabbitohs and Sydney Roosters. The game kicks off at 8:00 pm with South Sydney Rabbitohs heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the South Sydney Rabbitohs vs. Sydney Roosters game and give you our free tips and bets.\nWhen: Friday September 4, 2026 at 8:00 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nSouth Sydney Rabbitohs vs Sydney Roosters Odds\nSouth Sydney Rabbitohs vs Sydney Roosters Preview\nSouth Sydney can secure a home elimination final against a dramatically reshaped Roosters side at Allianz Stadium. The Rabbitohs strengthened their position with a 42-22 victory over Gold Coast and welcome Latrell Mitchell into the starting centres, while Jye Gray takes over at fullback and Tallis Duncan is rested. Jai Arrow is listed at five-eighth for his 100th club appearance before Cody Walker’s anticipated interchange role. The Roosters are protecting numerous first-choice players ahead of their qualifying final, including James Tedesco, Daly Cherry-Evans, Reece Robson and Siua Wong, while Sam Walker remains sidelined by an ankle injury. Sydney won the Round 2 meeting 26-18 and has dominated much of the recent rivalry, but the scale of its selection changes gives South Sydney a clear opportunity to control possession and territory.\nHead To Head Bet\nWe're tipping South Sydney Rabbitohs to win at $1.10 odds.\nFirst Try Scorer\nFirst Try Scorer: Alex Johnston at $5.80 .\nSouth Sydney Rabbitohs vs Sydney Roosters Teams\nRabbitohs team: 1. Jye Gray 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 23. Jai Arrow 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Adam Elliott 13. Cameron Murray 6. Cody Walker 14. Matthew Dufty 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Euan Aitken 19. Latrell Siegwalt 20. Liam Le Blanc 21. Talanoa Penitani 22. Peter Mamouzelos\nRoosters team: 1. Cody Ramsey 2. Daniel Tupou 3. Fetalaiga Pauga 4. Tommy Talau 5. Rex Bassingthwaighte 6. Reece Foley 7. Toby Rodwell 8. Spencer Leniu 9. Benaiah Ioelu 10. Lindsay Collins 11. Salesi Foketi 12. Egan Butcher 13. Connor Watson 14. Tom Rodwell 15. Taylor Losalu 16. Delasalle Vaa 17. Aston Warwick 18. Jake Elliott 19. Hayden Barton 20. Lui Lee 21. Max McCathie 22. Nat Butcher",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.43489647888889,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "eff1ea2827343ca6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Rabbitohs",
+            "title": "Arrow to the heart: Bunnies and Roosters set to unite for Jai",
+            "url": "https://www.nrl.com/news/2026/09/02/arrow-to-the-heart-bunnies-and-roosters-set-to-unite-for-jai/",
+            "published_at": "2026-09-04T00:24:44+00:00",
+            "snippet": "Arrow to the heart: Bunnies and Roosters set to unite for Jai\nThey’ve been at each other for 118 years but on Friday night hostilities will cease for a few minutes as players and fans from South Sydney Rabbitohs and Sydney Roosters honour Jai Arrow in his 100th NRL game.\nFollowin",
+            "body_excerpt": "Arrow to the heart: Bunnies and Roosters set to unite for Jai\nThey’ve been at each other for 118 years but on Friday night hostilities will cease for a few minutes as players and fans from South Sydney Rabbitohs and Sydney Roosters honour Jai Arrow in his 100th NRL game.\nFollowing on from the emotional celebrations at Cbus Stadium last week for Arrow’s 99th game, another packed house at Allianz Stadium will continue that love for the 31-year-old for his 100th.\n\"Over the weekend, even since the announcement of Jai's condition, we've seen that some things are bigger than football,” said Roosters utility Connor Watson.\n\"He's obviously going to play his 100th game for the Rabbitohs on Friday so we'll be there to celebrate with him.”\nArrow’s MND diagnosis has brought all corners of the game together to offer support and love for the Arrow family.\n“There's a lot of things in the game of rugby league we can't change,” said Roosters prop Naufahu Whyte.\n“I send my full love and respect out to Jai and his family and what he's done for the game.\nIn full: Jai Arrow's return to the pitch\n\"It's a privilege to be in that moment with him as he represents his 100th game.\n\"I know all us Roosters brothers support him.”\nBoth Watson and Whyte said there would be no issue balancing the acknowledgement for Arrow with the need to then go out and play 80 minutes of high intensity footy against a fellow finalist.\n\"It's all a mindset,” Whyte said.\n“One moment you can be in a situation and another moment you can flick that switch in your head and go into battle.\nBennett talks about the love for Jai Arrow\n\"We'll celebrate that moment with Jai - he deserves it - and then we'll cross those white lines and get ready for the match.”\nWhyte has a 4-2 record against Souths since his first ‘Book of Feuds’ experience in Round 24, 2021.\nIn 2026 he’s looking forward to the up-front confrontation with Tevita Tatola and Keaon Koloamatangi.\n“Most definitely... obviously the history but also the energy you get against the Bunnies, everyone is hunting, it's a full 80-minute game with no change in tempo or intensity,\" Whyte said.\n“That's what makes the rivalry so special. I'm grateful to be part of it.”\nWhyte dismisses the recent Roosters losses against Wests Tigers (Round 25) and Dolphins (Round 26) as harming team confidence in any way.\n\"We're not worried at all about it. It's part of the journey, part of the season,” he said.\nRoosters v Rabbitohs – Round 2, 2026\n\"Every good team, every great team, has had their downfalls. I guess we're riding that now but I still have full belief.\n\"I still back my brothers and know what we're capable of doing.\n\"What is said within these four walls is sacred to us - the belief is high.\n“These two losses don't rattle us at all.\n\"We've taken our lessons over the past couple of weeks and we head into this game with a new fresh mindset - we're going after it.”\nJai Arrow 100 Games Milestone T-Shirt\nProceeds from tees sold will go directly to Jai and his family.\nRelated /\nLatrell ready to hit top speed as Rabbitohs chase perfection\nMatch Preview\nRabbitohs v Roosters: Trell set to start; Robbo rests stars\nRoosters\nLead from the front: Collins takes youngsters under his wing for grudge match\nRabbitohs v Roosters: Round 27\nFantasy\nFirst take: Rabbitohs v Roosters",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 2.1912853677777777,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e80512dce64d48e6",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Why Trent Robinson has made an enormous Round 27 mistake - Zero Tackle",
+            "url": "https://www.zerotackle.com/why-trent-robinson-has-made-an-enormous-round-27-mistake-237675/",
+            "published_at": "2026-09-03T20:42:25+00:00",
+            "snippet": "Why Trent Robinson has made an enormous Round 27 mistake &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "Every year, as we run into the final round of the season, the same old question gets trotted out.\nShould top teams rest their stars to be fresh for the finals?\nResting has become almost an epidemic in previous years, and with the top two, the next two, and then the top eight locked in bar some small positional changes, it was thought there could have been plenty this go around.\nBut Tuesday afternoon's team lists didn't exactly bring a lot in the way of resting, until you got to the Sydney Roosters .\nJames Tedesco , Billy Smith , Robert Toia , Mark Nawaqanitawase , Daly Cherry-Evans , Hugo Savala , Naufahu Whyte , Reece Robson , Nat Butcher and Siua Wong have all been rested.\nSam Walker is also olut injured, so from last week's run on side who were easily beaten by the Dolphins , Robinson has just two players left, with Lindsay Collins to skipper the side from prop, and Salesi Foketi , who has been excellent on the edge in recent weeks but will likely lose his starting spot to a returning Angus Crichton in the finals, in the side.\nIt does present opportunity for a number of Roosters young guns to fire, while Daniel Tupou will return from injury in a much-needed hit out before the finals roll around.\nSYDNEY, AUSTRALIA - SEPTEMBER 05: Daniel Tupou of the Roosters scores a try during the round 27 NRL match between the Sydney Roosters and South Sydney Rabbitohs at Allianz Stadium on September 05, 2025, in Sydney, Australia. (Photo by Cameron Spencer/Getty Images)\nResting is something that divides opinion, and while personally, it's hard to have a problem with it, it is easy to question exactly what the Roosters are doing this weekend.\nThe great resting debate reared its head last year when the Canberra Raiders did it.\nRicky Stuart's team won the minor premiership with a week to spare, got flogged by the Dolphins on the last day of the season, and went on to be knocked out in straight sets.\nThat, in a nutshell, is the risk of the rest.\nIt has worked for other teams, namely the Penrith Panthers , over the years, but it's difficult to suggest it's the right reign to pull when your team is down on their form.\nThat's exactly where the tri-colours find themselves heading into the finals.\nRobinson's side have lost their last two games, and while last weekend's slip up against the Dolphins could potentially be excused given the Redcliffe-based side are also sitting pretty in the top four, the fact it came a week after they fell short against the rabble that has become the Wests Tigers needs serious investigation.\nThe Roosters form tailing off at the wrong end of the season was probably a reason to play most of their stars this weekend, maybe with the exception of guys who were involved in State of Origin , or have had signiifcant minutes across the course of the campaign.\nWhat it wasn't a reason to do was rest everybody.\nForm is just one part of the equation for the Roosters.\nThe fact they are playing arch-rivals the South Sydney Rabbitohs in the final round gives the Maroubra-based outfit a chance to put a serious score on the tri-colours, picking up their own momentum and raising questions of the Roosters.\nBut it's two other big factors which should be raising eyebrows.\nThe first of those is the decision to rest James Tedesco . He essentially said on Wednesday morning that he wanted to play this weekend before being told he would have a rest.\nTedesco will have played just a single game in the course of a month heading into the finals after injuring his ankle during the record-breaking win over the North Queensland Cowboys a few weeks back.\nTedesco playing this weekend to get a bit more match practice under his belt seemed a no-brainer, but instead he will once again watch on from the grandstand.\nSYDNEY, AUSTRALIA - JULY 06: James Tedesco of the Roosters runs out during the round 18 NRL match between Sydney Roosters and Wests Tigers at Allianz Stadium, on July 06, 2025, in Sydney, Australia. (Photo by Jeremy Ng/Getty Images)\nThe champion ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 5.896563145555556,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "791c542c9b00fffc",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Rabbitohs",
+            "title": "Match Preview Rabbitohs v Roosters: Trell set to start; Robbo rests stars",
+            "url": "https://www.nrl.com/news/2026/09/01/rabbitohs-v-roosters-trell-set-to-start-robbo-rests-stars/",
+            "published_at": "2026-09-03T10:02:42+00:00",
+            "snippet": "Presented By\nRabbitohs v Roosters: Trell set to start; Robbo rests stars\nEmotions will run high at Allianz Stadium as the game's oldest rivals square off against the backdrop of Jai Arrow's 100th game as a Rabbitoh.\nWith the Roosters needing to get back on track after consecutive",
+            "body_excerpt": "Presented By\nRabbitohs v Roosters: Trell set to start; Robbo rests stars\nEmotions will run high at Allianz Stadium as the game's oldest rivals square off against the backdrop of Jai Arrow's 100th game as a Rabbitoh.\nWith the Roosters needing to get back on track after consecutive losses and the Rabbitohs looking to lock in a home final in week one, there's plenty at stake in the 237th meeting between the foundation clubs.\nA massive crowd will be on hand to support Arrow as he again leads the Bunnies out for his milestone match and they will then settle back into their seats for an intriguing showdown on the eve of the finals.\nThe injury to Sam Walker is a massive blow but the presence of premiership winner and 375-gamer Daly Cherry-Evans certainly softens the blow for the Roosters heading into the finals although DCE will sit this one out along with a number of his teammates.\nMatch: Rabbitohs v Roosters\nRound 27 - Round 27 - Friday 4 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nRoosters\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nRabbitohs: Latrell Mitchell moves into the starting side at centre with Tallis Duncan being rested. Jai Arrow has been named at five-eighth for his 100th game with Cody Walker to come off the interchange after the kick-off. Jye Gray gets a run at fullback with Matt Dufty on the bench. Adam Elliott starts in the back row with Euan Aitken reverting to the interchange.\nRoosters: Trent Robinson has chosen to rest a number of his stars with James Tedesco, Billy Smith, Rob Toia, Mark Nawaqanitawase, Daly Cherry-Evans, Naufahu Whyte, Reece Robson and Siua Wong all being saved for the qualifying final. Halfback Sam Walker (ankle) is sidelined but veteran winger Daniel Tupou returns after five games out with a shoulder injury. Cody Ramsey again deputises at fullback while Junior Pauga, Tommy Talau, Rex Bassingthwaighte, Reece Foley, Toby Rodwell, Benaiah Ioelu and Egan Butcher all join the starting side. The bench includes potential debutants Aston Warwick, Jake Elliott and Hayden Barton.\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Jye Gray 1 Fullback for Roosters is number 1 Cody Ramsey\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Roosters is number 3 Fetalaiga Pauga\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Roosters is number 4 Tommy Talau\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Roosters is number 5 Rex Bassingthwaighte\nFive-Eighth for Rabbitohs is number 23 Jai Arrow 23 6 Five-Eighth for Roosters is number 6 Reece Foley\n23 6\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Roosters is number 7 Toby Rodwell\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Roosters is number 8 Spencer Leniu\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Roosters is number 9 Benaiah Ioelu\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Roosters is number 12 Egan Butcher\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Roosters is number 13 Connor Watson\n13\nInterchange\nInterchange for Rabbitohs is number 6 Cody Walker 6 14 Interchange for Roosters is number 14 Tom Rodwell\n6 14\nInterchange for Rabbitohs is number 14 Matthew Dufty 14 15 Interchange for Roosters is number 15 Taylor Losalu\n14 15\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 16 Interchange for Roosters is number 16 De La Salle Va'a\n15 16\nInterchange for Rabbitohs is number 16 Sean Keppie 16 17 Interchange for Roosters is number 17 Aston Warwick\n16 17\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 18 Interchange for Roosters is number 18 Jake Elliott",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 16.55850759,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "d74647e277c4b0c6",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Roosters Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-roosters-preview-betting-tips-nrl-round-27-2026",
+            "published_at": "2026-09-03T04:14:44+00:00",
+            "snippet": "Rabbitohs vs Roosters Preview & Betting Tips: NRL Round 27 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Rabbitohs vs Roosters Preview & Betting Tips: NRL Round 27 2026\nSeptember 3 rd 2026, 1:53pm , By: Scooby\nA blockbuster match headlines Friday night action as the age-old rugby league rivalry between the Rabbitohs and Roosters resumes. The hostility will temporarily be put on hold as each marks the special occasion that is Arrow’s 100th match for the home side. As resentment resumes, these two teams will be out to make a statement ahead of the NRL Finals. Before You Bet is here with a comprehensive look at the action that’s ahead with the aim of finding you a winner or two to add to your enjoyment.\nScooby is back with his preview and NRL tips for the Rabbitohs vs Roosters !\nIf you're looking for somewhere new to bet on the NRL, then help support our site by clicking on the banner below to join BetRaven ! They are a brand new site with some exciting features. Find out more in our BetRaven review .\nRabbitohs vs Roosters Prediction & Tips: 2026 NRL Round 27\nEmotions and skill were high\nIn a special day for the Rabbitohs, they jumped out of the blocks with a dominant first half performance, jumping to a 28-6 HT lead. As has been the case all season though, they allowed the Titans back into the match but overcame this towards the end to prevail 42-22 on the road. With an equal share of possession, they had a superior completion rate (85%) and averaged 9.6m per carry. This also led to 8 line breaks. Heading into the Finals with momentum, they still have areas which they can improve upon; they missed 48 total tackles in that match.\nTrending downward\nA week after their upset loss to the Tigers, the Roosters suffered another defeat, this time at home to the Dolphins 26-12. The loss was made worse with the injury suffered by Walker. The Roosters are in for a tough few weeks if they are to resemble their dominance from different points of the season. Statistically, they were strong; completing at 81% they ran for 9.5m per carry, had 649 PCM’s, and had 7 line breaks. This couldn’t be converted into points though, a worrying sign on the eve of the Finals.\nStats that matter\n- The Roosters won the Round 2 game between these two sides 26-18, strengthening their 64% strike rate here, well ahead of the Rabbitohs 33%. The Roosters have also won 6 of the past 7 games against their rivals.\n- Despite 3 of the past 5 games decided by 8 points or less, two blowout wins to the Roosters has the average margin of victory at 18.8 points. The average total points scored is 47.6.\n- The Rabbitohs have the superior attack this season, averaging 28ppg compared to the Roosters 26ppg. The Roosters are stronger defensively, allowing just 19ppg, well ahead of the Rabbitohs 24ppg.\nShowing their hand\nThe Roosters’ decision to rest a host of key players for this game has swung the momentum towards the Rabbitohs. While they too have left a player out to allow rest prior to the Finals, it is nothing compared to the likes of Tedesco, Toia, DCE, and Robson who are absent for the visitors. The Rabbitohs are opting to build momentum ahead of the game and this offers them the perfect platform. A strong start from the Roosters is expected; incoming players will want to make a statement that they are capable in the top grade. That will only remain for so long.\nThe Rabbitohs are a strong team with a host of players who can score points. Providing they do not have their usual ‘switching off’ period in this game, they should win comfortably. Their forwards are too strong and will create the perfect platform for the likes of Walker, Mitchell, and Johnston to scheme in the best way possible. Unfortunately, you need to go looking for value. Rather than take on the ridiculous line offered, play it safe and increase your stake in the Rabbitohs to win by more than 2 converted tries.\nRabbitohs 13+\n$1.32 (2.5 units)\nRabbitohs vs Roosters Same Game Multi\nLeg 1 = Total points under 55.5 – see above for justification.\nLeg 2 = Johnston 2+ tries – he has fond memories of scoring at this grou",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.357952034444445,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "44dbc795da480189",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Rabbitohs",
+            "title": "Roosters Lead from the front: Collins takes youngsters under his wing for grudge match",
+            "url": "https://www.nrl.com/news/2026/09/03/leading-from-the-front-collins-taking-youngsters-under-his-wing-for-grudge-match/",
+            "published_at": "2026-09-03T03:10:50+00:00",
+            "snippet": "Lead from the front: Collins takes youngsters under his wing for grudge match\nLindsay Collins has spent a decade leading by example at the Roosters. On Friday night he’ll officially lead them out for the first time.\nWith James Tedesco and second-choice skipper Daly Cherry-Evans a",
+            "body_excerpt": "Lead from the front: Collins takes youngsters under his wing for grudge match\nLindsay Collins has spent a decade leading by example at the Roosters. On Friday night he’ll officially lead them out for the first time.\nWith James Tedesco and second-choice skipper Daly Cherry-Evans among nine players rested ahead of the finals, Roosters coach Trent Robinson has handed Collins the captaincy duties for Friday's clash with South Sydney.\nThe prop has steadily developed into a leader within the Roosters squad throughout the past few years and Robinson said it was a special moment telling the Queensland and Australian representative he would be leading the side.\nLindsay Collins Try\n“He’s been our vice-captain for a while there; he’s been a leader in this club for many, many years and it’s his first captaincy, so that was a really nice moment to talk to him about leading the team out,” Robinson said.\n“He does it already, but just that slight shift in leadership there is good, and Connor as vice-captain as well.”\nMatch: Rabbitohs v Roosters\nRound 27 - Round 27 - Friday 4 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nRoosters\n4th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nCollins, now in his 10th season with the Roosters, will captain the side alongside vice-captain Connor Watson as Robinson gives a number of younger players an opportunity in the final round of the regular season.\n“I love the fact that they get rewarded,” Robinson said.\nThe Roosters have already secured a top-four finish, allowing Robinson to make the call to rest nine key players before September football begins next week.\nIt also means halves Hugo Savala and Daly Cherry-Evans will not get another opportunity to play together before the finals, with Robinson deciding both players would benefit more from a week off.\n“It was either both play or both rest because I want them to spend a fair bit of time together and I decided to rest them both,” Robinson said.\n“Hugo hasn’t played in the halves in the last couple of months, but he’s also played a lot.”\nResting players ahead of the finals can divide opinion, particularly with Friday night’s match against the Rabbitohs, one of the game’s great rivalries.\nBut Robinson said the decision was straightforward.\n“It was all really clear what was the best thing for us this week and what players have played Origin or a fair amount of time leading up to that game,” he said.\n“That was the clear point and the clear belief in what we can achieve tomorrow night with the team.”\nRobinson is confident the side selected can still deliver against the Rabbitohs, with the majority of the squad already having NRL experience.\nRex Bassingthwaighte Try\n“They’re all Roosters players and have been in our system for a long time,” he said.\n“We really value this game and I think we need to prove that tomorrow night.\n“There’s a future in what we’re going to be playing out there as well. We’ll have one debut, but the rest have played NRL.\n“I know what’s right for the Roosters and I love this game.”\nThe Roosters will enter the finals without star halfback Sam Walker, who underwent syndesmosis surgery on Sunday after suffering an ankle injury.\nSam Walker leaves the field with an injury\nWhile there is no exact timeline on his return, the club remains hopeful Walker could play again this season.\n“He got operated on Sunday afternoon and he’s just in the initial phase,” Robinson said.\n“There’s not much to do in that phase of recovery. They heal quite quickly, those injuries.\n“There’s extreme disappointment and then you get on with what’s next. That’s the common thing in sport.\n“The timing of it is not ideal, but you get to, ‘What can I do to get back as quickly as possible?’”\nThere was better news for second-rower Angus Crichton, who remains on track in his recovery from an ankle injury.\n“Gussy is still progressing but on track, so that will be a next-week decision,” Robinson said.\nVictor Radley is also expected to",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 23.422952034444446,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "9a4c9325e7a3d758",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Coach Media | Round 27 v Rabbitohs - Sydney Roosters",
+            "url": "https://www.roosters.com.au/news/2026/09/03/nrl-coach-media--round-27-v-rabbitohs/",
+            "published_at": "2026-09-03T01:18:33+00:00",
+            "snippet": "NRL Coach Media | Round 27 v Rabbitohs\nSydney Roosters Head Coach Trent Robinson chats to the media ahead of the Round 27 clash against the Rabbitohs.\nUp Next\n07:31 NRL Coach Media | Round 26\nNRL Coach Media | Round 26\n03:32 NRLW Match Highlights | Round 9 v Sharks\nNRLW Match Hig",
+            "body_excerpt": "NRL Coach Media | Round 27 v Rabbitohs\nSydney Roosters Head Coach Trent Robinson chats to the media ahead of the Round 27 clash against the Rabbitohs.\nUp Next\n07:31 NRL Coach Media | Round 26\nNRL Coach Media | Round 26\n03:32 NRLW Match Highlights | Round 9 v Sharks\nNRLW Match Highlights | Round 9 v Sharks\n00:12 Robert Toia Try\nRobert Toia Try\n04:15 NRL Press Conference | Round 26 v Dolphins\nNRL Press Conference | Round 26 v Dolphins\n07:18 NRLW Press Conference | Round 9 v Sharks\nNRLW Press Conference | Round 9 v Sharks\nRelated /\nMatch Preview | Rabbitohs v Roosters\nPlayer Media\nNRL Player Media | Naufahu Whyte\nCoach Media\nNRL Coach Media | Round 25 v Tigers\nNRL Coach Media | Round 24 v Panthers\nMajor Partner\nPlatinum Partners\nPremier Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 25.294340923333333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "76ffcdd7dad2842f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/",
+            "published_at": "2026-09-02T07:43:58+00:00",
+            "snippet": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe fina",
+            "body_excerpt": "The NRL regular season wraps up this weekend – and there’s less at stake than your average Round 27 with the Top 8 already confirmed.\nBut the minor premiership is still up for grabs and there’s jostling for other positions, equating to home finals in week one, to unfold.\nThe final round begins with a dead rubber at Accor Stadium as two of 2025’s top-four outfits wrap up their campaigns.\nFORM: The Bulldogs have lost three of their last four, with their finals hopes extinguished thanks to a 24-10 loss to the Panthers last week.\nThe Broncos have lost 13 of their last 15, following up a comeback win in Canberra with a 46-20 home defeat to the Storm last week.\nINS AND OUTS: The Bulldogs are unchanged, though Kurt Mann could be a late inclusion. The Broncos’ only change is on the bench with Blake Mozer replaced by Ben Talty.\nKEY MATCH-UP: Payne Haas will be eager to inflict some damage in his last game for the Broncos. Max King and Leo Thompson need to meet Haas and twin tower Xavier Willison head on.\nHISTORY: The Broncos have won eight of their last nine against the Bulldogs, including a 32-12 result in Round at Suncorp Stadium.\nKEY STAT: The Bulldogs haven’t beaten the Broncos in Sydney since 2019.\nVERDICT: While this may be a deflating exercise for the Bulldogs after their finals bid officially ended last week, their form has been strong overall and they showed plenty of backbone against the Panthers.\nThe Broncos have been gagging for the end of a disastrous title defence for some time and have conceded 30-plus points in five straight games. It’s a road trip this injury-ravaged side doesn’t want to be on.\nTip: Back the Bulldogs to Score Over 31.5 Total Points @ $1.80\nSGM: BULLDOGS -10.5 / UNDER 52.5 TOTAL POINTS / MATT BURTON ANYTIME TRYSCORER / STEPHEN CRICHTON ANYTIME TRYSCORER @ $17.63\nNRL\nCbus Super Stadium • Friday 4th Sep\nThe Dolphins finalise their preparations for a maiden post-season foray against the lowly Titans.\nFORM: The Titans are on a five-game losing streak, going down 42-22 to the Rabbitohs at home last Saturday.\nThe Dolphins have won six straight, moving to third spot via an impressive 26-12 defeat of the Roosters at Allianz Stadium.\nINS AND OUTS: Beau Fermor is back for the Titans, while Luke Sommerton replaces Oliver Pascoe (concussion). Dolphins winger Selwyn Cobbo is out, which sees Tevita Naufahu come in.\nKEY MATCH-UP: Kodi Nikorima has been in hot playmaking form for the Dolphins. Titans No.6 Jayden Campbell will be eager to finish the season with a flourish.\nHISTORY: The Dolphins have established a 6-1 record in this derby, including a tight 18-14 win at Suncorp Stadium in Round 2.\nKEY STAT: Phillip Sami and Hamiso Tabuai-Fidow have both scored four tries in six Titans-Dolphins games.\nVERDICT: While finishing third or fourth is much of a muchness, the Dolphins will be eager to head into the finals with the momentum of another win – particularly after naming near enough to their strongest line-up.\nThe Titans have been meandering towards the end of the season and showing an increasingly lacklustre attitude towards defending, leaking 30-plus points in their past five games – after only doing so six times in their previous 17 games. It’s been a tough rivalry for the Titans and that should continue.\nTip: Back the Dolphins to Cover the Line (-13.5) @ $1.90\nSGM: DOLPHINS BY 21-30 / OVER 10.5 TOTAL TRIES / PHILLIP SAMI ANYTIME TRYSCORER / HERBIE FARNWORTH ANYTIME TRYSCORER @ $18.72\nAllianz Stadium • Friday 4th Sep\nA key grudge match and traditional final-round showdown has been tipped on its head by the Roosters pre-finals resting strategy.\nFORM: The up-and-down Rabbitohs have won three of their last four, responding to a 46-25 loss to the Warriors with a 42-22 win over the Titans last week.\nThe Roosters’ eight-match winning streak seems a distant memory after back-to-back losses to the Tigers (25-24) and Dolphins (26-12).\nINS AND OUTS: Latrell Mitchell starts at centre, Jye Gray has been promoted to fullback wit",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.87072981222222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2da2967fdfcd035f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs v Roosters: Round 27 - nrl.com",
+            "url": "https://www.nrl.com/news/2026/09/02/rabbitohs-v-roosters-round-27/",
+            "published_at": "2026-09-02T05:24:10+00:00",
+            "snippet": "Rabbitohs v Roosters: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n04:02 Bulldogs v Broncos: Round 27\nBulldogs v Broncos: Round 27\nRelated /\nArrow to the heart: Bunnies and Roosters set to unite for Jai\nRabbitohs\nLatrell ready to hit",
+            "body_excerpt": "Rabbitohs v Roosters: Round 27\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n04:02 Bulldogs v Broncos: Round 27\nBulldogs v Broncos: Round 27\nRelated /\nArrow to the heart: Bunnies and Roosters set to unite for Jai\nRabbitohs\nLatrell ready to hit top speed as Rabbitohs chase perfection\nMatch Preview\nRabbitohs v Roosters: Trell set to start; Robbo rests stars\nRoosters\nLead from the front: Collins takes youngsters under his wing for grudge match\nFantasy\nFirst take: Rabbitohs v Roosters\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.20072981222222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "90fa4e7744619213",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Rabbitohs",
+            "title": "Roosters It's the little things that count for high-flying Roosters: Kelly",
+            "url": "https://www.nrl.com/news/2026/08/31/its-the-little-things-that-count-for-high-flying-roosters-kelly/",
+            "published_at": "2026-08-30T22:42:19+00:00",
+            "snippet": "It's the little things that count for high-flying Roosters: Kelly\nRoosters gun Isabelle Kelly has heaped praise on master mentor John Strange and her middle forwards as the backbone of the club’s stunning charge towards a third NRLW premiership.\nWin No.9 came at the expense of th",
+            "body_excerpt": "It's the little things that count for high-flying Roosters: Kelly\nRoosters gun Isabelle Kelly has heaped praise on master mentor John Strange and her middle forwards as the backbone of the club’s stunning charge towards a third NRLW premiership.\nWin No.9 came at the expense of the Sharks 36-8 at Allianz Stadium with only the Cowboys in Townsville and Bulldogs back at Allianz left to complete an historic unbeaten season.\nSix of the seven tries against the Sharks were scored by outside backs, including two to Brydie Parker in her 50th game, but Kelly is adamant the 9-0 run is a tribute to every player who has donned the famous jersey in 2026.\n“Really proud to be honest, finding little things where we can be a lot better,” Kelly told NRL.com.\n\"Defence has been our biggest focus with that. Also, really proud of the girls that don't get mentioned, our middle pack.\n“Those girls are really paving the platform for all of us to be able to go out and dominate.\n“There are a lot of our players that don't get recognition, they push week in and week out, and tonight they did again.”\nChief in her thoughts would have been props Millie Elliott with 78 post-contact metres and Otesa Pule with 50 post-contact and two tackle breaks.\nBrydie Parker with two special tries\nHooker Keeley Nizza topped the tackle count for both sides with 39 while lock Olivia Kernick ran for 103 metres and made 30 tackles.\nAnd pulling the talent together is coach Strange, who has won the past two Origin series with NSW along with two NRLW premierships with the Roosters (2021 and 2024).\n“I could talk for hours about Strangey and his professionalism, his ability to bring confidence and shine on everyone’s best attributes,” said Kelly.\nJessica Sergis in the tries\n“They might have a bad game but he shines on the good things.\n“He is one of the best if not the best.... what he does in the women’s space, is amazing and what he pushes towards.”\nAfter eight seasons with the Roosters, Kelly continues to get a buzz out of the support of the club's fans.\n“I have been at the club for a long time, the fan loyalty stands out for me, they are so loyal to women’s game and our team,” said Kelly.\n“They really have been with us through the highs and lows, losing grand finals, they were riding with us.\n“And the club's support of the women's program is amazing.\n\"With the right staff, especially with Strangey, it’s incredible. I’m super proud. I will be here for life.”\nMatch: Cowboys v Roosters\nRound 10 - Round 10 - Saturday 5 Sep\nhome Team\nCowboys\n9th Position\naway Team\nRoosters\n1st Position\nVenue: Queensland Country Bank Stadium, Townsville\nMatch broadcasters:\nNine Network\nFoxtel\nNine Now\nKayo\nRelated /\nMatch Replays\nFull Match Replay: Roosters v Sharks - Round 9, 2026\nExtended Highlights\nRoosters v Sharks – Round 9, 2026\nSeason Highlights\nPress Conference\nRoosters: Round 9",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 99.89822981222223,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2cd6c85cfbac7776",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 27 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/09/01/wests-tigers-nrl-injury-report-round-27/",
+            "published_at": "2026-09-01T05:50:00+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as t",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 27\nWests Tigers can provide the latest NRL injury update heading into their final game of the season against the Penrith Panthers in Round 27.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\nTony Sukkar\nInjury: Delayed concussion symptoms (Rd 26 vs Cowboys)\nReturn: Round 1, 2027\nAlex Twal\nInjury: Delayed concussion symptoms (Rd 25 vs Roosters)\nJavon Andrews\nInjury: Right calf strain\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights)\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans)\nAdam Doueihi\nInjury: Shoulder reconstruction.\nRelated /\nBenji Marshall praises Jarome Luai for postive club impact\nNRL News\nTerrell May milestone a driving factor for Tigers\nFamily pride for Terrell May ahead of milestone\nTeam Lists\nTeam List: NRL Round 27 v Panthers",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.77017425666666,
+            "relevance_score": 5.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "14bb7b64533c5cde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters coach provides injury update on Sam Walker - Zero Tackle",
+            "url": "https://www.zerotackle.com/roosters-coach-provides-injury-update-on-sam-walker-237701/",
+            "published_at": "2026-09-03T22:37:37+00:00",
+            "snippet": "Sydney Roosters coach Trent Robinson has given an update on his injured star halfback Sam Walker .\nWalker went down with a syndesmosis injury last weekend in the tri-colours' loss to the Dolphins after his ankle became trapped awkwardly under a defender.\nHe was quickly aided off ",
+            "body_excerpt": "Sydney Roosters coach Trent Robinson has given an update on his injured star halfback Sam Walker .\nWalker went down with a syndesmosis injury last weekend in the tri-colours' loss to the Dolphins after his ankle became trapped awkwardly under a defender.\nHe was quickly aided off the field and underwent surgery on Sunday, with Robinson hoping to get him on the field \"as soon as possible\".\nIt is a massive blow to the Roosters' premiership muscle, and they will rely on Daly Cherry-Evans and Hugo Savala to gel for their finals series, which they are expected to go deep into.\nThe Roosters provided a statement following Walker's surgery, saying he will undergo an intense rehabilitation process in an attempt to get him back playing before the end of the season.\nRobinson remains hopeful the Maroons star halfback can return and help deliver a trophy in Bondi for the first time in seven years.\n“He got operated on on Sunday afternoon. There's not much to do in the initial sort of phase of recovery there, and then he'll get going pretty quickly. They heal quite quickly those injuries,\" Robinson said to media on Thursday.\nIt is fortunate the Roosters can rely on 370-game veteran Daly Cherry-Evans to slide into his preferred halfback position, where he boasts plenty of big-game experience in finals and State of Origin .\nAlthough Robinson is hopeful to return to their similar halves pairing in time before the first weekend of October, if the Roosters' season is still alive.\n“There are some pretty clear signposts along the way about games and stuff like that around what's possible,\" he added.\nSYDNEY, AUSTRALIA - MARCH 17: Sam Walker of the Roosters kicks during the round two NRL match between Manly Sea Eagles and Sydney Roosters at 4 Pines Park, on March 17, 2024, in Sydney, Australia. (Photo by Cameron Spencer/Getty Images)\n\"We just need to push it as far as he can handle it and see where we get to.”\nThe Roosters will face arch rivals South Sydney on Friday night, in what is historically a blockbuster fixture.\nAlthough the club has rested a bunch of stars, including Cherry-Evans, Reece Robson , Mark Nawaqanitawase, Suia Wong, Robert Toia , and skipper James Tedesco , to give his key personnel a rest before the intense finals matches begin.\nHe declared it was \"the best thing for the club\" in their push for the trophy in 2026, and with a top four position already secured, they can take the gamble if it means his stars are fresh for Week 1.\n\"The scenario was pretty clear that we were third or fourth, and then trying to pick what was going to happen in one and two… it was all really clear what was the best thing for us this week and what players had played either Origin or a fair amount of time leading up to that game,” he said.\nAlthough Robinson believes the inexperienced team can still do a job on the Rabbitohs, who will play elimination play-offs next weekend.\n“That was the clear point, and we have clear belief in what we can achieve tomorrow night with the team. They're all Roosters players, they've been in our system for a long time. We're also really clear about the following week as well.”\nThe tri-colours will host the Rabbitohs at 8pm at Allianz Stadium on Friday night.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 3.9765631455555552,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c982eca30fa4c120",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins Team List: Round 27 v Titans - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/09/01/dolphins-team-list-round-27-v-titans/",
+            "published_at": "2026-09-01T06:00:00+00:00",
+            "snippet": "Dolphins Team List: Round 27 v Titans &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nDolphins Team List: Round 27 v Titans\nSelwyn Cobbo will miss the Dolphins’ final game of the regular season as they head down the coast to take on the Gold Coast Titans in the XXXX Derby, while Connelly Lemuelu makes his return.\nCobbo drops out of the side with an ankle injury, opening the door for Tevita Naufahu to come onto the wing for the Round 27 clash, with no other changes to the side that defeated the Roosters on Saturday.\nKurt Donoghoe retains his place on the interchange after a late change against the Roosters saw him elevated from the reserves and onto the bench.\nBrian Pouniu is named at 18th man, with Brad Schneider, Jake Averillo, Lemuelu and Sebastian Su’a rounding out the extended squad.\nThe Dolphins will look to finish the regular season strongly before turning their attention to their maiden NRL finals campaign.\nMatch: Titans v Dolphins\nRound 27 - Round 27 - Friday 4 Sep\nhome Team\nTitans\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Titans is number 2 Siale Faeamani 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Titans is number 3 Jaylan De Groot 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Titans is number 4 AJ Brimson 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Titans is number 5 Phillip Sami 5 Winger for Dolphins is number 5 Tevita Naufahu\nFive-Eighth for Titans is number 6 Jayden Campbell 6 19 Five-Eighth for Dolphins is number 19 Bradley Schneider\n6 19\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Titans is number 9 Luke Sommerton 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Titans is number 11 Kurtis Morrin 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Titans is number 12 Beau Fermor 12 18 2nd Row for Dolphins is number 18 Brian Pouniu\n12 18\nLock for Titans is number 13 Chris Randall 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Titans is number 14 Klese Haas 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Titans is number 15 Cooper Bai 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Titans is number 16 Bodhi Sharpley 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Titans is number 17 Sam Verrills 17 Interchange for Dolphins is number 17 Felise Kaufusi\n17\nInterchange for Titans is number 19 Sunny Kama 19 20 Interchange for Dolphins is number 20 Jake Averillo\n19 20\nInterchange for Titans is number 20 Josh Patston 20 21 Interchange for Dolphins is number 21 Connelly Lemuelu\n20 21\nReserves\nReserve for Titans is number 22 Arama Hau 22 Reserve for Dolphins is number 22 Sebastian Su'a\n22\nTitans Ins\nBeau Fermor\nSam Verrills\nSunny Kama\nDolphins Ins\nConnelly Lemuelu\nJake Averillo\nSebastian Su'a\nTevita Naufahu\nTitans Outs\nMax Feagai\nOliver Pascoe\nKodi Nikorima\nKulikefu Finefeuiaki\nSelwyn Cobbo\nMatch Officials\nReferee: Wyatt Raymond\nSenior Review Official: Chris Butler\nLast updated: 9/3/2026 8:20:33 AM\nRelated /\nMatch Preview: Round 27 – Dolphins v Titans\nPlay anywhere, don't care: Top 4 travel holds no fear for Donoghoe\nInstant Highlights\nThe Dolphins defence are there again!\nDolphins Team List: Round 26 v Roosters\nDolphins Team List: Round 25 v Eels",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.60350759,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6bd477079df99afe",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Roosters - Round 27, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/rabbitohs-roosters-round-27-2026-mc10396544-237552/",
+            "published_at": "2026-08-31T00:20:19+00:00",
+            "snippet": "Rabbitohs vs Roosters - Round 27, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 27, 2026 RABBITOHS V ROOSTERS KICK OFF Allianz Stadium #NRLSouthsRoosters 2026-09-04T10:00:00Z Preview\nRABBITOHS\nROOSTERS\nPreview\nRabbitohs vs Roosters – Round 27, 2026\nThe South Sydney Rabbitohs face the Sydney Roosters in Round 27 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Allianz Stadium. Ladder Position Injury Report Rabbitohs NAME REASON EXPECTED RETURN Ashton Ward Hamstring Next Season Roosters NAME REASON EXPECTED RETURN Angus Crichton Foot Finals Victor Radley Concussion Finals Blake Steep ACL Next Season Sam Walker Ankle TBC Previous 5 Games Rabbitohs DATE OPP RESULT 29/8/26 Titans W 22 - 42 22/8/26 Warriors L 26 - 45 14/8/26 Bulldogs W 6 - 22 8/8/26 Eels W 28 - 24 2/8/26 Sharks L 32 - 16 Roosters DATE OPP RESULT 29/8/26 Dolphins L 12 - 26 23/8/26 Wests Tigers L 24 - 25 13/8/26 Panthers W 6 - 12 7/8/26 Bulldogs W 20 - 18 30/7/26 Cowboys W 12 - 82\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nAshton Ward\nHamstring\nNext Season\nAngus Crichton\nFoot\nFinals\nVictor Radley\nConcussion\nBlake Steep\nACL\nSam Walker\nAnkle\nTBC\nPrevious 5 Games\nDATE\nOPP\nRESULT\n29/8/26\nTitans\nW 22 - 42\n22/8/26\nWarriors\nL 26 - 45\n14/8/26\nBulldogs\nW 6 - 22\n8/8/26\nEels\nW 28 - 24\n2/8/26\nSharks\nL 32 - 16\nDolphins\nL 12 - 26\n23/8/26\nWests Tigers\nL 24 - 25\n13/8/26\nPanthers\nW 6 - 12\n7/8/26\nW 20 - 18\n30/7/26\nCowboys\nW 12 - 82\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nJye Gray Jye Gray\nAlex Johnston Alex Johnston\nLatrell Mitchell Latrell Mitchell\nJack Wighton Jack Wighton\nCampbell Graham Campbell Graham\n23\nJai Arrow Jai Arrow\nJayden Sullivan Jayden Sullivan\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\n10\nKeaon Koloamatangi Keaon Koloamatangi\n11\nDavid Fifita David Fifita\n12\nAdam Elliott Adam Elliott\n13\nCameron Murray Cameron Murray\nINTERCHANGE\nCody Walker Cody Walker\n14\nMatt Dufty Matt Dufty\n15\nLachlan Hubner Lachlan Hubner\n16\nSean Keppie Sean Keppie\n17\nJamie Humphreys Jamie Humphreys\n18\nEuan Aitken Euan Aitken\nRESERVES\n19\nLatrell Siegwalt Latrell Siegwalt\n21\nTalanoa Penitani Talanoa Penitani\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nCody Ramsey Cody Ramsey\nDaniel Tupou Daniel Tupou\nJunior Pauga Junior Pauga\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nReece Foley Reece Foley\nToby Rodwell Toby Rodwell\nSpencer Leniu Spencer Leniu\nBenaiah Ioelu Benaiah Ioelu\nLindsay Collins Lindsay Collins\nSalesi Foketi Salesi Foketi\nEgan Butcher Egan Butcher\nConnor Watson Connor Watson\nTom Rodwell Tom Rodwell\nTaylor Losalu Taylor Losalu\nDe La Salle Va'a De La Salle Va'a\nAston Warwick Aston Warwick\nJake Elliott Jake Elliott\nHayden Barton Hayden Barton\nLui Lee Lui Lee\n20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 98.26489647888889,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_27_match",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "bd386e33ec6de44c",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Rabbitohs",
+            "title": "Live Blog As it happened: Knights strike back; Roosters undefeated, Titans go eight straight",
+            "url": "https://www.nrl.com/news/2026/08/29/nrlw-saturday-blog-titans-raiders-battle-kicks-us-off/",
+            "published_at": "2026-08-29T12:12:52+00:00",
+            "snippet": "Presented By\nAs it happened: Knights strike back; Roosters undefeated, Titans go eight straight\nThe Titans kicked off Saturday's NRLW action by taking down the Raiders 26-20 in an entertaining contest at Cbus Super Stadium.\nThe two sides were hard to split for much of the first h",
+            "body_excerpt": "Presented By\nAs it happened: Knights strike back; Roosters undefeated, Titans go eight straight\nThe Titans kicked off Saturday's NRLW action by taking down the Raiders 26-20 in an entertaining contest at Cbus Super Stadium.\nThe two sides were hard to split for much of the first half until the Lauren Brown show really kicked off, orchestrating three tries in seven minutes leading into half-time to put the Titans in front 18-6.\nThe Titans marched on in the second half and the lead blew out to 26-6, but the Raiders were not going to let it end there, scoring three late tries to close the gap, with Mackenzie Wiki finishing with a hat-trick including a remarkable team try after the full-time siren.\nIt was the eight straight win for the Titans and solidifies them in second position on the ladder.\nIn the second game, the Roosters made it nine in a row against a Sharks outfit enduring a horror injury run. They were unfortunately struck again in the game with forward Rhiannon Byers suffering a knee injury in their 36-8 loss.\nThe final instalment of our Saturday triple took us to Townsville where the Cowboys were looking to continue a late charge that had seen them win three of their past four matches to climb from last on the ladder to ninth.\nHowever, the visiting Newcastle proved far too strong, overpowering the home side with a dominant 40-6 win, putting them back on track after a string of losses had seem them in danger of missing the finals for the first time since their inaugural season in 2021.\nFollow all the action of Round 9 of the NRLW Telstra Premiership on NRL.com's live blog.\nCowboys v Knights at Queensland Country Bank Stadium\nMatch: Cowboys v Knights\nRound 9 - Round 9 - Saturday 29 Aug\nhome Team\nCowboys\n9th Position\naway Team\nKnights\n6th Position\nVenue: Queensland Country Bank Stadium, Townsville\nMedia conferences\nKnights: Round 9\nCowboys: Round 9\nFull-time: A dominant win for the Knights, securing a 40-6 win, with winger Mercedez Taulelei-Siala getting a hat-trick. Centre Tenika Willison was a standout, scoring a try and setting up a number of others with some strong runs and good passing.\n69th min: One more try for the Knights before full-time, with Willison again involved in the set-up, helping get her halfback Georgia Roche over the line. Dibb converts to give her side a 40-6 lead.\n68th min: Mercedez Taulelei-Siala is denied a fourth after she is forced over the sideline by some committed Cowboys defence.\n66th min: Another quick try from the Knights, with Mercedez Taulelei-Siala over for her hat-trick, with good work from Willison again helping set this one up. Kirra Dibb's conversion for the far left is successful for a 34-6 lead.\n64th min: A nice play from a scrum sees Tenika Willison get over for another Knights try. The Māori All Stars representative has been one of the best on the field all game and is rewarded for her efforts with a four-pointer after another strong run through defenders. Kirra Dibb converts against for a 28-6 lead.\n46th min: Knights rookie Charley Lahmert has her first NRLW try in her second game after making her debut last week. Showing smarts at the tryline, she gets the ball over from dummy half. Kirra Dibb converts and the lead goes out to 22-6 .\nCharley Lahmert Try\n38th min: Injury alert - Cowboys winger Kayla Jackson comes from the field for a HIA.\n37th min: Cowboys do well to keep the Knights out after an impressive line break from Sidney Taylor. However, while she fends her way away from multiple defenders, she can't get a pass away and the home side hold her out.\nHalf-time: The Knights take a 16-6 lead into the break after an eventful first half. Newcastle have had the better of the possession with 61 percent and have completed at 77 percent (14/18), while the Cowboys have also had a strong completion rate of 85 percent (12/14). Knights winger Mercedez Taulelei-Siala has a double in the opening half.\n28th min: A first half double for Mercedez Taulelei-Siala who puts the visitors furthe",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 134.38906314555555,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "907c5e9fbd46ba03",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Roosters Prediction & NRL Betting Preview - 4/9/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/rabbitohs-vs-raiders-prediction-betting-tips-friday-4-september-2026/",
+            "published_at": "2026-09-03T15:32:47+00:00",
+            "snippet": "Rabbitohs vs Roosters Prediction & NRL Betting Preview - 4/9/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Rabbitohs vs Roosters: Roosters in for rude awakening\n| Thursday 3rd September 2026, 16:32\nThursday 3rd September 2026, 16:32\nThe oldest rivalry in the NRL will continue on Friday (8pm local, 11am BST) but a one-sided contest looks likely when South Sydney Rabbitohs host old foes Sydney Roosters at the Allianz Stadium. Both sides have secured a play-off place ahead of this final regular-season fixture and only the finishing positions of the top eight are still to be decided.\nThe Rabbitohs can lock in a home fixture for the finals with a win this week and they should have little trouble getting the better of a Roosters outfit who have left most of their star men on the sidelines for this contest. Read on for my Rabbitohs vs Roosters predictions, accompanied by team news and match odds.\nRabbitohs vs Roosters Betting Tips\nRabbitohs -24 @ 21/20\nDavid Fifita anytime tryscorer @ 5/4\n*Odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nRugby League Odds\nTeam News\nLatrell Mitchell moves into the starting side at centre with Tallis Duncan rested. Jai Arrow has been named at five-eighth for his 100th game with Cody Walker to come off the interchange after the kick-off. Jye Gray starts at full-back with Matt Dufty on the bench. Adam Elliott starts in the back row with Euan Aitken reverting to the interchange.\nTrent Robinson has chosen to rest a number of his stars with James Tedesco, Billy Smith, Rob Toia, Mark Nawaqanitawase, Daly Cherry-Evans, Naufahu Whyte, Reece Robson and Siua Wong all being saved for the qualifying final. Half-back Sam Walker (ankle) is sidelined, but veteran winger Daniel Tupou returns after five games out with a shoulder injury.\nCody Ramsey again deputises at full-back, while Junior Pauga, Tommy Talau, Rex Bassingthwaighte, Reece Foley, Toby Rodwell, Benaiah Ioelu and Egan Butcher all start. The bench includes potential debutants Aston Warwick, Jake Elliott and Hayden Barton.\nRabbitohs vs Roosters Odds\nThe Roosters have won six of their last seven games against the Rabbitohs but a much-changed visiting line-up may struggle to extend that sequence at 17/2 . South Sydney can secure a home fixture in the play-offs with a win and they are just 1/18 to oblige against their second-string opposition. The home side are asked to cover a 24-point handicap at 21/20 .\nIt's rarely a good idea to take on the Sydney Roosters, particularly when chasing a 24-point handicap, but this looks one occasion to do so given the number of changes to the away side on Friday.\nAn unfamiliar-looking Sydney side will take to the field at the Allianz Stadium and they are likely to be given short shrift by a Rabbitohs outfit looking to secure a home tie in the forthcoming play-offs.\nThe Roosters arrive after suffering two straight losses while the Bunnies have won eight of their 11 home fixtures this term.\nOdds correct at time of publishing.\nThere is scope for plenty of Rabbitohs to get on the scoresheet this week, but at a shade of odds-against, David Fifita looks one player well worth considering.\nThe rampaging second-rower is hard to stop at the best of times, but a second-string Roosters line may find him too hot to handle.\nFifita is growing in confidence each week and he has made it count with two tries in his last three outings.\nShare Article\nBetfred Rugby League Markets\nBetfred Super League Odds\nBetfred Challenge Cup Odds\nBetfred Championship Odds\nBetfred League One Odds\nRugby League Insights\nSuper League Tips\nChallenge Cup Tips\nNew customers only. Register , deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets wit",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.057118701111111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 27",
+          "Rabbitohs vs Roosters NRL round 27 preview",
+          "Rabbitohs Roosters NRL odds OR price OR favourite",
+          "Rabbitohs Roosters NRL finals race OR ladder stakes",
+          "Rabbitohs Roosters NRL",
+          "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Rabbitohs Roosters NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 27 Rabbitohs OR Roosters"
+        ],
+        "filter_summary": {
+          "dropped_stale": 42,
+          "dropped_wrong_round": 1,
+          "dropped_noise": 7,
+          "dropped_irrelevant": 23,
+          "kept": 20,
+          "deferred_pending_body": 61,
+          "promoted_after_body": 8,
+          "dropped_roundup_no_fixture_team": 4,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "10ac70cfa97f",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-04T02:36:12.626567+00:00",
+      "finished_at": "2026-09-04T02:38:14.712428+00:00",
+      "duration_ms": 122085,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Roosters",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-09-04T20:00:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.6366,
+        "home_win_probability": 0.3634,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Away travel to venue (0 km) — contribution 0.063 (5% of total)",
+            "5-game form: missed tackles (+10.40) — contribution 0.056 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "Ladder points differential per game (-2.8 points) — contribution 0.039 (3% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "Away rest (6.1 days) — contribution 0.011 (1% of total)",
+            "Rest-day advantage (+0.1 days) — contribution 0.009 (1% of total)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-97 points) — contribution 0.202 (16% of total)",
+            "Bradley-Terry strength advantage (-0.63 log-strength) — contribution 0.148 (12% of total)",
+            "Pythagorean form (last 10) (-31% expected-win gap) — contribution 0.101 (8% of total)",
+            "5-game momentum: penalty cluster rate (-1.20) — contribution 0.091 (7% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: all run metres (-103.40) — contribution 0.058 (5% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2164,
+            "total_toward_away": 1.0682,
+            "net": -0.8518,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: missed tackles (+10.40)",
+            "Ladder points differential per game (-2.8 points)",
+            "5-game momentum: penalty cluster rate (-1.20)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Rabbitohs",
+          "away_team": "Roosters",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-09-04T20:00:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

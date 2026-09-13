@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "run_id": "20260906T060109Z-f801ae28",
+  "run": {
+    "predicted_at_utc": "2026-09-06T06:09:42.490829+00:00",
+    "predicted_at_local": "2026-09-06T16:09:42.490829+10:00",
+    "started_at_utc": "2026-09-06T06:01:09.229841+00:00",
+    "wall_seconds": 513.3,
+    "hours_before_kickoff": -0.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 27,
+    "home_team": "Panthers",
+    "away_team": "Wests Tigers",
+    "venue": "CommBank Stadium",
+    "kickoff": "2026-09-06T16:05:00+10:00",
+    "kickoff_local": "2026-09-06T16:05:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 27,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Panthers",
+      "position": 2,
+      "played": 23,
+      "wins": 17,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 40,
+      "points_for": 645,
+      "points_against": 337,
+      "points_difference": 308,
+      "points_difference_per_game": 13.39,
+      "recent_form_last_4": "3 - 2",
+      "streak": "2W",
+      "home_record": "9 - 2",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Wests Tigers",
+      "position": 15,
+      "played": 23,
+      "wins": 8,
+      "drawn": 0,
+      "lost": 15,
+      "competition_points": 22,
+      "points_for": 435,
+      "points_against": 661,
+      "points_difference": -226,
+      "points_difference_per_game": -9.83,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1L",
+      "home_record": "5 - 7",
+      "away_record": "3 - 8"
+    },
+    "comparison": {
+      "higher_on_ladder": "Panthers",
+      "ladder_positions_gap": 13,
+      "points_difference_per_game_gap": 23.22,
+      "points_difference_favours": "Panthers"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+  },
+  "prediction": {
+    "predicted_winner": "Panthers",
+    "predicted_side": "home",
+    "confidence": 0.82,
+    "home_win_probability": 0.82
+  },
+  "math_model": {
+    "home_win_probability": 0.8159,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Elo rating advantage (+253 points) — contribution 0.254 (17% of total)",
+        "Bradley-Terry strength advantage (+1.70 log-strength) — contribution 0.229 (15% of total)",
+        "Ladder points differential per game (+23.2 points) — contribution 0.161 (11% of total)",
+        "Pythagorean form (last 10) (+50% expected-win gap) — contribution 0.110 (7% of total)",
+        "5-game momentum: penalty gap seconds (-215.20) — contribution 0.098 (7% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: effective tackle pct (-0.57) — contribution 0.024 (2% of total)",
+        "Travel-distance advantage (-11 km for away) — contribution 0.022 (1% of total)",
+        "3-game form: kicking metres (+60.33) — contribution 0.020 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Home travel to venue (27 km) — contribution 0.018 (1% of total)",
+        "5-game form: missed tackles (+3.60) — contribution 0.017 (1% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: kicking metres (+60.33)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Panthers vs Wests Tigers NRL round 27 preview",
+      "Panthers Wests Tigers NRL odds OR price OR favourite",
+      "Panthers Wests Tigers NRL ladder stakes OR finals race",
+      "Panthers Wests Tigers NRL",
+      "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Wests Tigers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Panthers Wests Tigers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 27 Panthers OR Wests Tigers"
+    ],
+    "items_kept": 19,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 27 - Yeo back on deck",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-06T04:55:11+00:00",
+        "age_hours": 1.1112435777777778,
+        "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 27 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:50:00+00:00",
+        "age_hours": 120.19763246666666,
+        "url": "https://www.weststigers.com.au/news/2026/09/01/wests-tigers-nrl-injury-report-round-27/"
+      },
+      {
+        "title": "NRL Updated Team List: Round 27 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-05T05:59:00+00:00",
+        "age_hours": 24.047632466666666,
+        "url": "https://www.penrithpanthers.com.au/news/2026/09/05/nrl-updated-team-list-round-27/"
+      },
+      {
+        "title": "Panthers vs Tigers Preview (Round 27, 2026): Team News, Team Lists & Prediction",
+        "source": "rugbyleaguezone.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-03T03:13:00+00:00",
+        "age_hours": 74.81429913333332,
+        "url": "https://rugbyleaguezone.com/panthers-vs-wests-tigers-round-27-preview-2026-437721/"
+      },
+      {
+        "title": "Team List: NRL Round 27 v Panthers",
+        "source": "weststigers.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-01T16:00:00+00:00",
+        "age_hours": 110.03096579999999,
+        "url": "https://www.weststigers.com.au/news/2026/09/01/team-list-nrl-round-27-v-panthers/"
+      },
+      {
+        "title": "NRL Team List: Round 27 - Penrith Panthers",
+        "source": "penrithpanthers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:59:00+00:00",
+        "age_hours": 120.04763246666666,
+        "url": "https://www.penrithpanthers.com.au/news/2026/09/01/nrl-team-list-round-27/"
+      },
+      {
+        "title": "Penrith Panthers vs Wests Tigers Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T07:10:07+00:00",
+        "age_hours": 94.86235468888889,
+        "url": "https://www.sportsnews.com.au/nrl/penrith-panthers-vs-wests-tigers-tips-odds-teams-predictions-nrl-round-27-2026/610133"
+      },
+      {
+        "title": "NRL Team Lists: Round 27",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-01T06:00:05+00:00",
+        "age_hours": 120.0295769111111,
+        "url": "https://www.nrl.com/news/2026/09/01/nrl-team-lists-round-27/"
+      },
+      {
+        "title": "Match Preview Panthers v Wests Tigers: Yeo good to go; Fainu back on the bench",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-06T04:56:01+00:00",
+        "age_hours": 1.097354688888889,
+        "url": "https://www.nrl.com/news/2026/09/01/panthers-v-wests-tigers-yeo-nears-return-fainu-back-on-the-bench/"
+      },
+      {
+        "title": "NRL 2026. Confirmed lineups, results for Round 27 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-05T10:07:49+00:00",
+        "age_hours": 19.900688022222223,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69"
+      },
+      {
+        "title": "Panthers vs Tigers Preview & Betting Tips: NRL Round 27 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-05T07:38:29+00:00",
+        "age_hours": 22.38957691111111,
+        "url": "https://www.beforeyoubet.com.au/panthers-vs-tigers-preview-betting-tips-nrl-round-27-2026"
+      },
+      {
+        "title": "Squad Update: NRL Round 27 v Panthers - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-05T06:05:00+00:00",
+        "age_hours": 23.94763246666667,
+        "url": "https://www.weststigers.com.au/news/2026/09/05/squad-update-nrl-round-27-v-panthers/"
+      },
+      {
+        "title": "2026 NRL Round 27 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T07:43:58+00:00",
+        "age_hours": 94.29818802222222,
+        "url": "https://www.ladbrokes.com.au/blog/2026/09/02/2026-nrl-round-27-predictions/"
+      },
+      {
+        "title": "Panthers v Wests Tigers: Round 27 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T05:10:48+00:00",
+        "age_hours": 96.8509658,
+        "url": "https://www.nrl.com/news/2026/09/02/panthers-v-wests-tigers-round-27/"
+      },
+      {
+        "title": "NRL Panthers vs Wests Tigers Draftstars DFS Preview and Projections for Round 27, 2026",
+        "source": "statsinsider.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-02T03:08:00+00:00",
+        "age_hours": 98.89763246666666,
+        "url": "https://www.statsinsider.com.au/news/nrl-panthers-vs-wests-tigers-draftstars-dfs-preview-and-projections-for-round-27-2026"
+      },
+      {
+        "title": "NRL Sunday Draftstars DFS Preview and Projections for Round 27, 2026",
+        "source": "statsinsider.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-02T03:08:00+00:00",
+        "age_hours": 98.89763246666666,
+        "url": "https://www.statsinsider.com.au/news/nrl-sunday-draftstars-dfs-preview-and-projections-for-round-27-2026"
+      },
+      {
+        "title": "Live Blog Sunday arvo footy: Panthers v Wests Tigers; Sloan boots Dragons to victory Presented by 3 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-06T05:58:35+00:00",
+        "age_hours": 0.05457691111111111,
+        "url": "https://www.nrl.com/news/2026/09/06/sunday-arvo-footy-dragons-v-eels-panthers-v-wests-tigers/"
+      },
+      {
+        "title": "LIVE NRL: Panthers' shot at minor premiership glory to close out stellar campaign",
+        "source": "foxsports.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-06T01:28:00+00:00",
+        "age_hours": 4.564299133333333,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/live-nrl-penrith-panthers-vs-wests-tigers-live-blog-scores-match-centre-videos-minor-premiership-nrl-ladder/news-story/765e705a563a0ca0bf6cbd5626059b55"
+      },
+      {
+        "title": "Joey: Jett Cleary’s Panthers deal spells trouble for out-of-favour star - nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-05T20:05:13+00:00",
+        "age_hours": 9.944021355555556,
+        "url": "https://www.nine.com.au/sport/nrl/news-penrith-panthers-jett-cleary-ivan-nathan-blaize-talagi-jack-cole-cogger-andrew-johns-exclusive-20260904-p60umk.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": true,
+    "audit_issues": [],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Matched '13-position ladder gap' to scene (2nd vs 15th), 'Isaah Yeo... pectoral injury' to 'NRL Late Mail: Round 27 - Yeo back on deck', 'minor premiership' to 'Panthers vs Tigers Preview', '$1.08' to price_quote, and 'Round 25 victory over the Roosters' to 'Match Preview Panthers v Wests Tigers'."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Source states Yeo is 'set to return' and judgement describes it as a 'return'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Bradley-Terry advantages are correctly attributed to the Panthers (home win group)."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research article 'NRL Late Mail: Round 27 - Yeo back on deck'."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.82) matches the math prior (0.8159) rounded to two decimals and is supported by 'confirms' research stance."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "No minor SHAP drivers are treated as decisive."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "pass",
+        "evidence": "All material drivers (Elo, Bradley-Terry, and Ladder differential) are addressed in the summary or key factors."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Panthers are heavy favorites backed by a dominant math prior and a 13-position ladder gap. Research confirms this edge with the return of captain Isaah Yeo from a pectoral injury and the team's motivation to secure the minor premiership. The market strongly aligns with this outcome, pricing the Panthers at $1.08.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating advantage (+253 points) and Bradley-Terry strength advantage."
+      },
+      {
+        "source": "research",
+        "detail": "Captain Isaah Yeo returns to the squad from a pectoral injury ('NRL Late Mail: Round 27 - Yeo back on deck')."
+      },
+      {
+        "source": "scene",
+        "detail": "Significant ladder differential with the Panthers in 2nd and Wests Tigers in 15th."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Wests Tigers are capable of an occasional upset, as seen in their Round 25 victory over the Roosters.",
+    "loss_reason_specific": false,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Panthers-v-Wests-Tigers/20260906T060109Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Panthers-v-Wests-Tigers/20260906T060109Z/summary.md"
+  }
+}

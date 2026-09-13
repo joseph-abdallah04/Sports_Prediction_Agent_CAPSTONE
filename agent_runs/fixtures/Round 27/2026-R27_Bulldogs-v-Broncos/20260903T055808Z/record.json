@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "run_id": "20260903T055808Z-703c0aa4",
+  "run": {
+    "predicted_at_utc": "2026-09-03T06:09:03.779991+00:00",
+    "predicted_at_local": "2026-09-03T16:09:03.779991+10:00",
+    "started_at_utc": "2026-09-03T05:58:08.651041+00:00",
+    "wall_seconds": 655.1,
+    "hours_before_kickoff": 3.7,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 27,
+    "home_team": "Bulldogs",
+    "away_team": "Broncos",
+    "venue": "Accor Stadium",
+    "kickoff": "2026-09-03T19:50:00+10:00",
+    "kickoff_local": "2026-09-03T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 27,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Bulldogs",
+      "position": 10,
+      "played": 23,
+      "wins": 11,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 28,
+      "points_for": 456,
+      "points_against": 502,
+      "points_difference": -46,
+      "points_difference_per_game": -2.0,
+      "recent_form_last_4": "2 - 3",
+      "streak": "1L",
+      "home_record": "7 - 4",
+      "away_record": "4 - 8"
+    },
+    "away": {
+      "team": "Broncos",
+      "position": 15,
+      "played": 23,
+      "wins": 7,
+      "drawn": 0,
+      "lost": 16,
+      "competition_points": 20,
+      "points_for": 437,
+      "points_against": 657,
+      "points_difference": -220,
+      "points_difference_per_game": -9.57,
+      "recent_form_last_4": "1 - 4",
+      "streak": "1L",
+      "home_record": "2 - 10",
+      "away_record": "5 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Bulldogs",
+      "ladder_positions_gap": 5,
+      "points_difference_per_game_gap": 7.57,
+      "points_difference_favours": "Bulldogs"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=27"
+  },
+  "prediction": {
+    "predicted_winner": "Bulldogs",
+    "predicted_side": "home",
+    "confidence": 0.65,
+    "home_win_probability": 0.65
+  },
+  "math_model": {
+    "home_win_probability": 0.6905,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "5-game form: all run metres (+172.20) — contribution 0.162 (16% of total)",
+        "Ladder points differential per game (+7.6 points) — contribution 0.155 (16% of total)",
+        "Pythagorean form (last 10) (+50% expected-win gap) — contribution 0.128 (13% of total)",
+        "5-game form: points against (-16.80) — contribution 0.073 (7% of total)",
+        "Elo rating advantage (+69 points) — contribution 0.061 (6% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: kicking metres (+141.80) — contribution 0.030 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: kicking metres (+188.00) — contribution 0.025 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Head-to-head record (last 5) (20% to the home side) — contribution 0.024 (2% of total)",
+        "3-game form: errors (-1.00) — contribution 0.022 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Away travel to venue (734 km) — contribution 0.017 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: kicking metres (+141.80)",
+        "3-game form: kicking metres (+188.00)",
+        "3-game form: errors (-1.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Bulldogs NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Broncos NRL injury OR \"late mail\" OR \"team list\" round 27",
+      "Bulldogs vs Broncos NRL round 27 preview",
+      "Bulldogs Broncos NRL odds OR price OR favourite",
+      "Bulldogs Broncos NRL finals race OR ladder stakes",
+      "Bulldogs Broncos NRL",
+      "Bulldogs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Broncos NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Bulldogs Broncos NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 27 Bulldogs OR Broncos"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Team Lists: Round 27",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-01T06:00:05+00:00",
+        "age_hours": 47.97850329055556,
+        "url": "https://www.nrl.com/news/2026/09/01/nrl-team-lists-round-27/"
+      },
+      {
+        "title": "Team Lists NRL Late Mail: Round 27 - Phins stars rested; Yeo in frame Presented by Now",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-03T05:57:39+00:00",
+        "age_hours": 0.01905884611111111,
+        "url": "https://www.nrl.com/news/2026/09/02/nrl-late-mail-round-27--yeo-in-frame-duncan-hamstrung/"
+      },
+      {
+        "title": "Lone Scout's Fantasy team list analysis: Round 27 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T08:42:11+00:00",
+        "age_hours": 45.27683662388889,
+        "url": "https://www.nrl.com/news/2026/09/01/lone-scouts-fantasy-team-list-analysis-round-27/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 27 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:44:06+00:00",
+        "age_hours": 48.24489217944445,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-27-2026-lineups-injuries-results/f7cace0fedd787ab536b1f69"
+      },
+      {
+        "title": "NRL Team List Round 27 v Bulldogs - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T05:18:00+00:00",
+        "age_hours": 48.67989217944445,
+        "url": "https://www.broncos.com.au/news/2026/09/01/nrl-team-list-round-27-v-bulldogs/"
+      },
+      {
+        "title": "Bulldogs vs Broncos Preview (Round 27, 2026): Team News, Team Lists & Prediction",
+        "source": "rugbyleaguezone.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-26T05:58:59+00:00",
+        "age_hours": 191.99683662388887,
+        "url": "https://rugbyleaguezone.com/bulldogs-vs-broncos-round-27-preview-2026-437754/"
+      },
+      {
+        "title": "Canterbury Bulldogs vs Brisbane Broncos Tips, Odds, Teams & Predictions – NRL Round 27 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T09:07:12+00:00",
+        "age_hours": 20.859892179444444,
+        "url": "https://www.sportsnews.com.au/nrl/canterbury-bulldogs-vs-brisbane-broncos-tips-odds-teams-predictions-nrl-round-27-2026/610126"
+      },
+      {
+        "title": "Brandy and Jimmy's Round 27 NRL Tips - sen.com.au",
+        "source": "sen.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-03T02:35:01+00:00",
+        "age_hours": 3.3962810683333333,
+        "url": "https://www.sen.com.au/news/2026/09/03/nrl-2026-brandy-and-jimmy-s-expert-round-27-tips"
+      },
+      {
+        "title": "'A special occasion': Grand final mindset driving Bulldogs to finish on high",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Bulldogs",
+        "published_at": "2026-09-02T23:49:45+00:00",
+        "age_hours": 6.150725512777778,
+        "url": "https://www.nrl.com/news/2026/09/03/a-special-occasion-grand-final-mindset-driving-bulldogs-to-finish-on-high/"
+      },
+      {
+        "title": "Bulldogs vs Broncos Preview & Betting Tips: NRL Round 27 2026 - beforeyoubet.com.au",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T13:03:17+00:00",
+        "age_hours": 16.925169957222224,
+        "url": "https://www.beforeyoubet.com.au/bulldogs-vs-broncos-preview-betting-tips-nrl-round-27-2026"
+      },
+      {
+        "title": "Bulldogs v Broncos: Jed, Jack join bench; Talty called up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-09-02T09:56:24+00:00",
+        "age_hours": 20.039892179444443,
+        "url": "https://www.nrl.com/news/2026/09/01/bulldogs-v-broncos-mann-in-the-mix-talty-joins-bench/"
+      },
+      {
+        "title": "Bulldogs v Broncos: Round 27 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T05:33:12+00:00",
+        "age_hours": 24.42655884611111,
+        "url": "https://www.nrl.com/watch/news/bulldogs-v-broncos-round-27-1986602/"
+      },
+      {
+        "title": "Coach Media: Round 27 - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T04:39:08+00:00",
+        "age_hours": 25.327669957222223,
+        "url": "https://www.bulldogs.com.au/news/2026/09/02/coach-media-round-27/"
+      },
+      {
+        "title": "Broncos Last ride: Patty and Payne vowing to go out on a high",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-09-02T03:01:21+00:00",
+        "age_hours": 26.957392179444444,
+        "url": "https://www.nrl.com/news/2026/09/02/forward-pact-payne-and-patty-aim--to-finish-on-a-high-in-broncos-last-ride/"
+      },
+      {
+        "title": "Gameday Guide: NRL Round 27 vs Broncos - Bulldogs",
+        "source": "bulldogs.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T02:04:42+00:00",
+        "age_hours": 51.901558846111115,
+        "url": "https://www.bulldogs.com.au/news/2026/08/31/gameday-guide-nrl-round-27-vs-broncos/"
+      },
+      {
+        "title": "Canterbury-Bankstown Bulldogs vs Brisbane Broncos Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T20:32:19+00:00",
+        "age_hours": 9.441281068333334,
+        "url": "https://www.ladbrokes.com.au/blog/2026/09/03/canterbury-bankstown-bulldogs-vs-brisbane-broncos-predictions/"
+      },
+      {
+        "title": "Madge’s fresh headache in Broncos star’s pointed claim; Roosters’ shock shake-up - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-02T20:02:55+00:00",
+        "age_hours": 9.931281068333334,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-27-talking-points-analysis-brisbane-broncos-halves-headache-ben-hunt-michael-maguire-roosters-sam-walker-injury-daly-cherryevans/news-story/d3919eaf0d507f431ddb74f0b3575153"
+      },
+      {
+        "title": "Shock return in huge Panthers call as two teams rest stars; classy Raiders move - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T08:01:14+00:00",
+        "age_hours": 45.959336623888895,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-27-team-lists-as-players-rested-before-finals-injury-updates-latrell-mitchell-isaah-yeo-named/news-story/4bb504b2e71f3db53cd4298f74f8af06"
+      },
+      {
+        "title": "Team Lists Stars of tomorrow: NSW Schoolboys and Schoolgirls Finals",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-01T07:57:58+00:00",
+        "age_hours": 46.01378106833334,
+        "url": "https://www.nrl.com/news/2026/09/01/team-lists-nsw-schoolboys-and-schoolgirls-finals/"
+      },
+      {
+        "title": "‘It stinks’: Luai twist after blindsiding Tigers with PNG trip - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-01T06:26:33+00:00",
+        "age_hours": 47.537392179444446,
+        "url": "https://www.nine.com.au/sport/nrl/team-lists-round-27-finals-top-eight-injuries-suspensions-20260831-p60t34.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": false,
+    "checklist_issues": [
+      "research_stance_confirms_without_team_news",
+      "confidence_copied_math_without_research_confirm",
+      "confidence_above_clear_edge_without_research_confirm"
+    ],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP drivers '5-game form: all run metres' and 'Pythagorean form (last 10)' were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Matched 'Bulldogs are unchanged' to Lone Scout, 'Blake Mozer... concussion' to Lone Scout/NRL Team List, '$1.33' to sportsnews.com.au, and ladder positions/diff to scene data."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Blake Mozer is correctly described as missing based on research stating he is 'out with concussion'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo rating and ladder points differential are correctly attributed to the Bulldogs as they appear in the favouring_Bulldogs_home_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research (Lone Scout) regarding Blake Mozer."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.69) matches the math prior (0.6905) and is supported by a 'confirms' research stance."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "No minor SHAP factors are treated as decisive over the top drivers."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material drivers '5-game form: all run metres' (16%) and 'Pythagorean form (last 10)' (13%) are not mentioned or alluded to."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.69
+  },
+  "reasoning": {
+    "summary": "The Bulldogs hold a strong mathematical edge, driven by superior run metres and a positive Pythagorean win-gap. Research confirms this advantage as the Broncos are missing Blake Mozer due to concussion (Lone Scout). Confidence is set at 0.65, slightly below the math prior of 0.69, to account for the unpredictable nature of a dead rubber fixture.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model strongly favours the Bulldogs, citing a significant advantage in 5-game run metres (+172.20) and a 50% expected-win gap in Pythagorean form over the last 10 games."
+      },
+      {
+        "source": "research",
+        "detail": "The Broncos are missing Blake Mozer due to concussion, with Thomas Duffy moving up the bench (Lone Scout)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Bulldogs are significantly higher on the ladder (10th vs 15th) with a much stronger points differential (-46 vs -220)."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The match is a dead rubber for both sides, which can lead to unpredictable effort levels and variance.",
+    "loss_reason_specific": false,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Bulldogs-v-Broncos/20260903T055808Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R27_Bulldogs-v-Broncos/20260903T055808Z/summary.md"
+  }
+}

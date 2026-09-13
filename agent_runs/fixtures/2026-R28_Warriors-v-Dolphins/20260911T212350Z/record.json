@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "run_id": "20260911T212350Z-edcd2c29",
+  "run": {
+    "predicted_at_utc": "2026-09-11T21:32:43.009171+00:00",
+    "predicted_at_local": "2026-09-12T07:32:43.009171+10:00",
+    "started_at_utc": "2026-09-11T21:23:50.764405+00:00",
+    "wall_seconds": 532.2,
+    "hours_before_kickoff": 8.5,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 28,
+    "home_team": "Warriors",
+    "away_team": "Dolphins",
+    "venue": "Go Media Stadium",
+    "kickoff": "2026-09-12T16:05:00+10:00",
+    "kickoff_local": "2026-09-12T16:05:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 28,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Warriors",
+      "position": 2,
+      "played": 24,
+      "wins": 18,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 42,
+      "points_for": 728,
+      "points_against": 418,
+      "points_difference": 310,
+      "points_difference_per_game": 12.92,
+      "recent_form_last_4": "5 - 0",
+      "streak": "5W",
+      "home_record": "10 - 2",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Dolphins",
+      "position": 3,
+      "played": 24,
+      "wins": 17,
+      "drawn": 0,
+      "lost": 7,
+      "competition_points": 40,
+      "points_for": 662,
+      "points_against": 506,
+      "points_difference": 156,
+      "points_difference_per_game": 6.5,
+      "recent_form_last_4": "5 - 0",
+      "streak": "5W",
+      "home_record": "8 - 4",
+      "away_record": "9 - 3"
+    },
+    "comparison": {
+      "higher_on_ladder": "Warriors",
+      "ladder_positions_gap": 1,
+      "points_difference_per_game_gap": 6.42,
+      "points_difference_favours": "Warriors"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+  },
+  "prediction": {
+    "predicted_winner": "Warriors",
+    "predicted_side": "home",
+    "confidence": 0.59,
+    "home_win_probability": 0.59
+  },
+  "math_model": {
+    "home_win_probability": 0.5858,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Ladder points differential per game (+6.8 points) — contribution 0.140 (16% of total)",
+        "Pythagorean form (last 10) (+25% expected-win gap) — contribution 0.107 (12% of total)",
+        "Elo rating advantage (-10 points) — contribution 0.039 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "5-game workload: top3 tackle share (-0.01) — contribution 0.021 (2% of total)",
+        "5-game form: tackle breaks (+8.60) — contribution 0.019 (2% of total)"
+      ],
+      "negative_drivers": [
+        "5-game momentum: penalty cluster rate (-1.60) — contribution 0.092 (10% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: all run metres (+2.40) — contribution 0.037 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: points for (+10.20) — contribution 0.034 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: errors (-2.00) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: penalties conceded (-2.40) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "Elo rating advantage (-10 points)",
+        "5-game momentum: penalty cluster rate (-1.60)",
+        "5-game form: all run metres (+2.40)",
+        "5-game form: points for (+10.20)",
+        "3-game form: errors (-2.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Warriors vs Dolphins NRL round 28 preview",
+      "Warriors Dolphins NRL odds OR price OR favourite",
+      "Warriors Dolphins NRL finals race OR ladder stakes",
+      "Warriors Dolphins NRL",
+      "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Warriors Dolphins NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 28 Warriors OR Dolphins"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Team Lists: Finals Week 1",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-08T05:59:00+00:00",
+        "age_hours": 87.4228398525,
+        "url": "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/"
+      },
+      {
+        "title": "'Our biggest motivation': Top four sides out to follow proven path to premiership",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-11T06:38:53+00:00",
+        "age_hours": 14.758117630277777,
+        "url": "https://www.nrl.com/news/2026/09/11/our-biggest-motivation-top-four-sides-out-to-follow-proven-path-to-premiership/"
+      },
+      {
+        "title": "NRL Late Mail: Finals Week 1 - Sharks lose Puru",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-11T10:05:17+00:00",
+        "age_hours": 11.318117630277778,
+        "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/"
+      },
+      {
+        "title": "Match Preview Warriors v Dolphins: Ford set to motor; Big Three return",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-11T06:09:51+00:00",
+        "age_hours": 15.242006519166665,
+        "url": "https://www.nrl.com/news/2026/09/08/warriors-v-dolphins-ford-set-to-motor-big-three-return/"
+      },
+      {
+        "title": "Warriors Webster targets 'simple fixes' as Wahs tune up for tilt at history",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-10T04:01:23+00:00",
+        "age_hours": 41.38311763027777,
+        "url": "https://www.nrl.com/news/2026/09/10/webster-targets-simple-fixes-as-wahs-tune-up-for-tilt-at-history/"
+      },
+      {
+        "title": "Dolphins Fit and firing forward pack a key factor in Phins finals push",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-10T02:01:24+00:00",
+        "age_hours": 43.3828398525,
+        "url": "https://www.nrl.com/news/2026/09/10/fit-and-firing-forward-pack-a-key-factor-in-phins-finals-push/"
+      },
+      {
+        "title": "Warriors Wandering Warriors have seen it all on the road to the Holy Grail",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-08T23:01:21+00:00",
+        "age_hours": 70.38367318583333,
+        "url": "https://www.nrl.com/news/2026/09/09/wandering-warriors-have-seen-it-all-on-the-road-to-the-holy-grail/"
+      },
+      {
+        "title": "Dolphins 'We can win it': Hammer adamant Phins up for finals fight",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-07T07:01:21+00:00",
+        "age_hours": 110.38367318583335,
+        "url": "https://www.nrl.com/news/2026/09/07/we-can-win-it-hammers-high-confidence-in-phins-chances/"
+      },
+      {
+        "title": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T08:24:27+00:00",
+        "age_hours": 12.998673185833333,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-finals-2026-week-1-team-news-injuries-changes-late-mail-who-is-in-and-out/news-story/19748a07cd154a6af4a7810773fdcf09"
+      },
+      {
+        "title": "Warriors v Dolphins NRL qualifying final: Kick-off time, team list, injuries - everything to know - RNZ",
+        "source": "rnz.co.nz",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T01:21:54+00:00",
+        "age_hours": 20.041173185833333,
+        "url": "https://www.rnz.co.nz/news/sport/1335854/warriors-v-dolphins-nrl-qualifying-final-kick-off-time-team-list-injuries-everything-to-know"
+      },
+      {
+        "title": "NRL Team List: Ford named for week one finals clash - Warriors",
+        "source": "warriors.kiwi",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-08T05:59:06+00:00",
+        "age_hours": 87.42117318583334,
+        "url": "https://www.warriors.kiwi/news/2026/09/08/nrl-team-list-ford-named-for-week-one-finals-encounter/"
+      },
+      {
+        "title": "Team list for Warriors - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-06T09:25:49+00:00",
+        "age_hours": 131.97589540805555,
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/warriors-v-dolphins/"
+      },
+      {
+        "title": "New Zealand Warriors vs Dolphins Tips, Odds, Teams & Predictions – NRL Finals Week 1 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-09T07:43:12+00:00",
+        "age_hours": 61.68617318583333,
+        "url": "https://www.sportsnews.com.au/nrl/new-zealand-warriors-vs-dolphins-tips-odds-teams-predictions-nrl-finals-week-1-2026/610221"
+      },
+      {
+        "title": "NRL Team Update: Tafua and Laulilii out of squad - Warriors",
+        "source": "warriors.kiwi",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T06:40:37+00:00",
+        "age_hours": 14.729228741388887,
+        "url": "https://www.warriors.kiwi/news/2026/09/11/nrl-team-update-tafua-and-laulilii-omitted-from-squad/"
+      },
+      {
+        "title": "Match Preview: Qualifying Final – Dolphins v Warriors - Official website of The Dolphins",
+        "source": "dolphinsnrl.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T04:22:27+00:00",
+        "age_hours": 17.032006519166664,
+        "url": "https://www.dolphinsnrl.com.au/news/2026/09/11/match-preview-qualifying-final--dolphins-v-warriors/"
+      },
+      {
+        "title": "Warriors vs Dolphins Preview & Betting Tips: 2026 NRL Qualifying Final - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T03:59:24+00:00",
+        "age_hours": 17.416173185833333,
+        "url": "https://www.beforeyoubet.com.au/warriors-vs-dolphins-preview-betting-tips-2026-nrl-qualifying-final"
+      },
+      {
+        "title": "Tips: Warriors on notice as Dolphins given blueprint to win blockbuster - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T04:10:05+00:00",
+        "age_hours": 41.23811763027778,
+        "url": "https://www.nine.com.au/sport/nrl/finals-tips-week-one-news-experts-brad-fittler-andrew-johns-warriors-dolphins-20260827-p60rz7.html"
+      },
+      {
+        "title": "Star’s brutal road back to the finals - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T01:18:24+00:00",
+        "age_hours": 44.09950651916667,
+        "url": "https://www.news.com.au/sport/nrl/pretty-proud-its-come-the-hard-way-tom-gilbert-proud-to-lead-the-dolphins-to-maiden-finals-berth-after-dealing-with-brutal-injury-toll/news-story/cb7e8ad32cc969a4e937359dc48d9f1a"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP driver '5-game momentum: penalty cluster rate (-1.60)' was omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Claims about Jackson Ford's pectoral injury and the returns of Halasima, Capewell, and Egan are in the 'NRL Team List: Ford named...' article; the Round 17 score is in the 'Match Preview Warriors v Dolphins' article; ladder data is in the scene."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Judgement correctly describes Ford, Halasima, Capewell, and Egan as returning, matching the source 'back on deck' and 'comeback'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Ladder points differential and Pythagorean form are correctly attributed to the Warriors' home win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from research regarding player returns."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.59) is essentially identical to the math prior (0.5858) and is described as being maintained."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the primary drivers (16% and 12% contributions)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "The material driver '5-game momentum: penalty cluster rate (-1.60)' (10% of total) is not mentioned or alluded to in the judgement."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Warriors are the mathematical and market favourites, supported by a superior points differential and home-ground advantage. Research confirms this edge with the return of Jackson Ford from a long-term pectoral injury, as well as the return of Leka Halasima, Kurt Capewell, and Wayde Egan. Confidence is maintained near the math prior of 0.59 as the availability news aligns with the model's prediction.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Home win probability of 0.5858, driven primarily by ladder points differential per game and Pythagorean form."
+      },
+      {
+        "source": "research",
+        "detail": "Return of front-rower Jackson Ford from a long-term pectoral injury, alongside Leka Halasima, Kurt Capewell, and Wayde Egan (Warriors.kiwi)."
+      },
+      {
+        "source": "scene",
+        "detail": "Warriors hold a higher ladder position (2nd vs 3rd) and a significantly better points difference per game (12.92 vs 6.5)."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Dolphins have a fully fit forward pack and previously defeated the Warriors 26-24 in Round 17.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R28_Warriors-v-Dolphins/20260911T212350Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R28_Warriors-v-Dolphins/20260911T212350Z/summary.md"
+  }
+}

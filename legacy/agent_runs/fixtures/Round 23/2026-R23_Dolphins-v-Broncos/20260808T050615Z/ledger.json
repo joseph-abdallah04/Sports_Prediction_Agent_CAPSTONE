@@ -1,0 +1,1239 @@
+{
+  "schema_version": 2,
+  "run_id": "20260808T050615Z-aa39550b",
+  "at_a_glance": {
+    "fixture": "Dolphins v Broncos",
+    "round": 23,
+    "kickoff": "2026-08-08T17:30:00+10:00",
+    "venue": "Suncorp Stadium",
+    "predicted_winner": "Dolphins",
+    "confidence": 0.74,
+    "model_home_win_probability": 0.7434,
+    "model_prediction": "Home Win",
+    "research_items_kept": 16,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-08T05:06:15.903078+00:00",
+  "updated_at": "2026-08-08T05:16:12.444315+00:00",
+  "request": {
+    "home_team": "Dolphins",
+    "away_team": "Broncos",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Dolphins vs Broncos?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Dolphins",
+    "away_team": "Broncos",
+    "confidence": 0.74,
+    "summary": "The Dolphins are strong favourites based on a significant ladder gap (5th vs 16th) and superior underlying quality, evidenced by a +54% Pythagorean expected-win gap. While the Broncos have shown slight defensive improvement in recent points against metrics, this is outweighed by the loss of key playmaker Adam Reynolds to concussion. With the Dolphins chasing a top-four finish and Brisbane's season effectively over, the momentum heavily favours the home side.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model shows a strong home edge driven by an Elo advantage (+125 points) and superior Pythagorean form (last 10 games), which indicates a +54% expected-win gap."
+      },
+      {
+        "source": "research",
+        "detail": "Broncos playmaker Adam Reynolds is ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+      },
+      {
+        "source": "scene",
+        "detail": "The official standings confirm a stark contrast in form, with the Dolphins holding 12 wins compared to the Broncos' 6."
+      },
+      {
+        "source": "math",
+        "detail": "Minor offsets favouring Brisbane include recent points against trends (3-game and 5-game), though these carry low weight relative to the overall model net."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 16,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 11
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 9
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Dolphins vs Broncos NRL round 23 preview",
+      "Dolphins Broncos NRL odds OR price OR favourite",
+      "Dolphins Broncos NRL finals race ladder stakes form"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "All claims match scene standings (5th vs 16th, 12 wins vs 6) or research articles regarding Adam Reynolds' concussion and the finals race."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Adam Reynolds is correctly described as ruled out per the research text."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo and Ladder differential drivers are correctly attributed to the Dolphins from the favouring_Dolphins group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies the 'NRL Team List Round 23 v Dolphins - Brisbane Broncos' article."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.74 is within range and justified by ladder gap, injury to Reynolds, and model ratings."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the top two SHAP drivers (Elo and Ladder differential)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top math signals 'Pythagorean form' (Dolphins), '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against' (Broncos) are not addressed."
+        }
+      ],
+      "issues": [
+        "The judgement omits several top SHAP drivers from both sides of the model output."
+      ],
+      "instruction": "Math drivers include 'Pythagorean form', '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against'; these are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Pythagorean form', '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against'; these are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Dolphins",
+      "away_team": "Broncos",
+      "confidence": 0.74,
+      "summary": "The Dolphins enter this clash as strong favourites, sitting 5th on the ladder compared to the Broncos in 16th. The gap is widened by a significant blow to Brisbane's attack, with playmaker Adam Reynolds ruled out due to concussion. With the Dolphins fighting for a top-four finish and the Broncos' finals hopes already extinguished, the momentum and ratings heavily favour the home side.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favours the Dolphins with an Elo rating advantage of +125 points and a significant ladder points differential per game (+12.9)."
+        },
+        {
+          "source": "research",
+          "detail": "Broncos playmaker Adam Reynolds has been ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+        },
+        {
+          "source": "scene",
+          "detail": "The official standings show a massive disparity in form and position, with the Dolphins holding 12 wins to the Broncos' 6."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Dolphins",
+      "away_team": "Broncos",
+      "confidence": 0.74,
+      "summary": "The Dolphins are strong favourites based on a significant ladder gap (5th vs 16th) and superior underlying quality, evidenced by a +54% Pythagorean expected-win gap. While the Broncos have shown slight defensive improvement in recent points against metrics, this is outweighed by the loss of key playmaker Adam Reynolds to concussion. With the Dolphins chasing a top-four finish and Brisbane's season effectively over, the momentum heavily favours the home side.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model shows a strong home edge driven by an Elo advantage (+125 points) and superior Pythagorean form (last 10 games), which indicates a +54% expected-win gap."
+        },
+        {
+          "source": "research",
+          "detail": "Broncos playmaker Adam Reynolds is ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+        },
+        {
+          "source": "scene",
+          "detail": "The official standings confirm a stark contrast in form, with the Dolphins holding 12 wins compared to the Broncos' 6."
+        },
+        {
+          "source": "math",
+          "detail": "Minor offsets favouring Brisbane include recent points against trends (3-game and 5-game), though these carry low weight relative to the overall model net."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The judgement omits several top SHAP drivers from both sides of the model output."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T05:06:40.371246+00:00",
+      "thinking": "*   Home Team: Dolphins\n    *   Away Team: Broncos\n    *   Round Number: 23\n    *   Goal: Determine who wins (predictive/research).\n\n    1.  Home team availability (Dolphins)\n    2.  Away team availability (Broncos)\n    3.  Fixture preview (Dolphins vs Broncos Round 23)\n    4.  Market prices (Odds/Favourite)\n    5.  Specific context (Form, ladder, pressure, etc.)\n\n    *   Query 1: `Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 2: `Broncos NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Query 3: `Dolphins vs Broncos NRL round 23 preview`\n    *   Query 4: `Dolphins Broncos NRL odds OR price OR favourite`\n    *   Query 5 (Context): Since it's Round 23, finals race/ladder stakes are usually critical. Let's go with \"finals hopes\" or \"form\".\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Correct team nicknames? Dolphins, Broncos.\n    *   JSON format? Yes.\n    *   Excluded weather/venue/referee? Yes.",
+      "chars": 992
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:11:09.905158+00:00",
+      "thinking": "Dolphins (Home) vs. Broncos (Away).\nSuncorp Stadium, Round 23.\n\n        *   Position: 5th (Dolphins) vs 16th (Broncos).\n        *   Wins: 12 (Dolphins) vs 6 (Broncos).\n        *   Points Diff per game: +4.74 (Dolphins) vs -8.21 (Broncos).\n        *   Recent Form: Dolphins (2W streak), Broncos (2L streak).\n\n        *   Prediction: Home Win.\n        *   Probability: 0.7434.\n        *   Key Drivers for Dolphins: Elo rating (+125), Ladder points diff per game (+12.9), Pythagorean form, Bradley-Terry strength, Run metres.\n        *   Key Drivers for Broncos: Points against (3-game), Penalties conceded (CONFLICT - raw value favors home), Points against (5-game), H2H record (last 5), Travel distance.\n        *   Attribution Balance: Leans Home strongly (1.0478 vs 0.3522).\n\n        *   Dolphins: Isaiya Katoa returned from wrist injury last week and is ready to shine (\"Match Preview Dolphins v Broncos\"). No current injuries reported in Zero Tackle report.\n        *   Broncos: Adam Reynolds ruled out with concussion (replaced by Tom Duffy) - \"NRL Team List Round 23 v Dolphins\". This is a significant loss of their primary playmaker.\n        *   Motivation: Dolphins are chasing top four and need this win to secure their maiden finals berth (\"Match Preview... Official website of The Dolphins\"). Broncos' finals hopes are extinguished after a 30-6 loss to Newcastle (\"Dolphins vs Broncos Preview & Betting Tips\").\n\n        *   \"The market has the favourites around -7.5\" (Before You Bet). This indicates Dolphins are strong favorites.\n\n    *   Winner: Home (Dolphins).\n    *   Confidence: The model says 0.74. Research supports this strongly: huge ladder gap, Broncos' playmaker (Reynolds) is out, and Dolphins have high motivation for finals. However, the \"strongest reason they could lose\" is that it's a local derby at Suncorp (neutral/shared ground essentially), and the H2H record historically favors Brisbane.\n    *   Confidence Band: 0.65-0.75 range seems appropriate given the alignment of math, standings, and team news (Reynolds out). I'll set it around 0.74 to align with the model since the evidence is so consistent.\n\n    *   Math: Elo advantage, ladder differential.\n    *   Research: Adam Reynolds ruled out due to concussion (\"NRL Team List Round 23 v Dolphins - Brisbane Broncos\").\n    *   Scene/Standings: Dolphins are 5th; Broncos are 16th.",
+      "chars": 2366
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:14:46.292324+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check eight specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the judgement sourced from research or scene?\n2. `availability_direction`: Do availability claims match the source direction?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research (with article ID)?\n6. `confidence_justified`: Is confidence justified, within 0.5-0.85, and $\\le$ 0.65 if there's an unresolved risk?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive over top ones?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed in the judgement?\n\n- Home: Dolphins (Pos 5, 12 wins)\n- Away: Broncos (Pos 16, 6 wins)\n- Venue: Suncorp Stadium\n- Weather: Fine\n\n- \"NRL Team List Round 23 v Dolphins - Brisbane Broncos\": Adam Reynolds ruled out with concussion; Tom Duffy to play halfback.\n- \"Match Preview Dolphins v Broncos...\": Isaiya Katoa returned from wrist injury last week.\n- \"Dolphins vs Broncos Preview & Betting Tips...\": Market favourites around -7.5.\n\n- Home Win Prob: 0.7434\n- Favouring Dolphins (Home): Elo rating advantage (+125), Ladder points differential per game (+12.9), Pythagorean form, Bradley-Terry strength, 5-game run metres.\n- Favouring Broncos (Away): 3-game points against, 5-game penalties conceded, 5-game points against, H2H record, Travel distance.\n\n- Winner: Home (Dolphins)\n- Confidence: 0.74\n- Summary mentions: Ladder positions (5th vs 16th), Adam Reynolds concussion, Dolphins fighting for top four, Broncos finals hopes extinguished.\n- Key Factors:\n    - Math: Elo rating (+125), ladder points differential (+12.9).\n    - Research: Adam Reynolds ruled out with concussion, Tom Duffy in (Sourced to \"NRL Team List Round 23 v Dolphins - Brisbane Broncos\").\n    - Scene: Standings disparity (12 wins vs 6 wins).\n\n`sourced_claims`\n- Claim: \"Dolphins... sitting 5th on the ladder compared to the Broncos in 16th\" -> Scene (`standings`: home pos 5, away pos 16). Pass.\n- Claim: \"Adam Reynolds ruled out due to concussion\" -> Research (\"NRL Team List Round 23 v Dolphins - Brisbane Broncos\": \"Adam Reynolds who has been ruled out with a concussion\"). Pass.\n- Claim: \"Dolphins fighting for a top-four finish\" -> Research (\"Match Preview Dolphins v Broncos...\": \"The Dolphins will continue their chase for a top-four finish\"). Pass.\n- Claim: \"Broncos' finals hopes already extinguished\" -> Research (\"Match Preview Dolphins v Broncos...\": \"Brisbane's chances of qualifying for the finals were extinguished\"). Pass.\n- Claim: \"Elo rating advantage of +125 points\" -> Math (`shap_drivers`). Pass.\n- Claim: \"ladder points differential per game (+12.9)\" -> Math (`shap_drivers`). Pass.\n- Claim: \"Dolphins holding 12 wins to the Broncos' 6\" -> Scene (`standings`). Pass.\n\n`availability_direction`\n- Adam Reynolds ruled out (concussion) -> Judgement says ruled out. Pass.\n\n`shap_attribution`\n- Elo rating advantage (+125 points) is in `favouring_Dolphins_home_win`. Attributed to Dolphins. Pass.\n- Ladder points differential per game (+12.9 points) is in `favouring_Dolphins_home_win`. Attributed to Dolphins. Pass.\n\n`weather_not_headline`\n- Weather \"Fine\" is mentioned in scene/math but not used as a key factor or headline reason. Pass.\n\n`research_used`\n- Key factor 2 sources research and identifies the article (\"NRL Team List Round 23 v Dolphins - Brisbane Broncos\"). Pass.\n\n`confidence_justified`\n- Confidence: 0.74.\n- Justification in summary: \"Dolphins enter this clash as strong favourites... gap is widened by a significant blow to Brisbane's attack... momentum and ratings heavily favour the home side.\"\n- Range check: 0.50 - 0.85 (0.74 fits).\n- Unresolved risk? The Broncos are \"under-siege\" and have no finals hopes, but they are playing at Suncorp (though Dolphins also from Brisbane). No major unresolved reason for loss mentioned that would force it below 0.65. Pass.\n\n`driver_proportionality`\n- Top drivers used: Elo (+0.224) and Ladder Diff (+0.144). These are the top two. Pass.\n\n`omitted_math_signals`\n- Favouring Dolphins (Top 3):\n    1. Elo rating advantage (+125 points) - Mentioned.\n    2. Ladder points differential per game (+12.9 points) - Mentioned.\n    3. Pythagorean form (+54% expected-win gap) - Not mentioned.\n- Favouring Broncos (Top 3):\n    1. 3-game form: points against (+14.67) - Not mentioned.\n    2. 5-game form: penalties conceded (-2.20) - Not mentioned.\n    3. 5-game form: points against (+5.80) - Not mentioned.\n\nWait, the rule says \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n- Dolphins: Elo and Ladder Diff are covered. Pythagorean form is not.\n- Broncos: 3-game points against, 5-game penalties, 5-game points against are all missing.\n\nThe judgement completely ignores the \"favouring_Broncos\" side of the math except for saying they are in 16th and have no finals hopes (which is scene/research, not specifically these SHAP drivers).\nSpecifically:\n- `Pythagorean form` (Dolphins)\n- `3-game form: points against` (Broncos)\n- `5-game form: penalties conceded` (Broncos)\n- `5-game form: points against` (Broncos)\n\nThese are the top signals. The judge must evaluate them or explicitly discount them. Silence is failure.\n\nFail `omitted_math_signals`.",
+      "chars": 5561
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:16:12.444061+00:00",
+      "thinking": "*   Match: Dolphins (Home) vs Broncos (Away).\n    *   Current Prediction: Home win, Confidence 0.74.\n    *   Verifier Feedback: Omitted several top SHAP drivers (Pythagorean form, 3-game form points against, 5-game form penalties conceded, 5-game form points against).\n\n    *   `favouring_Dolphins_home_win`:\n        *   Elo rating advantage (+125) - *Used*.\n        *   Ladder points differential per game (+12.9) - *Used*.\n        *   Pythagorean form (last 10) (+54% expected-win gap) - *Not used*. Contribution: 0.133 (10%).\n        *   Bradley-Terry strength advantage (+0.26 log-strength) - *Not used*. Contribution: 0.127 (9%).\n        *   5-game form: all run metres (+169.00) - *Not used*. Contribution: 0.105 (8%).\n\n    *   `favouring_Broncos_away_win`:\n        *   3-game form: points against (+14.67) - *Not used*. Contribution: 0.086 (6%).\n        *   5-game form: penalties conceded (-2.20) - *Not used*. Contribution: 0.041 (3%). Note: CONFLICT (raw value favours home).\n        *   5-game form: points against (+5.80) - *Not used*. Contribution: 0.037 (3%).\n        *   Head-to-head record (last 5) (20% to the home side) - *Not used*. Contribution: 0.034 (2%). Note: Raw value actually favours Dolphins, but model nets it away? Wait, \"20% to the home side\" usually means Home is better, yet it's in the `favouring_Broncos` group.\n        *   Travel-distance advantage (-22 km for away) - *Not used*. Contribution: 0.023 (2%).\n\n    *   Pythagorean form (+54% expected-win gap): This is a strong signal of underlying quality/performance over the last 10 games, supporting Dolphins.\n    *   3-game form points against (+14.67) and 5-game form points against (+5.80): These favour the Broncos (meaning they've conceded fewer points recently relative to expectations or opponents), but their contributions are small (6% and 3%).\n    *   5-game form penalties conceded (-2.20): This is flagged as a CONFLICT. The raw value favours Dolphins, but the model nets it toward the Broncos. Contribution is very low (3%).\n\n    *   The math heavily leans home (Net: 0.6956).\n    *   Research confirms Adam Reynolds (key playmaker) is out for Brisbane.\n    *   Standings show a huge gap (5th vs 16th).\n    *   Dolphins are fighting for top four; Broncos' season is over.\n\n    *   The omitted drivers mostly reinforce the home win (Pythagorean form) or provide minor, low-weight offsets (points against).\n    *   The \"conflict\" driver on penalties is negligible in weight.\n    *   Confidence of 0.74 aligns well with the model's probability (0.7434) and the strong independent signals (Reynolds injury + ladder gap).\n\n    *   Winner: Home.\n    *   Confidence: 0.74.\n    *   Summary: Incorporate the Pythagorean form and acknowledge the minor defensive offsets from the Broncos' recent form. Mention Reynolds again as it's a critical research factor.",
+      "chars": 2849
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-08T05:06:40.372237+00:00",
+      "payload": {
+        "queries": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dolphins vs Broncos NRL round 23 preview",
+          "Dolphins Broncos NRL odds OR price OR favourite",
+          "Dolphins Broncos NRL finals race ladder stakes form"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-08T05:11:09.905844+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "confidence": 0.74,
+          "summary": "The Dolphins enter this clash as strong favourites, sitting 5th on the ladder compared to the Broncos in 16th. The gap is widened by a significant blow to Brisbane's attack, with playmaker Adam Reynolds ruled out due to concussion. With the Dolphins fighting for a top-four finish and the Broncos' finals hopes already extinguished, the momentum and ratings heavily favour the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the Dolphins with an Elo rating advantage of +125 points and a significant ladder points differential per game (+12.9)."
+            },
+            {
+              "source": "research",
+              "detail": "Broncos playmaker Adam Reynolds has been ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+            },
+            {
+              "source": "scene",
+              "detail": "The official standings show a massive disparity in form and position, with the Dolphins holding 12 wins to the Broncos' 6."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-08T05:14:46.292484+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "All claims match scene standings (5th vs 16th, 12 wins vs 6) or research articles regarding Adam Reynolds' concussion and the finals race."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Adam Reynolds is correctly described as ruled out per the research text."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo and Ladder differential drivers are correctly attributed to the Dolphins from the favouring_Dolphins group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies the 'NRL Team List Round 23 v Dolphins - Brisbane Broncos' article."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.74 is within range and justified by ladder gap, injury to Reynolds, and model ratings."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the top two SHAP drivers (Elo and Ladder differential)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top math signals 'Pythagorean form' (Dolphins), '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against' (Broncos) are not addressed."
+            }
+          ],
+          "issues": [
+            "The judgement omits several top SHAP drivers from both sides of the model output."
+          ],
+          "instruction": "Math drivers include 'Pythagorean form', '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against'; these are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-08T05:16:12.444217+00:00",
+      "payload": {
+        "issues": [
+          "The judgement omits several top SHAP drivers from both sides of the model output."
+        ],
+        "instruction": "Math drivers include 'Pythagorean form', '3-game form: points against', '5-game form: penalties conceded', and '5-game form: points against'; these are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "confidence": 0.74,
+          "summary": "The Dolphins enter this clash as strong favourites, sitting 5th on the ladder compared to the Broncos in 16th. The gap is widened by a significant blow to Brisbane's attack, with playmaker Adam Reynolds ruled out due to concussion. With the Dolphins fighting for a top-four finish and the Broncos' finals hopes already extinguished, the momentum and ratings heavily favour the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours the Dolphins with an Elo rating advantage of +125 points and a significant ladder points differential per game (+12.9)."
+            },
+            {
+              "source": "research",
+              "detail": "Broncos playmaker Adam Reynolds has been ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+            },
+            {
+              "source": "scene",
+              "detail": "The official standings show a massive disparity in form and position, with the Dolphins holding 12 wins to the Broncos' 6."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "confidence": 0.74,
+          "summary": "The Dolphins are strong favourites based on a significant ladder gap (5th vs 16th) and superior underlying quality, evidenced by a +54% Pythagorean expected-win gap. While the Broncos have shown slight defensive improvement in recent points against metrics, this is outweighed by the loss of key playmaker Adam Reynolds to concussion. With the Dolphins chasing a top-four finish and Brisbane's season effectively over, the momentum heavily favours the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model shows a strong home edge driven by an Elo advantage (+125 points) and superior Pythagorean form (last 10 games), which indicates a +54% expected-win gap."
+            },
+            {
+              "source": "research",
+              "detail": "Broncos playmaker Adam Reynolds is ruled out with a concussion, forcing Tom Duffy into the halfback role (NRL Team List Round 23 v Dolphins - Brisbane Broncos)."
+            },
+            {
+              "source": "scene",
+              "detail": "The official standings confirm a stark contrast in form, with the Dolphins holding 12 wins compared to the Broncos' 6."
+            },
+            {
+              "source": "math",
+              "detail": "Minor offsets favouring Brisbane include recent points against trends (3-game and 5-game), though these carry low weight relative to the overall model net."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "20a70c3d70b6",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-08T05:06:15.903223+00:00",
+      "finished_at": "2026-08-08T05:06:19.292451+00:00",
+      "duration_ms": 3389,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Broncos",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-08T05:06:15.903286+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "kickoff": "2026-08-08T17:30:00+10:00",
+          "venue": "Suncorp Stadium",
+          "venue_city": "Brisbane",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/dolphins-v-broncos/",
+          "match_mode": "Pre",
+          "match_id": "20261112350",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Todd Smith"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Drew Oultram"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Hamiso Tabuai-Fidow",
+                "position": "Fullback",
+                "player_id": 100001936
+              },
+              {
+                "number": 2,
+                "name": "Jamayne Isaako",
+                "position": "Winger",
+                "player_id": 502014
+              },
+              {
+                "number": 3,
+                "name": "Jack Bostock",
+                "position": "Centre",
+                "player_id": 100007515
+              },
+              {
+                "number": 4,
+                "name": "Herbie Farnworth",
+                "position": "Centre",
+                "player_id": 508300
+              },
+              {
+                "number": 5,
+                "name": "Selwyn Cobbo",
+                "position": "Winger",
+                "player_id": 100004649
+              },
+              {
+                "number": 6,
+                "name": "Kodi Nikorima",
+                "position": "Five-Eighth",
+                "player_id": 500265
+              },
+              {
+                "number": 7,
+                "name": "Isaiya Katoa",
+                "position": "Halfback",
+                "player_id": 100006258
+              },
+              {
+                "number": 8,
+                "name": "Thomas Flegler",
+                "position": "Prop",
+                "player_id": 504315
+              },
+              {
+                "number": 9,
+                "name": "Jeremy Marshall-King",
+                "position": "Hooker",
+                "player_id": 502511
+              },
+              {
+                "number": 10,
+                "name": "Francis Molo",
+                "position": "Prop",
+                "player_id": 500264
+              },
+              {
+                "number": 11,
+                "name": "Connelly Lemuelu",
+                "position": "2nd Row",
+                "player_id": 507949
+              },
+              {
+                "number": 12,
+                "name": "Kulikefu Finefeuiaki",
+                "position": "2nd Row",
+                "player_id": 100007811
+              },
+              {
+                "number": 13,
+                "name": "Morgan Knowles",
+                "position": "Lock",
+                "player_id": 505736
+              },
+              {
+                "number": 14,
+                "name": "Kurt Donoghoe",
+                "position": "Interchange",
+                "player_id": 100005899
+              },
+              {
+                "number": 15,
+                "name": "Max Plath",
+                "position": "Interchange",
+                "player_id": 100002172
+              },
+              {
+                "number": 16,
+                "name": "Tom Gilbert",
+                "position": "Interchange",
+                "player_id": 506156
+              },
+              {
+                "number": 17,
+                "name": "Felise Kaufusi",
+                "position": "Interchange",
+                "player_id": 500598
+              },
+              {
+                "number": 19,
+                "name": "Bradley Schneider",
+                "position": "Interchange",
+                "player_id": 100002660
+              },
+              {
+                "number": 20,
+                "name": "Brian Pouniu",
+                "position": "Interchange",
+                "player_id": 100011973
+              },
+              {
+                "number": 21,
+                "name": "Tevita Naufahu",
+                "position": "Reserve",
+                "player_id": 100017017
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Reece Walsh",
+                "position": "Fullback",
+                "player_id": 510216
+              },
+              {
+                "number": 2,
+                "name": "Josiah Karapani",
+                "position": "Winger",
+                "player_id": 100006683
+              },
+              {
+                "number": 3,
+                "name": "Kotoni Staggs",
+                "position": "Centre",
+                "player_id": 508009
+              },
+              {
+                "number": 4,
+                "name": "Deine Mariner",
+                "position": "Centre",
+                "player_id": 100007650
+              },
+              {
+                "number": 5,
+                "name": "Grant Anderson",
+                "position": "Winger",
+                "player_id": 507987
+              },
+              {
+                "number": 6,
+                "name": "Ezra Mam",
+                "position": "Five-Eighth",
+                "player_id": 100004534
+              },
+              {
+                "number": 7,
+                "name": "Thomas Duffy",
+                "position": "Halfback",
+                "player_id": 100007888
+              },
+              {
+                "number": 8,
+                "name": "Xavier Willison",
+                "position": "Prop",
+                "player_id": 100004833
+              },
+              {
+                "number": 9,
+                "name": "Billy Walters",
+                "position": "Hooker",
+                "player_id": 504190
+              },
+              {
+                "number": 10,
+                "name": "Payne Haas",
+                "position": "Prop",
+                "player_id": 504300
+              },
+              {
+                "number": 11,
+                "name": "Jaiyden Hunt",
+                "position": "2nd Row",
+                "player_id": 505987
+              },
+              {
+                "number": 12,
+                "name": "Jordan Riki",
+                "position": "2nd Row",
+                "player_id": 100001736
+              },
+              {
+                "number": 13,
+                "name": "Patrick Carrigan",
+                "position": "Lock",
+                "player_id": 506603
+              },
+              {
+                "number": 14,
+                "name": "Ben Hunt",
+                "position": "Interchange",
+                "player_id": 500257
+              },
+              {
+                "number": 15,
+                "name": "Va'a Semu",
+                "position": "Interchange",
+                "player_id": 100009160
+              },
+              {
+                "number": 16,
+                "name": "Ben Talty",
+                "position": "Interchange",
+                "player_id": 504573
+              },
+              {
+                "number": 17,
+                "name": "Gehamat Shibasaki",
+                "position": "Interchange",
+                "player_id": 504371
+              },
+              {
+                "number": 18,
+                "name": "Jack Gosiewski",
+                "position": "Interchange",
+                "player_id": 500170
+              },
+              {
+                "number": 19,
+                "name": "Hayze Perham",
+                "position": "Interchange",
+                "player_id": 505828
+              },
+              {
+                "number": 20,
+                "name": "Blake Mozer",
+                "position": "Reserve",
+                "player_id": 100009156
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 23,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Dolphins",
+            "position": 5,
+            "played": 19,
+            "wins": 12,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 30,
+            "points_for": 516,
+            "points_against": 426,
+            "points_difference": 90,
+            "points_difference_per_game": 4.74,
+            "recent_form_last_4": "2 - 2",
+            "streak": "2W",
+            "home_record": "6 - 4",
+            "away_record": "6 - 3"
+          },
+          "away": {
+            "team": "Broncos",
+            "position": 16,
+            "played": 19,
+            "wins": 6,
+            "drawn": 0,
+            "lost": 13,
+            "competition_points": 18,
+            "points_for": 345,
+            "points_against": 501,
+            "points_difference": -156,
+            "points_difference_per_game": -8.21,
+            "recent_form_last_4": "1 - 3",
+            "streak": "2L",
+            "home_record": "2 - 8",
+            "away_record": "4 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Dolphins",
+            "ladder_positions_gap": 11,
+            "points_difference_per_game_gap": 12.95,
+            "points_difference_favours": "Dolphins"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-08T17:00",
+            "temperature_c": 17.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 5.6,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -27.4649,
+            "longitude": 153.0095,
+            "venue": "Suncorp Stadium",
+            "venue_city": "Brisbane"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4649&longitude=153.0095&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-08T05:06:19.290213+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/dolphins-v-broncos/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4649&longitude=153.0095&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "d45e95c00ab0",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-08T05:06:40.375339+00:00",
+      "finished_at": "2026-08-08T05:08:15.847257+00:00",
+      "duration_ms": 95471,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Broncos",
+        "kickoff": "2026-08-08T17:30:00+10:00",
+        "round_number": 23,
+        "venue": "Suncorp Stadium",
+        "queries": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dolphins vs Broncos NRL round 23 preview",
+          "Dolphins Broncos NRL odds OR price OR favourite",
+          "Dolphins Broncos NRL finals race ladder stakes form"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "kickoff": "2026-08-08T17:30:00+10:00",
+          "round_number": 23,
+          "venue": "Suncorp Stadium",
+          "queries": [
+            "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Dolphins vs Broncos NRL round 23 preview",
+            "Dolphins Broncos NRL odds OR price OR favourite",
+            "Dolphins Broncos NRL finals race ladder stakes form"
+          ]
+        },
+        "retrieved_at": "2026-08-08T05:06:40.377412+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 9
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 11
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-08T04:06:17+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal cl",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined\nRabbitohs winger Campbell Graham could spend a month on the sideline after suffering a calf injury in the lead-up to Saturday's clash with the Eels.\nGraham will be replaced by Jye Gray for the pivotal clash at Allianz Stadium.\nThe Storm, meanwhile, have lost centre Jack Howarth who had been named to return from a shoulder injury but will be held back for another week.\nThe Knights are missing Bradman Best for their trip to Canberra after he suffered a calf strain against Brisbane last week.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nDolphins v Broncos, Saturday 5.30pm at Suncorp Stadium\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Broncos is number 14 Ben Hunt\n14\nInterchange for Dolphins is number 15 Max Plath 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Dolphins is number 16 Tom Gilbert 16 Interchange for Broncos is number 16 Ben Talty\n16\nInterchange for Dolphins is number 17 Felise Kaufusi 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n17\nInterchange for Dolphins is number 19 Bradley Schneider 19 18 Interchange for Broncos is number 18 Jack Gosiewski\n19 18\nInterchange for Dolphins is number 20 Brian Pouniu 20 19 Interchange for Broncos is number 19 Hayze Perham\n20 19\nReserves\nReserve for Dolphins is number 21 Tevita Naufahu 21 20 Reserve for Broncos is number 20 Blake Mozer\n21 20\nDolphins Ins\nBrian Pouniu\nTevita Naufahu\nBroncos Ins\nBlake Mozer\nJack Gosiewski\nThomas Duffy\nDolphins Outs\nRay Stone\nAdam Reynolds\nCory Paix\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Drew Oultram\nSenior Review Official: Chris Butler\nLast updated: 8/8/2026 4:46:04 AM\nDolphins: One change to the bench in the 24-hour update with Brian Pouniu elevated with Sebastian Su'a dropping out. Earlier, centre Jake Averillo was again listed among the reserves as he chases his first appearance since Round 19 having recovered from a rib injury. Winger Jamayne Isaako has scored nine tries in his last seven games at Suncorp Stadium.\nBroncos: A new-look spine for Michael Maguire with Billy Walters back in the starting side at hooker at the expense of Cory Paix while Thomas Duffy takes over at halfback from Adam Reynolds (concussion). Xavier Willison has been named to play despite suffering a laceration to his leg in last week's loss to the Knights. He will line up at prop, with Va'a Semu dropping to the benc",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.0064937255555555,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 20 Jaylan De Groot 20 4 Centre for Cowboys is number 4 Tom Chester\n20 4\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 4 AJ Brimson 4 7 Halfback for Cowboys is number 7 Jaxon Purdue\n4 7\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 18 Sam Verrills 18 9 Hooker for Cowboys is number 9 Soni Luke\n18 9\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Cowboys is number 11 Heilum Luki\n12 11\n2nd Row for Titans is number 15 Josh Patston 15 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n15 12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 9 Oliver Pascoe 9 14 Interchange for Cowboys is number 14 Ethan King\n9 14\nInterchange for Titans is number 14 Kurtis Morrin 14 15 Interchange for Cowboys is number 15 Thomas Mikaele\n14 15\nInterchange for Titans is number 16 Klese Haas 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Titans is number 17 Cooper Bai 17 20 Interchange for Cowboys is number 20 John Bateman\n17 20\nReserve for Titans is number 7 Lachlan Ilias 7 16 Reserve for Cowboys is number 16 Matthew Lodge\n7 16\nReserve for Titans is number 11 Arama Hau 11 18 Reserve for Cowboys is number 18 Sam McIntyre\n11 18\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/7/2026 7:50:35 AM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 18 Five-Eighth for Panthers is number 18 Jack Cole\n6 18\nHalfback for Warriors is number 18 Luke Metcalf 18 7 Halfback for Panthers is number 7 Nathan Cleary\n18 7\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Panthers is number 8 Moses Leota\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Panthers is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 95.09871594777778,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "649b10a74f7ef536",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Round 23 v Dolphins - Brisbane Broncos",
+            "url": "https://www.broncos.com.au/news/2026/08/04/nrl-team-list-round-23-v-dolphins/",
+            "published_at": "2026-08-04T05:32:06+00:00",
+            "snippet": "Presented By\nNRL Team List Round 23 v Dolphins\nBilly Walters will start at hooker in his 100th Broncos' game against the Dolphins at Suncorp Stadium on Saturday night.\nTom Duffy will play halfback in place of Adam Reynolds who has been ruled out with a concussion.\nXavier Willison",
+            "body_excerpt": "Presented By\nNRL Team List Round 23 v Dolphins\nBilly Walters will start at hooker in his 100th Broncos' game against the Dolphins at Suncorp Stadium on Saturday night.\nTom Duffy will play halfback in place of Adam Reynolds who has been ruled out with a concussion.\nXavier Willison shifts to prop and Jaiyden Hunt starts in the second row while Gehamat Shibasaki and Jack Gosiewski have been added to the bench.\nKick-off is 5:30pm.\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Broncos is number 14 Ben Hunt\n14\nInterchange for Dolphins is number 15 Max Plath 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Dolphins is number 16 Tom Gilbert 16 Interchange for Broncos is number 16 Ben Talty\n16\nInterchange for Dolphins is number 17 Felise Kaufusi 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n17\nInterchange for Dolphins is number 19 Bradley Schneider 19 18 Interchange for Broncos is number 18 Jack Gosiewski\n19 18\nInterchange for Dolphins is number 20 Brian Pouniu 20 19 Interchange for Broncos is number 19 Hayze Perham\n20 19\nReserves\nReserve for Dolphins is number 21 Tevita Naufahu 21 20 Reserve for Broncos is number 20 Blake Mozer\n21 20\nDolphins Ins\nBrian Pouniu\nTevita Naufahu\nBroncos Ins\nBlake Mozer\nJack Gosiewski\nThomas Duffy\nDolphins Outs\nRay Stone\nAdam Reynolds\nCory Paix\nMatch Officials\nReferee: Todd Smith\nTouch Judge: Drew Oultram\nSenior Review Official: Chris Butler\nLast updated: 8/8/2026 4:46:04 AM\nRelated /\nNRLW Team List Round 6 v Raiders\nPress Conference\nPost Match Press Conference: Round 22 v Knights\nMatch Highlights\nMatch Highlights: NRL Round 22 v Knights\nNRL Team List Round 22 v Knights\nNRLW Team List Round 5 v Bulldogs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 95.57621594777777,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 28 mins ago",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-08T04:38:02+00:00",
+            "snippet": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shock",
+            "body_excerpt": "NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again\nPanthers skipper Isaah Yeo left the field in the first half at Go Media Stadium on Friday night with a suspected pectoral injury.\nYeo went in to make a tackle and immediately reached for his shoulder and had a shocked look on his face as he reeled away.\nThe NSW and Australian captain left the field in the 34th minute and cut a forlorn figure on the Panthers bench in the second term. He will be sent for scans to confirm the severity of the injury.\nBefore the game, Panthers centre Casey McLean had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean saw three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors.\nIn Friday's second game, Roosters fullback James Tedesco missed the Round 23 blockbuster against the Bulldogs after failing to overcome an ankle injury.\nTedesco sat out the second half of the Round 22 slaughter of the Cowboys with ice on his ankle but he was initially named to return against the Bulldogs.\nThe skipper dropped out of the side on Thursday and has been replaced by Cody Ramsey.\nHowever, it was another blow for Bulldogs star back-rower Sitili Tupouniua who was back from a hamstring injury, but was ruled out in his return game - again with a hamstring injury.\n\"Not sure how bad it is, but he's felt it in the same spot where he injured about eight weeks ago, so not ideal,\" Bulldogs coach Cameron Ciraldo said after the game.\n\"He's pretty devastated because he was training really well and he was just excited to get back playing, this is what he does, this is what he loves doing, so he's pretty shattered.\"\nThe Knights suffered a blow ahead of Sunday's trip to Canberra with star centre Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane.\nManly prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will be stood down for 11 days meaning he will miss this week's clash against the Storm and next Friday's game against the Dolphins.\nThe Sea Eagles have also lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nHuge ins at South Sydney as well where skipper Cameron Murray (calf) plays his first game since Round 20 while Tallis Duncan (hamstring) and David Fifita (suspension) are also back to face the Eels.\nWinger Campbell Graham will miss the game however with a calf injury that could sideline him for 3-4 weeks.\nThe Storm receive a boost with five-eighth Cameron Munster returning after four games out following surgery for knee cartilage damage but centre Jack Howarth has had his comeback from a shoulder injury put on hold.\nThe Broncos will be without skipper Adam Reynolds for their clash with the Dolphins after he suffered a Category 1 head knock last week.\nForward Xavier Willison left the field early at Suncorp Stadium with a nasty gash to his leg but he has been named to face the Dolphins while back-rower Jack Gosiewski (ribs) is on track to return.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nAt the Cowboys, star back-rower Jeremiah Nanai is facing 2-3 weeks out with a hamstring injury which he suffered during the record loss to the Roosters.\nCowboys coach Todd Payten praised Nanai's courage to stay on the field through until full-time despite carrying the injury.\nHooker Reed Mahoney suffered ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.4773270588888889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ec3dcbcea1d8b99a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Live Blog",
+            "title": "Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels",
+            "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/",
+            "published_at": "2026-08-08T04:01:29+00:00",
+            "snippet": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027",
+            "body_excerpt": "Presented By\nSuper Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels\nAfter a hugely successful double-header at Optus Stadium in Round 6 we head back to Perth for a clash between old foes Melbourne and Manly at HBF Park.\nThe home ground of the Perth Bears in 2027, HBF Park plays host this weekend to two proud clubs with a history of epic clashes, including back-to-back grand finals in 2007-08.\nFrom Perth we head across to Brisbane for a Queensland derby between the finals-bound Dolphins and the under-siege Broncos, who have won just six games all season in a disastrous premiership defence.\nWe bring it home with the Rabbitohs looking to shore up their top-eight position with a win over a dangerous Eels outfit.\nThe Bunnies got the money 32-12 when the two sides clashed in Round 17 and a repeat performance is imperative with games against the Bulldogs, Warriors and Roosters still to come.\nFollow all the action from Round 23 of the NRL Telstra Premiership on NRL.com's live blog.\nStorm v Sea Eagles at HBF Park, Perth\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nStorm v Sea Eagles: Round 23\nLate Mail\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchange. Hooker Brandon Wakeham (calf) and back-rower Corey Waddell (ankle) are good to go.\nNumbers Game\nThe Storm have won four of their six games played in Perth.\nThe Sea Eagles have won five of their last seven games against the Storm.\nStorm winger Moses Leo has scored eight tries in his last eight games.\nSea Eagles winger Jason Saab has scored eight tries in eight games against the Storm.\nThe Storm have conceded more points after 22 rounds than any previous season under Craig Bellamy.\nDolphins v Broncos at Suncorp Stadium\nMatch: Dolphins v Broncos\nDolphins\n5th Position\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nDolphins v Broncos: Round 23\nRabbitohs v Eels at Allianz Stadium\nMatch: Rabbitohs v Eels\nRabbitohs\n8th Position\nEels\n13th Position\nVenue: Allianz Stadium, Sydney\nNine Network\nNine Now\nRabbitohs v Eels: Round 23\nRelated /\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nIndigenous Round\nMoran comes full circle as Indigenous officers unite for historic match\nMatch Preview\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nLive Blog\nAs it happened: Eels outlast Wests Tigers; Sharks down Bunnies",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.0864937255555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0fb6f4f1604ae042",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Live Blog",
+            "title": "Match Preview Dolphins v Broncos: Katoa ready to shine; Duffy steps up",
+            "url": "https://www.nrl.com/news/2026/08/04/dolphins-v-broncos-katoa-ready-to-shine-duffy-steps-up/",
+            "published_at": "2026-08-07T07:36:03+00:00",
+            "snippet": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week t",
+            "body_excerpt": "Presented By\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nThe Dolphins will continue their chase for a top-four finish when they take on the Broncos in the latest edition of the Battle for Brisbane.\nIsaiya Katoa made a successful return from a wrist injury last week to steer the Dolphins past the Dragons and they are out to keep the momentum rolling against the Broncos on Saturday night.\nThe Dolphins have beaten Brisbane just once since their introduction to the competition in 2023 but they are after more than just bragging rights at Suncorp Stadium this weekend.\nKristian Woolf's men sit fifth and are chasing a top-four finish as they seek a maiden finals berth.\nBrisbane's chances of qualifying for the finals were extinguished with a 24-point loss to the Knights last weekend but they still have plenty to play for.\nThe Broncos claimed a 26-12 victory when the two sides faced off earlier this season and Michael Maguire's men would like nothing more than toppling their local rivals.\nA host of stars are also pushing for a World Cup berth later this season, with Reece Walsh and Pat Carrigan among the Kangaroos contenders.\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\n5th Position\naway Team\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nDolphins : One change to the bench in the 24-hour update with Brian Pouniu elevated with Sebastian Su'a dropping out. Earlier, Su'a had joined the bench in place of Ray Stone. Centre Jake Averillo is again listed among the reserves as he chases his first appearance since Round 19 having recovered from a rib injury.\nBroncos : No changes in the 24-hour update. Thomas Duffy makes his eighth NRL appearance of the season as he takes over at halfback from Adam Reynolds (concussion). Xavier Willison has been named to play despite suffering a laceration to his leg in last week's loss to the Knights. He will line up at prop, with Va'a Semu dropping to the bench. Jaiyden Hunt and Billy Walters have been promoted to the starting side while Jack Gosiewski returns from a rib injury on the bench.\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Broncos is number 1 Reece Walsh\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Broncos is number 7 Thomas Duffy\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Broncos is number 9 Billy Walters\nProp for Dolphins is number 10 Francis Molo 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Dolphins is number 11 Connelly Lemuelu 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Broncos is number 14 Ben Hunt\n14\nInterchange for Dolphins is number 15 Max Plath 15 Interchange for Broncos is number 15 Va'a Semu\n15\nInterchange for Dolphins is number 16 Tom Gilbert 16 Interchange for Broncos is number 16 Ben Talty\n16\nInterchange for Dolphins is number 17 Felise Kaufusi 17 Interchange for Broncos is number 17 Gehamat Shibasaki\n17\nInterchange for Dolphins is number 19 Bradley Schneider 19 18 Interchange for Broncos is number 18 Jack Gosiewski\n19 18\nInterchange for",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.510382614444445,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8dd119b7ec3e069b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: Round 23 – Dolphins v Broncos - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/08/07/match-preview-round-23--dolphins-v-broncos/",
+            "published_at": "2026-08-07T05:57:29+00:00",
+            "snippet": "Match Preview: Round 23 – Dolphins v Broncos &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nMatch Preview: Round 23 – Dolphins v Broncos\nA Battle For Brisbane victory could be all the Dolphins need to secure their maiden finals berth.\nAnd that’s what’s on the line when the Dolphins step out onto Suncorp Stadium on Saturday evening for another blockbuster clash with the Broncos.\nA 13th win of the season will secure the Dolphins their first-ever finals appearance, adding even more significance to one of the biggest games on the calendar.\nThe last time the two sides met was earlier this season in Round 4, when the Broncos claimed a 26-12 victory. The Dolphins will be looking to turn the tables this time around as they chase a piece of club history.\nComing off a win over the Dragons in Wollongong last week, the Dolphins will look to carry that momentum into Saturday’s sold-out Battle for Brisbane.\nThere are also milestones on the line, with Jack Bostock set to make his 50th NRL and Dolphins appearance.\nJamayne Isaako is also closing in on a major club milestone, sitting on 975 points for the Dolphins and needing just 25 more to become the first player to reach 1,000 points for the club.\nThe winger has enjoyed a strong run at Suncorp Stadium, scoring nine tries in his past seven appearances at the venue.\nTeam News\nDolphins\nJust one change has been made to the side that defeated the Dragons, with Sebastian Su’a joining the interchange in place of Ray Stone.\nKristian Woolf has otherwise retained the same starting 13 as the Dolphins look to secure their 13th victory of the season.\nBroncos\nThomas Duffy moves into halfback in place of Adam Reynolds, who has been ruled out with concussion.\nXavier Willison will start at prop, with Va’a Semu moving to the bench, while Jaiyden Hunt and Billy Walters have been promoted to the starting side.\nJack Gosiewski also returns from a rib injury and has been named on the interchange.\nMatch-Up\nJack Bostock v Kotoni Staggs\nThe battle of the centres shapes as one to watch in Saturday’s Battle For Brisbane, with two New South Wales representatives lining up on opposite edges.\nBostock will make his 50th NRL and Dolphins appearance, and his 10th game of the season. Across his nine appearances this year, he has scored four tries, registered eight try assists, 22 tackle breaks and three line breaks.\nOn the opposite edge, Staggs will line up for his 162nd NRL game and 17th appearance of the season. The Broncos centre has crossed for eight tries this year, alongside two try assists, 61 tackle breaks and six line breaks.\nBoth centres bring plenty of power and attacking threat out wide, with their ability to break tackles and create opportunities for those around them making them key weapons for their respective sides.\nWith plenty on the line in Battle For Brisbane, whichever centre can make the bigger impact on their edge could prove crucial in deciding Saturday night’s contest.\nRelated /\nIsland time has Tabuai-Fidow primed for Dolphins top-four push\nIndigenous Round\n'These are the games that I love': Cobbo ready to represent\nTeam Lists\nDolphins Team List: Round 23 v Broncos\nPress Conference\nDolphins: Round 22\nMatch Preview\nMatch Preview: Round 22 – Dolphins v Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.153160392222222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "0b042c31b147ca14",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins vs Broncos Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/dolphins-vs-broncos-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-07T05:28:04+00:00",
+            "snippet": "Dolphins vs Broncos Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Dolphins vs Broncos Preview & Betting Tips: NRL Round 23 2026\nAugust 7 th 2026, 3:10pm , By: Ben Bridge\nSaturday evening at Suncorp Stadium brings another chapter of Brisbane’s newest rivalry, but the two clubs enter from completely different positions. The Dolphins remain firmly in the finals race and still have an opportunity to push toward the top four, while the Broncos ’ premiership defence is over after a disastrous 2026 campaign.\nBrisbane’s 30-6 loss to Newcastle was the latest performance to confirm their season is done. The Broncos sit near the bottom of the ladder and now face a Dolphins side that should be desperate to make a statement against “big brother” at Suncorp Stadium.\nThe market has the favourites around -7.5, and I believe that remains short. The Dolphins have the superior backline, the healthier attacking spine, and considerably more motivation. Isaiya Katoa is ready to return in the halves after getting through last week, while Brisbane are without Adam Reynolds due to concussion and have named Thomas Duffy at halfback.\nThe Broncos have dominated the rivalry historically and beat the Dolphins 26-12 earlier this season. However, those results are already reflected in the public perception of the teams. On current form and current team strength, the Dolphins should be significantly bigger favourites.\nIt's time to Get Real with your betting - try BetReal today!\nDolphins vs Broncos Prediction & Tips: 2026 NRL Round 23\nDolphins Need to Make Top Four Statement\nThe Dolphins have endured a volatile second half of the season, ranging from a 66-0 humiliation against Cronulla to important response victories that kept their finals position intact. They now reach a stage where simply making the finals should no longer be considered enough. Their roster has the talent to challenge for a top 4 position, and beating Brisbane comfortably would reinforce that ambition.\nKatoa’s return last week remains the most important team news. The young halfback provides organisation, kicking control and attacking shape that the Dolphins have lacked during his absence. Kodi Nikorima and Bradley Schneider have competed admirably, but neither gives the Dolphins the same balance.\nWith Katoa steering the team, the Dolphins can better use their extraordinary backline. Hamiso Tabuai-Fidow returns at fullback behind Jamayne Isaako, Jack Bostock, Herbie Farnworth, and Selwyn Cobbo. That group possesses enormous speed, power and yardage potential, and each player presents a direct threat to Brisbane’s defensive edges.\nThe forwards should also create an advantage. Thomas Flegler and Francis Molo start in the front row, with Max Plath, Tom Gilbert and Felise Kaufusi providing impact from the interchange. Jeremy Marshall-King gives the home side another point of attack around the ruck.\nThe Dolphins’ greatest concern has been consistency. At their best, they can dismantle quality opposition. At their worst, their defensive concentration disappears, and the attack becomes too dependent on individual moments.\nThis week should provide no motivational excuse. Brisbane remains the established club in the city, and the Dolphins have another opportunity to shift the local balance. A convincing win would also keep pressure on the teams above them in the top 4 race.\nBroncos Season Officially Over\nBrisbane’s 30-6 loss to Newcastle dealt the final meaningful blow to their finals hopes. The Broncos were outplayed across the field, conceding five tries and producing only a single score despite fielding a close to full strength team.\nFletcher Sharpe and Greg Marzhew both scored doubles for Newcastle, while Kalyn Ponga repeatedly created uncertainty through the middle. Brisbane’s attack again lacked control, and Reece Walsh’s frustration boiled over when he was sin binned following an altercation involving Dominic Young.\nWalsh remains one of the most dangerous players in the game, but his season has reflected Brisbane’s broader problems: flashes of brilliance un",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.64343817,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "254328ca1c114530",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Live Blog",
+            "title": "Broncos Broncos aiming to create major disruptions in Dolphins derby",
+            "url": "https://www.nrl.com/news/2026/08/06/broncos-aiming-to-create-major-disruptions-in-dolphins-derby/",
+            "published_at": "2026-08-05T21:01:21+00:00",
+            "snippet": "Broncos aiming to create major disruptions in Dolphins derby\nWhile the reality of no finals this year has sunk in, the Broncos are still hoping to play their part in shaping the finals race – starting with bringing down Brisbane rivals the Dolphins.\nKicking off week one of Indige",
+            "body_excerpt": "Broncos aiming to create major disruptions in Dolphins derby\nWhile the reality of no finals this year has sunk in, the Broncos are still hoping to play their part in shaping the finals race – starting with bringing down Brisbane rivals the Dolphins.\nKicking off week one of Indigenous Round with a bang, a sold-out crowd is expected at Suncorp Stadium for the latest instalment of the Battle for Brisbane, with Billy Walters saying his side still had plenty to play for to close out the season.\nBilly Walters in action during his second NRL game back from an ACL injury against the Knights in Round 22. ©Zain Mohammed / NRL Images\n“That's our goal for the rest of the year: to disturb a few of the teams still in the competition,” Walters said.\n“The Dolphins are one; they're a team that's playing pretty well, and if we can put a dent in their road to trying to win the comp, then that's a win for us as well.”\nWith five games remaining in the season, coach Michael Maguire has shaken up his team for this week’s derby, while a head knock to skipper Adam Reynolds has forced his hand in the halves, bringing in Thomas Duffy to partner Ezra Mam.\nIn what could be a precursor to next season with Reynolds retiring from the NRL, Mam said he was looking forward to working on their combination on the field.\nEzra Mam and Tom Duffy first paired up in the halves in Duffy's Broncos debut in Round 6. ©Zain Mohammed / NRL Images\n“Duffy's got a lot of great qualities that help my game as well” Mam said.\n“We're pretty similar in age, so our chemistry and the way we move on the field is pretty intact.\n“Having that free-flowing spine with my connection with Duffy and Walshy (fullback Reece Walsh) is going to be very exciting to go out there this weekend and put on the plays we've been doing for the last couple of weeks.\n“We've played together a couple of times this year and we've had little moments where we've clicked.\n“I feel like the more we can build on our combination throughout the back end of this year and hopefully into the pre-season and next year.\n“With Duffy, he's got a really big organising game and I feel like he can organise the team as well and allow myself and Walshy to unlock our strike weapons.\"\nRelated Match Preview\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nFor Mam, this round also holds an extra special meaning – on top of being able to play against a number of his former team-mates in the cross-town derby.\nSharing both Aboriginal and Torres Strait Island heritage, Mam said the two weeks of Indigenous Round were special and helped him showcase his culture.\n“Indigenous Round is a big round for myself, I get to represent both sides of my heritage,” Mam said.\n“For myself and the multiple players playing this round, they're very proud of who they are, where they are and where they're from.\n“It's good that we can showcase that and provide a bit of education to the wider community about our culture.\"\nDolphins v Broncos: Round 23\nThe grandson of prominent Indigenous activists and grounded in his youth with culture, Mam continues to perform Torres Strait Island dances and strove to apply his cultural practices to his work on the football field.\n\"Last week I danced, so I still do it to this day,” Mam said.\n“It's inside me and that's something I've been brought up with, thanks to my upbringing. It's something I've carried along the way.\n“I feel like I show those traits on the footy field and around the club as well.\n“I'm very grateful for my upbringing and my cultural side of things. It's good that I'm still connected with my culture.\n“(But) I'm not where I want to be with my culture yet.\n“I've still got a lot to learn and humble myself about, and that's always something I want to improve going forward.\"\nMatch: Dolphins v Broncos\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nDolphins\n5th Position\naway Team\nBroncos\n15th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nFoxtel\nKayo\nRelated /\nIndigenous Round\nIsland time has T",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 56.08871594777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7ba01b6cb23fa3c3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins v Broncos: Round 23 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/05/dolphins-v-broncos-round-23/",
+            "published_at": "2026-08-05T04:04:43+00:00",
+            "snippet": "Dolphins v Broncos: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Roun",
+            "body_excerpt": "Dolphins v Broncos: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Round 23\nRelated /\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nIndigenous Round\nIsland time has Tabuai-Fidow primed for Dolphins top-four push\nBroncos\nBroncos aiming to create major disruptions in Dolphins derby\n'These are the games that I love': Cobbo ready to represent\nFantasy\nFirst take: Dolphins v Broncos\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.03260483666666,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0b0ac0a302e53560",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins vs Broncos - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/dolphins-broncos-round-23-2026-mc10396510-236516/",
+            "published_at": "2026-08-02T19:43:04+00:00",
+            "snippet": "Dolphins vs Broncos - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 DOLPHINS V BRONCOS KICK OFF Suncorp Stadium #NRLDolphinsBroncos 2026-08-08T07:30:00Z Preview\nDOLPHINS\nBRONCOS\nPreview\nDolphins vs Broncos – Round 23, 2026\nThe Dolphins face the Brisbane Broncos in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Suncorp Stadium. Ladder Position Injury Report Dolphins NAME REASON EXPECTED RETURN No current injuries or suspensions. Broncos NAME REASON EXPECTED RETURN Adam Reynolds Concussion Round 24 Brendan Piakura Concussion TBC Preston Riki Ankle TBC Previous 5 Games Dolphins DATE OPP RESULT 31/7/26 Dragons W 22 - 28 19/7/26 Cowboys W 36 - 16 11/7/26 Sharks L 0 - 66 5/7/26 Knights L 13 - 12 27/6/26 Warriors W 26 - 24 Broncos DATE OPP RESULT 1/8/26 Knights L 6 - 30 25/7/26 Cowboys L 18 - 10 16/7/26 Panthers W 12 - 14 4/7/26 Sharks L 16 - 28 26/6/26 Roosters L 18 - 24\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nNo current injuries or suspensions.\nAdam Reynolds\nConcussion\nRound 24\nBrendan Piakura\nTBC\nPreston Riki\nAnkle\nPrevious 5 Games\nDATE\nOPP\nRESULT\n31/7/26\nDragons\nW 22 - 28\n19/7/26\nCowboys\nW 36 - 16\n11/7/26\nSharks\nL 0 - 66\n5/7/26\nKnights\nL 13 - 12\n27/6/26\nWarriors\nW 26 - 24\n1/8/26\nL 6 - 30\n25/7/26\nL 18 - 10\n16/7/26\nPanthers\nW 12 - 14\n4/7/26\nL 16 - 28\n26/6/26\nRoosters\nL 18 - 24\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nH. Tabuai-Fidow Hamiso Tabuai-Fidow\nJamayne Isaako Jamayne Isaako\nJack Bostock Jack Bostock\nHerbie Farnworth Herbie Farnworth\nSelwyn Cobbo Selwyn Cobbo\nKodi Nikorima Kodi Nikorima\nIsaiya Katoa Isaiya Katoa\nTom Flegler Tom Flegler\nJ. Marshall-King Jeremy Marshall-King\n10\nFrancis Molo Francis Molo\n11\nConnelly Lemuelu Connelly Lemuelu\n12\nK. Finefeuiaki Kulikefu Finefeuiaki\n13\nMorgan Knowles Morgan Knowles\nINTERCHANGE\n14\nKurt Donoghoe Kurt Donoghoe\n15\nMax Plath Max Plath\n16\nTom Gilbert Tom Gilbert\n17\nFelise Kaufusi Felise Kaufusi\n19\nBrad Schneider Brad Schneider\n20\nBrian Pouniu Brian Pouniu\nRESERVES\n21\nTevita Naufahu Tevita Naufahu\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nReece Walsh Reece Walsh\nJosiah Karapani Josiah Karapani\nKotoni Staggs Kotoni Staggs\nDeine Mariner Deine Mariner\nGrant Anderson Grant Anderson\nEzra Mam Ezra Mam\nTom Duffy Tom Duffy\nXavier Willison Xavier Willison\nBilly Walters Billy Walters\nPayne Haas Payne Haas\nJaiyden Hunt Jaiyden Hunt\nJordan Riki Jordan Riki\nPatrick Carrigan Patrick Carrigan\nBen Hunt Ben Hunt\nVa'a Semu Va'a Semu\nBen Talty Ben Talty\nGehamat Shibasaki Gehamat Shibasaki\nJack Gosiewski Jack Gosiewski\n18\nHayze Perham Hayze Perham\nBlake Mozer Blake Mozer",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 129.39343817,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "721bf51905257a33",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Raiders v Knights: Sasagi returns; Frizell the milestone man",
+            "url": "https://www.nrl.com/news/2026/08/04/raiders-v-knights-sasagi-returns-frizell-the-milestone-man/",
+            "published_at": "2026-08-08T04:06:56+00:00",
+            "snippet": "Presented By\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nThe Raiders will be looking to get back on track this week against the Knights after their recent run of good form was halted by Penrith.\nCanberra were aiming for five wins in a row - but against this year'",
+            "body_excerpt": "Presented By\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nThe Raiders will be looking to get back on track this week against the Knights after their recent run of good form was halted by Penrith.\nCanberra were aiming for five wins in a row - but against this year's ladder leaders, they hit a snag and were unable to match them in their match at Mudgee.\nThey face a tough challenge this week however against a Knights side who are still full of belief, despite losing key players Dylan Brown and Dylan Lucas for the season.\nUnder coach Justin Holbrook this year, Newcastle's team have been rewarded for their spirit and will be looking to press their case for a top four finish with a win.\nLast week they proved too strong for the Broncos and ended last year's defending premiers title defence.\nIn the absence of some of their stars, they have seen some new talents emerge, including forwards Cody Hopwood and Francis Manuleleua.\nMatch: Raiders v Knights\nRound 23 - Round 23 - Sunday 9 Aug\nhome Team\nRaiders\n11th Position\naway Team\nKnights\n6th Position\nVenue: GIO Stadium, Canberra\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nRaiders: Gun centre Simi Sasagi is back from a hamstring injury so Seb Kris makes way in the only change to Ricky Stuart's 19-man squad for the must-win clash against the Knights. Sasagi was a late withdrawal from last week's loss to the Panthers. Back-rower Matty Nicholson has now had two games back off the bench and is part of the interchange again with Stuart indicating he will play NSW Cup later on Sunday if he doesn't get on in NRL. The Raiders have won four of their last five games on their home patch at GIO Stadium. No changes in Saturday's 24-hour update.\nKnights: A blow for the Knights on Saturday with Bradman Best dropping out with a calf strain suffered in last week's win over Brisbane. Fletcher Hunt comes into the starting side at centre, with Toby Winter moving onto the six-man bench. After coming off the interchange in 17 of his 18 games this season, veteran Tyson Frizell has been named to start in his 300th NRL match. That pushes Cody Hopwood to the bench. Harrison Graham has been added to the bench after missing last week's game with hamstring tightness.\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Knights is number 2 Dominic Young\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Raiders is number 4 Matthew Timoko 4 18 Centre for Knights is number 18 Fletcher Hunt\n4 18\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Raiders is number 8 Corey Horsburgh 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Knights is number 10 Trey Mooney\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Raiders is number 12 Ata Mariota 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Raiders is number 13 Morgan Smithies 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Raiders is number 15 Joe Roddy 15 Interchange for Knights is number 15 Cody Hopwood\n15\nInterchange for Raiders is number 16 Josh Papalii 16 Interchange for Knights is number 16 Lachlan Crouch\n16\nInterchange for Raiders is number 17 Daine Laurie 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Raiders is number 18 Savelio Tamale 18 19 Interchange for Knig",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.9956603922222221,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-07T02:22:53+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nigh",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 23\nPeter Maniaty\nGetty Images\nRound 23 began with the Cowboys bouncing back from their Roosters nightmare to beat the Titans 30-8 on the Gold Coast.\nFriday saw the Warriors down the Panthers 28-12 in Auckland and the Roosters edge the Bulldogs 20-18 at Allianz in Sydney.\nThe Storm and Sea Eagles clash at HBF Stadium in Perth on Saturday afternoon in the city's final NRL match before the arrival of its own team next March, followed by the latest instalment of the 'Battle of Brisbane' at Suncorp.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nMelbourne Storm vs. Manly Sea Eagles\n(Saturday, August 8 at HBF Park , 3:00pm AEST)\nMelbourne team:\n1. Sua Fa’alogo 2. Suilagi Tuimalatu-Brown 18. Joe Chan 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Hayden Watson 8. Stefano Utoikamanu 9. Tyran Wishart 10. Josh King 11. Cooper Clark 12. Oryn Keeley 13. Trent Loiero\n14. Trent Toelau 15. Shawn Blore 16. Davvy Moale 17. Angus Hinchey 19. Jack Hetherington 22. Manaia Waitere\nStorm team news:\nJack Howarth (shoulder) is a late withdrawal. Jahrome Hughes (hamstring) remains out with Hayden Watson named at No.7 alongside Cameron Munster who is aiming for an early return from his knee injury. The Storm's Mr Fix-it Tyran Wishart shifts to No.9 with Harry Grant (hamstring) still a week or two away.\nManly team:\n1. Lehi Hopoate 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Blake Wilson 6. Joey Walsh 7. Jamal Fogarty 8. Taniela Paseka 9. Brandon Wakeham 10. Ethan Bullemore 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nathan Brown 16. Simione Laiafi 17. Fletcher Baker 18. Jackson Shereb 19. Josh Feledy\nSea Eagles team news:\nBrandon Wakeham (calf) is back at hooker while Corey Waddell (ankle) returns in the second row. Skipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) will both miss the trip to Perth while Clayton Faulalo (hamstring) also remains out. In major blow Kobe Hetherington will miss the rest of the season after the club confirmed he ruptured his bicep at training.\nDolphins vs. Brisbane Broncos\n(Saturday, August 8 at Suncorp Stadium , 5:30pm AEST)\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Kurt Donoghoe 15. Max Plath 16. Tom Gilbert 17. Felise Kaufusi 18. Sebastian Su'a 19. Brad Schneider\nDolphins team news:\nIn a massive pre-finals boost for the Phins captain Isaiya Katoa (wrist) made a successful injury return against the Dragons with Brad Schneider set to again assume a utility role off the bench. The Dolphins are pretty much full-strength which should have the Broncos on high alert.\nBrisbane team:\n1. Reece Walsh 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Tom Duffy 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Pat Carrigan (c)\n14. Ben Hunt 15. Va'a Semu 16. Ben Talty 17. Gehamat Shibasaki 18. Jack Gosiewski 19. Hayze Perham\nBroncos team news:\nAdam Reynolds is out yet again, this time after failing an HIA (Cat 1) against the Knights. Xavier Willison picked up a nasty gash to his leg in the same match but is named up front with Va'a Semu shifting back to the bench. Billy Walters will make his first start in almost a year at No.9 with Cory Paix dropped.\nSouth Sydney Rabbitohs vs. Parramatta Eels\n(Saturday, August 8 at Allianz Stadium , 7:35pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 14. Jye Gray 6. Cody Wa",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.72982705888889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "32a8d64bf7403aec",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Storm v Sea Eagles: Munster back on deck; Laiafi to start",
+            "url": "https://www.nrl.com/news/2026/08/04/storm-v-sea-eagles-munster-back-on-deck-wakeham-returns/",
+            "published_at": "2026-08-08T03:36:17+00:00",
+            "snippet": "Presented By\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nA new chapter is set to be written in one of the great rivalries of the modern era when Melbourne take on Manly on Saturday afternoon.\nThe teams will head across the Nullarbor to Perth's HBF Park for a crucial",
+            "body_excerpt": "Presented By\nStorm v Sea Eagles: Munster back on deck; Laiafi to start\nA new chapter is set to be written in one of the great rivalries of the modern era when Melbourne take on Manly on Saturday afternoon.\nThe teams will head across the Nullarbor to Perth's HBF Park for a crucial clash between two sides desperate to keep their finals hopes alive.\nManly are well-rested after last week's bye and eager to hit the ground running in their bid to climb back into the eight.\nThe Sea Eagles have lost four in a row but they have strike all across the park and can score points at will.\nDefence will be a key area of focus, with Manly struggling in that aspect of the game in recent times.\nMelbourne enter the clash battered and bruised after a tough few weeks that have seen Cam Munster, Harry Grant and Jahrome Hughes miss time with injuries.\nThe Storm currently sit 12th, six points outside the eight and they need to find form to keep a remarkable 15-year finals streak alive.\nMatch: Storm v Sea Eagles\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nStorm\n12th Position\naway Team\nSea Eagles\n10th Position\nVenue: HBF Park, Perth\nMatch broadcasters:\nKayo\nFoxtel\nTeam News\nStorm: Shawn Blore has been elevated to the starting side 90 minutes before kick-off with Cooper Clarke sliding to the bench. Jack Howarth's return from a shoulder injury has been delayed and he dropped out on Friday, replaced in the starting side by Joe Chan. After initial fears he could miss the rest of the season after surgery to repair knee cartilage damage, five-eighth Cameron Munster is back after four games on the sideline. Young gun Hayden Watson remains at halfback so the versatile Tyran Wishart moves to hooker and Trent Toelau slides to the bench.\nSea Eagles: Prop Ethan Bullemor suffered a head knock in training and will follow NRL concussion protocol. He will miss this week's game and also the Round 24 clash against the Dolphins. Simione Laiafi moves into the starting side with Jackson Shereb elevated to the extended interchange. Hooker Brandon Wakeham (calf) and back-rower Corey Waddell (ankle) are good to go but Ben Trbojevic (concussion) misses the trip west. A blow for Kobe Hetherington who suffered a ruptured bicep in training this week and is headed for surgery.\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Sea Eagles is number 1 Lehi Hopoate\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Storm is number 4 Nick Meaney 4 3 Centre for Sea Eagles is number 3 Tolutau Koula\n4 3\nCentre for Storm is number 18 Joe Chan 18 4 Centre for Sea Eagles is number 4 Reuben Garrick\n18 4\nWinger for Storm is number 5 Moses Leo 5 Winger for Sea Eagles is number 5 Blake Wilson\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Sea Eagles is number 6 Joey Walsh\nHalfback for Storm is number 7 Hayden Watson 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Sea Eagles is number 8 Taniela Paseka\nHooker for Storm is number 9 Tyran Wishart 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Storm is number 10 Josh King 10 16 Prop for Sea Eagles is number 16 Simione Laiafi\n10 16\n2nd Row for Storm is number 12 Oryn Keeley 12 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n12 11\n2nd Row for Storm is number 15 Shawn Blore 15 12 2nd Row for Sea Eagles is number 12 Corey Waddell\n15 12\nLock for Storm is number 13 Trent Loiero 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Storm is number 11 Cooper Clarke 11 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n11 14\nInterchange for Storm is number 14 Trent Toelau 14 15 Interchange for Sea Eagles is number 15 Nathan Brown\n14 15\nInterchange for Storm is number 16 Davvy Moale 16 17 Interchange for Sea Eagles is number 17 Fletcher Baker\n16 17\nInterchange for Storm is number 17 Angus Hinchey 17 18 Interchange for Sea Ea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.5064937255555555,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "fa6bff0821f31f55",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Bulldogs v Cowboys: Hopoate sidelined; Forwards shuffled",
+            "url": "https://www.nrl.com/news/2026/08/05/bulldogs-v-cowboys-no-changes-for-wiliame-forwards-shuffled/",
+            "published_at": "2026-08-08T01:20:08+00:00",
+            "snippet": "Presented By\nBulldogs v Cowboys: Hopoate sidelined; Forwards shuffled\nThe round opens at Belmore Sports Ground with two sides keen to build momentum.\nThe Bulldogs enter the weekend after a big loss to the unbeaten Broncos, while the Cowboys arrive with renewed confidence after a ",
+            "body_excerpt": "Presented By\nBulldogs v Cowboys: Hopoate sidelined; Forwards shuffled\nThe round opens at Belmore Sports Ground with two sides keen to build momentum.\nThe Bulldogs enter the weekend after a big loss to the unbeaten Broncos, while the Cowboys arrive with renewed confidence after a hard-fought 18-16 win over the Raiders in Magic Round.\nCanterbury have shown they are capable of competing physically, but consistency has been difficult to find. Their upset victory over the Sharks in Round 3 proved what they can achieve when they complete well and control possession.\nNorth Queensland's season has ebbed and flowed, but their win over Canberra may prove a turning point. They defended strongly under pressure and found a way to secure two valuable competition points away from home.\nThe key battle could be through the middle third. The Cowboys forwards laid a strong platform last week, while Canterbury will need to dominate possession if they are to prevent North Queensland building pressure through repeat sets.\nBelmore has always been a difficult venue for visiting teams, so watch this space.\nMatch: Bulldogs v Cowboys\nRound 6 - Round 6 - Saturday 8 Aug\nhome Team\nBulldogs\n7th Position\naway Team\nCowboys\n11th Position\nVenue: Belmore Sports Ground, Sydney\nTeam News\nBulldogs: No further changes on game day after Pani Hopoate (knee) dropped out on Friday, replaced in the front row by Giovanna Suani. The new face on the bench is Paea Uilou. Centre Monica Tagaoi has scored a try in four of her five games this season.\nCowboys: The Cowboys have made late changes to the bench with Hailee-Jay Ormond-Maunsell and Tiana Raftstrand-Smith coming in for Lily Dick and Lydia Turua-Quedley. Former rugby star Ashley Marsters is set to start in the front row for the first time as coach Ricky Henry rejigs his forward pack. Bree Chester shifts from lock to the second row, with Makenzie Weale moving from prop to lock. The Cowboys have won their last three games in Sydney.\nTeam Lists\nBacks\nFullback for Bulldogs is number 1 Andie Robinson 1 Fullback for Cowboys is number 1 Francesca Goldthorp\nWinger for Bulldogs is number 2 Simina Lokotui 2 Winger for Cowboys is number 2 Charlize Lloyd-Phillips\nCentre for Bulldogs is number 3 Daynah Nankivell 3 Centre for Cowboys is number 3 Abigail Roache\nCentre for Bulldogs is number 4 Monica Tagoai 4 Centre for Cowboys is number 4 Jasmine Peters\nWinger for Bulldogs is number 5 Elizabeth MacGregor 5 Winger for Cowboys is number 5 Margot Vella\nFive-Eighth for Bulldogs is number 6 Ashleigh Quinlan 6 Five-Eighth for Cowboys is number 6 Tallara Bamblett\nHalfback for Bulldogs is number 7 Tayla Preston 7 Halfback for Cowboys is number 7 Rosie Kelly\nForwards\nProp for Bulldogs is number 10 Alexis Tauaneai 10 8 Prop for Cowboys is number 8 Essay Banu\n10 8\nHooker for Bulldogs is number 9 Mary-Jane Taito 9 Hooker for Cowboys is number 9 Emma Manzelmann\nProp for Bulldogs is number 15 Giovanna Suani 15 10 Prop for Cowboys is number 10 Ashley Marsters\n15 10\n2nd Row for Bulldogs is number 11 Leilani Wilson 11 2nd Row for Cowboys is number 11 Tallisha Harden\n11\n2nd Row for Bulldogs is number 12 Tamika Jones 12 2nd Row for Cowboys is number 12 Bree Chester\n12\nLock for Bulldogs is number 13 Angelina Teakaraanga-Katoa 13 Lock for Cowboys is number 13 Makenzie Weale\n13\nInterchange\nInterchange for Bulldogs is number 14 Evelyn Roberts 14 Interchange for Cowboys is number 14 Alisha Foord\n14\nInterchange for Bulldogs is number 16 Hope Millard 16 15 Interchange for Cowboys is number 15 Tayla Curtis\n16 15\nInterchange for Bulldogs is number 17 Latisha Smythe 17 18 Interchange for Cowboys is number 18 Hailee-Jay Ormond-Maunsell\n17 18\nInterchange for Bulldogs is number 18 Paea Uilou 18 19 Interchange for Cowboys is number 19 Tiana Raftstrand-Smith\n18 19\nReserves\nReplacement for Bulldogs is number 22 Leteena Medland 22 16 Replacement for Cowboys is number 16 Lily Dick\n22 16\nMatch Officials\nSenior Review Official: Peter Gough\nLast updated: 8/8/2026 4:35:31 AM\n",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 3.775660392222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "0dbc07a78d490f0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66",
+            "published_at": "2026-08-07T13:42:11+00:00",
+            "snippet": "Wayne confirms crushing Souths blow after training mishap; sad Reynolds update &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Knights lose star back; Wayne confirms crushing Souths blow after training mishap — Late Mail\nThe Knights have lost a State of Origin representative ahead of Sunday’s crunch game agaisnt Canberra.\nWayne Bennett and South Sydney have suffered another blow with a key outside back going down.\nMichael Maguire has given a defiant answer after being asked whether the Brisbane Broncos would give up on their season with finals now out of reach, while also giving an update on Adam Reynolds.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nSATURDAY AUGUST 8\nMelbourne Storm vs. Manly Sea Eagles, 3pm @ HBF Park\nStorm team: 1. Sualauvi Faalogo 2. Siulagi Tuimalatu-Brown 4. Nick Meaney 5. Moses Leo 6. Cameron Munster 7. Hayden Watson 8. Stefano Utoikamanu 9. Tyran Wishart 10. Josh King 11. Cooper Clarke 12. Oryn Keeley 13. Trent Loiero 14. Trent Toelau 15. Shawn Blore 16. Davvy Moale 17. Angus Hinchey 18. Joe Chan 19. Jack Hetherington 22. Manaia Waitere 20. Gabriel Satrick\nPlayers cut: 3. Jack Howarth 21. Stanley Huen\nLate Mail: Joe Chan enters the starting team at centre to replace Jack Howarth (shoulder).\nSea Eagles team: 1. Lehi Hopoate 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Blake Wilson 6. Joey Walsh 7. Jamal Fogarty 8. Taniela Paseka 9. Brandon Wakeham 16. Simione Laiafi 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nathan Brown 17. Fletcher Baker 18. Jackson Shereb 19. Josh Feledy 20. Onitoni Large 21. Nicholas Lenaz\nPlayers cut: 10. Ethan Bullemor 22. Hugo Hart\nLate Mail: In a horror blow for the Sea Eagles, forward Kobe Hetherington (ruptured bicep) has been ruled out for the remainder of the season after suffering a training mishap on Monday. The middle forward will undergo surgery next week before commencing his rehabilitation process to get him ready for the 2027 season. Elsewhere, Ethan Bullemor is out after suffering a head knock at training and will also miss next Friday’s game given he has been stood down for 11 days. Simione Laiafi moves into the starting side.\nDolphins vs. Brisbane Broncos, 5.30pm @ Suncorp Stadium\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Max Plath 16. Tom Gilbert 17. Felise Kaufusi 19. Brad Schneider 20. Brian Pouniu 21. Tevita Naufahu\nPlayers cut: 18. Sebastian Su’a 22. Jake Averillo\nLate Mail: To come.\nBroncos team: 1. Reece Walsh 2. Josiah Karapani 3. Kotoni Staggs 4. Deine Mariner 5. Grant Anderson 6. Ezra Mam 7. Thomas Duffy 8. Xavier Willison 9. Billy Walters 10. Payne Haas 11. Jaiyden Hunt 12. Jordan Riki 13. Patrick Carrigan 14. Ben Hunt 15. Va’a Semu 16. Ben Talty 17. Gehamat Shibasaki 18. Jack Gosiewski 19. Hayze Perham 20. Blake Mozer\nPlayers cut: 21. Jesse Arthars 22. Aublix Tawha\nLate Mail: Broncos coach Michael Maguire has confirmed that Adam Reynolds (concussion) may be unavailable for more than just this week, meaning a good showing by rookie Thomas Duffy could see him remain in the No.7 jersey for a little longer. According to Code Sports, Reynolds is set to be ruled out of next Saturday’s clash with the Warriors. He is also set to be racing the clock to face the Raiders in Rouns 25. “That’s a week-to-week one. I’ve got to see how he is next week and it’s not just his concussion,” Maguire said. “He’s done everything possible to get what he can out of that body of his, so that’s a real credit when you think about what he’s done. I remember him being a young kid in Redfern, kicking a footy on the street down there and learning about his childhood coming through. You look at the greats of the club and Reyno will go down as one of those.” During the press-confere",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.408160392222223,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Broncos NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Dolphins vs Broncos NRL round 23 preview",
+          "Dolphins Broncos NRL odds OR price OR favourite",
+          "Dolphins Broncos NRL finals race ladder stakes form",
+          "Dolphins Broncos NRL",
+          "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Broncos NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dolphins Broncos NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Dolphins OR Broncos"
+        ],
+        "filter_summary": {
+          "dropped_stale": 63,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 8,
+          "dropped_irrelevant": 15,
+          "kept": 16,
+          "deferred_pending_body": 62,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 4,
+          "dropped_no_body": 5
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "369b7ebeebff",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-08T05:06:40.375341+00:00",
+      "finished_at": "2026-08-08T05:08:15.847258+00:00",
+      "duration_ms": 95471,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Broncos",
+        "venue": "Suncorp Stadium",
+        "kickoff": "2026-08-08T17:30:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7434,
+        "home_win_probability": 0.7434,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Elo rating advantage (+125 points) — contribution 0.224 (16% of total)",
+            "Ladder points differential per game (+12.9 points) — contribution 0.144 (10% of total)",
+            "Pythagorean form (last 10) (+54% expected-win gap) — contribution 0.133 (10% of total)",
+            "Bradley-Terry strength advantage (+0.26 log-strength) — contribution 0.127 (9% of total)",
+            "5-game form: all run metres (+169.00) — contribution 0.105 (8% of total)"
+          ],
+          "negative_drivers": [
+            "3-game form: points against (+14.67) — contribution 0.086 (6% of total)",
+            "5-game form: penalties conceded (-2.20) — contribution 0.041 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: points against (+5.80) — contribution 0.037 (3% of total)",
+            "Head-to-head record (last 5) (20% to the home side) — contribution 0.034 (2% of total)",
+            "Travel-distance advantage (-22 km for away) — contribution 0.023 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.0478,
+            "total_toward_away": 0.3522,
+            "net": 0.6956,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: penalties conceded (-2.20)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Dolphins",
+          "away_team": "Broncos",
+          "venue": "Suncorp Stadium",
+          "kickoff": "2026-08-08T17:30:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

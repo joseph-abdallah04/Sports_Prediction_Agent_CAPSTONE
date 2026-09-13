@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "run_id": "20260806T052234Z-77e7df21",
+  "run": {
+    "predicted_at_utc": "2026-08-06T05:33:25.178408+00:00",
+    "predicted_at_local": "2026-08-06T15:33:25.178408+10:00",
+    "started_at_utc": "2026-08-06T05:22:34.987125+00:00",
+    "wall_seconds": 650.2,
+    "hours_before_kickoff": 4.3,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 23,
+    "home_team": "Titans",
+    "away_team": "Cowboys",
+    "venue": "Cbus Super Stadium",
+    "kickoff": "2026-08-06T19:50:00+10:00",
+    "kickoff_local": "2026-08-06T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 23,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Titans",
+      "position": 14,
+      "played": 19,
+      "wins": 6,
+      "drawn": 0,
+      "lost": 13,
+      "competition_points": 18,
+      "points_for": 379,
+      "points_against": 501,
+      "points_difference": -122,
+      "points_difference_per_game": -6.42,
+      "recent_form_last_4": "2 - 2",
+      "streak": "1L",
+      "home_record": "3 - 5",
+      "away_record": "3 - 8"
+    },
+    "away": {
+      "team": "Cowboys",
+      "position": 9,
+      "played": 20,
+      "wins": 11,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 26,
+      "points_for": 454,
+      "points_against": 552,
+      "points_difference": -98,
+      "points_difference_per_game": -4.9,
+      "recent_form_last_4": "2 - 2",
+      "streak": "1L",
+      "home_record": "6 - 4",
+      "away_record": "5 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Cowboys",
+      "ladder_positions_gap": -5,
+      "points_difference_per_game_gap": -1.52,
+      "points_difference_favours": "Cowboys"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+  },
+  "prediction": {
+    "predicted_winner": "Cowboys",
+    "predicted_side": "away",
+    "confidence": 0.58,
+    "home_win_probability": 0.42
+  },
+  "math_model": {
+    "home_win_probability": 0.5063,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Ladder points differential per game (-1.5 points) — contribution 0.081 (7% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Pythagorean form (last 10) (+11% expected-win gap) — contribution 0.065 (6% of total)",
+        "5-game form: all run metres (+44.80) — contribution 0.025 (2% of total)",
+        "3-game form: missed tackles (-10.33) — contribution 0.022 (2% of total)",
+        "3-game form: line breaks (+2.67) — contribution 0.021 (2% of total)"
+      ],
+      "negative_drivers": [
+        "Elo rating advantage (-129 points) — contribution 0.270 (24% of total)",
+        "Bradley-Terry strength advantage (-0.92 log-strength) — contribution 0.183 (16% of total)",
+        "3-game form: errors (-1.67) — contribution 0.034 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: possession pct (+6.33) — contribution 0.030 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Away travel to venue (1,183 km) — contribution 0.030 (3% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "Ladder points differential per game (-1.5 points)",
+        "3-game form: errors (-1.67)",
+        "3-game form: possession pct (+6.33)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Titans vs Cowboys NRL round 23 preview",
+      "Titans Cowboys NRL odds OR price OR favourite",
+      "Titans Cowboys NRL ladder stakes OR finals race",
+      "Titans Cowboys NRL",
+      "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Titans Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 23 Titans OR Cowboys"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 23 - Origin guns return as finals loom",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-05T09:54:42+00:00",
+        "age_hours": 19.475104909444447,
+        "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/"
+      },
+      {
+        "title": "NRL Team Lists: Round 23",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-04T06:00:45+00:00",
+        "age_hours": 47.374271576111106,
+        "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/"
+      },
+      {
+        "title": "Updated Cowboys NRL team list: Round 23 v Titans - cowboys.com.au",
+        "source": "cowboys.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T09:50:00+00:00",
+        "age_hours": 19.55343824277778,
+        "url": "https://www.cowboys.com.au/news/2026/08/05/updated-cowboys-nrl-team-list-round-23-v-titans-at-cbus-stadium/"
+      },
+      {
+        "title": "Round 23 v Titans - cowboys.com.au",
+        "source": "cowboys.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:58:00+00:00",
+        "age_hours": 47.42010490944444,
+        "url": "https://www.cowboys.com.au/news/2026/08/04/cowboys-nrl-team-list-round-23-v-titan-derby-cbus-twenty-three/"
+      },
+      {
+        "title": "Match Preview Titans v Cowboys: Ilias takes charge; Nanai sidelined",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "NRL News",
+        "published_at": "2026-08-05T09:56:22+00:00",
+        "age_hours": 19.44732713166667,
+        "url": "https://www.nrl.com/news/2026/08/04/titans-v-cowboys-ilias-takes-charge-nanai-sidelined/"
+      },
+      {
+        "title": "Titans vs Cowboys Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T07:30:18+00:00",
+        "age_hours": 21.881771576111113,
+        "url": "https://www.beforeyoubet.com.au/titans-vs-cowboys-preview-betting-tips-nrl-round-23-2026"
+      },
+      {
+        "title": "NRL Casualty Ward: Surgery for McLean; Munster, Murray return",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-05T04:46:01+00:00",
+        "age_hours": 24.619827131666668,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Titans v Cowboys: Round 23 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:04:33+00:00",
+        "age_hours": 25.31093824277778,
+        "url": "https://www.nrl.com/news/2026/08/05/titans-v-cowboys-round-23/"
+      },
+      {
+        "title": "Round 23 team: Playmaker returns for Indigenous Round opener against Cowboys - titans.com.au",
+        "source": "titans.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:59:00+00:00",
+        "age_hours": 47.403438242777774,
+        "url": "https://www.titans.com.au/news/2026/08/04/round-23-team-playmaker-returns-for-indigenous-round-opener-against-cowboys/"
+      },
+      {
+        "title": "Titans vs Cowboys - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-02T21:16:51+00:00",
+        "age_hours": 80.10593824277777,
+        "url": "https://www.zerotackle.com/titans-cowboys-round-23-2026-mc10396506-236524/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report: Round 23 - weststigers.com.au",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-06T00:30:30+00:00",
+        "age_hours": 4.8784382427777775,
+        "url": "https://www.weststigers.com.au/news/2026/08/06/Wests-Tigers-NRL-Injury-Report-Round-23/"
+      },
+      {
+        "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 23 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T18:40:23+00:00",
+        "age_hours": 10.713716020555557,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242"
+      },
+      {
+        "title": "NRL Team List: Round 23 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:00:00+00:00",
+        "age_hours": 47.38677157611111,
+        "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-team-list-round-23/"
+      },
+      {
+        "title": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T05:58:48+00:00",
+        "age_hours": 47.406771576111105,
+        "url": "https://www.zerotackle.com/round-23-team-lists-2026-236562/"
+      },
+      {
+        "title": "Worrying Warriors sight as $900k exile waits; Payten’s nightmare as Origin star goes down — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-06T03:01:43+00:00",
+        "age_hours": 2.3581604649999997,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66"
+      },
+      {
+        "title": "Gold Coast Titans vs North Queensland Cowboys Prediction, Tips & Odds - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T05:08:08+00:00",
+        "age_hours": 24.251216020555557,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/05/gold-coast-titans-vs-north-queensland-cowboys-predictions/"
+      },
+      {
+        "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T23:57:46+00:00",
+        "age_hours": 29.423993798333335,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/"
+      },
+      {
+        "title": "Tips: Joey expects ‘dead cat bounce’ from under-siege Cowboys - Nine.com.au",
+        "source": "nine.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-06T02:57:39+00:00",
+        "age_hours": 2.425938242777778,
+        "url": "https://www.nine.com.au/sport/nrl/tips-round-23-2026-expert-predictions-andrew-johns-brad-fittler-20260730-p60k2a.html"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The judgement omits several top math signals favouring the Titans, specifically Ladder points differential per game, Pythagorean form, and 5-game run metres."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Nanai injury matched to 'Second-rower Jeremiah Nanai suffered a hamstring strain... set for 2-3 weeks on the sidelines' and Ilias return matched to 'Lachlan Ilias has been named to return in the No. 7 jersey'."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims correctly identify Nanai as sidelined and Ilias as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Cowboys from the favouring_Cowboys_away_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors identify cowboys.com.au and titans.com.au."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence 0.58 is within range and reflects the tension between structural ratings and specific player availability/model prediction."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on the highest-weight drivers (Elo 24%, BT 16%)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top Titans drivers 'Ladder points differential per game', 'Pythagorean form', and '5-game form: all run metres' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.58
+  },
+  "reasoning": {
+    "summary": "The Cowboys maintain a structural advantage via Elo and Bradley-Terry ratings, though the Titans show positive momentum through superior recent run metres (+44.80) and a strong Pythagorean form gap (+11%). While the model nets the ladder differential toward the home side despite the raw value favouring North Queensland, the overall attribution balance still leans away. The return of Lachlan Ilias for the Titans is offset by the Cowboys' general strength, though the loss of Jeremiah Nanai keeps this contest competitive.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The Cowboys hold a significant Elo rating advantage (24% contribution) and Bradley-Terry strength advantage (16% contribution)."
+      },
+      {
+        "source": "math",
+        "detail": "Titans show positive momentum with an 11% Pythagorean expected-win gap and +44.80 all run metres over the last five games."
+      },
+      {
+        "source": "research",
+        "detail": "The Cowboys are missing key second-rower Jeremiah Nanai due to a hamstring strain (cowboys.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Lachlan Ilias returns to the Titans' starting side at halfback for this fixture (titans.com.au)."
+      }
+    ],
+    "disagreements_with_math": "The model predicts a marginal home win (0.5063), but the attribution balance leans heavily toward the away side (-0.3002 net) and structural ratings strongly favor the Cowboys."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260806T052234Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Titans-v-Cowboys/20260806T052234Z/summary.md"
+  }
+}

@@ -1,0 +1,1251 @@
+{
+  "schema_version": 2,
+  "run_id": "20260806T005157Z-993eeb5e",
+  "at_a_glance": {
+    "fixture": "Titans v Cowboys",
+    "round": 23,
+    "kickoff": "2026-08-06T19:50:00+10:00",
+    "venue": "Cbus Super Stadium",
+    "predicted_winner": "Titans",
+    "confidence": 0.58,
+    "model_home_win_probability": 0.5063,
+    "model_prediction": "Home Win",
+    "research_items_kept": 19,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-06T00:51:57.643446+00:00",
+  "updated_at": "2026-08-06T01:03:32.448608+00:00",
+  "request": {
+    "home_team": "Titans",
+    "away_team": "Cowboys",
+    "season": 2026,
+    "round_number": 23,
+    "force_refresh": true,
+    "user_question": "Who wins Titans vs Cowboys?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Titans",
+    "away_team": "Cowboys",
+    "confidence": 0.58,
+    "summary": "The Titans gain a significant edge with the return of playmaker Lachlan Ilias and positive recent run-metre trends. While North Queensland holds an Elo advantage and better recent error discipline, they are hampered by the loss of Jeremiah Nanai. These personnel shifts outweigh the marginal math drivers, giving Gold Coast a modest home advantage.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (google_news_rss)."
+      },
+      {
+        "source": "math",
+        "detail": "The model identifies ladder points differential per game and superior 5-game run metres as drivers favouring the Titans."
+      },
+      {
+        "source": "math",
+        "detail": "Cowboys' recent form is bolstered by a lower error rate over the last three games, though this is offset by key injuries."
+      }
+    ],
+    "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have maintained a modest edge for the Titans due to the specific impact of Ilias returning and Nanai's absence."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 19,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 4
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 16
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 4
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Titans vs Cowboys NRL round 23 preview",
+      "Titans Cowboys NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that Jeremiah Nanai is sidelined for '2-3 weeks with a hamstring strain' is attributed to nrl_news, but this specific detail only appears in the google_news_rss article 'Round 23 v Titans - North Queensland Cowboys'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Ilias is returning and Nanai/Mahoney are missing, matching research excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Pythagorean form and run metres are correctly attributed to Titans; strength advantage is correctly attributed to Cowboys."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors identify titans.com.au and nrl_news."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.58) is within 0.50-0.85 and below 0.65 given the math model's near-neutrality and Cowboys' strength advantage."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "Top SHAP drivers (Pythagorean form, run metres) are used; no minor driver is treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top math drivers 'Ladder points differential per game' (Titans) and '3-game form: errors' (Cowboys) are not addressed."
+        }
+      ],
+      "issues": [
+        "The specific injury duration for Jeremiah Nanai is attributed to nrl_news but found in a google_news_rss article.",
+        "Math drivers 'Ladder points differential per game' and '3-game form: errors' were omitted from the evaluation."
+      ],
+      "instruction": "Please correct the source attribution for Jeremiah Nanai's injury and evaluate the impact of 'Ladder points differential per game' and '3-game form: errors' in your analysis."
+    },
+    "instruction": "Please correct the source attribution for Jeremiah Nanai's injury and evaluate the impact of 'Ladder points differential per game' and '3-game form: errors' in your analysis.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Titans",
+      "away_team": "Cowboys",
+      "confidence": 0.58,
+      "summary": "The Titans receive a significant boost with the return of playmaker Lachlan Ilias at halfback, while the Cowboys are missing key personnel including Jeremiah Nanai and Reed Mahoney. Although the math model notes a general strength advantage for North Queensland, the specific availability shifts and home-ground advantage give Gold Coast a modest edge.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (nrl_news)."
+        },
+        {
+          "source": "math",
+          "detail": "The model identifies positive Pythagorean form and superior 5-game run metres as drivers favouring the Titans."
+        }
+      ],
+      "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have increased confidence in a home win due to the specific impact of Ilias returning and Nanai being ruled out."
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Titans",
+      "away_team": "Cowboys",
+      "confidence": 0.58,
+      "summary": "The Titans gain a significant edge with the return of playmaker Lachlan Ilias and positive recent run-metre trends. While North Queensland holds an Elo advantage and better recent error discipline, they are hampered by the loss of Jeremiah Nanai. These personnel shifts outweigh the marginal math drivers, giving Gold Coast a modest home advantage.",
+      "key_factors": [
+        {
+          "source": "research",
+          "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (google_news_rss)."
+        },
+        {
+          "source": "math",
+          "detail": "The model identifies ladder points differential per game and superior 5-game run metres as drivers favouring the Titans."
+        },
+        {
+          "source": "math",
+          "detail": "Cowboys' recent form is bolstered by a lower error rate over the last three games, though this is offset by key injuries."
+        }
+      ],
+      "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have maintained a modest edge for the Titans due to the specific impact of Ilias returning and Nanai's absence."
+    },
+    "issues": [
+      "The specific injury duration for Jeremiah Nanai is attributed to nrl_news but found in a google_news_rss article.",
+      "Math drivers 'Ladder points differential per game' and '3-game form: errors' were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-06T00:52:33.043176+00:00",
+      "thinking": "*   User Question: Who wins Titans vs Cowboys?\n    *   Home Team: Titans\n    *   Away Team: Cowboys\n    *   Round Number: 23\n    *   Venue/Weather/Time provided (do not search for these).\n\n    *   Query 1: Home team availability (Titans)\n    *   Query 2: Away team availability (Cowboys)\n    *   Query 3: Fixture preview (Titans vs Cowboys Round 23)\n    *   Query 4: Specific angle (form, ladder, pressure, or key player).\n\n    *   Q1: `Titans NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q2: `Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23`\n    *   Q3: `Titans vs Cowboys NRL round 23 preview`\n    *   Q4 (Angle): Since it's Round 23, finals race/ladder stakes are usually the most relevant. Let's go with ladder stakes or form. `Cowboys Titans NRL finals race OR ladder stakes` or `Titans Cowboys recent form streak`. Let's use \"finals race\" as it's late in the season (Round 23).\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Correct order of importance? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Titans, Cowboys).\n    *   JSON format? Yes.",
+      "chars": 1153
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-06T00:56:44.025713+00:00",
+      "thinking": "*   Match: Titans (Home) vs. Cowboys (Away).\n    *   Venue: Cbus Super Stadium.\n    *   Round: 23.\n\n    *   Prediction: Home Win.\n    *   Probability: 0.5063.\n    *   SHAP Drivers (Titans): Ladder points differential per game, Pythagorean form, 5-game run metres, 3-game missed tackles, 3-game line breaks.\n    *   SHAP Drivers (Cowboys): Elo rating advantage, Bradley-Terry strength, 3-game errors, 3-game possession %, Away travel distance.\n\n    *   Titans: Lachlan Ilias returns at No. 7 (replacing Zane Harrison who is out for the season).\n    *   Cowboys: Griffin Neame returns from suspension. Jeremiah Nanai is sidelined with a hamstring strain (expected return Round 25 - \"set for 2-3 weeks on the sidelines\" per `nrl_news` article). Reed Mahoney misses one more game due to concussion (return Round 24).\n    *   Context: Both teams are outside the Top 8. Cowboys have a legitimate shot at September; Titans are clear of wooden spoon territory but can cause headaches for contenders.\n\n    *   The math model is almost exactly 50/50 (0.5063), leaning slightly to the Titans.\n    *   Titans get a significant boost with Lachlan Ilias returning as halfback (\"Ilias takes charge\" per `nrl_news`).\n    *   Cowboys are missing key player Jeremiah Nanai (hamstring) and Reed Mahoney (concussion).\n    *   The model's \"Elo rating advantage\" for the Cowboys is a strong prior, but current team news (Nanai out, Ilias back) shifts the edge toward the Titans.\n    *   Titans are at home (Cbus Super Stadium).\n\n    *   Strongest reason pick could lose: The Cowboys have a superior Elo and Bradley-Terry strength rating, suggesting they are fundamentally the stronger side despite recent losses or injuries.\n    *   Confidence Band: 0.55 - 0.65 (modest edge). The math is neutral, but Ilias returning vs Nanai missing provides a tangible edge to the Titans.\n\n    *   Winner: home (Titans)\n    *   Home Team: Titans\n    *   Away Team: Cowboys\n    *   Confidence: 0.58 (Modest edge due to key player availability shifts).\n    *   Summary: The Titans gain a significant advantage with the return of playmaker Lachlan Ilias at halfback. Conversely, the Cowboys are hampered by the absence of Jeremiah Nanai and Reed Mahoney. While the Cowboys hold a general strength advantage in the math model, these specific personnel changes favor Gold Coast at home.\n    *   Key Factors:\n        1.  Research: Return of Lachlan Ilias to the Titans' starting side (titans.com.au).\n        2.  Research: Absence of Jeremiah Nanai due to a hamstring strain (nrl_news).\n        3.  Math: Pythagorean form and run metres favoring the Titans.\n\n    *   No invented stats? Yes.\n    *   Math model as prior? Yes.\n    *   Key factor from research with quote/source? Yes (Ilias return, Nanai injury).\n    *   SHAP drivers cited correctly? Yes (Pythagorean form, run metres).\n    *   Availability checked for direction? Yes (Ilias available, Nanai missing).\n    *   No weather mentioned as decisive? Yes.\n    *   Confidence band correct? 0.58 is in the modest edge range.\n    *   Strongest reason to lose identified? Yes (Elo/Strength advantage of Cowboys).",
+      "chars": 3124
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-06T01:02:01.423144+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check eight specific criteria:\n1. `sourced_claims`: Are all player names/injuries/quotes in the judgement sourced from research?\n2. `availability_direction`: Do availability claims match the source (returning vs missing)?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right team?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research with an article ID?\n6. `confidence_justified`: Is confidence (0.58) justified and within 0.50-0.85, and $\\le$ 0.65 if there's a reason it could lose?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive over top ones?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed?\n\n- Home: Titans, Away: Cowboys.\n- Winner: home (Titans).\n- Confidence: 0.58.\n- Summary mentions: Lachlan Ilias returning, Jeremiah Nanai and Reed Mahoney missing. Math model notes strength advantage for North Queensland.\n- Key Factors:\n    1. Research: Lachlan Ilias return (titans.com.au).\n    2. Research: Jeremiah Nanai sidelined (nrl_news).\n    3. Math: Pythagorean form, 5-game run metres favouring Titans.\n\n- `sourced_claims`:\n    - \"Lachlan Ilias has been named to return in the No. 7 jersey\" -> Source: `titans.com.au` (\"Lachlan Ilias has been named to return in the No. 7 jersey\"). Match.\n    - \"Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain\" -> Source: `nrl_news` (actually it's from `google_news_rss` titled \"Round 23 v Titans - North Queensland Cowboys\", but the judgement says `nrl_news`. Let me check all bodies).\n        - Body of \"Round 23 v Titans - North Queensland Cowboys\" (`google_news_rss`): \"Second-rower Jeremiah Nanai suffered a hamstring strain in Round 22 and is set for 2-3 weeks on the sidelines.\" Match. (The judge attributed it to `nrl_news`, but it's in the research results).\n    - \"Reed Mahoney\" missing -> Source: `google_news_rss` (\"Soni Luke will again start at hooker, with Reed Mahoney to miss one more game\"). Match.\n\n- `availability_direction`:\n    - Ilias returning (Source says return) - Correct.\n    - Nanai sidelined (Source says sidelines) - Correct.\n    - Mahoney missing (Source says miss one more game) - Correct.\n\n- `shap_attribution`:\n    - \"Pythagorean form\" -> `favouring_Titans_home_win`. Match.\n    - \"5-game run metres\" -> `favouring_Titans_home_win`. Match.\n    - \"strength advantage for North Queensland\" (alluded to) -> `Elo rating advantage` and `Bradley-Terry strength advantage` are in `favouring_Cowboys_away_win`. Match.\n\n- `weather_not_headline`: Weather is not mentioned as a key factor. Pass.\n\n- `research_used`: Key factors 1 and 2 are from research and identify the source (`titans.com.au`, `nrl_news`). Pass.\n\n- `confidence_justified`:\n    - Confidence: 0.58.\n    - Range: 0.50-0.85 (Pass).\n    - $\\le$ 0.65 if reason to lose exists? Yes, the math model shows a strength advantage for Cowboys (Elo/BT), and it's nearly neutral (0.5063). Confidence is 0.58. Pass.\n\n- `driver_proportionality`: The judge uses top drivers (Pythagorean form, run metres) and research. No minor driver is treated as decisive. Pass.\n\n- `omitted_math_signals`:\n    - Top Titans drivers: \"Ladder points differential per game\", \"Pythagorean form\", \"5-game form: all run metres\".\n        - Pythagorean form (Named).\n        - 5-game run metres (Named).\n        - Ladder points differential per game (Omitted).\n    - Top Cowboys drivers: \"Elo rating advantage\", \"Bradley-Terry strength advantage\", \"3-game form: errors\".\n        - Elo/BT strength (Alluded to as \"general strength advantage\").\n        - 3-game form: errors (Omitted).\n\nWait, let's re-examine `omitted_math_signals`.\nTop Titans drivers:\n1. Ladder points differential per game (-1.5 points) -> Not mentioned.\n2. Pythagorean form (+11% expected-win gap) -> Mentioned.\n3. 5-game form: all run metres (+44.80) -> Mentioned.\n\nTop Cowboys drivers:\n1. Elo rating advantage (-129 points) -> Alluded to (\"general strength advantage\").\n2. Bradley-Terry strength advantage (-0.92 log-strength) -> Alluded to (\"general strength advantage\").\n3. 3-game form: errors (-1.67) -> Not mentioned.\n\nThe rule says \"Look at the top drivers in each favouring_* SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\nTitans Top 3: Ladder points differential, Pythagorean form, Run metres. One is missing.\nCowboys Top 3: Elo, BT strength, Errors. One is missing.\n\nSo `omitted_math_signals` fails.\n\nLet's double check the \"alluded to\" part for Cowboys. \"general strength advantage\" covers both Elo and Bradley-Terry. But it doesn't cover \"3-game form: errors\".\nFor Titans, \"Ladder points differential per game\" is not mentioned at all.\n\nWait, let me re-read the SHAP drivers list carefully.\n`favouring_Titans_home_win`: [\"Ladder points differential per game (-1.5 points)\", \"Pythagorean form (+11% expected-win gap)\", \"5-game form: all run metres (+44.80)\", ...]\n`favouring_Cowboys_away_win`: [\"Elo rating advantage (-129 points)\", \"Bradley-Terry strength advantage (-0.92 log-strength)\", \"3-game form: errors (-1.67)\", ...]\n\nMissing signals:\n- Ladder points differential per game (Titans)\n- 3-game form: errors (Cowboys)\n\nWait, the prompt says \"the first two or three listed on each side\". Usually, this means I should check if any of the top ones are missing. If I take the top 3, then yes, these are missing.\n\nLet's re-verify `sourced_claims` for Nanai.\nJudgement: \"Jeremiah Nanai is sidelined... (nrl_news)\".\nResearch body excerpt from `google_news_rss`: \"Second-rower Jeremiah Nanai suffered a hamstring strain in Round 22 and is set for 2-3 weeks on the sidelines.\"\nThe judge cited `nrl_news` but the text was in a `google_news_rss` item. However, there's also an article titled \"Match Preview Titans v Cowboys: Ilias takes charge; Nanai sidelined\" from `nrl_news`. The body excerpt for that one is truncated (\"...Nanai sidelined\\nBeaten by a combined score...\"). It doesn't explicitly say \"2-3 weeks with a hamstring strain\" in the *excerpt* provided, but it does say \"Nanai sidelined\" in the title.\nActually, looking at the `google_news_rss` item \"Round 23 v Titans - North Queensland Cowboys\", it has the full detail: \"Second-rower Jeremiah Nanai suffered a hamstring strain in Round 22 and is set for 2-3 weeks on the sidelines.\"\nThe judge attributed this to `nrl_news`. This is technically a sourcing error (wrong article/source), but the fact itself is in the research. I should flag it if the source cited doesn't contain the specific detail quoted. The `nrl_news` excerpt only says \"Nanai sidelined\". The \"2-3 weeks\" and \"hamstring strain\" are in the `google_news_rss` article.\n\nWait, let me check all `nrl_news` items again.\n1. \"NRL Late Mail: Round 23...\" - No Nanai detail.\n2. \"NRL Team Lists: Round 23\" - No Nanai detail.\n3. \"Match Preview Titans v Cowboys: Ilias takes charge; Nanai sidelined\" - Title says sidelined, body excerpt doesn't give the duration or specific injury (it cuts off).\n4. \"Titans v Cowboys: Round 23 - NRL.com\" - Just a link to the preview.\n\nSo the detail \"2-3 weeks with a hamstring strain\" is only in the `google_news_rss` article. The judge cited `nrl_news`. This is a hallucination of the source, though not the fact. I will flag it under `sourced_claims`.\n\nWait, let's check Reed Mahoney.\nSummary: \"Cowboys are missing key personnel including... Reed Mahoney\".\nSource: `google_news_rss` (\"Soni Luke will again start at hooker, with Reed Mahoney to miss one more game\"). Match. (Not explicitly listed in key factors, but mentioned in summary).\n\nLet's check Ilias.\nSummary/Key Factor: \"Lachlan Ilias has been named to return... (titans.com.au)\".\nSource: `google_news_rss` (\"Round 23 team: Playmaker returns... titans.com.au\"). Match.\n\nSo, issues found:\n1. `sourced_claims`: Nanai's specific injury detail (2-3 weeks/hamstring) is attributed to `nrl_news`, but it's actually in a `google_news_rss` article. The `nrl_news` excerpt only says \"Nanai sidelined\".\n2. `omitted_math_signals`: Top drivers \"Ladder points differential per game\" (Titans) and \"3-game form: errors\" (Cowboys) are not addressed.\n\nLet's double check the confidence justification.\nConfidence 0.58. Math is 0.5063. The judge increased it because of Ilias returning and Nanai missing. This is a reasonable qualitative adjustment for a near-coin-flip math result. It's $\\le$ 0.65, which is correct since the Cowboys have an Elo/BT strength advantage (a reason they could win). Pass.\n\nOne more check on `shap_attribution`.\n\"Pythagorean form\" -> Titans group. Correct.\n\"5-game run metres\" -> Titans group. Correct.\n\"strength advantage for North Queensland\" -> Cowboys group (Elo/BT). Correct.\n\nFinal review of the checks:\n1. `sourced_claims`: Fail. Nanai's detail \"2-3 weeks with a hamstring strain\" is attributed to `nrl_news`, but that specific text is in a `google_news_rss` article. The `nrl_news` excerpt only says \"Nanai sidelined\".\n2. `availability_direction`: Pass.\n3. `shap_attribution`: Pass.\n4. `weather_not_headline`: Pass.\n5. `research_used`: Pass.\n6. `confidence_justified`: Pass.\n7. `driver_proportionality`: Pass.\n8. `omitted_math_signals`: Fail. \"Ladder points differential per game\" and \"3-game form: errors\" are not addressed.\n\nWait, I should be careful about the Nanai source. The judge says \"(nrl_news)\". There is an article from `nrl_news` titled \"Match Preview Titans v Cowboys: Ilias takes charge; Nanai sidelined\". It's possible the judge considers this as the source for the fact that he is sidelined, and then combined it with the other article. But the specific detail \"2-3 weeks\" is definitely not in the `nrl_news` excerpt.\n\nActually, looking at the prompt: \"Every injury... claim in the judgement appears in a research body_excerpt/title or a scene field.\"\nThe claim \"Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain\" *does* appear in a research `body_excerpt` (the one from `google_news_rss`). The fact that the judge cited the wrong source name (`nrl_news`) might be an issue, but the claim itself is sourced. However, usually \"sourced_claims\" means the attribution must be correct. If I say \"X happened (Source A)\" and it's actually in Source B, that's a sourcing error.\n\nLet's re-read: \"Quote the text you matched it to, or state that you searched the bodies and found none.\"\nI will match the claim to the `google_news_rss` body but note the attribution mismatch if necessary. Actually, I'll just flag it as a fail because the judge explicitly attributed it to `nrl_news`.\n\nWait, let me check the \"3-game form: errors\" driver again.\nIs there any mention of errors? No.\nIs there any mention of ladder points differential? No.",
+      "chars": 10794
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-06T01:03:32.447430+00:00",
+      "thinking": "*   Winner: Titans (home)\n    *   Confidence: 0.58\n    *   Key Factors: Ilias return, Nanai injury, Math drivers (Pythagorean/Run metres).\n\n    *   Issue 1: Jeremiah Nanai's injury duration attributed to `nrl_news` but found in `google_news_rss`.\n        *   Check evidence: The article \"Round 23 v Titans - North Queensland Cowboys\" from `search_discovery` (channel `google_news_rss`) says \"Jeremiah Nanai suffered a hamstring strain in Round 22 and is set for 2-3 weeks on the sidelines.\" Correct.\n    *   Issue 2: Math drivers 'Ladder points differential per game' and '3-game form: errors' were omitted.\n        *   `favouring_Titans_home_win`: \"Ladder points differential per game (-1.5 points)\". (Wait, the sign is negative? Usually, SHAP values are additive to the probability. If it favors Titans but has a -1.5 value, I need to be careful. However, the group name `favouring_Titans_home_win` explicitly states these drivers support the home win).\n        *   `favouring_Cowboys_away_win`: \"3-game form: errors (-1.67)\". Again, in the Cowboys' favor.\n\n    *   *Ladder points differential per game*: This is listed as favouring the Titans. It suggests a historical or seasonal trend where Gold Coast has performed better relative to expectations/points than North Queensland recently (or vice versa depending on how \"differential\" is calculated), but it's explicitly grouped under home win drivers.\n    *   *3-game form: errors*: This favours the Cowboys. Fewer errors in recent games suggest better discipline and ball control for North Queensland.\n\n    *   The return of Lachlan Ilias (halfback) is a major qualitative boost for Titans.\n    *   The loss of Jeremiah Nanai (star backrower) is a significant blow to Cowboys' attack/defense.\n    *   The math model is almost 50/50 (0.5063).\n    *   Cowboys have an Elo and Bradley-Terry advantage, but the recent form drivers (run metres, line breaks) favour Titans.\n    *   Errors favor Cowboys, which offsets some of the Titans' momentum.\n\n    *   The return of Ilias is a strong signal.\n    *   Nanai's absence is a strong signal.\n    *   The math model is essentially a coin flip.\n    *   Confidence remains in the 0.55-0.65 range because while there are key personnel shifts, the overall strength (Elo) still leans toward Cowboys.\n\n    *   Correct Nanai source to `google_news_rss`.\n    *   Mention 'Ladder points differential per game' as a factor supporting Titans.\n    *   Mention '3-game form: errors' as a factor supporting Cowboys (which balances the confidence).",
+      "chars": 2530
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-06T00:52:33.046885+00:00",
+      "payload": {
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-06T00:56:44.026050+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.58,
+          "summary": "The Titans receive a significant boost with the return of playmaker Lachlan Ilias at halfback, while the Cowboys are missing key personnel including Jeremiah Nanai and Reed Mahoney. Although the math model notes a general strength advantage for North Queensland, the specific availability shifts and home-ground advantage give Gold Coast a modest edge.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (nrl_news)."
+            },
+            {
+              "source": "math",
+              "detail": "The model identifies positive Pythagorean form and superior 5-game run metres as drivers favouring the Titans."
+            }
+          ],
+          "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have increased confidence in a home win due to the specific impact of Ilias returning and Nanai being ruled out."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-06T01:02:01.423493+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that Jeremiah Nanai is sidelined for '2-3 weeks with a hamstring strain' is attributed to nrl_news, but this specific detail only appears in the google_news_rss article 'Round 23 v Titans - North Queensland Cowboys'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Ilias is returning and Nanai/Mahoney are missing, matching research excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Pythagorean form and run metres are correctly attributed to Titans; strength advantage is correctly attributed to Cowboys."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors identify titans.com.au and nrl_news."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.58) is within 0.50-0.85 and below 0.65 given the math model's near-neutrality and Cowboys' strength advantage."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "Top SHAP drivers (Pythagorean form, run metres) are used; no minor driver is treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top math drivers 'Ladder points differential per game' (Titans) and '3-game form: errors' (Cowboys) are not addressed."
+            }
+          ],
+          "issues": [
+            "The specific injury duration for Jeremiah Nanai is attributed to nrl_news but found in a google_news_rss article.",
+            "Math drivers 'Ladder points differential per game' and '3-game form: errors' were omitted from the evaluation."
+          ],
+          "instruction": "Please correct the source attribution for Jeremiah Nanai's injury and evaluate the impact of 'Ladder points differential per game' and '3-game form: errors' in your analysis."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-06T01:03:32.448477+00:00",
+      "payload": {
+        "issues": [
+          "The specific injury duration for Jeremiah Nanai is attributed to nrl_news but found in a google_news_rss article.",
+          "Math drivers 'Ladder points differential per game' and '3-game form: errors' were omitted from the evaluation."
+        ],
+        "instruction": "Please correct the source attribution for Jeremiah Nanai's injury and evaluate the impact of 'Ladder points differential per game' and '3-game form: errors' in your analysis.",
+        "before": {
+          "winner": "home",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.58,
+          "summary": "The Titans receive a significant boost with the return of playmaker Lachlan Ilias at halfback, while the Cowboys are missing key personnel including Jeremiah Nanai and Reed Mahoney. Although the math model notes a general strength advantage for North Queensland, the specific availability shifts and home-ground advantage give Gold Coast a modest edge.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (nrl_news)."
+            },
+            {
+              "source": "math",
+              "detail": "The model identifies positive Pythagorean form and superior 5-game run metres as drivers favouring the Titans."
+            }
+          ],
+          "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have increased confidence in a home win due to the specific impact of Ilias returning and Nanai being ruled out."
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.58,
+          "summary": "The Titans gain a significant edge with the return of playmaker Lachlan Ilias and positive recent run-metre trends. While North Queensland holds an Elo advantage and better recent error discipline, they are hampered by the loss of Jeremiah Nanai. These personnel shifts outweigh the marginal math drivers, giving Gold Coast a modest home advantage.",
+          "key_factors": [
+            {
+              "source": "research",
+              "detail": "Lachlan Ilias has been named to return in the No. 7 jersey (titans.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Jeremiah Nanai is sidelined for 2-3 weeks with a hamstring strain (google_news_rss)."
+            },
+            {
+              "source": "math",
+              "detail": "The model identifies ladder points differential per game and superior 5-game run metres as drivers favouring the Titans."
+            },
+            {
+              "source": "math",
+              "detail": "Cowboys' recent form is bolstered by a lower error rate over the last three games, though this is offset by key injuries."
+            }
+          ],
+          "disagreements_with_math": "The math model is nearly neutral (0.5063), but I have maintained a modest edge for the Titans due to the specific impact of Ilias returning and Nanai's absence."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "cc87c5011d6d",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-06T00:51:57.643599+00:00",
+      "finished_at": "2026-08-06T00:52:00.118902+00:00",
+      "duration_ms": 2475,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "season": 2026,
+        "round_number": 23,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "season": 2026,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-06T00:51:57.643682+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "venue": "Cbus Super Stadium",
+          "venue_city": "Gold Coast",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/titans-v-cowboys/",
+          "match_mode": "Pre",
+          "match_id": "20261112310",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Wyatt Raymond"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Keano Kini",
+                "position": "Fullback",
+                "player_id": 100009209
+              },
+              {
+                "number": 2,
+                "name": "Dean Ieremia",
+                "position": "Winger",
+                "player_id": 100001537
+              },
+              {
+                "number": 3,
+                "name": "Jojo Fifita",
+                "position": "Centre",
+                "player_id": 100008220
+              },
+              {
+                "number": 4,
+                "name": "AJ Brimson",
+                "position": "Centre",
+                "player_id": 506259
+              },
+              {
+                "number": 5,
+                "name": "Phillip Sami",
+                "position": "Winger",
+                "player_id": 505918
+              },
+              {
+                "number": 6,
+                "name": "Jayden Campbell",
+                "position": "Five-Eighth",
+                "player_id": 100001622
+              },
+              {
+                "number": 7,
+                "name": "Lachlan Ilias",
+                "position": "Halfback",
+                "player_id": 505564
+              },
+              {
+                "number": 8,
+                "name": "Moeaki Fotuaika",
+                "position": "Prop",
+                "player_id": 506278
+              },
+              {
+                "number": 9,
+                "name": "Oliver Pascoe",
+                "position": "Hooker",
+                "player_id": 100010604
+              },
+              {
+                "number": 10,
+                "name": "Tino Fa'asuamaleaui",
+                "position": "Prop",
+                "player_id": 506513
+              },
+              {
+                "number": 11,
+                "name": "Arama Hau",
+                "position": "2nd Row",
+                "player_id": 100009453
+              },
+              {
+                "number": 12,
+                "name": "Beau Fermor",
+                "position": "2nd Row",
+                "player_id": 506314
+              },
+              {
+                "number": 13,
+                "name": "Chris Randall",
+                "position": "Lock",
+                "player_id": 100001349
+              },
+              {
+                "number": 14,
+                "name": "Kurtis Morrin",
+                "position": "Interchange",
+                "player_id": 505648
+              },
+              {
+                "number": 15,
+                "name": "Josh Patston",
+                "position": "Interchange",
+                "player_id": 100010891
+              },
+              {
+                "number": 16,
+                "name": "Klese Haas",
+                "position": "Interchange",
+                "player_id": 100010109
+              },
+              {
+                "number": 17,
+                "name": "Cooper Bai",
+                "position": "Interchange",
+                "player_id": 100014512
+              },
+              {
+                "number": 18,
+                "name": "Sam Verrills",
+                "position": "Interchange",
+                "player_id": 504462
+              },
+              {
+                "number": 19,
+                "name": "Adam Christensen",
+                "position": "Interchange",
+                "player_id": 100007651
+              },
+              {
+                "number": 20,
+                "name": "Jaylan De Groot",
+                "position": "Reserve",
+                "player_id": 100006861
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Scott Drinkwater",
+                "position": "Fullback",
+                "player_id": 504087
+              },
+              {
+                "number": 2,
+                "name": "Braidon Burns",
+                "position": "Winger",
+                "player_id": 506040
+              },
+              {
+                "number": 3,
+                "name": "Zac Laybutt",
+                "position": "Centre",
+                "player_id": 510612
+              },
+              {
+                "number": 4,
+                "name": "Tom Chester",
+                "position": "Centre",
+                "player_id": 100004781
+              },
+              {
+                "number": 5,
+                "name": "Murray Taulagi",
+                "position": "Winger",
+                "player_id": 508443
+              },
+              {
+                "number": 6,
+                "name": "Jake Clifford",
+                "position": "Five-Eighth",
+                "player_id": 505894
+              },
+              {
+                "number": 7,
+                "name": "Jaxon Purdue",
+                "position": "Halfback",
+                "player_id": 100008940
+              },
+              {
+                "number": 8,
+                "name": "Griffin Neame",
+                "position": "Prop",
+                "player_id": 100004869
+              },
+              {
+                "number": 9,
+                "name": "Soni Luke",
+                "position": "Hooker",
+                "player_id": 502756
+              },
+              {
+                "number": 10,
+                "name": "Jason Taumalolo",
+                "position": "Prop",
+                "player_id": 500301
+              },
+              {
+                "number": 11,
+                "name": "Heilum Luki",
+                "position": "2nd Row",
+                "player_id": 100001946
+              },
+              {
+                "number": 12,
+                "name": "Kai O'Donnell",
+                "position": "2nd Row",
+                "player_id": 506555
+              },
+              {
+                "number": 13,
+                "name": "Reuben Cotter",
+                "position": "Lock",
+                "player_id": 504374
+              },
+              {
+                "number": 14,
+                "name": "Ethan King",
+                "position": "Interchange",
+                "player_id": 100010520
+              },
+              {
+                "number": 15,
+                "name": "Thomas Mikaele",
+                "position": "Interchange",
+                "player_id": 504377
+              },
+              {
+                "number": 16,
+                "name": "Matthew Lodge",
+                "position": "Interchange",
+                "player_id": 500600
+              },
+              {
+                "number": 17,
+                "name": "Coen Hess",
+                "position": "Interchange",
+                "player_id": 500405
+              },
+              {
+                "number": 18,
+                "name": "Sam McIntyre",
+                "position": "Interchange",
+                "player_id": 504065
+              },
+              {
+                "number": 20,
+                "name": "John Bateman",
+                "position": "Interchange",
+                "player_id": 502214
+              },
+              {
+                "number": 21,
+                "name": "Liam Sutton",
+                "position": "Reserve",
+                "player_id": 100004077
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-06T19:00",
+            "temperature_c": 13.7,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 5.9,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -28.067,
+            "longitude": 153.378,
+            "venue": "Cbus Super Stadium",
+            "venue_city": "Gold Coast"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-06T00:52:00.114723+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/titans-v-cowboys/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "b1c5eaef5706",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-06T00:52:33.053771+00:00",
+      "finished_at": "2026-08-06T00:53:56.921153+00:00",
+      "duration_ms": 83867,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "kickoff": "2026-08-06T19:50:00+10:00",
+        "round_number": 23,
+        "venue": "Cbus Super Stadium",
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "round_number": 23,
+          "venue": "Cbus Super Stadium",
+          "queries": [
+            "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Titans vs Cowboys NRL round 23 preview",
+            "Titans Cowboys NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-06T00:52:33.069321+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 16
+          }
+        },
+        "items": [
+          {
+            "id": "a82d11cbc3ea488a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 23 - Origin guns return as finals loom",
+            "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/",
+            "published_at": "2026-08-05T09:54:42+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 23 - Origin guns return as finals loom\nExperienced prop Lindsay Collins makes his return for the Roosters in Friday night's blockbuster showdown against the Bulldogs, who welcome back Sitili Tupouniua .\nCollins' last appearance was in Round 17 wi",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 23 - Origin guns return as finals loom\nExperienced prop Lindsay Collins makes his return for the Roosters in Friday night's blockbuster showdown against the Bulldogs, who welcome back Sitili Tupouniua .\nCollins' last appearance was in Round 17 with the club taking a cautious approach after ongoing concussion concerns.\nTupouniua has missed five games with a hamstring injury and adds another dimension to a Bulldogs outfit flying high with six wins in their past seven matches.\nSee all the late mail, official team news and updates for Round 23 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 23\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 4 AJ Brimson 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Cowboys is number 9 Soni Luke\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Cowboys is number 14 Ethan King\n14\nInterchange for Titans is number 15 Josh Patston 15 Interchange for Cowboys is number 15 Thomas Mikaele\n15\nInterchange for Titans is number 16 Klese Haas 16 Interchange for Cowboys is number 16 Matthew Lodge\n16\nInterchange for Titans is number 17 Cooper Bai 17 Interchange for Cowboys is number 17 Coen Hess\n17\nInterchange for Titans is number 18 Sam Verrills 18 Interchange for Cowboys is number 18 Sam McIntyre\n18\nInterchange for Titans is number 19 Adam Christensen 19 20 Interchange for Cowboys is number 20 John Bateman\n19 20\nReserves\nReserve for Titans is number 20 Jaylan De Groot 20 21 Reserve for Cowboys is number 21 Liam Sutton\n20 21\nTitans Ins\nAdam Christensen\nLachlan Ilias\nCowboys Ins\nGriffin Neame\nJohn Bateman\nLiam Sutton\nTitans Outs\nZane Harrison\nJeremiah Nanai\nKaiden Lahrs\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/6/2026 12:26:04 AM\nTitans: Lachlan Ilias is back in the starting side for the first time since Round 9 as he takes over from young gun Zane Harrison, who will miss the rest of the season with a hamstring strain. Winger Phil Sami has scored eight tries in his last nine games. No changes in Wednesday's 24-hour update.\nCowboys: John Bateman has recovered from a hamstring injury and has been added to the interchange bench on Wednesday. Prop Griffin Neame returns from suspension but hooker Reed Mahoney will be given another week off after suffering a concussion in Round 21, his second of the season. Kai O'Donnell comes in for Jeremiah Nanai (hamstring). The Cowboys have won seven of their last nine games against the Titans. Kaiden Lahrs and Ronald Philitoga dropped out in the 24-hour update.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 2",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.9641859225,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8d035e322af7b731",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 23",
+            "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/",
+            "published_at": "2026-08-04T06:00:45+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Roun",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 23\nOfficial team lists, updates and injury news for Round 23 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nTitans v Cowboys, Thursday 7.50pm at Cbus Super Stadium\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 4 AJ Brimson 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Cowboys is number 9 Soni Luke\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Cowboys is number 14 Ethan King\n14\nInterchange for Titans is number 15 Josh Patston 15 Interchange for Cowboys is number 15 Thomas Mikaele\n15\nInterchange for Titans is number 16 Klese Haas 16 Interchange for Cowboys is number 16 Matthew Lodge\n16\nInterchange for Titans is number 17 Cooper Bai 17 Interchange for Cowboys is number 17 Coen Hess\n17\nInterchange for Titans is number 18 Sam Verrills 18 Interchange for Cowboys is number 18 Sam McIntyre\n18\nInterchange for Titans is number 19 Adam Christensen 19 20 Interchange for Cowboys is number 20 John Bateman\n19 20\nReserves\nReserve for Titans is number 20 Jaylan De Groot 20 21 Reserve for Cowboys is number 21 Liam Sutton\n20 21\nTitans Ins\nAdam Christensen\nLachlan Ilias\nCowboys Ins\nGriffin Neame\nJohn Bateman\nLiam Sutton\nTitans Outs\nZane Harrison\nJeremiah Nanai\nKaiden Lahrs\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/6/2026 12:26:04 AM\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves.\nCowboys: Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell. Englishman John Bateman (hamstring) has been listed among the reserves and is set to come into the 19 closer to game day.\nWarriors v Panthers, Friday 6.00pm (AEST), 8.00pm (local time) at Go Media Stadium\nMatch: Warriors v Panthers\nRound 23 - Round 23 - Friday 7 Aug\nWarriors\nPanthers\nFullback for Warriors is number 1 Charnze Nicoll-Klokstad 1 Fullback for Panthers is number 1 Jaxen Edgar\nWinger for Warriors is number 2 Dallin Watene-Zelezniak 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Panthers is number 3 Paul Alamoti\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Panthers is number 4 Izack Tago\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback f",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 42.86335258916667,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b5fbcefd01f30fc5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Updated Cowboys NRL team list: Round 23 v Titans - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/08/05/updated-cowboys-nrl-team-list-round-23-v-titans-at-cbus-stadium/",
+            "published_at": "2026-08-05T09:50:00+00:00",
+            "snippet": "Updated Cowboys NRL team list: Round 23 v Titans &nbsp;&nbsp; North Queensland Cowboys",
+            "body_excerpt": "Updated Cowboys NRL team list: Round 23 v Titans\nNorth Queensland Toyota Cowboys NRL Head Coach Todd Payten has reduced his squad to 20 ahead of Thursday's clash with the Gold Coast Titans.\nKaiden Lahrs and Ronald Philitoga have been omitted from the squad.\nThursday’s game kicks off at 7.50pm.\nCowboys team to play Titans:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Zac Laybutt\n4. Tom Chester\n5. Murray Taulagi\n6. Jake Clifford\n7. Jaxon Purdue\n8. Griffin Neame\n9. Soni Luke\n10. Jason Taumalolo\n11. Heilum Luki\n12. Kai O’Donnell\n13. Reuben Cotter (c)\nInterchange\n14. Ethan King\n15. Tom Mikaele\n16. Matt Lodge\n17. Coen Hess\n18. Sam McIntyre\n20. John Bateman\n21. Liam Sutton\nRelated /\nPayten: One game doesn't define us\nTeam Lists\nCowboys NRL team list: Round 23 v Titans\nFinal Cowboys NRLW team list: Round 5 v Raiders\nFinal Cowboys NRL team list: Round 22 v Roosters\nUpdated Cowboys NRL team list: Round 22 v Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.042519255833334,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0e88af1924707ebb",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Round 23 v Titans - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/08/04/cowboys-nrl-team-list-round-23-v-titan-derby-cbus-twenty-three/",
+            "published_at": "2026-08-04T05:58:00+00:00",
+            "snippet": "Cowboys NRL team list: Round 23 v Titans\nGriffin Neame will return from suspension for the North Queensland Toyota Cowboys clash with the Gold Coast Titans at Cbus Super Stadium on Thursday night.\nNeame has been named at prop, with Tom Mikaele reverting to the interchange.\nSoni L",
+            "body_excerpt": "Cowboys NRL team list: Round 23 v Titans\nGriffin Neame will return from suspension for the North Queensland Toyota Cowboys clash with the Gold Coast Titans at Cbus Super Stadium on Thursday night.\nNeame has been named at prop, with Tom Mikaele reverting to the interchange.\nSoni Luke will again start at hooker, with Reed Mahoney to miss one more game due to the concussion sustained in the victory over the Broncos in Round 21.\nSecond-rower Jeremiah Nanai suffered a hamstring strain in Round 22 and is set for 2-3 weeks on the sidelines.\nKai O’Donnell has been named to start in the second row.\nThursday’s game kicks off at 7.50pm.\nCowboys team to play Titans:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Zac Laybutt\n4. Tom Chester\n5. Murray Taulagi\n6. Jake Clifford\n7. Jaxon Purdue\n8. Griffin Neame\n9. Soni Luke\n10. Jason Taumalolo\n11. Heilum Luki\n12. Kai O’Donnell\n13. Reuben Cotter (c)\nInterchange\n14. Ethan King\n15. Tom Mikaele\n16. Matt Lodge\n17. Coen Hess\n18. Sam McIntyre\n19. Kaiden Lahrs\n20. John Bateman\n21. Liam Sutton\n22. Ronald Philitoga\nRelated /\nUpdated Cowboys NRL team list: Round 23 v Titans\nCowboys\nPayten: One game doesn't define us\nTeam Lists\nFinal Cowboys NRLW team list: Round 5 v Raiders\nFinal Cowboys NRL team list: Round 22 v Roosters\nUpdated Cowboys NRL team list: Round 22 v Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.909185922499994,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4916885015daa443",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "NRL News",
+            "title": "Match Preview Titans v Cowboys: Ilias takes charge; Nanai sidelined",
+            "url": "https://www.nrl.com/news/2026/08/04/titans-v-cowboys-ilias-takes-charge-nanai-sidelined/",
+            "published_at": "2026-08-05T09:56:22+00:00",
+            "snippet": "Presented By\nTitans v Cowboys: Ilias takes charge; Nanai sidelined\nBeaten by a combined score of 124-18 in Round 22, the Titans and Cowboys are out to restore pride when they square off at Cbus Super Stadium.\nDespite their embarrassing 82-12 loss to the Roosters, Todd Payten's me",
+            "body_excerpt": "Presented By\nTitans v Cowboys: Ilias takes charge; Nanai sidelined\nBeaten by a combined score of 124-18 in Round 22, the Titans and Cowboys are out to restore pride when they square off at Cbus Super Stadium.\nDespite their embarrassing 82-12 loss to the Roosters, Todd Payten's men are very much in finals contention and with all their remaining games against teams below them on the ladder they have a legitimate shot at September.\nThe Titans hit a hurdle against the rampaging Warriors but they had won three of their previous five games to move well clear of wooden spoon territory and can still cause some headaches for finals contenders in the run home.\nFour of the Titans' final five games are at Cbus Super Stadium so they get a great opportunity to build momentum for next year and give their loyal fans renewed hope of a first finals berth since 2021.\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\n14th Position\naway Team\nCowboys\n9th Position\nVenue: Cbus Super Stadium, Gold Coast\nMatch broadcasters:\nNine Now\nKayo\nFoxtel\nTeam News\nTitans: Lachlan Ilias takes over at halfback from Zane Harrison (hamstring) in the only change to Josh Hannay's starting side. On the bench, Adam Christensen has been named for his second appearance of the season, with Jaylan de Groot dropping to the reserves. No changes in Wednesday's 24-hour update.\nCowboys: Englishman John Bateman (hamstring) has added to the 19-man squad 24 hours out from kick-off after training well this week. Prop Griffin Neame returns from suspension but hooker Reed Mahoney (concussion) remains sidelined. Back-rower Jeremiah Nanai is out with a hamstring injury and his place is taken by Kai O'Donnell.\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 4 AJ Brimson 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Cowboys is number 9 Soni Luke\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Cowboys is number 14 Ethan King\n14\nInterchange for Titans is number 15 Josh Patston 15 Interchange for Cowboys is number 15 Thomas Mikaele\n15\nInterchange for Titans is number 16 Klese Haas 16 Interchange for Cowboys is number 16 Matthew Lodge\n16\nInterchange for Titans is number 17 Cooper Bai 17 Interchange for Cowboys is number 17 Coen Hess\n17\nInterchange for Titans is number 18 Sam Verrills 18 Interchange for Cowboys is number 18 Sam McIntyre\n18\nInterchange for Titans is number 19 Adam Christensen 19 20 Interchange for Cowboys is number 20 John Bateman\n19 20\nReserves\nReserve for Titans is number 20 Jaylan De Groot 20 21 Reserve for Cowboys is number 21 Liam Sutton\n20 21\nTitans Ins\nAdam Christensen\nLachlan Ilias\nCowboys Ins\nGriffin Neame\nJohn Bateman\nLiam Sutton\nTitans Outs\nZane Harrison\nJeremiah Nanai\nKaiden Lahrs\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/6/2026 12:26:04 AM\nStat Attack\nThe Titans have conceded 104 points",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.936408144722224,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b4a08decae746328",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans vs Cowboys Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/titans-vs-cowboys-preview-betting-tips-nrl-round-23-2026",
+            "published_at": "2026-08-05T07:30:18+00:00",
+            "snippet": "Titans vs Cowboys Preview & Betting Tips: NRL Round 23 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Titans vs Cowboys Preview & Betting Tips: NRL Round 23 2026\nAugust 5 th 2026, 5:23pm , By: Scooby\nThe Finals are approaching fast and the opening match of NRL Round 23 is a Queensland Derby as the Titans host the Cowboys . With both teams sitting outside the Top 8, many may overlook this contest. There is no doubt that each possesses a strong attacking unit on their day, and this game is about building enough momentum to have it ‘click’. If it does, NRL fans will be delighted with what is delivered. Before You Bet is here to take a deeper look at how this game will play out with the aim of finding you a winner or two to add to your enjoyment.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nTitans vs Cowboys Predictions & Tips: NRL Round 23 2026\nBack to reality\nJust as the Titans were beginning to demonstrate that they were heading in the right direction ahead of the 2027 preseason, they were handed a dose of reality in their 42-6 home loss to the Warriors. Outplayed in every area, they could do little to halt the point scoring momentum of their opponents. In the end, they managed just one try, had a 42% share of possession and completed at just 67%. They were horrendously bad defensively; they allowed 10.6m per carry, 774 PCM’s, and missed 48 tackles. As their improvement is halted, they must go back to what worked for them in previous weeks.\nA club embarrassment\nIt was a history-making night to forget for the Cowboys as they were defeated 82-12 at home by the Roosters. Conceding 14 tries, the Cowboys were left confused as their opponents continually ran through them. With just 38% possession, they completed at 68% and failed to develop any pressure in the middle. They were horrible defensively, missing 41 tackles, allowing 11.1m per carry, and conceding 679 PCM’s. This performance should be forgotten as their Finals hopes hang in the balance and they focus their mindset to things they can change.\nStats that matter\n- These two sides met back in Round 3 with the Cowboys prevailing 30-16. That win means the Cowboys have won 7 of the past 10 matches between these two sides. Despite having a poor record at home, the Titans are still slightly better than the Cowboys at this ground (43% vs 41%).\n- Despite 2 of the past 5 games being decided by 6 points or less, the average margin of victory is 13.4 points. They have been high scoring games too, with an average of 54.6 points scored.\n- The Cowboys have a better record in attack this season (19ppg vs 22ppg) but the Titans have an edge defensively (26ppg vs 27ppg). There is now doubt last week’s loss impacted this statistic.\nWelcome to Bizzaro World\nIn what world does a team, which was defeated 82-12 a week prior, enter the following game as a favourite? Welcome to the 2026 NRL! The Cowboys are listed as favourites for this game as both teams face their injury issues. In a major blow for the Titans, Harrison is ruled out at halfback and replaced by Ilias. The Cowboys are still missing Mahoney and have Nanai now sidelined. These two sides are far closer than the odds suggest. While a large ‘bounce back’ is expected from a talented Cowboys team, the same can be said of the Titans.\nConfidence in both teams are low; each can win this game on their day, and the resurgence of the Titans recently has been somewhat overlooked. They will be competitive in this fixture and with the Cowboys still missing Dearden, their attacking spark might also be absent.\nIt is probably best to avoid this game altogether if you can; there is a slight lean towards the Cowboys in a head-to-head market but that is only because they’re fighting for a spot in the Finals. If they’re worth the contracts they’re paid, this squad of players must step up. As for an investment, history shows that this will be a high scoring contest and there is nothing to suggest ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.370852589166667,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Surgery for McLean; Munster, Murray return",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-05T04:46:01+00:00",
+            "snippet": "NRL Casualty Ward: Surgery for McLean; Munster, Murray return\nPanthers centre Casey McLean has had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minu",
+            "body_excerpt": "NRL Casualty Ward: Surgery for McLean; Munster, Murray return\nPanthers centre Casey McLean has had surgery on a fractured hand but is expected to miss only 1-2 matches.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe injury to McLean sees three-time premiership winner Izack Tago promoted to the starting side for Friday night's bumper clash with the Warriors, who have named gun fullback Taine Tuaupiki on the bench as he looks to return from a foot injury.\nIn Friday night's other monster showdown, the Roosters have winger Billy Smith back from illness and prop Lindsay Collins set for his first game since Round 17 after ongoing concussion issues, while the Bulldogs get star back-rower Sitili Tupouniua back from a hamstring injury.\nHuge ins at South Sydney as well where skipper Cameron Murray (calf) plays his first game since Round 20 while Tallis Duncan (hamstring) and David Fifita (suspension) are also back to face the Eels.\nThe Storm receive a boost with five-eighth Cameron Munster returning after four games out following surgery for knee cartilage damage. Centre Jack Howarth (shoulder) also returns but Jahrome Hughes remains sidelined with a hamstring injury.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nThe Sea Eagles have lost back-rower Kobe Hetherington for the remainder of the season after he suffered a ruptured bicep in training on Monday. He will undergo surgery next week.\nBroncos will be without skipper Adam Reynolds for their clash with the Dolphins after he suffered a Category 1 head knock last week.\nForward Xavier Willison left the field early at Suncorp Stadium with a nasty gash to his leg but he has been named to face the Dolphins while back-rower Jack Gosiewski (ribs) is on track to return.\nSharks pair KL Iro (concussion) and Siosifa Talakai (biceps) are out of the Round 23 clash against old foes the Dragons.\nTitans halfback Zane Harrison has been ruled out for the rest of the season after injuring his hamstring against the Warriors.\nAt the Cowboys, star back-rower Jeremiah Nanai is facing 2-3 weeks out with a hamstring injury which he suffered during the record loss to the Roosters.\nCowboys coach Todd Payten praised Nanai's courage to stay on the field through until full-time despite carrying the injury.\nHooker Reed Mahoney suffered his second concussion of the season against the Broncos in Round 21 and Payten said the No.9 would sit out another week on specialist advice.\nThe Warriors lost Demitric Vaimauga following captain's run with a rib complaint, but he is only expected to miss one week.\nThe Raiders welcome back gun centre Simi Sasagi for their clash with the Knights after he missed the trip to Mudgee with a hamstring issue.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nChemist Warehouse Casualty Ward\nBrisbane Broncos\nXavier Willison (laceration, Round 23)\nAublix Tawha (ankle, Round 23)\nJack Gosiewski (ribs, Round 23)\nAdam Reynolds (concussion, Round 24)\nPreston Riki (syndesmosis, TBC)\nBrendan Piakura (concussion, TBC)\nCanberra Raiders\nSimi Sasagi (hamstring, Round 23)\nNoah Martin (quad, Round 26)\nHudson Young (Achilles, 2027)\nCanterbury-Bankstown Bulldogs\nSitili Tupouniua (hamstring, Round 23)\nSam Hughes (neck, TBC)\nMitchell Woods (hamstring, TBC)\nCronulla Sharks\nKL Iro (concussion, Round 24)\nSiosifa Talakai (biceps, Round 24)\nHohepa Puru (concussion, Round 23)\nNo reported injuries\nGold Coast Titans\nZane Harrison (hamstring, 2027)\nBrock Gray (ACL, TBC)\nJensen Taumoepeau (ankle, 2027)\nJaimin Jolliffe (knee, 2027)\nManly-Warringah Sea Eagles\nCorey Waddell (ankle, Round 23)\nBrandon Wakeham (c",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.10890814472222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "806c3aaf7e1cf65e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans v Cowboys: Round 23 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/05/titans-v-cowboys-round-23/",
+            "published_at": "2026-08-05T04:04:33+00:00",
+            "snippet": "Titans v Cowboys: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round ",
+            "body_excerpt": "Titans v Cowboys: Round 23\nThe crew from Sportsbet previews this weekend's matches\nUp Next\n02:57 Dolphins v Broncos: Round 23\nDolphins v Broncos: Round 23\n02:49 Raiders v Knights: Round 23\nRaiders v Knights: Round 23\n03:57 Roosters v Bulldogs: Round 23\nRoosters v Bulldogs: Round 23\n03:10 Storm v Sea Eagles: Round 23\nStorm v Sea Eagles: Round 23\nRelated /\nHannay not judging Cowboys on Roosters result\nNRL News\nTodd Payten: 'One game doesn't define us'\nMatch Preview\nTitans v Cowboys: Ilias takes charge; Nanai sidelined\nFantasy\nFirst take: Titans v Cowboys\nTitans v Warriors: Brimson, Morrin return; CNK No.1 gun\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.800019255833334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f4d86862a81d4609",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Round 23 team: Playmaker returns for Indigenous Round opener against Cowboys - titans.com.au",
+            "url": "https://www.titans.com.au/news/2026/08/04/round-23-team-playmaker-returns-for-indigenous-round-opener-against-cowboys/",
+            "published_at": "2026-08-04T05:59:00+00:00",
+            "snippet": "Round 23 team: Playmaker returns for Indigenous Round opener against Cowboys &nbsp;&nbsp; titans.com.au",
+            "body_excerpt": "Presented By\nRound 23 team: Playmaker returns for Indigenous Round opener against Cowboys\nLachlan Ilias has been named to return in the No. 7 jersey as the Titans take on the Cowboys in Thursday night's Indigenous Round opener at Cbus Super Stadium.\nReplacing Zane Harrison - who has been ruled out for the remainder of the season with a hamstring strain - Ilias' inclusion is the only change made by Josh Hannay ahead of the short-turnaround into the North Queensland derby.\nHosting the Cowboys on Kombumerri Country for the first game of the First Nations fortnight across the NRL and NRLW, the home side will wear a specially-designed jersey by local artist Christine Slabb, showcasing the club's connection to country, community, culture and each other.\nKick-off is at 7.50pm on Thursday at Cbus Super Stadium, Gold Coast.\nMatch: Titans v Cowboys\nRound 23 - Round 23 - Thursday 6 Aug\nhome Team\nTitans\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Cowboys is number 3 Zac Laybutt\nCentre for Titans is number 4 AJ Brimson 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Titans is number 5 Phillip Sami 5 Winger for Cowboys is number 5 Murray Taulagi\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Cowboys is number 7 Jaxon Purdue\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Cowboys is number 9 Soni Luke\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Cowboys is number 12 Kai O'Donnell\n12\nLock for Titans is number 13 Chris Randall 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Cowboys is number 14 Ethan King\n14\nInterchange for Titans is number 15 Josh Patston 15 Interchange for Cowboys is number 15 Thomas Mikaele\n15\nInterchange for Titans is number 16 Klese Haas 16 Interchange for Cowboys is number 16 Matthew Lodge\n16\nInterchange for Titans is number 17 Cooper Bai 17 Interchange for Cowboys is number 17 Coen Hess\n17\nInterchange for Titans is number 18 Sam Verrills 18 Interchange for Cowboys is number 18 Sam McIntyre\n18\nInterchange for Titans is number 19 Adam Christensen 19 20 Interchange for Cowboys is number 20 John Bateman\n19 20\nReserves\nReserve for Titans is number 20 Jaylan De Groot 20 21 Reserve for Cowboys is number 21 Liam Sutton\n20 21\nTitans Ins\nAdam Christensen\nLachlan Ilias\nCowboys Ins\nGriffin Neame\nJohn Bateman\nLiam Sutton\nTitans Outs\nZane Harrison\nJeremiah Nanai\nKaiden Lahrs\nMatch Officials\nReferee: Adam Gee\nSenior Review Official: Wyatt Raymond\nLast updated: 8/6/2026 12:26:04 AM\nRelated /\nLocked in: Titans Indigenous stars ready to showcase culture at home\nInjuries\nInjury report: Harrison to miss remainder of season\nPress Conference\nPress conference: Round 22 v Warriors\nLocked in: Titans bolstered by Morrin return for Warriors showdown\nRound 22: Key names return for Tino's Titanic century against Wahs",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.89251925583333,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "ed57cd87504f760e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans vs Cowboys - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/titans-cowboys-round-23-2026-mc10396506-236524/",
+            "published_at": "2026-08-02T21:16:51+00:00",
+            "snippet": "Titans vs Cowboys - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 TITANS V COWBOYS KICK OFF Cbus Super Stadium #NRLTitansCowboys 2026-08-06T09:50:00Z Preview\nTITANS\nCOWBOYS\nPreview\nTitans vs Cowboys – Round 23, 2026\nThe Gold Coast Titans face the North Queensland Cowboys in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Cbus Super Stadium. Ladder Position Injury Report Titans NAME REASON EXPECTED RETURN Zane Harrison Hamstring Next Season Jensen Taumoepeau Ankle Next Season Jaimin Jolliffe Knee Next Season Brock Gray ACL TBC Cowboys NAME REASON EXPECTED RETURN John Bateman Hamstring Round 23 Griffin Neame Suspension Round 23 Reed Mahoney Concussion Round 24 Jeremiah Nanai Hamstring Round 25 Tom Dearden Ankle TBC Previous 5 Games Titans DATE OPP RESULT 1/8/26 Warriors L 6 - 42 26/7/26 Dragons W 18 - 38 19/7/26 Sea Eagles W 38 - 32 12/7/26 Storm L 22 - 18 26/6/26 Bulldogs L 12 - 30 Cowboys DATE OPP RESULT 30/7/26 Roosters L 12 - 82 25/7/26 Broncos W 18 - 10 19/7/26 Dolphins L 36 - 16 12/7/26 Sea Eagles W 18 - 19 27/6/26 Panthers W 26 - 12\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nZane Harrison\nHamstring\nNext Season\nJensen Taumoepeau\nAnkle\nJaimin Jolliffe\nKnee\nBrock Gray\nACL\nTBC\nJohn Bateman\nRound 23\nGriffin Neame\nSuspension\nReed Mahoney\nConcussion\nRound 24\nJeremiah Nanai\nRound 25\nTom Dearden\nPrevious 5 Games\nDATE\nOPP\nRESULT\n1/8/26\nWarriors\nL 6 - 42\n26/7/26\nDragons\nW 18 - 38\n19/7/26\nSea Eagles\nW 38 - 32\n12/7/26\nStorm\nL 22 - 18\n26/6/26\nBulldogs\nL 12 - 30\n30/7/26\nRoosters\nL 12 - 82\n25/7/26\nBroncos\nW 18 - 10\nDolphins\nL 36 - 16\nW 18 - 19\n27/6/26\nPanthers\nW 26 - 12\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nKeano Kini Keano Kini\nDean Ieremia Dean Ieremia\nJojo Fifita Jojo Fifita\nAJ Brimson AJ Brimson\nPhillip Sami Phillip Sami\nJayden Campbell Jayden Campbell\nLachlan Ilias Lachlan Ilias\nMoeaki Fotuaika Moeaki Fotuaika\nOliver Pascoe Oliver Pascoe\n10\nT. Fa'asuamaleaui Tino Fa'asuamaleaui\n11\nArama Hau Arama Hau\n12\nBeau Fermor Beau Fermor\n13\nChris Randall Chris Randall\nINTERCHANGE\n14\nKurtis Morrin Kurtis Morrin\n15\nJosh Patston Josh Patston\n16\nKlese Haas Klese Haas\n17\nCooper Bai Cooper Bai\n18\nSam Verrills Sam Verrills\n19\nAdam Christensen Adam Christensen\nRESERVES\n20\nJaylan De Groot Jaylan De Groot\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nScott Drinkwater Scott Drinkwater\nBraidon Burns Braidon Burns\nZac Laybutt Zac Laybutt\nTom Chester Tom Chester\nMurray Taulagi Murray Taulagi\nJake Clifford Jake Clifford\nJaxon Purdue Jaxon Purdue\nGriffin Neame Griffin Neame\nSoni Luke Soni Luke\nJason Taumalolo Jason Taumalolo\nHeilum Luki Heilum Luki\nKai O'Donnell Kai O'Donnell\nReuben Cotter Reuben Cotter\nEthan King Ethan King\nThomas Mikaele Thomas Mikaele\nMatthew Lodge Matthew Lodge\nCoen Hess Coen Hess\nSam McIntyre Sam McIntyre\nJohn Bateman John Bateman\nLiam Sutton Liam Sutton\n21",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 75.59501925583334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "155752c3b3073c8a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report: Round 23 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/06/Wests-Tigers-NRL-Injury-Report-Round-23/",
+            "published_at": "2026-08-06T00:30:30+00:00",
+            "snippet": "Wests Tigers NRL Injury Report: Round 23\nWests Tigers can provide the latest NRL injury update heading into this weekend’s bye.\nThe Tigers return to the field on Sunday, 16 August, against the St George-Illawarra Dragons in their final home game of the season.\nThe club’s NRL reha",
+            "body_excerpt": "Wests Tigers NRL Injury Report: Round 23\nWests Tigers can provide the latest NRL injury update heading into this weekend’s bye.\nThe Tigers return to the field on Sunday, 16 August, against the St George-Illawarra Dragons in their final home game of the season.\nThe club’s NRL rehab group is overseen by Head of High Performance, Peter Moussa, and his team as they continue to work towards a return to play.\n\"We are pleased with the progression our players have made in rehab. They are all working hard and are committed to returning as soon as it's possible,'' Moussa said.\nTaylan May\nInjury: Right Shoulder reconstruction (Rd 17 vs Knights).\nReturn : TBA\nKai Pearce Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans). Kai has started his return to play protocol.\nReturn: TBA\nRoyce Hunt\nInjury: Pectoral tendon repair (Rd 14 vs Penrith). Royce has started his return to play protocol.\nWill Craig\nInjury: Ankle. Will has started his return to play protocol.\nRelated /\nHaymes Paint freshen up Minto Cobras clubhouse\nInjuries\nWests Tigers NRLW Injury Report: Round 5\nWests Tigers\nWhy the Tigers can't stop smiling as Rae gun puts on a show\nNSW Women's Rugby League\nTaylor proud of NSW Women's Premiership team’s growth\nTeam Lists\nWestern Suburbs Magpies NSW Cup: Round 23 team",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.36751925583333334,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "d135fb016797a227",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 23 - Parramatta Eels",
+            "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-team-list-round-23/",
+            "published_at": "2026-08-04T06:00:00+00:00",
+            "snippet": "NRL Team List: Round 23\nThe Parramatta Eels have named their NRL team to take on Souths this Saturday in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew D",
+            "body_excerpt": "NRL Team List: Round 23\nThe Parramatta Eels have named their NRL team to take on Souths this Saturday in Indigenous Round.\nMatch: Rabbitohs v Eels\nRound 23 - Round 23 - Saturday 8 Aug\nhome Team\nRabbitohs\naway Team\nEels\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Eels is number 1 Isaiah Iongi\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Eels is number 2 Brian Kelly\nCentre for Rabbitohs is number 3 Tallis Duncan 3 Centre for Eels is number 3 Will Penisini\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Eels is number 4 Jordan Samrani\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Eels is number 5 Josh Addo-Carr\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Eels is number 6 Ronald Volkman\nHalfback for Rabbitohs is number 7 Ashton Ward 7 Halfback for Eels is number 7 Mitchell Moses\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Eels is number 8 Sam Tuivaiti\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Eels is number 9 Tallyn Da Silva\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Eels is number 10 Luca Moretti\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Eels is number 11 Jack Williams\n11\n2nd Row for Rabbitohs is number 12 Adam Elliott 12 2nd Row for Eels is number 12 Kitione Kautoga\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Eels is number 13 Jack De Belin\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Eels is number 14 Saxon Pryke\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Eels is number 15 Junior Paulo\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Eels is number 16 Teancum Brown\n16\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 Interchange for Eels is number 17 Kelma Tuilagi\n17\nInterchange for Rabbitohs is number 18 Jayden Sullivan 18 Interchange for Eels is number 18 Joash Papalii\n18\nInterchange for Rabbitohs is number 19 Thomas Fletcher 19 Interchange for Eels is number 19 Jezaiah Funa-Iuta\n19\nReserves\nReserve for Rabbitohs is number 20 Liam Le Blanc 20 Reserve for Eels is number 20 Toni Mataele\n20\nReserve for Rabbitohs is number 21 Moala Graham-Taufa 21 Reserve for Eels is number 21 Sean Russell\n21\nReserve for Rabbitohs is number 22 John Radel 22 Reserve for Eels is number 22 Ryley Smith\n22\nRabbitohs Ins\nCameron Murray\nDavid Fifita\nMoala Graham-Taufa\nTallis Duncan\nEels Ins\nJezaiah Funa-Iuta\nLuca Moretti\nRyley Smith\nSaxon Pryke\nSean Russell\nRabbitohs Outs\nLatrell Siegwalt\nDylan Walker\nHarrison Edwards\nMatch Officials\nReferee: Wyatt Raymond\nSenior Review Official: Grant Atkins\nLast updated: 8/5/2026 11:46:04 PM\nRelated /\nNSW Cup Team List: Round 23\nInjuries\nNRL Injury Report: Round 23\nNRL Late Mail: Round 22\nNRL Team List Update: Round 22\nNRL Team List: Round 22",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.87585258916666,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e824460d69135016",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+            "url": "https://www.zerotackle.com/round-23-team-lists-2026-236562/",
+            "published_at": "2026-08-04T05:58:19+00:00",
+            "snippet": "NRL Team Lists Round 23: Big ins, surprise calls and every confirmed squad &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Round 23 NRL team lists for the 2026 season are in, with all clubs naming their squads for this week's matches. Stay across every lineup, late changes, and key ins and outs as they're confirmed.\nCheck out all team lists below, with updates added as official final teams are announced.\nTitans vs Cowboys Team Lists: Round 23\nKeano Kini Keano Kini\nDean Ieremia Dean Ieremia\nJojo Fifita Jojo Fifita\nAJ Brimson AJ Brimson\nPhillip Sami Phillip Sami\nJayden Campbell Jayden Campbell\nLachlan Ilias Lachlan Ilias\nMoeaki Fotuaika Moeaki Fotuaika\nOliver Pascoe Oliver Pascoe\n10\nT. Fa'asuamaleaui Tino Fa'asuamaleaui\n11\nArama Hau Arama Hau\n12\nBeau Fermor Beau Fermor\n13\nChris Randall Chris Randall\nINTERCHANGE\n14\nKurtis Morrin Kurtis Morrin\n15\nJosh Patston Josh Patston\n16\nKlese Haas Klese Haas\n17\nCooper Bai Cooper Bai\n18\nSam Verrills Sam Verrills\n19\nAdam Christensen Adam Christensen\nRESERVES\n20\nJaylan De Groot Jaylan De Groot\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nScott Drinkwater Scott Drinkwater\nBraidon Burns Braidon Burns\nZac Laybutt Zac Laybutt\nTom Chester Tom Chester\nMurray Taulagi Murray Taulagi\nJake Clifford Jake Clifford\nJaxon Purdue Jaxon Purdue\nGriffin Neame Griffin Neame\nSoni Luke Soni Luke\nJason Taumalolo Jason Taumalolo\nHeilum Luki Heilum Luki\nKai O'Donnell Kai O'Donnell\nReuben Cotter Reuben Cotter\nEthan King Ethan King\nThomas Mikaele Thomas Mikaele\nMatthew Lodge Matthew Lodge\nCoen Hess Coen Hess\nSam McIntyre Sam McIntyre\nJohn Bateman John Bateman\nLiam Sutton Liam Sutton\n21\nWarriors vs Panthers Team Lists: Round 23\nC. Nicoll-Klokstad Charnze Nicoll-Klokstad\nD. Watene-Zelezniak Dallin Watene-Zelezniak\nAli Leiataua Ali Leiataua\nLeka Halasima Leka Halasima\nA. Khan-Pereira Alofiana Khan-Pereira\nC. Harris-Tavita Chanel Harris-Tavita\nTe Maire Martin Te Maire Martin\nJ. Fisher-Harris James Fisher-Harris\nWayde Egan Wayde Egan\nMitch Barnett Mitch Barnett\nKurt Capewell Kurt Capewell\nJacob Laban Jacob Laban\nErin Clark Erin Clark\nSamuel Healey Samuel Healey\nT. Stowers-Smith Tanner Stowers-Smith\nMorgan Gannon Morgan Gannon\nE. Ieremia-Toeava Eddie Ieremia-Toeava\nLuke Metcalf Luke Metcalf\nTaine Tuaupiki Taine Tuaupiki\nRiley Price Riley Price\n22\nMakaia Tafua Makaia Tafua\n23\nAdam Pompey Adam Pompey\nJaxen Edgar Jaxen Edgar\nThomas Jenkins Thomas Jenkins\nPaul Alamoti Paul Alamoti\nIzack Tago Izack Tago\nBrian To'o Brian To'o\nJack Cogger Jack Cogger\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\nLindsay Smith Lindsay Smith\nIsaiah Papali'i Isaiah Papali'i\nLiam Martin Liam Martin\nIsaah Yeo Isaah Yeo\nBilly Scott Billy Scott\nScott Sorensen Scott Sorensen\nLiam Henry Liam Henry\nBilly Phillips Billy Phillips\nJack Cole Jack Cole\nBlaize Talagi Blaize Talagi\nJesse McLean Jesse McLean\nLuron Patea Luron Patea\nK. Leuluai-Going Kalani Leuluai-Going\nRoosters vs Bulldogs Team Lists: Round 23\nJames Tedesco James Tedesco\nBilly Smith Billy Smith\nHugo Savala Hugo Savala\nRobert Toia Robert Toia\nM. Nawaqanitawase Mark Nawaqanitawase\nDaly Cherry-Evans Daly Cherry-Evans\nSam Walker Sam Walker\nNaufahu Whyte Naufahu Whyte\nReece Robson Reece Robson\nSpencer Leniu Spencer Leniu\nSalesi Foketi Salesi Foketi\nSiua Wong Siua Wong\nVictor Radley Victor Radley\nConnor Watson Connor Watson\nLindsay Collins Lindsay Collins\nNat Butcher Nat Butcher\nEgan Butcher Egan Butcher\nCody Ramsey Cody Ramsey\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nBenaiah Ioelu Benaiah Ioelu\nDe La Salle Va'a De La Salle Va'a\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nEnari Tuala Enari Tuala\nJethro Rinakama Jethro Rinakama\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\nLeo Thompson Leo Thompson\nViliame Kikau Viliame Kikau\nJacob Preston Jacob Preston\nJaeman Salmon Jaeman Salmon\nKurt Mann Kurt Mann\nJosh Curran Josh Curran\nHarry Hayes Harry Hayes\nSitili Tupouniua Sitili Tupouniua\nBronson Xerri Bronson Xerri\nJake Turpin Jake Turpin\nAlekolasimi J",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.903908144722216,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-04T05:54:39+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 23 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Every club's confirmed lineup for Round 23\nPeter Maniaty\nGetty Images\nRound 23 begins with a Queensland derby on Thursday night as the Titans and Cowboys lock horns on the Gold Coast.\nFriday sees two potential finals previews as the Warriors host Penrith in Auckland and the Roosters meet the Bulldogs at Allianz in Sydney.\nThe Storm and Sea Eagles clash at HBF Stadium in Perth on Saturday afternoon in the city's final NRL match before the arrival of its own team next March, followed by the latest instalment of the 'Battle of Brisbane' at Suncorp.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nGold Coast Titans vs. North Queensland Cowboys\n(Thursday, August 6 at Cbus Super Stadium , 7:50pm AEST)\nGold Coast team:\n1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika (c) 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Arama Hau 12. Beau Fermor 13. Chris Randall\n14. Kurtis Morrin 15. Josh Patston 16. Klese Haas 17. Cooper Bai 18. Sam Verrills 19. Adam Christensen\nTitans team news:\nZane Harrison left the field in the loss to the Warriors with a hamstring injury and will miss the rest of the season, with Lachlan Ilias coming into the halves.\nNorth Queensland team:\n1. Scott Drinkwater 2. Braidon Burns 3. Zac Laybutt 4. Tom Chester 5. Murray Tualagi 6. Jake Clifford 7. Jaxon Purdue 8. Griffin Neame 9. Soni Luke 10. Jason Taumalolo 11. Heilum Luki 12. Kai O'Donnell 13. Rueben Cotter (c)\n14. Ethan King 15. Tom Mikaele 16. Matthew Lodge 17. Coen Hess 18. Sam McIntyre 20. John Bateman\nCowboys team news:\nAfter the home humiliation at the hands of the Roosters, Todd Payten has resisted the temptation to make wholesale changes. Tom Dearden (ankle) and Reed Mahoney (concussion) remain out, with Soni Luke starting at No. 9 once again. Griffin Neame (suspension) returns in the front row pushing Tom Mikaele to the bench. Jeremiah Nanai ( hamstring) is out.\nNew Zealand Warriors vs. Penrith Panthers\n(Friday, August 7 at Go Media Stadium , 6:00pm AEST)\nWarriors team:\n1. Charnze Nicoll-Klokstad 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris (c) 9. Wayde Egan 10. Mitch Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark\n14. Sam Healey 15. Tanner Stowers-Smith 16. Morgan Gannon 17. Eddie Ieremia-Toeava 18. Luke Metcalf 19. Taine Puaupiki\nWarriors team news:\nLeka Halasima was impressive in the centres against the Titans and remains there with Adam Pompey pushing back to the extended reserves. Taine Tuaupiki (foot) is a chance to return but the Wahs may give him another week as a precaution with Charnze Nicoll-Klokstad remaining at the back. Demitric Vaimauga (ribs) missed Round 22 and has not been named.\nPenrith team:\n1. Jaxen Edgar 2. Thomas Jenkins 3. Paul Alamoti 4. Izack Tago 5. Brian To'o 6. Jack Cogger 7. Nathan Cleary (c) 8. Moses Leota 9. Freddy Lussick 10. Lindsay Smith 11. Isaiah Papali'i 12. Liam Martin 13. Isaah Yeo\n14. Billy Scott 15. Scott Sorensen 16. Liam Henry 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi\nPanthers team news:\nDylan Edwards (shoulder) will have another week on the sidelines with Jaxen Edgar remaining in the No.1 jersey. Hooker Mitch Kenny (leg) continues to be under an injury cloud with some suggestions he may not be back until the finals. The Panthers have confirmed Casey McLean suffered a broken right thumb in the Raiders clash and is replaced by Izack Tago in the centres. Blaize Talagi provides another option in McLean's absence off the bench.\nSydney Roosters vs. Canterbury Bulldogs\n(Friday, August 7 at Allianz Stadium , 8:00pm AE",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 42.96501925583333,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0dbc07a78d490f0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Crunch fitness test set for Roosters skipper; Cowboys make late change — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-jeremiah-nanai-ruled-out-with-hamstring-injury-surprising-reason-dylan-walker-was-omitted-jonah-pezet-injured-early-mail-team-news-nrl-news/news-story/8b1bcfbd343d2d6947ed218f030cfe66",
+            "published_at": "2026-08-05T22:52:21+00:00",
+            "snippet": "Crunch fitness test set for Roosters skipper; Cowboys make late change — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Crunch fitness test set for Roosters skipper; Cowboys make late change — Late Mail\nNorth Queensland’s finals hopes have taken a hit after the club confirmed a new injury blow to a State or Origin forward.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, the Parramatta Eels have revealed the surprising reason Dylan Walker won’t play this weekend, and confirmed halves prodigy Jonah Pezet has picked up yet another injury.\nElsewhere, the St George Illawarra Dragons have confirmed a young forward and former Under-19s NSW Blues representative will make his NRL debut this weekend.\nTHURSDAY AUGUST 6\nGold Coast Titans vs. North Queensland Cowboys, 7.50pm @ Cbus Super Stadium\nTitans team: 1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Oliver Pascoe 10. Tino Fa’asuamaleaui 11. Arama Hau 12. Beau Fermor 13. Chris Randall 14. Kurtis Morrin 15. Josh Patston 16. Klese Haas 17. Cooper Bai 18. Sam Verrills 19. Adam Christensen 20. Jaylan De Groot\nPlayers Cut: 21. Sialetili Faeamani 22. Jett Liu\nEarly Mail: The Titans have confirmed rookie halfback Zane Harrison (hamstring) will miss the remainder of the season after suffering a high-grade strain, with Lachlan Ilias named to replace him.\nCowboys team: 1. Scott Drinkwater 2. Braidon Burns 3. Zac Laybutt 4. Tomas Chester 5. Murray Taulagi 6. Jake Clifford 7. Jaxon Purdue 8. Griffin Neame 9. Soni Luke 10. Jason Taumalolo 11. Heilum Luki 12. Kai O’Donnell 13. Reuben Cotter 14. Ethan King 15. Thomas Mikaele 16. Matthew Lodge 17. Coen Hess 18. Sam McIntyre 20. John Bateman 21. Liam Sutton\nPlayers Cut: 19. Kaiden Lahrs 22. Ronald Philitoga\nEarly Mail: Not only are the Cowboys without Tom Dearden at the moment, but they will now lose Jeremiah Nanai (hamstring) for the next two to three weeks after picking up an injury in the club’s loss to the Sydney Roosters last week. The club have also made a late change with John Bateman moving from the reserves to the six-man extended bench. This will see Kaiden Lahrs drop out.\nFRIDAY AUGUST 7\nNew Zealand Warriors vs. Penrith Panthers, 6pm @ Go Media Stadium\nWarriors team: 1. Charnze Nicoll-Klokstad 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Morgan Gannon 17. Eddie Ieremia-Toeava 18. Luke Metcalf 20. Taine Tuaupiki 21. Riley Price 22. Makaia Tafua 23. Adam Pompey\nEarly Mail: The club has confirmed forward Demitric Vaimauga (ribs) has been sidelined indefinitely after picking up an injury in the Warriors’ final training session on the Gold Coast last Friday. Meanwhile, Rocco Berry (hamstring) is set to be available for selection next week while Jackson Ford (pectoral) is set to return in time for this year’s finals series.\nPanthers team: 1. Jaxen Edgar 2. Thomas Jenkins 3. Paul Alamoti 4. Izack Tago 5. Brian To’o 6. Jack Cogger 7. Nathan Cleary 8. Moses Leota 9. Freddy Lussick 10. Lindsay Smith 11. Isaiah Papali’i 12. Liam Martin 13. Isaah Yeo 14. Billy Scott 15. Scott Sorensen 16. Liam Henry 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi 20. Jesse McLean 21. Luron Patea 22. Kalani Leuluai-Going\nEarly Mail: To come.\nSydney Roosters vs. Canterbury-Bankstown Bulldogs, 8pm @ Allianz Stadium\nRoosters team: 1. James Tedesco 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Spencer Leniu 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 14. Connor Watson 15. Lindsay Collins 16. Nat Butcher 17. Egan Butcher 18. Cody Ramsey 19. Tommy Talau 20. Rex Bassingthwaighte 21. Benaiah Ioelu 22. Delasalle Vaa\nEarly Mail",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 2.0033525891666666,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "2d7c088b2da215bb",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL.com /",
+            "url": "https://www.nrl.com/news/author/nrl.com/",
+            "published_at": "2026-08-05T23:25:00+00:00",
+            "snippet": "View updates for the most breaking NRL news, NRLW news, analysis, scores, team list updates, squads, casualty ward, injury news, signings and judiciary.",
+            "body_excerpt": "NRL.com /\nSignings\n2026 NRL Signings Tracker: Bears sign Smithies; Ford inks new deal\nMatch Preview\nTitans v Cowboys: Ilias takes charge; Nanai sidelined\nTeam Lists\nNRL Late Mail: Round 23 - Origin guns return as finals loom\nInjuries\nNRL Casualty Ward: Surgery for McLean; Munster, Murray return\nNRL News\nBattle for the 8: It's all on the line in the fight for September\nBulldogs v Cowboys: No changes for Wiliame; Forwards shuffled\nRoosters v Eels: Aiken back; Tohi-Hiku, Owen make returns\nRaiders v Broncos: Preston returns; Barlett to the halves\nDragons v Wests Tigers: O'Brien promoted; Monschau locked in\nSharks v Titans: Byers, George sidelined; Ibrahim to debut\nWarriors v Knights: Griffiths pulls back switch; Karpani to start\nJudiciary\nNRLW Judiciary: Brigginshaw cops three-game ban; Predebon, Wheeler outed\nNRLW Casualty Ward: Eels duo, Titans pair suffer head knocks\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nDragons v Sharks: Guler to start; Hiroti in for Iro\nWarriors v Panthers: Taine train on track; Tago in for McLean\nRoosters v Bulldogs: Collins returns; Tupouniua back on deck\nStorm v Sea Eagles: Munster back on deck; Wakeham returns\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nRabbitohs v Eels: Big guns return; Moretti back on deck\nNRL Judiciary: Triple trouble for Wilton as 13 cop fines\nNRLW Team Lists: Round 6\nNRL Team Lists: Round 23\nDally M Awards\nMedal detector: Can Tamika break curse of the halfway leader\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.4591859225,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "9711cbb7106b8539",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL News /",
+            "url": "https://www.nrl.com/news/topic/nrl-news/",
+            "published_at": "2026-08-05T22:53:00+00:00",
+            "snippet": "View updates for the most breaking NRL News NRL news, analysis, scores, team list updates, squads, casualty ward, injury news, signings and judiciary.",
+            "body_excerpt": "NRL News /\nNRL News\nHannay not judging Cowboys on Roosters result\nTodd Payten: 'One game doesn't define us'\nSignings\n2026 NRL Signings Tracker: Bears sign Smithies; Ford inks new deal\nMedia Release\nTyson Frizell 300\nBroncos\nBroncos aiming to create major disruptions in Dolphins derby\nIndigenous Round\n'These are the games that I love': Cobbo ready to represent\nMatch Preview\nTitans v Cowboys: Ilias takes charge; Nanai sidelined\nTeam Lists\nNRL Late Mail: Round 23 - Origin guns return as finals loom\nInjuries\nNRL Casualty Ward: Surgery for McLean; Munster, Murray return\nBattle for the 8: It's all on the line in the fight for September\nFantasy\nLone Scout's Fantasy team list analysis: Round 23\n'Our culture is storytelling': Indigenous leaders light the way for future stars\nRaiders v Knights: Sasagi returns; Frizell the milestone man\nDragons v Sharks: Guler to start; Hiroti in for Iro\nRoosters v Bulldogs: Collins returns; Tupouniua back on deck\nWarriors v Panthers: Taine train on track; Tago in for McLean\nStorm v Sea Eagles: Munster back on deck; Wakeham returns\nDolphins v Broncos: Katoa ready to shine; Duffy steps up\nRabbitohs v Eels: Big guns return; Moretti back on deck\nJudiciary\nNRL Judiciary: Triple trouble for Wilton as 13 cop fines\nNRL Team Lists: Round 23\nState of Origin\nKing announced as new Blues coach\nFresh perspective fuelling Crichton\nKing ready to build on Daley's legacy as Blues enter new era\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.9925192558333333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "441b5f34898ca3e2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Gold Coast Titans vs North Queensland Cowboys Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/05/gold-coast-titans-vs-north-queensland-cowboys-predictions/",
+            "published_at": "2026-08-05T05:08:08+00:00",
+            "snippet": "Gold Coast Titans vs North Queensland Cowboys Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Gold Coast Titans host North Queensland Cowboys in Round 23 of the 2026 NRL season at Cbus Super Stadium on Thursday. Read on for our full match preview, expert NRL betting tips , and best odds on the footy this week .\nThese derby rivals lost their Round 22 home fixtures by a combined margin of 106 points – but it’s the still-in-contention Cowboys most under the microscope after last week’s historic loss.\nFORM: The Titans’ followed up their first back-to-back wins of the season – scoring 38 points against both Manly and St George Illawarra – with a crushing 42-6 home loss to the Warriors.\nThe Cowboys are in disarray after a record-shattering 82-12 loss to the Roosters, which came on the back of a 3-1 run that included wins over the Panthers, Sea Eagles and Broncos.\nINS AND OUTS: Zane Harrison’s season-ending injury sees Lachlan Ilias return in the Titans’ No.7 jersey. The Cowboys get Griffin Neame back from suspension, but Jeremiah Nanai has been ruled out with Kai O’Donnell coming in.\nKEY MATCH-UP: Keano Kini tried hard in a steamrolled team last week, but fellow fullback livewire Scott Drinkwater’s passive display against the Roosters rightly came under a harsh spotlight.\nHISTORY: The Cowboys have won their last three against the Titans, scoring 110 points in the process. They prevailed 30-16 in Townsville in Round 3.\nKEY STAT: The Titans have won four of their last six against the Cowboys at Cbus Super Stadium, averaging 23 points across those six encounters.\nScott Drinkwater has scored five tries in his last five games against the Titans.\nVERDICT: After a week of soul-searching, the Cowboys receive an ideal opportunity to reset and get their finals bid back on track. Four of 10 teams to conceded 50-plus points in 2026 have won their next game – and Todd Payten’s chastened side is still in the thick of the Top 8 race .\nThe Titans took a sizeable step back last week and Harrison’s injury is a bitter blow for a team that looked to be turning a corner. With both sides taking an optional attitude to defence, the over also holds plenty of appeal in this one.\nPrediction: Back Over 48.5 Total Points @ $1.90\nSGM: COWBOYS WIN / BOTH TEAMS SCORE 20+ POINTS / PHILLIP SAMI ANYTIME TRYSCORER / SCOTT DRINKWATER ANYTIME TRYSCORER / HEILUM LUKI ANYTIME TRYSCORER / JOJO FIFITA ANYTIME TRYSCORER @ $67.78\nGold Coast Titans vs North Queensland Cowboys Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Gold Coast Titans vs North Queensland Cowboys matchup .\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nCbus Super Stadium • Thursday 6th Aug\nTeam\nOdds\nNorth Queensland Cowboys (-3.5)\n1.90\nBet Now\nGold Coast Titans (3.5)\nNRL odds correct as of 06/08/2026 and subject to change. Event scheduled to start at 06/08/2026 7:50pm AEST.\nBraidon Burns (North Queensland Cowboys)\n8.25\nMurray Taulagi (North Queensland Cowboys)\n9.25\nPhillip Sami (Gold Coast Titans)\n10.50\nDean Ieremia (Gold Coast Titans)\n12.00\nScott Drinkwater (North Queensland Cowboys)\nEthan King (North Queensland Cowboys)\n13.00\nJayden Campbell (Gold Coast Titans)\n14.00\nTom Chester (North Queensland Cowboys)\nHeilum Luki (North Queensland Cowboys)\n17.00\nJojo Fifita (Gold Coast Titans)\nJaxon Purdue (North Queensland Cowboys)\n19.00\nKeano Kini (Gold Coast Titans)\nAJ Brimson (Gold Coast Titans)\nArama Hau (Gold Coast Titans)\n21.00\nOliver Pascoe (Gold Coast Titans)\nKai O'Donnell (North Queensland Cowboys)\nBeau Fermor (Gold Coast Titans)\n23.00\nZac Laybutt (North Queensland Cowboys)\nJake Clifford (North Queensland Cowboys)\n26.00\nSoni Luke (North Queensland Cowboys)\n34.00\nCooper Bai (Gold Coast Titans)\n41.00\nLachlan Ilias (Gold Coast Titans)\nKurtis Morrin (Gold Coast Titans)\nChris Randall (Gold Coast Titans)\n51.00\nJosh Patston (Gold Coast Titans)\nTino Fa'asuamaleaui (Gold Coast Titans)\nGriffin Neame (North Queensland Cowboys)\n67.00\nKlese Haas (Gold Coast Titans)\nJason Taumalolo (North Queensland Cowboys)\nCoe",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.74029703361111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "82a0c775ac413b0a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 23 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/05/2026-nrl-round-23-predictions/",
+            "published_at": "2026-08-04T23:57:46+00:00",
+            "snippet": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on oppone",
+            "body_excerpt": "NRL Round 23 is headlined by a top-four blockbuster in Auckland and Sydney Roosters’ showdown with fellow in-form outfit Canterbury Bulldogs.\nMeanwhile, four Top 8 teams and a couple of fringe sides get an ideal opportunity to boost their finals prospects when they take on opponents currently languishing in the bottom seven spots.\nRead on for our complete 2026 NRL Round 23 predictions, tips and best bets and don’t forget to check out our exclusive NRL Round 23 betting specials open now!\nNRL\nCbus Super Stadium • Thursday 6th Aug\nThese derby rivals lost their Round 22 home fixtures by a combined margin of 106 points – but it’s the still-in-contention Cowboys most under the microscope after last week’s historic loss.\nFORM: The Titans’ followed up their first back-to-back wins of the season – scoring 38 points against both Manly and St George Illawarra – with a crushing 42-6 home loss to the Warriors.\nThe Cowboys are in disarray after a record-shattering 82-12 loss to the Roosters, which came on the back of a 3-1 run that included wins over the Panthers, Sea Eagles and Broncos.\nINS AND OUTS: Zane Harrison’s season-ending injury sees Lachlan Ilias return in the Titans’ No.7 jersey. The Cowboys get Griffin Neame back from suspension, but Jeremiah Nanai has been ruled out with Kai O’Donnell coming in.\nKEY MATCH-UP: Keano Kini tried hard in a steamrolled team last week, but fellow fullback livewire Scott Drinkwater’s passive display against the Roosters rightly came under a harsh spotlight.\nHISTORY: The Cowboys have won their last three against the Titans, scoring 110 points in the process. They prevailed 30-16 in Townsville in Round 3.\nKEY STAT: The Titans have won four of their last six against the Cowboys at Cbus Super Stadium, averaging 23 points across those six encounters.\nScott Drinkwater has scored five tries in his last five games against the Titans.\nVERDICT: After a week of soul-searching, the Cowboys receive an ideal opportunity to reset and get their finals bid back on track. Four of 10 teams to conceded 50-plus points in 2026 have won their next game – and Todd Payten’s chastened side is still in the thick of the Top 8 race.\nThe Titans took a sizeable step back last week and Harrison’s injury is a bitter blow for a team that looked to be turning a corner. With both sides taking an optional attitude to defence, the over also holds plenty of appeal in this one.\nPrediction: Back Over 48.5 Total Points @ $1.90\nSGM: COWBOYS WIN / BOTH TEAMS SCORE 20+ POINTS / PHILLIP SAMI ANYTIME TRYSCORER / SCOTT DRINKWATER ANYTIME TRYSCORER / HEILUM LUKI ANYTIME TRYSCORER / JOJO FIFITA ANYTIME TRYSCORER @ $67.78\nGo Media Stadium • Friday 7th Aug\nA potential grand final preview got a major boost with the Warriors and Panthers both returning to form in emphatic fashion last week.\nFORM: The Warriors put some patchy form – including a disappointing 18-6 loss to the Bulldogs in Round 21 – behind them with a blistering 42-6 win over the Titans last Saturday.\nAfter winning only two of their previous five and having some trouble putting away Parramatta in Round 21, the Panthers returned to somewhere near their best in a 42-18 win over the Raiders in Mudgee.\nINS AND OUTS: Charnze Nicoll-Klokstad and Leka Halasima retain their backline spots, while Morgan Gannon is a surprise inclusion on the bench with Demitric Vaimauga remaining on the sidelines. Taine Tuaupiki is on the six-man bench.\nCasey McLean is a big out for the Panthers, replaced by Izack Tago, while Dylan Edwards is still out injured and Jack Cogger keeps his spot ahead of Blaize Talagi.\nKEY MATCH-UP: Nathan Cleary was rested from the clubs’ June epic, while he hasn’t lost to the Warriors since 2019. Te Maire Martin bounced back from a quiet fortnight in a two-try performance last week.\nHISTORY: The Panthers have won 11 of their last 12 against the Warriors, including a gripping 20-18 result at CommBank Stadium in Round 13 this year and a pair of wins in Auckland (28-18 in Round 16 and 24-8",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 24.91307481138889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL finals race OR ladder stakes",
+          "Titans Cowboys NRL",
+          "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Titans Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Titans OR Cowboys"
+        ],
+        "filter_summary": {
+          "dropped_stale": 49,
+          "dropped_wrong_round": 6,
+          "dropped_noise": 10,
+          "dropped_irrelevant": 14,
+          "kept": 19,
+          "deferred_pending_body": 61,
+          "promoted_after_body": 8,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "9b2b6f55bc87",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-06T00:52:33.053773+00:00",
+      "finished_at": "2026-08-06T00:53:56.921154+00:00",
+      "duration_ms": 83867,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "venue": "Cbus Super Stadium",
+        "kickoff": "2026-08-06T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5063,
+        "home_win_probability": 0.5063,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (-1.5 points)",
+            "Pythagorean form (last 10) (+11% expected-win gap)",
+            "5-game form: all run metres (+44.80)",
+            "3-game form: missed tackles (-10.33)",
+            "3-game form: line breaks (+2.67)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-129 points)",
+            "Bradley-Terry strength advantage (-0.92 log-strength)",
+            "3-game form: errors (-1.67)",
+            "3-game form: possession pct (+6.33)",
+            "Away travel to venue (1,183 km)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "venue": "Cbus Super Stadium",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

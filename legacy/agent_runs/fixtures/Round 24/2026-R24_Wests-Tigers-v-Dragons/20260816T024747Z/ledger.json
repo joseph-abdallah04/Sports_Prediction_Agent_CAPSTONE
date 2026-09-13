@@ -1,0 +1,1332 @@
+{
+  "schema_version": 2,
+  "run_id": "20260816T024747Z-5d316970",
+  "at_a_glance": {
+    "fixture": "Wests Tigers v Dragons",
+    "round": 24,
+    "kickoff": "2026-08-16T16:05:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Wests Tigers",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.5736,
+    "model_prediction": "Home Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-16T02:47:47.178677+00:00",
+  "updated_at": "2026-08-16T02:59:19.910492+00:00",
+  "request": {
+    "home_team": "Wests Tigers",
+    "away_team": "Dragons",
+    "season": 2026,
+    "round_number": 24,
+    "force_refresh": true,
+    "user_question": "Who wins Wests Tigers vs Dragons?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Wests Tigers",
+    "away_team": "Dragons",
+    "confidence": 0.6,
+    "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons show stronger recent form in run metres and Pythagorean expectations—and are market favourites—they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model identifies an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points) for the Tigers."
+      },
+      {
+        "source": "research",
+        "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+      },
+      {
+        "source": "math",
+        "detail": "The Dragons possess strong recent form signals, specifically in all run metres (contribution 0.091) and Pythagorean form over the last 10 games (contribution 0.080), which partially offsets the Tigers' advantages."
+      },
+      {
+        "source": "research",
+        "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+      },
+      {
+        "source": "math",
+        "detail": "The model nets the short away travel distance (22 km) as a minor factor favouring the home side."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 4
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 16
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 6
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Dragons NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Wests Tigers vs Dragons NRL round 24 preview",
+      "Wests Tigers Dragons NRL odds OR price OR favourite",
+      "Wests Tigers Dragons NRL recent form OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Gutherson injury matched to 'Clint Gutherson (knee) has been ruled out'; Cronulla win matched to 'stunning Cronulla 24-16'; bye matched to 'Wests had the bye last week'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source says Gutherson is ruled out and judgement describes him as ruled out."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating advantage and ladder points differential are correctly attributed to the Wests Tigers home win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors include the Gutherson injury and the bye/Cronulla win, both sourced from research articles."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is justified by noting that Dragons are market favourites and have momentum despite the Tigers' advantages."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder Diff) rather than minor ones."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top math drivers '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue' are not addressed."
+        }
+      ],
+      "issues": [
+        "Omitted top SHAP drivers for both sides: '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'."
+      ],
+      "instruction": "Math drivers include '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Wests Tigers",
+      "away_team": "Dragons",
+      "confidence": 0.6,
+      "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons have momentum after upsetting Cronulla and are market favourites, they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model favours a home win based on an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points)."
+        },
+        {
+          "source": "research",
+          "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+        },
+        {
+          "source": "research",
+          "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Wests Tigers",
+      "away_team": "Dragons",
+      "confidence": 0.6,
+      "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons show stronger recent form in run metres and Pythagorean expectations—and are market favourites—they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points) for the Tigers."
+        },
+        {
+          "source": "research",
+          "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+        },
+        {
+          "source": "math",
+          "detail": "The Dragons possess strong recent form signals, specifically in all run metres (contribution 0.091) and Pythagorean form over the last 10 games (contribution 0.080), which partially offsets the Tigers' advantages."
+        },
+        {
+          "source": "research",
+          "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+        },
+        {
+          "source": "math",
+          "detail": "The model nets the short away travel distance (22 km) as a minor factor favouring the home side."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Omitted top SHAP drivers for both sides: '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-16T02:48:16.020356+00:00",
+      "thinking": "*   Home Team: Wests Tigers\n    *   Away Team: Dragons\n    *   Round Number: 24\n    *   Goal: Determine who wins (predictive/research).\n\n    1.  Home team availability (Wests Tigers)\n    2.  Away team availability (Dragons)\n    3.  Fixture preview (Wests Tigers vs Dragons Round 24)\n    4.  Market prices (Odds/Favorite)\n    5.  Specific context (Form, ladder stakes, etc.)\n\n    *   Query 1: \"Wests Tigers NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 24\"\n    *   Query 2: \"Dragons NRL injury OR \\\"late mail\\\" OR \\\"team list\\\" round 24\"\n    *   Query 3: \"Wests Tigers vs Dragons NRL round 24 preview\"\n    *   Query 4: \"Wests Tigers Dragons NRL odds OR price OR favourite\"\n    *   Query 5 (Context): Both teams are often lower-ladder/struggling. I'll look for recent form or ladder stakes. Let's go with \"Wests Tigers Dragons NRL form OR finals race OR ladder\". Actually, looking at the specific rivalry (local derby), maybe just general form. Let's use: \"Wests Tigers Dragons NRL recent form OR streak\"\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words each? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (\"Wests Tigers\", \"Dragons\").\n    *   JSON format only? Yes.",
+      "chars": 1269
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-16T02:54:07.945468+00:00",
+      "thinking": "Wests Tigers (Home) vs. Dragons (Away).\nCommBank Stadium, Round 24.\n\n        *   Tigers: 14th, 7 wins, 13 losses, -211 PD (-10.55/game), recent form 0-4 (streak 4L).\n        *   Dragons: 17th, 3 wins, 17 losses, -265 PD (-13.25/game), recent form 1-3 (streak 1W).\n        *   Tigers are higher on the ladder and have a better points differential per game (+2.7 gap).\n\n        *   Prediction: Home Win.\n        *   Probability: 0.5736.\n        *   Drivers for Tigers: Ladder PD (+2.7), Elo rating advantage (+34), Away travel (22km), Rest-day advantage (+7 days - they had a bye).\n        *   Drivers for Dragons: Run metres, Pythagorean form, Momentum (last 20 net points), Points against.\n        *   Attribution Balance: Leans away (-0.0383) despite the home win prediction. This means the model's internal weights are slightly favoring the away side, but it still predicts a home win based on the final probability calculation.\n\n        *   Tigers: Solomone Saukuru set for debut (leading try scorer in NSW Cup - `nrl_news` / `weststigers.com.au`).\n        *   Dragons: Toby Couchman returns from head knock (`dragons.com.au`).\n        *   Crucial Availability Update: Clint Gutherson (knee) has been ruled out; Mathew Feagai comes in at fullback (`dragons.com.au` update).\n        *   Form/Context: Dragons coming off a big win against Cronulla Sharks (`sportsnews.com.au`, `nrl_news`). Tigers coming off a bye and a loss to Eels (`nrl_news`).\n\n        *   `sportsnews.com.au` mentions Dragons are favourites with bookmakers.\n        *   Market prices in `market_mentions`: $1.90 / $7.75 (likely for other games or general, but the text explicitly says Dragons are favorites).\n\n    *   The model predicts a Home Win (Tigers) at 0.5736.\n    *   Research shows Dragons have momentum (win over Sharks), but Tigers had a bye and are higher on the ladder.\n    *   Dragons lost their captain/key player Clint Gutherson to a knee injury (`dragons.com.au`). This is a significant blow.\n    *   Tigers get a high-scoring debutant in Saukuru.\n    *   The market favors Dragons, but the model and ladder favor Tigers.\n\n    *   Winner: Home (Wests Tigers).\n    *   Confidence: The model says 0.57. Research shows a key injury to the Dragons' captain (Gutherson) which strengthens the home case. However, the Dragons have recent momentum (beating Sharks), and the market favors them. This keeps confidence modest. I'll set it at 0.60.\n    *   Key Factors:\n        1.  Math: Ladder points differential per game (+2.7) and Elo advantage.\n        2.  Research: Loss of Dragons captain Clint Gutherson (knee injury) as reported by `dragons.com.au`.\n        3.  Research: Wests Tigers coming off a bye for rest, while Dragons are coming off an emotional high beating Cronulla (`sportsnews.com.au`).\n\n    *   The model predicts Home Win. I agree. The attribution balance leans away slightly, but the probability is still > 0.5. No major disagreement.\n\n    *   \"Strongest reason my pick could lose\": Dragons' current momentum after upsetting Cronulla and being market favorites.\n    *   Confidence check: 0.60 (modest edge).",
+      "chars": 3108
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-16T02:57:44.377250+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and return the result in JSON format.\n\n    *   Home: Wests Tigers (14th)\n    *   Away: Dragons (17th)\n    *   Venue: CommBank Stadium\n    *   Weather: Fine\n\n    *   `favouring_Wests Tigers_home_win`:\n        *   Ladder points differential per game (+2.7 points) - 0.083\n        *   Elo rating advantage (+34 points) - 0.070\n        *   Away travel to venue (22 km) - 0.070\n        *   Rest-day advantage (+7.0 days) - 0.026\n        *   5-game workload: top3 tackle share (-0.04) - 0.023\n    *   `favouring_Dragons_away_win`:\n        *   5-game form: all run metres (-163.00) - 0.091\n        *   Pythagorean form (last 10) (-25% expected-win gap) - 0.080\n        *   Travel-distance advantage (+6 km for away) - 0.051\n        *   5-game momentum: last20 net points (-16.60) - 0.043\n        *   5-game form: points against (+9.60) - 0.042\n\n    *   Winner: Home (Wests Tigers)\n    *   Confidence: 0.6\n    *   Summary mentions: Ladder/Elo advantage, bye (refreshed), Dragons momentum (Cronulla win), market favourites, Clint Gutherson ruled out (knee).\n    *   Key Factors:\n        1.  Math: Elo (+34) and ladder points differential (+2.7).\n        2.  Research: Clint Gutherson ruled out (knee injury) - source \"dragons.com.au\".\n        3.  Research: Wests Tigers bye, Dragons coming off Cronulla win - source \"sportsnews.com.au\".\n\n    *   **Check 1: `sourced_claims`**\n        *   Claim: Clint Gutherson ruled out (knee injury). Source check: Research item \"NRL Team Update: Round 24 vs. Wests Tigers - St George Illawarra Dragons\" says \"Clint Gutherson (knee) has been ruled out\". Match found.\n        *   Claim: Dragons upset Cronulla. Source check: Research item \"Wests Tigers vs St. George Illawarra Dragons Tips... sportsnews.com.au\" says \"...stunning Cronulla 24-16\". Match found.\n        *   Claim: Wests Tigers enter following a bye. Source check: Research item \"Tigers vs Dragons Preview & Betting Tips... Before You Bet\" says \"Wests had the bye last week\". Also in \"Match Preview Wests Tigers v Dragons... nrl_news\" saying \"...following a bye\". Match found.\n        *   Claim: Market favourites (Dragons). Source check: Research item \"Wests Tigers vs St. George Illawarra Dragons Tips... sportsnews.com.au\" says \"...St George Illawarra Dragons heading into the game as favourites with the bookmakers\". Match found.\n\n    *   **Check 2: `availability_direction`**\n        *   Gutherson is ruled out (source) -> Judgement says he's ruled out. Correct.\n\n    *   **Check 3: `shap_attribution`**\n        *   Elo rating advantage (+34 points): In `favouring_Wests Tigers_home_win`. Attributed to home win. Pass.\n        *   Ladder points differential per game (+2.7 points): In `favouring_Wests Tigers_home_win`. Attributed to home win. Pass.\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather is \"Fine\". Not mentioned as a key factor in judgement. Pass.\n\n    *   **Check 5: `research_used`**\n        *   Key factors include Gutherson injury and the bye/Cronulla win, both sourced from research articles (though one says dragons.com.au while the snippet is google_news_rss, it's clearly based on the content). Pass.\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence = 0.6. Summary mentions Dragons are market favourites and have momentum (unresolved reason they could win), which justifies a confidence $\\le$ 0.65. Range is 0.5-0.85. Pass.\n\n    *   **Check 7: `driver_proportionality`**\n        *   Top drivers used are Elo (0.07) and Ladder Diff (0.083). These are the top ones for home. No minor driver treated as decisive. Pass.\n\n    *   **Check 8: `omitted_math_signals`**\n        *   Home Top Drivers:\n            1.  Ladder points differential per game (+2.7) - Mentioned.\n            2.  Elo rating advantage (+34) - Mentioned.\n            3.  Away travel to venue (22 km) - NOT mentioned.\n        *   Away Top Drivers:\n            1.  5-game form: all run metres (-163.00) - NOT mentioned.\n            2.  Pythagorean form (last 10) (-25%) - NOT mentioned.\n            3.  Travel-distance advantage (+6 km for away) - NOT mentioned.\n        *   Wait, the rule says \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n        *   Home: Ladder diff and Elo are mentioned. Travel (22km) is not.\n        *   Away: Run metres, Pythagorean form, and Travel distance are all omitted.\n        *   The judgement mentions \"momentum\" for Dragons, which might be an allusion to the 5-game form/momentum drivers, but it's vague. Specifically, \"all run metres\" and \"Pythagorean form\" are distinct math signals not addressed.\n\n    *   `sourced_claims`: Pass.\n    *   `availability_direction`: Pass.\n    *   `shap_attribution`: Pass.\n    *   `weather_not_headline`: Pass.\n    *   `research_used`: Pass.\n    *   `confidence_justified`: Pass.\n    *   `driver_proportionality`: Pass.\n    *   `omitted_math_signals`: Fail. The top drivers for the Dragons (all run metres, Pythagorean form) and the third driver for Tigers (Away travel to venue) are not mentioned or evaluated.\n\n    *   Instruction: \"Math drivers include '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 5430
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-16T02:59:19.910376+00:00",
+      "thinking": "*   Match: Wests Tigers vs Dragons.\n    *   Current Pick: Home (Wests Tigers).\n    *   Confidence: 0.60.\n    *   Key Factors used previously: Elo/Ladder diff, Gutherson injury, Bye week.\n\n    *   `favouring_Dragons_away_win`:\n        *   \"5-game form: all run metres (-163.00)\" - contribution 0.091 (9% of total). This is the strongest driver for the Dragons.\n        *   \"Pythagorean form (last 10) (-25% expected-win gap)\" - contribution 0.080 (8% of total).\n    *   `favouring_Wests Tigers_home_win`:\n        *   \"Away travel to venue (22 km)\" - contribution 0.070 (7% of total).\n\n    *   *5-game form: all run metres (-163.00)*: This suggests the Dragons have been significantly more productive in terms of yardage over their last five games compared to the Tigers. It's a strong signal for current momentum/form.\n    *   *Pythagorean form (last 10)*: The model sees a gap here favoring the Dragons, suggesting that based on points scored vs conceded over the last 10 games, the Dragons are performing better than their win-loss record suggests (or Tigers worse).\n    *   *Away travel to venue (22 km)*: This is a home advantage driver. The short distance for the away team usually helps them, but here it's listed under `favouring_Wests Tigers_home_win`, meaning the model nets this as an advantage for the home side (likely because it's so short that the \"away\" disadvantage is negligible or simply a standard home-field weight).\n\n    *   The Dragons have strong recent form signals (run metres, Pythagorean gap) and momentum from beating Cronulla.\n    *   However, they lost their captain Clint Gutherson (knee injury - confirmed by `dragons.com.au`).\n    *   Tigers had a bye (rest advantage).\n    *   The math model's probability is 0.5736 for Home, but the `attribution_balance` actually leans *away* (-0.0383) toward the Dragons. This means the sum of drivers favoring the away side is slightly higher than those favoring the home side, despite the final prediction being \"Home Win\".\n    *   The market favourites are the Dragons (`sportsnews.com.au`).\n\n    *   Tigers: Ladder position (14 vs 17), Elo (+34), Bye week, Home ground.\n    *   Dragons: Recent form (run metres, Pythagorean), Momentum (beat Cronulla), Market favourite.\n    *   Critical blow: Dragons lose captain Gutherson.\n\n    The Dragons' form is strong, but the loss of a key player like Gutherson and the Tigers' rest advantage are significant. The `attribution_balance` leaning away suggests it's close. I will maintain the Home pick because the injury to the captain is a high-impact event not fully captured by 5-game run metre stats (which look at the *past*).\n\n    Confidence: 0.60 was modest. Given that the math `attribution_balance` leans away and they are market favourites, I should be cautious. However, the injury to Gutherson is a strong counter-signal. I'll keep it around 0.58-0.60.\n\n    *   Address '5-game form: all run metres': Acknowledge Dragons' yardage advantage.\n    *   Address 'Pythagorean form (last 10)': Acknowledge the expected-win gap favoring Dragons.\n    *   Address 'Away travel to venue': Note it as a minor home-side driver.\n\n    *   Winner: Home.\n    *   Confidence: 0.60.\n    *   Summary: Mention the form drivers but explain why the injury/bye outweighs them.",
+      "chars": 3276
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-16T02:48:16.020960+00:00",
+      "payload": {
+        "queries": [
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Wests Tigers vs Dragons NRL round 24 preview",
+          "Wests Tigers Dragons NRL odds OR price OR favourite",
+          "Wests Tigers Dragons NRL recent form OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-16T02:54:07.945569+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "confidence": 0.6,
+          "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons have momentum after upsetting Cronulla and are market favourites, they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours a home win based on an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points)."
+            },
+            {
+              "source": "research",
+              "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+            },
+            {
+              "source": "research",
+              "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-16T02:57:44.380402+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Gutherson injury matched to 'Clint Gutherson (knee) has been ruled out'; Cronulla win matched to 'stunning Cronulla 24-16'; bye matched to 'Wests had the bye last week'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source says Gutherson is ruled out and judgement describes him as ruled out."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating advantage and ladder points differential are correctly attributed to the Wests Tigers home win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors include the Gutherson injury and the bye/Cronulla win, both sourced from research articles."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is justified by noting that Dragons are market favourites and have momentum despite the Tigers' advantages."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the top SHAP drivers (Elo and Ladder Diff) rather than minor ones."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top math drivers '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue' are not addressed."
+            }
+          ],
+          "issues": [
+            "Omitted top SHAP drivers for both sides: '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'."
+          ],
+          "instruction": "Math drivers include '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-16T02:59:19.910435+00:00",
+      "payload": {
+        "issues": [
+          "Omitted top SHAP drivers for both sides: '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'."
+        ],
+        "instruction": "Math drivers include '5-game form: all run metres', 'Pythagorean form (last 10)', and 'Away travel to venue'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "confidence": 0.6,
+          "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons have momentum after upsetting Cronulla and are market favourites, they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours a home win based on an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points)."
+            },
+            {
+              "source": "research",
+              "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+            },
+            {
+              "source": "research",
+              "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "confidence": 0.6,
+          "summary": "The Wests Tigers hold a ladder and Elo advantage and enter the match refreshed following a bye. While the Dragons show stronger recent form in run metres and Pythagorean expectations—and are market favourites—they suffer a significant blow with captain Clint Gutherson ruled out due to a knee injury. This availability shift, combined with the Tigers' superior points differential per game, provides a modest edge to the home side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies an Elo rating advantage (+34 points) and a superior ladder points differential per game (+2.7 points) for the Tigers."
+            },
+            {
+              "source": "research",
+              "detail": "Dragons captain Clint Gutherson has been ruled out of the match with a knee injury, as reported by dragons.com.au."
+            },
+            {
+              "source": "math",
+              "detail": "The Dragons possess strong recent form signals, specifically in all run metres (contribution 0.091) and Pythagorean form over the last 10 games (contribution 0.080), which partially offsets the Tigers' advantages."
+            },
+            {
+              "source": "research",
+              "detail": "Wests Tigers enter the game following a bye, providing a rest advantage compared to the Dragons who are coming off an emotional high after beating Cronulla (sportsnews.com.au)."
+            },
+            {
+              "source": "math",
+              "detail": "The model nets the short away travel distance (22 km) as a minor factor favouring the home side."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "884d938ca15c",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-16T02:47:47.178820+00:00",
+      "finished_at": "2026-08-16T02:47:52.020078+00:00",
+      "duration_ms": 4841,
+      "request": {
+        "home_team": "Wests Tigers",
+        "away_team": "Dragons",
+        "season": 2026,
+        "round_number": 24,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "season": 2026,
+          "round_number": 24
+        },
+        "retrieved_at": "2026-08-16T02:47:47.178892+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 24,
+          "round_title": "Round 24",
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "kickoff": "2026-08-16T16:05:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/wests-tigers-v-dragons/",
+          "match_mode": "Pre",
+          "match_id": "20261112480",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Peter Gough"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Grant Atkins"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Jahream Bula",
+                "position": "Fullback",
+                "player_id": 100012669
+              },
+              {
+                "number": 2,
+                "name": "Junior Tupou",
+                "position": "Winger",
+                "player_id": 507765
+              },
+              {
+                "number": 3,
+                "name": "Solomone Saukuru",
+                "position": "Centre",
+                "player_id": 100004050
+              },
+              {
+                "number": 4,
+                "name": "Patrick Herbert",
+                "position": "Centre",
+                "player_id": 504007
+              },
+              {
+                "number": 5,
+                "name": "Sunia Turuva",
+                "position": "Winger",
+                "player_id": 509455
+              },
+              {
+                "number": 6,
+                "name": "Jarome Luai",
+                "position": "Five-Eighth",
+                "player_id": 504121
+              },
+              {
+                "number": 7,
+                "name": "Adam Doueihi",
+                "position": "Halfback",
+                "player_id": 505811
+              },
+              {
+                "number": 8,
+                "name": "Terrell May",
+                "position": "Prop",
+                "player_id": 508065
+              },
+              {
+                "number": 9,
+                "name": "Apisai Koroisau",
+                "position": "Hooker",
+                "player_id": 500109
+              },
+              {
+                "number": 10,
+                "name": "Fonua Pole",
+                "position": "Prop",
+                "player_id": 100004194
+              },
+              {
+                "number": 11,
+                "name": "Samuela Fainu",
+                "position": "2nd Row",
+                "player_id": 510577
+              },
+              {
+                "number": 12,
+                "name": "Tony Sukkar",
+                "position": "2nd Row",
+                "player_id": 100004168
+              },
+              {
+                "number": 13,
+                "name": "Alex Twal",
+                "position": "Lock",
+                "player_id": 502532
+              },
+              {
+                "number": 14,
+                "name": "Heath Mason",
+                "position": "Interchange",
+                "player_id": 100006657
+              },
+              {
+                "number": 15,
+                "name": "Sione Fainu",
+                "position": "Interchange",
+                "player_id": 509297
+              },
+              {
+                "number": 16,
+                "name": "Alex Seyfarth",
+                "position": "Interchange",
+                "player_id": 504609
+              },
+              {
+                "number": 17,
+                "name": "Bunty Afoa",
+                "position": "Interchange",
+                "player_id": 501744
+              },
+              {
+                "number": 18,
+                "name": "Tristan Hope",
+                "position": "Interchange",
+                "player_id": 504376
+              },
+              {
+                "number": 19,
+                "name": "Faaletino Tavana",
+                "position": "Interchange",
+                "player_id": 100006826
+              },
+              {
+                "number": 21,
+                "name": "Javon Andrews",
+                "position": "Reserve",
+                "player_id": 100015243
+              }
+            ],
+            "away": [
+              {
+                "number": 2,
+                "name": "Setu Tu",
+                "position": "Winger",
+                "player_id": 510696
+              },
+              {
+                "number": 3,
+                "name": "Moses Suli",
+                "position": "Centre",
+                "player_id": 504101
+              },
+              {
+                "number": 4,
+                "name": "Valentine Holmes",
+                "position": "Centre",
+                "player_id": 500845
+              },
+              {
+                "number": 5,
+                "name": "Tyrell Sloan",
+                "position": "Winger",
+                "player_id": 509484
+              },
+              {
+                "number": 6,
+                "name": "Lyhkan King-Togia",
+                "position": "Five-Eighth",
+                "player_id": 100012312
+              },
+              {
+                "number": 7,
+                "name": "Kyle Flanagan",
+                "position": "Halfback",
+                "player_id": 504363
+              },
+              {
+                "number": 8,
+                "name": "Loko Jnr Pasifiki Tonga",
+                "position": "Prop",
+                "player_id": 100014137
+              },
+              {
+                "number": 9,
+                "name": "Damien Cook",
+                "position": "Hooker",
+                "player_id": 501600
+              },
+              {
+                "number": 10,
+                "name": "Emre Guler",
+                "position": "Prop",
+                "player_id": 504426
+              },
+              {
+                "number": 11,
+                "name": "Dylan Egan",
+                "position": "2nd Row",
+                "player_id": 100006243
+              },
+              {
+                "number": 12,
+                "name": "Hamish Stewart",
+                "position": "2nd Row",
+                "player_id": 100006241
+              },
+              {
+                "number": 13,
+                "name": "Ryan Couchman",
+                "position": "Lock",
+                "player_id": 100008396
+              },
+              {
+                "number": 14,
+                "name": "Jacob Liddle",
+                "position": "Interchange",
+                "player_id": 503449
+              },
+              {
+                "number": 15,
+                "name": "Toby Couchman",
+                "position": "Interchange",
+                "player_id": 100011308
+              },
+              {
+                "number": 16,
+                "name": "Jacob Halangahu",
+                "position": "Interchange",
+                "player_id": 100011655
+              },
+              {
+                "number": 17,
+                "name": "Jacob Webster",
+                "position": "Interchange",
+                "player_id": 100004153
+              },
+              {
+                "number": 18,
+                "name": "Daniel Atkinson",
+                "position": "Interchange",
+                "player_id": 100004700
+              },
+              {
+                "number": 19,
+                "name": "Mathew Feagai",
+                "position": "Fullback",
+                "player_id": 507925
+              },
+              {
+                "number": 20,
+                "name": "Josh Kerr",
+                "position": "Reserve",
+                "player_id": 503533
+              },
+              {
+                "number": 21,
+                "name": "Blake Lawrie",
+                "position": "Interchange",
+                "player_id": 503440
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 24,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Wests Tigers",
+            "position": 14,
+            "played": 20,
+            "wins": 7,
+            "drawn": 0,
+            "lost": 13,
+            "competition_points": 20,
+            "points_for": 378,
+            "points_against": 589,
+            "points_difference": -211,
+            "points_difference_per_game": -10.55,
+            "recent_form_last_4": "0 - 4",
+            "streak": "4L",
+            "home_record": "5 - 6",
+            "away_record": "2 - 7"
+          },
+          "away": {
+            "team": "Dragons",
+            "position": 17,
+            "played": 20,
+            "wins": 3,
+            "drawn": 0,
+            "lost": 17,
+            "competition_points": 12,
+            "points_for": 320,
+            "points_against": 585,
+            "points_difference": -265,
+            "points_difference_per_game": -13.25,
+            "recent_form_last_4": "1 - 3",
+            "streak": "1W",
+            "home_record": "2 - 8",
+            "away_record": "1 - 9"
+          },
+          "comparison": {
+            "higher_on_ladder": "Wests Tigers",
+            "ladder_positions_gap": 3,
+            "points_difference_per_game_gap": 2.7,
+            "points_difference_favours": "Wests Tigers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-16T16:00",
+            "temperature_c": 15.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 16,
+            "wind_speed_kmh": 14.4,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-16T02:47:52.018557+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=24&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/wests-tigers-v-dragons/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "a281033e3302",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-16T02:48:16.024788+00:00",
+      "finished_at": "2026-08-16T02:50:45.406829+00:00",
+      "duration_ms": 149382,
+      "request": {
+        "home_team": "Wests Tigers",
+        "away_team": "Dragons",
+        "kickoff": "2026-08-16T16:05:00+10:00",
+        "round_number": 24,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Wests Tigers vs Dragons NRL round 24 preview",
+          "Wests Tigers Dragons NRL odds OR price OR favourite",
+          "Wests Tigers Dragons NRL recent form OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "kickoff": "2026-08-16T16:05:00+10:00",
+          "round_number": 24,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Dragons NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Wests Tigers vs Dragons NRL round 24 preview",
+            "Wests Tigers Dragons NRL odds OR price OR favourite",
+            "Wests Tigers Dragons NRL recent form OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-16T02:48:16.026305+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 4
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 16
+          }
+        },
+        "items": [
+          {
+            "id": "5e8b5ad69f60bb6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 24 - Crossland back, Best on hold for Knights Presented by 8 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/",
+            "published_at": "2026-08-16T02:39:19+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 - Crossland back, Best on hold for Knights\nKnights hooker Phoenix Crossland is back on deck to face the Titans after missing the win over Canberra due to calf a injury.\nCentre Bradman Best was originally named, but will need at least another w",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 - Crossland back, Best on hold for Knights\nKnights hooker Phoenix Crossland is back on deck to face the Titans after missing the win over Canberra due to calf a injury.\nCentre Bradman Best was originally named, but will need at least another week to recover.\nSee all the late mail, official team news and updates for Round 24 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 24\nKnights v Titans, Sunday 2.00pm at McDonald Jones Stadium\nMatch: Knights v Titans\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nKnights\naway Team\nTitans\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Titans is number 1 Keano Kini\nWinger for Knights is number 2 Dominic Young 2 5 Winger for Titans is number 5 Phillip Sami\n2 5\nCentre for Knights is number 3 Dane Gagai 3 Centre for Titans is number 3 Jojo Fifita\nCentre for Knights is number 18 Fletcher Hunt 18 4 Centre for Titans is number 4 AJ Brimson\n18 4\nWinger for Knights is number 5 Greg Marzhew 5 19 Winger for Titans is number 19 Jaylan De Groot\n5 19\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Titans is number 6 Jayden Campbell\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Titans is number 7 Lachlan Ilias\nForwards\nProp for Knights is number 8 Cody Hopwood 8 Prop for Titans is number 8 Moeaki Fotuaika\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Titans is number 9 Oliver Pascoe\nProp for Knights is number 10 Trey Mooney 10 Prop for Titans is number 10 Tino Fa'asuamaleaui\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Titans is number 11 Josh Patston\n11\n2nd Row for Knights is number 12 Francis Manuleleua 12 2nd Row for Titans is number 12 Beau Fermor\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Titans is number 13 Chris Randall\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Titans is number 14 Kurtis Morrin\n14\nInterchange for Knights is number 15 Tyson Frizell 15 Interchange for Titans is number 15 Klese Haas\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Titans is number 16 Cooper Bai\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Titans is number 17 Bodhi Sharpley\n17\nInterchange for Knights is number 19 Pasami Saulo 19 18 Interchange for Titans is number 18 Sam Verrills\n19 18\nInterchange for Knights is number 22 Toby Winter 22 21 Interchange for Titans is number 21 Siale Faeamani\n22 21\nKnights Ins\nPasami Saulo\nPhoenix Crossland\nTitans Ins\nBodhi Sharpley\nSiale Faeamani\nKnights Outs\nBrodie Jones\nDiesel Hagan\nArama Hau\nDean Ieremia\nMatch Officials\nReferee: Liam Kennedy\nTouch Judge: Ziggy Przeklasa-Adamski\nSenior Review Official: Chris Butler\nLast updated: 8/16/2026 2:46:03 AM\nKnights: No late game day changes. Centre Bradman Best has been withdrawn again this week after failing to recover from a calf strain. Fletcher Hunt will start in the centres, with Toby Winter coming on to the bench. Hooker Phoenix Crossland is back on deck after missing the win over Canberra due to a calf injury. Harrison Graham heads back to the interchange. Pasami Saulo returns from a foot injury as part of the six-man interchange. Winger Dominic Young has scored 11 tries in six games against the Titans.\nTitans: Dean Ieremia has been withdrawn on game day with a hamstring injury. Onto the wing comes Jaylan De Groot, with Siale Faeamani elevated to the six-man bench to cover De Groot's promotion. Halfback Lachlan Ilias gets his first crack at the NRL since Round 9 as he looks to finish a frustrating season on a high. AJ Brimson returns to the centres after playing halfback last week for the first time since 2019. Rising back-rower Bodhi Sharpley has been named to make his NRL debut off the bench after 11 Queensland Cup games with Tweed Seagulls this season.\nWests Tigers v Dragons, Sunday 4.05pm at CommBank Stadium\nMatch:",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.1491739736111111,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90ca980be2320f59",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 24",
+            "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/",
+            "published_at": "2026-08-11T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 20 Dylan Edwards 20 18 Fullback for Roosters is number 18 Cody Ramsey\n20 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 16 Luron Patea 16 15 Interchange for Roosters is number 15 Lindsay Collins\n16 15\nInterchange for Panthers is number 17 Billy Phillips 17 16 Interchange for Roosters is number 16 Nat Butcher\n17 16\nInterchange for Panthers is number 19 Blaize Talagi 19\n19\nReserve for Panthers is number 1 Jaxen Edgar 1 17 Reserve for Roosters is number 17 Egan Butcher\n1 17\nReserve for Panthers is number 14 Billy Scott 14 19 Reserve for Roosters is number 19 Tommy Talau\n14 19\n20 Reserve for Roosters is number 20 Rex Bassingthwaighte\n20\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/14/2026 8:04:05 AM\nPanthers: Gun fullback Dylan Edwards is listed among the reserves as he looks to return from a shoulder injury. Edwards' last match was Round 20 against the Broncos. Lindsay Smith shifts from prop to lock to take over from skipper Isaah Yeo (pectoral) while Liam Henry starts in the front row. Jack Cogger will wear the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife. Jack Cole goes back to the bench as a result.\nRoosters: Skipper James Tedesco is back in the No.1 jersey after sitting out the Bulldogs game with an ankle injury. Cody Ramsey gets a spot in the six-man interchange after filling in at fullback last week. Spencer Leniu has again been named to start in the front row but could make a late switch back to the bench as he did last week when Nat Butcher started.\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nSea Eagles\nDolphins\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Sea Eagles is number 5 Lehi Hopoate 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Sea Eagles is number 6 Joey Walsh 6 Five-Eighth for Dolphins is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 116.82111841805556,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "d68f609bb0bb01c9",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 24 vs. Wests Tigers - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/11/nrl-team-list-round-24-vs.-wests-tigers/",
+            "published_at": "2026-08-11T05:57:12+00:00",
+            "snippet": "NRL Team List: Round 24 vs. Wests Tigers &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team List: Round 24 vs. Wests Tigers\nDean Young has named his squad to take on the Wests Tigers at CommBank Stadium in Round 24.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nToby Couchman (head knock) has been named to return for the Red V via the interchange.\nJacob Webster retains the No.17 jersey after a successful NRL debut in Round 23 whilst Mathew Feagai has been named among the reserves despite nursing a back injury.\nROUND 24 TEAM LIST\nROUND 24\nTEAM LIST\nPLAYER PARTNER\nClint GUTHERSON (c)\nBill & Toni’s Restaurant\nSetu TU\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nPorta Restaurant\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nJacob LIDDLE\nWollongong City Jetski\n15\nToby COUCHMAN\n16\nJacob HALANGAHU\nTripADeal\n17\nJacob WEBSTER\nJAC Motors\n18\nDaniel ATKINSON\n19\nMathew FEAGAI\ni98FM\n20\nJosh KERR\nClassic Sportswear\n21\nBlake LAWRIE\nGearbox\n22\nChristian TUIPULOTU\nWIN TV\nRelated /\nNRL Team Update: Round 24 vs. Wests Tigers\nTeam Lists\nNRLW Final Team: Round 7 vs. Titans\nNRL Final Team: Indigenous Round vs. Sharks\nNRL Team Update: Indigenous Round vs. Sharks\nNRL Team List: Indigenous Round vs. Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.85111841805556,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c3636c2cc2826411",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/wests-tigers-vs-st-george-illawarra-dragons-tips-odds-teams-predictions-nrl-round-24-2026/609877",
+            "published_at": "2026-08-13T03:40:14+00:00",
+            "snippet": "Wests Tigers vs St. George Illawarra Dragons Tips, Odds, Teams & Predictions – NRL Round 24 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "CommBank Stadium will play host to Sunday's Round 24 NRL game between Wests Tigers and St. George Illawarra Dragons. The game kicks off at 4:05 pm with St. George Illawarra Dragons heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Wests Tigers vs. St. George Illawarra Dragons game and give you our free tips and bets.\nWhen: Sunday August 16, 2026 at 4:05 pm\nWhere: CommBank Stadium\nBet 💰: Bet On This Match HERE\nWests Tigers vs St. George Illawarra Dragons Odds\nWests Tigers vs St. George Illawarra Dragons Preview\nThe Tigers and Dragons meet without finals implications, but St George Illawarra brings welcome belief after stunning Cronulla 24-16 for only its third win of the season. Wests has lost seven straight and entered its bye following a 16-13 defeat to Parramatta, with its attack held to 13 points or fewer in six consecutive games. Debutant Solomone Saukuru replaces Heamasi Makasini in the Tigers’ centres after strong NSW Cup form. The Dragons regain Toby Couchman from concussion, while Setu Tu is named to start and Damien Cook remains at hooker. St George Illawarra has won six of the past eight meetings, including a 24-10 result in Round 18. With both sides struggling for points, territory, discipline and patience are likely to decide a contest in which the Dragons’ recent defensive resolve provides the stronger foundation.\nHead To Head Bet\nWe're tipping St. George Illawarra Dragons to win at $1.90 odds.\nFirst Try Scorer\nFirst Try Scorer: Tyrell Sloan at $7.75 .\nWests Tigers vs St. George Illawarra Dragons Teams\nTigers team: 1. Jahream Bula 2. Junior Tupou 3. Solomane Saukuru 4. Patrick Herbert 5. Sunia Turuva 6. Jarome Luai 7. Adam Doueihi 8. Terrell May 9. Apisai Koroisau 10. Fonua Pole 11. Samuela Fainu 12. Tony Sukkar 13. Alex Twal 14. Heath Mason 15. Sione Fainu 16. Alex Seyfarth 17. Bunty Afoa 18. Tristan Hope 19. Faaletino Tavana 20. Ethan Roberts 21. Javon Andrews 22. Charlie Murray\nDragons team: 1. Clinton Gutherson 2. Setu Tu 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman 14. Jacob Liddle 15. Toby Couchman 16. Jacob Halangahu 17. Jacob Webster 18. Daniel Atkinson 19. Mathew Feagai 20. Josh Kerr 21. Blake Lawrie 22. Christian Tuipulotu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.13389619583333,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: Walsh, Metcalf injury drama; Trindall dislocates shoulder Now",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-16T02:46:06+00:00",
+            "snippet": "NRL Casualty Ward: Walsh, Metcalf injury drama; Trindall dislocates shoulder\nBroncos superstar Reece Walsh and Warriors halfback Luke Metcalf may have played their last match of the season after being forced from the field with injuries in Saturday night's match at Suncorp Stadiu",
+            "body_excerpt": "NRL Casualty Ward: Walsh, Metcalf injury drama; Trindall dislocates shoulder\nBroncos superstar Reece Walsh and Warriors halfback Luke Metcalf may have played their last match of the season after being forced from the field with injuries in Saturday night's match at Suncorp Stadium.\nWalsh's World Cup hopes are in doubt after the Kangaroos fullback suffered a syndesmosis injury midway through the first half and Metcalf followed him up the tunnel soon after with another hamstring injury.\nThe drama occurred within minutes of each other, with Warriors fullback Charnze Nicoll-Klokstad sinbinned for a hip drop tackle on Walsh, who shrugged off a Broncos trainer and insisted he wanted to play on.\nFrom the penalty, Walsh injected himself into the play and threw an intercept pass for Warriors winger Alofiana Khan-Pereira to race away and score.\nWalsh hobbled from the field and up the tunnel. He was sent for scans and may have played his last game for the Broncos this season.\nMetcalf, who returned last week from a four month lay off with a hamstring injury, missed the conversion and immediately clutched at the back of his right leg.\nHe came from the field and Warriors medical staff immediately strapped ice to his the back of his thigh.\nWarriors coach Andrew Webster said: \"Luke's got a hamstring history, but to do it kicking the goal is the first time that's ever happened to him and he's obviously gutted. But look, we're always optimistic and hopefully we can get him back in time and he can play a part in the back end of the season\".\nMetcalf leaves the field\nCronulla playmaker Braydon Trindall was forced from the field after dislocating his shoulder at Ocean Protect Stadium on Saturday.\nTrindall had just got his side's first try in the opening moments of the match, but landed awkwardly, coming from the field immediately after scoring.\nMedical staff were able to get it back in, but the call was made to sit him out and await further scans.\nTrindall dislocates shoulder while scoring try\nThe Sharks came into the game without Jesse Ramien , who has played his final game for the club with the centre undergoing season-ending pectoral surgery on Thursday.\nRamien suffered the injury in the second half of last week's loss to St George Illawarra and will depart the Sharks at the end of the season to join the Cowboys.\nThe Raiders too were stuck an injury blow in the match, with English forward Morgan Smithies failing his HIA in the first half.\nTitans winger Dean Ieremia was withdrawn from his side's Sunday match against Newcastle with a hamstring complaint.\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knock in the Round 22 loss to the Knights and the latest setback puts his hopes of playing out his final season before retiring at the end of the year at risk.\nIn a statement, the Broncos said Reynolds will be assessed on a weekly basis to determine a return to play.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\n\"Scans at the Clive Berghofer Centre’s Qscan facility confirmed that Broncos captain Adam Reynolds sustained a grade 1 soleus strain on his right calf at training yesterday,\" the club said.\n\"His return-to-play timeline will be determined on a week-by-week basis.\"\nBrisbane forward Cory Paix has also undergone shoulder surgery to repair a labral injury.\nIn Friday night's clash at Accor Stadium, the Rabbitohs lost Adam Elliott to a groin injury early in the first half.\nThe Bunnies have lost halfback Ashton Ward (hamstring) for the remainder of the season while Jamie Humphreys is also sidelined with an ankle injury. The Rabbitohs have said he is a week-to-week proposition with a chronic ankle issue.\nThe Bulldogs lost winger Jethro Rinakama to a knee injury during F",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.03611841805555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90e4faaa2d68de6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Replays",
+            "title": "Match Preview Wests Tigers v Dragons: Saukuru set for debut; Couchman returns",
+            "url": "https://www.nrl.com/news/2026/08/11/wests-tigers-v-dragons-saukuru-set-for-debut-couchman-returns/",
+            "published_at": "2026-08-15T06:12:37+00:00",
+            "snippet": "Presented By\nWests Tigers v Dragons: Saukuru set for debut; Couchman returns\nWhile both teams aren't sitting where they would like to be at this stage of the season, both Wests Tigers and the Dragons have plenty to play for in their Indigenous Round match up.\nThe home side come i",
+            "body_excerpt": "Presented By\nWests Tigers v Dragons: Saukuru set for debut; Couchman returns\nWhile both teams aren't sitting where they would like to be at this stage of the season, both Wests Tigers and the Dragons have plenty to play for in their Indigenous Round match up.\nThe home side come into this match following a bye where they had a week to built on a gutsy, but ultimately unsuccessful 16-13 result against the Eels in Round 22.\nThe side were able to work through their tumultuous build-up to put in a strong fight against their Western Sydney rivals, but will be looking for more polish and composure in this match up.\nThey will have a challenge on their hands however, with the improving St George Illawarra side full of confidence after knocking over their derby rivals the Sharks last round in a big upset.\nThe young Dragons have been threatening in patches all season and have unquestionable effort, but like Wests Tigers, have struggled to put a whole 80-minute performances.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nWests Tigers: No changes in the 24-hour update. Earlier, there was a change in the centres with Fiji representative Solomone Saukuru set for his NRL debut in place of Heamasi Makasini. Two new faces on the bench with Bunty Afoa and Faaletino Tavana added in place of Charlie Murray and Starford To'a.\nDragons: A change in the 24-hour update, with Clint Gutherson (knee) has been ruled out seeing Mathew Feagai come in at the back. Blake Lawrie comes onto the interchange bench in place of Feagai. In earlier news, Toby Couchman returns from concussion protocols to take his place on the bench. Setu Tu starts on the wing with Mat Feagai listed on the bench despite coming off with a back injury against the Sharks. Hooker Damien Cook has been named to start after being an unused reserve last week as Jacob Liddle played the full 80. Jacob Webster retains his spot on the bench after playing 33 minutes on debut last Sunday. Experienced middle forwards Blake Lawrie and Josh Kerr are listed among the reserves.\nTeam Lists\nBacks\nFullback for Wests Tigers is number 1 Jahream Bula 1 19 Fullback for Dragons is number 19 Mathew Feagai\n1 19\nWinger for Wests Tigers is number 2 Junior Tupou 2 Winger for Dragons is number 2 Setu Tu\nCentre for Wests Tigers is number 3 Solomone Saukuru 3 Centre for Dragons is number 3 Moses Suli\nCentre for Wests Tigers is number 4 Patrick Herbert 4 Centre for Dragons is number 4 Valentine Holmes\nWinger for Wests Tigers is number 5 Sunia Turuva 5 Winger for Dragons is number 5 Tyrell Sloan\nFive-Eighth for Wests Tigers is number 6 Jarome Luai 6 Five-Eighth for Dragons is number 6 Lyhkan King-Togia\nHalfback for Wests Tigers is number 7 Adam Doueihi 7 Halfback for Dragons is number 7 Kyle Flanagan\nForwards\nProp for Wests Tigers is number 8 Terrell May 8 Prop for Dragons is number 8 Loko Jnr Pasifiki Tonga\nHooker for Wests Tigers is number 9 Apisai Koroisau 9 Hooker for Dragons is number 9 Damien Cook\nProp for Wests Tigers is number 10 Fonua Pole 10 Prop for Dragons is number 10 Emre Guler\n10\n2nd Row for Wests Tigers is number 11 Samuela Fainu 11 2nd Row for Dragons is number 11 Dylan Egan\n11\n2nd Row for Wests Tigers is number 12 Tony Sukkar 12 2nd Row for Dragons is number 12 Hamish Stewart\n12\nLock for Wests Tigers is number 13 Alex Twal 13 Lock for Dragons is number 13 Ryan Couchman\n13\nInterchange\nInterchange for Wests Tigers is number 14 Heath Mason 14 Interchange for Dragons is number 14 Jacob Liddle\n14\nInterchange for Wests Tigers is number 15 Sione Fainu 15 Interchange for Dragons is number 15 Toby Couchman\n15\nInterchange for Wests Tigers is number 16 Alex Seyfarth 16 Interchange for Dragons is number 16 Jacob Halangahu\n16\nInterchange for Wests Tigers is number 17 Bunty Afoa 17 Interchange for Dragons is number 17 Jacob Webster\n17\nIn",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.594173973611113,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4706d5d7cd3f9b54",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Squad Update: NRL Round 24 v Dragons - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/15/squad-update-nrl-round-24-v-dragons/",
+            "published_at": "2026-08-15T06:05:00+00:00",
+            "snippet": "Presented By\nSquad Update: NRL Round 24 v Dragons\nWests Tigers NRL Head Coach Benji Marshall has cut his squad to play the St George-Illawarra Dragons on Sunday in Round 24 of the Telstra Premiership.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWes",
+            "body_excerpt": "Presented By\nSquad Update: NRL Round 24 v Dragons\nWests Tigers NRL Head Coach Benji Marshall has cut his squad to play the St George-Illawarra Dragons on Sunday in Round 24 of the Telstra Premiership.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nExciting centre Solomone Saukuru will make his NRL debut following a fine season with the Western Suburbs Magpies where he is the leading tryscorer in the NSW Cup with 20 tries.\nThe squad remains 1-19, with Ethan Roberts and Charlie Murray omitted from the reserve bench.\nWests Tigers will wear their 2026 Indigenous jersey for this game. Order your jersey here\nLearn more about our Indigenous jersey design\nReserves:\n21 Javon Andrews\nMatch details\nWests Tigers v St George-Illawarra Dragons Sunday, 16 August CommBank Stadium, Parramatta Kick-off: 4.05pm\nTickets via Ticketmaster\nBroadcast: Live on Channel 9, 9Now, Kayo Sports, Fox League\nRelated /\nPlenty of love for Solomone Saukuru in NRL debut\nIndigenous Round\nProud cultural moment for Heath Mason\nTeam Lists\nTeam List: NRL Round 24 v Dragons\nLate Mail: NRL Round 22 v Eels\nSquad Update: NRL Round 22 v Eels",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.721118418055557,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f1f7314300083554",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Update: Round 24 vs. Wests Tigers - St George Illawarra Dragons",
+            "url": "https://www.dragons.com.au/news/2026/08/15/nrl-team-update-round-24-vs.-wests-tigers/",
+            "published_at": "2026-08-15T06:02:00+00:00",
+            "snippet": "NRL Team Update: Round 24 vs. Wests Tigers &nbsp;&nbsp; St George Illawarra Dragons",
+            "body_excerpt": "Presented By\nNRL Team Update: Round 24 vs. Wests Tigers\nDean Young has updated his squad to take on the Wests Tigers at CommBank Stadium in Round 24.\n24-Hour Update: Clint Gutherson (knee) has been ruled out seeing Mathew Feagai come in at the back.\nMatch: Wests Tigers v Dragons\nRound 24 - Round 24 - Sunday 16 Aug\nhome Team\nWests Tigers\n14th Position\naway Team\nDragons\n17th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nToby Couchman (head knock) has been named to return for the Red V via the interchange.\nROUND 24 TEAM LIST\nROUND 24\nTEAM LIST\nPLAYER PARTNER\n19\nMathew FEAGAI\nBill & Toni’s Restaurant\nSetu TU\nHWLE Lawyers\nMoses SULI\nKingsgrove Sports\nValentine HOLMES\nFloormania\nTyrell SLOAN\nDynamoney\nLyhkan KING-TOGIA\nPorta Restaurant\nKyle FLANAGAN\nDynamic Syndications\nLoko Jnr PASIFIKI TONGA\nSt George Venues\nDamien COOK (c)\nRemara\n10\nEmre GULER\nStadiacorp Facility Services\n11\nDylan EGAN\nShire Steel & Fabrication\n12\nHamish STEWART\nSquadron Energy\n13\nRyan COUCHMAN\nReact Facility Solutions\n14\nJacob LIDDLE\nWollongong City Jetski\n15\nToby COUCHMAN\n16\nJacob HALANGAHU\nTripADeal\n17\nJacob WEBSTER\nJAC Motors\n18\nDaniel ATKINSON\n20\nJosh KERR\nClassic Sportswear\n21\nBlake LAWRIE\nGearbox\nRelated /\nNRLW Final Team: Round 7 vs. Titans\nTeam Lists\nNRL Team List: Round 24 vs. Wests Tigers\nNRL Final Team: Indigenous Round vs. Sharks\nNRL Team Update: Indigenous Round vs. Sharks\nNRL Team List: Indigenous Round vs. Sharks",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.771118418055558,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "388fad3f86cc6d63",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Tigers vs Dragons Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/tigers-vs-dragons-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-14T14:08:33+00:00",
+            "snippet": "Tigers vs Dragons Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Tigers vs Dragons Preview & Betting Tips: NRL Round 24 2026\nAugust 15 th 2026, 12:34am , By: Ben Bridge\nAnd now, for anyone who has survived the first seven games of NRL Round 24 , we arrive at this monstrosity.\nSunday afternoon at CommBank Stadium gives us the Tigers against the Dragons , a matchup between 14th and 17th where neither team has earned anything resembling betting trust. The Dragons are coming off their best victory of the season, upsetting bitter rivals Cronulla 24-16 at Kogarah. Wests had the bye last week, which at least meant they managed to get through an entire weekend without appearing in another crisis headline.\nDisgustingly, I am taking the Tigers to win.\nThe logic is largely situational. St George Illawarra poured everything into last week’s local derby, producing enormous defensive efforts from Jacob Liddle, Ryan Couchman and Clint Gutherson. It was their Grand Final. Reproducing that emotional level seven days later against another bottom 4 side at CommBank Stadium is a completely different challenge.\nWests have lost seven straight and been outscored 208-67 across that stretch, so there is absolutely no pretending this is a high confidence selection. But they finally enjoyed a quieter week, have Jarome Luai, Adam Doueihi, Api Koroisau, Jahream Bula and their key forwards available, and might have one last decent performance left in them.\nHold your nose.\nTigers vs Dragons Prediction & Tips: 2026 NRL Round 24\nTigers Finally Get a Week Away From the Circus\nWests’ most recent game was the 16-13 loss to Parramatta in Round 22, before their Round 23 bye. It was hardly inspiring football. The Eels completed just 67 per cent, made 19 errors and handed the Tigers repeated opportunities to win, yet Wests still found a way to lose. Adam Doueihi briefly put them ahead with a field goal before Parramatta stole the result late.\nThe positive is that it was at least competitive. After some truly horrendous defensive performances across the previous month, the Tigers restricted Parramatta to 16 and remained in the game for the full 80 minutes.\nThe bye may have been exactly what this club needed.\nThere has been relentless scrutiny around Benji Marshall and the playing group, and the Tigers have looked emotionally exhausted as much as physically poor. Having a weekend where they were not required to play, and, importantly, were not the centre of another match day disaster, could allow them to reset.\nThe team list contains genuine talent. Bula remains dangerous from fullback, Luai and Doueihi form an experienced halves pairing and Koroisau is still capable of controlling a match from dummy half. Terrell May and Fonua Pole give them power through the middle, with Samuela Fainu, Alex Twal, Sione Fainu and Bunty Afoa adding plenty of size.\nThe backline has been reshuffled again. NSW Cup leading try scorer Solomone Saukuru is set for his NRL debut in the centres, while Junior Tupou and Sunia Turuva occupy the wings. Heamasi Makasini and Starford To’a are out.\nThere are absolutely no guarantees. But after seven straight defeats, the Tigers are at least rested and facing the only team around their level in my power ratings.\nDragons Produce Their Grand Final Performance\nSt George Illawarra’s 24-16 upset of Cronulla was easily their best win of the season. The Dragons entered as huge underdogs against a Sharks side sitting fourth but defended with enormous commitment and found the decisive attacking moments late. Setu Tu scored in the 77th minute to seal the result after Cronulla had briefly levelled the scores at 16-16.\nThe individual efforts were extraordinary. Gutherson ran for 201 metres from 26 carries and broke seven tackles. Ryan Couchman produced 148 metres and an incredible 67 tackles, while Jacob Liddle played the full 80 minutes and made 56 tackles. Young back-rower Hamish Stewart also impressed with 42 tackles and a spectacular first half try.\nThat is exactly why I am looking to oppose them this week.\nIt was the loca",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 36.66195175138889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "c1c9ab39d5160e63",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers v Dragons: Round 24 - nrl.com",
+            "url": "https://www.nrl.com/watch/news/wests-tigers-v-dragons-round-24-1975480/",
+            "published_at": "2026-08-12T05:03:41+00:00",
+            "snippet": "Wests Tigers v Dragons: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nKnights v Raiders\nWests Tigers v Warriors\nCowboys v Sharks\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTels",
+            "body_excerpt": "Wests Tigers v Dragons: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Women's Premiership\n2026 / Round 7\nKnights v Raiders\nWests Tigers v Warriors\nCowboys v Sharks\nEels v Bulldogs\nBroncos v Roosters\nTitans v Dragons\nTelstra Premiership\n2026 / Round 24\nPanthers v Roosters: Round 24\nSea Eagles v Dolphins: Round 24",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.7430628625,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "32292fe816617249",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers v Dragons: Round 24 - nrl.com",
+            "url": "https://www.nrl.com/news/2026/08/12/wests-tigers-v-dragons-round-24/",
+            "published_at": "2026-08-12T05:03:41+00:00",
+            "snippet": "Wests Tigers v Dragons: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:14 Bulldogs v Rabbitohs: Round 24\nBulldogs v Rabbitohs: Round 24\n03:13 Panthers v Roosters: Round 24\nPanthers v Roosters: Round 24\n03:18 Sharks v Raiders: Round ",
+            "body_excerpt": "Wests Tigers v Dragons: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:14 Bulldogs v Rabbitohs: Round 24\nBulldogs v Rabbitohs: Round 24\n03:13 Panthers v Roosters: Round 24\nPanthers v Roosters: Round 24\n03:18 Sharks v Raiders: Round 24\nSharks v Raiders: Round 24\n03:08 Sea Eagles v Dolphins: Round 24\nSea Eagles v Dolphins: Round 24\nRelated /\nWests Tigers v Dragons: Saukuru set for debut; Couchman returns\nVegas\nSlam dunk: Bula using basketball background to attract US fans\nFantasy\nHome Hardware player of the round: Ryan Couchman\nMatch Preview\nDragons v Sharks: Guler to start; Hiroti in for Iro\nDragons v Sharks: Round 23\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.7430628625,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f556495a427d5e2e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers vs Dragons - Round 24, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+            "url": "https://www.zerotackle.com/wests-tigers-dragons-round-24-2026-mc10397674-236778/",
+            "published_at": "2026-08-09T17:57:18+00:00",
+            "snippet": "Wests Tigers vs Dragons - Round 24, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 24, 2026 WESTS TIGERS V DRAGONS KICK OFF CommBank Stadium #NRLTigersDragons 2026-08-16T06:05:00Z Preview\nWESTS TIGERS\nDRAGONS\nPreview\nWests Tigers vs Dragons – Round 24, 2026\nThe Wests Tigers face the St George Illawarra Dragons in Round 24 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at CommBank Stadium. Ladder Position Injury Report Wests Tigers NAME REASON EXPECTED RETURN Taylan May Shoulder Next Season Latu Fainu Suspension Round 25 Royce Hunt Pectoral TBC Kai Pearce-Paul Pectoral TBC Dragons NAME REASON EXPECTED RETURN David Fale Calf Next Season Hayden Buchanan Shoulder Next Season Jaydn Su'A Pectoral Round 27 Clinton Gutherson Knee TBC Hame Sele Achilles TBC Previous 5 Games Wests Tigers DATE OPP RESULT 2/8/26 Eels L 13 - 16 25/7/26 Raiders L 56 - 10 18/7/26 Bulldogs L 32 - 0 10/7/26 Warriors L 6 - 32 4/7/26 Dragons L 24 - 10 Dragons DATE OPP RESULT 9/8/26 Sharks W 24 - 16 31/7/26 Dolphins L 22 - 28 26/7/26 Titans L 18 - 38 18/7/26 Warriors L 20 - 12 4/7/26 Wests Tigers W 24 - 10\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nTaylan May\nShoulder\nNext Season\nLatu Fainu\nSuspension\nRound 25\nRoyce Hunt\nPectoral\nTBC\nKai Pearce-Paul\nDavid Fale\nCalf\nHayden Buchanan\nJaydn Su'A\nRound 27\nClinton Gutherson\nKnee\nHame Sele\nAchilles\nPrevious 5 Games\nDATE\nOPP\nRESULT\n2/8/26\nEels\nL 13 - 16\n25/7/26\nRaiders\nL 56 - 10\n18/7/26\nBulldogs\nL 32 - 0\n10/7/26\nWarriors\nL 6 - 32\n4/7/26\nL 24 - 10\n9/8/26\nSharks\nW 24 - 16\n31/7/26\nDolphins\nL 22 - 28\n26/7/26\nTitans\nL 18 - 38\nL 20 - 12\nW 24 - 10\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists\nJahream Bula Jahream Bula\nJunior Tupou Junior Tupou\nSolomone Saukuru Solomone Saukuru\nPatrick Herbert Patrick Herbert\nSunia Turuva Sunia Turuva\nJarome Luai Jarome Luai\nAdam Doueihi Adam Doueihi\nTerrell May Terrell May\nApisai Koroisau Apisai Koroisau\n10\nFonua Pole Fonua Pole\n11\nSamuela Fainu Samuela Fainu\n12\nTony Sukkar Tony Sukkar\n13\nAlex Twal Alex Twal\nINTERCHANGE\n14\nHeath Mason Heath Mason\n15\nSione Fainu Sione Fainu\n16\nAlex Seyfarth Alex Seyfarth\n17\nBunty Afoa Bunty Afoa\n18\nTristan Hope Tristan Hope\n19\nTino Tavana Tino Tavana\nRESERVES\n21\nJavon Andrews Javon Andrews\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nMathew Feagai Mathew Feagai\nSetu Tu Setu Tu\nMoses Suli Moses Suli\nValentine Holmes Valentine Holmes\nTyrell Sloan Tyrell Sloan\nLyhkan King-Togia Lyhkan King-Togia\nKyle Flanagan Kyle Flanagan\nL. Pasifiki Tonga Loko Pasifiki Tonga\nDamien Cook Damien Cook\nEmre Guler Emre Guler\nDylan Egan Dylan Egan\nHamish Stewart Hamish Stewart\nRyan Couchman Ryan Couchman\nJacob Liddle Jacob Liddle\nToby Couchman Toby Couchman\nJacob Halangahu Jacob Halangahu\nJacob Webster Jacob Webster\nDaniel Atkinson Daniel Atkinson\nBlake Lawrie Blake Lawrie\nJosh Kerr Josh Kerr\n20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 152.84945175138887,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "bbf7ec5fa787297f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Late Mail: Round 24 v Raiders - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/15/nrl-late-mail-round-24-v-raiders/",
+            "published_at": "2026-08-15T03:27:00+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 v Raiders\nThe Sharks will run out 1-13 for their round 24 clash with the Canberra Raiders, with no changes to the team as announced on Tuesday.\nOregon Kaufusi comes into the Sharks starting side in place of the suspended Addin Fonua-Blake, whi",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 v Raiders\nThe Sharks will run out 1-13 for their round 24 clash with the Canberra Raiders, with no changes to the team as announced on Tuesday.\nOregon Kaufusi comes into the Sharks starting side in place of the suspended Addin Fonua-Blake, while KL Iro returns after missing the Dragons loss due to concussion protocols.\nIn relation to the Sharks bench, Braden Uele and Sam Stonestreet have been retained in the 19-man squad, with Michael Gabrael omitted from the 20-man team as listed last night.\nFollowing a Dolphins win last night the Sharks come into the contest in fifth position on the NRL ladder, needing a win to consolidate their position inside the top four.\nKick off to the Sharks v Raiders clash is at 3.00pm, with the two 19-man squads listed below.\nMatch: Sharks v Raiders\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nSharks\naway Team\nRaiders\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Raiders is number 1 Kaeo Weekes\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Raiders is number 2 Jed Stuart\nCentre for Sharks is number 3 Mawene Hiroti 3 Centre for Raiders is number 3 Savelio Tamale\nCentre for Sharks is number 4 KL Iro 4 Centre for Raiders is number 4 Matthew Timoko\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Raiders is number 5 Xavier Savage\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Raiders is number 6 Ethan Strange\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Raiders is number 7 Ethan Sanders\nForwards\nProp for Sharks is number 8 Oregon Kaufusi 8 Prop for Raiders is number 8 Ata Mariota\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Raiders is number 9 Owen Pattie\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Raiders is number 10 Joseph Tapine\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Raiders is number 11 Zac Hosking\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Raiders is number 12 Matty Nicholson\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Raiders is number 13 Morgan Smithies\n13\nInterchange\nInterchange for Sharks is number 14 Hohepa Puru 14 Interchange for Raiders is number 14 Tom Starling\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Raiders is number 15 Joe Roddy\n15\nInterchange for Sharks is number 16 Siosifa Talakai 16 Interchange for Raiders is number 16 Josh Papalii\n16\nInterchange for Sharks is number 17 Thomas Hazelton 17 Interchange for Raiders is number 17 Daine Laurie\n17\nReserve for Sharks is number 19 Braden Uele 19 18 Reserve for Raiders is number 18 Vena Patuki-Case\n19 18\nReserve for Sharks is number 21 Samuel Stonestreet 21 19 Reserve for Raiders is number 19 Sebastian Kris\n21 19\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Drew Oultram\nSenior Review Official: Adam Gee\nLast updated: 8/16/2026 1:44:04 AM\nRelated /\nNSW Women's Premiership Team List: Round 9\nSenior Representative Team Lists: Round 24\nNRLW Team List: Round 7 v Cowboys\nNRL Team List: Round 24 v Raiders\nNRL Late Mail: Round 23 v Dragons",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.35445175138889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0ddf348039d0b4f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Confirmed lineups, results for Round 24 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529",
+            "published_at": "2026-08-14T19:12:55+00:00",
+            "snippet": "NRL 2026 team lists: Confirmed lineups, results for Round 24 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Confirmed lineups, results for Round 24\nPeter Maniaty\nGetty Images\nRound 24 began with a potential grand final preview as the Roosters took down the Panthers 12-6.\nThe Dolphins kept Manly scoreless winning 22-0 at Brookvale in the early Friday game before the Rabbitohs put a massive dent in the Bulldogs ' finals hopes with a 22-6 win at Accor Stadium.\nBrisbane were smacked 40-6 by the Warriors in Brisbane on Saturday night.\nThe Tigers and Dragons close things out on Sunday.\nThe Storm have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 24\nNewcastle Knights vs. Gold Coast Titans\n(Sunday, August 16 at McDonald Jones Stadium , 2:00pm AEST)\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Cody Hopwood 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Francis Manuleleua 13. Mat Croker\n14. Harrison Graham 15. Tyson Frizell 16. Lachlan Crouch 17. Thomas Cant 18. Fletcher Hunt 19. Pasami Saulo\nKnights team news:\nJacob Saifiti (hamstring) is getting close but may need another week or two. Bradman Best (calf) has been named after missing Round 23 with Fletcher Hunt returning to the bench. Phoenix Crossland (calf) was a late withdrawal against the Raiders and also returns. Brodie Jones is out after picking up a hamstring injury in the win over the Raiders. Pasami Saulo has been named for the first time since breaking his foot in Round 14.\nGold Coast team:\n1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika (c) 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Josh Patston 12. Beau Fermor 13. Chris Randall\n14. Kurtis Morrin 15. Klese Haas 16. Cooper Bai 17. Bodhi Sharpley 18. Sam Verrills 19. Jaylan De Groot\nTitans team news:\nJosh Hannay made several late changes against the Cowboys - and it didn't work. AJ Brimson shifts back to the centres with Lachlan Ilias starting at No.7. In the forwards Oliver Pascoe comes back at hooker while Arama Hau has been dropped to the extended reserves. Jayden Campbell continues to manage a turf toe injury.\nWests Tigers vs. St. George Illawarra Dragons\n(Sunday, August 16 at CommBank Stadium , 4:05pm AEST)\nTigers team:\n1. Jahream Bula 2. Junior Tupou 3. Solomone Saukuru 4. Patrick Herbert 5. Sunia Turuva 6. Jarome Luai (c) 7. Adam Doueihi 8. Terrell May 9. Api Koroisau 10. Fonua Pole 11. Samuela Fainu 12. Tony Sukkar 13. Alex Twal\n14. Heath Mason 15. Sione Fainu 16. Alex Seyfarth 17. Bunty Afoa 18. Tristan Hope 19. Faaletino Tavana\nTigers team news:\nFresh off the bye the Tigers will be desperate to halt their late season slump against the last-placed Dragons, but will need to get their attack firing having only managed 45 points, total, in their last six matches. Latu Fainu remains suspended while Heamasi Makasini has been replaced by 21-year-old Solomone Saukuru who will make his NRL debut. Tony Sukkar comes into the back row with Sione Fainu pushing back to the bench.\nSt. George Illawarra team:\n1. Clint Gutherson 2. Setu Tu 3. Moses Suli 4. Valentine Holmes 5. Tyrell Sloan 6. Lyhkan King-Togia 7. Kyle Flanagan 8. Loko Jnr Pasifiki Tonga 9. Damien Cook (c) 10. Emre Guler 11. Dylan Egan 12. Hamish Stewart 13. Ryan Couchman\n14. Jacob Liddle 15. Toby Couchman 16. Jacob Halangahu 17. Jacob Webster 18. Daniel Atkinson 19. Mathew Feagai\nDragons team news:\nToby Couchman returns to the bench from concussion protocols after missing last week's win over the Sharks. Mathew Feagai left the field in Round 23 with a back injury but has been named on the reserves.\nNRL RESULTS, SCORES ROUND 24:\nSydney Roosters 12 def. Penrith Panthers 6\n(Thursday, August 13 at CommBank Stadium , 7:50pm AEST)\nPenrith team:\n20. Dylan Edwards 2. Thomas Jenkins 3. Paul Ala",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 31.589173973611114,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "bca8fd01fdfd8275",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+            "url": "https://www.zerotackle.com/round-24-team-lists-2026-236834/",
+            "published_at": "2026-08-11T05:57:41+00:00",
+            "snippet": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Round 24 NRL team lists for the 2026 season are in, with all clubs naming their squads for this week's matches. Stay across every lineup, late changes, and key ins and outs as they're confirmed.\nCheck out all team lists below, with updates added as official final teams are announced.\nPanthers vs Roosters Team Lists: Round 24\n20\nDylan Edwards Dylan Edwards\nThomas Jenkins Thomas Jenkins\nPaul Alamoti Paul Alamoti\nIzack Tago Izack Tago\nBrian To'o Brian To'o\nJack Cogger Jack Cogger\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\n10\nLiam Henry Liam Henry\n11\nIsaiah Papali'i Isaiah Papali'i\n12\nLiam Martin Liam Martin\n13\nLindsay Smith Lindsay Smith\nINTERCHANGE\n15\nScott Sorensen Scott Sorensen\n16\nLuron Patea Luron Patea\n17\nBilly Phillips Billy Phillips\n19\nBlaize Talagi Blaize Talagi\nJaxen Edgar Jaxen Edgar\n14\nBilly Scott Billy Scott\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nCody Ramsey Cody Ramsey\n18\nBilly Smith Billy Smith\nHugo Savala Hugo Savala\nRobert Toia Robert Toia\nM. Nawaqanitawase Mark Nawaqanitawase\nDaly Cherry-Evans Daly Cherry-Evans\nSam Walker Sam Walker\nNaufahu Whyte Naufahu Whyte\nReece Robson Reece Robson\nSpencer Leniu Spencer Leniu\nSalesi Foketi Salesi Foketi\nSiua Wong Siua Wong\nVictor Radley Victor Radley\nConnor Watson Connor Watson\nLindsay Collins Lindsay Collins\nNat Butcher Nat Butcher\nEgan Butcher Egan Butcher\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nSea Eagles vs Dolphins Team Lists: Round 24\nClayton Faulalo Clayton Faulalo\nJason Saab Jason Saab\nTolutau Koula Tolutau Koula\nReuben Garrick Reuben Garrick\nLehi Hopoate Lehi Hopoate\nJoey Walsh Joey Walsh\nJamal Fogarty Jamal Fogarty\nSimione Laiafi Simione Laiafi\nBrandon Wakeham Brandon Wakeham\nFletcher Baker Fletcher Baker\nHaumole Olakau'atu Haumole Olakau'atu\nCorey Waddell Corey Waddell\nJake Trbojevic Jake Trbojevic\nNathan Brown Nathan Brown\nJake Simpkin Jake Simpkin\nNicholas Lenaz Nicholas Lenaz\nJackson Shereb Jackson Shereb\nJosh Feledy Josh Feledy\nHugo Hart Hugo Hart\nH. Tabuai-Fidow Hamiso Tabuai-Fidow\nJamayne Isaako Jamayne Isaako\nJack Bostock Jack Bostock\nHerbie Farnworth Herbie Farnworth\nSelwyn Cobbo Selwyn Cobbo\nKodi Nikorima Kodi Nikorima\nIsaiya Katoa Isaiya Katoa\nTom Flegler Tom Flegler\nJ. Marshall-King Jeremy Marshall-King\nTom Gilbert Tom Gilbert\nConnelly Lemuelu Connelly Lemuelu\nK. Finefeuiaki Kulikefu Finefeuiaki\nMorgan Knowles Morgan Knowles\nFrancis Molo Francis Molo\nMax Plath Max Plath\nRay Stone Ray Stone\nFelise Kaufusi Felise Kaufusi\nBrad Schneider Brad Schneider\nTevita Naufahu Tevita Naufahu\n21\nBulldogs vs Rabbitohs Team Lists: Round 24\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nEnari Tuala Enari Tuala\nJethro Rinakama Jethro Rinakama\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\nLeo Thompson Leo Thompson\nViliame Kikau Viliame Kikau\nJacob Preston Jacob Preston\nJaeman Salmon Jaeman Salmon\nKurt Mann Kurt Mann\nJosh Curran Josh Curran\nHarry Hayes Harry Hayes\nBronson Xerri Bronson Xerri\nAlekolasimi Jones Alekolasimi Jones\nJake Turpin Jake Turpin\nMatt Dufty Matt Dufty\nAlex Johnston Alex Johnston\nTallis Duncan Tallis Duncan\nJack Wighton Jack Wighton\nCampbell Graham Campbell Graham\nCody Walker Cody Walker\nJayden Sullivan Jayden Sullivan\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\nKeaon Koloamatangi Keaon Koloamatangi\nDavid Fifita David Fifita\nAdam Elliott Adam Elliott\nCameron Murray Cameron Murray\nLachlan Hubner Lachlan Hubner\nSean Keppie Sean Keppie\nEuan Aitken Euan Aitken\nPeter Mamouzelos Peter Mamouzelos\nJye Gray Jye Gray\nEdward Kosi Edward Kosi\nSharks vs Raiders Team Lists: Round 24\nWilliam Kennedy William Kennedy\nSione Katoa Sione Katoa\nMawene Hiroti Mawene Hiroti\nKL Iro KL Iro\nRonaldo Mulitalo Ronaldo Mulitalo\nBraydon Trindall Braydon Trindall\nNicho Hynes Nicho Hynes\nOregon Kaufusi Oregon Kaufusi\nBlayke Brailey Blayke Brailey\nJesse Colquhoun Jesse Colquhoun\nBriton",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 116.8430628625,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "964eafab3848d9b7",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Broncos v Warriors: Duffy ready to grow; Metcalf's central role",
+            "url": "https://www.nrl.com/news/2026/08/11/broncos-v-warriors-duffy-ready-to-grow-metcalfs-central-role/",
+            "published_at": "2026-08-15T08:10:25+00:00",
+            "snippet": "Presented By\nBroncos v Warriors: Duffy ready to grow; Metcalf's central role\nThe Warriors will continue their pursuit of the minor premiership when they travel to Brisbane to face the Broncos on Saturday night.\nWahs Fever took over Suncorp Stadium when the two sides clashed durin",
+            "body_excerpt": "Presented By\nBroncos v Warriors: Duffy ready to grow; Metcalf's central role\nThe Warriors will continue their pursuit of the minor premiership when they travel to Brisbane to face the Broncos on Saturday night.\nWahs Fever took over Suncorp Stadium when the two sides clashed during Magic Round earlier this season and similar scenes are expected this weekend.\nThe Warriors have kicked on since that dominant win and sent shockwaves through the competition last week with a commanding victory over the Panthers.\nThe result pulled Andrew Webster's side within two points of Penrith and the Roosters on the ladder as they look to secure a top-two finish and a home final in the opening week of the post-season.\nBrisbane are set to miss out on the finals this year but they produced a blistering start to last week's clash with the Dolphins and have the talent across the park to cause the Warriors plenty of problems.\nEzra Mam is in fine attacking form, while Reece Walsh can shift a match in the blink of an eye.\nMatch: Broncos v Warriors\nRound 24 - Round 24 - Saturday 15 Aug\nhome Team\nBroncos\n16th Position\naway Team\nWarriors\n3rd Position\nVenue: Suncorp Stadium, Brisbane\nTeam News\nBroncos: The premiers continue to take a cautious approach to skipper Adam Reynolds' return from concussion so young gun Thomas Duffy hangs on to the No.7 jersey in an unchanged starting side. Prop Aublix Tawha has been named on the bench for his first NRL appearance since suffering a syndesmosis injury in Round 17. The Broncos’ seven-game losing streak at Suncorp Stadium is the worst in their history. Gehamat Shibasaki has been added to the six-man bench on Friday in jersey No.20.\nWarriors: No late changes for the Warriors. Te Maire Martin played nine games in a row at halfback between Round 12 and 22 but a hamstring injury opened the door for Luke Metcalf and the Dragons-bound playmaker burst through it last week. On the back of a standout role against the Panthers, Metcalf starts in the No.7 this week in an unchanged 13. Demitric Vaimauga returns on the bench after two games out with a rib injury. Adam Pompey has been added to the bench in No.20.\nTeam Lists\nBacks\nFullback for Broncos is number 1 Reece Walsh 1 Fullback for Warriors is number 1 Charnze Nicoll-Klokstad\nWinger for Broncos is number 2 Josiah Karapani 2 Winger for Warriors is number 2 Dallin Watene-Zelezniak\nCentre for Broncos is number 3 Kotoni Staggs 3 Centre for Warriors is number 3 Ali Leiataua\nCentre for Broncos is number 4 Deine Mariner 4 Centre for Warriors is number 4 Leka Halasima\nWinger for Broncos is number 5 Grant Anderson 5 Winger for Warriors is number 5 Alofiana Khan-Pereira\nFive-Eighth for Broncos is number 6 Ezra Mam 6 Five-Eighth for Warriors is number 6 Chanel Harris-Tavita\nHalfback for Broncos is number 7 Thomas Duffy 7 Halfback for Warriors is number 7 Luke Metcalf\nForwards\nProp for Broncos is number 8 Xavier Willison 8 Prop for Warriors is number 8 James Fisher-Harris\nHooker for Broncos is number 9 Billy Walters 9 Hooker for Warriors is number 9 Wayde Egan\nProp for Broncos is number 10 Payne Haas 10 Prop for Warriors is number 10 Mitchell Barnett\n10\n2nd Row for Broncos is number 11 Jaiyden Hunt 11 2nd Row for Warriors is number 11 Kurt Capewell\n11\n2nd Row for Broncos is number 12 Jordan Riki 12 2nd Row for Warriors is number 12 Jacob Laban\n12\nLock for Broncos is number 13 Patrick Carrigan 13 Lock for Warriors is number 13 Erin Clark\n13\nInterchange\nInterchange for Broncos is number 14 Ben Hunt 14 Interchange for Warriors is number 14 Sam Healey\n14\nInterchange for Broncos is number 15 Aublix Tawha 15 Interchange for Warriors is number 15 Tanner Stowers-Smith\n15\nInterchange for Broncos is number 16 Jack Gosiewski 16 Interchange for Warriors is number 16 Demitric Vaimauga\n16\nInterchange for Broncos is number 17 Va'a Semu 17 Interchange for Warriors is number 17 Eddie Ieremia-Toeava\n17\nReserve for Broncos is number 18 Blake Mozer 18 Reserve for Warriors is number 18 Taine Tuaupiki\n18\nRes",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.63084064027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "1c8c36d4c81fbe5c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Brandy and Jimmy's Round 24 NRL Tips - SEN",
+            "url": "https://www.sen.com.au/news/2026/08/13/nrl-2026-brandy-and-jimmy-s-expert-round-24-tips",
+            "published_at": "2026-08-14T01:05:26+00:00",
+            "snippet": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 24 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nA number of surprising upsets in Round 23 and Jimmy Smith got the better of fellow SEN expert Greg Alexander with five correct tips over",
+            "body_excerpt": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 24 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nA number of surprising upsets in Round 23 and Jimmy Smith got the better of fellow SEN expert Greg Alexander with five correct tips over three.\nIt all kicks off with a top of the table clash between the Penrith Panthers and Sydney Roosters. How many games can our experts tip correctly?\nLeaderboard:\nBrandy: 101 (3)\nJimmy: 106 (5)\nPenrith Panthers v Sydney Roosters\nThursday 7:50pm @ CommBank Stadium, Sydney\nBrandy: Panthers\nJimmy: Panthers\nManly Sea Eagles v The Dolphins\nFriday 6pm @ 4 Pines Park, Sydney\nBrandy: Sea Eagles\nJimmy: Dolphins\nCanterbury-Bankstown Bulldogs v South Sydney Rabbitohs\nFriday 8pm @ Accor Stadium, Sydney\nBrandy: Bulldogs\nJimmy: Bulldogs\nCronulla Sharks v Canberra Raiders\nSaturday 3pm @ Ocean Protect Stadium, Sydney\nBrandy: Sharks\nJimmy: Sharks\nParramatta Eels v North Queensland Cowboys\nSaturday 5:30pm @ CommBank Stadium, Sydney\nBrandy: Eels\nJimmy: Cowboys\nBrisbane Broncos v The Warriors\nSaturday 7:35pm @ Suncorp Stadium, Brisbane\nBrandy: Warriors\nJimmy: Warriors\nNewcastle Knights v Gold Coast Titans\nSunday 2pm @ McDonald Jones Stadium, Newcastle\nBrandy: Knights\nJimmy: Knights\nWests Tigers v St George Illawarra Dragons\nSunday 4:05pm @ CommBank Stadium, Sydney\nBrandy: Dragons\nJimmy: Dragons\nBye: Melbourne Storm\nMore in NRL\n17 hours ago\n19 hours ago\n1 day ago\nCrafted by Project Diamond",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 49.713896195833335,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "68647918512c97f2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 24 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/12/2026-nrl-round-24-predictions/",
+            "published_at": "2026-08-12T05:02:46+00:00",
+            "snippet": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponent",
+            "body_excerpt": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponents in the bottom half – with the Souths-Canterbury showdown on Saturday shaping as being particularly pivotal.\nRead on for our complete NRL Round 24 predictions, preview and best bets to place on the footy this weekend!\nThe minor premiership could be decided in this 1 v 2 showdown at CommBank Stadium.\nFORM: The Panthers have now lost four of their last seven, following up a big win over Canberra with a convincing 28-12 defeat to the Warriors.\nThe Roosters have won eight straight, coming from 10 points down to see off the Bulldogs 20-18 last Friday.\nINS AND OUTS: Lindsay Smith moves to lock, and Liam Henry comes in at prop with Isaah Yeo sidelined for Penrith. Jack Cogger lines up at five-eighth after being a late scratching last week, while Dylan Edwards has been named in the reserves. James Tedesco returns for the Roosters.\nKEY MATCH-UP: It’s an Origin rematch as Nathan Cleary squares off against Sam Walker.\nHISTORY: The Panthers have won 12 of their last 13 against the Roosters, including a 40-4 rout in Round 3 this season.\nKEY STAT: The Panthers have scored 30-plus points in eight of their last 11 games against the Roosters.\nVERDICT: The favourites to meet in the grand final in seven weeks’ time, there’s plenty at stake with the winner likely to take out the minor premiership and the loser potentially facing a qualifying final trip to Auckland.\nThe Panthers have had a rough run and will be smarting from getting ambushed by the Warriors, but there’s arguably more pressure on the Roosters to buck the trend of horrendous results against the era’s preeminent team.\nThe Roosters remain unproven in heavyweight duels – though last week was a step in the right direction – and the Panthers look good value as a very narrow favourite.\nPrediction: Back the Panthers to Win @ $1.77\nSGM: PANTHERS BY 1-12 / UNDER 42.5 TOTAL POINTS / TOM JENKINS ANYTIME TRYSCORER / ROBERT TOIA ANYTIME TRYSCORER @ $31.56\nNRL\n4 Pines Park • Friday 14th Aug\nThe Sea Eagles are spiralling ahead of this must-win home assignment against the fifth-placed Dolphins.\nFORM: Manly has lost five straight, conceding 128 points in their last three games against the Titans, Sharks and Storm.\nThe Dolphins have won three in a row, albeit somewhat patchily in the past fortnight against the Dragons (28-22) and Broncos (40-32) – trailing 24-0 in the latter.\nINS AND OUTS: Clayton Faulalo returns at fullback for Manly with Lehi Hopoate shifting to the wing and Blake Wilson dropping out. Taniela Paseka (knee) is out, so Nathan Brown starts at prop.\nThe Dolphins have lost Kurt Donoghoe to a thumb injury, but Ray Stone and Jake Averillo are back on the bench.\nKEY MATCH-UP: Blues teammates Jack Bostock and Tolu Koula are set for an absorbing centre duel.\nHISTORY: The Dolphins are 1-3 against the Sea Eagles and will have terrifying memories of their most recent meeting, when Manly powered to a 52-18 win in Redcliffe in Kieran Foran’s first match as interim coach.\nKEY STAT: These clubs’ four encounters all produced at least 54 points, with three of them seeing 70-plus points scored.\nVERDICT: Manly’s finals bid has completely unravelled under a heavy injury toll as interim-turned-fulltime coach Kieran Foran searches for answers. Their drop-off in defensive resolve has been the most alarming feature of their losing streak.\nThe Dolphins have all but sealed their maiden finals appearance, but they’ll be looking for a complete performance after struggling to put away a couple of also-rans in the past two weeks. Near enough to full-strength, however, the visitors’ firepower should have a tackle-shy Sea Eagles outfit very nervous.\nManly has a strong record at 4 Pines Park, but a heavy loss to Cronulla last time out has d",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 93.75834064027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "6b78b291c86d4d1b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "World Cup",
+            "title": "'He's our leader': Bati hoping for Tui boost as Navale returns",
+            "url": "https://www.nrl.com/news/2026/08/16/hes-our-leader-bati-hoping-for-tui-boost/",
+            "published_at": "2026-08-15T23:01:21+00:00",
+            "snippet": "'He's our leader': Bati hoping for Tui boost as Navale returns\nViliame Kikau remains hopeful that inspirational Bati captain Tui Kamikamica will be cleared to lead Fiji at RLWC26, while secondrower Caleb Navale is also set to play after making a rapid recovery from an ACL injury.",
+            "body_excerpt": "'He's our leader': Bati hoping for Tui boost as Navale returns\nViliame Kikau remains hopeful that inspirational Bati captain Tui Kamikamica will be cleared to lead Fiji at RLWC26, while secondrower Caleb Navale is also set to play after making a rapid recovery from an ACL injury.\nKamikamica has not played since the Storm’s Round 4 NRL match against the Cowboys on March 28 after suffering a stroke that left him left him temporarily unable to speak or move.\nThe Fijian prop underwent brain and heart surgery but he has recovered and is currently touring the Papua New Guinea Highlands with former Storm team-mate and Kumuls great Justin Olam.\nKamikamica initially hoped to be back mid-season but suffered a set-back and has not played match this year.\nViliame Kikau hopes to play in a third World Cup with Fiji captain Tui Kamikamica. ©Scott Davis/NRL Photos\nHowever, the 32-year-old is still aiming to play at the World Cup and Navale is set to join him after making his comeback in Manly’s 18-12 NSW Cup loss to the Warriors on Saturday.\nReturning just six months and three days after rupturing his ACL at pre-season training on February 11, Navale's recovery is believed to be the quickest in NRL history.\nKikau said Bati players are hoping for the chance to play alongside Kamikamica in Fiji’s matches against Cook Islands in Newcastle on October 18, Australia in Townsville on October 25 and New Zealand on Gold Coast on October 31.\n“He means a lot, he's captained the side and if he plays he’s probably going to be the captain again,” said Kikau, the Bulldogs strike secondrower.\n“The boys love how he leads - he leads with his actions - and he's one of probably only two or three of us who were born and bred and raised in Fiji and didn’t come to Australia until we were 18 or 19.\n“It is obviously unfortunate what happened to him this year but if he is fit and ready I’d love to see him play at the World Cup.”\n\"I will always remember this, bro...\" Kikau reflects on his journey from watching the Bati through strangers’ windows to representing Fiji on the Ultimate Stage 🤝 Read the chat 👉 https://t.co/YLmGfbKOL1 #RLWC26 tickets on sale NOW 🎟️ pic.twitter.com/EQAd1SU3U3\nHooker Api Koroisau, who is one of up to seven Wests Tigers players with Fijian heritage, recently told Nine’s Freddy and the Eighth show: “There is a chance that Tui might play at the end of the year and Caleb Navale as well. He is coming back from an ACL in record time so we’re very excited”.\nWests Tigers team-mates Sunia Turuva and Jahream Bula said the Bati players remain in close contact during the season and were in shock when they learned that Kamikamica had suffered a stroke.\nMatch: Fiji v Cook Islands\nRound 1 - Round 1 - Sunday 18 Oct\nhome Team\nFiji\naway Team\nCook Islands\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nChannel 7\n“He is our skipper and I remember as soon as it happened, Jahream was the first person I called,” Turuva said.\n“It is obviously unfortunate what happened to him and just to see what he went through, it would have been pretty crazy for his partner and his kid as well.\n“He is definitely our leader, and we have a couple of big dogs there with Api and Kiks and Maika Sivo, as well so hopefully he can get back because we believe we can do things in this World Cup like Samoa and Tonga have done.”\nMatch: Australia v Fiji\nRound 2 - Round 2 - Sunday 25 Oct\nAustralia\nVenue: Suncorp Stadium, Brisbane\nKamikamica has played 23 Tests for Fiji and 142 NRL matches for the Storm and Bula said he was a role model for younger players in the Bati camp.\n“He is a good bloke, like you can hang out with him and he will take you under his wing,” Bula said.\n“For me, just seeing what he is like off the field, he is someone I definitely look up to. He is very professional, he is always stretching every time you go into the team room, he doesn’t eat bad, he looks after his body, so he practices what he preaches.”\nMatch: New Zealand v Fiji\nRound 3 - Round 3 - Saturday 31 ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 3.7819517513888887,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "d070014dfb03c969",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Wests Tigers vs St. George Illawarra Dragons Preview & Prediction | 2026 NRL | Regular Season",
+            "url": "https://www.thestatszone.com/wests-tigers-vs-st-george-illawarra-dragons-preview-prediction-2026-nrl-regular-season-215794",
+            "published_at": "2026-08-14T02:48:26+00:00",
+            "snippet": "After stunning Cronulla Sharks last time out, we’ll see if St. George Illawarra Dragons can make it four wins across the NRL season away at Wests Tigers. Start date/time: 16 August 2026 at 7:05 am How ...",
+            "body_excerpt": "Wests Tigers vs St. George Illawarra Dragons Preview & Prediction | 2026 NRL | Regular Season\nClick here for today’s sports betting tips from our expert analysts!\nAfter stunning Cronulla Sharks last time out, we’ll see if St. George Illawarra Dragons can make it four wins across the NRL season away at Wests Tigers.\nStart date/time: 16 August 2026 at 7:05 am\nHow to watch on TV: UK – Sky Sports / Australia – Channel 9 / USA – Some matches are televised live on Fox Sports\nHow to watch online: UK – Sky Go & Watch NRL / Australia – 9Now / USA – Watch NRL, and if the match is televised in the USA it can also be streamed live on Fox Sports platforms\nWests Tigers team news\nSolomone Saukuru is set to make his NRL debut here for Wests Tigers after impressing hugely in the NSW Cup with his try scoring abilities.\nSquad: Jahream Bula, Junior Tupou, Solomone Saukuru, Patrick Herbert, Sunia Turuva, Jarome Luai, Adam Doueihi, Terrell May, Apisai Koroisau, Fonua Pole, Samuela Fainu, Tony Sukkar, Alex Twal, Heath Mason, Sione Fainu, Alex Seyfarth, Bunty Afoa, Tristan Hope, Faaletino Tavana, Javon Andrews\nSt. George Illawarra Dragons team news\nA knee injury rules out Clint Gutherson, whilst Toby Couchman has been named in the squad and will be assessed following his head injury.\nSquad: Mathew Feagai, Setu Tu, Moses Suli, Valentine Holmes, Tyrell Sloan, Lyhkan King-Togia, Kyle Flanagan, Loko Jnr Pasifiki Tonga, Damien Cook, Emre Guler, Dylan Egan, Hamish Stewart, Ryan Couchman, Jacob Liddle, Toby Couchman, Jacob Halangahu, Jacob Webster, Daniel Atkinson, Blake Lawrie, Josh Kerr\nWests Tigers vs St. George Illawarra Dragons prediction\nNot many expected St. George Illawarra Dragons to stun Cronulla Sharks but that’s what they did, digging in and producing one of their best performances of the year to win 22-28 away to the high-flying Sharks. With confidence high, we now see whether this was a flash in the pan or whether the Dragons will start a fire with the spark they’ve produced.\nWest Tigers have now lost their last seven and can’t seem to get anything going. Whilst their defence improved against Parramatta Eels, the offense went to sleep, underlining their frustration. With the visitors on a high and Wests Tigers in a deep slump, this a good chance for the Dragons and they are worth backing.\nWests Tigers vs St. George Illawarra Dragons tip: St. George Illawarra Dragons to win",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 47.99722952916667,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Dragons NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Wests Tigers vs Dragons NRL round 24 preview",
+          "Wests Tigers Dragons NRL odds OR price OR favourite",
+          "Wests Tigers Dragons NRL recent form OR ladder stakes",
+          "Wests Tigers Dragons NRL",
+          "Wests Tigers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dragons NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Wests Tigers Dragons NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 24 Wests Tigers OR Dragons"
+        ],
+        "filter_summary": {
+          "dropped_stale": 39,
+          "dropped_wrong_round": 4,
+          "dropped_noise": 15,
+          "dropped_irrelevant": 17,
+          "kept": 20,
+          "deferred_pending_body": 82,
+          "promoted_after_body": 4,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "5bf36bd168c2",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-16T02:48:16.024791+00:00",
+      "finished_at": "2026-08-16T02:50:45.406832+00:00",
+      "duration_ms": 149382,
+      "request": {
+        "home_team": "Wests Tigers",
+        "away_team": "Dragons",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-08-16T16:05:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5736,
+        "home_win_probability": 0.5736,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (+2.7 points) — contribution 0.083 (8% of total)",
+            "Elo rating advantage (+34 points) — contribution 0.070 (7% of total)",
+            "Away travel to venue (22 km) — contribution 0.070 (7% of total)",
+            "Rest-day advantage (+7.0 days) — contribution 0.026 (3% of total)",
+            "5-game workload: top3 tackle share (-0.04) — contribution 0.023 (2% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: all run metres (-163.00) — contribution 0.091 (9% of total)",
+            "Pythagorean form (last 10) (-25% expected-win gap) — contribution 0.080 (8% of total)",
+            "Travel-distance advantage (+6 km for away) — contribution 0.051 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game momentum: last20 net points (-16.60) — contribution 0.043 (4% of total)",
+            "5-game form: points against (+9.60) — contribution 0.042 (4% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.4718,
+            "total_toward_away": 0.5102,
+            "net": -0.0383,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "Travel-distance advantage (+6 km for away)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Wests Tigers",
+          "away_team": "Dragons",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-08-16T16:05:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

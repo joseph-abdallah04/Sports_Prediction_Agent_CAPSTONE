@@ -1,0 +1,1262 @@
+{
+  "schema_version": 2,
+  "run_id": "20260823T034140Z-9d999b11",
+  "at_a_glance": {
+    "fixture": "Titans v Sharks",
+    "round": 25,
+    "kickoff": "2026-08-23T14:00:00+10:00",
+    "venue": "Cbus Super Stadium",
+    "predicted_winner": "Sharks",
+    "confidence": 0.73,
+    "model_home_win_probability": 0.2703,
+    "model_prediction": "Away Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-23T03:41:40.235227+00:00",
+  "updated_at": "2026-08-23T03:52:06.532815+00:00",
+  "request": {
+    "home_team": "Titans",
+    "away_team": "Sharks",
+    "season": 2026,
+    "round_number": 25,
+    "force_refresh": true,
+    "user_question": "Who wins Titans vs Sharks?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Titans",
+    "away_team": "Sharks",
+    "confidence": 0.73,
+    "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. A significant gap in team strength, evidenced by the Bradley-Terry and Elo ratings, outweighs the Titans' negligible home-ground advantage. The Sharks are further bolstered by the return of Addin Fonua-Blake and a strong motivation to secure a top-four finish.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry strength advantage (16% contribution) and Elo rating advantage (21% contribution) favouring the Sharks."
+      },
+      {
+        "source": "research",
+        "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 12
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 6
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Titans vs Sharks NRL round 25 preview",
+      "Titans Sharks NRL odds OR price OR favourite",
+      "Titans Sharks NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "All claims (standings, Trindall injury, Fonua-Blake return, Titans' points conceded, and market favorites) are found in the fixture scene or research body excerpts."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Trindall is correctly described as missing and Fonua-Blake as returning."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks' win probability."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors cite beforeyoubet.com.au and sharks.com.au."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.73 is justified by the significant ladder gap (5th vs 16th) and is within the 0.50-0.85 range."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the high-weight drivers (Elo and ladder differential)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Home travel to venue (0 km)' (Titans) and 'Bradley-Terry strength advantage' (Sharks) are not addressed."
+        }
+      ],
+      "issues": [
+        "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in the evaluation."
+      ],
+      "instruction": "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Titans",
+      "away_team": "Sharks",
+      "confidence": 0.73,
+      "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. Despite the loss of Braydon Trindall, the Sharks are motivated by a top-four race and bolstered by the return of Addin Fonua-Blake, while the Titans are in poor form and leaking points. The market correctly identifies the Sharks as favourites.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Elo rating advantage and a significant ladder points differential per game (both contributing ~21% each to the model's prediction)."
+        },
+        {
+          "source": "research",
+          "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Titans",
+      "away_team": "Sharks",
+      "confidence": 0.73,
+      "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. A significant gap in team strength, evidenced by the Bradley-Terry and Elo ratings, outweighs the Titans' negligible home-ground advantage. The Sharks are further bolstered by the return of Addin Fonua-Blake and a strong motivation to secure a top-four finish.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Bradley-Terry strength advantage (16% contribution) and Elo rating advantage (21% contribution) favouring the Sharks."
+        },
+        {
+          "source": "research",
+          "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-23T03:42:21.058084+00:00",
+      "thinking": "*   Home Team: Titans\n    *   Away Team: Sharks\n    *   Round Number: 25\n    *   Goal: Determine who wins (requires availability, preview, odds, and context/form).\n\n    *   Query 1: Home team availability (Titans).\n    *   Query 2: Away team availability (Sharks).\n    *   Query 3: Fixture preview (Titans vs Sharks Round 25).\n    *   Query 4: Market prices (Titans vs Sharks odds).\n    *   Query 5: Specific context (form/ladder/pressure).\n\n    *   Q1: `Titans NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q2: `Sharks NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q3: `Titans vs Sharks NRL round 25 preview`\n    *   Q4: `Titans Sharks NRL odds OR price OR favourite`\n    *   Q5: Since it's Round 25 (late in the season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Sharks Titans NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Titans, Sharks).\n    *   JSON format? Yes.",
+      "chars": 1081
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-23T03:47:08.208875+00:00",
+      "thinking": "*   Match: Titans (Home) vs. Sharks (Away).\n    *   Venue: Cbus Super Stadium.\n    *   Round: 25.\n\n    *   Titans: 16th, 6 wins, 15 losses, -154 points diff (-7.33 per game). Recent form: 2-3, streak 3L.\n    *   Sharks: 5th, 13 wins, 8 losses, +165 points diff (+7.86 per game). Recent form: 3-2, streak 2L.\n    *   Gap: Sharks are 11 places higher.\n\n    *   Prediction: Away Win.\n    *   Probability: 0.7297.\n    *   SHAP Drivers (Away):\n        *   Elo rating advantage (-211 points): 0.324 (21%).\n        *   Ladder points differential per game (-15.2 points): 0.321 (21%).\n        *   Bradley-Terry strength advantage (-1.43 log-strength): 0.248 (16%).\n        *   Pythagorean form (last 10) (-47% expected-win gap): 0.115 (7%).\n        *   3-game form: points against (+14.67): 0.070 (5%).\n    *   SHAP Drivers (Home):\n        *   Home travel (0 km): 0.021 (1%).\n        *   Kicking metres (5-game and 3-game): Both marked CONFLICT (raw value favours away, model nets home).\n        *   Completion rate (5-game): CONFLICT (raw value favours away, model nets home).\n        *   Penalty cluster rate (5-game): CONFLICT (raw value favours away, model nets home).\n    *   Attribution Balance: Leans heavily away (1.4088 vs 0.1336).\n\n    *   Sharks:\n        *   Braydon Trindall is OUT (shoulder injury).\n        *   Niwhai Puru replaces him in the halves (sharks.com.au).\n        *   Addin Fonua-Blake returns from 1-week suspension (sharks.com.au).\n        *   Tom Hazelton starts at lock, Cam McInnes to the bench (sharks.com.au late mail).\n        *   Motivation: Need to respond to consecutive losses to get back into top 4 (sportsnews.com.au, beforeyoubet.com.au).\n    *   Titans:\n        *   Struggling, year \"rapidly falling apart\" (beforeyoubet.com.au).\n        *   Conceded 108 points in last three matches (beforeyoubet.com.au).\n        *   Coach Josh Hannay citing fatigue (nrl_news).\n\n    *   Market Favourite: Sharks (sportsnews.com.au).\n    *   Prices: $1.50 (Sharks), $9.00 (Titans) - though these are from a snippet, they clearly favour the Sharks.\n\n    *   The math model strongly favours the Sharks (73%).\n    *   The standings strongly favour the Sharks (5th vs 16th).\n    *   Research confirms the Sharks are the market favourites and have high motivation (top 4 race).\n    *   The Titans are in poor form (3L streak, conceding high points).\n    *   The only negative for the Sharks is the loss of Braydon Trindall, but Niwhai Puru is stepping in.\n    *   The return of Addin Fonua-Blake is a positive for the Sharks.\n\n    *   Strongest reason for loss: Loss of Braydon Trindall (key playmaker) and the Sharks' recent 2-game losing streak.\n    *   Confidence: The gap in quality (Elo, Ladder, Points Diff) is massive. The Titans are 16th and leaking points. Even with Trindall out, the Sharks are far superior.\n    *   Confidence Band: 0.65-0.75 (Clear edge, multiple signals agreeing). The model says 0.73. I'll align with that.\n\n    *   Winner: away (Sharks).\n    *   Confidence: 0.73.\n    *   Summary: Sharks are heavy favourites based on a significant ladder gap (5th vs 16th) and superior Elo ratings. While they miss Braydon Trindall, the return of Addin Fonua-Blake and high motivation to reclaim a top-four spot outweigh the Titans' poor form and defensive struggles.\n    *   Key Factors:\n        1.  Math: Elo rating and ladder differential (SHAP drivers).\n        2.  Research: Titans' defensive struggles, conceding 108 points in three games (beforeyoubet.com.au).\n        3.  Research: Return of Addin Fonua-Blake (sharks.com.au).\n    *   Disagreements: None.",
+      "chars": 3592
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-23T03:51:05.745743+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check eight specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the judgement sourced from the research body excerpts or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed?\n\n- Home: Titans (16th)\n- Away: Sharks (5th)\n- Prediction: Away Win\n- Confidence: 0.73\n\n- \"Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th.\" -> Sourced from `set_fixture_scene` (standings).\n- \"loss of Braydon Trindall\" -> Sourced from `research_fixture_news` (body_excerpt: \"Braydon Trindall was ruled out with a shoulder injury\").\n- \"Sharks are motivated by a top-four race\" -> Sourced from `research_fixture_news` (body_excerpt: \"Cronulla have lost consecutive matches and slipped to fifth but remain firmly in the hunt for a top 4 finish\").\n- \"bolstered by the return of Addin Fonua-Blake\" -> Sourced from `research_fixture_news` (body_excerpt: \"Sharks' Origin prop Addin Fonua-Blake returns from a 1-week suspension\").\n- \"Titans are in poor form and leaking points\" -> Sourced from `research_fixture_news` (body_excerpt: \"Gold Coast sit near the bottom of the ladder and have now conceded 108 points across their past three matches\").\n- \"market correctly identifies the Sharks as favourites\" -> Sourced from `research_fixture_news` (body_excerpt: \"Cronulla Sharks heading into the game as favourites with the bookmakers\").\n\n- Braydon Trindall: Missing (Correct).\n- Addin Fonua-Blake: Returning (Correct).\n\n- \"Strong Elo rating advantage\" -> `favouring_Sharks_away_win` (Elo rating advantage). Correct.\n- \"significant ladder points differential per game\" -> `favouring_Sharks_away_win` (Ladder points differential per game). Correct.\n\n- Weather is \"Rain\" in `set_fixture_scene` and `predict_match`.\n- Weather is NOT mentioned in the summary or key factors. (Pass).\n\n- Key factor 2: \"Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)\". (Pass).\n- Key factor 3: \"Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)\". (Pass).\n\n- Confidence: 0.73.\n- Justification: \"Sharks hold a dominant edge in quality and standings... motivated by a top-four race... Titans are in poor form\".\n- Range: 0.50-0.85. (Pass).\n- Defensible: Yes, Sharks are significantly higher on the ladder and Titans are struggling.\n\n- Top drivers for Sharks: Elo (21%), Ladder points diff (21%), Bradley-Terry (16%).\n- Top drivers for Titans: Home travel (1%).\n- The judgement focuses on the high-weight drivers (Elo, Ladder points diff). (Pass).\n\n- `favouring_Sharks_away_win` top drivers:\n    1. Elo rating advantage (Named)\n    2. Ladder points differential per game (Named)\n    3. Bradley-Terry strength advantage (Not named)\n    4. Pythagorean form (Not named)\n    5. 3-game form: points against (Not named)\n- `favouring_Titans_home_win` top drivers:\n    1. Home travel to venue (Not named)\n    2. 5-game form: kicking metres (Not named)\n    3. 3-game form: kicking metres (Not named)\n    4. 5-game form: completion rate (Not named)\n    5. 5-game momentum: penalty cluster rate (Not named)\n\nWait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n\n- Sharks side: Elo and Ladder points diff are named. Bradley-Terry is the 3rd. It is not named.\n- Titans side: Home travel is the 1st. It is not named.\n\nActually, the rule says \"the first two or three\". If I check the top 3:\n- Sharks: Elo (Yes), Ladder points (Yes), Bradley-Terry (No).\n- Titans: Home travel (No), 5-game kicking (No), 3-game kicking (No).\n\nThe Titans' drivers are all very small (1% each). The Sharks' drivers are large.\nHowever, the instruction is strict: \"If any of those is neither named nor clearly alluded to... fail\".\nThe top driver for Titans is \"Home travel to venue (0 km)\". This is not mentioned.\nThe 3rd driver for Sharks is \"Bradley-Terry strength advantage\". This is not mentioned.\n\nLet's re-read: \"A passing acknowledgement can be a key_factor, a clause in the summary, or an explicit discount — silence is the failure.\"\nThe summary says \"dominant edge in quality and standings\". This alludes to Elo, Ladder points, and Bradley-Terry (all measures of quality/strength).\nBut \"Home travel to venue\" is not alluded to. Even if it's only 1%, it's the top driver for the home side.\n\nWait, \"dominant edge in quality\" covers Bradley-Terry.\nBut \"Home travel to venue (0 km)\" is not mentioned.\n\nLet's double check the Titans drivers:\n1. Home travel to venue (0 km) - 0.021\n2. 5-game form: kicking metres - 0.013\n3. 3-game form: kicking metres - 0.012\n\nNone of these are mentioned.\n\nSo `omitted_math_signals` fails.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. (Home travel to venue, Bradley-Terry strength advantage).\n\nWait, \"dominant edge in quality\" is a very strong allusion to Bradley-Terry and Elo. I'll focus on the missing Titans signals.\n\nActually, looking at the Titans drivers, they are all < 2%. The judge might have ignored them. But the prompt says \"silence is the failure\".\n\nLet's refine the omitted signals:\n- `favouring_Sharks_away_win`: Bradley-Terry strength advantage (3rd).\n- `favouring_Titans_home_win`: Home travel to venue (1st).\n\nI will list these.\n\nOne more check on `sourced_claims`:\n- \"Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th.\" -> `set_fixture_scene` standings.\n- \"loss of Braydon Trindall\" -> `research_fixture_news` \"Braydon Trindall was ruled out with a shoulder injury\".\n- \"motivated by a top-four race\" -> `research_fixture_news` \"remain firmly in the hunt for a top 4 finish\".\n- \"bolstered by the return of Addin Fonua-Blake\" -> `research_fixture_news` \"Addin Fonua-Blake returns from a 1-week suspension\".\n- \"Titans are in poor form and leaking points\" -> `research_fixture_news` \"conceded 108 points across their past three matches\".\n- \"market correctly identifies the Sharks as favourites\" -> `research_fixture_news` \"Cronulla Sharks heading into the game as favourites\".\n\nAll sourced.\n\nFinal check on `shap_attribution`:\n- \"Strong Elo rating advantage\" -> `favouring_Sharks_away_win`. Correct.\n- \"significant ladder points differential per game\" -> `favouring_Sharks_away_win`. Correct.\n\nConfidence: 0.73. Justified by the gap in standings (5th vs 16th) and form. Defensible.\n\nResult: `pass=false` due to `omitted_math_signals`.",
+      "chars": 7289
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-23T03:52:06.532149+00:00",
+      "thinking": "*   Winner: Sharks (Away)\n    *   Confidence: 0.73\n    *   Summary: Sharks (5th) vs Titans (16th). Motivation for top 4. Return of AFB. Titans in poor form.\n    *   Key Factors: Math (Elo/Ladder diff), Research (Titans conceding points), Research (AFB return).\n    *   Disagreements: null.\n\n    *   Issue 1: 'Home travel to venue (0 km)' not addressed.\n    *   Issue 2: 'Bradley-Terry strength advantage' not addressed.\n\n    *   *Home travel to venue (0 km)*: This is a SHAP driver favoring the Titans (home win). Contribution is 0.021 (1% of total). It's a negligible factor. I can acknowledge it as a minor home-ground advantage that doesn't outweigh the Sharks' quality.\n    *   *Bradley-Terry strength advantage*: This is a SHAP driver favoring the Sharks (away win). Contribution is 0.248 (16% of total). This is a significant signal of overall team strength. It reinforces the Elo and ladder differential signals.\n\n    *   Winner: Still Sharks.\n    *   Confidence: 0.73. The Bradley-Terry strength advantage is a strong signal (16% of total) that aligns with the Elo and ladder gap. The home travel advantage is trivial (1%).\n    *   Summary: Update to incorporate the strength advantage and acknowledge the minor home advantage.\n    *   Key Factors: Add the Bradley-Terry strength advantage to the math factors.\n\n    *   Winner: away\n    *   Home: Titans\n    *   Away: Sharks\n    *   Confidence: 0.73 (The signals are very consistent: Elo, Bradley-Terry, Ladder, and Research all point to Sharks).\n    *   Summary: The Sharks are strong favourites based on a significant gap in team strength (Bradley-Terry and Elo) and ladder position (5th vs 16th). While the Titans have the home-ground advantage, it is negligible compared to the Sharks' quality and the return of Addin Fonua-Blake.\n    *   Key Factors:\n        1. Math: Bradley-Terry strength advantage and Elo rating (significant contributors).\n        2. Research: Titans' defensive struggles (108 points conceded in 3 games).\n        3. Research: Return of Addin Fonua-Blake.\n    *   Disagreements: null.",
+      "chars": 2068
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-23T03:42:21.068960+00:00",
+      "payload": {
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Titans vs Sharks NRL round 25 preview",
+          "Titans Sharks NRL odds OR price OR favourite",
+          "Titans Sharks NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-23T03:47:08.209180+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "confidence": 0.73,
+          "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. Despite the loss of Braydon Trindall, the Sharks are motivated by a top-four race and bolstered by the return of Addin Fonua-Blake, while the Titans are in poor form and leaking points. The market correctly identifies the Sharks as favourites.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Elo rating advantage and a significant ladder points differential per game (both contributing ~21% each to the model's prediction)."
+            },
+            {
+              "source": "research",
+              "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-23T03:51:05.746757+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "All claims (standings, Trindall injury, Fonua-Blake return, Titans' points conceded, and market favorites) are found in the fixture scene or research body excerpts."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Trindall is correctly described as missing and Fonua-Blake as returning."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating and ladder points differential are correctly attributed to the Sharks' win probability."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors cite beforeyoubet.com.au and sharks.com.au."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.73 is justified by the significant ladder gap (5th vs 16th) and is within the 0.50-0.85 range."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the high-weight drivers (Elo and ladder differential)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Home travel to venue (0 km)' (Titans) and 'Bradley-Terry strength advantage' (Sharks) are not addressed."
+            }
+          ],
+          "issues": [
+            "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in the evaluation."
+          ],
+          "instruction": "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-23T03:52:06.532319+00:00",
+      "payload": {
+        "issues": [
+          "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in the evaluation."
+        ],
+        "instruction": "Math drivers include 'Home travel to venue (0 km)' and 'Bradley-Terry strength advantage'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "confidence": 0.73,
+          "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. Despite the loss of Braydon Trindall, the Sharks are motivated by a top-four race and bolstered by the return of Addin Fonua-Blake, while the Titans are in poor form and leaking points. The market correctly identifies the Sharks as favourites.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Elo rating advantage and a significant ladder points differential per game (both contributing ~21% each to the model's prediction)."
+            },
+            {
+              "source": "research",
+              "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "confidence": 0.73,
+          "summary": "The Sharks hold a dominant edge in quality and standings, sitting 5th compared to the Titans' 16th. A significant gap in team strength, evidenced by the Bradley-Terry and Elo ratings, outweighs the Titans' negligible home-ground advantage. The Sharks are further bolstered by the return of Addin Fonua-Blake and a strong motivation to secure a top-four finish.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Bradley-Terry strength advantage (16% contribution) and Elo rating advantage (21% contribution) favouring the Sharks."
+            },
+            {
+              "source": "research",
+              "detail": "The Titans' season is described as 'rapidly falling apart,' having conceded 108 points across their last three matches (beforeyoubet.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Origin prop Addin Fonua-Blake returns from a one-week suspension to strengthen the Sharks' pack (sharks.com.au)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "d6b2e66a7f06",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-23T03:41:40.235371+00:00",
+      "finished_at": "2026-08-23T03:41:43.726271+00:00",
+      "duration_ms": 3490,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Sharks",
+        "season": 2026,
+        "round_number": 25,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "season": 2026,
+          "round_number": 25
+        },
+        "retrieved_at": "2026-08-23T03:41:40.235439+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 25,
+          "round_title": "Round 25",
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-23T14:00:00+10:00",
+          "venue": "Cbus Super Stadium",
+          "venue_city": "Gold Coast",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/titans-v-sharks/",
+          "match_mode": "Pre",
+          "match_id": "20261112570",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Peter Gough"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Keano Kini",
+                "position": "Fullback",
+                "player_id": 100009209
+              },
+              {
+                "number": 2,
+                "name": "Jaylan De Groot",
+                "position": "Winger",
+                "player_id": 100006861
+              },
+              {
+                "number": 3,
+                "name": "Jojo Fifita",
+                "position": "Centre",
+                "player_id": 100008220
+              },
+              {
+                "number": 4,
+                "name": "AJ Brimson",
+                "position": "Centre",
+                "player_id": 506259
+              },
+              {
+                "number": 5,
+                "name": "Phillip Sami",
+                "position": "Winger",
+                "player_id": 505918
+              },
+              {
+                "number": 6,
+                "name": "Jayden Campbell",
+                "position": "Five-Eighth",
+                "player_id": 100001622
+              },
+              {
+                "number": 7,
+                "name": "Lachlan Ilias",
+                "position": "Halfback",
+                "player_id": 505564
+              },
+              {
+                "number": 8,
+                "name": "Moeaki Fotuaika",
+                "position": "Interchange",
+                "player_id": 506278
+              },
+              {
+                "number": 9,
+                "name": "Oliver Pascoe",
+                "position": "Hooker",
+                "player_id": 100010604
+              },
+              {
+                "number": 10,
+                "name": "Tino Fa'asuamaleaui",
+                "position": "Prop",
+                "player_id": 506513
+              },
+              {
+                "number": 11,
+                "name": "Arama Hau",
+                "position": "Interchange",
+                "player_id": 100009453
+              },
+              {
+                "number": 12,
+                "name": "Beau Fermor",
+                "position": "2nd Row",
+                "player_id": 506314
+              },
+              {
+                "number": 13,
+                "name": "Cooper Bai",
+                "position": "Lock",
+                "player_id": 100014512
+              },
+              {
+                "number": 14,
+                "name": "Kurtis Morrin",
+                "position": "2nd Row",
+                "player_id": 505648
+              },
+              {
+                "number": 15,
+                "name": "Klese Haas",
+                "position": "Prop",
+                "player_id": 100010109
+              },
+              {
+                "number": 16,
+                "name": "Chris Randall",
+                "position": "Interchange",
+                "player_id": 100001349
+              },
+              {
+                "number": 17,
+                "name": "Bodhi Sharpley",
+                "position": "Interchange",
+                "player_id": 100012277
+              },
+              {
+                "number": 18,
+                "name": "Luke Sommerton",
+                "position": "Interchange",
+                "player_id": 505633
+              },
+              {
+                "number": 19,
+                "name": "Siale Faeamani",
+                "position": "Interchange",
+                "player_id": 100014118
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Mawene Hiroti",
+                "position": "Centre",
+                "player_id": 504666
+              },
+              {
+                "number": 4,
+                "name": "KL Iro",
+                "position": "Centre",
+                "player_id": 508649
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Niwhai Puru",
+                "position": "Five-Eighth",
+                "player_id": 509464
+              },
+              {
+                "number": 7,
+                "name": "Nicho Hynes",
+                "position": "Halfback",
+                "player_id": 502490
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Blayke Brailey",
+                "position": "Hooker",
+                "player_id": 504274
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Teig Wilton",
+                "position": "2nd Row",
+                "player_id": 507615
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Interchange",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Siosifa Talakai",
+                "position": "Interchange",
+                "player_id": 504175
+              },
+              {
+                "number": 15,
+                "name": "Billy Burns",
+                "position": "Interchange",
+                "player_id": 505413
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Thomas Hazelton",
+                "position": "Lock",
+                "player_id": 510238
+              },
+              {
+                "number": 18,
+                "name": "Hohepa Puru",
+                "position": "Interchange",
+                "player_id": 507815
+              },
+              {
+                "number": 21,
+                "name": "Samuel Stonestreet",
+                "position": "Interchange",
+                "player_id": 509559
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 25,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Titans",
+            "position": 16,
+            "played": 21,
+            "wins": 6,
+            "drawn": 0,
+            "lost": 15,
+            "competition_points": 18,
+            "points_for": 413,
+            "points_against": 567,
+            "points_difference": -154,
+            "points_difference_per_game": -7.33,
+            "recent_form_last_4": "2 - 3",
+            "streak": "3L",
+            "home_record": "3 - 6",
+            "away_record": "3 - 9"
+          },
+          "away": {
+            "team": "Sharks",
+            "position": 5,
+            "played": 21,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 32,
+            "points_for": 604,
+            "points_against": 439,
+            "points_difference": 165,
+            "points_difference_per_game": 7.86,
+            "recent_form_last_4": "3 - 2",
+            "streak": "2L",
+            "home_record": "8 - 3",
+            "away_record": "5 - 5"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sharks",
+            "ladder_positions_gap": -11,
+            "points_difference_per_game_gap": -15.19,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-23T14:00",
+            "temperature_c": 19.8,
+            "precipitation_mm": 0.2,
+            "precipitation_probability_pct": 92,
+            "wind_speed_kmh": 13.7,
+            "weather_code": 51,
+            "summary": "Light drizzle",
+            "latitude": -28.067,
+            "longitude": 153.378,
+            "venue": "Cbus Super Stadium",
+            "venue_city": "Gold Coast"
+          },
+          "math_weather_label": "Rain",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-23T03:41:43.722721+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=25&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/titans-v-sharks/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "f99e2f4de4fc",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-23T03:42:21.087091+00:00",
+      "finished_at": "2026-08-23T03:43:43.988644+00:00",
+      "duration_ms": 82901,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Sharks",
+        "kickoff": "2026-08-23T14:00:00+10:00",
+        "round_number": 25,
+        "venue": "Cbus Super Stadium",
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Titans vs Sharks NRL round 25 preview",
+          "Titans Sharks NRL odds OR price OR favourite",
+          "Titans Sharks NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "kickoff": "2026-08-23T14:00:00+10:00",
+          "round_number": 25,
+          "venue": "Cbus Super Stadium",
+          "queries": [
+            "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Titans vs Sharks NRL round 25 preview",
+            "Titans Sharks NRL odds OR price OR favourite",
+            "Titans Sharks NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-23T03:42:21.133917+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 12
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "fcfe094bee404c00",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 25 - Teddy out again",
+            "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/",
+            "published_at": "2026-08-23T02:35:27+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 - Teddy out again\nRoosters fullback James Tedesco will miss a third straight game due to an ankle injury after being unable to recover in time to face Wests Tigers on Sunday.\nRoosters coach Trent Robinson told media after training on Saturday ",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 - Teddy out again\nRoosters fullback James Tedesco will miss a third straight game due to an ankle injury after being unable to recover in time to face Wests Tigers on Sunday.\nRoosters coach Trent Robinson told media after training on Saturday it had been frustrating recovery for the No.1.\n\"It's been, obviously, a bit frustrating for Ted and we've named him each week, but he's not right to play this week,\" he said.\n\"He's progressed quite well, but it's a bit more niggly than what we thought.\"\nRobinson said the plan was to attempt to build his training load to work towards a return in their Round 26 top-four clash with the Dolphins.\nSee all the late mail, official team news and updates for Round 25 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 25\nTitans v Sharks, Sunday 2.00pm at Cbus Super Stadium\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 8 Prop for Sharks is number 8 Addin Fonua-Blake\n10 8\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 15 Klese Haas 15 10 Prop for Sharks is number 10 Jesse Colquhoun\n15 10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Sharks is number 11 Briton Nikora\n12 11\n2nd Row for Titans is number 14 Kurtis Morrin 14 12 2nd Row for Sharks is number 12 Teig Wilton\n14 12\nLock for Titans is number 13 Cooper Bai 13 17 Lock for Sharks is number 17 Thomas Hazelton\n13 17\nInterchange\nInterchange for Titans is number 8 Moeaki Fotuaika 8 13 Interchange for Sharks is number 13 Cameron McInnes\n8 13\nInterchange for Titans is number 11 Arama Hau 11 14 Interchange for Sharks is number 14 Siosifa Talakai\n11 14\nInterchange for Titans is number 16 Chris Randall 16 15 Interchange for Sharks is number 15 Billy Burns\n16 15\nInterchange for Titans is number 17 Bodhi Sharpley 17 16 Interchange for Sharks is number 16 Oregon Kaufusi\n17 16\nInterchange for Titans is number 18 Luke Sommerton 18 Interchange for Sharks is number 18 Hohepa Puru\n18\nInterchange for Titans is number 19 Siale Faeamani 19 21 Interchange for Sharks is number 21 Samuel Stonestreet\n19 21\nTitans Ins\nArama Hau\nLuke Sommerton\nSharks Ins\nAddin Fonua-Blake\nNiwhai Puru\nTitans Outs\nJosh Patston\nSam Verrills\nBraden Uele\nBraydon Trindall\nMatch Officials\nReferee: Peter Gough\nSenior Review Official: Chris Butler\nLast updated: 8/23/2026 3:26:03 AM\nTitans: Klese Haas and Kurtis Morrin join the starting side at prop and second row respectively in the 90-minute squad update. Moeaki Fotuaika and Arama Hau, who were originally named to start, revert to the interchange. Cooper Bai was named to start at lock on Tuesday with Chris Randall moving to the bench. Winger Phillip Sami requires one try to break Anthony Don’s club tryscoring record (85). No changes in Saturday's 24-hour update.\nSharks: Sharks coach Craig Fitzgibbon has bolstered the size of his starting pack in the 90-minute squad update, with Tom Hazleton named at lock and Cameron McInnes shifting to the bench. The loss of five-eighth Braydon Trindall to a shoulder dislocation brings Niwhai Puru into the halves alongside Nicho Hynes. The 24-year-old played three games at halfb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.1150371991666668,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f6a7e8a2b1c5da45",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 25",
+            "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/",
+            "published_at": "2026-08-18T06:00:29+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Th",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 14 Tyran Wishart 14 7 Halfback for Panthers is number 7 Nathan Cleary\n14 7\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 15 Alec MacDonald 15 14 Interchange for Panthers is number 14 Billy Scott\n15 14\nInterchange for Storm is number 16 Angus Hinchey 16 15 Interchange for Panthers is number 15 Scott Sorensen\n16 15\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\n21 Interchange for Panthers is number 21 Luke Garner\n21\nReserve for Storm is number 7 Trent Toelau 7 16 Reserve for Panthers is number 16 Luron Patea\n7 16\nReserve for Storm is number 18 Joe Chan 18 Reserve for Panthers is number 18 Jack Cole\n18\nReserve for Storm is number 21 Jack Hetherington 21\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/22/2026 2:34:04 PM\nStorm: Captain Harry Grant is back from a hamstring injury so Tyran Wishart slides to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Alec MacDonald is back from concussion and joins the interchange. Jack Hetherington and Davvy Moale drop to the reserves.\nPanthers: Young gun Casey McLean returns from a hand injury and takes over in the centres from Paul Alamoti (hamstring). Jack Cole has been added to the interchange in place of Jaxen Edgar.\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nRaiders\nBroncos\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nProp for Raiders is number 8 Josh Papalii 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Broncos is number 9 Billy Walters\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Broncos is number 10 Payne Haas\n2nd Row for Raiders is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 117.69781497694446,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8893da02d4973267",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Late Mail: Round 25 v Titans - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/23/nrl-late-mail-round-25-v-titans/",
+            "published_at": "2026-08-23T02:27:00+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 v Titans\nOne late change for the Sharks with Tom Hazelton to start at lock and co-captain Cam McInnes reverting to the bench for the up-coming clash against the Titans.\nA special captain's run on the Gold Coast yesterday saw Cronulla immortal ",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 v Titans\nOne late change for the Sharks with Tom Hazelton to start at lock and co-captain Cam McInnes reverting to the bench for the up-coming clash against the Titans.\nA special captain's run on the Gold Coast yesterday saw Cronulla immortal Tommy Bishop catch up with the squad.\nThey also had the Inspire Youth Rugby League Academy perform a powerful Haka to motivate the side.\nThe Sharks and Titans tussle at 2pm this afternoon at CBUS Super Stadium.\nSee the 90-minute team lists below.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 8 Prop for Sharks is number 8 Addin Fonua-Blake\n10 8\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 15 Klese Haas 15 10 Prop for Sharks is number 10 Jesse Colquhoun\n15 10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Sharks is number 11 Briton Nikora\n12 11\n2nd Row for Titans is number 14 Kurtis Morrin 14 12 2nd Row for Sharks is number 12 Teig Wilton\n14 12\nLock for Titans is number 13 Cooper Bai 13 17 Lock for Sharks is number 17 Thomas Hazelton\n13 17\nInterchange\nInterchange for Titans is number 8 Moeaki Fotuaika 8 13 Interchange for Sharks is number 13 Cameron McInnes\n8 13\nInterchange for Titans is number 11 Arama Hau 11 14 Interchange for Sharks is number 14 Siosifa Talakai\n11 14\nInterchange for Titans is number 16 Chris Randall 16 15 Interchange for Sharks is number 15 Billy Burns\n16 15\nInterchange for Titans is number 17 Bodhi Sharpley 17 16 Interchange for Sharks is number 16 Oregon Kaufusi\n17 16\nInterchange for Titans is number 18 Luke Sommerton 18 Interchange for Sharks is number 18 Hohepa Puru\n18\nInterchange for Titans is number 19 Siale Faeamani 19 21 Interchange for Sharks is number 21 Samuel Stonestreet\n19 21\nTitans Ins\nArama Hau\nLuke Sommerton\nSharks Ins\nAddin Fonua-Blake\nNiwhai Puru\nTitans Outs\nJosh Patston\nSam Verrills\nBraden Uele\nBraydon Trindall\nMatch Officials\nReferee: Peter Gough\nSenior Review Official: Chris Butler\nLast updated: 8/23/2026 3:26:03 AM\nRelated /\nNSW Women's Premiership: Round 10 Team List\nSenior Representative Team Lists: Round 25\nNRLW Team List: Round 8 v Eels\nNRL Team List: Round 25 v Titans\nNRLW Late Mail: Round 7 v Cowboys",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.2558705325000001,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "7aa22dc4ad351e6a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Round 25 v Titans - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/18/nrl-team-list-round-25-v-titans/",
+            "published_at": "2026-08-18T05:58:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Round 25 v Titans\nNiwhai Puru comes into the Sharks' halves to take on the Titans on the Gold Coast this Sunday.\nNiwhai will partner Nicho Hynes after Braydon Trindall was ruled out with a shoulder injury in the club's loss to the Raiders on the weeken",
+            "body_excerpt": "Presented By\nNRL Team List: Round 25 v Titans\nNiwhai Puru comes into the Sharks' halves to take on the Titans on the Gold Coast this Sunday.\nNiwhai will partner Nicho Hynes after Braydon Trindall was ruled out with a shoulder injury in the club's loss to the Raiders on the weekend.\nThe 24-year-old has a good track record so far, winning all three of his NRL appearances with Cronulla since debuting in round 13 against the Sea Eagles, where he scored a try.\nSharks' Origin prop Addin Fonua-Blake returns from a 1-week suspension and will line up next to Jesse Colquhoun in the front row.\nLiam Ison has been lighting it up for Newtown in the NSW Cup and comes into the team in jersey #20; it'd be his first NRL game of the season if he gets on field, and his second appearance since debuting for the Sharks in 2024.\nCronulla's coastal clash with the Titans kicks off at 2pm on Sunday.\nSee the two team lists below.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 8 Prop for Sharks is number 8 Addin Fonua-Blake\n10 8\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 15 Klese Haas 15 10 Prop for Sharks is number 10 Jesse Colquhoun\n15 10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Sharks is number 11 Briton Nikora\n12 11\n2nd Row for Titans is number 14 Kurtis Morrin 14 12 2nd Row for Sharks is number 12 Teig Wilton\n14 12\nLock for Titans is number 13 Cooper Bai 13 17 Lock for Sharks is number 17 Thomas Hazelton\n13 17\nInterchange\nInterchange for Titans is number 8 Moeaki Fotuaika 8 13 Interchange for Sharks is number 13 Cameron McInnes\n8 13\nInterchange for Titans is number 11 Arama Hau 11 14 Interchange for Sharks is number 14 Siosifa Talakai\n11 14\nInterchange for Titans is number 16 Chris Randall 16 15 Interchange for Sharks is number 15 Billy Burns\n16 15\nInterchange for Titans is number 17 Bodhi Sharpley 17 16 Interchange for Sharks is number 16 Oregon Kaufusi\n17 16\nInterchange for Titans is number 18 Luke Sommerton 18 Interchange for Sharks is number 18 Hohepa Puru\n18\nInterchange for Titans is number 19 Siale Faeamani 19 21 Interchange for Sharks is number 21 Samuel Stonestreet\n19 21\nTitans Ins\nArama Hau\nLuke Sommerton\nSharks Ins\nAddin Fonua-Blake\nNiwhai Puru\nTitans Outs\nJosh Patston\nSam Verrills\nBraden Uele\nBraydon Trindall\nMatch Officials\nReferee: Peter Gough\nSenior Review Official: Chris Butler\nLast updated: 8/23/2026 3:26:03 AM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Mawene Hiroti - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Niwhai Puru - Totally Workwear Kirrawee 7 - Nicho Hynes - John Ryan Freight Services 8 - Addin Fonua-Blake - Hicon 9 - Blayke Brailey - Elite Legal 10 - Jesse Colquhoun - Picker Financial 11 - Briton Nikora - Guardian Venue Management International 12 - Teig Wilton - White Wolf Constructions 13 - Cameron McInnes - Alltech Payroll Interchange 14 - Siosifa Talakai - O'Brien Palmer 15 - Billy Burns - Quest Apartment Hotels 16 - Oregon Kaufusi - Hamilton Elevators 17 - Tom Hazelton - Club Central Menai 18 - Hohepa Puru 19 - Braden Uele 20 - Liam Ison 21 - Sam Stonestreet 22 - Toby Ru",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 117.73920386583335,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "068cb54f985ba47d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wests Tigers NRL Injury Report Round 25 - Wests Tigers",
+            "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers-nrl-injury-report-round-25/",
+            "published_at": "2026-08-18T03:14:30+00:00",
+            "snippet": "Wests Tigers NRL Injury Report Round 25\nWests Tigers half-back Adam Doueihi will undergo shoulder surgery this week, bringing an end to his 2026 season.\nDoueihi suffered the injury in scoring a try against the Cronulla-Sutherland Sharks in Round 9, resulting in the playmaker bein",
+            "body_excerpt": "Wests Tigers NRL Injury Report Round 25\nWests Tigers half-back Adam Doueihi will undergo shoulder surgery this week, bringing an end to his 2026 season.\nDoueihi suffered the injury in scoring a try against the Cronulla-Sutherland Sharks in Round 9, resulting in the playmaker being out for two months.\nThe 28-year-old has bravely played on with the injury since returning in Round 17.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers Head of High Performance, Peter Moussa said.\nMeanwhile, Wests Tigers five-eighth Latu Fainu suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension, he is expected to be out for 1-2 weeks.\nAdam Doueihi\nInjury: Shoulder reconstruction.\nReturn: Round 1, 2027\nLatu Fainu\nInjury: Low-grade hamstring.\nReturn: TBC\nTaylan May\nInjury: Shoulder reconstruction (Rd 17 vs Knights).\nKai Pearce-Paul\nInjury: Pectoral tendon repair (Rd 15 vs Titans).\nRoyce Hunt\nInjury: Pectoral tendon repair (Rd 14 vs Penrith).\nReturn: TBA\nWill Craig\nInjury: Ankle. Will has started his return to play protocol.\nRelated /\nAlex Seyfarth: Fresh faces bring new energy\nTeam Lists\nTeam List: NRL Round 25 v Roosters\nNRL News\nJoyous time for Solomone Saukuru after NRL debut\nPress Conference\nWests Tigers: Round 24",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 120.46420386583334,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "161c970db10fbd09",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Dragons v Cowboys: Forwards shuffled; Roache boost for backline",
+            "url": "https://www.nrl.com/news/2026/08/19/dragons-v-cowboys-forwards-shuffled-fui-in-doubt-roache-boost-for-backline/",
+            "published_at": "2026-08-22T05:51:03+00:00",
+            "snippet": "Presented By\nDragons v Cowboys: Forwards shuffled; Roache boost for backline\nNorth Queensland's recent resurgence is one to be watched.\nThe Cowboys produced another encouraging performance in Round 7, beating the Sharks 30-18. Meanwhile, the Dragons enter this Round 8 clash after",
+            "body_excerpt": "Presented By\nDragons v Cowboys: Forwards shuffled; Roache boost for backline\nNorth Queensland's recent resurgence is one to be watched.\nThe Cowboys produced another encouraging performance in Round 7, beating the Sharks 30-18. Meanwhile, the Dragons enter this Round 8 clash after a 26-10 loss to the Titans.\nNorth Queensland's attack looked sharp and confident, with six tries underlining their growing self-belief. And while St George Illawarra competed strongly in patches in Round 7, Gold Coast's attacking class proved the difference and left them a searching for answers.\nFor the Dragons, controlling possession and limiting errors will be critical. The Cowboys thrive when given momentum and are beginning to resemble the side many expected earlier in the season.\nIf North Queensland carries its attacking confidence into Round 8, the Dragons will need to produce one of their best performances of the year to come away with the two competition points.\nMatch: Dragons v Cowboys\nRound 8 - Round 8 - Saturday 22 Aug\nhome Team\nDragons\n12th Position\naway Team\nCowboys\n9th Position\nVenue: Allianz Stadium, Sydney\nTeam News\nDragons : The Dragons will line up 1-17, with no late changes. Zali Hopkins has been named at five-eighth with Taliah Fuimaono sidelined by a shoulder injury. In the forward pack, Nita Maynard-Perrin will start at hooker, seeing captain Brooke Anderson shift to lock and Hannah Southwell to prop. Tori Shipton comes on to the bench while Keele Browne's comeback from a hamstring injury remains on hold after she dropped out of the reserves.\nCowboys : North Queensland are also 1-17, with no late changes. Kiwi representative Abigail Roache set to return from a knee injury in the centres in place of Kayla Jackson who made her club debut last week. The only other change sees PNG Orchid Emily Veivers named as 18th player, taking over from Hailee-Jay Ormond-Maunsell.\nTeam Lists\nBacks\nFullback for Dragons is number 1 Teagan Berry 1 Fullback for Cowboys is number 1 Francesca Goldthorp\nWinger for Dragons is number 2 Maria Paseka 2 Winger for Cowboys is number 2 Charlize Lloyd-Phillips\nCentre for Dragons is number 3 Shenae Ciesiolka 3 Centre for Cowboys is number 3 Abigail Roache\nCentre for Dragons is number 4 Tahlia O'Brien 4 Centre for Cowboys is number 4 Jasmine Peters\nWinger for Dragons is number 5 Jayme Millard 5 Winger for Cowboys is number 5 Margot Vella\nFive-Eighth for Dragons is number 6 Zali Hopkins 6 Five-Eighth for Cowboys is number 6 Lydia Turua-Quedley\nHalfback for Dragons is number 7 Kasey Reh 7 Halfback for Cowboys is number 7 Rosie Kelly\nForwards\nProp for Dragons is number 8 Hannah Southwell 8 Prop for Cowboys is number 8 Essay Banu\nHooker for Dragons is number 9 Nita Maynard-Perrin 9 Hooker for Cowboys is number 9 Alisha Foord\nProp for Dragons is number 10 Ruby-Jean Kennard-Ellis 10 Prop for Cowboys is number 10 Ashley Marsters\n10\n2nd Row for Dragons is number 11 Montana Clifford 11 2nd Row for Cowboys is number 11 Tallisha Harden\n11\n2nd Row for Dragons is number 12 Ella Koster 12 2nd Row for Cowboys is number 12 Bree Chester\n12\nLock for Dragons is number 13 Brooke Anderson 13 Lock for Cowboys is number 13 Makenzie Weale\n13\nInterchange\nInterchange for Dragons is number 14 Tori Shipton 14 Interchange for Cowboys is number 14 Nadia Windleborn\n14\nInterchange for Dragons is number 15 Ahlivia Ingram 15 Interchange for Cowboys is number 15 Lily Dick\n15\nInterchange for Dragons is number 16 Trinity Tauaneai 16 Interchange for Cowboys is number 16 Tiana Raftstrand-Smith\n16\nInterchange for Dragons is number 17 Tyra Ekepati 17 Interchange for Cowboys is number 17 Tafao Asaua\n17\nReserves\nReplacement for Dragons is number 18 Amelia Huakau 18 Replacement for Cowboys is number 18 Emily Veivers\n18\nMatch Officials\nSenior Review Official: Matt Noyen\nLast updated: 8/22/2026 11:01:07 AM\nStat Attack\nThe Dragons are aiming to avoid a club record six straight losses\nThe Cowboys have won their last two clashes against the Dragons\nDragons fullb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.855037199166667,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "99bb3096a85d5aee",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Gold Coast Titans vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/gold-coast-titans-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-round-25-2026/609975",
+            "published_at": "2026-08-20T03:12:39+00:00",
+            "snippet": "Gold Coast Titans vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Round 25 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Cbus Super Stadium will play host to Sunday's Round 25 NRL game between Gold Coast Titans and Cronulla Sharks. The game kicks off at 2:00 pm with Cronulla Sharks heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the Gold Coast Titans vs. Cronulla Sharks game and give you our free tips and bets.\nWhen: Sunday August 23, 2026 at 2:00 pm\nWhere: Cbus Super Stadium\nBet 💰: Bet On This Match HERE\nGold Coast Titans vs Cronulla Sharks Odds\nGold Coast Titans vs Cronulla Sharks Preview\nCronulla travels to the Gold Coast needing an immediate response after consecutive losses to the Dragons and Raiders pushed it out of the top four. Braydon Trindall’s injury forces Niwhai Puru into the halves alongside Nicho Hynes, although Addin Fonua-Blake’s return from suspension strengthens the Sharks through the middle. Gold Coast has lost three straight and concedes another reshuffle, with Cooper Bai set to start at lock and Chris Randall moving to the bench. The Titans did show more fight in a 36-26 defeat to Newcastle, but their defensive consistency remains a concern. Cronulla has won 12 of the past 13 meetings and scored at least 44 points in the last three. That history, combined with the Sharks’ finals urgency, points to a forceful attacking response.\nHead To Head Bet\nWe're tipping Cronulla Sharks to win at $1.50 odds.\nFirst Try Scorer\nFirst Try Scorer: Sione Katoa at $9.00 .\nGold Coast Titans vs Cronulla Sharks Teams\nTitans team: 1. Keano Kini 2. Jaylan De Groot 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Oliver Pascoe 10. Tino Fa’asuamaleaui 11. Arama Hau 12. Beau Fermor 13. Cooper Bai 14. Kurtis Morrin 15. Klese Haas 16. Chris Randall 17. Bodhi Sharpley 18. Luke Sommerton 19. Sialetili Faeamani 20. Adam Christensen 21. Jett Liu 22. Tony Francis\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Mawene Hiroti 4. KL Iro 5. Ronaldo Mulitalo 6. Niwhai Puru 7. Nicho Hynes 8. Addin Fonua-Blake 9. Blayke Brailey 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 14. Siosifa Talakai 15. Billy Burns 16. Oregon Kaufusi 17. Thomas Hazelton 18. Hohepa Puru 19. Braden Hamlin-Uele 20. Liam Ison 21. Samuel Stonestreet 22. Toby Rudolf",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.49503719916666,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "63bf0fc6f96b156a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Live Blog",
+            "title": "NRL Sunday: Titans v Sharks; Roosters v Wests Tigers Presented by 19 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/23/nrl-sunday-titans-v-sharks-roosters-v-wests-tigers/",
+            "published_at": "2026-08-23T03:22:49+00:00",
+            "snippet": "Presented By\nNRL Sunday: Titans v Sharks; Roosters v Wests Tigers\nCan the Sharks overcome the loss of Braydon Trindall to bounce back from consecutive losses or will the Titans inflict more pain on Fitzy's men?\nCan the Roosters make it nine wins in a row as they power towards the",
+            "body_excerpt": "Presented By\nNRL Sunday: Titans v Sharks; Roosters v Wests Tigers\nCan the Sharks overcome the loss of Braydon Trindall to bounce back from consecutive losses or will the Titans inflict more pain on Fitzy's men?\nCan the Roosters make it nine wins in a row as they power towards the minor premiership or will Jarome Luai and Api Koroisau spark the Tigers to a huge upset?\nThe Roosters have won 18 of their last 20 games against Wests Tigers so the odds are stacked against Benji's boys but the chance to cut down a tall poppy is always a powerful motivator.\nFollow all the action from Round 25 of the NRL Telstra Premiership on NRL.com's live blog.\nTitans v Sharks at Cbus Super Stadium\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\n16th Position\naway Team\nSharks\n5th Position\nVenue: Cbus Super Stadium, Gold Coast\nMatch broadcasters:\nFoxtel\nKayo\nTitans v Sharks: Round 25\nLate Mail\nTitans: Klese Haas and Kurtis Morrin join the starting side at prop and second row respectively in the 90-minute squad update. Moeaki Fotuaika and Arama Hau, who were originally named to start, revert to the interchange. Cooper Bai was named to start at lock on Tuesday with Chris Randall moving to the bench. Winger Phillip Sami requires one try to break Anthony Don’s club tryscoring record (85). No changes in Saturday's 24-hour update.\nSharks: Sharks coach Craig Fitzgibbon has bolstered the size of his starting pack in the 90-minute squad update, with Tom Hazleton named at lock and Cameron McInnes shifting to the bench. The loss of five-eighth Braydon Trindall to a shoulder dislocation brings Niwhai Puru into the halves alongside Nicho Hynes. The 24-year-old played three games at halfback earlier in the season when Hynes was out with a calf injury. Prop Addin Fonua-Blake's return from suspension sees Oregon Kaufusi move to the bench. Sam Stonestreet was added to the bench on Saturday with Braden Uele dropping out.\nRoosters v Wests Tigers at Allianz Stadium\nMatch: Roosters v Wests Tigers\nRoosters\n3rd Position\nWests Tigers\n15th Position\nVenue: Allianz Stadium, Sydney\nNine Network\nNine Now\nRoosters v Wests Tigers: Round 25\nRelated /\nTitans v Sharks: Bai's time at lock; AFB props up pack\nMatch Preview\nRoosters v Wests Tigers: Teddy still out; Madden steps up\nLive Blog\nAs it happened: Dragons go back-to-back; Knights down Titans",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.32559275472222227,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e4ef3fd551512c20",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Live Blog",
+            "title": "Match Preview Titans v Sharks: Bai's time at lock; AFB props up pack",
+            "url": "https://www.nrl.com/news/2026/08/18/titans-v-sharks-bais-time-at-lock-afb-props-up-pack/",
+            "published_at": "2026-08-23T02:36:44+00:00",
+            "snippet": "Presented By\nTitans v Sharks: Bai's time at lock; AFB props up pack\nThe Titans will be aiming to get a fast start when they host the Sharks this weekend, knowing how costly their poor opening proved to be against the Knights last round.\nWhile still struggling to get the results t",
+            "body_excerpt": "Presented By\nTitans v Sharks: Bai's time at lock; AFB props up pack\nThe Titans will be aiming to get a fast start when they host the Sharks this weekend, knowing how costly their poor opening proved to be against the Knights last round.\nWhile still struggling to get the results they want this year, the Gold Coast had been on the improve, before some back-to-back poor performances seeing heavy losses, with coach Josh Hannay citing fatigue.\nThat carried into their match in Newcastle before they flicked a switch mid-way through the first half to mount a mini-comeback against the finals contenders. But it was too little too late and if they are to reap any rewards to close out this season, the side will need to be switched on from the start.\nThe Sharks come into this game off the back-to-back losses, both of them upsets that have cost the team their top four place for now. While they are still in the hunt, they will need to course-correct quickly, with plenty of challengers above and below looking for that coveted position on the ladder.\nLast week against the Raiders, they were not able to overcome the early loss of in-form half Braydon Trindall, going down in a close 24-20 loss to the Raiders.\nThis week, they can ill afford to slip up against a Titans side playing for pride in front of their home fans.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\n16th Position\naway Team\nSharks\n5th Position\nVenue: Cbus Super Stadium, Gold Coast\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nTitans: Klese Haas and Kurtis Morrin join the starting side at prop and second row respectively in the 90-minute squad update. Moeaki Fotuaika and Arama Hau, who were originally named to start, revert to the interchange. Cooper Bai was named to start at lock on Tuesday with Chris Randall moving to the bench. Winger Phillip Sami requires one try to break Anthony Don’s club tryscoring record (85). No changes in Saturday's 24-hour update.\nSharks: Sharks coach Craig Fitzgibbon has bolstered the size of his starting pack in the 90-minute squad update, with Tom Hazleton named at lock and Cameron McInnes shifting to the bench. The loss of five-eighth Braydon Trindall to a shoulder dislocation brings Niwhai Puru into the halves alongside Nicho Hynes. The 24-year-old played three games at halfback earlier in the season when Hynes was out with a calf injury. Prop Addin Fonua-Blake's return from suspension sees Oregon Kaufusi move to the bench. Sam Stonestreet was added to the bench on Saturday with Braden Uele dropping out.\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 8 Prop for Sharks is number 8 Addin Fonua-Blake\n10 8\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 15 Klese Haas 15 10 Prop for Sharks is number 10 Jesse Colquhoun\n15 10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Sharks is number 11 Briton Nikora\n12 11\n2nd Row for Titans is number 14 Kurtis Morrin 14 12 2nd Row for Sharks is number 12 Teig Wilton\n14 12\nLock for Titans is number 13 Cooper Bai 13 17 Lock for Sharks is number 17 Thomas Hazelton\n13 17\nInterchange\nInterchange for Titans is number 8 Moeaki Fotuaika 8 13 Interchange for Sharks is number 13 Cameron McInnes\n8 13\nInterchange for Titans is number 11 Arama Hau 11 14 Interchange for S",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.0936483102777779,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Koula injures ankle; Tedesco still hobbled",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-22T12:54:28+00:00",
+            "snippet": "NRL Casualty Ward: Koula injures ankle; Tedesco still hobbled\nManly speedster Tolu Koula has suffered a syndesmosis injury after he was on the end of a hip drop tackle from Dom Young on Saturday.\nKoula was dragged down just short of the tryline by the Knights winger but was unabl",
+            "body_excerpt": "NRL Casualty Ward: Koula injures ankle; Tedesco still hobbled\nManly speedster Tolu Koula has suffered a syndesmosis injury after he was on the end of a hip drop tackle from Dom Young on Saturday.\nKoula was dragged down just short of the tryline by the Knights winger but was unable to get back to his feet.\nYoung was sent to the sin bin and Koula was ruled out of the rest of the match.\nIn Saturday's late game between the Dragons and the Bulldogs, St George Illawarra hooker Jacob Liddle was ruled out early in the first half with a calf injury.\n\"The medical staff have just told me that they think he's tore his calf, so it's not his Achilles, so fingers crossed, that's where it lands,\" coach Dean Young said after the game.\nBefore kick off, Bulldogs back Enari Tuala was a late scratching with a knee injury.\nBulldogs utility Kurt Mann later joined him on the sidelines with a groin injury.\n“It looks like just a one-week thing, he just aggravated something at training on Thursday night,\" coach Cameron Ciraldo said post-match.\n“Kurt, bit unfortunate there that he sort of got injured straight away when he came on …\n“It doesn't look like he'll be right next week, but hopefully it's not too long.\"\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delayed surgery in an attempt to kickstart the Tigers finals campaign.\nThe 28-year-old returned to the field in Round 17 but fresh scans have shown Doueihi requires immediate surgery, with the halfback to go under the knife later this week.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers head of high performance Peter Moussa said.\nMeanwhile, Tigers five-eighth Latu Fainu has suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension but will now be sidelined for 1-2 weeks with his latest injury.\nSunia Turuva was initially named on the six-man bench but dropped out of the squad in Saturday's 24-hour update as he battles a knee injury suffered last weekend.\nIn positive news, Alex Twal is set to return after missing Round 24 due to illness.\nThe Roosters have again ruled skipper James Tedesco out late in the week as he continues to battle an ankle injury.\nTedesco has already missed two games and won't line up against Wests Tigers.\n\"It's been, obviously, a bit frustrating for Ted and we've named him each week, but he's not right to play this week,\" said coach Trent Robinson.\n\"He's progressed quite well, but it's a bit more niggly than what we thought.\"\nBroncos superstar Reece Walsh has had surgery on his ankle and is facing an eight-week recovery time.\nWalsh had scans on Sunday which confirmed he had sustained a high-grade syndesmosis injury during the loss to the Warriors on Saturday night.\nWarriors fullback Charnze Nicoll-Klokstad has subsequently been banned for two games for a hip drop tackle.\nWith Australia's World Cup opener against the Kiwis set down for Thursday, October 15 it appears Walsh's chances of representing the Kangaroos are gone.\nThe Raiders had Simi Sasagi back from a shoulder injury for their clash with the Broncos but lost back-rower Zac Hosking to a hamstring injury during the second half.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nSouth Sydney star Latrell Mitchell will look to return in Round 26 from a nerve injury that has kept him sidelined since Round 11.\nThe centre has missed 11 games with the injury but was named in the Bunnies' extended squad for this weekend's match against the Warriors before being put on ice once more.\nThe Rabbitohs have lost Adam Elliott to a groin injury, with the veteran expecte",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.798092754722221,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "70232d11bf16dc2d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans vs Sharks Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/titans-vs-sharks-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-22T07:28:12+00:00",
+            "snippet": "Titans vs Sharks Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Titans vs Sharks Preview & Betting Tips: NRL Round 25 2026\nAugust 22 nd 2026, 5:15pm , By: Ben Bridge\nSunday afternoon at Cbus Super Stadium looks like a major opportunity for Cronulla to steady their season, with the Sharks travelling north to face a Gold Coast side whose year is rapidly falling apart. Cronulla have lost consecutive matches and slipped to fifth but remain firmly in the hunt for a top 4 finish. Gold Coast sit near the bottom of the ladder and have now conceded 108 points across their past three matches.\nThat gap in motivation and overall quality is enough for me to side strongly with the visitors. My numbers have Cronulla around -11.5, leaving a useful edge at the current market line.\nThe Sharks do lose Braydon Trindall to a shoulder dislocation, with Niwhai Puru coming into the halves alongside Nicho Hynes. However, Addin Fonua-Blake returns from suspension and immediately strengthens a forward pack that should dominate Gold Coast through the middle. The Titans are without Josh Patston after a head knock, while Cooper Bai moves to lock and Arama Hau returns in the back row.\nGold Coast have shown flashes of improvement during the year, but their recent decline has been significant. Cronulla simply have far more to play for, and this is the type of game genuine top 4 teams must put away.\nTitans vs Sharks Prediction & Tips: 2026 NRL Round 25\nTitans Season Sliding Away\nGold Coast’s 36-26 loss to Newcastle last Sunday made it three straight heavy defensive performances and continued a worrying late season fade. The Titans fell behind early, recovered enough to threaten through the middle stages, but never fully overcame the damage done during their poor start. Newcastle ultimately secured its finals berth with the 10-point victory.\nThe problem is no longer simply wins and losses. Gold Coast’s defensive output has deteriorated dramatically. They conceded 42 to the Warriors, 30 to North Queensland and another 36 to Newcastle, giving up 108 points across three games. Josh Hannay has identified fatigue as a major factor in the recent decline.\nThere is still attacking talent. Keano Kini remains dangerous from fullback; Jayden Campbell gives them creativity at five-eighth and AJ Brimson offers another ball playing threat in the centres. Jojo Fifita and Phillip Sami can generate strong yardage and create broken field opportunities.\nThe issue is organisation and defensive resilience. Zane Harrison’s absence has hurt their ability to control field position, with Lachlan Ilias remaining at halfback. Oliver Pascoe starts at hooker, while Tino Fa’asuamaleaui and Moeaki Fotuaika again carry an enormous workload through the middle.\nCooper Bai moves to lock this week, and Arama Hau returns to the back row, but reshuffling alone will not solve the defensive problems. The Titans have been slow out of the blocks, repeatedly asking themselves to chase matches and then exposed further when fatigue sets in.\nThat is a dangerous profile against Cronulla. The Sharks have enough speed and power to punish Gold Coast early, and if the Titans again fall two scores behind, the game could quickly get away.\nSharks Need Immediate Response\nCronulla’s 24-20 loss to Canberra was their second consecutive defeat and cost them a place inside the top four for the time being. The Sharks lost Braydon Trindall early to a shoulder dislocation and struggled to fully recover their attacking rhythm against a desperate Raiders side.\nThat injury is significant. Trindall has been one of Cronulla’s most consistent playmakers this season and has taken considerable pressure off Nicho Hynes. Niwhai Puru comes into the halves, having already played three matches at halfback earlier in the year when Hynes was unavailable.\nThe positive is that Cronulla’s forward pack gets stronger. Fonua-Blake returns and starts beside Jesse Colquhoun, with Oregon Kaufusi moving to the bench. Blayke Brailey remains at hooker, Cameron McInnes starts at lock, and the Sharks retain danger",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.235870532499998,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b119c0473ff2126d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Round 25 v Titans - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/08/22/nrl-match-preview-round-25-v-titans/",
+            "published_at": "2026-08-22T04:00:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Round 25 v Titans\nFollowing a loss last weekend against the Raiders, the Sharks final four aspirations go on the line this weekend when they tackle the Gold Coast Titans in a round 25 clash at CBUS Super Stadium.\nThe last start loss saw the Dolphin",
+            "body_excerpt": "Presented By\nNRL Match Preview: Round 25 v Titans\nFollowing a loss last weekend against the Raiders, the Sharks final four aspirations go on the line this weekend when they tackle the Gold Coast Titans in a round 25 clash at CBUS Super Stadium.\nThe last start loss saw the Dolphins jump the Sharks and move into fourth position on the NRL ladder, however rather than dwell on the negatives, coach Craig Fitzgibbon saw enough in the Sharks efforts to indicate an improved performance against the Titas on Sunday afternoon.\n“We created plenty of opportunities to win the game and had enough chances but just didn’t get it done,” Fitzgibbon said of the Raiders game. “But I thought the performance levels were improved from the previous week.\n\"But we’ll have to step up again tomorrow.”\nThrowing a proverbial spanner in the works for the Sharks will be the absence of playmaker Braydon Trindall who suffered a shoulder dislocation early in the Raiders game.\nLikely to be sidelined for the next few weeks leading into the NRL Finals, Fitzgibbon has called upon Niwhai Puru to fill the void.\nPuru played three games for the Sharks earlier in the season, for three wins, included amongst those the gritty victory over the Warriors in New Zealand.\n“He’s really composed Neets,” Fitzgibbon said of Puru. “He’s been at the club now for a number of years and knows our system, and he’s a confidence boost for the side in knowing what they’ll get.”\nAnother key addition to the team that went down to Canberra was Addin Fonua Blake, with the front rower to return after being sidelined due to suspension last week.\n“It won’t have hurt him to have the week off and to get the spring back in his step. He’s really stepped up at training this week,” the coach added.\nIn the 30 matches played between the two clubs, the Sharks hold a distinct advantage, with 20 wins, against nine from the Titans, with one draw.\nThe record is even more in the Sharks favour of late, with the Cronulla team winning 12 of the past 13 games against the Titans, the one loss coming in 2024 in a match played in Coffs Harbour.\nAnd at Robina, the Sharks have won the past four, and six of 10 games against the Titans, while at CBus in 2016 the two teams played out an infamous 18-all draw, a result which ended Cronulla’s 15 game win streak\nThe Sharks have won six of 12 games played away from Ocean Protect Stadium this season, and five of the past seven, while they have also taken home the two competition points from the last three visits to Queensland venues.\nThe teams met in round one at Ocean Protect Stadium, with the Sharks comprehensive 50-10 victors.\nThe Sharks come into the game in fifth position on the NRL ladder, with 13 wins and eight losses, while the Gold Coast are 16th following six wins, 15 losses so far in 2026.\nIn personal milestones, Nicho Hynes needs 13 points to pass Luke Covell (948) for third most points scored for the Cronulla club, while Ronaldo Mulitalo needs one try to pass club legend David Peachey for the second most tries for the Sharks. Mulitalo is currently sitting on 110 tries and he has seven tries in seven games against the Titans.\nSee following the 24-hour team list, with the Sharks reporting no injury concerns to the team as selected. The match scheduled to kick off at 2.00pm.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfba",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.7058705325,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "634e9e71df74058d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans v Sharks: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/19/titans-v-sharks-round-25/",
+            "published_at": "2026-08-19T05:39:36+00:00",
+            "snippet": "Titans v Sharks: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:31 Roosters v Wests Tigers: Round 25\nRoosters v Wests Tigers: Round 25\n03:23 Knights v Sea Eagles: Round 25\nKnights v Sea Eagles: Round 25\n02:35 Dragons v Bulldogs: Rou",
+            "body_excerpt": "Titans v Sharks: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:31 Roosters v Wests Tigers: Round 25\nRoosters v Wests Tigers: Round 25\n03:23 Knights v Sea Eagles: Round 25\nKnights v Sea Eagles: Round 25\n02:35 Dragons v Bulldogs: Round 25\nDragons v Bulldogs: Round 25\n02:30 Rabbitohs v Warriors: Round 25\nRabbitohs v Warriors: Round 25\n02:38 Dolphins v Eels: Round 25\nDolphins v Eels: Round 25\nRelated /\nNRL Sunday: Titans v Sharks; Roosters v Wests Tigers\nMatch Preview\nTitans v Sharks: Bai's time at lock; AFB props up pack\nFantasy\nFirst take: Titans v Sharks\nKnights v Titans: Crossland returns; Sami eyes club record\nSharks v Raiders: Iro returns; Sasagi ruled out\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.0458705325,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "fd002048dc5a31d2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Round 25 team: Hau good for Sharks showdown as Kini celebrates half century - titans.com.au",
+            "url": "https://www.titans.com.au/news/2026/08/18/round-25-team-hau-good-for-sharks-showdown-as-kini-celebrates-half-century/",
+            "published_at": "2026-08-18T05:59:01+00:00",
+            "snippet": "Round 25 team: Hau good for Sharks showdown as Kini celebrates half century &nbsp;&nbsp; titans.com.au",
+            "body_excerpt": "Presented By\nRound 25 team: Hau good for Sharks showdown as Kini celebrates half century\nArama Hau has been recalled for Keano Kini's mini milestone against the Sharks on Sunday at Cbus Super Stadium.\nWith Josh Patston ruled out due to his failed HIA, the dynamic edge forward returns to first grade after a strong showing for the Ipswich Jets at the weekend, named to start in the only change to the 17 made by Josh Hannay.\nIn a further switch on the extended bench, Luke Sommerton joins the 19-man squad in place of Sam Verrills - the back-up rake having made three appearances this year in his first season on the Gold Coast.\nRound 25 celebrates the Loyal Legion as part of Thank You Member Round.\nThe Cronulla clash will be Kini's half century in the NRL, one of only three players to have played every game of the 2026 season alongside Phil Sami and Beau Fermor.\nKick-off is at 2pm on Sunday - the second of two games at Cbus Super Stadium, Gold Coast.\nMatch: Titans v Sharks\nRound 25 - Round 25 - Sunday 23 Aug\nhome Team\nTitans\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Titans is number 2 Jaylan De Groot 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Sharks is number 3 Mawene Hiroti\nCentre for Titans is number 4 AJ Brimson 4 Centre for Sharks is number 4 KL Iro\nWinger for Titans is number 5 Phillip Sami 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Sharks is number 6 Niwhai Puru\nHalfback for Titans is number 7 Lachlan Ilias 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 8 Prop for Sharks is number 8 Addin Fonua-Blake\n10 8\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Titans is number 15 Klese Haas 15 10 Prop for Sharks is number 10 Jesse Colquhoun\n15 10\n2nd Row for Titans is number 12 Beau Fermor 12 11 2nd Row for Sharks is number 11 Briton Nikora\n12 11\n2nd Row for Titans is number 14 Kurtis Morrin 14 12 2nd Row for Sharks is number 12 Teig Wilton\n14 12\nLock for Titans is number 13 Cooper Bai 13 17 Lock for Sharks is number 17 Thomas Hazelton\n13 17\nInterchange\nInterchange for Titans is number 8 Moeaki Fotuaika 8 13 Interchange for Sharks is number 13 Cameron McInnes\n8 13\nInterchange for Titans is number 11 Arama Hau 11 14 Interchange for Sharks is number 14 Siosifa Talakai\n11 14\nInterchange for Titans is number 16 Chris Randall 16 15 Interchange for Sharks is number 15 Billy Burns\n16 15\nInterchange for Titans is number 17 Bodhi Sharpley 17 16 Interchange for Sharks is number 16 Oregon Kaufusi\n17 16\nInterchange for Titans is number 18 Luke Sommerton 18 Interchange for Sharks is number 18 Hohepa Puru\n18\nInterchange for Titans is number 19 Siale Faeamani 19 21 Interchange for Sharks is number 21 Samuel Stonestreet\n19 21\nTitans Ins\nArama Hau\nLuke Sommerton\nSharks Ins\nAddin Fonua-Blake\nNiwhai Puru\nTitans Outs\nJosh Patston\nSam Verrills\nBraden Uele\nBraydon Trindall\nMatch Officials\nReferee: Peter Gough\nSenior Review Official: Chris Butler\nLast updated: 8/23/2026 3:26:03 AM\nRelated /\nLate mail: Hannay makes forward pack switch for Sharks showdown\nLocked in: Titans remain unchanged eyeing Round 1 revenge\nInjury report: Patston to miss Sharks showdown\nLate mail: Ieremia ruled out, De Groot to start in Newcastle\nRound 24 team: Future Titans prop earns Indigenous Round NRL debut",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 117.7222594213889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "9711cbb7106b8539",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "NRL News /",
+            "url": "https://www.nrl.com/news/topic/nrl-news/",
+            "published_at": "2026-08-22T22:58:00+00:00",
+            "snippet": "View updates for the most breaking NRL News NRL news, analysis, scores, team list updates, squads, casualty ward, injury news, signings and judiciary.",
+            "body_excerpt": "NRL News /\nLive Blog\nNRL Sunday: Titans v Sharks; Roosters v Wests Tigers\nMatch Preview\nTitans v Sharks: Bai's time at lock; AFB props up pack\nTeam Lists\nNRL Late Mail: Round 25 - Teddy out again\nJudiciary\nNRL Judiciary: Young, Frizell facing bans; Four Bulldogs charged\nSignings\n2026 NRL Signings Tracker: Horsburgh joins Bears; Broncos extend Walters\nInjuries\nNRL Casualty Ward: Koula injures ankle; Tedesco still hobbled\nAs it happened: Bulldogs punish Dragons; Wahs roll on; Manly stun Knights\nNRL News\nA moment for the great Billy Smith\nFrom the field: Chanel Harris-Tavita\nRoosters v Wests Tigers: Teddy still out; Madden steps up\nFrom the field: Tom Trbojevic\nForan expecting Turbo to hit the ground running\nHolbrook embracing the exciting times in the Hunter\nAs it happened: Broncos spoil Papa's party; Five straight for Phins\nFrom the field: Selwyn Cobbo\nFrom the field: Herbie Farnworth\nFrom the field: Josh Addo-Carr\nStraight Talk - Peter V’landys\nFrom the field: Josh Papali'i\nPayne Haas pays tribute to Big Papa at full time\nFrom the field: Joe Tapine\nFrom the field: Ben Hunt\nDolphins v Eels: Pouniu to start; Russell called up\nStuart pays tribute to Papali'i pre match\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 4.739203865833333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c61c22c864ead5ef",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters vs Tigers Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/roosters-vs-tigers-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-22T07:58:13+00:00",
+            "snippet": "Roosters vs Tigers Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Roosters vs Tigers Preview & Betting Tips: NRL Round 25 2026\nAugust 22 nd 2026, 6:10pm , By: Ben Bridge\nNRL Round 25 closes at Allianz Stadium with the biggest mismatch on the card, as the first placed Roosters take on a Wests Tigers side sitting near the bottom of the competition. The market agrees, installing Sydney as a massive 22.5-point favourite, and while spreads this large always bring diminishing returns, I am still prepared to lay the number.\nThe Roosters moved to the top of the ladder with a superb 12-6 win over Penrith last week and are chasing a ninth consecutive victory. James Tedesco returns after two matches out with an ankle injury, giving the competition leaders another major boost as they push toward the minor premiership. Wests, meanwhile, lost another close game 24-22 to the Dragons and now lose Adam Doueihi for the remainder of the season due to shoulder surgery. Jock Madden returns at halfback.\nThis is not the type of spread I want to attack with a huge stake. Once you get beyond three converted tries, a late consolation score or a favourite easing off can destroy a bet that has otherwise been correct for 75 minutes.\nStill, the gap between these teams is enormous. Sydney have won 18 of their past 20 meetings with Wests, and the Tigers are facing the hottest team in the competition.\nRoosters vs Tigers Prediction & Tips: 2026 NRL Round 25\nRoosters Claim Top Spot with Statement Win\nSydney’s 12-6 victory over Penrith was arguably their most impressive win of the season. The Roosters did not need a high scoring attacking performance; instead, they rediscovered the “Bondi Wall” and held the Panthers to a single try in a genuine finals contest.\nDaly Cherry-Evans was outstanding, scoring both Roosters tries and controlling the match with the composure Sydney recruited him to provide. The veteran produced one of his best performances of the season in what was also another milestone appearance, while the Roosters absorbed prolonged periods of Penrith pressure without cracking.\nThe result pushed Sydney above Penrith and into first place, extending their winning streak to eight. Now they get Tedesco back.\nCody Ramsey has done an excellent job at fullback, but Tedesco remains the central figure in Sydney’s yardage and support play. His return gives the Roosters another layer of attacking threat around Cherry-Evans and Sam Walker, while Reece Robson continues to provide ruck control from hooker.\nThe forward rotation also looks capable of overwhelming Wests. Naufahu Whyte and Spencer Leniu start up front, Victor Radley locks the scrum, and Lindsay Collins comes from the bench alongside Connor Watson and the Butcher brothers.\nThe danger in this matchup is complacency. Sydney have just beaten their biggest premiership rival and now face the worst team in the NRL right now. Trent Robinson will be determined to ensure his side does not treat this as an automatic win.\nThat concern should be eased by the minor premiership race. Every point still matters, and the Roosters cannot afford to waste a favourable matchup.\nTigers Keep Competing Without Winning\nWests went down 24-22 to the Dragons last Sunday, their latest narrow defeat in a season where the wheels have largely fallen off since the middle stages. Both sides scored four tries, with goal kicking ultimately proving the difference.\nThere were at least signs of fight. Since the disastrous 56-10 loss to Canberra in Round 21, the Tigers have been more competitive and have avoided the massive defensive collapses that dominated the previous month. That matters when assessing a 22.5-point spread.\nThe problem is that their team list has weakened again. Doueihi is done for the season and will undergo shoulder surgery, removing one of the visitor’s main attacking and kicking options. Madden returns at halfback for his first NRL game since Round 18 and partners Jarome Luai. Alex Twal also returns at lock after missing last week through illness, while Sunia Turuva is carrying a kne",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.735592754722223,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "9def6ad083f8a18c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb",
+            "published_at": "2026-08-21T10:18:00+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is begin",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is beginning to take shape.\nRound 25 kicked off in Melbourne as the Storm fell to the Panthers 22-14.\nFriday began with the Broncos downing the Raiders 34-30 in Canberra and was followed by the Dolphins beating the Eels 34-16 at Suncorp.\nThe Knights lost 44-24 to the Sea Eagles on Saturday afternoon before the Warriors beat the Rabbitohs 45-26 at Accor Stadium and the Bulldogs smashed the Dragons 44-14 at Allianz.\nThe 8th-placed Cowboys have the bye and move automatically up to 30 points.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 25\nGold Coast Titans vs. Cronulla Sharks\n(Sunday, August 23 at Cbus Super Stadium, 2:00pm AEST)\nGold Coast team:\n1. Keano Kini 2. Jaylan De Groot 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Arama Hau 12. Beau Fermor 13. Cooper Bai\n14. Kurtis Morrin 15. Klese Haas 16. Chris Randall 17. Bodhi Sharpley 18. Luke Sommerton 19. Siale Faeamani\nTitans team news:\nJosh Patston failed an HIA (Cat 1) and is replaced by Arama Hau, while Cooper Bai comes in at lock for Chris Randall who moves back to the bench. Winger Dean Ieremia picked up a hamstring strain and is replaced by Jaylan De Groot.\nCronulla team:\n1. Will Kennedy 2. Sione Katoa 3. Mawene Hiroti 4. KL Iro 5. Ronaldo Mulitalo 6. Niwhai Puru 7. Nicho Hynes 8. Addin Fanua-Blake 9. Blayke Brailey (c) 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cam McInnes\n14. Siosifa Talakai 15. Billy Burns 16. Oregon Kaufusi 17. Tom Hazelton 18. Hohepa Puru 19. Braden Uele\nSharks team news:\nAddin Fanua-Blake returns from suspension with Oregon Kaufusi pushing back to the bench. Centre Jesse Ramien has played his final game for the club after undergoing season-ending pectoral surgery, while No.6 Braydon Trindall suffered a dislocated shoulder in the loss to the Raiders and will miss 2-4 weeks with Niwhai Puru taking his place. Toby Rudolf played 52 minutes in NSW Cup on the weekend and has been included on the extended reserves.\nSydney Roosters vs. Wests Tigers\n(Sunday, August 23 at Allianz Stadium , 4:05pm AEST)\nRoosters team:\n18. Cody Ramsay 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Spencer Leniu 11. Salesi Foketi 12. Siua Wong 13. Victor Radley\n14. Connor Watson 15. Lindsay Collins 16. Nat Butcher 17. Egan Butcher 19. Tommy Talau 20. Rex Bassingthwaighte\nRoosters team news:\nTrent Robinson has confirmed James Tedesco (ankle) will miss another week with Cody Ramsay again deputising at the back. Angus Crichton (foot) is getting close to a return as is veteran winger Daniel Tupou (shoulder), potentially as soon as next week. Lindsay Collins will come off the bench with Spencer Leniu named in the front row.\nTigers team:\n1. Jahream Bula 2. Junior Tupou 3. Solomone Saukuru 4. Patrick Herbert 5. Jeral Skelton 6. Jarome Luai (c) 7. Jock Madden 8. Terrell May 9. Api Koroisau 10. Fonua Pole 11. Samuela Fainu 12. Tony Sukkar 13. Alex Twal\n14. Heath Mason 15. Sione Fainu 16. Alex Seyfarth 17. Bunty Afoa 18. Tristan Hope 19. Sunia Turuva\nTigers team news:\nLatu Fainu was set to be available after serving a 3-week suspension but has injured his hamstring at training and is out for another 1-2 weeks. Meanwhile the club has confirmed No.7 Adam Doueihi has brought forward season-ending shoulder surgery with Jock Madden earning a recall. Alex Twal returns after missing Round 24 with an illness while Sunia Turuva (knee) is curiously named on the bench with Jeral Skelton coming on to the Tigers wing.\nNRL RESULTS, SCORES ROUND 25:\nPenrith Panthers 22 def. Melbourne Storm",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 41.405870532499996,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "fea4c0247368ab55",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/",
+            "published_at": "2026-08-19T05:28:23+00:00",
+            "snippet": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydn",
+            "body_excerpt": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydney has a huge obstacle in front of them in the form of the Warriors.\nRead on for our complete 2026 NRL Round 25 predictions, tips and best Rugby League bets to place this weekend!\nThe finals ship has all but sailed for Melbourne, but knocking over stumbling Penrith in their last home game of the season will provide ample motivation.\nFORM: The Storm snapped a three-game losing run to trounce the Sea Eagles 42-20 in Perth in Round 23, after trailing at halftime. They had the bye last weekend.\nThe Panthers lost their grip on top spot courtesy of a 12-6 loss to the Roosters – their fifth loss in eight games.\nINS AND OUTS: Melbourne gets a further boost with Harry Grant and Jack Howarth returning, which sees Tyran Wishart and Joe Chan revert to the bench. Trent Toelau will partner Cam Munster in the halves this week.\nCasey McLean is a back in a timely lift for the Panthers, with Paul Alamoti (hamstring) ruled out.\nKEY MATCH-UP: Different jersey numbers, but Origin adversaries and Test teammates Munster and Nathan Cleary will guide their teams’ fortunes.\nHISTORY: The Storm have won four of their last six against the Panthers but crashed to a 50-10 loss at CommBank Stadium in Round 5.\nKEY STAT: The Panthers have a 1-9 record at AAMI Park.\nVERDICT: The two biggest heavyweights of the 2020s renew a fierce rivalry, though at a very different juncture than the out-of-contention Storm are used to. But the injury-ravaged side has been gallant in recent defeats and the win over Manly was well-deserved reward.\nThere’s plenty at stake for the Panthers, who could drop out of the top two with a loss and need to recover some momentum over the closing three rounds.\nThe Storm are a tempting option with a 7.5-point start after winning five of their last six at home, but the over appeals more with seven of 10 games at AAMI Park producing 52-plus points this season.\nPredictions: Back Over 42.5 Total Points @ $1.90\nSGM: STORM +7.5 / OVER 7.5 TOTAL TRIES / TOM JENKINS ANYTIME TRYSCORER / NICK MEANEY ANYTIME TRYSCORER @ $16.31\nOther teams’ stumbles have maintained a mathematical Top 8 chance for the Raiders after an upset victory last week, but the spiralling Broncos’ only remaining motivation is avoiding the wooden spoon.\nFORM: The Raiders showed an abundance of spirit to roll Cronulla 24-20 on the road last Saturday just six days after a seemingly season-ending home loss to Newcastle.\nThe Broncos crashed to their 12th loss in 13 games last weekend, a 40-6 defeat to the Warriors in which enthusiasm and defensive desire appeared sorely lacking – as well as costing them Reece Walsh for the rest of a sorry title defence.\nINS AND OUTS: The Raiders get Simi Sasagi back from injury, Ata Mariota comes in at lock for Morgan Smithies (concussion) and Josh Papalii will start at prop in his last home game. Corey Horsburgh has received a bench recall.\nHayze Perham slots in as Brisbane’s fullback for Walsh, while Ben Hunt replaces Tom Duffy at halfback.\nKEY MATCH-UP: Big ‘Papa’ will be fired up to turn back the clock in his home farewell – and he and Joe Tapine will engage in a crucial battle up front against Broncos bookends Xavier Willison and Payne Haas.\nHISTORY: The Broncos have won three of their last four against the Raiders, most recently taking out a golden point epic at GIO Stadium 29-28 last September.\nKEY STAT: Broncos wingers have scored 14 tries in the club’s last seven clashes with the Raiders. Both wingers scored in four of those matches.\nVERDICT: A heavy loss to Penrith in Mudgee aside, the Raiders have been very competitive over the past seven weeks – winning five games – and will still be alive in the finals race when this game kicks off.\nPapalii’s farewell should also ins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 94.23281497694445,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Titans vs Sharks NRL round 25 preview",
+          "Titans Sharks NRL odds OR price OR favourite",
+          "Titans Sharks NRL finals race OR ladder stakes",
+          "Titans Sharks NRL",
+          "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Titans Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 25 Titans OR Sharks"
+        ],
+        "filter_summary": {
+          "dropped_stale": 53,
+          "dropped_wrong_round": 2,
+          "dropped_noise": 16,
+          "dropped_irrelevant": 14,
+          "kept": 18,
+          "deferred_pending_body": 63,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "5666dca9e7e3",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-23T03:42:21.087093+00:00",
+      "finished_at": "2026-08-23T03:43:43.988646+00:00",
+      "duration_ms": 82901,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Sharks",
+        "venue": "Cbus Super Stadium",
+        "kickoff": "2026-08-23T14:00:00+10:00",
+        "weather": "Rain"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.7297,
+        "home_win_probability": 0.2703,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Home travel to venue (0 km) — contribution 0.021 (1% of total)",
+            "5-game form: kicking metres (-23.20) — contribution 0.013 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "3-game form: kicking metres (-79.00) — contribution 0.012 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "5-game form: completion rate (-3.20) — contribution 0.011 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "5-game momentum: penalty cluster rate (+0.60) — contribution 0.011 (1% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-211 points) — contribution 0.324 (21% of total)",
+            "Ladder points differential per game (-15.2 points) — contribution 0.321 (21% of total)",
+            "Bradley-Terry strength advantage (-1.43 log-strength) — contribution 0.248 (16% of total)",
+            "Pythagorean form (last 10) (-47% expected-win gap) — contribution 0.115 (7% of total)",
+            "3-game form: points against (+14.67) — contribution 0.070 (5% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.1336,
+            "total_toward_away": 1.4088,
+            "net": -1.2751,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: kicking metres (-23.20)",
+            "3-game form: kicking metres (-79.00)",
+            "5-game form: completion rate (-3.20)",
+            "5-game momentum: penalty cluster rate (+0.60)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Titans",
+          "away_team": "Sharks",
+          "venue": "Cbus Super Stadium",
+          "kickoff": "2026-08-23T14:00:00+10:00",
+          "weather": "Rain"
+        }
+      },
+      "error": null
+    }
+  ]
+}

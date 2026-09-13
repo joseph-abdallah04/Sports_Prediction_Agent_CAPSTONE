@@ -1,0 +1,1276 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T044820Z-c5568e72",
+  "at_a_glance": {
+    "fixture": "Panthers v Roosters",
+    "round": 24,
+    "kickoff": "2026-08-13T19:50:00+10:00",
+    "venue": "CommBank Stadium",
+    "predicted_winner": "Panthers",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.6595,
+    "model_prediction": "Home Win",
+    "research_items_kept": 18,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-13T04:48:20.743141+00:00",
+  "updated_at": "2026-08-13T04:59:56.849671+00:00",
+  "request": {
+    "home_team": "Panthers",
+    "away_team": "Roosters",
+    "season": 2026,
+    "round_number": 24,
+    "force_refresh": true,
+    "user_question": "Who wins Panthers vs Roosters?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Panthers",
+    "away_team": "Roosters",
+    "confidence": 0.6,
+    "summary": "The Panthers hold a statistical edge in Elo and Bradley-Terry ratings, though confidence is tempered by their recent inconsistent form compared to the Roosters' five-game winning streak. Both teams face critical losses with James Tedesco (Roosters) and Isaah Yeo (Panthers) ruled out of this top-of-the-table clash.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model favours a home win based on an Elo rating advantage (+7 points), Bradley-Terry strength advantage, and superior ladder points differential per game."
+      },
+      {
+        "source": "research",
+        "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+      },
+      {
+        "source": "research",
+        "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+      }
+    ],
+    "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 18,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 2
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 15
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 7
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Panthers vs Roosters NRL round 24 preview",
+      "Panthers Roosters NRL odds OR price OR favourite",
+      "Panthers Roosters NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that Panthers are market favourites at '$1.77' does not appear in any research body excerpt or scene field."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Tedesco and Yeo are correctly described as ruled out/sidelined per the nrl_news excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the Panthers from the favouring_Panthers_home_win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors include injuries to Tedesco and Yeo sourced from nrl_news."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is justified by the Roosters' winning streak and the loss of Isaah Yeo."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The most significant SHAP drivers (Bradley-Terry and points differential) are the ones highlighted."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top driver 'Elo rating advantage (+7 points)' is not named or alluded to in the judgement."
+        }
+      ],
+      "issues": [
+        "The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.",
+        "The top math driver 'Elo rating advantage (+7 points)' was omitted from the evaluation."
+      ],
+      "instruction": "Please remove the unsourced market price ($1.77) and evaluate the 'Elo rating advantage (+7 points)' signal in your analysis."
+    },
+    "instruction": "Please remove the unsourced market price ($1.77) and evaluate the 'Elo rating advantage (+7 points)' signal in your analysis.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Roosters",
+      "confidence": 0.6,
+      "summary": "The Panthers maintain a strong statistical edge in points differential and home-ground advantage (8-1 record), aligning with the market favourite ($1.77). However, confidence is tempered by Penrith's recent inconsistent form (2-2 in last four) compared to the Roosters' five-game winning streak. Both sides suffer significant losses to key leaders, with James Tedesco and Isaah Yeo both ruled out.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favours a home win driven by Bradley-Terry strength advantage (0.148 contribution) and a superior ladder points differential per game (0.129 contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+        },
+        {
+          "source": "research",
+          "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+        }
+      ],
+      "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Roosters",
+      "confidence": 0.6,
+      "summary": "The Panthers hold a statistical edge in Elo and Bradley-Terry ratings, though confidence is tempered by their recent inconsistent form compared to the Roosters' five-game winning streak. Both teams face critical losses with James Tedesco (Roosters) and Isaah Yeo (Panthers) ruled out of this top-of-the-table clash.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model favours a home win based on an Elo rating advantage (+7 points), Bradley-Terry strength advantage, and superior ladder points differential per game."
+        },
+        {
+          "source": "research",
+          "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+        },
+        {
+          "source": "research",
+          "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+        }
+      ],
+      "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+    },
+    "issues": [
+      "The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.",
+      "The top math driver 'Elo rating advantage (+7 points)' was omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-13T04:49:01.657758+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Roosters\n    *   Round Number: 24\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1: Home team availability (Panthers)\n    *   Query 2: Away team availability (Roosters)\n    *   Query 3: Fixture preview (Panthers vs Roosters Round 24)\n    *   Query 4: Market prices/odds (Panthers vs Roosters)\n    *   Query 5: Contextual angle (form, ladder stakes, etc.) - Panthers and Roosters are usually top contenders; finals race or head-to-head form is key.\n\n    *   Q1: `Panthers NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Q2: `Roosters NRL injury OR \"late mail\" OR \"team list\" round 24`\n    *   Q3: `Panthers vs Roosters NRL round 24 preview`\n    *   Q4: `Panthers Roosters NRL odds OR price OR favourite`\n    *   Q5: `Panthers Roosters NRL head to head record OR finals race` (or focus on one team's form). Let's go with \"finals race\" or \"form\". Given they are powerhouses, \"finals race\" is a strong angle.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes (Panthers, Roosters).\n    *   JSON format? Yes.",
+      "chars": 1257
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-13T04:54:32.134348+00:00",
+      "thinking": "Panthers (Home) vs Roosters (Away).\nCommBank Stadium.\n\n        *   Probability: 0.6595 (Home Win).\n        *   Key Drivers for Panthers: Bradley-Terry strength (+0.148), Ladder points differential per game (+0.129), Elo rating (+0.054), Travel distance (+0.053), H2H record (+0.038).\n        *   Key Drivers for Roosters: 5-game run metres (0.041), 3-game errors (0.035 - CONFLICT), Away rest (0.031), Travel distance advantage (0.029), Momentum net points (0.025).\n        *   Attribution Balance: Leans Home (0.6302 vs 0.3207).\n\n        *   Panthers: Position 1, 15-5 record, PD +292 (14.6/game), Recent form 2-2, Streak 1L.\n        *   Roosters: Position 2, 15-5 record, PD +157 (7.85/game), Recent form 5-0, Streak 5W.\n\n        *   Panthers: Captain Isaah Yeo is OUT with a pectoral injury (\"face four weeks without skipper Isaah Yeo\" - *nrl_news*). Fullback Dylan Edwards is \"a chance\" but not confirmed in the starting list (Jaxen Edgar is listed at FB, Edwards is Reserve #20).\n        *   Roosters: James Tedesco is OUT with an ankle injury (\"Teddy ruled out\" / \"dropped out in the 24-hour team update\" - *nrl_news*). Cody Ramsey replaces him at fullback.\n\n        *   Ladbrokes price $1.77 for Panthers (implies they are favourites).\n\n    *   The math model strongly favours the Panthers (66% probability) based on overall strength, ladder differential, and H2H record.\n    *   However, research reveals a critical blow to Penrith: Captain Isaah Yeo is out for four weeks. This is a massive loss in leadership and forward pack utility.\n    *   The Roosters are in significantly better form (5-game winning streak vs Panthers' 2-2 last four).\n    *   The Roosters also lost Tedesco, but the impact of losing Yeo (the engine room) often outweighs losing a fullback when they have depth like Ramsey.\n    *   Panthers are at home (CommBank Stadium), which is a strong advantage.\n\n    *   *Winner:* The math model says Home, and the market ($1.77) says Home. But the research shows Yeo is out and Roosters are on fire (5W streak).\n    *   *Confidence Adjustment:* The loss of Isaah Yeo is a major negative for Penrith. While they are still strong at home and have a better points differential, the momentum shift towards the Roosters is evident. However, the math model's \"Bradley-Terry strength\" and \"Ladder differential\" are quite high.\n    *   *Decision:* I will stick with the Home win (Panthers) because of the venue advantage and overall season dominance (PD +292 vs +157), but I must lower the confidence from 0.66 due to Yeo's absence and Roosters' form.\n\n    *   *Wait, let me re-evaluate:* The Roosters are on a 5-game winning streak. Panthers have lost 4 of their last 7. They are tied on points. Losing the captain (Yeo) is huge. But they are at home.\n    *   Let's look at SHAP again: Home win probability 0.66. The \"Bradley-Terry strength\" and \"Ladder differential\" are the biggest drivers.\n    *   The Roosters lost Tedesco too. So both teams are missing their captains/key stars.\n    *   Panthers home record is 8-1.\n\n    *   *Confidence:* If I pick Panthers, the strongest reason they lose is the absence of Isaah Yeo and the Roosters' current winning streak (5W). This makes it a closer game than 0.66. I'll set confidence at 0.60.\n\n    *   Winner: home\n    *   Home Team: Panthers\n    *   Away Team: Roosters\n    *   Confidence: 0.60\n    *   Summary: The Panthers hold a significant statistical edge in points differential and home-ground advantage, though their recent form is scratchy (2-2 in last four). While the Roosters enter on a five-game winning streak, both teams are missing key leaders with James Tedesco ruled out for Sydney and Isaah Yeo sidelined for Penrith. The market favours the Panthers ($1.77), and despite the loss of Yeo, their overall season strength remains superior.\n    *   Key Factors:\n        1.  Math: Bradley-Terry strength advantage and ladder points differential per game (contribution 0.277 combined).\n        2.  Research: James Tedesco is ruled out for the Roosters due to an ankle injury (*nrl_news*).\n        3.  Research: Captain Isaah Yeo is sidelined for four weeks with a pectoral injury (*nrl_news*).\n    *   Disagreements with math: The model probability (0.66) doesn't fully account for the recent form swing (Roosters 5W streak vs Panthers 2-2) or the specific impact of losing Isaah Yeo, leading to a lower confidence score.\n\n    *   No invented stats? Checked.\n    *   Math model as prior? Yes.\n    *   Research quoted/named? Yes (*nrl_news*).\n    *   SHAP drivers cited correctly? Yes (Bradley-Terry and Ladder differential).\n    *   Conflict handled? Not using the conflicted error driver, so no issue.\n    *   Attribution balance checked? Leans home (0.63 vs 0.32), consistent with pick.\n    *   Standings sanity check? Panthers pos 1, Roosters pos 2. PD +292 vs +157. Correct.\n    *   Availability direction correct? Tedesco OUT, Yeo OUT. Edwards \"a chance\" (not in starting list). Correct.\n    *   Weather ignored? Yes.\n    *   Market acknowledged? Yes ($1.77).\n    *   Confidence band? 0.60 is modest edge. Reason for loss: Yeo's absence and Roosters form.\n\n    *Self-Correction on Confidence:* The prompt says \"If that reason [strongest reason pick could lose] is credible and unresolved, stay at or below 0.65.\" Losing the captain (Yeo) while the opponent is on a 5-game streak is very credible. 0.60 is appropriate.",
+      "chars": 5395
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-13T04:58:04.369166+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction. I need to check eight specific criteria and report the results in a JSON format.\n\n    *   Home: Panthers (Pos 1)\n    *   Away: Roosters (Pos 2)\n    *   Venue: CommBank Stadium\n    *   Weather: Fine\n    *   Standings: Panthers (8-1 home), Roosters (7-3 away). Recent form: Panthers (2-2 last 4), Roosters (5W streak).\n\n    *   Tedesco (Roosters): Ruled out with ankle injury. Cody Ramsey replaces him. (Source: `nrl_news` - \"NRL Late Mail: Round 24 - Teddy ruled out...\")\n    *   Isaah Yeo (Panthers): Sidelined for four weeks, pectoral injury vs Warriors. (Source: `nrl_news` - \"Panthers v Roosters: Edwards in the frame; Teddy struck down\" and \"Ready to roar...\").\n    *   Dylan Edwards (Panthers): Chance/in extended squad (shoulder). Not explicitly ruled out or confirmed as playing in the final team list provided by Zero Tackle (he's listed under RESERVES 20), but the judgement doesn't mention him.\n\n    *   `favouring_Panthers_home_win`:\n        1. Bradley-Terry strength advantage (+0.29 log-strength) - 0.148\n        2. Ladder points differential per game (+8.1 points) - 0.129\n        3. Elo rating advantage (+7 points) - 0.054\n        4. Away travel to venue (23 km) - 0.053\n        5. Head-to-head record (last 5) (80% home side) - 0.038\n    *   `favouring_Roosters_away_win`:\n        1. 5-game form: all run metres (-77.00) - 0.041\n        2. 3-game form: errors (-1.33) - 0.035\n        3. Away rest (14.0 days) - 0.031\n        4. Travel-distance advantage (-5 km for away) - 0.029\n        5. 5-game momentum: last20 net points (-15.00) - 0.025\n\n    *   Winner: Home (Panthers)\n    *   Confidence: 0.6\n    *   Summary mentions: Points differential, home record (8-1), market favourite ($1.77), Panthers form (2-2 last four), Roosters streak (5W), Tedesco out, Yeo out.\n    *   Key Factors:\n        1. Math: Bradley-Terry strength advantage (0.148) and ladder points differential per game (0.129).\n        2. Research: James Tedesco ruled out (ankle injury), Cody Ramsey replacing him (`nrl_news`).\n        3. Research: Isaah Yeo sidelined four weeks (pectoral injury vs Warriors) (`nrl_news`).\n\n    *   **Check 1: `sourced_claims`**\n        *   Tedesco ankle injury/Cody Ramsey replacement: Found in \"NRL Late Mail: Round 24 - Teddy ruled out...\" -> \"James Tedesco succumbing to an ankle injury... Cody Ramsey will line up at fullback\". (Pass)\n        *   Isaah Yeo pectoral injury vs Warriors / four weeks out: Found in \"Panthers v Roosters: Edwards in the frame; Teddy struck down\" -> \"now face four weeks without skipper Isaah Yeo due to a pectoral injury\" and \"Ready to roar...\" -> \"captain Isaah Yeo injuring his pectoral in last Friday's loss to the Warriors\". (Pass)\n        *   Panthers home record 8-1: Found in `set_fixture_scene` response snippet. (Pass)\n        *   Market favourite $1.77: Not found in research body excerpts or scene fields. I see \"BEST NRL ODDS\" mentioned but no specific price of $1.77. Wait, let me re-read the research items. None of them list a price of $1.77. (Fail)\n\n    *   **Check 2: `availability_direction`**\n        *   Tedesco: Source says ruled out; judgement says ruled out. (Pass)\n        *   Yeo: Source says sidelined/four weeks without; judgement says ruled out. (Pass)\n\n    *   **Check 3: `shap_attribution`**\n        *   Bradley-Terry strength advantage: In `favouring_Panthers_home_win`. Attributed to Panthers in key factors. (Pass)\n        *   Ladder points differential per game: In `favouring_Panthers_home_win`. Attributed to Panthers in key factors. (Pass)\n\n    *   **Check 4: `weather_not_headline`**\n        *   Weather is \"Fine\". Not mentioned as a key factor. (Pass)\n\n    *   **Check 5: `research_used`**\n        *   Key factors include Tedesco and Yeo injuries sourced from `nrl_news`. (Pass)\n\n    *   **Check 6: `confidence_justified`**\n        *   Confidence is 0.6. Summary says it's tempered by Penrith's inconsistent form vs Roosters' streak and loss of Yeo. This is within 0.5-0.85 and <= 0.65 given unresolved reasons (Yeo out, Roosters form). (Pass)\n\n    *   **Check 7: `driver_proportionality`**\n        *   Top drivers are Bradley-Terry (0.148) and Points Diff (0.129). These are the ones used in key factors. No minor driver is treated as decisive. (Pass)\n\n    *   **Check 8: `omitted_math_signals`**\n        *   Top Panthers drivers: Bradley-Terry, Ladder points diff (Both mentioned). Elo rating advantage (+7), Away travel (23km), H2H record (80%). None of these are explicitly named or alluded to in the summary/key factors. Wait, \"home-ground advantage\" is mentioned in the summary, which might allude to Travel or H2H? No, it specifically cites the 8-1 record from standings. Elo rating (+7) is completely missing. (Fail)\n        *   Top Roosters drivers: 5-game form run metres (0.041), 3-game form errors (0.035). The summary mentions \"Roosters' five-game winning streak\", which alludes to the momentum/form signals. (Pass - though barely, but it covers the general trend of those drivers).\n        *   Wait, Elo rating advantage is a top driver for Panthers and not mentioned.\n\n    *   `sourced_claims`: Fail. Market price $1.77 is not in any tool output.\n    *   `omitted_math_signals`: Fail. \"Elo rating advantage (+7 points)\" is a top-3 driver for the home side but is not addressed.\n\n    *   Sourced claims: The claim that Panthers are market favourites at $1.77 is not found in any research body or scene field.\n    *   Omitted math signals: Top drivers include 'Elo rating advantage (+7 points)'; it is not addressed in the evaluation.",
+      "chars": 5597
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-13T04:59:56.849457+00:00",
+      "thinking": "*   User wants a recalibrated prediction JSON based on verifier feedback.\n    *   Issue 1: Market price $1.77 was hallucinated (it's not in the provided tool outputs). *Correction*: I need to check `market_mentions`. Looking at the prompt, `market_mentions` contains prices `$1.77` and `$31.56` from Ladbrokes snippets. Wait, let me re-read carefully.\n    *   Looking at the provided JSON: `\"market_mentions\": [{\"title\": \"...\", \"prices_found\": [\"$1.77\", \"$31.56\"], ...}]`. The price *is* there. However, the verifier says it's hallucinated. I must follow the verifier's instruction to remove it if they claim it's not there or unsourced (though it is in the JSON provided to me). Actually, looking at the prompt again: `market_mentions` *does* have `$1.77`. But the verifier says \"The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.\" This is strange because it's in the JSON I received. However, if the verifier tells me to remove it, I will remove it to avoid conflict or simply acknowledge that I cannot cite it if they deem it unsourced (perhaps they mean it wasn't clearly linked to a specific team).\n    *   Issue 2: 'Elo rating advantage (+7 points)' was omitted. *Correction*: Include this in the evaluation.\n\n    *   Winner: Panthers (Home)\n    *   Confidence: 0.60\n    *   Summary: Mentioned market favourite $1.77, recent form, and injuries.\n    *   Key Factors: Math drivers (Bradley-Terry, Ladder diff), Research (Tedesco out, Yeo out).\n\n    *   `math`: `home_win_probability`: 0.6595.\n    *   `shap_drivers`:\n        *   favouring_Panthers: Bradley-Terry strength (+0.29 log-strength), Ladder points differential per game (+8.1 points), Elo rating advantage (+7 points), Away travel, Head-to-head record.\n        *   favouring_Roosters: 5-game form (run metres), 3-game form errors (CONFLICT), Away rest, Travel distance, 5-game momentum.\n    *   `standings`: Panthers #1, Roosters #2. Both 15-5. Panthers have better points diff per game (14.6 vs 7.85).\n    *   `research`: James Tedesco ruled out (Roosters blow). Isaah Yeo sidelined for 4 weeks (Panthers blow). Dylan Edwards is \"a chance\" but not confirmed in the team list as starting (Jaxen Edgar is listed at FB, Edwards is Reserve #20).\n\n    *   Remove $1.77 reference.\n    *   Incorporate Elo rating advantage (+7 points) into the analysis. This supports the Panthers' side of the math model.\n    *   Re-evaluate confidence: The Roosters have a 5-game winning streak (momentum), but they lost Tedesco. The Panthers are at home and higher rated (Elo, Bradley-Terry), but lost Yeo and have been \"scratchy\" recently.\n\n    *   Winner: Home (Panthers).\n    *   Confidence: 0.60 (The Elo advantage adds to the math prior, but the loss of Yeo and Roosters' form keep it from being higher).\n    *   Summary: Focus on statistical superiority (Elo/Bradley-Terry) vs current momentum and key absences.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Panthers\"\n    *   `away_team`: \"Roosters\"\n    *   `confidence`: 0.60\n    *   `summary`: Panthers hold a statistical edge in Elo and Bradley-Terry ratings, though confidence is tempered by their recent inconsistent form compared to the Roosters' five-game winning streak. Both teams face critical losses with James Tedesco (Roosters) and Isaah Yeo (Panthers) ruled out of this top-of-the-table clash.\n    *   `key_factors`:\n        1. Math: Elo rating advantage (+7 points) and Bradley-Terry strength advantage.\n        2. Research: James Tedesco ruled out due to ankle injury (nrl_news).\n        3. Research: Isaah Yeo sidelined for four weeks with a pectoral injury (nrl_news).\n    *   `disagreements_with_math`: The model probability (0.66) is slightly high given the Roosters' current momentum and Penrith's loss of captain Isaah Yeo.",
+      "chars": 3790
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-13T04:49:01.659299+00:00",
+      "payload": {
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Panthers vs Roosters NRL round 24 preview",
+          "Panthers Roosters NRL odds OR price OR favourite",
+          "Panthers Roosters NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-13T04:54:32.134627+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "confidence": 0.6,
+          "summary": "The Panthers maintain a strong statistical edge in points differential and home-ground advantage (8-1 record), aligning with the market favourite ($1.77). However, confidence is tempered by Penrith's recent inconsistent form (2-2 in last four) compared to the Roosters' five-game winning streak. Both sides suffer significant losses to key leaders, with James Tedesco and Isaah Yeo both ruled out.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours a home win driven by Bradley-Terry strength advantage (0.148 contribution) and a superior ladder points differential per game (0.129 contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+            },
+            {
+              "source": "research",
+              "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-13T04:58:04.369790+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that Panthers are market favourites at '$1.77' does not appear in any research body excerpt or scene field."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Tedesco and Yeo are correctly described as ruled out/sidelined per the nrl_news excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the Panthers from the favouring_Panthers_home_win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors include injuries to Tedesco and Yeo sourced from nrl_news."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is justified by the Roosters' winning streak and the loss of Isaah Yeo."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The most significant SHAP drivers (Bradley-Terry and points differential) are the ones highlighted."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top driver 'Elo rating advantage (+7 points)' is not named or alluded to in the judgement."
+            }
+          ],
+          "issues": [
+            "The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.",
+            "The top math driver 'Elo rating advantage (+7 points)' was omitted from the evaluation."
+          ],
+          "instruction": "Please remove the unsourced market price ($1.77) and evaluate the 'Elo rating advantage (+7 points)' signal in your analysis."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-13T04:59:56.849570+00:00",
+      "payload": {
+        "issues": [
+          "The market price of $1.77 is hallucinated as it does not appear in the provided tool outputs.",
+          "The top math driver 'Elo rating advantage (+7 points)' was omitted from the evaluation."
+        ],
+        "instruction": "Please remove the unsourced market price ($1.77) and evaluate the 'Elo rating advantage (+7 points)' signal in your analysis.",
+        "before": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "confidence": 0.6,
+          "summary": "The Panthers maintain a strong statistical edge in points differential and home-ground advantage (8-1 record), aligning with the market favourite ($1.77). However, confidence is tempered by Penrith's recent inconsistent form (2-2 in last four) compared to the Roosters' five-game winning streak. Both sides suffer significant losses to key leaders, with James Tedesco and Isaah Yeo both ruled out.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favours a home win driven by Bradley-Terry strength advantage (0.148 contribution) and a superior ladder points differential per game (0.129 contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+            },
+            {
+              "source": "research",
+              "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "confidence": 0.6,
+          "summary": "The Panthers hold a statistical edge in Elo and Bradley-Terry ratings, though confidence is tempered by their recent inconsistent form compared to the Roosters' five-game winning streak. Both teams face critical losses with James Tedesco (Roosters) and Isaah Yeo (Panthers) ruled out of this top-of-the-table clash.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours a home win based on an Elo rating advantage (+7 points), Bradley-Terry strength advantage, and superior ladder points differential per game."
+            },
+            {
+              "source": "research",
+              "detail": "Roosters fullback James Tedesco has been ruled out of the match due to an ankle injury, with Cody Ramsey replacing him (nrl_news)."
+            },
+            {
+              "source": "research",
+              "detail": "Panthers captain Isaah Yeo is sidelined for four weeks following a pectoral injury sustained against the Warriors (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "The model probability (0.66) likely overstates the edge given the Roosters' current 5-game winning streak and the critical loss of captain Isaah Yeo for Penrith."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "6dff5d914525",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-13T04:48:20.743290+00:00",
+      "finished_at": "2026-08-13T04:48:24.209545+00:00",
+      "duration_ms": 3466,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Roosters",
+        "season": 2026,
+        "round_number": 24,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "season": 2026,
+          "round_number": 24
+        },
+        "retrieved_at": "2026-08-13T04:48:20.743366+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 24,
+          "round_title": "Round 24",
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "kickoff": "2026-08-13T19:50:00+10:00",
+          "venue": "CommBank Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/panthers-v-roosters/",
+          "match_mode": "Pre",
+          "match_id": "20261112410",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Ashley Klein"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Jaxen Edgar",
+                "position": "Fullback",
+                "player_id": 100011683
+              },
+              {
+                "number": 2,
+                "name": "Thomas Jenkins",
+                "position": "Winger",
+                "player_id": 100007927
+              },
+              {
+                "number": 3,
+                "name": "Paul Alamoti",
+                "position": "Centre",
+                "player_id": 100004042
+              },
+              {
+                "number": 4,
+                "name": "Izack Tago",
+                "position": "Centre",
+                "player_id": 509467
+              },
+              {
+                "number": 5,
+                "name": "Brian To'o",
+                "position": "Winger",
+                "player_id": 505410
+              },
+              {
+                "number": 6,
+                "name": "Jack Cogger",
+                "position": "Five-Eighth",
+                "player_id": 502695
+              },
+              {
+                "number": 7,
+                "name": "Nathan Cleary",
+                "position": "Halfback",
+                "player_id": 504120
+              },
+              {
+                "number": 8,
+                "name": "Moses Leota",
+                "position": "Prop",
+                "player_id": 501461
+              },
+              {
+                "number": 9,
+                "name": "Freddy Lussick",
+                "position": "Hooker",
+                "player_id": 504830
+              },
+              {
+                "number": 10,
+                "name": "Liam Henry",
+                "position": "Prop",
+                "player_id": 100007929
+              },
+              {
+                "number": 11,
+                "name": "Isaiah Papali'i",
+                "position": "2nd Row",
+                "player_id": 505976
+              },
+              {
+                "number": 12,
+                "name": "Liam Martin",
+                "position": "2nd Row",
+                "player_id": 504125
+              },
+              {
+                "number": 13,
+                "name": "Lindsay Smith",
+                "position": "Lock",
+                "player_id": 505555
+              },
+              {
+                "number": 14,
+                "name": "Billy Scott",
+                "position": "Interchange",
+                "player_id": 100006259
+              },
+              {
+                "number": 15,
+                "name": "Scott Sorensen",
+                "position": "Interchange",
+                "player_id": 500852
+              },
+              {
+                "number": 16,
+                "name": "Luron Patea",
+                "position": "Interchange",
+                "player_id": 100006263
+              },
+              {
+                "number": 17,
+                "name": "Billy Phillips",
+                "position": "Interchange",
+                "player_id": 100008487
+              },
+              {
+                "number": 18,
+                "name": "Jack Cole",
+                "position": "Interchange",
+                "player_id": 100003896
+              },
+              {
+                "number": 19,
+                "name": "Blaize Talagi",
+                "position": "Interchange",
+                "player_id": 100006848
+              },
+              {
+                "number": 20,
+                "name": "Dylan Edwards",
+                "position": "Reserve",
+                "player_id": 503340
+              }
+            ],
+            "away": [
+              {
+                "number": 2,
+                "name": "Billy Smith",
+                "position": "Winger",
+                "player_id": 509128
+              },
+              {
+                "number": 3,
+                "name": "Hugo Savala",
+                "position": "Centre",
+                "player_id": 509599
+              },
+              {
+                "number": 4,
+                "name": "Robert Toia",
+                "position": "Centre",
+                "player_id": 100008243
+              },
+              {
+                "number": 5,
+                "name": "Mark Nawaqanitawase",
+                "position": "Winger",
+                "player_id": 100018452
+              },
+              {
+                "number": 6,
+                "name": "Daly Cherry-Evans",
+                "position": "Five-Eighth",
+                "player_id": 500024
+              },
+              {
+                "number": 7,
+                "name": "Sam Walker",
+                "position": "Halfback",
+                "player_id": 100004843
+              },
+              {
+                "number": 8,
+                "name": "Naufahu Whyte",
+                "position": "Prop",
+                "player_id": 100006390
+              },
+              {
+                "number": 9,
+                "name": "Reece Robson",
+                "position": "Hooker",
+                "player_id": 503944
+              },
+              {
+                "number": 10,
+                "name": "Spencer Leniu",
+                "position": "Prop",
+                "player_id": 505560
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Siua Wong",
+                "position": "2nd Row",
+                "player_id": 100004373
+              },
+              {
+                "number": 13,
+                "name": "Victor Radley",
+                "position": "Lock",
+                "player_id": 503920
+              },
+              {
+                "number": 14,
+                "name": "Connor Watson",
+                "position": "Interchange",
+                "player_id": 503327
+              },
+              {
+                "number": 15,
+                "name": "Lindsay Collins",
+                "position": "Interchange",
+                "player_id": 501781
+              },
+              {
+                "number": 16,
+                "name": "Nat Butcher",
+                "position": "Interchange",
+                "player_id": 503639
+              },
+              {
+                "number": 17,
+                "name": "Egan Butcher",
+                "position": "Interchange",
+                "player_id": 504678
+              },
+              {
+                "number": 18,
+                "name": "Cody Ramsey",
+                "position": "Fullback",
+                "player_id": 509404
+              },
+              {
+                "number": 19,
+                "name": "Tommy Talau",
+                "position": "Interchange",
+                "player_id": 505642
+              },
+              {
+                "number": 20,
+                "name": "Rex Bassingthwaighte",
+                "position": "Interchange",
+                "player_id": 100013858
+              },
+              {
+                "number": 21,
+                "name": "Benaiah Ioelu",
+                "position": "Reserve",
+                "player_id": 100007527
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 24,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Panthers",
+            "position": 1,
+            "played": 20,
+            "wins": 15,
+            "drawn": 0,
+            "lost": 5,
+            "competition_points": 36,
+            "points_for": 593,
+            "points_against": 301,
+            "points_difference": 292,
+            "points_difference_per_game": 14.6,
+            "recent_form_last_4": "2 - 2",
+            "streak": "1L",
+            "home_record": "8 - 1",
+            "away_record": "7 - 4"
+          },
+          "away": {
+            "team": "Roosters",
+            "position": 2,
+            "played": 20,
+            "wins": 15,
+            "drawn": 0,
+            "lost": 5,
+            "competition_points": 36,
+            "points_for": 551,
+            "points_against": 394,
+            "points_difference": 157,
+            "points_difference_per_game": 7.85,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "8 - 2",
+            "away_record": "7 - 3"
+          },
+          "comparison": {
+            "higher_on_ladder": "Panthers",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": 6.75,
+            "points_difference_favours": "Panthers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-13T19:00",
+            "temperature_c": 12.9,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 4.7,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8081,
+            "longitude": 150.9996,
+            "venue": "CommBank Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-13T04:48:24.204954+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=24&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-24/panthers-v-roosters/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8081&longitude=150.9996&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "e68c148ee3a6",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-13T04:49:01.665268+00:00",
+      "finished_at": "2026-08-13T04:50:30.919299+00:00",
+      "duration_ms": 89254,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Roosters",
+        "kickoff": "2026-08-13T19:50:00+10:00",
+        "round_number": 24,
+        "venue": "CommBank Stadium",
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Panthers vs Roosters NRL round 24 preview",
+          "Panthers Roosters NRL odds OR price OR favourite",
+          "Panthers Roosters NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "kickoff": "2026-08-13T19:50:00+10:00",
+          "round_number": 24,
+          "venue": "CommBank Stadium",
+          "queries": [
+            "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+            "Panthers vs Roosters NRL round 24 preview",
+            "Panthers Roosters NRL odds OR price OR favourite",
+            "Panthers Roosters NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-13T04:49:01.675958+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 15
+          }
+        },
+        "items": [
+          {
+            "id": "5e8b5ad69f60bb6d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Round 24 - Teddy ruled out; Knights stars return",
+            "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/",
+            "published_at": "2026-08-12T09:57:05+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 24 - Teddy ruled out; Knights stars return\nThe Roosters have been dealt a blow ahead of Thursday's top-of-the-table clash with the Panthers with James Tedesco succumbing to an ankle injury.\nThe fullback was initially named to return at CommBank S",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 24 - Teddy ruled out; Knights stars return\nThe Roosters have been dealt a blow ahead of Thursday's top-of-the-table clash with the Panthers with James Tedesco succumbing to an ankle injury.\nThe fullback was initially named to return at CommBank Stadium but dropped out in the 24-hour team update. Cody Ramsey will line up at fullback in his place.\nSome positive news for Panthers coach Ivan Cleary, who is juggling an injured fullback and an expectant father in the lead-up to Thursday's match.\nFullback Dylan Edwards has missed three games with a shoulder injury and remains in the extended squad after Wednesday's 24-hour update.\n\"He’s a chance. We’ll see how he goes today but he’s definitely a chance,\" Cleary told media on Wednesday.\nFive-eighth Jack Cogger stayed in Sydney last week for the birth of his child but the wait continues for he and his wife so Cleary has Jack Cole on standby.\n\"We've got contingency plans, sometimes some things are more important than footy,\" Cleary said.\nSee all the late mail, official team news and updates for Round 24 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Team Lists: Round 24\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 1 Jaxen Edgar 1 18 Fullback for Roosters is number 18 Cody Ramsey\n1 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 14 Billy Scott 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Roosters is number 15 Lindsay Collins\n15\nInterchange for Panthers is number 16 Luron Patea 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Roosters is number 17 Egan Butcher\n17\nInterchange for Panthers is number 18 Jack Cole 18 19 Interchange for Roosters is number 19 Tommy Talau\n18 19\nInterchange for Panthers is number 19 Blaize Talagi 19 20 Interchange for Roosters is number 20 Rex Bassingthwaighte\n19 20\nReserves\nReserve for Panthers is number 20 Dylan Edwards 20 21 Reserve for Roosters is number 21 Benaiah Ioelu\n20 21\nPanthers Ins\nDylan Edwards\nJack Cogger\nRoosters Ins\nBenaiah Ioelu\nPanthers Outs\nIsaah Yeo\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/12/2026 11:26:04 PM\nPanthers: Gun fullback Dylan Edwards (shoulder) remains a chance of playing his first game since Round 20 after staying in the extended squad in Wednesday's 24-hour update. There were no changes in the team update, with Penrith 1-20. Jaxen Edgar will again wear the No.1 should Edwards fail to come up",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.86574332166667,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "90ca980be2320f59",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Round 24",
+            "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/",
+            "published_at": "2026-08-11T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - ",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 24\nOfficial team lists, updates and injury news for Round 24 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nPanthers v Roosters, Thursday 7.50pm at CommBank Stadium\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 1 Jaxen Edgar 1 18 Fullback for Roosters is number 18 Cody Ramsey\n1 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 14 Billy Scott 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Roosters is number 15 Lindsay Collins\n15\nInterchange for Panthers is number 16 Luron Patea 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Roosters is number 17 Egan Butcher\n17\nInterchange for Panthers is number 18 Jack Cole 18 19 Interchange for Roosters is number 19 Tommy Talau\n18 19\nInterchange for Panthers is number 19 Blaize Talagi 19 20 Interchange for Roosters is number 20 Rex Bassingthwaighte\n19 20\nReserves\nReserve for Panthers is number 20 Dylan Edwards 20 21 Reserve for Roosters is number 21 Benaiah Ioelu\n20 21\nPanthers Ins\nDylan Edwards\nJack Cogger\nRoosters Ins\nBenaiah Ioelu\nPanthers Outs\nIsaah Yeo\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Matt Noyen\nSenior Review Official: Ashley Klein\nLast updated: 8/12/2026 11:26:04 PM\nPanthers: Gun fullback Dylan Edwards is listed among the reserves as he looks to return from a shoulder injury. Edwards' last match was Round 20 against the Broncos. Lindsay Smith shifts from prop to lock to take over from skipper Isaah Yeo (pectoral) while Liam Henry starts in the front row. Jack Cogger will wear the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife. Jack Cole goes back to the bench as a result.\nRoosters: Skipper James Tedesco is back in the No.1 jersey after sitting out the Bulldogs game with an ankle injury. Cody Ramsey gets a spot in the six-man interchange after filling in at fullback last week. Spencer Leniu has again been named to start in the front row but could make a late switch back to the bench as he did last week when Nat Butcher started.\nSea Eagles v Dolphins, Friday 6.00pm at 4 Pines Park\nMatch: Sea Eagles v Dolphins\nRound 24 - Round 24 - Friday 14 Aug\nSea Eagles\nDolphins\nFullback for Sea Eagles is number 1 Clayton Faulalo 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Sea Eagles is number 2 Jason Saab 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Sea Eagles is number 3 Tolutau Koula 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Sea Eagles is number 4 Reuben Garrick 4 Centre for Dolphins is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 46.83379887722222,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Injuries NRL Casualty Ward: Fresh Reynolds injury; Roosters' Teddy blow 7 mins ago",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-13T04:41:35+00:00",
+            "snippet": "NRL Casualty Ward: Fresh Reynolds injury; Roosters' Teddy blow\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knoc",
+            "body_excerpt": "NRL Casualty Ward: Fresh Reynolds injury; Roosters' Teddy blow\nBroncos veteran Adam Reynolds faces a battle to return to the field before hanging up the boots after suffering a calf strain at training on Wednesday.\nThe premiership winner has not played since suffering a head knock in the Round 22 loss to the Knights and the latest setback puts his hopes of playing out his final season before retiring at the end of the year at risk.\nIn a statement, the Broncos said Reynolds will be assessed on a weekly basis to determine a return to play.\n\"Scans at the Clive Berghofer Centre’s Qscan facility confirmed that Broncos captain Adam Reynolds sustained a grade 1 soleus strain on his right calf at training yesterday,\" the club said.\n\"His return-to-play timeline will be determined on a week-by-week basis.\"\nGun fullback James Tedesco has fallen short in his bid to return from ankle injury for Thursday's top-of-the-table showdown between the Roosters and Panthers.\nThe Rooster was named to return after missing last week's win over the Bulldogs but was ruled out of the CommBank Stadium clash on Wednesday night.\nRival fullback Dylan Edwards is still a chance of lining up in the match as he looks to play his first game since Round 20 due to a shoulder injury. The Penrith star remains in the extended squad after the 24-hour update.\nThe Panthers will be missing captain Isaah Yeo due to a pectoral injury suffered in last week's loss to the Warriors.\nThe NSW and Australian skipper received some positive news on Monday, with scans revealing he does not need season-ending surgery and could return at the start of the finals series.\nWhile the Roosters expect Tedesco to return on Thursday night, they remain without representative stars Angus Crichton (foot) and Daniel Tupou (shoulder).\nIn an update at his weekly press conference, coach Trent Robinson said he hopes the pair will be back before the end of the regular season.\n\"They’re a few weeks away still,\" Robinson said. \"Toups is back running well, with his shoulder injury so that’s still a few weeks away.\n\"Gussie had a medical appointment on Monday. There’s some good progression there and he’s starting to get back into some more movement. Again, it’s not within the next week or two but it’d be nice [to have him back] before the end of the regular season as well.\"\nThere's mixed news for the Rabbitohs ahead of their crucial clash with the Bulldogs, with winger Campbell Graham named to return from a calf injury.\nThe Australian representative was a late withdrawal from last week's win over the Eels.\nIn less positive news, South Sydney will be without halfback Ashton Ward for the remainder of the season after he suffered a high-grade hamstring tear while kicking in last week's win over Parramatta.\nJamie Humphreys is also sidelined with an ankle injury. The Rabbitohs have said he is a week-to-week proposition with a chronic ankle issue.\nCronulla have been dealt a blow ahead of their date with the Raiders, with centre Jesse Ramien ruled out due to a pectoral injury.\nThe Indigenous star is set to see a specialist later this week to determine the severity of the injury.\nIn positive news, Mawene Hiroti and Braydon Trindall have been cleared to play despite battling through issues in last Sunday's loss to St George Illawarra, while KL Iro has been named to return from a concussion and Sifa Talakai is set to make his comeback from a biceps injury.\nCanberra will also be undermanned for the clash, with Simi Sasagi to miss the match due to a shoulder injury.\nParramatta fullback Isaiah Iongi has been ruled out for the remainder of the season with a PCL and MCL injury in his right knee. The youngster suffered the damage in last week's loss to the Rabbitohs and was promptly put in a knee brace.\nTeammate Sean Russell is slated to return from a quad injury and has been named on the bench for Saturday's clash with the Cowboys.\nNorth Queensland will welcome back hooker Reed Mahoney for the match, the former Eel to play h",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.124076655,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6b53544bd53e8199",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers v Roosters: Round 24 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/12/panthers-v-roosters-round-24/",
+            "published_at": "2026-08-13T02:04:31+00:00",
+            "snippet": "Panthers v Roosters: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:18 Sharks v Raiders: Round 24\nSharks v Raiders: Round 24\n03:08 Sea Eagles v Dolphins: Round 24\nSea Eagles v Dolphins: Round 24\nRelated /\nOur game. Our story.\nNRL Ne",
+            "body_excerpt": "Panthers v Roosters: Round 24\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:18 Sharks v Raiders: Round 24\nSharks v Raiders: Round 24\n03:08 Sea Eagles v Dolphins: Round 24\nSea Eagles v Dolphins: Round 24\nRelated /\nOur game. Our story.\nNRL News\nJenkins to unleash hidden talent in Nawaqanitawase aerial contest\nMatch Preview\nPanthers v Roosters: Edwards in the frame; Teddy struck down\nHeavyweight halves: Walker embarks on Cleary collision course\nRoosters eye statement win in Penrith showdown\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 2.7418544327777776,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5a12086bac13f1cb",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "NRL News Jenkins to unleash hidden talent in Nawaqanitawase aerial contest",
+            "url": "https://www.nrl.com/news/2026/08/13/jenkins-to-unleash-hidden-talent-in-nawaqanitawase-aerial-contest/",
+            "published_at": "2026-08-12T20:01:21+00:00",
+            "snippet": "Jenkins to unleash hidden talent in Nawaqanitawase aerial contest\nPenrith winger Tom Jenkins is set to dig deep into a bag of tricks developed as a state high jumper as he looks to outgun Roosters star Mark Nawaqanitawase on Thursday night.\nThe two players will go head-to-head at",
+            "body_excerpt": "Jenkins to unleash hidden talent in Nawaqanitawase aerial contest\nPenrith winger Tom Jenkins is set to dig deep into a bag of tricks developed as a state high jumper as he looks to outgun Roosters star Mark Nawaqanitawase on Thursday night.\nThe two players will go head-to-head at CommBank Stadium in one of many fascinating positional battles in the top-of-the-table clash.\nNawaqanitawase has developed into one of the biggest aerial threats in the game and has produced a string of freakish players throughout the past two seasons.\nAll the angles: THAT Mark Nawaqanitawase Try\nJenkins is no slouch in the air himself, with nine of his 28 tries this year coming from bombs and cross-field kicks, but he will be at a height disadvantage on Thursday night.\nThat’s where the Panther’s background as a high jumper comes in, with Jenkins to lean on some of those skills in his contest with Nawaqanitawase.\n“He’s such a special talent,” Jenkins said. “He’s one of those people who’s a massive aerial threat and I’m excited to go up against him. He’s a quality player and it will be sad to see him leave the NRL at the end of this year because I enjoy watching him.\n“I was a high jumper when I was younger so that puts me in good stead for [catching bombs]. I’ve done a lot of training and put a lot of work into it, being good in the air brings a different aspect to my game.”\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n2nd Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nJenkins came out on top when the two wingers faced off in Round 3, the Panther scoring four tries as his side claimed a comprehensive 40-4 victory.\nPlenty has changed since then, however, and Thursday's match looms as the biggest game of the season. The winner will move into first place on the ladder and claim pole position in the race for the minor premiership.\nThe Roosters have been dealt a blow with fullback James Tedesco ruled out on Wednesday night due to an ankle injury, while Penrith No.1 Dylan Edwards remains in the extended squad as he looks to his return from a shoulder injury.\nJenkins is scoring four fun!\nThe Panthers will be without Isaah Yeo, who will miss the next month with a pectoral injury.\nThe Roosters drew level on the ladder with Penrith on 36 points with a tight win over the Bulldogs last weekend, in which they repeatedly peppered the Canterbury back three with a string of high balls.\nHalves Daly Cherry-Evans and Sam Walker sent kick after kick high into the sky, with Nawaqanitawase and Billy Smith chasing through and causing havoc for their opposition.\nAccording to stats compiled by rugby league statistician David Middleton, the Roosters have scored 21 tries through the air this year, while plenty more bombs and cross-field kicks have generated a repeat set.\nRoosters coach Trent Robinson has made no secret of his side’s desire to repeat the strategy on Thursday, as they look to capitalise on the height advantage on both flanks.\n“It's definitely part of our game style,” Robinson said. “It’s one that we’ve used quite a lot.\n“We’ve got two great kickers and we’ve got high ball catchers, so it’s always going to be part of our game.”\nNawaqanitawase is currently the reigning Ken Irvine Medallist after scoring 24 tries last season, with Jenkins on track to claim the honour this year.\nThe Panthers winger leads the NRL try-scoring tally with 28 four-pointers, three ahead of Rabbitohs star Alex Johnston with the race for top spot likely to go down to the wire.\nJenkins has already set a Penrith club record for most tries in a season, with Dave Brown's all-time record of 38 the next mark in his sights.\nJenkins breaking records and doing it in style\nThe 25-year-old is looking to add to his tally on Thursday night, but his primary goal remains saving tries rather than scoring them.\n“I’d have to score 11 tries in four games,” Jenkins said. “It’s doable but it’s a ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 8.794632210555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "b01599d19d580508",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Roosters Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/panthers-vs-roosters-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-12T13:16:12+00:00",
+            "snippet": "Panthers vs Roosters Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Panthers vs Roosters Preview & Betting Tips: NRL Round 24 2026\nAugust 12 th 2026, 10:46pm , By: Scooby\nIt is a blockbuster start to Round 24 of the NRL this week and it is a preview of what is ahead in September as the Panthers host the Roosters . Both teams are sitting at the top of the competition ladder and as the stage is set for an exhilarating contest, fans of the game will be tuning in to see how each team performs. Before You Bet is here to add to your enjoyment with a detailed preview of what is ahead in this match, with the aim of finding you a winner or two to add to your enjoyment.\nAlso, Before You Bet will be providing free previews and betting tips for EVERY game in the 2026 NRL season, so make sure to head over to our NRL Tips regularly to keep up to date with all of our free content.\nPanthers vs Roosters Predictions & Tips: NRL Round 24 2026\nWounded Panthers character tested\nAmbushed on the road by the Warriors, the Panthers left New Zealand with more than just a 28-12 loss to their name. The injury suffered to Issah Yeo could be catastrophic for their 2026 campaign. Kept scoreless until the 67th minute, the Panthers struggled with just 47% possession and a 75% completion rate. Their opponents continually rattled them with physical defence, and they failed to adjust. Considering who was absent, perhaps the loss wasn’t as strange as it appeared. The fact that they made 8.6m per carry and had 5 line breaks given the circumstances offers promise moving forward.\nClass rises when it matters most\nExpected to struggle with several key players absent, the Roosters display the mentality and execution you would expect from a team of their standing to score two tries in 15 minutes in a 20-18 come-from-behind victory at home over the Bulldogs. With just a 49% share of possession and a 72% completion rate, they made just 8m per carry and had only 2 line breaks. Momentum was with their opponents, but they took their chances when it mattered. They will need to improve defensively; they allowed 5 line breaks and conceded more PCM’s which are both factors superior teams will punish them for in September.\nStats that matter\n- These two sides met in Round 3 where the Panthers were victorious 40-4. This extended the Panthers dominance over the Roosters where they have won 12 of 13 since 2020. The home side has a 59% record at this ground with the Roosters striking at 63%.\n- In the past 5 games between these two sides, the average margin of victory is 19.2 points, with 3 games decided by 20 points or more. The average total points is 48.8.\n- The Panthers are the superior team on both sides of the ball this season. They score 29ppg in attack and concede just 15ppg defensively. The Roosters are not far behind them; they average 27ppg in attack and allow 19ppg in defence.\nA hard road ahead\nThe strength and depth of the Panthers is set to be further tested as they head into this important fixture. Somehow, with 2 of their starting spine players still absent – Edwards is named in the reserves – they are favourites for this match. Now, with Yeo out, the depth of their forwards will be tested further. The Roosters are fortunate to welcome back Tedesco to their team this week, with a timely rest sure to give him the ability to get his body right for this game. It is puzzling to see how the home side are favourites; momentum is with the visitors and despite a horrendous record against the Panthers, the Rooters appear to have confidence and class going into this encounter.\nWith the Minor Premiership on the line, we are likely to see the best each team has to offer. As good as the Roosters have been recently, there are still some lingering questions about their ability to execute consistently. In their recent victories, their mistakes have gone unpunished; executing to the standard in which they do allows little opportunity for their opponent to do so. As a thrilling contest awaits, invest accordingly and take the option of either team winning",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.547132210555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5ff6cdcecfd50680",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Panthers v Roosters: Edwards in the frame; Teddy struck down",
+            "url": "https://www.nrl.com/news/2026/08/11/panthers-v-roosters-edwards-in-the-frame-teddys-ready/",
+            "published_at": "2026-08-12T10:00:26+00:00",
+            "snippet": "Presented By\nPanthers v Roosters: Edwards in the frame; Teddy struck down\nWith a month to go in the regular season we have an absolute blockbuster to launch Round 24 with the top two teams facing off at CommBank Stadium.\nThe Panthers have lost four of their past seven matches to ",
+            "body_excerpt": "Presented By\nPanthers v Roosters: Edwards in the frame; Teddy struck down\nWith a month to go in the regular season we have an absolute blockbuster to launch Round 24 with the top two teams facing off at CommBank Stadium.\nThe Panthers have lost four of their past seven matches to throw the minor premiership race wide open and now face four weeks without skipper Isaah Yeo due to a pectoral injury.\nIn stark contrast the Roosters are riding a seven-game winning streak and welcome back their own skipper James Tedesco after he sat out the Bulldogs game with an ankle injury.\nThe Roosters' last minor premiership came in 2018 when they went on to claim the title with a win over the Storm in the decider.\nA victory this week against the Panthers would have Trent Robinson's men in prime position to take the JJ Giltinan Shield with matches against Wests Tigers, Dolphins and Rabbitohs to come, all at Allianz Stadium.\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n2nd Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nPanthers : Gun fullback Dylan Edwards (shoulder) remains a chance of playing his first game since Round 20 after staying in the extended squad in Wednesday's 24-hour update. There were no changes in the team update, with Penrith 1-20. Jaxen Edgar will again wear the No.1 should Edwards fail to come up. The loss of Isaah Yeo (pectoral) sees Lindsay Smith shift to lock and Liam Henry join the starting side in the front row. Jack Cogger has been named in the No.6 jersey after missing last week's trip to Auckland to remain in Sydney with his pregnant wife who is yet to give birth. \"There is a chance [he misses the game], this one's anyone's guess,\" coach Ivan Cleary said on Wednesday. \"We've got contingency plans, sometimes some things are more important than footy.\"\nRoosters : Skipper James Tedesco has fallen short in his bid to return from an ankle injury and dropped out of the squad in Wednesday's update. Cody Ramsey steps into the fullback role, with Rex Bassingthwaite coming into the six-man bench. No further changes to the squad, with Benaiah Ioelu remaining in the reserves.\nTeam Lists\nBacks\nFullback for Panthers is number 1 Jaxen Edgar 1 18 Fullback for Roosters is number 18 Cody Ramsey\n1 18\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Billy Smith\nCentre for Panthers is number 3 Paul Alamoti 3 Centre for Roosters is number 3 Hugo Savala\nCentre for Panthers is number 4 Izack Tago 4 Centre for Roosters is number 4 Robert Toia\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cogger 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Freddy Lussick 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 10 Liam Henry 10 Prop for Roosters is number 10 Spencer Leniu\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Panthers is number 13 Lindsay Smith 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Panthers is number 14 Billy Scott 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Roosters is number 15 Lindsay Collins\n15\nInterchange for Panthers is number 16 Luron Patea 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Roosters is number 17 Egan Butcher\n17\nInterchange for Panthers is number 18 Jack C",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.809909988333334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b8ff849a49848d60",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Coach Media | Round 24 v Panthers - Sydney Roosters",
+            "url": "https://www.roosters.com.au/news/2026/08/12/nrl-coach-media--round-24-v-panthers/",
+            "published_at": "2026-08-12T02:23:14+00:00",
+            "snippet": "NRL Coach Media | Round 24 v Panthers\nSydney Roosters Head Coach Trent Robinson chats to the media ahead of our Round 24 clash against the Panthers.\nUp Next\n03:21 NRLW Player Media | Millie Elliott\nNRLW Player Media | Millie Elliott\n01:41 NRLW Player Media | Otesa Pule\nNRLW Playe",
+            "body_excerpt": "NRL Coach Media | Round 24 v Panthers\nSydney Roosters Head Coach Trent Robinson chats to the media ahead of our Round 24 clash against the Panthers.\nUp Next\n03:21 NRLW Player Media | Millie Elliott\nNRLW Player Media | Millie Elliott\n01:41 NRLW Player Media | Otesa Pule\nNRLW Player Media | Otesa Pule\n02:36 NRLW Player Media | Tarryn Aiken\nNRLW Player Media | Tarryn Aiken\n03:13 NRLW Player Media | Isabelle Kelly\nNRLW Player Media | Isabelle Kelly\n02:23 NRLW Player Media | Jocelyn Kelleher\nNRLW Player Media | Jocelyn Kelleher\nRelated /\nPlayer Media\nCoach Media\nCoach Media | Round 23 v Bulldogs\nNRL Coach Media | Round 22 v Cowboys\nNRL Coach Media | Round 21 v Knights\nMajor Partner\nPlatinum Partners\nPremier Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.429909988333335,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "43c503ddc9e762a2",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "NRL News Ready to roar: Dramatic week driving Panthers towards Roosters showdown",
+            "url": "https://www.nrl.com/news/2026/08/12/ready-to-roar-dramatic-week-driving-panthers-towards-roosters-showdown/",
+            "published_at": "2026-08-11T22:01:20+00:00",
+            "snippet": "Ready to roar: Dramatic week driving Panthers towards Roosters showdown\nThe Penrith Panthers are determined to let their football do the talking as they navigate a dramatic lead-in to Thursday's top-of-the-table showdown with the Roosters.\nIt's been a challenging week on and off ",
+            "body_excerpt": "Ready to roar: Dramatic week driving Panthers towards Roosters showdown\nThe Penrith Panthers are determined to let their football do the talking as they navigate a dramatic lead-in to Thursday's top-of-the-table showdown with the Roosters.\nIt's been a challenging week on and off the field for Ivan Cleary's men, with captain Isaah Yeo injuring his pectoral in last Friday's loss to the Warriors.\nThe positive news that Yeo has avoided season-ending surgery and could return in time for the finals was quickly overshadowed by the announcement that Brian To'o will depart at the end of next year to join the PNG Chiefs.\nBrian on the double\nThe situation threatens to distract from Penrith's quest for the minor premiership, with the winner of Thursday's match at CommBank Stadium to take sole ownership of first place with three rounds remaining in the season.\nThe Panthers, however, have dealt with player departures and late-season injuries on a yearly basis since their run of success commenced in 2020 and prop Liam Henry said they are well-positioned to put the drama aside before the Roosters clash.\n\"There's always going to be off-field distractions,\" Henry said. \"The club does a wonderful job with the players to get them to focus on what's important.\n\"We don't pay too much attention to what happens outside these four walls.\n\"We've taken some great lessons out of last week's game. The Roosters have been going well, they've got a great side and a good forward pack so we're looking forward to Thursday night.\"\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n2nd Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nSpeculation about the future of several Panthers has followed the side all year, with 10 players set to hit the open market if they don't sign contract extensions before November 1.\nCo-captains Yeo and Nathan Cleary sit atop of a list also featuring Liam Martin, Moses Leota and Blaize Talagi.\nThe Iceman with a crucial 40/20\nWinger Tom Jenkins is among the cohort to have extended beyond 2027 and he's hopeful as many teammates as possible remain with the club when Peter Wallace takes over in 2028.\n\"They all have faith and trust in Wall that he's going to lead us to success,\" Jenkins said. \"Everyone in this building has full confidence. I'm not too sure about the boys' contracts and how that influences them but it wouldn't be in a negative way.\n\"As somebody who's re-signed long term, I'd love to see those boys follow suit, I'd love to see everyone stay. The sad thing about footy is it's a business and when you're going well, other teams want your players. That's part of it but hopefully the boys re-sign.\"\nTo'o's decision to depart the club at the end of next season drew mixed emotions within Panthers HQ, with players both surprised at the move and excited to see their teammate embark on a new challenge at an expansion club.\nThe winger's exit also reflects the financial reality in Penrith, with club officials unable to squeeze a long list of stars into the salary cap.\n\"It was a bit of a surprise but in the same sense, it's footy,\" Jenkins said. \"I'm stoked for him that he can do this for his family and he's deserving of whatever comes next.\n\"For him, the next chapter is PNG but that's in 2028. He's got a massive job here, which he'll play a big role in our 2027 season and the rest of this season.\"\nTo'o's exit is just one of many changes coming at the foot of the mountains over the next couple of years.\nJack Cole, Scott Sorensen and Liam Henry will depart at the end of this season to join the Perth Bears, while coach Ivan Cleary will hang up the clipboard at the end of 2027, with current assistant Peter Wallace taking charge.\nIt's the latest roster evolution for a club that has farewelled more stars than any other throughout the past five years, all while enjoying unprecedented success in the NRL era.\nPenrith have made a habit of",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 30.794909988333334,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "35462a6f898d1a01",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "NRL News Roosters eye statement win in Penrith showdown",
+            "url": "https://www.nrl.com/news/2026/08/11/roosters-eye-statement-win-in-penrith-showdown/",
+            "published_at": "2026-08-10T20:01:21+00:00",
+            "snippet": "Roosters eye statement win in Penrith showdown\nThe Roosters have set their sights on their first minor premiership in eight years as they look to unseat the Panthers at the top of the table.\nThe two teams are level on 36 points heading into a Thursday-night showdown at CommBank S",
+            "body_excerpt": "Roosters eye statement win in Penrith showdown\nThe Roosters have set their sights on their first minor premiership in eight years as they look to unseat the Panthers at the top of the table.\nThe two teams are level on 36 points heading into a Thursday-night showdown at CommBank Stadium, with the winner to claim pole position in the run to the finals.\nThe Roosters have closed the gap with the Panthers throughout the past month and drew level with a scratchy victory over the Bulldogs last Friday night just a couple of hours after Penrith fell to the Warriors in Auckland.\nSmith steps up\nThis season looms as the Roosters' best chance to win the premiership since their last title in 2019 and they're eager to climb to first on the ladder with a win on Thursday night.\n\"To finish first at the end of the regular season is a cool achievement,\" winger Billy Smith said. \"That's our most important thing at the moment.\n\"We're happy but we're definitely not content with where we're at. We're still chasing our best and we were a long way from home [last week]. It's good we're still winning games and not playing our best footy so we've got a lot of room to improve.\n\"We're going to have to be on our best against Penrith because we're pretty clear on where we want to get to this year.\"\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n2nd Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThursday's match marks the 10th top-of-the-table clash after Round 20 in the NRL era. According to stats compiled by rugby league historian David Middleton, the team sitting second on the ladder has a slight edge, winning five of the nine games.\nRemarkably, at least one team from each of the nine previous matches has gone on to play in the grand final, with three sides lifting the trophy at the end of the year.\nThe last late-season top-of-the-table clash occurred two years ago, when the competition-leading Storm travelled to Penrith and came away with a two-point win in a game best remembered for Nathan Cleary's shoulder injury.\nThe Panthers bounced back to defeat Melbourne in the decider a couple of months later.\nAfter a slight hiccup last year, Penrith have set the standard this season and have sat on top of the ladder since Round 4.\nThe Roosters, in contrast, have managed to fly under the radar despite boasting one of the most star-studded rosters in the competition.\nTrent Robinson's side has hovered between third and sixth for much of the season before climbing into second a fortnight ago.\nPerhaps the scariest part of the Roosters rise is the fact they sit equal first despite some wild swings in form this year.\nThe players were disappointed with their performance in last week's win over the Bulldogs but Spencer Leniu said Thursday's match is a chance to make a statement against the competition favourites.\nRoosters v Bulldogs - Round 23, 2026\n\"They're a well-oiled machine and they've been the benchmark for the competition the last couple of years,\" Leniu said.\n\"Playing the Bulldogs will put us in good stead, they play a similar style and it's a preview of what we're going to come up against this week. They're our biggest competition and this week we'll see what this team's about.\"\nThe Roosters are set to receive a major boost with fullback James Tedesco likely to return on Thursday night.\nPenrith received a dose of good news on Monday morning with captain Isaah Yeo avoiding season-ending surgery, but the lock will still miss this week's match and is unlikely to return before the finals start.\nThe Panthers claimed a dominant 40-4 victory when the two sides played in Round 3 earlier this season but plenty has changed since that night.\nRoosters v Panthers - Round 3, 2026\nIt was hooker Reece Robson's first game at the club, while five-eighth Daly Cherry-Evans was still finding his feet at the Roosters.\nThe veteran playmaker said the team has come a long ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 56.794632210555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "bca8fd01fdfd8275",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad - Zero Tackle",
+            "url": "https://www.zerotackle.com/round-24-team-lists-2026-236834/",
+            "published_at": "2026-08-13T04:17:05+00:00",
+            "snippet": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Round 24 NRL team lists for the 2026 season are in, with all clubs naming their squads for this week's matches. Stay across every lineup, late changes, and key ins and outs as they're confirmed.\nCheck out all team lists below, with updates added as official final teams are announced.\nPanthers vs Roosters Team Lists: Round 24\nJaxen Edgar Jaxen Edgar\nThomas Jenkins Thomas Jenkins\nPaul Alamoti Paul Alamoti\nIzack Tago Izack Tago\nBrian To'o Brian To'o\nJack Cogger Jack Cogger\nNathan Cleary Nathan Cleary\nMoses Leota Moses Leota\nFreddy Lussick Freddy Lussick\n10\nLiam Henry Liam Henry\n11\nIsaiah Papali'i Isaiah Papali'i\n12\nLiam Martin Liam Martin\n13\nLindsay Smith Lindsay Smith\nINTERCHANGE\n14\nBilly Scott Billy Scott\n15\nScott Sorensen Scott Sorensen\n16\nLuron Patea Luron Patea\n17\nBilly Phillips Billy Phillips\n18\nJack Cole Jack Cole\n19\nBlaize Talagi Blaize Talagi\nRESERVES\n20\nDylan Edwards Dylan Edwards\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nCody Ramsey Cody Ramsey\nBilly Smith Billy Smith\nHugo Savala Hugo Savala\nRobert Toia Robert Toia\nM. Nawaqanitawase Mark Nawaqanitawase\nDaly Cherry-Evans Daly Cherry-Evans\nSam Walker Sam Walker\nNaufahu Whyte Naufahu Whyte\nReece Robson Reece Robson\nSpencer Leniu Spencer Leniu\nSalesi Foketi Salesi Foketi\nSiua Wong Siua Wong\nVictor Radley Victor Radley\nConnor Watson Connor Watson\nLindsay Collins Lindsay Collins\nNat Butcher Nat Butcher\nEgan Butcher Egan Butcher\nTommy Talau Tommy Talau\nR. Bassingthwaighte Rex Bassingthwaighte\nBenaiah Ioelu Benaiah Ioelu\n21\nSea Eagles vs Dolphins Team Lists: Round 24\nClayton Faulalo Clayton Faulalo\nJason Saab Jason Saab\nTolutau Koula Tolutau Koula\nReuben Garrick Reuben Garrick\nLehi Hopoate Lehi Hopoate\nJoey Walsh Joey Walsh\nJamal Fogarty Jamal Fogarty\nSimione Laiafi Simione Laiafi\nBrandon Wakeham Brandon Wakeham\nNathan Brown Nathan Brown\nHaumole Olakau'atu Haumole Olakau'atu\nCorey Waddell Corey Waddell\nJake Trbojevic Jake Trbojevic\nJake Simpkin Jake Simpkin\nNicholas Lenaz Nicholas Lenaz\nFletcher Baker Fletcher Baker\nJackson Shereb Jackson Shereb\nJosh Feledy Josh Feledy\nHugo Hart Hugo Hart\nOnitoni Large Onitoni Large\nCaleb Navale Caleb Navale\n22\nBlake Wilson Blake Wilson\nH. Tabuai-Fidow Hamiso Tabuai-Fidow\nJamayne Isaako Jamayne Isaako\nJack Bostock Jack Bostock\nHerbie Farnworth Herbie Farnworth\nSelwyn Cobbo Selwyn Cobbo\nKodi Nikorima Kodi Nikorima\nIsaiya Katoa Isaiya Katoa\nTom Flegler Tom Flegler\nJ. Marshall-King Jeremy Marshall-King\nFrancis Molo Francis Molo\nConnelly Lemuelu Connelly Lemuelu\nK. Finefeuiaki Kulikefu Finefeuiaki\nMorgan Knowles Morgan Knowles\nMax Plath Max Plath\nRay Stone Ray Stone\nTom Gilbert Tom Gilbert\nFelise Kaufusi Felise Kaufusi\nBrad Schneider Brad Schneider\nJake Averillo Jake Averillo\nSebastian Su'a Sebastian Su'a\nTevita Naufahu Tevita Naufahu\nBrian Pouniu Brian Pouniu\nBulldogs vs Rabbitohs Team Lists: Round 24\nConnor Tracey Connor Tracey\nJacob Kiraz Jacob Kiraz\nMatt Burton Matt Burton\nEnari Tuala Enari Tuala\nJethro Rinakama Jethro Rinakama\nStephen Crichton Stephen Crichton\nLachlan Galvin Lachlan Galvin\nMax King Max King\nBailey Hayward Bailey Hayward\nLeo Thompson Leo Thompson\nViliame Kikau Viliame Kikau\nJacob Preston Jacob Preston\nJaeman Salmon Jaeman Salmon\nKurt Mann Kurt Mann\nJosh Curran Josh Curran\nHarry Hayes Harry Hayes\nAlekolasimi Jones Alekolasimi Jones\nBronson Xerri Bronson Xerri\nJake Turpin Jake Turpin\nJack Underhill Jack Underhill\nSean O'Sullivan Sean O'Sullivan\n23\nJonathan Sua Jonathan Sua\nMatt Dufty Matt Dufty\nAlex Johnston Alex Johnston\nTallis Duncan Tallis Duncan\nJack Wighton Jack Wighton\nCampbell Graham Campbell Graham\nCody Walker Cody Walker\nJayden Sullivan Jayden Sullivan\nTevita Tatola Tevita Tatola\nBrandon Smith Brandon Smith\nKeaon Koloamatangi Keaon Koloamatangi\nDavid Fifita David Fifita\nAdam Elliott Adam Elliott\nCameron Murray Cameron Murray\nJye Gray Jye Gray\nLachlan Hubner Lachlan Hubner\nSean Keppie Sean Keppie\nEuan Aitken Euan Aitken\nPeter Mamouzelos Peter Mamouzelos\nEdward Kosi Edward Kosi\nJonah Glover",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.5324099883333333,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "0ddf348039d0b4f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529",
+            "published_at": "2026-08-12T10:08:15+00:00",
+            "snippet": "NRL 2026 team lists: Every club's confirmed lineup for Round 24 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Every club's confirmed lineup for Round 24\nPeter Maniaty\nGetty Images\nRound 24 begins in epic fashion with a potential grand final preview as the Panthers host the Roosters .\nManly then tackle the Dolphins in the early Friday game before the Bulldogs and Rabbitohs clash at Accor Stadium in a match with massive finals implications for both clubs.\nThe Broncos and Warriors square off in Brisbane on Saturday night, before the Tigers and Dragons close things out on Sunday.\nThe Storm have the bye.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 24\nPenrith Panthers vs. Sydney Roosters\n(Thursday, August 13 at CommBank Stadium , 7:50pm AEST)\nPenrith team:\n1. Jaxen Edgar 2. Thomas Jenkins 3. Paul Alamoti 4. Izack Tago 5. Brian To'o 6. Jack Cogger 7. Nathan Cleary (c) 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali'i 12. Liam Martin 13. Lindsay Smith\n14. Billy Scott 15. Scott Sorensen 16. Luron Patea 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi\nPanthers team news:\nIn a massive blow Isaah Yeo suffered a right pectoral tear against the Warriors and is unlikely to play again until the NRL finals. Mitch Kenny (leg) remains out but Dylan Edwards could return after being named as 20th man. Casey McLean will be on the sidelines for at least another week as he recovers from hand surgery.\nRoosters team:\n18. Cody Ramsay 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Spencer Leniu 11. Salesi Foketi 12. Siua Wong 13. Victor Radley\n14. Connor Watson 15. Lindsay Collins 16. Nat Butcher 17. Egan Butcher 19. Tommy Talau 20. Rex Bassingthwaighte\nRoosters team news:\nSkipper James Tedesco (ankle) has been ruled out with Cody Ramsay again set to start at fullback. Rex Bassingthwaighte comes on to the reserves bench.\nManly Sea Eagles vs. Dolphins\n(Friday, August 14 at 4 Pines Park , 6:00pm AEST)\nManly team:\n1. Clayton Faulalo 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Corey Waddell 13. Jake Trbojevic (c)\n14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart\nSea Eagles team news:\nSkipper Tom Trbojevic (hamstring) and Ben Trbojevic (concussion) both missed the trip to Perth and remain out. In better news Clayton Faulalo (hamstring) returns at fullback with Lehi Hopoate moving back to the wing. Kobe Hetherington (bicep) is out for the season while Ethan Bullemor suffered a head knock at training last week and is in NRL concussion protocols. Prop Taniela Paseka (knee) is unlikely to be available for several weeks and has been replaced up front by Nathan Brown.\nDolphins team:\n1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nokirima 7. Isaiya Katoa (c) 8. Tom Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles\n14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 19. Jake Averillo\nDolphins team news:\nThe Dolphins are cooking in attack, but their defence remains a worry heading into the finals. Kristian Woolf has stuck firm, but Kurt Donoghoe (broken thumb) has had minor surgery and is expected to miss two matches.\nCanterbury Bulldogs vs. South Sydney Rabbitohs\n(Friday, August 14 at Accor Stadium , 8:00pm AEST)\nCanterbury team:\n1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton (c) 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon\n14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 18. Bronson Xerri 19. Jake Tu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.679632210555557,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "344d5432243f7cca",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Updated Team List: Round 24 - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/08/12/nrl-updated-team-list-round-24/",
+            "published_at": "2026-08-12T09:49:00+00:00",
+            "snippet": "NRL Updated Team List: Round 24\nPanthers Head Coach Ivan Cleary has revised his squad for Thursday night's top-of-the-table clash with the Roosters at CommBank Stadium.\nThe blockbuster clash will also see the NRL celebrate Indigenous Round, recognising and celebrating the rich hi",
+            "body_excerpt": "NRL Updated Team List: Round 24\nPanthers Head Coach Ivan Cleary has revised his squad for Thursday night's top-of-the-table clash with the Roosters at CommBank Stadium.\nThe blockbuster clash will also see the NRL celebrate Indigenous Round, recognising and celebrating the rich history, culture and contribution of Aboriginal and Torres Strait Islander peoples.\nSPECIAL TICKET OFFER: $67 Family Offer in the North Grandstand. Use promo code PANTHERS67\nMatch: Panthers v Roosters\nRound 24 - Round 24 - Thursday 13 Aug\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n2nd Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nIvan Cleary addresses To'o's exit and Yeo's injury\nGameday Guide: Panthers v Roosters\nTeam Lists\nNRL Late Mail: Round 23\nNRL Updated Team List: Round 23\nNRL Team List: Round 23",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.00046554388889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9208c066a5c6083a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Reynolds’ cryptic reply as brutal setback revealed; Roosters’ big Teddy blow — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-24-early-mail-news-teams-ins-and-outs-james-tedesco-in-doubt-dylan-edwards-pushing-to-play/news-story/ed6f741082a0959e49bf6a7f245bde8c",
+            "published_at": "2026-08-12T10:28:11+00:00",
+            "snippet": "Reynolds’ cryptic reply as brutal setback revealed; Roosters’ big Teddy blow — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Reynolds’ cryptic reply as brutal setback revealed; Roosters’ big Teddy blow — NRL Late Mail\nAdam Reynolds may have played his last NRL game as the Broncos halfback provided a cryptic reply on his potential return to the field while the South Sydney Rabbitohs have been dealt a crushing blow.\nElsewhere, the Roosters will be without James Tedesco once more.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nRead on for all of the Late Mail ahead of Round 24!\nTHURSDAY AUGUST 13\nPenrith Panthers vs. Sydney Roosters, 7.50pm @ CommBank Stadium\nPanthers team: 1. Jaxen Edgar 2. Thomas Jenkins 3. Paul Alamoti 4. Izack Tago 5. Brian To’o 6. Jack Cogger 7. Nathan Cleary 8. Moses Leota 9. Freddy Lussick 10. Liam Henry 11. Isaiah Papali’i 12. Liam Martin 13. Lindsay Smith 14. Billy Scott 15. Scott Sorensen 16. Luron Patea 17. Billy Phillips 18. Jack Cole 19. Blaize Talagi 20. Dylan Edwards\nPlayers cut: 21. Jesse McLean 22. Kalani Leuluai-going\nLate Mail: Penrith’s Dylan Edwards is pushing for a shock return. Edwards hasn’t played in a month and has been named on the reserves this week, but according to coach Ivan Cleary, the superstar fullback is a chance of playing against the Chooks. “There’s a chance. We’ll see how he goes today, but there’s definitely a chance,” he told reporters on Wednesday. Edwards remains in the squad after Wednesday’s cut-down.\nRoosters team: 18. Cody Ramsey 2. Billy Smith 3. Hugo Savala 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Spencer Leniu 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 14. Connor Watson 15. Lindsay Collins 16. Nat Butcher 17. Egan Butcher 18. Cody Ramsey 19. Tommy Talau 20. Rex Bassingthwaighte 21. Benaiah Ioelu\nPlayers cut: 1. James Tedesco 22. Taylor Losalu\nLate Mail: James Tedesco will miss another game with his ankle injury, which sees Cody Ramsey come in at fullback. Coach Trent Robinson had revealed earlier on Wednesday that the the Roosters skipper would have to pass a final fitness test. “Today’s the last bit of prep that we’ve got to get done to make sure that he is final and right to go. He was about 50% yesterday for the session, so we’ve just got to make sure he gets it done today. The final tick-off will be today,” Robinson said.\nFRIDAY AUGUST 14\nManly Sea Eagles vs. Dolphins, 6pm @ 4 Pines Park\nSea Eagles team: 1. Clayton Faulalo 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Joey Walsh 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Corey Waddell 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Fletcher Baker 17. Jackson Shereb 18. Josh Feledy 19. Hugo Hart 20. Onitoni Large 21. Caleb Navale 22. Blake Wilson\nLate Mail: To come.\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Francis Molo 11. Connelly Lemuelu 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Max Plath 15. Ray Stone 16. Tom Gilbert 17. Felise Kaufusi 18. Brad Schneider 19. Jake Averillo 20. Sebastian Su’a 21. Tevita Naufahu 22. Brian Pouniu\nCanterbury Bulldogs vs. South Sydney Rabbitohs, 8pm @ Accor Stadium\nBulldogs team: 1. Connor Tracey 2. Jacob Kiraz 3. Matt Burton 4. Enari Tuala 5. Jethro Rinakama 6. Stephen Crichton 7. Lachlan Galvin 8. Max King 9. Bailey Hayward 10. Leo Thompson 11. Viliame Kikau 12. Jacob Preston 13. Jaeman Salmon 14. Kurt Mann 15. Josh Curran 16. Harry Hayes 17. Alekolasimi Jones 19. Bronson Xerri 20. Jake Turpin 21. Jack Underhill 22. Sean O’Sullivan 23. Jonathan Sua\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David F",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.347409988333336,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "f5d17de111e3fbc2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/sea-eagles-vs-dolphins-preview-betting-tips-nrl-round-24-2026",
+            "published_at": "2026-08-13T03:33:43+00:00",
+            "snippet": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Sea Eagles vs Dolphins Preview & Betting Tips: NRL Round 24 2026\nAugust 13 th 2026, 12:53pm , By: Ben Bridge\nFriday Night Football at 4 Pines Park shapes as a genuine ‘win or go home’ game for Manly, although at this stage it may already be too late to save their season. The Sea Eagles have lost five consecutive matches, fallen from third to 10th on the ladder and now return from a trip to Perth where they blew a 14-0 lead before being hammered 42-20 by Melbourne. Despite finally getting back to Brookvale, Manly arguably have the worse travel setup against a Dolphins side coming off a Brisbane derby and now officially assured of playing finals football.\nThe market is basically where I have this game rated, so this is not a major edge. However, the alternative margin appeals more than forcing the traditional spread. The Dolphins have secured their first finals berth and can now attack the final month without the same pressure that has followed them in previous late season collapses. If the shackles come off, this backline can put a number on a Manly side whose defensive confidence looks completely shot.\nTom Trbojevic remains unavailable with his hamstring injury, leaving Clayton Faulalo at fullback. The Dolphins are close to full strength through their spine and backline, with Hamiso Tabuai-Fidow, Isaiya Katoa, Herbie Farnworth, Jack Bostock, Selwyn Cobbo and Jamayne Isaako all named.\nSea Eagles vs Dolphins Prediction & Tips: 2026 NRL Round 24\nSea Eagles’ Season Falling Apart\nManly’s 42-20 loss to Melbourne in Perth might have been the performance that finally broke their finals campaign. The opening stages were actually excellent. The Sea Eagles raced to a 14-0 advantage and looked capable of snapping their losing run, only for the Storm to score 42 unanswered points as Manly completely lost control of the contest. Taniela Paseka also suffered a suspected MCL injury, adding another setback to a side already without Turbo.\nThat second half collapse is the greater concern than the raw result. Manly’s attack still has weapons. Jason Saab, Tolu Koula, Reuben Garrick, Lehi Hopoate and Haumole Olakau’atu can all generate points, while Jamal Fogarty provides a reliable kicking game. The issue is what happens when momentum shifts against them. Over the past month, Manly have been beaten by Parramatta, Gold Coast and North Queensland before the Melbourne loss, surrendering leads, and falling apart defensively with alarming regularity.\nKieran Foran has been forced into further changes this week. Faulalo returns at fullback, but Manly are still without Trbojevic and have lost Paseka from the middle. Simione Laiafi starts at prop alongside Nathan Brown, with Corey Waddell and Olakau’atu remaining their greatest attacking weapons in the pack.\nBrookvale should produce a response. It is essentially win or go home, and Manly will know they embarrassed the Dolphins 52-18 earlier this season. But the team playing now looks a long way removed from the side that produced that result in April.\nDolphins Finally Break Through to September\nThe Dolphins secured their finals position in dramatic fashion with a 40-32 victory over Brisbane after trailing 24-0 inside the opening 20 minutes. Rather than folding, they dragged the margin back to 30-24 by halftime before dominating possession and field position through the second half. It was the sort of comeback that demonstrated a maturity this club has often lacked during late season campaigns.\nMost importantly, the Dolphins now know they will play finals football. After fading badly down the stretch in previous seasons, that psychological hurdle has finally been cleared. Isaiya Katoa has spoken about wanting more than simply making September, and the side remains close enough to the top four for the final month to carry genuine meaning.\nTheir attacking lineup is frightening when healthy. Hammer gives them explosive support play through the middle, Isaako remains an elite finisher, while Bostock, Farnworth",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.255187766111111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "69d7de841bdad1f8",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Penrith Panthers vs Sydney Roosters Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/13/penrith-panthers-vs-sydney-roosters-predictions/",
+            "published_at": "2026-08-12T15:27:15+00:00",
+            "snippet": "Penrith Panthers vs Sydney Roosters Prediction, Tips & Odds &nbsp;&nbsp; Ladbrokes",
+            "body_excerpt": "Penrith Panthers host Sydney Roosters in Round 24 of the 2026 NRL season at CommBank Stadium on Thursday, 13th August at 7:50 PM AEST. Read on for our full match preview, expert footy betting tips , and best NRL odds this week .\nThe minor premiership could be decided in this 1 v 2 showdown at CommBank Stadium.\nFORM: The Panthers have now lost four of their last seven, following up a big win over Canberra with a convincing 28-12 defeat to the Warriors.\nThe Roosters have won eight straight, coming from 10 points down to see off the Bulldogs 20-18 last Friday.\nINS AND OUTS: Lindsay Smith moves to lock, and Liam Henry comes in at prop with Isaah Yeo sidelined for Penrith. Jack Cogger lines up at five-eighth after being a late scratching last week, while Dylan Edwards has been named in the reserves. James Tedesco returns for the Roosters.\nKEY MATCH-UP: It’s an Origin rematch as Nathan Cleary squares off against Sam Walker.\nHISTORY: The Panthers have won 12 of their last 13 against the Roosters, including a 40-4 rout in Round 3 this season.\nKEY STAT: The Panthers have scored 30-plus points in eight of their last 11 games against the Roosters.\nVERDICT: The favourites to meet in the grand final in seven weeks’ time, there’s plenty at stake with the winner likely to take out the minor premiership and the loser potentially facing a qualifying final trip to Auckland.\nThe Panthers have had a rough run and will be smarting from getting ambushed by the Warriors, but there’s arguably more pressure on the Roosters to buck the trend of horrendous results against the era’s preeminent team.\nThe Roosters remain unproven in heavyweight duels – though last week was a step in the right direction – and the Panthers look good value as a very narrow favourite.\nPrediction: Back the Panthers to Win @ $1.77\nSGM: PANTHERS BY 1-12 / UNDER 42.5 TOTAL POINTS / TOM JENKINS ANYTIME TRYSCORER / ROBERT TOIA ANYTIME TRYSCORER @ $31.56\nPenrith Panthers vs Sydney Roosters Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Penrith Panthers vs Sydney Roosters matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds\nCommBank Stadium • Thursday 13th Aug\nTeam\nOdds\nSydney Roosters (2.5)\n2.05\nBet Now\nPenrith Panthers (-2.5)\n1.72\nNRL odds correct as of 13/08/2026 and subject to change. Event scheduled to start at 13/08/2026 7:50pm AEST.\nThomas Jenkins (Penrith Panthers)\n6.60\nMark Nawaqanitawase (Sydney Roosters)\n9.25\nBrian To'o (Penrith Panthers)\n8.50\nBilly Smith (Sydney Roosters)\n11.00\nRobert Toia (Sydney Roosters)\n14.00\nJaxen Edgar (Penrith Panthers)\nIzack Tago (Penrith Panthers)\nPaul Alamoti (Penrith Panthers)\n15.00\nCody Ramsey (Sydney Roosters)\nHugo Savala (Sydney Roosters)\n16.00\nSam Walker (Sydney Roosters)\n17.00\nNathan Cleary (Penrith Panthers)\nLiam Martin (Penrith Panthers)\n19.00\nJack Cogger (Penrith Panthers)\n26.00\nIsaiah Papali'i (Penrith Panthers)\nSiua Wong (Sydney Roosters)\n29.00\nDaly Cherry-Evans (Sydney Roosters)\nSalesi Foketi (Sydney Roosters)\n34.00\nScott Sorensen (Penrith Panthers)\nConnor Watson (Sydney Roosters)\n41.00\nReece Robson (Sydney Roosters)\nFreddy Lussick (Penrith Panthers)\nBilly Scott (Penrith Panthers)\n51.00\nLuron Patea (Penrith Panthers)\nLiam Henry (Penrith Panthers)\nBilly Phillips (Penrith Panthers)\nMoses Leota (Penrith Panthers)\nNat Butcher (Sydney Roosters)\nVictor Radley (Sydney Roosters)\nEgan Butcher (Sydney Roosters)\nLindsay Smith (Penrith Panthers)\nNaufahu Whyte (Sydney Roosters)\n67.00\nLindsay Collins (Sydney Roosters)\nSpencer Leniu (Sydney Roosters)\nNo Scorer\n901.00\nWests Tigers vs St George Illawarra Dragons Prediction, Tips & Odds 13 Aug 2026\nNewcastle Knights vs Gold Coast Titans Prediction, Tips & Odds 13 Aug 2026\nBrisbane Broncos vs New Zealand Warriors Prediction, Tips & Odds 13 Aug 2026\nParramatta Eels vs North Queensland Cowboys Prediction, Tips & Odds 13 Aug 2026",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 13.362965543888889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6755c9e0e9a0ad9d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+            "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18",
+            "published_at": "2026-08-12T11:50:56+00:00",
+            "snippet": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ &nbsp;&nbsp; News.com.au",
+            "body_excerpt": "NRL teams Round 24: Raiders coach Ricky Stuart axes Corey Horsburgh\nRicky Stuart has sensationally swung the axe on a Raiders star after his ‘brain explosion’, while an exiled star has moved one step closer to an NRL return. See all the Round 24 teams news.\nFiery Canberra forward Corey Horsburgh has been dramatically dropped for Saturday’s away game against Cronulla at Ocean Protect Stadium.\nThe Raiders claim Horsburgh has been rested after a controversial performance against Newcastle last weekend.\nHorsburgh won’t play NSW Cup this weekend.\nAta Mariota will be Horsburgh’s replacement at starting prop against the Sharks.\nIt is unknown whether Horsburgh will be considered for NRL selection in Canberra’s round 25 game against Brisbane.\nHorsburgh’s omission is another clear sign that he and the club are at loggerheads.\nOthers you may like\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images\nHis demise is the culmination of a difficult week after Horsburgh drew sharp criticism for a “brain explosion” at a pivotal moment in Canberra’s loss to the Knights.\nHorsburgh was sin binned for slapping opponent Dane Gagai nearing fulltime in the Raiders’ 30-24 loss, which ended the club’s finals hopes.\nStuart singled out Horsburgh for criticism at a post-match press conference.\n“It was a f***ing brain explosion and (we) lost the opportunity,” Stuart fumed.\nThe pair have been getting along well in recent times while enjoying or enduring a rollercoaster relationship over the past eight years.\nCorey Horsburgh has been dropped by the Raiders ahead of their clash against the Sharks. Picture: Getty Images. Picture: NRL Photos\nThis masthead can confirm that Canberra would be prepared to offload Horsburgh early if he can secure another NRL club.\nA former Queensland State of Origin player, Horsburgh comes off contract at Canberra after next season.\nCaboolture-born Horsburgh, 28, would prefer a return to Queensland but Perth is also monitoring the situation.\nThe Bears are also ready to make a move on Horsburgh.\nBrisbane has been gently linked to Horsburgh but the Broncos’ star-studded roster may prevent an offer being lodged.\nBut there was speculation on Tuesday that Horsburgh could join Brisbane as early as next season.\nIll-discipline has cost Canberra this season with last year’s minor premiers sitting in the 12th spot with nine wins from 21 games.\nCanberra’s finals round games are against Cronulla, Brisbane and North Queensland.\n—Dean Ritchie\nEXILED STAR ONE STEP CLOSER TO NRL RETURN\n—Tyson Jackson\nFormer Manly star Josh Schuster has been handed his first opportunity with new club the Wests Tigers, named to play five-eighth with the club’s NSW Cup team on Sunday.\nSchuster, who has spent the last couple of months training with the Tigers reserve grade squad, will finally get his opportunity to play alongside Javon Andrews, as he tries to get his NRL career back on track.\nJosh Schuster has been named to play five-eighth for the Wests Tigers’ NSW Cup team. Picture: Instagram\nThe former Sea Eagle and Rabbitoh took a train and trial deal with the Tigers until the end of the year, with the club wanting to help Schuster get back to the NRL.\nIt’s understood the five-eighth has lost a lot of weight and has impressed the Tigers in his couple of months training.\nSchuster was initially not expected to get a game with the club before next year, but will now have the opportunity to play for a new contract this Sunday.\nThe Tigers and Schuster both see the young playmaker in the halves, rather than second-row where he’s played in the last couple of years.\nSchuster’s last rugby league game was over 12-months ago, with the five-eighth spending the first half of this year training by himself to get prepared to play again.\nSEASON OVER FOR EELS STAR\nParramatta’s Isaiah Iongi’s season is over with the young fullback ruled out with a knee injury.\nIongi suffered a medial and posterior knee injury but has avoided ru",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.968243321666666,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "68647918512c97f2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 24 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/12/2026-nrl-round-24-predictions/",
+            "published_at": "2026-08-12T05:02:46+00:00",
+            "snippet": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponent",
+            "body_excerpt": "Four weeks of the regular 2026 NRL season to go and the race for the minor premiership, Top 4 and Top 8 spots is going into overdrive.\nNRL Round 24 kicks off with a top-of-the-table clash, while six of the remaining seven encounters are between teams inside the Top 8 and opponents in the bottom half – with the Souths-Canterbury showdown on Saturday shaping as being particularly pivotal.\nRead on for our complete NRL Round 24 predictions, preview and best bets to place on the footy this weekend!\nNRL\nCommBank Stadium • Thursday 13th Aug\nThe minor premiership could be decided in this 1 v 2 showdown at CommBank Stadium.\nFORM: The Panthers have now lost four of their last seven, following up a big win over Canberra with a convincing 28-12 defeat to the Warriors.\nThe Roosters have won eight straight, coming from 10 points down to see off the Bulldogs 20-18 last Friday.\nINS AND OUTS: Lindsay Smith moves to lock, and Liam Henry comes in at prop with Isaah Yeo sidelined for Penrith. Jack Cogger lines up at five-eighth after being a late scratching last week, while Dylan Edwards has been named in the reserves. James Tedesco returns for the Roosters.\nKEY MATCH-UP: It’s an Origin rematch as Nathan Cleary squares off against Sam Walker.\nHISTORY: The Panthers have won 12 of their last 13 against the Roosters, including a 40-4 rout in Round 3 this season.\nKEY STAT: The Panthers have scored 30-plus points in eight of their last 11 games against the Roosters.\nVERDICT: The favourites to meet in the grand final in seven weeks’ time, there’s plenty at stake with the winner likely to take out the minor premiership and the loser potentially facing a qualifying final trip to Auckland.\nThe Panthers have had a rough run and will be smarting from getting ambushed by the Warriors, but there’s arguably more pressure on the Roosters to buck the trend of horrendous results against the era’s preeminent team.\nThe Roosters remain unproven in heavyweight duels – though last week was a step in the right direction – and the Panthers look good value as a very narrow favourite.\nPrediction: Back the Panthers to Win @ $1.77\nSGM: PANTHERS BY 1-12 / UNDER 42.5 TOTAL POINTS / TOM JENKINS ANYTIME TRYSCORER / ROBERT TOIA ANYTIME TRYSCORER @ $31.56\n4 Pines Park • Friday 14th Aug\nThe Sea Eagles are spiralling ahead of this must-win home assignment against the fifth-placed Dolphins.\nFORM: Manly has lost five straight, conceding 128 points in their last three games against the Titans, Sharks and Storm.\nThe Dolphins have won three in a row, albeit somewhat patchily in the past fortnight against the Dragons (28-22) and Broncos (40-32) – trailing 24-0 in the latter.\nINS AND OUTS: Clayton Faulalo returns at fullback for Manly with Lehi Hopoate shifting to the wing and Blake Wilson dropping out. Taniela Paseka (knee) is out, so Nathan Brown starts at prop.\nThe Dolphins have lost Kurt Donoghoe to a thumb injury, but Ray Stone and Jake Averillo are back on the bench.\nKEY MATCH-UP: Blues teammates Jack Bostock and Tolu Koula are set for an absorbing centre duel.\nHISTORY: The Dolphins are 1-3 against the Sea Eagles and will have terrifying memories of their most recent meeting, when Manly powered to a 52-18 win in Redcliffe in Kieran Foran’s first match as interim coach.\nKEY STAT: These clubs’ four encounters all produced at least 54 points, with three of them seeing 70-plus points scored.\nVERDICT: Manly’s finals bid has completely unravelled under a heavy injury toll as interim-turned-fulltime coach Kieran Foran searches for answers. Their drop-off in defensive resolve has been the most alarming feature of their losing streak.\nThe Dolphins have all but sealed their maiden finals appearance, but they’ll be looking for a complete performance after struggling to put away a couple of also-rans in the past two weeks. Near enough to full-strength, however, the visitors’ firepower should have a tackle-shy Sea Eagles outfit very nervous.\nManly has a strong record at 4 Pines Park, but a heavy",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.771021099444447,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_24_match",
+              "league_round_roundup"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 24",
+          "Panthers vs Roosters NRL round 24 preview",
+          "Panthers Roosters NRL odds OR price OR favourite",
+          "Panthers Roosters NRL finals race OR ladder stakes",
+          "Panthers Roosters NRL",
+          "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Panthers Roosters NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 24 Panthers OR Roosters"
+        ],
+        "filter_summary": {
+          "dropped_stale": 52,
+          "dropped_wrong_round": 5,
+          "dropped_noise": 8,
+          "dropped_irrelevant": 11,
+          "kept": 18,
+          "deferred_pending_body": 56,
+          "promoted_after_body": 8,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 5
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "4b36dd390ef3",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-13T04:49:01.665270+00:00",
+      "finished_at": "2026-08-13T04:50:30.919301+00:00",
+      "duration_ms": 89254,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Roosters",
+        "venue": "CommBank Stadium",
+        "kickoff": "2026-08-13T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6595,
+        "home_win_probability": 0.6595,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.29 log-strength) — contribution 0.148 (16% of total)",
+            "Ladder points differential per game (+8.1 points) — contribution 0.129 (14% of total)",
+            "Elo rating advantage (+7 points) — contribution 0.054 (6% of total)",
+            "Away travel to venue (23 km) — contribution 0.053 (6% of total)",
+            "Head-to-head record (last 5) (80% to the home side) — contribution 0.038 (4% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: all run metres (-77.00) — contribution 0.041 (4% of total)",
+            "3-game form: errors (-1.33) — contribution 0.035 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Away rest (14.0 days) — contribution 0.031 (3% of total)",
+            "Travel-distance advantage (-5 km for away) — contribution 0.029 (3% of total)",
+            "5-game momentum: last20 net points (-15.00) — contribution 0.025 (3% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.6302,
+            "total_toward_away": 0.3207,
+            "net": 0.3096,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (-1.33)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Panthers",
+          "away_team": "Roosters",
+          "venue": "CommBank Stadium",
+          "kickoff": "2026-08-13T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

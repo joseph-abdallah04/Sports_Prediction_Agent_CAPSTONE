@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "run_id": "20260823T035224Z-1558e4fa",
+  "run": {
+    "predicted_at_utc": "2026-08-23T04:02:16.073353+00:00",
+    "predicted_at_local": "2026-08-23T14:02:16.073353+10:00",
+    "started_at_utc": "2026-08-23T03:52:24.508574+00:00",
+    "wall_seconds": 591.6,
+    "hours_before_kickoff": 2.0,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Roosters",
+    "away_team": "Wests Tigers",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-08-23T16:05:00+10:00",
+    "kickoff_local": "2026-08-23T16:05:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Roosters",
+      "position": 3,
+      "played": 21,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 5,
+      "competition_points": 38,
+      "points_for": 563,
+      "points_against": 400,
+      "points_difference": 163,
+      "points_difference_per_game": 7.76,
+      "recent_form_last_4": "5 - 0",
+      "streak": "5W",
+      "home_record": "8 - 2",
+      "away_record": "8 - 3"
+    },
+    "away": {
+      "team": "Wests Tigers",
+      "position": 15,
+      "played": 21,
+      "wins": 7,
+      "drawn": 0,
+      "lost": 14,
+      "competition_points": 20,
+      "points_for": 400,
+      "points_against": 613,
+      "points_difference": -213,
+      "points_difference_per_game": -10.14,
+      "recent_form_last_4": "0 - 4",
+      "streak": "4L",
+      "home_record": "5 - 7",
+      "away_record": "2 - 7"
+    },
+    "comparison": {
+      "higher_on_ladder": "Roosters",
+      "ladder_positions_gap": 12,
+      "points_difference_per_game_gap": 17.9,
+      "points_difference_favours": "Roosters"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Roosters",
+    "predicted_side": "home",
+    "confidence": 0.83,
+    "home_win_probability": 0.83
+  },
+  "math_model": {
+    "home_win_probability": 0.8306,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+1.62 log-strength) — contribution 0.249 (16% of total)",
+        "Elo rating advantage (+301 points) — contribution 0.245 (16% of total)",
+        "Ladder points differential per game (+17.9 points) — contribution 0.164 (10% of total)",
+        "5-game form: all run metres (+205.00) — contribution 0.152 (10% of total)",
+        "Pythagorean form (last 10) (+72% expected-win gap) — contribution 0.122 (8% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: points for (+20.00) — contribution 0.043 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: kicking metres (+100.67) — contribution 0.033 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Travel-distance advantage (+7 km for away) — contribution 0.031 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: possession pct (+2.80) — contribution 0.020 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: post contact metres (+84.20) — contribution 0.018 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: points for (+20.00)",
+        "3-game form: kicking metres (+100.67)",
+        "Travel-distance advantage (+7 km for away)",
+        "5-game form: possession pct (+2.80)",
+        "5-game form: post contact metres (+84.20)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Wests Tigers NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Roosters vs Wests Tigers NRL round 25 preview",
+      "Roosters Wests Tigers NRL odds OR price OR favourite",
+      "Roosters Wests Tigers NRL form OR finals race",
+      "Roosters Wests Tigers NRL",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Wests Tigers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters Wests Tigers NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Roosters OR Wests Tigers"
+    ],
+    "items_kept": 21,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 25 - Teddy out again",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-23T02:35:27+00:00",
+        "age_hours": 1.2906400672222222,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 117.87341784499999,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "Team List: NRL Round 25 v Roosters - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T06:00:00+00:00",
+        "age_hours": 117.88147340055555,
+        "url": "https://www.weststigers.com.au/news/2026/08/18/team-list-nrl-round-25-v-roosters2/"
+      },
+      {
+        "title": "Sydney Roosters vs Wests Tigers Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T03:14:02+00:00",
+        "age_hours": 72.64758451166666,
+        "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-wests-tigers-tips-odds-teams-predictions-nrl-round-25-2026/609976/amp"
+      },
+      {
+        "title": "NRL Sunday: Titans v Sharks; Roosters v Wests Tigers Presented by 30 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-23T03:22:49+00:00",
+        "age_hours": 0.5011956227777777,
+        "url": "https://www.nrl.com/news/2026/08/23/nrl-sunday-titans-v-sharks-roosters-v-wests-tigers/"
+      },
+      {
+        "title": "NRL Casualty Ward: Koula injures ankle; Tedesco still hobbled",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-22T12:54:28+00:00",
+        "age_hours": 14.973695622777777,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Roosters vs Tigers Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T07:58:13+00:00",
+        "age_hours": 19.91119562277778,
+        "url": "https://www.beforeyoubet.com.au/roosters-vs-tigers-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Match Preview Roosters v Wests Tigers: Teddy still out; Madden steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Live Blog",
+        "published_at": "2026-08-22T06:12:48+00:00",
+        "age_hours": 21.66814006722222,
+        "url": "https://www.nrl.com/news/2026/08/18/roosters-v-wests-tigers-teddy-returns-doueihi-set-for-surgery/"
+      },
+      {
+        "title": "24 Hour Update | Round 25 v Tigers - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T05:58:00+00:00",
+        "age_hours": 21.914806733888888,
+        "url": "https://www.roosters.com.au/news/2026/08/22/nrl-teamlist--round-25-v-tigers/"
+      },
+      {
+        "title": "NRL Coach Media | Round 25 v Tigers - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T02:17:20+00:00",
+        "age_hours": 25.592584511666665,
+        "url": "https://www.roosters.com.au/news/2026/08/22/nrl-coach-media--round-25-v-tigers/"
+      },
+      {
+        "title": "Roosters v Wests Tigers: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:43:17+00:00",
+        "age_hours": 94.16008451166667,
+        "url": "https://www.nrl.com/news/2026/08/19/roosters-v-wests-tigers-round-25/"
+      },
+      {
+        "title": "Jersey Flegg Cup: Round 25 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T06:07:00+00:00",
+        "age_hours": 117.76480673388889,
+        "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers---jersey-flegg-cup-round-25/"
+      },
+      {
+        "title": "Roosters vs Wests Tigers - Round 25, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-16T21:10:45+00:00",
+        "age_hours": 150.7023067338889,
+        "url": "https://www.zerotackle.com/roosters-wests-tigers-round-25-2026-mc10396531-237057/"
+      },
+      {
+        "title": "NRL Round 25 team lists: Full squads + NRL Supercoach analysis - SC Playbook NRL",
+        "source": "scplaybook.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T06:26:31+00:00",
+        "age_hours": 117.4395289561111,
+        "url": "https://scplaybook.com.au/blog/2026/08/18/nrl-round-25-team-lists-full-squads-nrl-supercoach-analysis"
+      },
+      {
+        "title": "NRL Team List: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:57:35+00:00",
+        "age_hours": 117.92175117833332,
+        "url": "https://www.dragons.com.au/news/2026/08/18/nrl-team-list-round-25-vs.-bulldogs/"
+      },
+      {
+        "title": "NRL Late Mail: Round 25 v Titans",
+        "source": "sharks.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-18T03:53:16+00:00",
+        "age_hours": 119.99369562277778,
+        "url": "https://www.sharks.com.au/news/2026/08/23/nrl-late-mail-round-25-v-titans/"
+      },
+      {
+        "title": "Wests Tigers NRL Injury Report Round 25 - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T03:14:30+00:00",
+        "age_hours": 120.63980673388889,
+        "url": "https://www.weststigers.com.au/news/2026/08/18/wests-tigers-nrl-injury-report-round-25/"
+      },
+      {
+        "title": "NRL Final Team: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T08:05:00+00:00",
+        "age_hours": 19.79814006722222,
+        "url": "https://www.dragons.com.au/news/2026/08/22/nrl-team-update-round-25-vs2.-bulldogs/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T10:18:00+00:00",
+        "age_hours": 41.58147340055556,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb"
+      },
+      {
+        "title": "NRL Team Update: Round 25 vs. Bulldogs - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T09:32:00+00:00",
+        "age_hours": 42.348140067222225,
+        "url": "https://www.dragons.com.au/news/2026/08/21/nrl-team-update-round-25-vs.-bulldogs/"
+      },
+      {
+        "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:28:23+00:00",
+        "age_hours": 94.408417845,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The judgement fails to evaluate the top math signals favouring the Wests Tigers."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Tedesco's absence is in nrl_news, Ramsey's start is in google_news_rss, and the 22.5-point spread is in google_news_rss."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Judgement correctly describes Tedesco as missing, matching the source 'will miss a third straight game'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry, Elo, and points differential are correctly attributed to the Roosters' advantage."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 3 is sourced from research and cites nrl_news."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.83 is within the 0.50-0.85 range and justified by the statistical gap."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement relies on the dominant SHAP drivers (BT strength, Elo) rather than minor ones."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers for Wests Tigers ('5-game form: points for' and '3-game form: kicking metres') are not mentioned or alluded to."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.83
+  },
+  "reasoning": {
+    "summary": "The Roosters are dominant, sitting 3rd on the ladder with a five-game winning streak, while the Wests Tigers are 15th and have lost four straight. While the math model notes some minor drivers favoring the Tigers in 5-game points and 3-game kicking metres, these are low-weight signals (combined 5%) and are explicitly marked as conflicted, meaning the raw values actually favor the Roosters. With a massive Elo advantage and a 22.5-point market spread, the Roosters remain heavy favorites despite the absence of James Tedesco.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry and Elo rating advantages (combined contribution ~0.49), far outweighing the negligible and conflicted drivers favoring the Tigers."
+      },
+      {
+        "source": "scene",
+        "detail": "Stark contrast in standings and form: Roosters are 3rd (16-5) on a 5-game win streak, while Wests Tigers are 15th (7-14) on a 4-game losing streak."
+      },
+      {
+        "source": "research",
+        "detail": "James Tedesco is ruled out of the match due to an ankle injury, with Cody Ramsey starting at fullback (nrl_news)."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Roosters-v-Wests-Tigers/20260823T035224Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Roosters-v-Wests-Tigers/20260823T035224Z/summary.md"
+  }
+}

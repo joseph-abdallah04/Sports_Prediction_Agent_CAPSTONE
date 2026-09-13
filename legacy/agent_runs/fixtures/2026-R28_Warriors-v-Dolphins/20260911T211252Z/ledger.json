@@ -1,0 +1,1248 @@
+{
+  "schema_version": 2,
+  "run_id": "20260911T211252Z-7ce081d8",
+  "at_a_glance": {
+    "fixture": "Warriors v Dolphins",
+    "round": 28,
+    "kickoff": "2026-09-12T16:05:00+10:00",
+    "venue": "Go Media Stadium",
+    "predicted_winner": "Warriors",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.5858,
+    "model_prediction": "Home Win",
+    "research_items_kept": 17,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-11T21:12:52.881022+00:00",
+  "updated_at": "2026-09-11T21:23:41.229180+00:00",
+  "request": {
+    "home_team": "Warriors",
+    "away_team": "Dolphins",
+    "season": null,
+    "round_number": 28,
+    "force_refresh": true,
+    "user_question": "Who wins Warriors vs Dolphins?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Warriors",
+    "away_team": "Dolphins",
+    "confidence": 0.6,
+    "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins. The model's preference is driven by superior points differential and Pythagorean form, while the Warriors receive a boost from the return of forward Jackson Ford. Despite the Dolphins' seven-game winning streak, the Warriors' strong home record (10-2) and ladder advantage provide a slight edge.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model's strongest drivers are the ladder points differential per game (16% contribution) and Pythagorean form over the last 10 games (12% contribution), both favouring the Warriors."
+      },
+      {
+        "source": "research",
+        "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and maintain a dominant home record of 10-2."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 17,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 7
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 9
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 11
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Warriors vs Dolphins NRL round 28 preview",
+      "Warriors Dolphins NRL odds OR price OR favourite",
+      "Warriors Dolphins NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim 'Market odds ($1.55)' does not appear in any research body_excerpt; the closest mention is 'around a converted try favourite'."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Jackson Ford is described as returning, which matches the research stating he is 'set to return from a pectoral injury'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Ladder points differential per game is correctly attributed to the Warriors (home win)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 identifies the return of Jackson Ford from nrl_news."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is defensible for a close matchup between 2nd and 3rd placed teams both on winning streaks."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The most significant SHAP driver (16%) is the primary math factor used."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Pythagorean form (last 10)' (12%) and 'Elo rating advantage' (4%) for the Warriors, and 'all run metres' (4%) and 'points for' (4%) for the Dolphins are not addressed."
+        }
+      ],
+      "issues": [
+        "Hallucinated market odds of $1.55.",
+        "Omitted several top math drivers, most notably 'Pythagorean form (last 10)' (12%)."
+      ],
+      "instruction": "Please remove the hallucinated market price ($1.55) and evaluate the omitted math drivers, specifically 'Pythagorean form (last 10)', before re-outputting."
+    },
+    "instruction": "Please remove the hallucinated market price ($1.55) and evaluate the omitted math drivers, specifically 'Pythagorean form (last 10)', before re-outputting.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Warriors",
+      "away_team": "Dolphins",
+      "confidence": 0.6,
+      "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins at Go Media Stadium. While the Dolphins carry significant momentum with a seven-game winning streak, the Warriors possess a superior points differential and receive a boost from the return of forward Jackson Ford. Market odds ($1.55) align with a home victory.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model's strongest driver is the ladder points differential per game, contributing 16% toward a home win."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and have a strong home record of 10-2."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Warriors",
+      "away_team": "Dolphins",
+      "confidence": 0.6,
+      "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins. The model's preference is driven by superior points differential and Pythagorean form, while the Warriors receive a boost from the return of forward Jackson Ford. Despite the Dolphins' seven-game winning streak, the Warriors' strong home record (10-2) and ladder advantage provide a slight edge.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model's strongest drivers are the ladder points differential per game (16% contribution) and Pythagorean form over the last 10 games (12% contribution), both favouring the Warriors."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and maintain a dominant home record of 10-2."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Hallucinated market odds of $1.55.",
+      "Omitted several top math drivers, most notably 'Pythagorean form (last 10)' (12%)."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T21:13:30.807224+00:00",
+      "thinking": "*   Home Team: Warriors\n    *   Away Team: Dolphins\n    *   Round Number: 28\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Warriors).\n    *   Query 2: Away team availability (Dolphins).\n    *   Query 3: Fixture preview (Warriors vs Dolphins Round 28).\n    *   Query 4: Market prices (Warriors vs Dolphins odds).\n    *   Query 5: Specific angle (form, ladder, etc.). Since it's Round 28 (very late in the season), \"finals race\" or \"ladder stakes\" is the most relevant angle.\n\n    *   Q1: `Warriors NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Q2: `Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Q3: `Warriors vs Dolphins NRL round 28 preview`\n    *   Q4: `Warriors Dolphins NRL odds OR price OR favourite`\n    *   Q5: `Warriors Dolphins NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Warriors, Dolphins).\n    *   JSON format? Yes.",
+      "chars": 1049
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T21:18:23.295799+00:00",
+      "thinking": "Warriors (Home) vs. Dolphins (Away).\nQualifying Final (Finals Week 1).\nGo Media Stadium, Auckland.\n\n        *   Position: 2nd (Warriors) vs 3rd (Dolphins).\n        *   Wins: 18 (Warriors) vs 17 (Dolphins).\n        *   Points Diff per game: 12.92 (Warriors) vs 6.5 (Dolphins).\n        *   Recent Form: Both on 5-game winning streaks.\n        *   Home Record: Warriors 10-2.\n        *   Away Record: Dolphins 9-3.\n\n        *   Prediction: Home Win.\n        *   Probability: 0.5858.\n        *   Key Drivers (Home): Ladder points differential per game (16%), Pythagorean form (12%).\n        *   Key Drivers (Away): Penalty cluster rate (10%), run metres (4%), points for (4%).\n        *   Conflicts: Elo rating (raw favours away, model nets home), Penalty cluster rate (raw favours home, model nets away), Run metres (raw favours home, model nets away), Points for (raw favours home, model nets away), Errors (raw favours home, model nets away), Penalties conceded (raw favours home, model nets away).\n        *   Attribution Balance: Leans home (0.4577 vs 0.4396).\n\n        *   Warriors: Jackson Ford is returning from a pectoral injury (confirmed by `nrl_news` and `sportsnews.com.au`). He is in the team list (number 17).\n        *   Dolphins: First-ever finals appearance.\n        *   Head-to-head: Split 1-1 in 2026 (Warriors 20-18, Dolphins 26-24).\n        *   Market: `sportsnews.com.au` mentions odds of $1.55 (likely Warriors) and $8.75 (likely something else or a different market, but $1.55 suggests a clear favourite).\n\n    *   *Winner:* Warriors.\n    *   *Confidence:* The model is at 0.5858. The standings support the Warriors (2nd vs 3rd, better points diff). Home ground advantage at Go Media Stadium is significant. The return of Jackson Ford is a positive. However, the Dolphins are on a 7-game winning streak (per research) and the head-to-head is very close.\n    *   *Confidence Band:* 0.55-0.65. It's a modest edge. The standings and home ground are strong, but the Dolphins' momentum is high.\n    *   *Strongest reason to lose:* Dolphins' current 7-game winning streak and their ability to win close games (recent 26-24 win over Warriors).\n\n    *   *Summary:* Warriors enter as favorites at home with a superior points differential and the return of forward Jackson Ford. While the Dolphins carry immense momentum with a seven-game winning streak, the Warriors' home-ground advantage and ladder standing provide a modest edge. Market odds ($1.55) align with a Warriors victory.\n    *   *Key Factors:*\n        1.  Math: Ladder points differential per game (16% contribution).\n        2.  Research: Return of Jackson Ford from pectoral injury (`nrl_news`).\n        3.  Scene: Warriors' 2nd place standing vs Dolphins' 3rd (`standings`).\n    *   *Disagreements with math:* None significant; the model's lean matches the evidence.\n\n    *   Check SHAP drivers: \"Ladder points differential per game (+6.8 points)\" is the top driver.\n    *   Check research: Jackson Ford return is mentioned in `nrl_news` (\"gun forward Jackson Ford set to return\").\n    *   Check standings: Warriors (2nd) vs Dolphins (3rd).\n    *   Check market: $1.55 mentioned.\n    *   Check confidence: 0.60 (modest edge).",
+      "chars": 3203
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T21:22:19.946598+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are the top 2-3 drivers from *each* SHAP group addressed?\n\n- Home: Warriors (2nd)\n- Away: Dolphins (3rd)\n- Venue: Go Media Stadium\n- Weather: Fine\n\n- `favouring_Warriors_home_win`:\n    1. Ladder points differential per game (+6.8 points) - 16%\n    2. Pythagorean form (last 10) (+25% expected-win gap) - 12%\n    3. Elo rating advantage (-10 points) - 4%\n    4. 5-game workload: top3 tackle share (-0.01) - 2%\n    5. 5-game form: tackle breaks (+8.60) - 2%\n- `favouring_Dolphins_away_win`:\n    1. 5-game momentum: penalty cluster rate (-1.60) - 10%\n    2. 5-game form: all run metres (+2.40) - 4%\n    3. 5-game form: points for (+10.20) - 4%\n    4. 3-game form: errors (-2.00) - 3%\n    5. 5-game form: penalties conceded (-2.40) - 3%\n\n- Winner: Home (Warriors)\n- Confidence: 0.6\n- Summary: Mentions 2nd vs 3rd, Dolphins 7-game streak, Warriors superior points differential, Jackson Ford return, Market odds $1.55.\n- Key Factors:\n    1. Math: Ladder points differential per game (16%).\n    2. Research: Jackson Ford returning from pectoral injury (nrl_news).\n    3. Scene: Higher on ladder (2nd vs 3rd), home record 10-2.\n\n- Claim: \"second-placed side hosting the third-placed Dolphins\" -> Scene: `home: {position: 2}, away: {position: 3}`. (Pass)\n- Claim: \"Dolphins carry significant momentum with a seven-game winning streak\" -> Research: \"Dolphins head across the Tasman riding seven consecutive victories\" (Dolphins official website). (Pass)\n- Claim: \"Warriors possess a superior points differential\" -> Scene: `comparison: {points_difference_favours: \"Warriors\"}`. (Pass)\n- Claim: \"return of forward Jackson Ford\" -> Research: \"gun forward Jackson Ford set to return from a pectoral injury\" (nrl_news). (Pass)\n- Claim: \"Market odds ($1.55)\" -> Not in research body excerpts provided in the snippet. Let me check again.\n    - \"The market has New Zealand around a converted try favourite\" (Before You Bet).\n    - No specific price like \"$1.55\" is mentioned in any of the provided `body_excerpt` texts.\n    - Wait, let me re-read all excerpts.\n    - \"Before You Bet\" says \"converted try favourite\".\n    - \"sportsnews.com.au\" doesn't list odds.\n    - \"nrl_news\" doesn't list odds.\n    - \"google_news_rss\" doesn't list odds.\n    - The price \"$1.55\" is a hallucination. (Fail)\n\n- Jackson Ford is returning. Judgement says \"receive a boost from the return of forward Jackson Ford\". (Pass)\n\n- \"Ladder points differential per game\" is in `favouring_Warriors_home_win`. Judgement attributes it to home win. (Pass)\n\n- Weather is \"Fine\". Not mentioned as a key factor. (Pass)\n\n- Key factor 2 is sourced from research (Jackson Ford, nrl_news). (Pass)\n\n- Confidence is 0.6. Summary mentions Dolphins' 7-game streak as a counter-weight to Warriors' edge. 0.6 is within 0.50-0.85 and reasonable given the close match (2nd vs 3rd, both on streaks). (Pass)\n\n- Top driver (16%) is used. No minor drivers are treated as decisive. (Pass)\n\n- `favouring_Warriors_home_win` top drivers:\n    1. Ladder points differential per game (16%) - Mentioned.\n    2. Pythagorean form (12%) - Not mentioned.\n    3. Elo rating advantage (4%) - Not mentioned.\n- `favouring_Dolphins_away_win` top drivers:\n    1. 5-game momentum: penalty cluster rate (10%) - The summary mentions \"significant momentum with a seven-game winning streak\", which is a reasonable allusion to momentum drivers.\n    2. 5-game form: all run metres (4%) - Not mentioned.\n    3. 5-game form: points for (4%) - Not mentioned.\n- The judge skipped Pythagorean form (12%) and Elo (4%) for the home side, and the specific run metres/points for drivers for the away side.\n- Specifically, \"Pythagorean form (last 10)\" is a top-2 driver (12%) and is completely ignored. (Fail)\n\n- `sourced_claims`: Fail. Market odds $1.55 not in research.\n- `omitted_math_signals`: Fail. Pythagorean form (12%) is not addressed.\n\n- `sourced_claims`: \"Market odds ($1.55) align with a home victory.\" -> No mention of $1.55 in any body_excerpt.\n- `omitted_math_signals`: \"Pythagorean form (last 10) (+25% expected-win gap)\" is a top driver for Warriors but not mentioned.\n\nWait, let me double check the \"7-game winning streak\" for Dolphins.\nResearch: \"Dolphins head across the Tasman riding seven consecutive victories\" (Dolphins official website). Correct.\nResearch: \"Warriors carrying six consecutive wins\" (sportsnews.com.au).\nThe summary says \"Dolphins carry significant momentum with a seven-game winning streak\". This is sourced.\n\nCheck `omitted_math_signals` again.\nTop drivers for Warriors:\n1. Ladder points differential per game (16%) - Mentioned.\n2. Pythagorean form (12%) - NOT mentioned.\n3. Elo rating advantage (4%) - NOT mentioned.\nTop drivers for Dolphins:\n1. 5-game momentum: penalty cluster rate (10%) - Alluded to via \"significant momentum\".\n2. 5-game form: all run metres (4%) - NOT mentioned.\n3. 5-game form: points for (4%) - NOT mentioned.\n\nPythagorean form is 12%, which is significant. It must be addressed.\n\nOne more check on `sourced_claims`:\n\"Market odds ($1.55)\"\nSearching all excerpts...\n- \"The market has New Zealand around a converted try favourite\" (Before You Bet).\n- No $1.55.\n\nFinal check on `availability_direction`:\nJackson Ford is returning. Judgement says \"receive a boost from the return\". Correct.\n\nConfidence: 0.6. Justified? Yes, 2nd vs 3rd, both in form.\n\nDriver proportionality: 16% driver is the main one used. Correct.\n\nSummary of issues:\n1. Hallucinated odds ($1.55).\n2. Omitted math signal: Pythagorean form (12%).\n\nWait, the prompt says \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side).\"\nWarriors:\n1. Ladder points differential (16%) - OK.\n2. Pythagorean form (12%) - MISSING.\n3. Elo rating (4%) - MISSING.\nDolphins:\n1. 5-game momentum (10%) - OK (alluded to).\n2. 5-game form: all run metres (4%) - MISSING.\n3. 5-game form: points for (4%) - MISSING.\n\nI will flag Pythagorean form as the primary omission.\n\nOne detail: \"The Warriors are higher on the official ladder (2nd vs 3rd) and have a strong home record of 10-2.\"\nScene: `home: {position: 2, home_record: \"10 - 2\"}, away: {position: 3}`. Correct.\n\nFinal JSON construction.",
+      "chars": 6848
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T21:23:41.228254+00:00",
+      "thinking": "*   Winner: Warriors (Home)\n    *   Confidence: 0.60\n    *   Summary: Mentioned $1.55 odds (hallucinated), mentioned points differential, Jackson Ford return, and ladder position.\n    *   Key Factors: Math (points diff), Research (Jackson Ford), Scene (Ladder/Home record).\n\n    *   Hallucinated market odds of $1.55. (Looking at `market_mentions`, there are prices `$1.55` and `$8.75` in the `sportsnews.com.au` snippet, but the prompt says I hallucinated it? Wait, let me re-read the `market_mentions` block.\n        *   `market_mentions`: `{\"title\": \"New Zealand Warriors vs Dolphins Tips, Odds, Teams & Predictions...\", \"prices_found\": [\"$1.55\", \"$8.75\"], ...}`.\n        *   Actually, the prices *are* in the JSON. However, the verifier says I hallucinated them. I must follow the verifier's instruction to remove them, perhaps because the snippet doesn't explicitly state *who* is $1.55 (though it's implied to be the home team). To be safe and compliant with the verifier, I will remove the specific price.\n    *   Omitted top math drivers: 'Pythagorean form (last 10)' (12%).\n\n    *   `Pythagorean form (last 10)`: +25% expected-win gap, contribution 0.107 (12% of total). This strongly favours the Warriors.\n    *   `Elo rating advantage`: -10 points, contribution 0.039 (4%). Note: CONFLICT (raw value favours away, model nets home).\n    *   `5-game workload: top3 tackle share`: contribution 0.021 (2%).\n    *   `5-game form: tackle breaks`: contribution 0.019 (2%).\n    *   Dolphins drivers: Penalty cluster rate (10%), run metres (4%), points for (4%), errors (3%), penalties conceded (3%). Note: Most of these are CONFLICTS (raw value favours home, model nets away).\n\n    *   Winner: Warriors (Home).\n    *   Confidence: 0.60. (The match is very close: 2nd vs 3rd, both on winning streaks, previous meetings decided by 2-4 points. 0.60 is appropriate for a modest edge).\n    *   Summary: Remove $1.55. Incorporate Pythagorean form.\n    *   Key Factors:\n        1.  Math: Ladder points differential (16%) and Pythagorean form (12%).\n        2.  Research: Jackson Ford return (nrl_news).\n        3.  Scene: Ladder position (2nd vs 3rd) and home record (10-2).\n\n    *   Check `attribution_balance`: Home (0.4577) vs Away (0.4396). Net is very small (0.0181). This confirms the \"modest edge\" and justifies the 0.60 confidence.\n    *   Check `standings`: Warriors (2nd, 18-6), Dolphins (3rd, 17-7).\n    *   Check `research`: Jackson Ford is returning (nrl_news).\n\n    *   Winner: home\n    *   Confidence: 0.60\n    *   Summary: Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins. The model's preference is driven by superior points differential and Pythagorean form, while the Warriors receive a boost from the return of forward Jackson Ford.\n    *   Key Factors:\n        *   Math: Ladder points differential (16%) and Pythagorean form (12%).\n        *   Research: Jackson Ford's return from pectoral injury (nrl_news).\n        *   Scene: Official ladder position (2nd vs 3rd) and strong home record (10-2).",
+      "chars": 3051
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T21:13:30.812715+00:00",
+      "payload": {
+        "queries": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Warriors vs Dolphins NRL round 28 preview",
+          "Warriors Dolphins NRL odds OR price OR favourite",
+          "Warriors Dolphins NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T21:18:23.295916+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "confidence": 0.6,
+          "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins at Go Media Stadium. While the Dolphins carry significant momentum with a seven-game winning streak, the Warriors possess a superior points differential and receive a boost from the return of forward Jackson Ford. Market odds ($1.55) align with a home victory.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model's strongest driver is the ladder points differential per game, contributing 16% toward a home win."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and have a strong home record of 10-2."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T21:22:19.946976+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim 'Market odds ($1.55)' does not appear in any research body_excerpt; the closest mention is 'around a converted try favourite'."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Jackson Ford is described as returning, which matches the research stating he is 'set to return from a pectoral injury'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Ladder points differential per game is correctly attributed to the Warriors (home win)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 identifies the return of Jackson Ford from nrl_news."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is defensible for a close matchup between 2nd and 3rd placed teams both on winning streaks."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The most significant SHAP driver (16%) is the primary math factor used."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Pythagorean form (last 10)' (12%) and 'Elo rating advantage' (4%) for the Warriors, and 'all run metres' (4%) and 'points for' (4%) for the Dolphins are not addressed."
+            }
+          ],
+          "issues": [
+            "Hallucinated market odds of $1.55.",
+            "Omitted several top math drivers, most notably 'Pythagorean form (last 10)' (12%)."
+          ],
+          "instruction": "Please remove the hallucinated market price ($1.55) and evaluate the omitted math drivers, specifically 'Pythagorean form (last 10)', before re-outputting."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T21:23:41.228786+00:00",
+      "payload": {
+        "issues": [
+          "Hallucinated market odds of $1.55.",
+          "Omitted several top math drivers, most notably 'Pythagorean form (last 10)' (12%)."
+        ],
+        "instruction": "Please remove the hallucinated market price ($1.55) and evaluate the omitted math drivers, specifically 'Pythagorean form (last 10)', before re-outputting.",
+        "before": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "confidence": 0.6,
+          "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins at Go Media Stadium. While the Dolphins carry significant momentum with a seven-game winning streak, the Warriors possess a superior points differential and receive a boost from the return of forward Jackson Ford. Market odds ($1.55) align with a home victory.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model's strongest driver is the ladder points differential per game, contributing 16% toward a home win."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and have a strong home record of 10-2."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "confidence": 0.6,
+          "summary": "The Warriors hold a modest edge as the second-placed side hosting the third-placed Dolphins. The model's preference is driven by superior points differential and Pythagorean form, while the Warriors receive a boost from the return of forward Jackson Ford. Despite the Dolphins' seven-game winning streak, the Warriors' strong home record (10-2) and ladder advantage provide a slight edge.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model's strongest drivers are the ladder points differential per game (16% contribution) and Pythagorean form over the last 10 games (12% contribution), both favouring the Warriors."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a significant boost with gun forward Jackson Ford returning from a pectoral injury (nrl_news)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors are higher on the official ladder (2nd vs 3rd) and maintain a dominant home record of 10-2."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "477136361641",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-11T21:12:52.881169+00:00",
+      "finished_at": "2026-09-11T21:12:56.330757+00:00",
+      "duration_ms": 3449,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Dolphins",
+        "season": null,
+        "round_number": 28,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "season": null,
+          "round_number": 28
+        },
+        "retrieved_at": "2026-09-11T21:12:52.881247+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 28,
+          "round_title": "Finals Week 1",
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "kickoff": "2026-09-12T16:05:00+10:00",
+          "venue": "Go Media Stadium",
+          "venue_city": "Auckland",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/warriors-v-dolphins/",
+          "match_mode": "Pre",
+          "match_id": "20261112820",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Taine Tuaupiki",
+                "position": "Fullback",
+                "player_id": 508254
+              },
+              {
+                "number": 2,
+                "name": "Charnze Nicoll-Klokstad",
+                "position": "Winger",
+                "player_id": 501559
+              },
+              {
+                "number": 3,
+                "name": "Ali Leiataua",
+                "position": "Centre",
+                "player_id": 100006296
+              },
+              {
+                "number": 4,
+                "name": "Leka Halasima",
+                "position": "Centre",
+                "player_id": 100013674
+              },
+              {
+                "number": 5,
+                "name": "Alofiana Khan-Pereira",
+                "position": "Winger",
+                "player_id": 100001619
+              },
+              {
+                "number": 6,
+                "name": "Chanel Harris-Tavita",
+                "position": "Five-Eighth",
+                "player_id": 506851
+              },
+              {
+                "number": 7,
+                "name": "Te Maire Martin",
+                "position": "Halfback",
+                "player_id": 501293
+              },
+              {
+                "number": 8,
+                "name": "James Fisher-Harris",
+                "position": "Prop",
+                "player_id": 502580
+              },
+              {
+                "number": 9,
+                "name": "Wayde Egan",
+                "position": "Hooker",
+                "player_id": 504123
+              },
+              {
+                "number": 10,
+                "name": "Mitchell Barnett",
+                "position": "Prop",
+                "player_id": 501267
+              },
+              {
+                "number": 11,
+                "name": "Kurt Capewell",
+                "position": "2nd Row",
+                "player_id": 500992
+              },
+              {
+                "number": 12,
+                "name": "Jacob Laban",
+                "position": "2nd Row",
+                "player_id": 100012134
+              },
+              {
+                "number": 13,
+                "name": "Erin Clark",
+                "position": "Lock",
+                "player_id": 503685
+              },
+              {
+                "number": 14,
+                "name": "Sam Healey",
+                "position": "Interchange",
+                "player_id": 509563
+              },
+              {
+                "number": 15,
+                "name": "Tanner Stowers-Smith",
+                "position": "Interchange",
+                "player_id": 100013671
+              },
+              {
+                "number": 16,
+                "name": "Demitric Vaimauga",
+                "position": "Interchange",
+                "player_id": 100013336
+              },
+              {
+                "number": 17,
+                "name": "Jackson Ford",
+                "position": "Interchange",
+                "player_id": 505423
+              },
+              {
+                "number": 18,
+                "name": "Eddie Ieremia-Toeava",
+                "position": "Interchange",
+                "player_id": 100015584
+              },
+              {
+                "number": 20,
+                "name": "Adam Pompey",
+                "position": "Interchange",
+                "player_id": 508026
+              },
+              {
+                "number": 21,
+                "name": "Jett Cleary",
+                "position": "Reserve",
+                "player_id": 100006760
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Hamiso Tabuai-Fidow",
+                "position": "Fullback",
+                "player_id": 100001936
+              },
+              {
+                "number": 2,
+                "name": "Jamayne Isaako",
+                "position": "Winger",
+                "player_id": 502014
+              },
+              {
+                "number": 3,
+                "name": "Jack Bostock",
+                "position": "Centre",
+                "player_id": 100007515
+              },
+              {
+                "number": 4,
+                "name": "Herbie Farnworth",
+                "position": "Centre",
+                "player_id": 508300
+              },
+              {
+                "number": 5,
+                "name": "Selwyn Cobbo",
+                "position": "Winger",
+                "player_id": 100004649
+              },
+              {
+                "number": 6,
+                "name": "Kodi Nikorima",
+                "position": "Five-Eighth",
+                "player_id": 500265
+              },
+              {
+                "number": 7,
+                "name": "Isaiya Katoa",
+                "position": "Halfback",
+                "player_id": 100006258
+              },
+              {
+                "number": 8,
+                "name": "Thomas Flegler",
+                "position": "Prop",
+                "player_id": 504315
+              },
+              {
+                "number": 9,
+                "name": "Jeremy Marshall-King",
+                "position": "Hooker",
+                "player_id": 502511
+              },
+              {
+                "number": 10,
+                "name": "Tom Gilbert",
+                "position": "Prop",
+                "player_id": 506156
+              },
+              {
+                "number": 11,
+                "name": "Max Plath",
+                "position": "2nd Row",
+                "player_id": 100002172
+              },
+              {
+                "number": 12,
+                "name": "Kulikefu Finefeuiaki",
+                "position": "2nd Row",
+                "player_id": 100007811
+              },
+              {
+                "number": 13,
+                "name": "Morgan Knowles",
+                "position": "Lock",
+                "player_id": 505736
+              },
+              {
+                "number": 14,
+                "name": "Kurt Donoghoe",
+                "position": "Interchange",
+                "player_id": 100005899
+              },
+              {
+                "number": 15,
+                "name": "Ray Stone",
+                "position": "Interchange",
+                "player_id": 503964
+              },
+              {
+                "number": 16,
+                "name": "Francis Molo",
+                "position": "Interchange",
+                "player_id": 500264
+              },
+              {
+                "number": 17,
+                "name": "Connelly Lemuelu",
+                "position": "Interchange",
+                "player_id": 507949
+              },
+              {
+                "number": 18,
+                "name": "Felise Kaufusi",
+                "position": "Interchange",
+                "player_id": 500598
+              },
+              {
+                "number": 19,
+                "name": "Bradley Schneider",
+                "position": "Interchange",
+                "player_id": 100002660
+              },
+              {
+                "number": 22,
+                "name": "Tevita Naufahu",
+                "position": "Reserve",
+                "player_id": 100017017
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 28,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Warriors",
+            "position": 2,
+            "played": 24,
+            "wins": 18,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 42,
+            "points_for": 728,
+            "points_against": 418,
+            "points_difference": 310,
+            "points_difference_per_game": 12.92,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "10 - 2",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Dolphins",
+            "position": 3,
+            "played": 24,
+            "wins": 17,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 40,
+            "points_for": 662,
+            "points_against": 506,
+            "points_difference": 156,
+            "points_difference_per_game": 6.5,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "8 - 4",
+            "away_record": "9 - 3"
+          },
+          "comparison": {
+            "higher_on_ladder": "Warriors",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": 6.42,
+            "points_difference_favours": "Warriors"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-12T16:00",
+            "temperature_c": 13.0,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 19.0,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -36.916,
+            "longitude": 174.812,
+            "venue": "Go Media Stadium",
+            "venue_city": "Auckland"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-36.916&longitude=174.812&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-11T21:12:56.326888+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=28&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/warriors-v-dolphins/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-36.916&longitude=174.812&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "e3c2fb88e2b6",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-11T21:13:30.823890+00:00",
+      "finished_at": "2026-09-11T21:15:09.628704+00:00",
+      "duration_ms": 98804,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Dolphins",
+        "kickoff": "2026-09-12T16:05:00+10:00",
+        "round_number": 28,
+        "venue": "Go Media Stadium",
+        "queries": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Warriors vs Dolphins NRL round 28 preview",
+          "Warriors Dolphins NRL odds OR price OR favourite",
+          "Warriors Dolphins NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "kickoff": "2026-09-12T16:05:00+10:00",
+          "round_number": 28,
+          "venue": "Go Media Stadium",
+          "queries": [
+            "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Warriors vs Dolphins NRL round 28 preview",
+            "Warriors Dolphins NRL odds OR price OR favourite",
+            "Warriors Dolphins NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-11T21:13:30.840423+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 11
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 9
+          }
+        },
+        "items": [
+          {
+            "id": "10aa4a9389e3625d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Our biggest motivation': Top four sides out to follow proven path to premiership",
+            "url": "https://www.nrl.com/news/2026/09/11/our-biggest-motivation-top-four-sides-out-to-follow-proven-path-to-premiership/",
+            "published_at": "2026-09-11T06:38:53+00:00",
+            "snippet": "'Our biggest motivation': Top four sides out to follow proven path to premiership\nThe prospect of a Suncorp Stadium preliminary final is driving the Dolphins as they look to take a big step towards a maiden NRL premiership.\nKristian Woolf's men will travel to Auckland to play the",
+            "body_excerpt": "'Our biggest motivation': Top four sides out to follow proven path to premiership\nThe prospect of a Suncorp Stadium preliminary final is driving the Dolphins as they look to take a big step towards a maiden NRL premiership.\nKristian Woolf's men will travel to Auckland to play the first final in the club's history on Saturday afternoon and they are determined to ensure it's the last time they hit the road before the grand final.\nIt's the same path the Broncos took to last year's decider, Reece Walsh inspiring a stunning comeback over the Raiders before a thrilling preliminary final victory over the Panthers at a sold-out Suncorp Stadium.\nWarriors v Dolphins: Finals Week 1\nHistory shows teams that win a qualifying final in the opening week of the post-season have a much greater chance of playing in the grand final and Dolphins captain Tom Gilbert said his side is determined to swing the odds in their favour this weekend.\n\"To have the chance to play a preliminary final at our home stadium is our biggest motivation,\" Gilbert told NRL.com. \"It's the same for them, they'll want that as well so there's a lot of motivation there for both sides.\n\"If we think too far ahead we won't get this weekend right so we're looking forward to the opportunity and challenges that comes with playing in New Zealand and we're going to try enjoy the week.\"\nThe top four sides will do battle on either side of the Tasman this weekend, with a week off and a place in the preliminary final on the line.\nThe Warriors will host the Dolphins at Go Media Stadium on Saturday afternoon before the Panthers take on the Roosters in a CommBank Stadium blockbuster on Sunday.\nGilbert's blessing in disguise\nThe winners will enjoy a rest while the losers will be thrust into a sudden-death semi-final against the two elimination final winners next weekend.\nStatistics provided by rugby league historian David Middleton reveal just how important a win is this week for the four teams contesting qualifying finals.\nIn every season since the NRL introduced the current finals format in 2012 at least one qualifying final winner has gone on to play in the grand final.\nOn the flipside, just four top four teams have lost in week one and recovered to progress to the decider.\nThe 2015 Cowboys and 2021 Panthers are the only two sides to lose a qualifying final before reeling off three-straight victories to claim the premiership.\nWhile they did it the hard way in 2021, Penrith took the more direct route in 2022, 2023 and 2024 by winning in week one and enjoying a week off before the preliminary final.\nPanthers v Roosters: Finals Week 1\nHaving experienced both paths, veteran forward Scott Sorensen said it's crucial his side opens their finals campaign with a win.\n\"I'm not going to deny how important it is to start the finals on the front foot and perform well,\" Sorensen said. \"You build confidence in that and then have the luxury of a week off to freshen up.\n\"If we have to do it the hard way or the easy way, we're just as prepared.\n\"It is tougher if you have to go out there and play for another 80 minutes but at the end of the day, if you lose and want to get there, that's the way you've got to go. You've got to accept it, move on and be excited for the occasion.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Tickets are selling fast. Click here to secure your seats today.\nRelated /\nWarriors v Dolphins: Ford set to motor; Big Three return\nFinals\nCulture key to Dolphins success\nWins that defined a season for the eight title contenders\nWebster: 'Everyone's really level-headed, grounded'\nMatch Preview",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.577177895277778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Walker goes down with calf injury",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-09-11T10:46:41+00:00",
+            "snippet": "NRL Casualty Ward: Walker goes down with calf injury\nThe Rabbitohs' have been dealt a body blow at Allianz Stadium on Friday night with spiritual leader Cody Walker suffering a calf injury.\nWalker collapsed to the turf with no one around him in the 31st minute and immediately sig",
+            "body_excerpt": "NRL Casualty Ward: Walker goes down with calf injury\nThe Rabbitohs' have been dealt a body blow at Allianz Stadium on Friday night with spiritual leader Cody Walker suffering a calf injury.\nWalker collapsed to the turf with no one around him in the 31st minute and immediately signalled to the bench that he was in trouble.\nThe 36-year-old felt for his calf and hobbled to the sideline where he was visibly distressed as the reality set in that his season looks over.\nWalker sat on the bench for the second half with ice on his calf and carrying a crutch.\nThe Warriors have received a huge boost ahead of their qualifying final against the Dolphins with gun forward Jackson Ford set to return from a pectoral injury.\nAfter making a dynamic start to the season in which he averaged 161 run metres and 41 tackles per game, Ford suffered the injury in Round 16 against the Cowboys and initial fears were he could miss the rest of the year.\nFord has been named on the bench for the blockbuster Go Media Stadium showdown against the Dolphins, who get Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) back for their first ever final.\nNikorima and Finefeuiaki were given last week off to get over niggling injuries ahead of the finals.\nThe Roosters also have a star forward returning for their qualifying final against Penrith with Angus Crichton back after 11 games out with a foot injury.\nAlso back on deck at the Roosters are Victor Radley (concussion) and a posse of stars who were rested in Round 27 including James Tedesco , Daly Cherry-Evans and Rob Toia .\nThe Rabbitohs have Tallis Duncan back from a hamstring injury but will be without veteran back-rower Euan Aitken for the rest of the season after he fractured his scapula in the win over the Roosters.\nThe injury is a cruel blow for 31-year-old Aitken, who was on the verge of playing in just the second finals match of his 223-game career.\nAitken's only finals appearance came with the Dragons in his debut season in 2015.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nSouth Sydney's elimination final opponents Newcastle paid a heavy price for their loss to the Warriors in Round 26 with prop Trey Mooney out for the rest of the season with a fractured shoulder blade while prop Jacob Saifiti copped a season-ending four-game ban for a Reckless High Tackle.\nEdge forward Francis Manuleleua suffered a dislocated elbow against the Warriors but scans confirmed he had no fractures to his arm and he has been named to face Souths.\nCowboys trio Zac Laybutt (concussion), Griffin Neame (toe) and Jeremiah Nanai (knee) all return after missing the loss to Canberra in Round 27 but Murray Taulagi remains sidelined with ongoing concussion issues.\nStorm winger Siulagi Tuimalatu-Brown was taken to hospital as a precaution after he was stretchered from Ocean Protect Stadium last Saturday night.\nThe game was just five minutes old when Tuimalatu-Brown was taken low by Cam McInnes and Michael Gabrael over the top, with the Sharks debutant making high contact.\nIn an update on Sunday morning , the Storm said initial assessments indicate the youngster does not have a severe spinal injury but he will undergo further testing due to numbness in his arm.\n\"Siulagi was admitted to hospital overnight after concerns for a neck injury,\" the statement said. \"There was no severe spinal injury on initial assessment but he will undergo further scans today due to concerns for some ongoing numbness to the arm.\"\nThe Storm also lost halfback Jahrome Hughes to a hamstring injury late in the first half after he was twisted awkwardly while trying to clean up a loose ball.\nHughes will be sent for scans and faces a nervous wait for the results with the Kiwis' World Cup opener just six weeks away.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL C",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 10.447177895277779,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c828f71ba1bd1b37",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 1 - Sharks lose Puru",
+            "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/",
+            "published_at": "2026-09-11T10:05:17+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 1 - Sharks lose Puru\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 match",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 1 - Sharks lose Puru\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 matches before suffering a pectoral injury in Round 16 while Crichton was part of Trent Robinson's starting side in his 13 matches before succumbing to a foot injury.\nA host of big-name stars return after being rested in Round 27, including Sharks quartet Nicho Hynes , Blayke Brailey , KL Iro and Teig Wilton , while playmaker Braydon Trindall is back after two games out with a shoulder injury but utility Hohepa Puru is a late withdrawal due to illness.\nSee all the late mail, official team news and updates for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 1\nWarriors v Dolphins, Saturday 4.05pm (AEST), 6.05pm (local time) at Go Media Stadium\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Warriors is number 17 Jackson Ford 17 Interchange for Dolphins is number 17 Connelly Lemuelu\n17\nInterchange for Warriors is number 18 Eddie Ieremia-Toeava 18 Interchange for Dolphins is number 18 Felise Kaufusi\n18\nInterchange for Warriors is number 20 Adam Pompey 20 19 Interchange for Dolphins is number 19 Bradley Schneider\n20 19\nReserves\nReserve for Warriors is number 21 Jett Cleary 21 22 Reserve for Dolphins is number 22 Tevita Naufahu\n21 22\nWarriors Ins\nJackson Ford\nKurt Capewell\nLeka Halasima\nWayde Egan\nDolphins Ins\nKodi Nikorima\nKulikefu Finefeuiaki\nSelwyn Cobbo\nWarriors Outs\nJye Linnane\nMakaia Tafua\nMorgan Gannon\nBrian Pouniu\nJake Averillo\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 6:04:02 AM\nWarriors: A huge in for the Wahs with Jackson Ford named for his first game since suffering a pectoral injury against the Cowboys in Round 16. Ford is listed on the bench but could be called into the starting side closer to game day. Centre Leka Halasima is back from an ankle injury while rested duo Wayde Egan and Kurt Capewell also return. Sam Healey, Adam Pompey and Eddie Ieremia-Toeava revert to",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 11.137177895277778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "74cd576bb28d03b3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Match Preview Warriors v Dolphins: Ford set to motor; Big Three return",
+            "url": "https://www.nrl.com/news/2026/09/08/warriors-v-dolphins-ford-set-to-motor-big-three-return/",
+            "published_at": "2026-09-11T06:09:51+00:00",
+            "snippet": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch",
+            "body_excerpt": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch and expectation growing that the club's first ever premiership could be just three wins away, the Dolphins are heading into an intimidating atmosphere that will test their mental and physical resolve.\nCoach Kristian Woolf is sure to have his men primed for their first finals match and the Phins have bragging rights over the Wahs courtesy of a 26-24 triumph in Round 17 at Suncorp Stadium.\nThe battle in the middle is set to rock the foundations of Go Media as James Fisher-Harris, Erin Clark and Mitch Barnett defend their turf against Tom Flegler, Max Plath and Tom Gilbert.\nThe prize for the winner is a week off to recharge the batteries before a preliminary final in front of a heaving home crowd daring to dream of a maiden premiership.\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nWarriors: A huge in for the Wahs on the bench with Jackson Ford named for his first game since suffering a pectoral injury against the Cowboys in Round 16. Centre Leka Halasima is back from an ankle injury while rested duo Wayde Egan and Kurt Capewell also return for the qualifying final. Sam Healey, Adam Pompey and Eddie Ieremia-Toeava revert to the six-man interchange while Jett Cleary is the reserve. Tryscoring machine Dallin Watene-Zelezniak remains sidelined with a collarbone injury. No changes in Friday's 24-hour update.\nDolphins: The Phins are at full strength for their first ever finals match with winger Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) all back on deck after being given last week off to rest up and overcome niggling injuries. Tevita Naufahu remained in the squad as the reserve when it was trimmed on Friday.\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Warriors is number 17 Jackson Ford 17 Interchange for Dolphins is number 17 Connelly Lemuelu\n17\nInterchange for Warriors is number 18 Eddie Ieremia-Toea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.061066784166668,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "cf4268478d22b005",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Finals Week 1",
+            "url": "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+            "published_at": "2026-09-08T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knigh",
+            "body_excerpt": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Knights is number 2 Dominic Young\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Knights is number 3 Dane Gagai\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Knights is number 4 Bradman Best\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Rabbitohs is number 12 Tallis Duncan 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 Interchange for Knights is number 17 Thomas Cant\n17\nReserve for Rabbitohs is number 18 Adam Elliott 18 Reserve for Knights is number 18 Fletcher Hunt\n18\nReserve for Rabbitohs is number 19 Latrell Siegwalt 19 Reserve for Knights is number 19 Toby Winter\n19\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 1:40:32 PM\nRabbitohs: Gun back-rower Tallis Duncan returns after sitting out the Roosters game due to hamstring tightness so Adam Elliott reverts to the bench and fills the void left by Euan Aitken (scapula). After being an unused reserve last week, Matt Dufty has won back the No.1 jersey from Jye Gray, who goes to the bench.\nKnights: Winger Dom Young and back-rower Tyson Frizell return from suspension while hooker Phoenix Crossland (knee) is also back to bolster Justin Holbrook's squad for the sudden-death showdown. A massive boost in the pack with edge forward Francis Manuleleua named to play despite dislocating his elbow just a fortnight ago against the Warriors. The season-ending shoulder injury to Trey Mooney brings Cody Hopwood into the starting side at prop. Fletcher Hunt and Harrison Graham slide to bench after starting in Round 26.\nWarriors v Dolphins, Saturday 4.05pm (AEST), 6.05pm (local time) at Go Media Stadium\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nWarriors\nDolphins\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Ei",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 87.2419001175,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "4e37945b7daadf7b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-finals-2026-week-1-team-news-injuries-changes-late-mail-who-is-in-and-out/news-story/19748a07cd154a6af4a7810773fdcf09",
+            "published_at": "2026-09-11T08:24:27+00:00",
+            "snippet": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail\nSome big names are firming to make their returns for week one of the NRL Finals, but there could still be late changes for this weekend’s blockbuster battles.\nIt comes as Wayne Bennett moved to ease the pressure on superstar Latrell Mitchell ahead of Souths’ do-or-die clash with Newcastle tonight.\nRead below for Finals Week 1 team news and Late Mail!\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nFRIDAY SEPTEMBER 11\nSouth Sydney Rabbitohs vs Newcastle Knights @ Allianz Stadium, 7:50pm AEST\nRabbitohs Team: 1. Matthew Dufty 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Tallis Duncan 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott 19. Latrell Siegwalt\nPlayers cut: 20. Liam Le Blanc 22. Peter Mamouzelos, 21. Talanoa Penitani\nLate Mail: Tallis Duncan (hamstring) is ready to start after being rested last week, returning in the backrow in place of Euan Aitken (shoulder) who is out for the rest of the season. In-form Matthew Dufty returns to fullback ahead of Jye Gray with Wayne Bennett declaring on Thursday “he is our best option there”. Bennett has also lowered expectations around Latrell Mitchell , who plays just his third game back from a worrying nerve problem with his back. “He hasn’t played a lot of football in the last couple of months so my expectations are not high,” Bennett said. “I just want him to have the presence that he has, and he’ll have that. That’s all I’m asking for, nothing special.”\nKnights Team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Thomas Cant 18. Fletcher Hunt 19. Toby Winter\nPlayers cut: 20. Kyle McCarthy 21. Elijah Leaumoana 22. Diesel Hagan\nLate Mail: In a big boost Francis Manuleleua (elbow) is set to return from a gruesome dislocation with coach Justin Holbrook indicating both he and Phoenix Crossland (knee) will be fit to start as named. “They’re tracking really good. We’re expecting to be 1-19 which is excellent,” Holbrook said on Thursday. “Obviously we’ve had the bye which has given them a bit of time to get right and they should be good to go.” Dominic Young and Tyson Frizell both return from suspension in a welcome boost for the Knights, who lost prop Trey Mooney to a season ending scapula injury in Round 26.\nREAD MORE NRL\nHOLBROOK: Inside coach’s rise from scrapheap to finals... and why some saw it coming\nKENNY: Inside the mind and ‘shock’ rise of Penrith’s underdog... and Cleary reveal that stunned\nWHISPERS: Dolphins’ $1.4m battle to retain superstar flyer emerges in 15-player free agency headache\nSATURDAY SEPTEMBER 12\nNew Zealand Warriors vs Dolphins @ Go Media Stadium, 4:05pm AEST\nWarriors Team: 1. Taine Tuaupiki 2. Charnze Nicoll-Klokstad 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Jackson Ford 18. Eddie Ieremia-Toeava 20. Adam Pompey 21. Jett Cleary 22. Luke Laulilii 23. Makaia Tafua\nPlayers cut:\nLate Mail: Jackson Ford (pectoral) appears cleared to make his long-awaited comeback off the bench with Warriors coach Andrew Webster on Friday telling New Zealand radio station Newstalk ZB it was a “welcome return” for the injury-ravaged side. Webster also revealled Dallin Watene-Zelezniak (c",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 12.817733450833334,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "2a6677d197fedede",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors v Dolphins NRL qualifying final: Kick-off time, team list, injuries - everything to know - RNZ",
+            "url": "https://www.rnz.co.nz/news/sport/1335854/warriors-v-dolphins-nrl-qualifying-final-kick-off-time-team-list-injuries-everything-to-know",
+            "published_at": "2026-09-11T01:21:54+00:00",
+            "snippet": "Warriors v Dolphins NRL qualifying final: Kick-off time, team list, injuries - everything to know &nbsp;&nbsp; RNZ",
+            "body_excerpt": "Warriors v Dolphins NRL qualifying final: Kick-off time, team list, injuries - everything to know\nCaption: Taine Tuaupiki Photo credit: Hannah Peters\nNRL qualifying final: Warriors v Dolphins\nKick-off 6pm Saturday,12 September\nGo Media Mt Smart Stadium, Auckland\nLive blog updates on RNZ.co.nz\nWhile a minor premiership would have been a \"cool slice of history\" for the Warriors, star Charnze Nicoll-Klokstad says the team's focus is firmly on \"the big one\" in four weeks.\nA top four finish has given the Warriors a massive advantage as they kick off their finals campaign against the Redcliffe Dolphins at Go Media Mt Smart Stadium on Saturday - with home field advantage and essentially an extra life in the first week of the NRL finals series.\n\"It starts this weekend against a really strong, in-form Dolphins side - we'll focus on that job first and we'll see how we go,\" Nicoll-Klokstad said.\nWith only two points separating the sides in their prior two meetings this season, he conceded the team will need to be \"on\" for the full 80 minutes.\n\"They've got strike weapons left, right and centre,\" he said. \"They've got speed and Hammer [Hamiso Tabuai-Fidow] at the back.\"\nThe competition's dark horses - the Dolphins - will certainly be no easy task for the Warriors, who aren't looking to reinvent themselves.\nBoth teams have been split down the middle in their short history with five wins and five losses each - and the last seven games between the clubs having been decided by four points or less.\nTaine Tuaupiki - who will play at fullback this weekend - said the squad is \"doubling down on the simple things\" and looking to its leaders who have been through the finals pressure before.\n\"We've got a young squad, a lot of us haven't played finals footy before, so when the leaders speak, you listen, because they know what's happening,\" Tuaupiki said.\nThe Warriors have also shown throughout the season they can find a way to win tight games, something Tuaupiki believes could prove just as important as putting together a dominant performance.\n\"If we're in a final, if we win this week, by one point, no one's going to be saying anything about their defence. All you're going to know is we won,\" he said.\n\"So at the end of the day, that's what we need to do, we just need a win.\"\nThe winners of the qualifying finals this weekend will get to leapfrog the next week of the playoffs and get a week off to rest moving straight through to the preliminary finals.\nThe losers get a lifeline - a second chance - and they play the two winners of the Elimination finals from week one next weekend.\nRNZ / LIAM K. SWIGGS\nHere's everything to know ahead of Warriors v Dolphins:\nHistory\nAs the Dolphins enter their first ever finals series in the club's third year in the NRL, they are shaping up to be one of the Warriors' most formidable rivals.\nThe last seven consecutive meetings dating back to May 2024 have all proved to be absolute blockbusters between the two sides - ending in no less than four-point margins every time.\nTheir last meeting - in round 17 at Suncorp Stadium - ended in heartbreak when a last-minute Dolphins try sealed the victory 26-24 in one of the games of the season.\nBut that's not to say the Warriors themselves haven't got the job done before - coming back from a 14-18 half-time deficit in round 8, stealing a victory of their own 20-18 in front of a rare sellout Wellington crowd.\nForm\nRecent form doesn't indicate much going into Saturday's game with very little separating the two sides.\nThe Warriors enter week one of the Finals series off the back of a strong six-game winning streak, most recently taking down the Manly Sea Eagles 31-30 with a Chanel Harris-Tavita field goal.\nMeanwhile, the Dolphins boast an ever more impressive seven-game winning streak heading into Saturday - even if it only includes one top eight scalp compared to the Warriors three.\nWarrior Sam Healey celebrates after scoring a try during the round 17 NRL match Bradley Kanaris\nWarrior Sam",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.860233450833334,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "cdfee524ffa70e5b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Sharks v Dragons: Ravics returns; Half-centruy for Ciesiolka",
+            "url": "https://www.nrl.com/news/2026/09/09/sharks-v-dragons-ravics-returns-half-centruy-for-ciesiolka/",
+            "published_at": "2026-09-11T07:13:52+00:00",
+            "snippet": "Presented By\nSharks v Dragons: Ravics returns; Half-centruy for Ciesiolka\nCronulla and St George Illawarra meet in a local derby with both teams aiming to finish 2026 on a high.\nThe Sharks were one of the stories of Round 10, travelling to Auckland and upsetting the Warriors 40-3",
+            "body_excerpt": "Presented By\nSharks v Dragons: Ravics returns; Half-centruy for Ciesiolka\nCronulla and St George Illawarra meet in a local derby with both teams aiming to finish 2026 on a high.\nThe Sharks were one of the stories of Round 10, travelling to Auckland and upsetting the Warriors 40-32 in their most dynamic attacking display of the season. Fullback Jada Taylor starred as Cronulla ran in seven tries.\nThe Dragons may have fallen 24-16 to Brisbane, but there was plenty to like about their effort. St George Illawarra enjoyed strong periods of possession and field position and remained in the contest until the closing stages.\nCronulla's challenge will be backing up their attacking breakthrough, while the Dragons will be looking to improve their efficiency after creating opportunities.\nWith little separating the sides and local bragging rights on the line, this is one of the most evenly matched games of the weekend.\nMatch: Sharks v Dragons\nRound 11 - Round 11 - Saturday 12 Sep\nhome Team\nSharks\n11th Position\naway Team\nDragons\n12th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nFoxtel\nNine Now\nKayo\nTeam News\nSharks: Georgia Ravics returns from a calf injury on the wing, having last played in Round 6. This pushes rookie Marewakiterangi Samson from the line-up. No other changes as the Sharks look to add to last week's win over the Warriors and finish on a high note. Tegan Dymock is 18th player.\nDragons: An unchanged line-up for the Red V with the only change to the squad seeing Nita Maynard-Perrin come in as 18th player in place of Jayme Millard. Taliah Fuimaono won't make her return from a shoulder injury after dropping out in Friday's 24-hour update along with Lavinia Kitai and Sara Sautia.\nTeam Lists\nBacks\nFullback for Sharks is number 1 Jada Taylor 1 Fullback for Dragons is number 1 Teagan Berry\nWinger for Sharks is number 2 Cassie Staples 2 Winger for Dragons is number 2 Maria Paseka\nCentre for Sharks is number 3 Tiana Penitani Gray 3 Centre for Dragons is number 3 Tyra Ekepati\nCentre for Sharks is number 4 Annessa Biddle 4 Centre for Dragons is number 4 Tahlia O'Brien\nWinger for Sharks is number 5 Georgia Ravics 5 Winger for Dragons is number 5 Shenae Ciesiolka\nFive-Eighth for Sharks is number 6 Madison Ashby 6 Five-Eighth for Dragons is number 6 Zali Hopkins\nHalfback for Sharks is number 7 Chantay Kiria-Ratu 7 Halfback for Dragons is number 7 Kasey Reh\nForwards\nProp for Sharks is number 8 Ellie Johnston 8 Prop for Dragons is number 8 Amelia Huakau\nHooker for Sharks is number 9 Quincy Dodd 9 Hooker for Dragons is number 9 Brooke Anderson\nProp for Sharks is number 10 Manilita Takapautolo 10 Prop for Dragons is number 10 Ruby-Jean Kennard-Ellis\n10\n2nd Row for Sharks is number 11 Talei Holmes 11 2nd Row for Dragons is number 11 Montana Clifford\n11\n2nd Row for Sharks is number 12 China Polata 12 2nd Row for Dragons is number 12 Ella Koster\n12\nLock for Sharks is number 13 Anne-Marie Kiria-Ratu 13 Lock for Dragons is number 13 Hannah Southwell\n13\nInterchange\nInterchange for Sharks is number 14 Georgia Hannaway 14 Interchange for Dragons is number 14 Tori Shipton\n14\nInterchange for Sharks is number 15 Stephanie Faulkner 15 Interchange for Dragons is number 15 Ahlivia Ingram\n15\nInterchange for Sharks is number 16 Caitlan Johnston-Green 16 Interchange for Dragons is number 16 Trinity Tauaneai\n16\nInterchange for Sharks is number 17 Jacinta Carter 17 Interchange for Dragons is number 17 Keele Browne\n17\nReserves\nReplacement for Sharks is number 18 Tegan Dymock 18 Replacement for Dragons is number 18 Nita Maynard-Perrin\n18\nReserve for Sharks is number 22 Filomina Hanisi 22 19 Reserve for Dragons is number 19 Jayme Millard\n22 19\nSharks Ins\nFilomina Hanisi\nGeorgia Ravics\nDragons Ins\nNita Maynard-Perrin\nSharks Outs\nMarewakiterangi Samson\nMatch Officials\nSenior Review Official: Kasey Badger\nLast updated: 9/11/2026 7:08:03 AM\nStat Attack\nThe Sharks have won all three games against the Dragons\nThe Dragons can avoid the wooden sp",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 13.994122339722223,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "93019237a1e90e81",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "New Zealand Warriors vs Dolphins Tips, Odds, Teams & Predictions – NRL Finals Week 1 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/new-zealand-warriors-vs-dolphins-tips-odds-teams-predictions-nrl-finals-week-1-2026/610221",
+            "published_at": "2026-09-09T07:43:12+00:00",
+            "snippet": "New Zealand Warriors vs Dolphins Tips, Odds, Teams & Predictions – NRL Finals Week 1 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Two of the competition’s hottest teams collide as the Warriors host a Dolphins side preparing for the club’s first finals appearance.\nWhen: Saturday September 12, 2026 at 4:05 pm\nWhere: Go Media Stadium\nBet 💰: Bet On This Match HERE\nNew Zealand Warriors vs Dolphins Odds\nNew Zealand Warriors vs Dolphins Preview\nTwo of the competition’s hottest teams meet at Go Media Stadium, with the Warriors carrying six consecutive wins and the Dolphins seven. Their regular-season encounters were decided by two points each: New Zealand won 20-18 in Round 8 before the Dolphins replied 26-24 in Round 17. The Warriors regain Leka Halasima, Wayde Egan and Kurt Capewell, while Jackson Ford is included after a long pectoral-injury absence. The Dolphins enter their first finals appearance with Selwyn Cobbo, Kulikefu Finefeuiaki and Kodi Nikorima restored to the side. That added strike power complements a backline already featuring Hamiso Tabuai-Fidow, Jamayne Isaako and Herbie Farnworth. New Zealand’s ability to control the opening half and the lift of a home final are significant, but the Dolphins’ winning run and proven success in close games ensure this qualifying final should be decided by fine margins.\nHead To Head Bet\nWe're tipping New Zealand Warriors to win at $1.55 odds.\nFirst Try Scorer\nFirst Try Scorer: Selwyn Cobbo at $8.75 .\nNew Zealand Warriors vs Dolphins Teams\nWarriors team: 1. Taine Tuaupiki 2. Charnze Nicoll-Klokstad 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Jackson Ford 18. Eddie Ieremia-Toeava 20. Adam Pompey 21. Jett Cleary 22. Luke Laulilii 23. Makaia Tafua\nDolphins team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Connelly Lemuelu 18. Felise Kaufusi 19. Brad Schneider 20. Jake Averillo 21. Brian Pouniu 22. Tevita Naufahu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 61.50523345083333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "4f8b79b9f0ccfe93",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Wests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa",
+            "url": "https://www.nrl.com/news/2026/09/08/wests-tigers-v-raiders-turnbull-good-to-go-dodd-in-for-taufa/",
+            "published_at": "2026-09-11T06:14:16+00:00",
+            "snippet": "Presented By\nWests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa\nFew matches carry more significance than this Round 11 clash at Leichhardt Oval with both sides looking to fine tune their game ahead of sudden-death finals next week.\nThe Raiders enter the final rou",
+            "body_excerpt": "Presented By\nWests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa\nFew matches carry more significance than this Round 11 clash at Leichhardt Oval with both sides looking to fine tune their game ahead of sudden-death finals next week.\nThe Raiders enter the final round knowing a win could possibly lift them to fifth depending on how the Knights go on Sunday, while a loss won't knock them out because their points differential is far superior to the Warriors in seventh.\nThe Raiders are coming off a heartbreaking 17-16 defeat to Parramatta last week. Canberra controlled large portions of that contest but were left stunned when Rachael Pearson landed a field goal as time expired.\nWests Tigers have already guaranteed their maiden finals berth but will be eager to rebound after a disappointing 58-0 loss to the Titans. Injury concerns and defensive lapses combined to throw a spanner in the works of their stunning 2026 turnaround.\nCanberra's challenge will be converting pressure into points after missed opportunities proved costly against the Eels.\nWith finals footy effectively starting a week early, this is sure to be a cracker at the iconic Leichhardt Oval.\nMatch: Wests Tigers v Raiders\nRound 11 - Round 11 - Friday 11 Sep\nhome Team\nWests Tigers\n4th Position\naway Team\nRaiders\n5th Position\nVenue: Leichhardt Oval, Sydney\nTeam News\nWests Tigers: No further game day changes after Kezie Apps (leg) and Caitlin Turnbull (foot) dropped out on Thursday. Kayla Henderson takes over at fullback while Shaniece Monschau will start in the back row. Tara Reinke and Jetaya Faifua have been added to the bench alongside Shenai Lendill who returns from an arm injury. Tyla Amiatu is 18th player.\nRaiders: The Raiders are 1-17 with no late changes. With co-captain Simaima Taufa banned for three games after being found guilty of Dangerous Contact at the judiciary, England representative Holli-Mae Dodd will fill in at lock. Lili Boyle will take her spot on the bench, with Ellie Brander the new 18th player.\nTeam Lists\nBacks\nFullback for Wests Tigers is number 16 Kayla Henderson 16 1 Fullback for Raiders is number 1 Sheridan Gallagher\n16 1\nWinger for Wests Tigers is number 2 Harmony Crichton 2 Winger for Raiders is number 2 Isabella Waterman\nCentre for Wests Tigers is number 3 Rikeya Horne 3 Centre for Raiders is number 3 Leianne Tufuga\nCentre for Wests Tigers is number 4 Portia Bourke 4 Centre for Raiders is number 4 Bobbi Law\nWinger for Wests Tigers is number 5 Lily Rogan 5 Winger for Raiders is number 5 Mackenzie Wiki\nFive-Eighth for Wests Tigers is number 6 Losana Lutu 6 Five-Eighth for Raiders is number 6 Krystal Blackwell\nHalfback for Wests Tigers is number 7 Raecene McGregor 7 Halfback for Raiders is number 7 Zahara Temara\nForwards\nProp for Wests Tigers is number 8 Sarah Togatuki 8 Prop for Raiders is number 8 Chloe Saunders\nHooker for Wests Tigers is number 9 Salma Nour 9 Hooker for Raiders is number 9 Chanté Temara\nProp for Wests Tigers is number 10 Christian Pio 10 Prop for Raiders is number 10 Sophie Holyman\n10\n2nd Row for Wests Tigers is number 12 Shaylee Bent 12 11 2nd Row for Raiders is number 11 Jordyn Preston\n12 11\n2nd Row for Wests Tigers is number 14 Shaniece Monschau 14 12 2nd Row for Raiders is number 12 Charlotte Basham\n14 12\nLock for Wests Tigers is number 13 Holli Wheeler 13 Lock for Raiders is number 13 Hollie-Mae Dodd\n13\nInterchange\nInterchange for Wests Tigers is number 15 Shenai Lendill 15 14 Interchange for Raiders is number 14 Emma Barnes\n15 14\nInterchange for Wests Tigers is number 17 Brooke Talataina 17 15 Interchange for Raiders is number 15 Grace Kemp\n17 15\nInterchange for Wests Tigers is number 18 Tara Reinke 18 16 Interchange for Raiders is number 16 Lili Boyle\n18 16\nInterchange for Wests Tigers is number 20 Jetaya Faifua 20 17 Interchange for Raiders is number 17 Grace Kukutai\n20 17\nReserves\nReplacement for Wests Tigers is number 22 Tyla Amiatu 22 18 Replacement for Raiders is number 18 Ellie Brander\n22 18\nMatch",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.987455673055557,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "a0b8352fe42e9360",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: Qualifying Final – Dolphins v Warriors - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/09/11/match-preview-qualifying-final--dolphins-v-warriors/",
+            "published_at": "2026-09-11T04:22:27+00:00",
+            "snippet": "Match Preview: Qualifying Final – Dolphins v Warriors &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nMatch Preview: Qualifying Final – Dolphins v Warriors\nSeven games. Nothing more than four points between them. Now, a place in the preliminary final is on the line.\nSince May 2024, every meeting between the Dolphins and Warriors has been decided by either two or four points, and this Saturday the rivalry enters new territory as the Dolphins make their first-ever NRL finals appearance.\nThe Dolphins head across the Tasman riding seven consecutive victories and carrying plenty of momentum into their qualifying final against the Warriors at Go Media Stadium.\nWith the winner earning a week off and progressing directly to a home preliminary final, there is more at stake than ever.\nThe two sides have already met twice in 2026, splitting the honours with one win apiece.\nThe first came in Round 8 in Wellington, where the Warriors edged out the Dolphins 20–18 in a two-point thriller.\nIt was a different story when the Warriors travelled to Suncorp Stadium in Round 17, with the Dolphins turning the tables to claim a 26–24 victory.\nJamayne Isaako also enters the clash within reach of another milestone, requiring 12 points to become just the fourth player in premiership history to score 300 points in a season.\nTeam News\nDolphins\nSelwyn Cobbo returns to the wing after missing last week’s final regular-season clash, while Kodi Nikorima slots back into the number six jersey after being rested for Round 27 against the Titans.\nKulikefu Finefeuiaki also returns to the starting side in the second row after being a late withdrawal last week.\nConnelly Lemuelu has been named on the interchange bench, while Felise Kaufusi is listed as 18th man.\nJake Averillo, Brian Pouniu and Tevita Naufahu move back to the extended squad\nWarriors\nThe Warriors have received a boost with Jackson Ford named to make his first appearance since Round 16 after recovering from a pectoral injury.\nCentre Leka Halasima returns from an ankle injury, while Wayde Egan and Kurt Capewell are also back in the side after being rested last week.\nSam Healey, Adam Pompey and Eddie Ieremia-Toeava move to the extended interchange, with Jett Cleary and Luke Laulilii also included in the extended squad.\nMatch-Up\nJames Fisher-Harris v Thomas Flegler\nTwo powerhouse props. Two different jobs. One massive finals battle.\nJames Fisher-Harris and Thomas Flegler will collide in the middle in a match-up built for the occasion, with both forwards capable of setting the tone for their side.\nA multiple premiership winner, Fisher-Harris knows exactly what finals football demands. The Warriors captain will look to lead from the front, running hard through the middle and challenging the Dolphins’ defensive line with every carry.\nFor Flegler, the occasion carries a different meaning. After spending an extended period on the sidelines, the Dolphins prop has the opportunity to make his presence felt when it matters most, bringing the physicality and defensive intent that has become crucial to the Dolphins’ run into September.\nWhile Fisher-Harris will look to generate momentum through the middle, Flegler’s job will be to shut it down.\nThe Dolphins have plenty of strike power in their outside backs to generate metres with the ball, allowing their forwards to conserve valuable energy for the defensive battle through the middle.\nThat makes stopping Fisher-Harris and the Warriors’ powerful forward pack a key assignment.\nOne will be looking to lead through his carries. The other will be waiting to meet him.\nIt’s a heavyweight battle made for finals football.\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\n2nd Position\naway Team\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nThe culture that got us to this point\nTeam Lists\nDolphins Team List: Qualifying Final v Warriors\n'We can win it': Hammer adamant Phins up for finals fight\nMatch Preview\nMatch Preview: Round 27 – Dolphins v Titans\nMatch Preview: Round",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.85106678416667,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "691b3e38eaeb2d01",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors vs Dolphins Preview & Betting Tips: 2026 NRL Qualifying Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/warriors-vs-dolphins-preview-betting-tips-2026-nrl-qualifying-final",
+            "published_at": "2026-09-11T03:59:24+00:00",
+            "snippet": "Warriors vs Dolphins Preview & Betting Tips: 2026 NRL Qualifying Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Warriors vs Dolphins Preview & Betting Tips: 2026 NRL Qualifying Final\nSeptember 11 th 2026, 1:51pm , By: Ben Bridge\nFinals football returns to Go Media Stadium on Saturday afternoon, and it is difficult to find a better matchup to begin the qualifying final portion of the 2026 NRL Finals Series . The second placed Warriors host the third placed Dolphins , with the winner earning a week off and progressing directly to a home preliminary final. For two clubs chasing their maiden premiership, that is an enormous prize.\nThis is my game of the week, and the brief history between these teams tells us exactly why. They have already met twice in 2026, with both matches decided by four points or fewer. The Dolphins won 26-24, while the Warriors took the other meeting 20-18.\nThe market has New Zealand around a converted try favourite, but I see these sides as much more evenly matched. Go Media Stadium is a significant advantage, and the Warriors deserve favouritism, but Dolphins +5.5 gives us valuable protection in a game I expect to be alive deep into the final 10 minutes.\nTeam news only strengthens the quality of the contest. The Dolphins are genuinely full strength for their first finals appearance, while New Zealand welcome back Wayde Egan, Kurt Capewell, Leka Halasima and Jackson Ford. The Warriors remain without Dallin Watene-Zelezniak, but otherwise have close to their best available side.\nLet's break it all down!\nWarriors vs Dolphins Prediction & Tips: 2026 NRL Qualifying Final\nWarriors Complete Breakthrough Regular Season\nNew Zealand’s second place finish confirms that 2026 has been far more than another encouraging Warriors season. Andrew Webster’s side has developed into a genuine premiership contender, balancing one of the competition’s strongest forward packs with a defensive structure capable of winning when the attack is not flowing.\nThe most significant aspect of their year has been resilience. The Warriors dealt with injuries and selection disruption throughout the regular season yet continued finding ways to bank victories. Their defining performance may have been the 28-12 win over Penrith at Go Media Stadium in Round 23, when their forwards physically overwhelmed the ladder leaders and Leka Halasima produced 239 metres and 11 tackle breaks. That victory started an unbeaten run through the final month, with New Zealand subsequently beating Brisbane, South Sydney, Newcastle and Manly on the way to second place.\nThat forward strength remains their greatest weapon heading into September. James Fisher-Harris and Mitch Barnett form a brutal starting front row combination, while Erin Clark, Jacob Laban and Kurt Capewell give New Zealand mobility and work rate around them. Wayde Egan’s return at hooker is arguably as important as any selection this week because so much of the Warriors’ attacking rhythm begins with his ability to identify space around the ruck.\nThe backline has also evolved. Taine Tuaupiki gets the fullback jersey, with Charnze Nicoll-Klokstad on the wing and Halasima continuing his remarkable transition into the centres. Te Maire Martin and Chanel Harris-Tavita do not possess the star power of some finals halves combinations, but they have enough experience and structure to play off a dominant pack.\nThe loss of Watene-Zelezniak remains meaningful. He provides elite finishing and yardage from his own end, and his collarbone injury removes one of New Zealand’s most reliable attacking weapons. Still, this team has spent the entire year proving its system can absorb personnel changes.\nNow comes the real test. The Warriors have not hosted a finals match since beating Newcastle 40-10 in 2023 and Go Media Stadium should be deafening. There will be expectation rather than simply hope this time, and how New Zealand handles that pressure may decide whether this becomes a historic September.\nDolphins Make History in Woolf’s First Season\nThe Dolphins enter their first finals campaign after a season that finally broke t",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.235233450833334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "635572c2b2186b3d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Warriors Webster targets 'simple fixes' as Wahs tune up for tilt at history",
+            "url": "https://www.nrl.com/news/2026/09/10/webster-targets-simple-fixes-as-wahs-tune-up-for-tilt-at-history/",
+            "published_at": "2026-09-10T04:01:23+00:00",
+            "snippet": "Webster targets 'simple fixes' as Wahs tune up for tilt at history\nAfter riding the highs of a preliminary final in his first year at the helm and the lows of a 13th-place finish in his second, Andrew Webster believes his side is better equipped than ever to deliver the Warriors'",
+            "body_excerpt": "Webster targets 'simple fixes' as Wahs tune up for tilt at history\nAfter riding the highs of a preliminary final in his first year at the helm and the lows of a 13th-place finish in his second, Andrew Webster believes his side is better equipped than ever to deliver the Warriors' maiden premiership.\nThe Wahs have emerged as one of the premiership heavyweights in 2026, finishing second on the ladder with an 18-6 record and earning a home qualifying final against the Dolphins.\nFor Webster, it is another opportunity to chase the ultimate prize in his third crack at finals footy in four years at the helm in Auckland.\nWebster knows his side have shown some minor defensive lapses in recent weeks, but rather than hitting the panic button, he sees them as problems that are ‘simple fixes’ and what could be a secret weapon.\n“We are going after teams. We will make it hard for them and we need to iron out one little thing. If you didn't have that piece of improvement, you can come into the finals complacent,\" Webster said.\n“The biggest thing for me around it is that it’s an easy fix, it’s a simple fix.\"\nThe Warriors faithful are up and about!\nThat calmness has become a Webster trademark - a trait he no doubt honed while working alongside Ivan Cleary during the Panthers' glory run.\nWebster was Cleary's assistant coach in back-to-back premierships in 2021 and 2022, gaining a first-hand look at the standards required to consistently perform in September.\nNow he is trying to create those same habits in Auckland.\n“Making sure each rep counts, each moment your focus is on that. If you have a good training session, it gives you a good chance to have a good game,\" said Webster.\n“I’ll repeat myself 100 times, making sure we don’t turn up on game day and try to be something we’re not.\n“We know what our footy looks like. We don’t mind if someone else knows, and the opposition knows what we look like.\n“We’ll be at our best and do it our way. We are confident.”\nThat belief will be put to the test against the Dolphins, with the Warriors playing in front of a sold-out Go Media Stadium and their loyal home support that has become such a weapon throughout the whole season.\nSuper Saiyan Laban gets two\nBut while the occasion will be big, Webster is determined not to let his players get caught up in it.\n“Everyone’s really level-headed, grounded, knows what they’ve got to do. We’re very big on being ourselves,” he said.\n“We have a lot of experience, a lot of confidence, a lot of players that we believe in.\n“Bring your best football and the rest takes care of itself.”\nAnd Webster knows the Warriors will need leadership from inside the playing group when the game heats up.\nWebster: 'Everyone's really level-headed, grounded'\nEnter four-time premiership winning prop James Fisher-Harris and NSW Origin hardman Mitch Barnett, who have formed a formidable co-captaincy pairing.\n“They are big games with lots of pressure and we are in a good spot that has a balance of that youth who aren’t scared or intimidated by it because they don’t know it yet, then you have those guys who have been there a lot and know exactly what to do,” he said.\n“We could not be more wrapped than those two as captains. We are so happy they are ours.\n“They take it upon themselves to not assume the boys aren’t ready on game day and they’ve got some great supporters around them.”\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\n'Our biggest motivation': Top four sides out to follow proven path to premiership\nMatch Preview\nWarriors v Dolphins: Ford set to motor; Big Three return\nFinals\nWarriors v Dolphins: Finals Week 1\nWandering Warriors have seen it all on the road to the Holy Grail",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 41.20217789527777,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "010f2c4a89e4efcb",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Dolphins Fit and firing forward pack a key factor in Phins finals push",
+            "url": "https://www.nrl.com/news/2026/09/10/fit-and-firing-forward-pack-a-key-factor-in-phins-finals-push/",
+            "published_at": "2026-09-10T02:01:24+00:00",
+            "snippet": "Fit and firing forward pack a key factor in Phins finals push\nDolphins forwards Ray Stone and Kulikefu Finefeuiaki count the lessons learnt and a fully fit forward pack as key reasons why the squad is primed to surprise in their maiden finals campaign.\nHaving helped the side achi",
+            "body_excerpt": "Fit and firing forward pack a key factor in Phins finals push\nDolphins forwards Ray Stone and Kulikefu Finefeuiaki count the lessons learnt and a fully fit forward pack as key reasons why the squad is primed to surprise in their maiden finals campaign.\nHaving helped the side achieve their finals goal in his final season with the club; the retiring Stone said one major factor to their success so far this season had been a relative good health of their forward pack, despite losing Daniel Saifiti to medical retirement earlier this year.\nRay Stone on the charge for the Dolphins. ©Zain Mohammed / NRL Images\nLast season, Stone was forced to play through AC joint sprains, getting weekly needles in both shoulders as an injury crisis struck the club, with players like Tom Flegler and Tom Gilbert sidelined.\n“I think our whole squad's been a lot more healthy, which has definitely helped the middle rotation,” Stone said.\n“Last year, I think pretty much our whole start pack was in rehab, so being a lot healthier this year, the minutes have been distributed a lot differently, which has helped me keep my body a lot fresher.\n“I think every pre-season, we've had the squad to do it (make the finals) … I think we could have done it earlier if we had have been healthy those years.\n“It's good to see that our whole squad's been healthy this year and we're really pushing on that potential we've got.”\nGilbert's blessing in disguise\nFor rising forward Finefeuiaki, the feeling around the club was “pretty high”, but the players were focused on the task ahead, taking on an in-form Warriors side in front of their home fans.\nAlthough they finished third on the ladder, the club also suffered some of the worst losses in their history, with two especially poor showings in front of their fans at their spiritual home in Redcliffe - 52-18 against the Sea Eagles and 66-0 against Cronulla - providing an opportunity to grow.\n“I want to be part of history,” Finefeuiaki said.\n“For the club to play their first finals, it's pretty special, not just for me but for the team that we have as well.\n“I think we took a lot of lessons from those games that we could have won and the games that we got blown out of the park; those ones have made us come together more and work more on our defence.\nKulikefu Finefeuiaki runs the ball for the Dolphins. ©NRL Images\n“I think our defence was the thing that we needed to work because our attack is probably one of the best attacks in that we can score from anywhere if we wanted to …\n“We came together as one and just to work together on that (our defence), so for us to secure that top four spot and … a chance to go straight to the prelims this weekend, (that would) be pretty special.\nDuring the regular season, the Dolphins and the Warriors claimed one win apiece, with a combined margin of four points the difference between them.\nHowever, despite the Warriors having the home crowd and more finals experience behind them, the New Zealand-born Finefeuiaki was looking forward to the challenge of upsetting the pride of Aotearoa.\nRelated Dolphins\n'We can win it': Hammer adamant Phins up for finals fight\n“I reckon most of us like this kind of stuff, because every time we go into a game we feel like we're the underdogs,” Finefeuiaki said.\n“Especially going over to New Zealand, with the crowd they have got and how passionate their fans are.\n“We're pretty loud, but I don't know if we'll be able to hear each other on the field, but I think that's what we've got to embrace as a team.\n“I reckon it'll be one of the best venues to play and to be a part of too.\n“I know that it will be a physical game this weekend against the Warriors; I know our boys will be up for it and I know that they'll be up for it too.”\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nAfter 27 epic rounds, it",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 43.201900117499996,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "f53ea22db97d6762",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Resold tickets for Warriors v Dolphins could be cancelled, Ticketmaster warns",
+            "url": "https://www.rnz.co.nz/news/sport/1340580/resold-tickets-for-warriors-v-dolphins-could-be-cancelled-ticketmaster-warns",
+            "published_at": "2026-09-09T21:13:43+00:00",
+            "snippet": "Warriors fans who snapped up tickets to Saturday's NRL finals qualifier match through unofficial resale sites could find ...",
+            "body_excerpt": "Resold tickets for Warriors v Dolphins could be cancelled, Ticketmaster warns\nCaption: NZ Warriors fans, Mount Smart, 2026. Photo credit: Andrew Cornaga/www.photosport.nz\nWarriors fans furious as tickets being re-sold for hundreds more\nWarriors fans who snapped up tickets to Saturday's NRL finals qualifier match through unofficial resale sites could find their tickets cancelled, Ticketmaster has warned.\nTickets for the clash with the Dolphins at Mount Smart Stadium sold out within minutes of going on sale to the general public on Tuesday.\nNot long afterwards, listings began appearing on TradeMe and other online marketplaces, with some sellers asking hundreds of dollars more than what they paid.\nOne listing offered four tickets in the Eastern Stand for a buy-now price of $1200, describing them as \"arguably the best seats in the house. Right where the Warriors walk out\".\nThe seller did not offer an explanation for why they were selling the tickets.\nAnother seller was asking $500 for two tickets in the uncovered South Stand - seats which ordinarily cost $25 for an adult during the regular season, although the price for the play-off was increased to around $45.\nFor some fans, the practice crossed a line. The question-and-answer sections of some listings became impromptu battlegrounds, with frustrated supporters accusing sellers of cashing in on the huge demand for one of the biggest Warriors games in years.\n\"You're a dog for selling these tickets to make money and actual fans can't even go to see it live,\" one person wrote.\n\"You are an actual scumbag,\" another posted.\nOthers questioned whether the practice of on-selling the tickets at large mark-up breached the terms and conditions set by Ticketmaster, the official ticketing agent for the game.\nIn a statement to RNZ, a Ticketmaster spokesperson recommended fans only purchase tickets through authorised ticket sellers.\n\"Ticketmaster does not guarantee the authenticity of tickets purchased from unauthorised third-party resellers or resale sites.\n\"While only a relatively small number of tickets appear to have been listed for resale, the NRL's ticket terms restrict unauthorised resale for the Warriors game.\n\"Tickets identified as sold or transferred in breach of those terms may be cancelled.\"\n'Pretty crap'\nFans are calling it gutting, gross, a kick in the teeth and against the culture of the Wahs.\nSuper-fan Woody Materoa said it was gutting. He jumped online for tickets but didn't make it on to the site in time.\n\"We're quite big fans of the Warriors and to sort of see people getting tickets that are not even going to attend the game is pretty crap.\"\nThey were planning to fly up from Blenheim to watch the game.\n\"There's always going to be somewhere that's going to take advantage of that sort of stuff but yes you know, they're trying to make money, whereas we just want to watch the game.\"\nMateroa said something should be done to stop this from happening again.\n\"It's supposed to be a game that's enjoyed by all Kiwis, you know, especially called 'New Zealand Warriors'. So I think they do need to take action,\" fellow fan Paul Natac said.\nHe's been a Wahs fan since 1995, when he was just 13 years old.\n\"They really made it accessible for people who are vulnerable, you know, where a little bit of joy of watching rugby league helps them. The Warriors have done a really good job at $10 tickets sometimes over the season, and then all of a sudden originally $44 tickets are being sold over a hundred bucks, 200, 300 even. Some of them are $500 per ticket.\"\nNatac missed out on securing tickets in both the pre-sale and general release and had considered buying marked-up tickets.\n\"I can afford it, so shall I just buy it? And at the end of the day I just kind of calmed down and went, at the end of the day, I'll just be promoting this behaviour for the next game.\"\nSports commentator Sam Ackerman said scalping wasn't in the spirit of the Wahs culture.\n\"The members who appear to be doing it, that's a kick ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 47.996622339722215,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "f367c8f759e22471",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Warriors Wandering Warriors have seen it all on the road to the Holy Grail",
+            "url": "https://www.nrl.com/news/2026/09/09/wandering-warriors-have-seen-it-all-on-the-road-to-the-holy-grail/",
+            "published_at": "2026-09-08T23:01:21+00:00",
+            "snippet": "Wandering Warriors have seen it all on the road to the Holy Grail\nWandering Warriors Te Maire Martin and Chanel Harris-Tavita have returned to the NRL reinvigorated and ready to deliver a historic maiden premiership to Go Media Stadium according to club great Roger Tuivasa-Sheck.",
+            "body_excerpt": "Wandering Warriors have seen it all on the road to the Holy Grail\nWandering Warriors Te Maire Martin and Chanel Harris-Tavita have returned to the NRL reinvigorated and ready to deliver a historic maiden premiership to Go Media Stadium according to club great Roger Tuivasa-Sheck.\nAnd Tuivasa-Sheck should know. The 2018 Dally M Medalist and 2019 Golden Boot winner tasted premiership glory himself in 2013 with the Roosters and represented the Kiwis in the World Cup final later that year.\nTuivasa-Sheck played 158 of his 242 NRL games with the Warriors and although an ACL tear ended his season in May, he will be front-and-centre at Go Media Stadium for the qualifying final against the Dolphins on Saturday.\nThe man known universally as RTS has nothing but respect for the resilience Harris-Tavita and Martin have displayed along the journey.\n“They've gone away, they’ve matured, they’ve seen what the world holds and it’s more than just footy,” Tuivasa-Sheck told NRL.com.\nMartin's first career double\n“So when they come back here they don’t put that pressure on themselves, their teammates or anyone else.\n“They go out to have a good game of footy and make sure they execute the game plan as best they can.\n“If we win, then well done, and if we lose, we just go again.”\nMartin retired in 2020 following five years at the Panthers and Cowboys after scans revealed a small brain bleed was causing the continual headaches he was suffering.\nBut two years back home in New Zealand with his family, surfing, fishing and another favourite past-time, pig hunting, and Martin was ready to return.\nA year at the Broncos only made him homesick so he signed on with the Warriors in 2023, the same year Harris-Tavita escaped the grind of four years in the NRL so he could backpack through Europe on his own timetable.\nWarriors v Sea Eagles - Round 27, 2026\nTuivasa-Sheck said he had marvelled at Martin’s journey where he played alongside Nathan Cleary at the Panthers, then moved to the Cowboys so he could play with another gifted No.7 in Johnathan Thurston.\nNow Martin has the No.7 on his back at the Warriors and is showing no sign of buckling at that pressure.\n“Te Maire has picked up all these experiences from all the clubs he’s played at,” Tuivasa-Sheck said.\n“But I think the time he had off has been his biggest lesson. He’s come back with a really clear and calm head in understanding that footy is not everything.\n“Sometimes there’s a lot of hype around football: We’ve got to win, win, win!\n“But Te Maire is like, ‘Take it easy... we’re going to lay this platform, strike this shape and see what happens’.\n“So he’s more easy-going. Having that time off really helped and it’s playing into his footy. He’s got things he wants to do but he does it in his way.\n“There’s a lot of love and respect for Te Maire by the way he does things.\n2018 highlights: Dally M Medallist Roger Tuivasa-Sheck\n“He’s one of the older boys now and the younger guys look up to him because he puts his head down and works really hard.\"\nThe Warriors fell just short of their first minor premiership since 2002 but Tuivasa-Sheck said the players were focused on the bigger prize.\n\"Amongst the playing group I don’t think there’s any real disappointment,\" he said.\n“We would love it for our fans, but for us players there’s a bigger job and a bigger prize ahead. And getting the home semi-final was an important part of that.”\nAnother vital component is the ‘mana wave’ where supporters raise an arm in the air with fingers outstretched. In Polynesian cultures, mana means invisible life force, inner strength.\n“Everywhere you go it’s ‘Up the Wahs’ and the mana wave,” he said.\nThe Warriors faithful are up and about!\n“It’s giving your mana to someone else – you throw it out there.\n“If you look at (Warriors CEO) Cameron George he’s much better at it now, he’s learning how to do it well.”\nTuivasa-Sheck witnessed first-hand in 2023 the love rugby league fans across the board showed the Warriors, when they left their fam",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 70.20273345083334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "6f2f5fca4c703283",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Dolphins 'We can win it': Hammer adamant Phins up for finals fight",
+            "url": "https://www.nrl.com/news/2026/09/07/we-can-win-it-hammers-high-confidence-in-phins-chances/",
+            "published_at": "2026-09-07T07:01:21+00:00",
+            "snippet": "'We can win it': Hammer adamant Phins up for finals fight\nDolphins fullback Hamiso Tabuai-Fidow is tipping the first-time finalists can make an instant splash and go all the way in their maiden campaign.\nAfter going agonisingly close to a top-eight finish in 2024 and 2025, the Ph",
+            "body_excerpt": "'We can win it': Hammer adamant Phins up for finals fight\nDolphins fullback Hamiso Tabuai-Fidow is tipping the first-time finalists can make an instant splash and go all the way in their maiden campaign.\nAfter going agonisingly close to a top-eight finish in 2024 and 2025, the Phins have achieved a finals berth in season four – but not only that, a top-three standing, despite also suffering a club record 66-0 loss along the way.\nCoach Kristian Woolf has lauded the increased resilience of his team, while Tabuai-Fidow said confidence was high within the group, with players having fun and excited to be playing finals.\n“It's pretty surreal (to be playing finals), especially for a club like us,” Tabuai-Fidow said.\nHamiso Tabuai-Fidow impressed with two tries against the Titans in Round 27. ©Scott Davis / NRL Images\n“It's our fourth year in the comp and we've got a good group of boys… 100 per cent (the team can make an impact).\n\"You look across the park and what type of players we do have and the calibre that we have as well, it's pretty scary.\n“I think teams do see that, but it doesn't get talked about that much, but if we just stick to ourselves, we know what type of players we have and what we can do within this competition.\n“The goal is to get to that grand final and win it and I'm confident that each week we take and each week we improve, we can win it.\n“(But) the coaching staff around us, they do keep us grounded.\n“We're a pretty happy bunch too and next week's a whole new competition.”\nRelated Finals\nPanthers embracing pressure as rivals jostle for premiership glory\nConfidence and believe might be high, but after having to once again come from behind to secure a close win over the Titans, Tabuai-Fidow conceded there was still work to do.\n“We'll go back to the drawing board and we'll start all over again and go again,” the Queensland and Samoa representative said.\n“I think it's more fine-tuning and what we can do within ourselves, within the team.\n“It’s not so much changing anything, we know what type of footy we want to play and we know we could go a long way with the footy we do play.\n“It's just fine-tuning some things and just having that week as a stepping stone to a new competition.\n“We have all got to step up and I think that's the main thing, just stepping up and fine-tuning and working on what we can improve on.”\nNRL Finals footy is here!\nFor their opening finals challenge, the Dolphins have drawn a daunting trip across the ditch to take on the Warriors juggernaut in front of their home fans at Go Media Stadium.\nThe two sides have already met twice this season for one win apiece, with only two points the difference each time.\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats today.\nRelated /\nFull Match Replay: Titans vs. Dolphins - Round 27, 2026\nSeason Highlights\nAll Tries - Titans v Dolphins - Round 27, 2026\nHammer hitting form for the Finals\nPress Conference\nNRL Press Conference: Titans v Dolphins - Round 27, 2026\nPlay anywhere, don't care: Top 4 travel holds no fear for Donoghoe",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 110.20273345083334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Warriors vs Dolphins NRL round 28 preview",
+          "Warriors Dolphins NRL odds OR price OR favourite",
+          "Warriors Dolphins NRL finals race OR ladder stakes",
+          "Warriors Dolphins NRL",
+          "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Warriors Dolphins NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 28 Warriors OR Dolphins"
+        ],
+        "filter_summary": {
+          "dropped_stale": 67,
+          "dropped_wrong_round": 3,
+          "dropped_noise": 7,
+          "dropped_irrelevant": 19,
+          "kept": 17,
+          "deferred_pending_body": 66,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 5
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "8ef730242026",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-11T21:13:30.823897+00:00",
+      "finished_at": "2026-09-11T21:15:09.628707+00:00",
+      "duration_ms": 98804,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Dolphins",
+        "venue": "Go Media Stadium",
+        "kickoff": "2026-09-12T16:05:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5858,
+        "home_win_probability": 0.5858,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (+6.8 points) — contribution 0.140 (16% of total)",
+            "Pythagorean form (last 10) (+25% expected-win gap) — contribution 0.107 (12% of total)",
+            "Elo rating advantage (-10 points) — contribution 0.039 (4% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "5-game workload: top3 tackle share (-0.01) — contribution 0.021 (2% of total)",
+            "5-game form: tackle breaks (+8.60) — contribution 0.019 (2% of total)"
+          ],
+          "negative_drivers": [
+            "5-game momentum: penalty cluster rate (-1.60) — contribution 0.092 (10% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: all run metres (+2.40) — contribution 0.037 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: points for (+10.20) — contribution 0.034 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "3-game form: errors (-2.00) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: penalties conceded (-2.40) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.4577,
+            "total_toward_away": 0.4396,
+            "net": 0.0181,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "Elo rating advantage (-10 points)",
+            "5-game momentum: penalty cluster rate (-1.60)",
+            "5-game form: all run metres (+2.40)",
+            "5-game form: points for (+10.20)",
+            "3-game form: errors (-2.00)",
+            "5-game form: penalties conceded (-2.40)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Warriors",
+          "away_team": "Dolphins",
+          "venue": "Go Media Stadium",
+          "kickoff": "2026-09-12T16:05:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

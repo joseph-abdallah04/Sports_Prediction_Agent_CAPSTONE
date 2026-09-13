@@ -1,0 +1,1299 @@
+{
+  "schema_version": 2,
+  "run_id": "20260822T013308Z-486b4dcd",
+  "at_a_glance": {
+    "fixture": "Rabbitohs v Warriors",
+    "round": 25,
+    "kickoff": "2026-08-22T17:30:00+10:00",
+    "venue": "Accor Stadium",
+    "predicted_winner": "Warriors",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.4297,
+    "model_prediction": "Away Win",
+    "research_items_kept": 17,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-08-22T01:33:08.642794+00:00",
+  "updated_at": "2026-08-22T01:44:23.021139+00:00",
+  "request": {
+    "home_team": "Rabbitohs",
+    "away_team": "Warriors",
+    "season": 2026,
+    "round_number": 25,
+    "force_refresh": true,
+    "user_question": "Who wins Rabbitohs vs Warriors?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Rabbitohs",
+    "away_team": "Warriors",
+    "confidence": 0.6,
+    "summary": "The Warriors hold a significant advantage in ladder position (3rd vs 7th) and overall strength, supported by a strong run-metre advantage. While the Rabbitohs have a slight head-to-head edge and home-ground advantage, these are outweighed by the Warriors' dominant points differential. Both teams face availability issues in their spine, but the Warriors remain the stronger side.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The Warriors are heavily favoured by ladder points differential per game (contribution 0.276) and 5-game run-metre form (contribution 0.081)."
+      },
+      {
+        "source": "math",
+        "detail": "The Rabbitohs have a slight edge in head-to-head records (60% win rate in last 5), though this is a minor driver (contribution 0.036)."
+      },
+      {
+        "source": "math",
+        "detail": "The 3-game error form is noted as a conflict; while the model nets a small contribution to the Rabbitohs, the raw value actually favours the Warriors."
+      },
+      {
+        "source": "research",
+        "detail": "Latrell Mitchell is ruled out for this match, targeting a return in Round 26 (Fox Sports)."
+      },
+      {
+        "source": "research",
+        "detail": "The Warriors are missing Luke Metcalf (hamstring) and Charnze Nicoll-Klokstad (suspension), creating disruption in their spine (Before You Bet)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Warriors sit 3rd on the ladder with a points difference per game of 13.14, compared to the Rabbitohs in 7th with 3.9."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 17,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 6
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 14
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 5
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Rabbitohs vs Warriors NRL round 25 preview",
+      "Rabbitohs Warriors NRL odds OR price OR favourite",
+      "Rabbitohs Warriors NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Latrell Mitchell's absence is sourced from Fox Sports and nrl_news; Warriors spine issues are sourced from Before You Bet."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Claims that Mitchell, Metcalf, and Nicoll-Klokstad are missing align with the research excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Ladder points differential is correctly attributed to the Warriors from the favouring_Warriors_away_win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors include research from Fox Sports and Before You Bet."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence is 0.6, which is within range and appropriately capped below 0.65 due to the Warriors' spine disruptions."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The primary driver (0.276) is correctly identified as the main influence."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+        }
+      ],
+      "issues": [
+        "The judgement omits several top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors)."
+      ],
+      "instruction": "Math drivers include 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Rabbitohs",
+      "away_team": "Warriors",
+      "confidence": 0.6,
+      "summary": "The Warriors are strong favourites based on their 3rd-place ladder position and a dominant points differential. While the Warriors are missing key spine players Luke Metcalf and Charnze Nicoll-Klokstad, the Rabbitohs are also without Latrell Mitchell. The overall strength gap indicated by the model and standings outweighs these availability concerns.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Ladder points differential per game is the primary driver for the Warriors (contribution 0.276)."
+        },
+        {
+          "source": "research",
+          "detail": "Latrell Mitchell has been ruled out of this match, targeting a return in Round 26 (Fox Sports)."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors are facing disruption in their spine with Luke Metcalf sidelined by hamstring injury and Charnze Nicoll-Klokstad suspended (Before You Bet)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors sit 3rd on the ladder compared to the Rabbitohs in 7th, with a significantly higher points difference per game (13.14 vs 3.9)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Rabbitohs",
+      "away_team": "Warriors",
+      "confidence": 0.6,
+      "summary": "The Warriors hold a significant advantage in ladder position (3rd vs 7th) and overall strength, supported by a strong run-metre advantage. While the Rabbitohs have a slight head-to-head edge and home-ground advantage, these are outweighed by the Warriors' dominant points differential. Both teams face availability issues in their spine, but the Warriors remain the stronger side.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The Warriors are heavily favoured by ladder points differential per game (contribution 0.276) and 5-game run-metre form (contribution 0.081)."
+        },
+        {
+          "source": "math",
+          "detail": "The Rabbitohs have a slight edge in head-to-head records (60% win rate in last 5), though this is a minor driver (contribution 0.036)."
+        },
+        {
+          "source": "math",
+          "detail": "The 3-game error form is noted as a conflict; while the model nets a small contribution to the Rabbitohs, the raw value actually favours the Warriors."
+        },
+        {
+          "source": "research",
+          "detail": "Latrell Mitchell is ruled out for this match, targeting a return in Round 26 (Fox Sports)."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors are missing Luke Metcalf (hamstring) and Charnze Nicoll-Klokstad (suspension), creating disruption in their spine (Before You Bet)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors sit 3rd on the ladder with a points difference per game of 13.14, compared to the Rabbitohs in 7th with 3.9."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The judgement omits several top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors)."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T01:34:44.651057+00:00",
+      "thinking": "*   Home Team: Rabbitohs\n    *   Away Team: Warriors\n    *   Round Number: 25\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Rabbitohs).\n    *   Query 2: Away team availability (Warriors).\n    *   Query 3: Fixture preview (Rabbitohs vs Warriors Round 25).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure/Key player).\n\n    *   Q1: `Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q2: `Warriors NRL injury OR \"late mail\" OR \"team list\" round 25`\n    *   Q3: `Rabbitohs vs Warriors NRL round 25 preview`\n    *   Q4: `Rabbitohs Warriors NRL odds OR price OR favourite`\n    *   Q5: Since it's Round 25 (late season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Rabbitohs Warriors NRL finals race OR ladder stakes` or `Rabbitohs Warriors NRL form streak`. Let's go with finals race/ladder stakes as it's late in the season.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes.\n    *   JSON format? Yes.",
+      "chars": 1138
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T01:39:47.794511+00:00",
+      "thinking": "Rabbitohs (Home) vs. Warriors (Away).\nAccor Stadium, Round 25.\n\n        *   Rabbitohs: 7th, 12-9, PD +82 (3.9/game), Form 3-2, Streak 2W.\n        *   Warriors: 3rd, 15-6, PD +276 (13.14/game), Form 4-1, Streak 3W.\n        *   Comparison: Warriors higher on ladder, significantly better PD per game (-9.24 gap).\n\n        *   Prediction: Away Win (Warriors).\n        *   Probability: 0.5703.\n        *   Key Drivers (Away): Ladder points differential per game (27%), Bradley-Terry strength (13%), 5-game run metres (8%), Pythagorean form (7%), 5-game points against (6%).\n        *   Key Drivers (Home): H2H record (4%), 3-game errors (2% - CONFLICT), 5-game support plays (2%), H2H margin (2%), Home travel (2%).\n        *   Attribution Balance: Leans heavily away (0.8154 vs 0.2222).\n\n        *   Rabbitohs: Latrell Mitchell is ruled out for this week (targeting Round 26 return) according to \"nrl_news\" and \"foxsports.com.au\".\n        *   Warriors: \"Before You Bet\" notes disruption in the spine: Luke Metcalf (hamstring) and Charnze Nicoll-Klokstad (suspended) are missing. Luke Hanson is stepping up (per \"nrl_news\").\n        *   Market: Warriors are favourites (sportsnews.com.au mentions them as favourites, prices $1.55 vs $8.25).\n\n    *   The math model strongly favours the Warriors (0.57 probability, heavy SHAP lean).\n    *   The standings strongly favour the Warriors (3rd vs 7th, massive PD gap).\n    *   The market favours the Warriors.\n    *   *Counter-evidence:* Warriors have significant injuries in the spine (Metcalf, Nicoll-Klokstad). Rabbitohs are in good form (2W streak) and have their \"big guns\" (Fifita, Murray) back. However, Rabbitohs are missing Latrell Mitchell.\n    *   *Strongest reason the pick could lose:* The Warriors' spine disruption (missing Metcalf and Nicoll-Klokstad) could make them vulnerable to a resurgent Rabbitohs side at home.\n\n    *   Winner: Away (Warriors).\n    *   Confidence: The model is at 0.57. The standings gap is huge. However, the spine injuries for the Warriors are a significant risk. I'll place it in the \"modest edge\" band (0.55-0.65). Let's go with 0.60.\n    *   Key Factors:\n        1.  Math: Ladder points differential per game (huge contribution).\n        2.  Research: Warriors' spine disruption (Metcalf/Nicoll-Klokstad missing) - this is a negative for them, but the overall strength still leans their way.\n        3.  Research: Latrell Mitchell ruled out (negative for Rabbitohs).\n        4.  Scene: Standings (Warriors 3rd vs Rabbitohs 7th).\n\n    *   *Check SHAP drivers:* \"Ladder points differential per game (-9.2 points)\" is the biggest driver for Warriors.\n    *   *Check Research:* Latrell Mitchell is out (Fox Sports/NRL News). Warriors missing Metcalf/Nicoll-Klokstad (Before You Bet).\n    *   *Check Market:* Warriors are favourites ($1.55).\n    *   *Check Confidence:* 0.60 is reasonable given the standings gap vs the injury news.\n\n    *   Winner: away\n    *   Home: Rabbitohs\n    *   Away: Warriors\n    *   Confidence: 0.60\n    *   Summary: The Warriors enter as strong favourites based on their 3rd-place ladder position and superior points differential. While they face significant disruption in their spine with Luke Metcalf and Charnze Nicoll-Klokstad missing, the Rabbitohs are also without Latrell Mitchell. The model's heavy lean toward the Warriors' overall strength outweighs the current team news.\n    *   Key Factors:\n        *   Math: Ladder points differential per game (contribution 0.276).\n        *   Research: Latrell Mitchell ruled out for Round 25 (Fox Sports).\n        *   Research: Warriors missing Luke Metcalf and Charnze Nicoll-Klokstad (Before You Bet).\n        *   Scene: Warriors are 4 places higher on the ladder with a significantly better points difference per game.\n    *   Disagreements: None.",
+      "chars": 3808
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T01:42:59.117023+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all player/injury/quote/team-list claims in the judgement sourced from research or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.6) justified and within range?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are top SHAP drivers from both sides addressed?\n\n- Home: Rabbitohs (7th)\n- Away: Warriors (3rd)\n- Prediction: Away Win\n- Confidence: 0.6\n\n- \"Latrell Mitchell has been ruled out of this match, targeting a return in Round 26 (Fox Sports).\" -> Research: \"The Rabbitohs have ruled out Latrell Mitchell from this week's crunch game against the Warriors... champion centre looks to feature in the club's finals campaign.\" and \"Superstar Latrell Mitchell will target a return in Round 26 against the Titans\" (nrl_news). Match: Pass.\n- \"Warriors are missing key spine players Luke Metcalf and Charnze Nicoll-Klokstad\" -> Research: \"Luke Metcalf is sidelined with a hamstring injury, Charnze Nicoll-Klokstad is suspended\" (Before You Bet). Match: Pass.\n\n- Latrell Mitchell: Ruled out (Source: Fox Sports/nrl_news). Judgement: \"without Latrell Mitchell\". Match: Pass.\n- Luke Metcalf: Sidelined (Source: Before You Bet). Judgement: \"missing... Luke Metcalf\". Match: Pass.\n- Charnze Nicoll-Klokstad: Suspended (Source: Before You Bet). Judgement: \"missing... Charnze Nicoll-Klokstad\". Match: Pass.\n\n- \"Ladder points differential per game is the primary driver for the Warriors (contribution 0.276).\"\n- SHAP drivers for Warriors: \"Ladder points differential per game (-9.2 points) — contribution 0.276 (27% of total)\".\n- Attribution: Correct (favouring_Warriors_away_win). Match: Pass.\n\n- Weather is \"Fine\".\n- Not mentioned in summary or key factors. Match: Pass.\n\n- Key factor 2: Latrell Mitchell (Fox Sports).\n- Key factor 3: Warriors spine (Before You Bet).\n- Match: Pass.\n\n- Confidence: 0.6.\n- Range: 0.50-0.85. (0.6 is within).\n- Justification: \"The overall strength gap indicated by the model and standings outweighs these availability concerns.\"\n- Unresolved reason to lose: Warriors missing key spine players (Metcalf, Nicoll-Klokstad).\n- 0.6 is at or below 0.65 given the spine disruption. Match: Pass.\n\n- Primary driver (0.276) is used. No minor drivers are treated as decisive. Match: Pass.\n\n- Top Warriors drivers:\n    1. Ladder points differential per game (0.276) - Mentioned.\n    2. Bradley-Terry strength advantage (0.132) - Alluded to via \"overall strength gap indicated by the model\".\n    3. 5-game form: all run metres (0.081) - Not mentioned.\n- Top Rabbitohs drivers:\n    1. Head-to-head record (last 5) (0.036) - Not mentioned.\n    2. 3-game form: errors (0.022) - Not mentioned.\n- Wait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n- Warriors:\n    - Ladder points differential: Mentioned.\n    - Bradley-Terry: Alluded to (\"strength gap\").\n    - Run metres: Not mentioned.\n- Rabbitohs:\n    - Head-to-head record: Not mentioned.\n    - 3-game form: errors: Not mentioned.\n- The judgement completely ignores the Rabbitohs' math signals (H2H, errors, support plays, etc.).\n- This is a failure of `omitted_math_signals`.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Skipped: \"Head-to-head record (last 5)\", \"3-game form: errors\", and \"5-game form: all run metres\".\n\nWait, let me re-read the \"alluded to\" part. \"overall strength gap indicated by the model\" covers Bradley-Terry. But H2H and run metres are specific stats.\n\n- Rabbitohs top drivers:\n    - Head-to-head record (last 5) (0.036)\n    - 3-game form: errors (0.022)\n- Warriors top drivers:\n    - Ladder points differential per game (0.276)\n    - Bradley-Terry strength advantage (0.132)\n    - 5-game form: all run metres (0.081)\n\nThe judgement mentions the ladder differential and the \"strength gap\". It ignores the H2H record and the run metres.\n\nInstruction: \"Math drivers include 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 4764
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T01:44:23.020885+00:00",
+      "thinking": "*   Current Prediction: Away (Warriors)\n    *   Confidence: 0.60\n    *   Key Factors: Ladder differential, Latrell Mitchell out, Warriors spine issues, Standings gap.\n    *   Verifier Issues: Omitted top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors).\n\n    *   `favouring_Rabbitohs_home_win`:\n        *   Head-to-head record (last 5) (60% to home side): contribution 0.036 (4% of total).\n        *   3-game form: errors (+1.33): contribution 0.022 (2% of total). *Note: CONFLICT - raw value favours away, but model nets it home.*\n    *   `favouring_Warriors_away_win`:\n        *   5-game form: all run metres (-163.00): contribution 0.081 (8% of total).\n\n    *   *Head-to-head record (last 5)*: Favours Rabbitohs (60% win rate). Contribution is small (4%).\n    *   *3-game form: errors*: The model nets this for Rabbitohs, but the raw value actually favours the Warriors (CONFLICT). This means the Warriors have been better with errors recently, but the model's internal logic is attributing a small positive to the Rabbitohs. Regardless, the contribution is very low (2%).\n    *   *5-game form: all run metres*: Favours Warriors. Contribution is 8% (significant).\n\n    *   The Warriors' drivers are much stronger: Ladder differential (27%), Bradley-Terry strength (13%), Run metres (8%).\n    *   The Rabbitohs' drivers are weak: H2H (4%), Errors (2%), Support plays (2%).\n    *   The `attribution_balance` leans heavily away (0.8154 vs 0.2222).\n    *   The market favourite is the Warriors ($1.55).\n    *   The standings gap (3rd vs 7th) is substantial.\n    *   Availability: Both teams have missing stars (Latrell Mitchell for Souths; Metcalf/Nicoll-Klokstad for Warriors).\n\n    *   Winner: Away (Warriors).\n    *   Confidence: 0.60. (The Warriors have a clear edge in ratings and standings, but the spine injuries and the Rabbitohs' home record (8-2) keep it from being a \"clear edge\" 0.65+).\n    *   Summary: Update to include the evaluation of the flagged SHAP drivers.\n\n    *   Mention H2H record (favours Rabbitohs but low weight).\n    *   Mention run metres (favours Warriors).\n    *   Mention the error form (conflicted, low weight).",
+      "chars": 2221
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-22T01:34:44.652108+00:00",
+      "payload": {
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Rabbitohs vs Warriors NRL round 25 preview",
+          "Rabbitohs Warriors NRL odds OR price OR favourite",
+          "Rabbitohs Warriors NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-22T01:39:47.794752+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "confidence": 0.6,
+          "summary": "The Warriors are strong favourites based on their 3rd-place ladder position and a dominant points differential. While the Warriors are missing key spine players Luke Metcalf and Charnze Nicoll-Klokstad, the Rabbitohs are also without Latrell Mitchell. The overall strength gap indicated by the model and standings outweighs these availability concerns.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Ladder points differential per game is the primary driver for the Warriors (contribution 0.276)."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell has been ruled out of this match, targeting a return in Round 26 (Fox Sports)."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors are facing disruption in their spine with Luke Metcalf sidelined by hamstring injury and Charnze Nicoll-Klokstad suspended (Before You Bet)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors sit 3rd on the ladder compared to the Rabbitohs in 7th, with a significantly higher points difference per game (13.14 vs 3.9)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-08-22T01:42:59.117736+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Latrell Mitchell's absence is sourced from Fox Sports and nrl_news; Warriors spine issues are sourced from Before You Bet."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Claims that Mitchell, Metcalf, and Nicoll-Klokstad are missing align with the research excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Ladder points differential is correctly attributed to the Warriors from the favouring_Warriors_away_win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors include research from Fox Sports and Before You Bet."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence is 0.6, which is within range and appropriately capped below 0.65 due to the Warriors' spine disruptions."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The primary driver (0.276) is correctly identified as the main influence."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+            }
+          ],
+          "issues": [
+            "The judgement omits several top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors)."
+          ],
+          "instruction": "Math drivers include 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-22T01:44:23.021038+00:00",
+      "payload": {
+        "issues": [
+          "The judgement omits several top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors)."
+        ],
+        "instruction": "Math drivers include 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "confidence": 0.6,
+          "summary": "The Warriors are strong favourites based on their 3rd-place ladder position and a dominant points differential. While the Warriors are missing key spine players Luke Metcalf and Charnze Nicoll-Klokstad, the Rabbitohs are also without Latrell Mitchell. The overall strength gap indicated by the model and standings outweighs these availability concerns.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Ladder points differential per game is the primary driver for the Warriors (contribution 0.276)."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell has been ruled out of this match, targeting a return in Round 26 (Fox Sports)."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors are facing disruption in their spine with Luke Metcalf sidelined by hamstring injury and Charnze Nicoll-Klokstad suspended (Before You Bet)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors sit 3rd on the ladder compared to the Rabbitohs in 7th, with a significantly higher points difference per game (13.14 vs 3.9)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "confidence": 0.6,
+          "summary": "The Warriors hold a significant advantage in ladder position (3rd vs 7th) and overall strength, supported by a strong run-metre advantage. While the Rabbitohs have a slight head-to-head edge and home-ground advantage, these are outweighed by the Warriors' dominant points differential. Both teams face availability issues in their spine, but the Warriors remain the stronger side.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The Warriors are heavily favoured by ladder points differential per game (contribution 0.276) and 5-game run-metre form (contribution 0.081)."
+            },
+            {
+              "source": "math",
+              "detail": "The Rabbitohs have a slight edge in head-to-head records (60% win rate in last 5), though this is a minor driver (contribution 0.036)."
+            },
+            {
+              "source": "math",
+              "detail": "The 3-game error form is noted as a conflict; while the model nets a small contribution to the Rabbitohs, the raw value actually favours the Warriors."
+            },
+            {
+              "source": "research",
+              "detail": "Latrell Mitchell is ruled out for this match, targeting a return in Round 26 (Fox Sports)."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors are missing Luke Metcalf (hamstring) and Charnze Nicoll-Klokstad (suspension), creating disruption in their spine (Before You Bet)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors sit 3rd on the ladder with a points difference per game of 13.14, compared to the Rabbitohs in 7th with 3.9."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "9d8b931fd5c4",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-22T01:33:08.642988+00:00",
+      "finished_at": "2026-08-22T01:33:12.316353+00:00",
+      "duration_ms": 3673,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Warriors",
+        "season": 2026,
+        "round_number": 25,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "season": 2026,
+          "round_number": 25
+        },
+        "retrieved_at": "2026-08-22T01:33:08.643065+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 25,
+          "round_title": "Round 25",
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "kickoff": "2026-08-22T17:30:00+10:00",
+          "venue": "Accor Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/rabbitohs-v-warriors/",
+          "match_mode": "Pre",
+          "match_id": "20261112550",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Todd Smith"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Drew Oultram"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Kasey Badger"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Grant Atkins"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Matthew Dufty",
+                "position": "Fullback",
+                "player_id": 500448
+              },
+              {
+                "number": 2,
+                "name": "Alex Johnston",
+                "position": "Winger",
+                "player_id": 500108
+              },
+              {
+                "number": 3,
+                "name": "Tallis Duncan",
+                "position": "Centre",
+                "player_id": 509529
+              },
+              {
+                "number": 4,
+                "name": "Jack Wighton",
+                "position": "Centre",
+                "player_id": 500339
+              },
+              {
+                "number": 5,
+                "name": "Campbell Graham",
+                "position": "Winger",
+                "player_id": 504294
+              },
+              {
+                "number": 6,
+                "name": "Cody Walker",
+                "position": "Five-Eighth",
+                "player_id": 500611
+              },
+              {
+                "number": 7,
+                "name": "Jayden Sullivan",
+                "position": "Halfback",
+                "player_id": 507928
+              },
+              {
+                "number": 8,
+                "name": "Tevita Tatola",
+                "position": "Prop",
+                "player_id": 503450
+              },
+              {
+                "number": 9,
+                "name": "Brandon Smith",
+                "position": "Hooker",
+                "player_id": 503419
+              },
+              {
+                "number": 10,
+                "name": "Keaon Koloamatangi",
+                "position": "Prop",
+                "player_id": 504174
+              },
+              {
+                "number": 11,
+                "name": "David Fifita",
+                "position": "2nd Row",
+                "player_id": 506482
+              },
+              {
+                "number": 12,
+                "name": "Euan Aitken",
+                "position": "2nd Row",
+                "player_id": 500441
+              },
+              {
+                "number": 13,
+                "name": "Cameron Murray",
+                "position": "Lock",
+                "player_id": 504176
+              },
+              {
+                "number": 14,
+                "name": "Jye Gray",
+                "position": "Interchange",
+                "player_id": 100009148
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Hubner",
+                "position": "Interchange",
+                "player_id": 506446
+              },
+              {
+                "number": 16,
+                "name": "Sean Keppie",
+                "position": "Interchange",
+                "player_id": 504265
+              },
+              {
+                "number": 17,
+                "name": "Liam Le Blanc",
+                "position": "Interchange",
+                "player_id": 100009139
+              },
+              {
+                "number": 18,
+                "name": "Peter Mamouzelos",
+                "position": "Interchange",
+                "player_id": 507833
+              },
+              {
+                "number": 19,
+                "name": "Edward Kosi",
+                "position": "Interchange",
+                "player_id": 509842
+              },
+              {
+                "number": 21,
+                "name": "Thomas Fletcher",
+                "position": "Reserve",
+                "player_id": 100006510
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Taine Tuaupiki",
+                "position": "Fullback",
+                "player_id": 508254
+              },
+              {
+                "number": 2,
+                "name": "Dallin Watene-Zelezniak",
+                "position": "Winger",
+                "player_id": 500532
+              },
+              {
+                "number": 3,
+                "name": "Ali Leiataua",
+                "position": "Centre",
+                "player_id": 100006296
+              },
+              {
+                "number": 4,
+                "name": "Leka Halasima",
+                "position": "Centre",
+                "player_id": 100013674
+              },
+              {
+                "number": 5,
+                "name": "Alofiana Khan-Pereira",
+                "position": "Winger",
+                "player_id": 100001619
+              },
+              {
+                "number": 6,
+                "name": "Luke Hanson",
+                "position": "Five-Eighth",
+                "player_id": 100006264
+              },
+              {
+                "number": 7,
+                "name": "Chanel Harris-Tavita",
+                "position": "Halfback",
+                "player_id": 506851
+              },
+              {
+                "number": 8,
+                "name": "James Fisher-Harris",
+                "position": "Prop",
+                "player_id": 502580
+              },
+              {
+                "number": 9,
+                "name": "Wayde Egan",
+                "position": "Hooker",
+                "player_id": 504123
+              },
+              {
+                "number": 10,
+                "name": "Mitchell Barnett",
+                "position": "Prop",
+                "player_id": 501267
+              },
+              {
+                "number": 11,
+                "name": "Kurt Capewell",
+                "position": "2nd Row",
+                "player_id": 500992
+              },
+              {
+                "number": 12,
+                "name": "Jacob Laban",
+                "position": "2nd Row",
+                "player_id": 100012134
+              },
+              {
+                "number": 13,
+                "name": "Erin Clark",
+                "position": "Lock",
+                "player_id": 503685
+              },
+              {
+                "number": 14,
+                "name": "Sam Healey",
+                "position": "Interchange",
+                "player_id": 509563
+              },
+              {
+                "number": 15,
+                "name": "Tanner Stowers-Smith",
+                "position": "Interchange",
+                "player_id": 100013671
+              },
+              {
+                "number": 16,
+                "name": "Demitric Vaimauga",
+                "position": "Interchange",
+                "player_id": 100013336
+              },
+              {
+                "number": 17,
+                "name": "Eddie Ieremia-Toeava",
+                "position": "Interchange",
+                "player_id": 100015584
+              },
+              {
+                "number": 18,
+                "name": "Adam Pompey",
+                "position": "Interchange",
+                "player_id": 508026
+              },
+              {
+                "number": 20,
+                "name": "Morgan Gannon",
+                "position": "Interchange",
+                "player_id": 100008673
+              },
+              {
+                "number": 21,
+                "name": "Jett Cleary",
+                "position": "Reserve",
+                "player_id": 100006760
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 25,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Rabbitohs",
+            "position": 7,
+            "played": 21,
+            "wins": 12,
+            "drawn": 0,
+            "lost": 9,
+            "competition_points": 30,
+            "points_for": 576,
+            "points_against": 494,
+            "points_difference": 82,
+            "points_difference_per_game": 3.9,
+            "recent_form_last_4": "3 - 2",
+            "streak": "2W",
+            "home_record": "8 - 2",
+            "away_record": "4 - 7"
+          },
+          "away": {
+            "team": "Warriors",
+            "position": 3,
+            "played": 21,
+            "wins": 15,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 36,
+            "points_for": 606,
+            "points_against": 330,
+            "points_difference": 276,
+            "points_difference_per_game": 13.14,
+            "recent_form_last_4": "4 - 1",
+            "streak": "3W",
+            "home_record": "8 - 2",
+            "away_record": "7 - 4"
+          },
+          "comparison": {
+            "higher_on_ladder": "Warriors",
+            "ladder_positions_gap": -4,
+            "points_difference_per_game_gap": -9.24,
+            "points_difference_favours": "Warriors"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-22T17:00",
+            "temperature_c": 19.5,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 13.0,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.8474,
+            "longitude": 151.0632,
+            "venue": "Accor Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-22T01:33:12.314912+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=25&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/rabbitohs-v-warriors/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "ea98dcce0096",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-22T01:34:44.654094+00:00",
+      "finished_at": "2026-08-22T01:36:40.186649+00:00",
+      "duration_ms": 115532,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Warriors",
+        "kickoff": "2026-08-22T17:30:00+10:00",
+        "round_number": 25,
+        "venue": "Accor Stadium",
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Rabbitohs vs Warriors NRL round 25 preview",
+          "Rabbitohs Warriors NRL odds OR price OR favourite",
+          "Rabbitohs Warriors NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "kickoff": "2026-08-22T17:30:00+10:00",
+          "round_number": 25,
+          "venue": "Accor Stadium",
+          "queries": [
+            "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+            "Rabbitohs vs Warriors NRL round 25 preview",
+            "Rabbitohs Warriors NRL odds OR price OR favourite",
+            "Rabbitohs Warriors NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-08-22T01:34:44.655745+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 5
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 14
+          }
+        },
+        "items": [
+          {
+            "id": "fcfe094bee404c00",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Round 25 - Latrell on hold; Turbo on track",
+            "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/",
+            "published_at": "2026-08-21T10:04:46+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has",
+            "body_excerpt": "Presented By\nNRL Late Mail: Round 25 - Latrell on hold; Turbo on track\nSuperstar Latrell Mitchell will target a return in Round 26 against the Titans after his long-awaited comeback was put on hold.\nMitchell has missed 11 games as he battles nerve pain in his lower back which has affected his leg and calf but had been named in the Rabbitohs' extended squad on Tuesday.\n\"There was a chance (for this week). He trained pretty well but just probably needs another week,\" coach Wayne Bennett said on Friday.\n\"We took a cautious approach and we'll give him another week.\"\nBetter news for Manly though with Tom Trbojevic a confirmed starter for their clash with the Knights on Saturday.\nSee all the late mail, official team news and updates for Round 25 of the 2026 NRL Telstra Premiership competition.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Round 25\nKnights v Sea Eagles, Saturday 3.00pm at McDonald Jones Stadium\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\naway Team\nSea Eagles\nTeam Lists\nBacks\nFullback for Knights is number 1 Kalyn Ponga 1 Fullback for Sea Eagles is number 1 Tom Trbojevic\nWinger for Knights is number 2 Dominic Young 2 Winger for Sea Eagles is number 2 Jason Saab\nCentre for Knights is number 3 Fletcher Hunt 3 Centre for Sea Eagles is number 3 Tolutau Koula\nCentre for Knights is number 4 Bradman Best 4 Centre for Sea Eagles is number 4 Reuben Garrick\nWinger for Knights is number 5 Greg Marzhew 5 Winger for Sea Eagles is number 5 Lehi Hopoate\nFive-Eighth for Knights is number 6 Fletcher Sharpe 6 Five-Eighth for Sea Eagles is number 6 Clayton Faulalo\nHalfback for Knights is number 7 Sandon Smith 7 Halfback for Sea Eagles is number 7 Jamal Fogarty\nForwards\nProp for Knights is number 8 Jacob Saifiti 8 Prop for Sea Eagles is number 8 Simione Laiafi\nHooker for Knights is number 9 Phoenix Crossland 9 Hooker for Sea Eagles is number 9 Brandon Wakeham\nProp for Knights is number 10 Trey Mooney 10 Prop for Sea Eagles is number 10 Nathan Brown\n10\n2nd Row for Knights is number 11 Jermaine McEwen 11 2nd Row for Sea Eagles is number 11 Haumole Olakau'atu\n11\n2nd Row for Knights is number 12 Tyson Frizell 12 2nd Row for Sea Eagles is number 12 Ben Trbojevic\n12\nLock for Knights is number 13 Mat Croker 13 Lock for Sea Eagles is number 13 Jake Trbojevic\n13\nInterchange\nInterchange for Knights is number 14 Harrison Graham 14 Interchange for Sea Eagles is number 14 Jake Simpkin\n14\nInterchange for Knights is number 15 Cody Hopwood 15 Interchange for Sea Eagles is number 15 Nicholas Lenaz\n15\nInterchange for Knights is number 16 Lachlan Crouch 16 Interchange for Sea Eagles is number 16 Corey Waddell\n16\nInterchange for Knights is number 17 Thomas Cant 17 Interchange for Sea Eagles is number 17 Caleb Navale\n17\nInterchange for Knights is number 18 Pasami Saulo 18 Interchange for Sea Eagles is number 18 Josh Feledy\n18\nInterchange for Knights is number 19 Toby Winter 19 Interchange for Sea Eagles is number 19 Fletcher Baker\n19\nReserves\nReserve for Knights is number 22 Elijah Salesa-Leaumoana 22 20 Reserve for Sea Eagles is number 20 Onitoni Large\n22 20\nKnights Ins\nBradman Best\nElijah Salesa-Leaumoana\nJacob Saifiti\nSea Eagles Ins\nBen Trbojevic\nCaleb Navale\nOnitoni Large\nTom Trbojevic\nKnights Outs\nDane Gagai\nFrancis Manuleleua\nHugo Hart\nJackson Shereb\nJoey Walsh\nMatch Officials\nReferee: Wyatt Raymond\nTouch Judge: Dave Munro\nSenior Review Official: Adam Gee\nLast updated: 8/22/2026 1:26:04 AM\nKnights: Origin centre Bradman Best is back after two games out with a calf injury and lines up for just his 13th match of the season. Two big blows though with Dane Gagai (hamstring) and Francis Manuleleua (concussion) to sit this one out. Prop Jacob Saifiti is also back after six games out with a hamstring injury so Cody Hopwood slides to the bench. Winger Dominic Young has scored 10 tries in his last six games against the Sea Eagles. No changes in Friday's 24-hour update with Elijah Salesa-Leaumoana rema",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.499626595833332,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f6a7e8a2b1c5da45",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Round 25",
+            "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/",
+            "published_at": "2026-08-18T06:00:29+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Th",
+            "body_excerpt": "Presented By\nNRL Team Lists: Round 25\nOfficial team lists, updates and injury news for Round 25 of the 2026 NRL Telstra Premiership.\nCasualty Ward: All the injury news\nJudiciary latest\nStorm v Panthers, Thursday 7.50pm at AAMI Park\nMatch: Storm v Panthers\nRound 25 - Round 25 - Thursday 20 Aug\nhome Team\nStorm\naway Team\nPanthers\nTeam Lists\nBacks\nFullback for Storm is number 1 Sualauvi Faalogo 1 Fullback for Panthers is number 1 Dylan Edwards\nWinger for Storm is number 2 Siulagi Tuimalatu-Brown 2 Winger for Panthers is number 2 Thomas Jenkins\nCentre for Storm is number 3 Jack Howarth 3 Centre for Panthers is number 3 Izack Tago\nCentre for Storm is number 4 Nick Meaney 4 Centre for Panthers is number 4 Casey McLean\nWinger for Storm is number 5 Moses Leo 5 Winger for Panthers is number 5 Brian To'o\nFive-Eighth for Storm is number 6 Cameron Munster 6 Five-Eighth for Panthers is number 6 Jack Cogger\nHalfback for Storm is number 14 Tyran Wishart 14 7 Halfback for Panthers is number 7 Nathan Cleary\n14 7\nForwards\nProp for Storm is number 8 Stefano Utoikamanu 8 Prop for Panthers is number 8 Moses Leota\nHooker for Storm is number 9 Harry Grant 9 Hooker for Panthers is number 9 Freddy Lussick\nProp for Storm is number 10 Josh King 10 Prop for Panthers is number 10 Liam Henry\n10\n2nd Row for Storm is number 11 Shawn Blore 11 2nd Row for Panthers is number 11 Isaiah Papali'i\n11\n2nd Row for Storm is number 12 Oryn Keeley 12 2nd Row for Panthers is number 12 Liam Martin\n12\nLock for Storm is number 13 Trent Loiero 13 Lock for Panthers is number 13 Lindsay Smith\n13\nInterchange\nInterchange for Storm is number 15 Alec MacDonald 15 14 Interchange for Panthers is number 14 Billy Scott\n15 14\nInterchange for Storm is number 16 Angus Hinchey 16 15 Interchange for Panthers is number 15 Scott Sorensen\n16 15\nInterchange for Storm is number 17 Cooper Clarke 17 Interchange for Panthers is number 17 Billy Phillips\n17\n21 Interchange for Panthers is number 21 Luke Garner\n21\nReserve for Storm is number 7 Trent Toelau 7 16 Reserve for Panthers is number 16 Luron Patea\n7 16\nReserve for Storm is number 18 Joe Chan 18 Reserve for Panthers is number 18 Jack Cole\n18\nReserve for Storm is number 21 Jack Hetherington 21\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Matt Noyen\nSenior Review Official: Wyatt Raymond\nLast updated: 8/21/2026 8:06:13 AM\nStorm: Captain Harry Grant is back from a hamstring injury so Tyran Wishart slides to the bench. Joe Chan also goes to the bench to accommodate the return of centre Jack Howarth (shoulder). Trent Toelau has been handed the No.7 jersey with youngster Hayden Watson making way. Alec MacDonald is back from concussion and joins the interchange. Jack Hetherington and Davvy Moale drop to the reserves.\nPanthers: Young gun Casey McLean returns from a hand injury and takes over in the centres from Paul Alamoti (hamstring). Jack Cole has been added to the interchange in place of Jaxen Edgar.\nRaiders v Broncos, Friday 6.00pm at GIO Stadium\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nRaiders\nBroncos\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nProp for Raiders is number 8 Josh Papalii 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Broncos is number 9 Billy Walters\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Broncos is number 10 Payne Haas\n2nd Row for Raiders is ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 91.57101548472222,
+            "relevance_score": 8.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "1d597f904aa0c643",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "South Sydney Rabbitohs vs New Zealand Warriors Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-new-zealand-warriors-tips-odds-teams-predictions-nrl-round-25-2026/609973",
+            "published_at": "2026-08-20T03:04:12+00:00",
+            "snippet": "South Sydney Rabbitohs vs New Zealand Warriors Tips, Odds, Teams & Predictions – NRL Round 25 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Accor Stadium will play host to Saturday's Round 25 NRL game between South Sydney Rabbitohs and New Zealand Warriors. The game kicks off at 5:30 pm with New Zealand Warriors heading into the game as favourites with the bookmakers. Continue reading for our in-depth preview of the South Sydney Rabbitohs vs. New Zealand Warriors game and give you our free tips and bets.\nWhen: Saturday August 22, 2026 at 5:30 pm\nWhere: Accor Stadium\nBet 💰: Bet On This Match HERE\nSouth Sydney Rabbitohs vs New Zealand Warriors Odds\nSouth Sydney Rabbitohs vs New Zealand Warriors Preview\nSouth Sydney’s upset of Canterbury was its third win in four games and kept the Rabbitohs firmly in the finals race. Euan Aitken moves into the second row, while Latrell Mitchell has been named among the reserves as he pushes for a return after a lengthy absence. The Warriors arrive with three straight victories, including emphatic wins over Gold Coast and Brisbane around a statement result against Penrith. Their spine changes again, with Luke Hanson joining Chanel Harris-Tavita in the halves and Taine Tuaupiki starting at fullback. New Zealand has won its past two meetings with Souths at Accor Stadium, yet Alex Johnston’s 15 tries in 11 games against the Warriors remain a significant threat. The visitors’ powerful, consistent forward pack should provide the decisive advantage.\nHead To Head Bet\nWe're tipping New Zealand Warriors to win at $1.55 odds.\nFirst Try Scorer\nFirst Try Scorer: Alex Johnston at $8.25 .\nSouth Sydney Rabbitohs vs New Zealand Warriors Teams\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Edward Kosi 20. Jonah Glover 21. Thomas Fletcher 22. Latrell Mitchell\nWarriors team: 1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-Tavita 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Eddie Ieremia-Toeava 18. Adam Pompey 20. Morgan Gannon 21. Jett Cleary 22. Luke Laulii 23. Makaia Tafua",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 46.509071040277775,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-21T09:34:49+00:00",
+            "snippet": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delaye",
+            "body_excerpt": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go\nWests Tigers halfback Adam Doueihi will undergo season-ending surgery that will rule him out of Lebanon's World Cup campaign.\nThe playmaker dislocated his shoulder in a Round 9 loss to the Sharks and initially delayed surgery in an attempt to kickstart the Tigers finals campaign.\nThe 28-year-old returned to the field in Round 17 but fresh scans have shown Doueihi requires immediate surgery, with the halfback to go under the knife later this week.\n\"New scans on Adam's shoulder have showed the time has come to have his reconstruction done. This gives him enough time to be ready for the start of the 2027 season,\" Wests Tigers head of high performance Peter Moussa said.\nMeanwhile, Tigers five-eighth Latu Fainu has suffered a low-grade hamstring injury at training. Fainu was set to return this week after serving a three-game suspension but will now be sidelined for 1-2 weeks with his latest injury.\nIn positive news, Sunia Turuva has been named on the six-man bench despite suffering a knee injury last week, while Alex Twal is set to return after missing Round 24 due to illness.\nBroncos superstar Reece Walsh has had surgery on his ankle and is facing an eight-week recovery time.\nWalsh had scans on Sunday which confirmed he had sustained a high-grade syndesmosis injury during the loss to the Warriors on Saturday night.\nWarriors fullback Charnze Nicoll-Klokstad has subsequently been banned for two games for a hip drop tackle.\nWith Australia's World Cup opener against the Kiwis set down for Thursday, October 15 it appears Walsh's chances of representing the Kangaroos are gone.\nThe Raiders had Simi Sasagi back from a shoulder injury for their clash with the Broncos but lost back-rower Zac Hosking to a hamstring injury during the second half.\nSouth Sydney star Latrell Mitchell will look to return in Round 26 from a nerve injury that has kept him sidelined since Round 11.\nThe centre has missed 11 games with the injury but was named in the Bunnies' extended squad for this weekend's match against the Warriors before being put on ice once more.\nThe Rabbitohs have lost Adam Elliott to a groin injury, with the veteran expected to miss two to three weeks with a strained adductor.\nMeanwhile, Warriors halfback Luke Metcalf will miss the remainder of the regular season after suffering a hamstring injury in last week's win over Brisbane.\n\"The timeline for him will be deep into the finals but you never know,\" coach Andrew Webster said on Thursday.\n\"I think this is probably the most optimistic I've seen him when he knows he's got a plan and when he knows he wants to attack something.\"\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nWith Te Maire Martin at least another week away from returning from a hamstring injury, rookie Luke Hanson will step into the halves for Saturday's clash with the Rabbitohs.\n\"We want to make sure we get it right but Te Maire is progressing well,\" Webster said.\nThe Roosters will also welcome back James Tedesco from an ankle injury for Sunday's clash against Wests Tigers at Allianz Stadium.\nDolphins forward Connelly Lemuelu will miss his side's clash with the Eels due a hamstring injury. The 28-year-old has sustained a low-grade hamstring injury and is expected to miss two to three weeks.\nParramatta will be without Dylan Walker, who is set for one to two weeks on the sideline with a wrist injury, while Jordan Samrani was a late withdrawal after injuring his groin in the warm-up.\nPlaymaker Jonah Pezet has been named to make his return from a shoulder injury in NSW Cup.\nWinger Bailey Simonsson is also back in reserve grade, playing his first game since suffering a nasty leg injury on Easter Monday.\nNewcastle veteran Dane Gagai will miss this week's clash with Manly due to a hamstring strain suffered last weekend, while Francis Manuleleua has been ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.9987932625,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "bd86300f5cb14c86",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Rabbitohs v Warriors: Mitchell return delayed; Hanson steps up",
+            "url": "https://www.nrl.com/news/2026/08/18/rabbitohs-v-warriors-mitchell-in-the-mix-hanson-steps-up/",
+            "published_at": "2026-08-21T07:34:26+00:00",
+            "snippet": "Presented By\nRabbitohs v Warriors: Mitchell return delayed; Hanson steps up\nThe Rabbitohs are out to solidify their place in the top eight when they host the high-flying Warriors in a Saturday evening blockbuster at Accor Stadium.\nWayne Bennett's men made a statement with a compr",
+            "body_excerpt": "Presented By\nRabbitohs v Warriors: Mitchell return delayed; Hanson steps up\nThe Rabbitohs are out to solidify their place in the top eight when they host the high-flying Warriors in a Saturday evening blockbuster at Accor Stadium.\nWayne Bennett's men made a statement with a comprehensive victory over the Bulldogs last Friday and they currently sit seventh on the ladder with three games to play.\nThe Rabbitohs have found form following the recent return of their big guns, with David Fifita and Cam Murray making an instant impact in the past couple of weeks.\nSouth Sydney will put their premiership credentials on the line this weekend when the Warriors travel to Sydney for a crucial showdown.\nThe Wahs army will be out in force at Accor Stadium as Andrew Webster's men chase a top-two finish.\nThe Warriors now sit level on points with the Panthers and are desperate to secure a home final in the opening week of the post-season.\nMatch: Rabbitohs v Warriors\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nRabbitohs\n7th Position\naway Team\nWarriors\n3rd Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nFoxtel\nKayo\nTeam News\nRabbitohs: Superstar Latrell Mitchell will target a Round 26 return against the Titans after his comeback was put on hold this week. The Bunnies are set to line up as named on Tuesday with Euan Aitken promoted to the starting side in place of Adam Elliott (adductor). Thomas Fletcher remained in the squad as the reserve when it was trimmed on Friday.\nWarriors: Taine Tuaupiki is back in the starting side at fullback with Charnze Nicoll-Klokstad serving a two-game suspension for a hip drop tackle on Reece Walsh. With Luke Metcalf (hamstring) sidelined, Chanel Harris-Tavita moves to halfback and Luke Hanson is the new five-eighth in his second NRL match after debuting in Round 3. The new man on the bench is Morgan Gannon while Jett Cleary remains in the 20-man squad on Friday after the 24-hour update.\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Warriors is number 1 Taine Tuaupiki\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Warriors is number 2 Dallin Watene-Zelezniak\nCentre for Rabbitohs is number 3 Tallis Duncan 3 Centre for Warriors is number 3 Ali Leiataua\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Warriors is number 4 Leka Halasima\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Warriors is number 5 Alofiana Khan-Pereira\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Warriors is number 6 Luke Hanson\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Warriors is number 7 Chanel Harris-Tavita\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Warriors is number 8 James Fisher-Harris\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Warriors is number 9 Wayde Egan\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Warriors is number 10 Mitchell Barnett\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Warriors is number 11 Kurt Capewell\n11\n2nd Row for Rabbitohs is number 12 Euan Aitken 12 2nd Row for Warriors is number 12 Jacob Laban\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Warriors is number 13 Erin Clark\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Warriors is number 14 Sam Healey\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Warriors is number 15 Tanner Stowers-Smith\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Warriors is number 16 Demitric Vaimauga\n16\nInterchange for Rabbitohs is number 17 Liam Le Blanc 17 Interchange for Warriors is number 17 Eddie Ieremia-Toeava\n17\nInterchange for Rabbitohs is number 18 Peter Mamouzelos 18 Interchange for Warriors is number 18 Adam Pompey\n18\nInterchange for Rabbitohs is number 19 Edward Kosi 19 20 Interchange for Warriors is number 20 Morgan Gannon\n19 20\nReserves\nReserve for Rabbitohs is number",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.005182151388887,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "54284335fe5351a6",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-warriors-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-21T05:11:25+00:00",
+            "snippet": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026\nAugust 21 st 2026, 2:36pm , By: Ben Bridge\nSaturday evening at Accor Stadium gives us one of the best games of NRL Round 25 , with South Sydney hosting the Warriors in a matchup carrying major finals implications at both ends of the top eight. The Rabbitohs sit seventh and are trying to lock away their finals position, while New Zealand remain third and level on competition points with Penrith as they chase a top 2 finish and a home final.\nBoth teams therefore have plenty to play for, but I still lean toward the Warriors despite the disruption in their spine. Luke Metcalf is sidelined with a hamstring injury, Charnze Nicoll-Klokstad is suspended, and Andrew Webster has named Chanel Harris-Tavita at halfback alongside rookie Luke Hanson, who plays just his second NRL game. Taine Tuaupiki moves to fullback. South Sydney are far healthier than earlier in the season, however Latrell Mitchell will not take his place after being named on the extended bench, he has been ruled out.\nThat inexperienced Warriors halves combination keeps this from becoming a large bet, but their forward pack and season long profile still make Warriors -4.5 the side I want, with their advantage in the forwards and outside backs enough in my opinion.\nRabbitohs vs Warriors Prediction & Tips: 2026 NRL Round 25\nRabbitohs Building Momentum at the Right Time\nSouth Sydney continued their late season surge with a convincing 22-6 victory over Canterbury last Friday, another crucial step toward securing a finals berth after a season that has contained more than its fair share of disruption. The Rabbitohs controlled the contest defensively, restricting the Bulldogs to a single try and again showing that Wayne Bennett has this side peaking at the right stage of the year.\nMatt Dufty has been one of the success stories of South Sydney’s resurgence. Against Canterbury he produced 250 running metres, four tackle breaks, a try and a try assist, giving the Rabbitohs the type of support play and yardage they desperately needed during their injury riddled middle of the season.\nThe bigger improvement has come through the return of their forward leaders. Cameron Murray and David Fifita have both made an immediate impact since returning, and South Sydney look far more capable of sustaining pressure through the middle rather than asking Cody Walker to manufacture everything himself. Souths have won eight consecutive games at Accor Stadium, which makes this a far tougher road assignment for the Warriors than the ladder alone suggests.\nThe team news is also encouraging. Cody Walker and Jayden Sullivan remain the halves, Brandon Smith starts at hooker and Murray locks a pack featuring Junior Tatola, Keaon Koloamatangi and Fifita. Latrell Mitchell was named to return on the extended bench; however, he is being given one more week before his return next week.\nSouth Sydney are dangerous enough to win this game. The question is whether they can contain a Warriors pack that remains close to full strength despite the disruption in the backline.\nWarriors Keep Rolling Despite Injury Setbacks\nThe Warriors reinforced their premiership credentials last weekend with a dominant 40-6 victory over Brisbane at Suncorp Stadium, controlling the defending premiers from the opening exchanges and never allowing the Broncos into the contest.\nThat performance was particularly important because the Warriors have continued to absorb injuries without losing their underlying identity. Their season has been built around middle third dominance, strong yardage from their back three, and defensive consistency, and those areas remain intact even with Metcalf and Nicoll-Klokstad unavailable.\nJames Fisher-Harris and Mitch Barnett give New Zealand one of the best starting prop combinations in the competition, while Wayde Egan remains the crucial link at hooker. Kurt Capewell and Jacob Laban start on the edges, with Erin Clark at lock.\nThe concern is obvi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.3887932625,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "d620b1c28a97ccf7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs v Warriors: Round 25 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/08/19/rabbitohs-v-warriors-round-25/",
+            "published_at": "2026-08-19T05:47:59+00:00",
+            "snippet": "Rabbitohs v Warriors: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:38 Dolphins v Eels: Round 25\nDolphins v Eels: Round 25\n02:54 Raiders v Broncos: Round 25\nRaiders v Broncos: Round 25\n03:26 Storm v Panthers: Round 25\nStorm v Panth",
+            "body_excerpt": "Rabbitohs v Warriors: Round 25\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n02:38 Dolphins v Eels: Round 25\nDolphins v Eels: Round 25\n02:54 Raiders v Broncos: Round 25\nRaiders v Broncos: Round 25\n03:26 Storm v Panthers: Round 25\nStorm v Panthers: Round 25\nRelated /\nRabbitohs v Warriors: Mitchell return delayed; Hanson steps up\nWarriors\nTongan tearaway Halasima happy being at the centre of the action\nWarriors extend Webster to 2032\nFantasy\nFirst take: Rabbitohs v Warriors\nNRL News\nJohnston chasing new record as Ken Irvine Medal race heats up\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 67.77934881805555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "c1f0d9bf571dcf6f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+            "url": "https://www.seaeagles.com.au/news/2026/08/18/team-list-nrl-round-25-vs-knights/",
+            "published_at": "2026-08-18T05:59:00+00:00",
+            "snippet": "Presented By\nTeam List: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s Round 25 match against the Newcastle Knights at McDonald Jones Stadium.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Po",
+            "body_excerpt": "Presented By\nTeam List: NRL Round 25 vs Knights\nSea Eagles coach Kieran Foran has named a 22-man squad for Saturday’s Round 25 match against the Newcastle Knights at McDonald Jones Stadium.\nMatch: Knights v Sea Eagles\nRound 25 - Round 25 - Saturday 22 Aug\nhome Team\nKnights\n6th Position\naway Team\nSea Eagles\n10th Position\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nFoxtel\nKayo\nThere are a couple of changes to the team including the return of fullback Tom Trbojevic and the absence of five-eighth Joey Walsh.\nTurbo will slot straight back into the No.1 jersey after missing the past three games with a hamstring injury.\nWalsh will miss the trip to Newcastle after suffering a hairline fracture in his jaw during last Friday’s loss to the Dolphins at 4 Pines Park.\nClayton Faulalo shifts from fullback to five-eighth for what will be his first start in the No.6 jersey at Manly.\nBen Trbojevic is back on deck after suffering a concussion in Round 21 against the Sharks. He returns to the second row pushing Corey Waddell to the interchange.\nAlso on the interchange, for the first time this season, is Caleb Navale. The 23-year-old lock made a successful return in the NSW Cup last weekend after suffering an ACL injury in February.\nTeam List: Round 25 vs Knights\nBrought to you by\n1.\nTom Trbojevic (c)\n2.\nJason Saab\n3.\nTolu Koula\n4.\nReuben Garrick\n5.\nLehi Hopoate\n6.\nClayton Faulalo\n7.\nJamal Fogarty\n8.\nSimione Laiafi\n9.\nBrandon Wakeham\n10.\nNathan Brown\n11.\nHaumole Olakau'atu\n12.\nBen Trbojevic\n13.\nJake Trbojevic (c)\nInterchange\n14.\nJake Simpkin\n15.\nNic Lenaz\n16.\nCorey Waddell\n17.\nCaleb Navale\n18.\nJosh Feledy\n19.\nFletcher Baker\nReserves\n20.\nOnitoni Large\n21.\nJackson Shereb\n22.\nBlake Wilson\nRelated /\nGallery: Final Prep for Knights\nTeam Lists\nTeam Update: NRL Round 25 vs Knights\nA Big Final Home Game for Families\nTeam List: NSW Cup Round 25 vs Knights\nFinal Team: NRL Indigenous Round vs Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 91.59573770694445,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "68d33691ea713e73",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List Round 25 v Raiders - Brisbane Broncos",
+            "url": "https://www.broncos.com.au/news/2026/08/18/nrl-team-list-round-25-v-raiders/",
+            "published_at": "2026-08-18T05:48:55+00:00",
+            "snippet": "Presented By\nNRL Team List Round 25 v Raiders\nHayze Perham will play fullback in Friday night’s game against the Canberra Raiders at GIO Stadium.\nPerham replaces Reece Walsh who has undergone surgery to repair a syndesmosis injury suffered in last week’s game against the Warriors",
+            "body_excerpt": "Presented By\nNRL Team List Round 25 v Raiders\nHayze Perham will play fullback in Friday night’s game against the Canberra Raiders at GIO Stadium.\nPerham replaces Reece Walsh who has undergone surgery to repair a syndesmosis injury suffered in last week’s game against the Warriors.\nMeanwhile, Ben Hunt will partner Ezra Mam in the halves and hooker Blake Mozer has been named in the number 14 jersey.\nKick-off is 6pm.\nMatch: Raiders v Broncos\nRound 25 - Round 25 - Friday 21 Aug\nhome Team\nRaiders\naway Team\nBroncos\nTeam Lists\nBacks\nFullback for Raiders is number 1 Kaeo Weekes 1 Fullback for Broncos is number 1 Hayze Perham\nWinger for Raiders is number 2 Jed Stuart 2 Winger for Broncos is number 2 Josiah Karapani\nCentre for Raiders is number 3 Simi Sasagi 3 Centre for Broncos is number 3 Kotoni Staggs\nCentre for Raiders is number 4 Matthew Timoko 4 Centre for Broncos is number 4 Deine Mariner\nWinger for Raiders is number 5 Xavier Savage 5 Winger for Broncos is number 5 Grant Anderson\nFive-Eighth for Raiders is number 6 Ethan Strange 6 Five-Eighth for Broncos is number 6 Ezra Mam\nHalfback for Raiders is number 7 Ethan Sanders 7 Halfback for Broncos is number 7 Ben Hunt\nForwards\nProp for Raiders is number 8 Josh Papalii 8 Prop for Broncos is number 8 Xavier Willison\nHooker for Raiders is number 9 Owen Pattie 9 Hooker for Broncos is number 9 Billy Walters\nProp for Raiders is number 10 Joseph Tapine 10 Prop for Broncos is number 10 Payne Haas\n10\n2nd Row for Raiders is number 11 Zac Hosking 11 2nd Row for Broncos is number 11 Jaiyden Hunt\n11\n2nd Row for Raiders is number 12 Matty Nicholson 12 2nd Row for Broncos is number 12 Jordan Riki\n12\nLock for Raiders is number 13 Ata Mariota 13 Lock for Broncos is number 13 Patrick Carrigan\n13\nInterchange\nInterchange for Raiders is number 14 Tom Starling 14 Interchange for Broncos is number 14 Blake Mozer\n14\nInterchange for Raiders is number 15 Joe Roddy 15 16 Interchange for Broncos is number 16 Jack Gosiewski\n15 16\nInterchange for Raiders is number 16 Corey Horsburgh 16 17 Interchange for Broncos is number 17 Va'a Semu\n16 17\nInterchange for Raiders is number 17 Daine Laurie 17\n17\nReserve for Raiders is number 18 Vena Patuki-Case 18 15 Reserve for Broncos is number 15 Aublix Tawha\n18 15\nReserve for Raiders is number 19 Savelio Tamale 19 18 Reserve for Broncos is number 18 Thomas Duffy\n19 18\n19 Reserve for Broncos is number 19 Gehamat Shibasaki\n19\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Ziggy Przeklasa-Adamski\nTouch Judge: Phil Henderson\nSenior Review Official: Chris Butler\nLast updated: 8/21/2026 12:18:14 PM\nRelated /\nPost Match Press Conference: Round 25 v Raiders\nMatch Highlights\nMatch Highlights: NRL Round 25 v Raiders\nNRLW Team List Round 8 v Titans\nNRL Team List Round 24 v Warriors\nNRL Team List Round 23 v Dolphins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 91.7637932625,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "1b622b604e92dd3b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-latest-team-news-and-injury-updates-latrell-mitchell-clint-gutherson-tom-trbojevic/news-story/1362e2e046e9793d10ba74e544d57765",
+            "published_at": "2026-08-22T01:11:02+00:00",
+            "snippet": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail\nKieran Foran says Tom Trbojevic is a sure starter in Newcastle this weekend as the Sea Eagles attempt to save their season.\nThe Rabbitohs have ruled out Latrell Mitchell from this week’s crunch game against the Warriors, but there’s good news for Souths fans as the champion centre looks to feature in the club’s finals campaign.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, an injured Dragons star’s season is over.\nRead on for Round 25 Late Mail!\nSATURDAY AUGUST 22\nNewcastle Knights vs Manly Sea Eagles @ McDonald Jones Stadium, 3pm\nKnights team: 1. Kalyn Ponga 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mathew Croker 14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter 22. Elijah Leaumoana\nPlayers Cut: 20. Diesel Hagan 21. Kyle McCarthy\nLate Mail: To come.\nSea Eagles team: 1. Tom Trbojevic 2. Jason Saab 3. Tolutau Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau’atu 12. Ben Trbojevic 13. Jake Trbojevic 14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker 20. Onitoni Large\nPlayers Cut: 21. Jackson Shereb 22. Blake Wilson\nLate Mail: Tom Trbojevic is ready to go according to coach Kieran Foran, with the coach expecting a big game from his skipper. He also revealed there was no temptation to sit the oft-injured fullback out for the rest of the season. “He’s trained well, he’s hit all his markers, and he’s jumping out of the ground so we expect him to hit the ground running,” Foran said. Meanwhile, the Sea Eagles coach revealed the reason behind the decision not to blood promising youngster Onitoni Large and hand him his NRL debut. “We’re really excited about the career of Onitoni and he’s been in and around the group the last month and a half,” Foran said. “He’s been 20th man a few times, so we’re really starting to get him closer to the action. ”But at this stage of our season and just where he’s at in terms of his development, it’s important that we prioritise that and don’t throw Onitoni into the fire just yet. “He’s growing each and every week, we’re extremely excited about where his future is going.”\nSouth Sydney Rabbitohs vs Warriors @ Accor Stadium, 5.30pm\nRabbitohs team: 1. Matthew Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Edward Kosi 21. Thomas Fletcher\nPlayers cut: 20. Jonah Glover 22. Latrell Mitchell\nLate Mail: Latrell Mitchell’s comeback from injury is set to be delayed another week with reports that he won’t play against the Warriors this weekend. Mitchell has only played one match since Round 10 due to a nerve problem in his lower back. “There was a chance (for him to play on Saturday). He trained pretty well but just probably needs another week, so we took the cautious approach and gave him another week,” Bennett said. “It’s his decision. He knows his body, so we’re not in it. There were questions about whether he might have played at all this year. To get him back in the run to the finals is pretty big.” The Bunnies coach also revealed that playmaker Jamie Humphreys is set to be back on deck next week.\nWarriors team: 1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-T",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.3951821513888889,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "e0efed523e394e59",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors v Rabbitohs: When they play, kick-off time, team list, injuries, NRL ladder - what to know - RNZ",
+            "url": "https://www.rnz.co.nz/news/sport/1073040/warriors-v-rabbitohs-when-they-play-kick-off-time-team-list-injuries-nrl-ladder-what-to-know",
+            "published_at": "2026-08-21T01:19:21+00:00",
+            "snippet": "Warriors v Rabbitohs: When they play, kick-off time, team list, injuries, NRL ladder - what to know &nbsp;&nbsp; RNZ",
+            "body_excerpt": "Warriors v Rabbitohs: When they play, kick-off time, team list, injuries, NRL ladder - what to know\nCaption: The Rabbitohs recent form suggests this shapes as one of the Warriors' toughest remaining regular-season tests Photo credit: Photosport\nNRL: NZ Warriors v South Sydney Rabbitohs\nKickoff 7.30pm Saturday, 22 August NZT\nAccor Stadium, Sydney\nLive blog updates on RNZ\nWith finals just around the corner, the Warriors will look to get ruthless in their final three regular season games as they chase an elusive first NRL title.\nThey will meet a resurgent Rabbitohs side having regained their big guns at the perfect time. A new halves combination will take the reins for the 'Wahs', as coach Andrew Webster will take charge of his 100th NRL game as coach.\nHistory\nIn 40 meetings since 1998, the Bunnies hold a slight advantage with 21 wins to the Warriors 19.\nThey last met back in June 2025, the Warriors edging out a 36-30 win, courtesy of a late Roger Tuivasa-Sheck double. The Warriors biggest win came in 2006 as they blanked the Bunnies 66-0. The Rabbitohs got their revenge 15 years later with a 60-22 rout on the Sunshine Coast.\nForm\nBoth teams are enjoying hot runs with the Warriors winning their last three on the trot and South Sydney on a two match win streak.\nThe Warriors were in rampant form against the battling Broncos last weekend, recording a commanding 40-6 win, while the Bunnies beat a strong Bulldogs side 22-6. The Rabbitohs have also recently welcomed back David Fifita and Cam Murray from injury with Latrell Mitchell's comeback imminent.\nTeams\nRookie Luke Hanson has been handed the number six jersey in just his second match in first grade. Hanson made his debut back in round three against the Knights, with the 22-year-old scoring a try in the 38-12 win.\nHe will partner Chanel Harris-Tavita, fresh from another contract extension, in the halfback role following Luke Metcalf's departure with a hamstring injury 20 minutes into last Saturday night's match against the Broncos at Suncorp Stadium.\nFor the Rabbitohs, superstar Latrell Mitchell has been included in the reserves. Wayne Bennett has named former Warrior Euan Aitken in the starting side, replacing Adam Elliott, who has been ruled out with a groin injury. Liam Le Blanc comes onto the bench.\nChanel Harris-Tavita has been named at halfback for the Warriors. Jeremy Ng/www.photosport.nz\nChanel Harris-Tavita has been named at halfback for the Warriors.\nJeremy Ng/www.photosport.nz\nTeam lists\nWarriors: 1. Taine Tuaupiki, 2. Dallin Watene-Zelezniak, 3. Ali Leiataua, 4. Leka Halasima, 5. Alofiana Khan-Pereira, 6. Luke Hanson, 7. Chanel Harris-Tavita, 8. James Fisher-Harris, 9. Wayde Egan, 10. Mitchell Barnett, 11. Kurt Capewell, 12. Jacob Laban, 13. Erin Clark.\nInterchange: 14. Sam Healey, 15. Tanner Stowers-Smith, 16. Demitric Vaimauga, 17. Eddie Ieremia-Toeava, 18. Adam Pompey, 20. Morgan Gannon.\nRabbitohs :1. Matthew Dufty, 2. Alex Johnston, 3. Tallis Duncan, 4. Jack Wighton, 5. Campbell Graham, 6. Cody Walker, 7. Jayden Sullivan, 8. Tevita Tatola, 9. Brandon Smith, 10. Keaon Koloamatangi, 11. David Fifita, 12. Euan Aitken, 13. Cameron Murray\nInterchange: 14. Jye Gray, 15. Lachlan Hubner, 16. Sean Keppie, 17. Liam Le Blanc, 18. Peter Mamouzelos, 19. Edward Kosi, 20. Jonah Glover.\nKiwi player to watch\nBrandon Smith endured a turbulent 2025 after reports he was involved in a gambling and drugs scandal. Now back fully focussed on his footy, Smith is regaining the form with the Rabbitohs that saw him regarded as among the best hookers in the game.\nSydney stronghold\nAs is the case most places the Warriors travel, they will enjoy plenty of support in the stands at Accor Stadium. They will need to overcome a run of eight straight matches won by the Rabbitohs at Accor Stadium.\nWhat will happen\nThe Warriors will head into Sydney full of confidence, but they know they can't afford to take their foot off the throat with the finals looming. The Rabbitohs recent form suggests this shapes",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 24.256571040277777,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9def6ad083f8a18c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb",
+            "published_at": "2026-08-21T10:18:00+00:00",
+            "snippet": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is begin",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026: Confirmed lineups, results for Round 25\nPeter Maniaty\nGetty Images\nJust three more weeks before the NRL finals and the top eight is beginning to take shape.\nRound 25 kicked off in Melbourne as the Storm fell to the Panthers 22-14.\nFriday began with the Broncos downing the Raiders 34-30 in Canberra and was followed by the Dolphins beating the Eels 34-16 at Suncorp.\nThe Knights welcome the Sea Eagles on Saturday afternoon before the Rabbitohs face the Warriors at Accor Stadium and the Bulldogs take on the Dragons in a must-win clash at Allianz.\nThe 8th-placed Cowboys have the bye and move automatically up to 30 points.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 25\nNewcastle Knights vs. Manly Sea Eagles\n(Saturday, August 22 at McDonald Jones Stadium , 3:00pm AEST)\nNewcastle team:\n1. Kalyn Ponga (c) 2. Dominic Young 3. Fletcher Hunt 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Jacob Saifiti 9. Phoenix Crossland 10. Trey Mooney 11. Jermaine McEwen 12. Tyson Frizell 13. Mat Croker\n14. Harrison Graham 15. Cody Hopwood 16. Lachlan Crouch 17. Thomas Cant 18. Pasami Saulo 19. Toby Winter\nKnights team news:\nJacob Saifiti (hamstring) has been named to make his injury return in the front row. Bradman Best is also in line to return from a calf injury, while Dane Gagai is managing a hamstring issue and has been rested ahead of the finals with the ever-versatile Fletcher Hunt taking his place. Francis Manuleleua is out with late on-set concussion symptoms.\nManly team:\n1. Tom Trbojevic (c) 2. Jason Saab 3. Tolo Koula 4. Reuben Garrick 5. Lehi Hopoate 6. Clayton Faulalo 7. Jamal Fogarty 8. Simione Laiafi 9. Brandon Wakeham 10. Nathan Brown 11. Haumole Olakau'atu 12. Ben Trbojevic 13. Jake Trbojevic\n14. Jake Simpkin 15. Nicholas Lenaz 16. Corey Waddell 17. Caleb Navale 18. Josh Feledy 19. Fletcher Baker\nSea Eagles team news:\nIn welcome news for the struggling Sea Eagles Ben Trbojevic and Tom Trbojevic both return, but Ethan Bullemor remains out. It's also been revealed young half Joey Walsh suffered a broken jaw against the Dolphins with his season likely over. The ever-versatile Clayton Faulalo is named in the No.6 jersey. Taniela Paseka (knee) is still a week or two away.\nSouth Sydney Rabbitohs vs. New Zealand Warriors\n(Saturday, August 22 at Accor Stadium , 5:30pm AEST)\nSouth Sydney team:\n1. Matt Dufty 2. Alex Johnston 3. Tallis Duncan 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Euan Aitken 13. Cameron Murray (c)\n14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Liam Le Blanc 18. Peter Mamouzelos 19. Ed Kosi\nRabbitohs team news:\nIn an encouraging sign for Bunnies fans Latrell Mitchell was named on the extended reserves - but it has since been confirmed he won't play this week. Jamie Humphreys (ankle) remains out while off-contract Adam Elliott left the field against the Bulldogs with a groin injury and is set for yet more time on the sidelines.\nWarriors team:\n1. Taine Tuaupiki 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Luke Hanson 7. Chanel Harris-Tavita 8. James Fisher-Harris (c) 9. Wayde Egan 10. Mitch Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark\n14. Sam Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Eddie Ieremia-Toeava 18. Adam Pompey 20. Morgan Gannon\nWarriors team news:\nLuke Metcalf (hamstring) is replaced in the halves by Luke Hanson with Jett Cleary named on the extended reserves. Charnze Nicoll-Klokstad has accepted a 2-week ban for his hip drop tackle on Reece Walsh with Taine Tuaupiki returning at fullback. Te Maire Martin (hamstring) is still a week or two away.\nSt. George Illawarra Dragons vs. Canterbury Bulldogs\n(Saturday, August 22 at Allianz Stadium",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.279071040277778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "d731d1c6de344dde",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026",
+            "published_at": "2026-08-20T06:04:37+00:00",
+            "snippet": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026\nAugust 20 th 2026, 3:36pm , By: Ben Bridge\nFriday Night Football at GIO Stadium has far more riding on it than the respective ladder positions suggest, as the Raiders host Brisbane in a matchup loaded with desperation, emotion, and a little revenge. Canberra’s finals hopes remain incredibly faint, but they are still alive. Wins over Brisbane and North Queensland, combined with their Round 26 bye, could get the Raiders to 30 competition points, and leave them praying other results fall their way. Brisbane, meanwhile, have endured one of the worst premiership defences in modern NRL history and are now fighting simply to avoid an unthinkable wooden spoon.\nThen there is Josh Papali’i. Friday night will be the Canberra legend’s final home appearance, with GIO Stadium even being temporarily transformed into “Papa’s House” for the occasion. Papali’i has been promoted into the starting front row, and you can guarantee the Raiders faithful will turn this into one of the most emotional home games of the season.\nMy numbers are not miles away from the current spread, but the circumstances push me toward Canberra. With the Broncos broken, Reece Walsh gone for the season and the Raiders needing a win, I’ll take Canberra -10.5.\nRaiders vs Broncos Prediction & Tips: 2026 NRL Round 25\nRaiders Refuse to Let Season Die\nCanberra looked like a team whose finals hopes were virtually finished heading into last week’s trip to Sharks Stadium, yet they produced one of their gutsiest performances of the season to upset Cronulla 24-20. Against a Sharks side sitting firmly in the top 4 conversation, the Raiders absorbed an early 8-0 deficit, fought their way to an 18-14 halftime lead and then survived a frantic final quarter to keep their season alive.\nJoseph Tapine delivered the decisive moment after the Sharks had regained a 20-18 advantage, powering through five defenders to score underneath the posts in the 57th minute. From there, Canberra defended their lead despite Cronulla receiving several opportunities to steal the game late.\nIt was exactly the type of performance Ricky Stuart would have wanted after the Raiders’ form had again become inconsistent. Canberra have enough attacking talent through Kaeo Weekes, Ethan Strange, Ethan Sanders, Matthew Timoko and Xavier Savage, but their success still starts with the middle. Tapine, Papalii, Zac Hosking and Ata Mariota must generate the field position that allows the young spine to play with freedom.\nMorgan Smithies’ failed HIA against Cronulla rules him out this week, forcing Mariota to lock, while Corey Horsburgh returns through the interchange. Simi Sasagi is also back from a shoulder problem, strengthening the centres.\nThe emotional factor cannot be ignored. Papali’i starts in his final match at GIO Stadium, and Canberra have averaged 35 points across their past four home games. If there is one night where this Raiders side should produce maximum effort for 80 minutes, this is it.\nBroncos Hit Rock Bottom in Premiership Defence\nBrisbane’s extraordinary collapse continued last Saturday when the Warriors humiliated them 40-6 at Suncorp Stadium. The Broncos trailed 20-0 at halftime and did not score until Xavier Willison crossed in the 64th minute, by which point New Zealand had already put 36 points on the board.\nThe statistics around Brisbane’s season are becoming almost unbelievable for the defending premiers. They have now lost 12 of their past 13 games, and they are staring down the worst fall from grace by a premiership winning side since Western Suburbs went from premiers to wooden spooners in 1963. Brisbane are now fighting simply to avoid finishing last.\nThings somehow got worse against the Warriors when Reece Walsh suffered a syndesmosis injury that has ended his season. Hayze Perham takes over at fullback this week, while Ben Hunt returns to halfback for the first time since Round 18 and Tom Duffy drops to the bench.\nThere is still p",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.50212659583333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "b388994868d8f4b5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Brandy and Jimmy's Round 25 NRL Tips - SEN",
+            "url": "https://www.sen.com.au/news/2026/08/20/nrl-2026-brandy-and-jimmy-s-expert-round-25-tips",
+            "published_at": "2026-08-20T03:05:56+00:00",
+            "snippet": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 25 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nOnly three rounds left before we crown our tipping champion for season 2026. SEN’s Jimmy Smith still maintains his strong lead over Greg",
+            "body_excerpt": "My Account\nLog In\nNRL\n2 days ago\nBrandy and Jimmy's Round 25 NRL Tips\nBy SEN\nPresented by\nDownload the SEN App\nYour Home of Sport, In your Hand\nOnly three rounds left before we crown our tipping champion for season 2026. SEN’s Jimmy Smith still maintains his strong lead over Greg Alexander. Round 25 kicks off with one of the great modern rivalries; the Melbourne Storm hosting the Penrith Panthers! Leaderboard: Brandy: 105 (4) Jimmy: 110 (4)\nMelbourne Storm v Penrith Panthers\nThursday 7:50pm @ AAMI Park, Melbourne\nBrandy: Panthers\nJimmy: Panthers\nCanberra Raiders v Brisbane Broncos\nFriday 6pm @ GIO Stadium, Canberra\nBrandy: Raiders\nJimmy: Raiders\nThe Dolphins v Parramatta Eels\nFriday 8pm @ Suncorp Stadium, Brisbane\nBrandy: Dolphins\nJimmy: Dolphins\nNewcastle Knights v Manly Sea Eagles\nSaturday 3pm @ McDonald Jones Stadium, Newcastle\nBrandy: Knights\nJimmy: Knights\nSouth Sydney Rabbitohs v The Warriors\nSaturday 5:30pm @ Accor Stadium, Sydney\nBrandy: Rabbitohs\nJimmy: Warriors\nSt George Illawarra Dragons v Canterbury-Bankstown Bulldogs\nSaturday 7:35pm @ Allianz Stadium, Sydney\nBrandy: Dragons\nJimmy: Bulldogs\nGold Coast Titans v Cronulla Sharks\nSunday 2pm @ Cbus Super Stadium, Gold Coast\nBrandy: Sharks\nJimmy: Sharks\nSydney Roosters v Wests Tigers\nSunday 4:05pm @ Allianz Stadium, Sydney\nBrandy: Roosters\nJimmy: Roosters\nBye: North Queensland Cowboys\nMore in NRL\n18 hours ago\n20 hours ago\n1 day ago\nCrafted by Project Diamond",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 46.48018215138889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "fea4c0247368ab55",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/",
+            "published_at": "2026-08-19T05:28:23+00:00",
+            "snippet": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydn",
+            "body_excerpt": "There are three rounds remaining in the 2026 NRL regular season and wobbling heavyweights Penrith and Cronulla will be desperate to recover from back-to-back losses this weekend against out-of-contention opposition.\nManly and Canterbury face must-win assignments, while South Sydney has a huge obstacle in front of them in the form of the Warriors.\nRead on for our complete 2026 NRL Round 25 predictions, tips and best Rugby League bets to place this weekend!\nThe finals ship has all but sailed for Melbourne, but knocking over stumbling Penrith in their last home game of the season will provide ample motivation.\nFORM: The Storm snapped a three-game losing run to trounce the Sea Eagles 42-20 in Perth in Round 23, after trailing at halftime. They had the bye last weekend.\nThe Panthers lost their grip on top spot courtesy of a 12-6 loss to the Roosters – their fifth loss in eight games.\nINS AND OUTS: Melbourne gets a further boost with Harry Grant and Jack Howarth returning, which sees Tyran Wishart and Joe Chan revert to the bench. Trent Toelau will partner Cam Munster in the halves this week.\nCasey McLean is a back in a timely lift for the Panthers, with Paul Alamoti (hamstring) ruled out.\nKEY MATCH-UP: Different jersey numbers, but Origin adversaries and Test teammates Munster and Nathan Cleary will guide their teams’ fortunes.\nHISTORY: The Storm have won four of their last six against the Panthers but crashed to a 50-10 loss at CommBank Stadium in Round 5.\nKEY STAT: The Panthers have a 1-9 record at AAMI Park.\nVERDICT: The two biggest heavyweights of the 2020s renew a fierce rivalry, though at a very different juncture than the out-of-contention Storm are used to. But the injury-ravaged side has been gallant in recent defeats and the win over Manly was well-deserved reward.\nThere’s plenty at stake for the Panthers, who could drop out of the top two with a loss and need to recover some momentum over the closing three rounds.\nThe Storm are a tempting option with a 7.5-point start after winning five of their last six at home, but the over appeals more with seven of 10 games at AAMI Park producing 52-plus points this season.\nPredictions: Back Over 42.5 Total Points @ $1.90\nSGM: STORM +7.5 / OVER 7.5 TOTAL TRIES / TOM JENKINS ANYTIME TRYSCORER / NICK MEANEY ANYTIME TRYSCORER @ $16.31\nOther teams’ stumbles have maintained a mathematical Top 8 chance for the Raiders after an upset victory last week, but the spiralling Broncos’ only remaining motivation is avoiding the wooden spoon.\nFORM: The Raiders showed an abundance of spirit to roll Cronulla 24-20 on the road last Saturday just six days after a seemingly season-ending home loss to Newcastle.\nThe Broncos crashed to their 12th loss in 13 games last weekend, a 40-6 defeat to the Warriors in which enthusiasm and defensive desire appeared sorely lacking – as well as costing them Reece Walsh for the rest of a sorry title defence.\nINS AND OUTS: The Raiders get Simi Sasagi back from injury, Ata Mariota comes in at lock for Morgan Smithies (concussion) and Josh Papalii will start at prop in his last home game. Corey Horsburgh has received a bench recall.\nHayze Perham slots in as Brisbane’s fullback for Walsh, while Ben Hunt replaces Tom Duffy at halfback.\nKEY MATCH-UP: Big ‘Papa’ will be fired up to turn back the clock in his home farewell – and he and Joe Tapine will engage in a crucial battle up front against Broncos bookends Xavier Willison and Payne Haas.\nHISTORY: The Broncos have won three of their last four against the Raiders, most recently taking out a golden point epic at GIO Stadium 29-28 last September.\nKEY STAT: Broncos wingers have scored 14 tries in the club’s last seven clashes with the Raiders. Both wingers scored in four of those matches.\nVERDICT: A heavy loss to Penrith in Mudgee aside, the Raiders have been very competitive over the past seven weeks – winning five games – and will still be alive in the finals race when this game kicks off.\nPapalii’s farewell should also ins",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.10601548472222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_25_match",
+              "league_round_roundup"
+            ]
+          },
+          {
+            "id": "19ecc222e2874178",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "\"Well-oiled machine\": Former Warrior praises team's consistency heading into Rabbitohs clash",
+            "url": "https://www.newstalkzb.co.nz/on-air/the-all-sport-breakfast/audio/joe-vagana-former-warriors-prop-on-the-nrl-season-upcoming-clash-against-the-rabbitohs/",
+            "published_at": "2026-08-17T01:35:03+00:00",
+            "snippet": "A dominant victory over the Broncos last week has put the Warriors in a good position in their quest to claim a top two spot.",
+            "body_excerpt": "Follow the podcast on\nJacob Laban and Tanner Stowers of the Warriors tackles Grant Anderson of the Broncos during the round 24 NRL match between Brisbane Broncos and New Zealand Warriors at Suncorp Stadium, on August 15, 2026, in Brisbane, Australia. (Photo by Mackenzie Sweetnam/Getty Images)\nA dominant victory over the Broncos last week has put the Warriors in a good position in their quest to claim a top two spot.\nHowever, a win against the Rabbitohs tonight is of utmost importance to keep that dream alive.\nJoe Vagana, former Warriors prop, joined D'Arcy to discuss the season and the upcoming clash.\nLISTEN ABOVE\nTake your Radio, Podcasts and Music with you\nGet more of the radio, music and podcasts you love with the FREE iHeart app. Scan the QR code to download now.\nDownload from the app stores\nStream unlimited music, thousands of radio stations and podcasts all in one app. iHeart is easy to use and all FREE",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 119.9949043736111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "61ee0c8e4bef7f9e",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Knights v Wests Tigers: Predebon, White return; Big guns back Presented by 11 mins ago",
+            "url": "https://www.nrl.com/news/2026/08/19/knights-v-wests-tigers-predebon-white-return-big-guns-back/",
+            "published_at": "2026-08-22T01:22:56+00:00",
+            "snippet": "Presented By\nKnights v Wests Tigers: Predebon, White return; Big guns back\nThe opening Round 8 clash is a crucial encounter for two sides - Newcastle Knights and Wests Tigers - fighting for a top-four berth.\nThe Tigers arrive in Newcastle full of confidence after a gritty 30-22 w",
+            "body_excerpt": "Presented By\nKnights v Wests Tigers: Predebon, White return; Big guns back\nThe opening Round 8 clash is a crucial encounter for two sides - Newcastle Knights and Wests Tigers - fighting for a top-four berth.\nThe Tigers arrive in Newcastle full of confidence after a gritty 30-22 win over the Warriors. Lily Rogan starred with a double, while their ability to absorb pressure and capitalise on opportunities proved decisive.\nNewcastle, meanwhile, suffered a frustrating 25-18 loss to Canberra despite leading at half-time. The Knights showed plenty of attacking promise but were unable to contain the Raiders' second-half surge.\nThe Tigers have built momentum through disciplined execution and resilience, while the Knights return home desperate to avoid back-to-back losses.\nExpect a physical contest through the middle, with field position and composure likely to determine who finishes on top.\nMatch: Knights v Wests Tigers\nRound 8 - Round 8 - Saturday 22 Aug\nhome Team\nKnights\n7th Position\naway Team\nWests Tigers\n4th Position\nVenue: McDonald Jones Stadium, Newcastle\nMatch broadcasters:\nNine Network\nFoxtel\nNine Now\nKayo\nTeam News\nKnights: Lilly-Ann White returns from an ankle injury in the No.1 but has moved to the interchange in the 90-minute squad update, with Lucy Spain getting the nod to start at fullback. \"Credit to Lilly, she's back probably two weeks earlier than what we predicted. That's a testament to her and the staff. Her and Lucy will definitely play a part in this group this weekend,\" said coach Ben Jeffries. No other changes on game day to the 18 originally named on Tuesday, with prop Tayla Predebon back from suspension and Sienna Yeo to start in the second row. Charley Lahmert and Emily McArthur and both on the interchange for potential NRLW debuts.\nWests Tigers: Craig Sandercock has made two late changes to the starting line-up, with Portia Bourke to start at centre and Christian Pio at prop. Shenai Lendill and Shaniece Monschau revert to the pine. A number of big guns return, headlined by captain Kezie Apps in the second row. Salma Nour starts at hooker, with Harmony Crichton on the wing. Tara Reinke is the 18th player.\nTeam Lists\nBacks\nFullback for Knights is number 17 Lucy Spain 17 1 Fullback for Wests Tigers is number 1 Caitlin Turnbull\n17 1\nWinger for Knights is number 2 Shanice Parker 2 Winger for Wests Tigers is number 2 Harmony Crichton\nCentre for Knights is number 3 Sidney Taylor 3 Centre for Wests Tigers is number 3 Namoe Gesa\nCentre for Knights is number 4 Tenika Willison 4 15 Centre for Wests Tigers is number 15 Portia Bourke\n4 15\nWinger for Knights is number 5 Mercedez Taulelei-Siala 5 Winger for Wests Tigers is number 5 Lily Rogan\nFive-Eighth for Knights is number 6 Kirra Dibb 6 Five-Eighth for Wests Tigers is number 6 Losana Lutu\nHalfback for Knights is number 7 Georgia Roche 7 Halfback for Wests Tigers is number 7 Raecene McGregor\nForwards\nProp for Knights is number 8 Tayla Predebon 8 Prop for Wests Tigers is number 8 Sarah Togatuki\nHooker for Knights is number 9 Olivia Higgins 9 Hooker for Wests Tigers is number 9 Salma Nour\nProp for Knights is number 10 Tiana Davison 10 16 Prop for Wests Tigers is number 16 Christian Pio\n10 16\n2nd Row for Knights is number 11 Sienna Yeo 11 2nd Row for Wests Tigers is number 11 Kezie Apps\n11\n2nd Row for Knights is number 12 Jules Kirkpatrick 12 2nd Row for Wests Tigers is number 12 Shaylee Bent\n12\nLock for Knights is number 13 Kayla Romaniuk 13 Lock for Wests Tigers is number 13 Holli Wheeler\n13\nInterchange\nInterchange for Knights is number 1 Lilly-Ann White 1 4 Interchange for Wests Tigers is number 4 Shenai Lendill\n1 4\nInterchange for Knights is number 14 Charley Lahmert 14 10 Interchange for Wests Tigers is number 10 Shaniece Monschau\n14 10\nInterchange for Knights is number 15 Emily McArthur 15 14 Interchange for Wests Tigers is number 14 Faythe Manera\n15 14\nInterchange for Knights is number 16 Amelia Pasikala 16 17 Interchange for Wests Tigers is number 17 Brooke Talatai",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.19684881805555557,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+          "Rabbitohs vs Warriors NRL round 25 preview",
+          "Rabbitohs Warriors NRL odds OR price OR favourite",
+          "Rabbitohs Warriors NRL finals race OR ladder stakes",
+          "Rabbitohs Warriors NRL",
+          "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Rabbitohs Warriors NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 25 Rabbitohs OR Warriors"
+        ],
+        "filter_summary": {
+          "dropped_stale": 38,
+          "dropped_wrong_round": 3,
+          "dropped_noise": 9,
+          "dropped_irrelevant": 14,
+          "kept": 17,
+          "deferred_pending_body": 68,
+          "promoted_after_body": 5,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 6
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "665edae0973d",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-22T01:34:44.654096+00:00",
+      "finished_at": "2026-08-22T01:36:40.186654+00:00",
+      "duration_ms": 115532,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Warriors",
+        "venue": "Accor Stadium",
+        "kickoff": "2026-08-22T17:30:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.5703,
+        "home_win_probability": 0.4297,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (4% of total)",
+            "3-game form: errors (+1.33) — contribution 0.022 (2% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+            "5-game form: support plays (+1.80) — contribution 0.018 (2% of total)",
+            "Head-to-head average margin (last 5) (+5.2 points) — contribution 0.018 (2% of total)",
+            "Home travel to venue (0 km) — contribution 0.016 (2% of total)"
+          ],
+          "negative_drivers": [
+            "Ladder points differential per game (-9.2 points) — contribution 0.276 (27% of total)",
+            "Bradley-Terry strength advantage (-0.36 log-strength) — contribution 0.132 (13% of total)",
+            "5-game form: all run metres (-163.00) — contribution 0.081 (8% of total)",
+            "Pythagorean form (last 10) (-27% expected-win gap) — contribution 0.070 (7% of total)",
+            "5-game form: points against (+13.60) — contribution 0.062 (6% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.2222,
+            "total_toward_away": 0.8154,
+            "net": -0.5933,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (+1.33)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Rabbitohs",
+          "away_team": "Warriors",
+          "venue": "Accor Stadium",
+          "kickoff": "2026-08-22T17:30:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

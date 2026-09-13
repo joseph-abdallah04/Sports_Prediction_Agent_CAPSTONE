@@ -1,0 +1,1316 @@
+{
+  "schema_version": 2,
+  "run_id": "20260911T072556Z-65d3bde8",
+  "at_a_glance": {
+    "fixture": "Rabbitohs v Knights",
+    "round": 28,
+    "kickoff": "2026-09-11T19:50:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Rabbitohs",
+    "confidence": 0.6,
+    "model_home_win_probability": 0.5624,
+    "model_prediction": "Home Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-11T07:25:56.620692+00:00",
+  "updated_at": "2026-09-11T07:37:54.971612+00:00",
+  "request": {
+    "home_team": "Rabbitohs",
+    "away_team": "Knights",
+    "season": null,
+    "round_number": 28,
+    "force_refresh": true,
+    "user_question": "Who wins Rabbitohs vs Knights?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Rabbitohs",
+    "away_team": "Knights",
+    "confidence": 0.6,
+    "summary": "The Rabbitohs hold a modest edge, supported by a strong home record and a superior points differential. While the model's attribution balance leans slightly toward the Knights, this is driven by several conflicted metrics—including penalty cluster rates and kicking metres—where the raw values actually favour the Rabbitohs. Combined with the Knights' late-season slump and Latrell Mitchell's 'ominous form', the Rabbitohs are well-positioned to win this elimination final.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The Rabbitohs' strongest driver is their 5-game form in all run metres (+125.40), contributing 13% to the model's probability."
+      },
+      {
+        "source": "math",
+        "detail": "Several key drivers favoring the Knights (penalty cluster rate, kicking metres, and errors) are marked as CONFLICT, meaning the raw statistical values actually favour the Rabbitohs."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights struggled late in the season, winning only three of their final eight games, while Latrell Mitchell is reported to be in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+      },
+      {
+        "source": "scene",
+        "detail": "Rabbitohs enter the match on a 2-game winning streak with a strong 9-3 home record, whereas the Knights are on a 2-game losing streak."
+      }
+    ],
+    "disagreements_with_math": "The model's attribution balance leans away (-0.0738), but this is offset by the fact that the primary drivers for the away side are conflicted raw values that actually favour the home side."
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 7
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 8
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 13
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Rabbitohs vs Knights NRL round 28 preview",
+      "Rabbitohs Knights NRL odds OR price OR favourite",
+      "Rabbitohs Knights NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "All claims match research bodies (e.g., Knights winning 3 of final 8 in 'Match Preview Rabbitohs v Knights') or scene data (e.g., Rabbitohs 9-3 home record)."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Latrell Mitchell is described as fit and in-form, matching the source 'looking in ominous form'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Ladder points differential and Elo rating are correctly attributed to the Rabbitohs from the 'favouring_Rabbitohs_home_win' group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from 'nrl_news: Match Preview Rabbitohs v Knights'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.6 is within the 0.50-0.85 range and justified by a 'modest edge' and home advantage."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on top-tier drivers and research-backed form."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres' were not addressed."
+        }
+      ],
+      "issues": [
+        "The judgement omitted several top SHAP drivers from both the home and away groups."
+      ],
+      "instruction": "Math drivers include '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Knights",
+      "confidence": 0.6,
+      "summary": "The Rabbitohs hold a modest edge heading into this elimination final, backed by a superior points differential and a current two-game winning streak. In contrast, the Knights struggled late in the regular season, winning only three of their final eight matches. The availability of a fit and in-form Latrell Mitchell and home-ground advantage at Allianz Stadium further support a home win, aligning with the market's narrow preference for South Sydney.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model identifies a ladder points differential per game advantage (+1.9) and an Elo rating advantage (+23 points) for the Rabbitohs."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights won just three of their final eight games due to injuries and suspension, while Latrell Mitchell is described as being in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+        },
+        {
+          "source": "scene",
+          "detail": "Rabbitohs possess a strong home record of 9-3 and are currently on a 2-game winning streak, whereas the Knights are on a 2-game losing streak."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Rabbitohs",
+      "away_team": "Knights",
+      "confidence": 0.6,
+      "summary": "The Rabbitohs hold a modest edge, supported by a strong home record and a superior points differential. While the model's attribution balance leans slightly toward the Knights, this is driven by several conflicted metrics—including penalty cluster rates and kicking metres—where the raw values actually favour the Rabbitohs. Combined with the Knights' late-season slump and Latrell Mitchell's 'ominous form', the Rabbitohs are well-positioned to win this elimination final.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The Rabbitohs' strongest driver is their 5-game form in all run metres (+125.40), contributing 13% to the model's probability."
+        },
+        {
+          "source": "math",
+          "detail": "Several key drivers favoring the Knights (penalty cluster rate, kicking metres, and errors) are marked as CONFLICT, meaning the raw statistical values actually favour the Rabbitohs."
+        },
+        {
+          "source": "research",
+          "detail": "The Knights struggled late in the season, winning only three of their final eight games, while Latrell Mitchell is reported to be in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+        },
+        {
+          "source": "scene",
+          "detail": "Rabbitohs enter the match on a 2-game winning streak with a strong 9-3 home record, whereas the Knights are on a 2-game losing streak."
+        }
+      ],
+      "disagreements_with_math": "The model's attribution balance leans away (-0.0738), but this is offset by the fact that the primary drivers for the away side are conflicted raw values that actually favour the home side."
+    },
+    "issues": [
+      "The judgement omitted several top SHAP drivers from both the home and away groups."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T07:26:28.372880+00:00",
+      "thinking": "*   Home Team: Rabbitohs\n    *   Away Team: Knights\n    *   Round Number: 28\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Rabbitohs).\n    *   Query 2: Away team availability (Knights).\n    *   Query 3: Fixture preview (Rabbitohs vs Knights Round 28).\n    *   Query 4: Market prices/odds.\n    *   Query 5: Specific angle (form, ladder, pressure, etc.).\n\n    *   Query 1: `Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Query 2: `Knights NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Query 3: `Rabbitohs vs Knights NRL round 28 preview`\n    *   Query 4: `Rabbitohs Knights NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 28 (the final round of the regular season), the \"finals race\" or \"ladder stakes\" angle is most appropriate.\n    *   Query 5 (refined): `Rabbitohs Knights NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes.\n    *   JSON format? Yes.",
+      "chars": 1088
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T07:32:26.646667+00:00",
+      "thinking": "Rabbitohs (Home) vs. Knights (Away).\nElimination Final (Finals Week 1).\nAllianz Stadium.\n\n        *   Rabbitohs: 6th, 14 wins, 10 losses, 34 pts, PD +113 (4.71/game). Recent form: 4-1, streak 2W. Home record: 9-3.\n        *   Knights: 7th, 14 wins, 10 losses, 34 pts, PD +42 (1.75/game). Recent form: 2-2, streak 2L. Away record: 6-6.\n        *   Comparison: Rabbitohs higher on ladder, better PD per game (+2.96).\n\n        *   Prediction: Home Win.\n        *   Probability: 0.5624.\n        *   Drivers for Rabbitohs: 5-game run metres (13%), Ladder PD per game (8%), Elo rating (5%), Bradley-Terry strength (3%), 5-game points against (2%).\n        *   Drivers for Knights: Penalty cluster rate (12% - CONFLICT), Kicking metres 5-game (5% - CONFLICT), Kicking metres 3-game (4% - CONFLICT), Pythagorean form (4%), Errors 3-game (3% - CONFLICT).\n        *   Attribution Balance: Leans Away (Total Home: 0.3505, Total Away: 0.4243). *Crucial: The model predicts Home Win, but the SHAP totals lean Away. This means the model's final decision is slightly counter-intuitive to the sum of its drivers, or the net effect of the \"conflicted\" drivers is complex.*\n\n        *   Rabbitohs: Latrell Mitchell is fit and \"looking in ominous form\" (nrl_news: \"Match Preview Rabbitohs v Knights\"). Tallis Duncan \"gets green light\" (nrl_news: \"Match Preview Rabbitohs v Knights\").\n        *   Knights: Finished 7th after winning only 3 of their last 8 games due to injuries and suspension (nrl_news: \"Match Preview Rabbitohs v Knights\").\n        *   Market: Betfred predicts \"Rabbitohs by 1-12\".\n\n    *   *Winner:* Rabbitohs.\n    *   *Reasoning:*\n        *   Home advantage (Allianz Stadium).\n        *   Stronger recent form (2W streak vs 2L streak for Knights).\n        *   Superior points differential (+113 vs +42).\n        *   Key player availability: Latrell Mitchell is in form and fit.\n        *   Knights' late-season slump (3 wins in last 8).\n    *   *Math Check:* The model predicts Home Win (0.5624). Although the attribution balance leans away, the specific drivers for Rabbitohs (run metres, PD, Elo) are strong. The Knights' drivers are mostly \"conflicted,\" meaning the raw values actually favour the Rabbitohs, but the model nets them for the Knights. This suggests the Rabbitohs' raw statistical advantage is even stronger than the net SHAP suggests.\n    *   *Confidence:* The model is at 0.56. The research (form, injuries, late-season slump for Knights) supports the home side. However, it's an elimination final (high variance). The market sees it as narrow (1-12).\n    *   *Strongest reason to lose:* Kalyn Ponga's individual brilliance can flip a game; elimination finals are unpredictable.\n    *   *Confidence Band:* 0.55-0.65 (Modest edge). I'll go with 0.60.\n\n    *   *Winner:* home\n    *   *Home Team:* Rabbitohs\n    *   *Away Team:* Knights\n    *   *Confidence:* 0.60\n    *   *Summary:* Rabbitohs enter this elimination final with superior form (2W streak) and a significantly better points differential compared to the Knights, who won only three of their final eight regular-season games. The return of a fit and \"ominous\" Latrell Mitchell and home-ground advantage at Allianz Stadium provide a modest edge. The market also slightly favours a narrow Rabbitohs victory.\n    *   *Key Factors:*\n        1.  Math: Ladder points differential per game (+1.9) and Elo rating advantage.\n        2.  Research: Latrell Mitchell is in \"ominous form\" and the Knights struggled late in the season, winning only three of their last eight games (nrl_news: \"Match Preview Rabbitohs v Knights\").\n        3.  Scene: Rabbitohs' strong home record (9-3) and current 2-game winning streak.\n    *   *Disagreements with math:* None (Model predicts Home Win). Note: The attribution balance leans away, but the model still predicts home, and research strongly supports the home side's current form over the Knights' slump.",
+      "chars": 3910
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T07:36:06.365193+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are top SHAP drivers from both sides addressed?\n\n- Home: Rabbitohs\n- Away: Knights\n- Prediction: Home Win\n- Confidence: 0.6\n\n- \"superior points differential\": Scene says Rabbitohs points difference per game gap is 2.96 (favours Rabbitohs). Math says \"Ladder points differential per game (+1.9 points)\". (Pass)\n- \"current two-game winning streak\": Scene says Rabbitohs streak \"2W\". (Pass)\n- \"Knights struggled late in the regular season, winning only three of their final eight matches\": Research `body_excerpt` in \"Match Preview Rabbitohs v Knights\" says \"the Knights won just three of their final eight games\". (Pass)\n- \"availability of a fit and in-form Latrell Mitchell\": Research `body_excerpt` in \"Match Preview Rabbitohs v Knights\" says \"Latrell Mitchell getting through a full 80 minutes against the Roosters and looking in ominous form\". (Pass)\n- \"home-ground advantage at Allianz Stadium\": Scene says venue is Allianz Stadium. (Pass)\n- \"market's narrow preference for South Sydney\": Research `body_excerpt` in \"Rabbitohs vs Knights Prediction & NRL Betting Preview\" says \"Rabbitohs by 1-12 @ 21/10\". (Pass)\n- \"ladder points differential per game advantage (+1.9)\": Math `favouring_Rabbitohs_home_win` lists \"Ladder points differential per game (+1.9 points)\". (Pass)\n- \"Elo rating advantage (+23 points)\": Math `favouring_Rabbitohs_home_win` lists \"Elo rating advantage (+23 points)\". (Pass)\n- \"Knights won just three of their final eight games due to injuries and suspension\": Research `body_excerpt` in \"Match Preview Rabbitohs v Knights\" says \"the Knights won just three of their final eight games to finish seventh as injuries and suspension took a toll\". (Pass)\n- \"Latrell Mitchell is described as being in 'ominous form'\": Research `body_excerpt` in \"Match Preview Rabbitohs v Knights\" says \"looking in ominous form\". (Pass)\n- \"Rabbitohs possess a strong home record of 9-3\": Scene says home_record \"9 - 3\". (Pass)\n- \"Knights are on a 2-game losing streak\": Scene says Knights streak \"2L\". (Pass)\n\n- Latrell Mitchell: \"fit and in-form\", \"ominous form\". Source says \"getting through a full 80 minutes... looking in ominous form\". (Pass)\n\n- \"ladder points differential per game advantage (+1.9)\": In `favouring_Rabbitohs_home_win`. (Pass)\n- \"Elo rating advantage (+23 points)\": In `favouring_Rabbitohs_home_win`. (Pass)\n\n- Weather is \"Fine\" in scene. Not mentioned as a key factor in judgement. (Pass)\n\n- Key factor 2 is sourced from research (`nrl_news: 'Match Preview Rabbitohs v Knights'`). (Pass)\n\n- Confidence is 0.6.\n- Justification: \"The Rabbitohs hold a modest edge... backed by a superior points differential and a current two-game winning streak... availability of a fit and in-form Latrell Mitchell and home-ground advantage\".\n- Range: 0.50-0.85. (Pass)\n- Defensible: 0.6 is reasonable for a \"modest edge\" in a high-variance game. (Pass)\n\n- Top Rabbitohs drivers: All run metres (0.098), Ladder points diff (0.061), Elo (0.036).\n- Top Knights drivers: Penalty cluster rate (0.094), Kicking metres (0.039), Kicking metres (0.032).\n- The judgement focuses on the top Rabbitohs drivers (Ladder points diff, Elo) and research-based form. It doesn't overstate a minor driver. (Pass)\n\n- `favouring_Rabbitohs_home_win` top drivers:\n    1. 5-game form: all run metres (0.098) - **NOT mentioned**.\n    2. Ladder points differential per game (0.061) - Mentioned.\n    3. Elo rating advantage (0.036) - Mentioned.\n- `favouring_Knights_away_win` top drivers:\n    1. 5-game momentum: penalty cluster rate (0.094) - **NOT mentioned**.\n    2. 5-game form: kicking metres (0.039) - **NOT mentioned**.\n    3. 3-game form: kicking metres (0.032) - **NOT mentioned**.\n\n- The judge completely ignored the top driver for the Rabbitohs (all run metres) and the top three drivers for the Knights (penalty cluster rate, kicking metres).\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail.\n\n- Omitted drivers: \"5-game form: all run metres\", \"5-game momentum: penalty cluster rate\", \"5-game form: kicking metres\", \"3-game form: kicking metres\".\n\nWait, let me double check the \"all run metres\" for Rabbitohs.\n`favouring_Rabbitohs_home_win`:\n1. 5-game form: all run metres (+125.40) - 0.098\n2. Ladder points differential per game (+1.9 points) - 0.061\n3. Elo rating advantage (+23 points) - 0.036\n\nThe judge mentioned #2 and #3. #1 is missing.\n\n`favouring_Knights_away_win`:\n1. 5-game momentum: penalty cluster rate (-1.00) - 0.094\n2. 5-game form: kicking metres (+136.60) - 0.039\n3. 3-game form: kicking metres (+292.33) - 0.032\n\nNone of these are mentioned.\n\nInstruction: \"Math drivers include '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 5698
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T07:37:54.970995+00:00",
+      "thinking": "*   Match: Rabbitohs (Home) vs Knights (Away).\n    *   Math Prediction: Home Win (0.5624).\n    *   Math Drivers (Home):\n        *   5-game form: all run metres (+125.40) - 13% (Strongest)\n        *   Ladder points differential per game (+1.9) - 8%\n        *   Elo rating advantage (+23) - 5%\n        *   Bradley-Terry strength advantage (+0.12) - 3%\n        *   5-game form: points against (-3.40) - 2%\n    *   Math Drivers (Away):\n        *   5-game momentum: penalty cluster rate (-1.00) - 12% (CONFLICT: raw value favors home)\n        *   5-game form: kicking metres (+136.60) - 5% (CONFLICT: raw value favors home)\n        *   3-game form: kicking metres (+292.33) - 4% (CONFLICT: raw value favors home)\n        *   Pythagorean form (last 10) (-3% gap) - 4%\n        *   3-game form: errors (-2.33) - 3% (CONFLICT: raw value favors home)\n    *   Attribution Balance: Leans Away (-0.0738). This means the *sum* of drivers favors the Knights, even though the model predicts a Home Win.\n    *   Research: Latrell Mitchell in \"ominous form\", Knights won only 3 of last 8, Rabbitohs coming off a big win over Roosters.\n    *   Standings: Rabbitohs (6th), Knights (7th). Rabbitohs have better points diff per game (4.71 vs 1.75).\n\n    *   *5-game form: all run metres (+125.40)*: This is the strongest driver for the Rabbitohs (13%). It indicates significant dominance in yardage.\n    *   *5-game momentum: penalty cluster rate (-1.00)*: This is the strongest driver for the Knights (12%), but it is marked as a CONFLICT. The raw value actually favors the home side (Rabbitohs), but the model nets it toward the away side.\n    *   *5-game form: kicking metres (+136.60)*: Driver for Knights (5%), but CONFLICT. Raw value favors Rabbitohs.\n    *   *3-game form: kicking metres (+292.33)*: Driver for Knights (4%), but CONFLICT. Raw value favors Rabbitohs.\n\n    *   The \"Away\" drivers are heavily dominated by \"CONFLICT\" notes. This means that in terms of raw stats (kicking metres, penalty clusters, errors), the Rabbitohs are actually performing better, but the model's internal logic is attributing these specific metrics to the Knights' side of the probability for some reason (perhaps relative to expectations or specific patterns).\n    *   The \"Home\" drivers are straightforward: run metres, ladder diff, Elo.\n    *   The `attribution_balance` leans away (-0.0738), meaning the model is slightly more \"convinced\" by the Knights' drivers than the Rabbitohs' drivers, despite the final prediction being Home Win. This suggests a very tight game.\n\n    *   Winner: Home (Rabbitohs).\n    *   Confidence: 0.60.\n    *   Reasoning: The raw stats (run metres, points diff) and recent form (2W vs 2L) favor the Rabbitohs. The research confirms the Knights' late-season slump and Mitchell's form.\n    *   Addressing the SHAP drivers: I must explicitly mention the run metres (strongest home driver) and the conflicted nature of the away drivers (penalty clusters, kicking metres).\n\n    *   Strongest reason to lose: The model's attribution balance leans away, and the Knights have high-impact players like Ponga.\n    *   Confidence check: 0.60 is reasonable for a narrow edge.\n\n    *   Winner: home\n    *   Confidence: 0.60 (maintained, as the evidence still points to a modest edge).\n    *   Summary: Update to include the run metres and the conflicted nature of the Knights' drivers.\n    *   Key Factors: Add the run metres and the conflict notes.",
+      "chars": 3439
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T07:26:28.373362+00:00",
+      "payload": {
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Rabbitohs vs Knights NRL round 28 preview",
+          "Rabbitohs Knights NRL odds OR price OR favourite",
+          "Rabbitohs Knights NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T07:32:26.647275+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Rabbitohs hold a modest edge heading into this elimination final, backed by a superior points differential and a current two-game winning streak. In contrast, the Knights struggled late in the regular season, winning only three of their final eight matches. The availability of a fit and in-form Latrell Mitchell and home-ground advantage at Allianz Stadium further support a home win, aligning with the market's narrow preference for South Sydney.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a ladder points differential per game advantage (+1.9) and an Elo rating advantage (+23 points) for the Rabbitohs."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights won just three of their final eight games due to injuries and suspension, while Latrell Mitchell is described as being in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+            },
+            {
+              "source": "scene",
+              "detail": "Rabbitohs possess a strong home record of 9-3 and are currently on a 2-game winning streak, whereas the Knights are on a 2-game losing streak."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T07:36:06.368354+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "All claims match research bodies (e.g., Knights winning 3 of final 8 in 'Match Preview Rabbitohs v Knights') or scene data (e.g., Rabbitohs 9-3 home record)."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Latrell Mitchell is described as fit and in-form, matching the source 'looking in ominous form'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Ladder points differential and Elo rating are correctly attributed to the Rabbitohs from the 'favouring_Rabbitohs_home_win' group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from 'nrl_news: Match Preview Rabbitohs v Knights'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.6 is within the 0.50-0.85 range and justified by a 'modest edge' and home advantage."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on top-tier drivers and research-backed form."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres' were not addressed."
+            }
+          ],
+          "issues": [
+            "The judgement omitted several top SHAP drivers from both the home and away groups."
+          ],
+          "instruction": "Math drivers include '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T07:37:54.971265+00:00",
+      "payload": {
+        "issues": [
+          "The judgement omitted several top SHAP drivers from both the home and away groups."
+        ],
+        "instruction": "Math drivers include '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Rabbitohs hold a modest edge heading into this elimination final, backed by a superior points differential and a current two-game winning streak. In contrast, the Knights struggled late in the regular season, winning only three of their final eight matches. The availability of a fit and in-form Latrell Mitchell and home-ground advantage at Allianz Stadium further support a home win, aligning with the market's narrow preference for South Sydney.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model identifies a ladder points differential per game advantage (+1.9) and an Elo rating advantage (+23 points) for the Rabbitohs."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights won just three of their final eight games due to injuries and suspension, while Latrell Mitchell is described as being in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+            },
+            {
+              "source": "scene",
+              "detail": "Rabbitohs possess a strong home record of 9-3 and are currently on a 2-game winning streak, whereas the Knights are on a 2-game losing streak."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "confidence": 0.6,
+          "summary": "The Rabbitohs hold a modest edge, supported by a strong home record and a superior points differential. While the model's attribution balance leans slightly toward the Knights, this is driven by several conflicted metrics—including penalty cluster rates and kicking metres—where the raw values actually favour the Rabbitohs. Combined with the Knights' late-season slump and Latrell Mitchell's 'ominous form', the Rabbitohs are well-positioned to win this elimination final.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The Rabbitohs' strongest driver is their 5-game form in all run metres (+125.40), contributing 13% to the model's probability."
+            },
+            {
+              "source": "math",
+              "detail": "Several key drivers favoring the Knights (penalty cluster rate, kicking metres, and errors) are marked as CONFLICT, meaning the raw statistical values actually favour the Rabbitohs."
+            },
+            {
+              "source": "research",
+              "detail": "The Knights struggled late in the season, winning only three of their final eight games, while Latrell Mitchell is reported to be in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+            },
+            {
+              "source": "scene",
+              "detail": "Rabbitohs enter the match on a 2-game winning streak with a strong 9-3 home record, whereas the Knights are on a 2-game losing streak."
+            }
+          ],
+          "disagreements_with_math": "The model's attribution balance leans away (-0.0738), but this is offset by the fact that the primary drivers for the away side are conflicted raw values that actually favour the home side."
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "3dc9e5e2b02b",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-11T07:25:56.621050+00:00",
+      "finished_at": "2026-09-11T07:26:00.194732+00:00",
+      "duration_ms": 3573,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Knights",
+        "season": null,
+        "round_number": 28,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "season": null,
+          "round_number": 28
+        },
+        "retrieved_at": "2026-09-11T07:25:56.621189+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 28,
+          "round_title": "Finals Week 1",
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "kickoff": "2026-09-11T19:50:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/rabbitohs-v-knights/",
+          "match_mode": "Pre",
+          "match_id": "20261112810",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Dave Munro"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Belinda Sharpe"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Matthew Dufty",
+                "position": "Fullback",
+                "player_id": 500448
+              },
+              {
+                "number": 2,
+                "name": "Alex Johnston",
+                "position": "Winger",
+                "player_id": 500108
+              },
+              {
+                "number": 3,
+                "name": "Latrell Mitchell",
+                "position": "Centre",
+                "player_id": 502502
+              },
+              {
+                "number": 4,
+                "name": "Jack Wighton",
+                "position": "Centre",
+                "player_id": 500339
+              },
+              {
+                "number": 5,
+                "name": "Campbell Graham",
+                "position": "Winger",
+                "player_id": 504294
+              },
+              {
+                "number": 6,
+                "name": "Cody Walker",
+                "position": "Five-Eighth",
+                "player_id": 500611
+              },
+              {
+                "number": 7,
+                "name": "Jayden Sullivan",
+                "position": "Halfback",
+                "player_id": 507928
+              },
+              {
+                "number": 8,
+                "name": "Tevita Tatola",
+                "position": "Prop",
+                "player_id": 503450
+              },
+              {
+                "number": 9,
+                "name": "Brandon Smith",
+                "position": "Hooker",
+                "player_id": 503419
+              },
+              {
+                "number": 10,
+                "name": "Keaon Koloamatangi",
+                "position": "Prop",
+                "player_id": 504174
+              },
+              {
+                "number": 11,
+                "name": "David Fifita",
+                "position": "2nd Row",
+                "player_id": 506482
+              },
+              {
+                "number": 12,
+                "name": "Tallis Duncan",
+                "position": "2nd Row",
+                "player_id": 509529
+              },
+              {
+                "number": 13,
+                "name": "Cameron Murray",
+                "position": "Lock",
+                "player_id": 504176
+              },
+              {
+                "number": 14,
+                "name": "Jye Gray",
+                "position": "Interchange",
+                "player_id": 100009148
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Hubner",
+                "position": "Interchange",
+                "player_id": 506446
+              },
+              {
+                "number": 16,
+                "name": "Sean Keppie",
+                "position": "Interchange",
+                "player_id": 504265
+              },
+              {
+                "number": 17,
+                "name": "Jamie Humphreys",
+                "position": "Interchange",
+                "player_id": 100006585
+              },
+              {
+                "number": 18,
+                "name": "Adam Elliott",
+                "position": "Interchange",
+                "player_id": 500128
+              },
+              {
+                "number": 19,
+                "name": "Latrell Siegwalt",
+                "position": "Interchange",
+                "player_id": 510485
+              },
+              {
+                "number": 21,
+                "name": "Talanoa Penitani",
+                "position": "Reserve",
+                "player_id": 100006223
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Dane Gagai",
+                "position": "Centre",
+                "player_id": 500043
+              },
+              {
+                "number": 4,
+                "name": "Bradman Best",
+                "position": "Centre",
+                "player_id": 506682
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Tyson Frizell",
+                "position": "Prop",
+                "player_id": 500622
+              },
+              {
+                "number": 9,
+                "name": "Phoenix Crossland",
+                "position": "Hooker",
+                "player_id": 504597
+              },
+              {
+                "number": 10,
+                "name": "Cody Hopwood",
+                "position": "Prop",
+                "player_id": 100011256
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Francis Manuleleua",
+                "position": "2nd Row",
+                "player_id": 100013721
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Interchange",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 16,
+                "name": "Pasami Saulo",
+                "position": "Interchange",
+                "player_id": 504079
+              },
+              {
+                "number": 17,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 18,
+                "name": "Fletcher Hunt",
+                "position": "Interchange",
+                "player_id": 100008414
+              },
+              {
+                "number": 19,
+                "name": "Toby Winter",
+                "position": "Interchange",
+                "player_id": 100016039
+              },
+              {
+                "number": 20,
+                "name": "Kyle McCarthy",
+                "position": "Reserve",
+                "player_id": 100006946
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 28,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Rabbitohs",
+            "position": 6,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 694,
+            "points_against": 581,
+            "points_difference": 113,
+            "points_difference_per_game": 4.71,
+            "recent_form_last_4": "4 - 1",
+            "streak": "2W",
+            "home_record": "9 - 3",
+            "away_record": "5 - 7"
+          },
+          "away": {
+            "team": "Knights",
+            "position": 7,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 633,
+            "points_against": 591,
+            "points_difference": 42,
+            "points_difference_per_game": 1.75,
+            "recent_form_last_4": "2 - 2",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Rabbitohs",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": 2.96,
+            "points_difference_favours": "Rabbitohs"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-11T19:00",
+            "temperature_c": 15.3,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 7.5,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-11T07:26:00.190523+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=28&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/rabbitohs-v-knights/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "ba02e7afb949",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-11T07:26:28.375431+00:00",
+      "finished_at": "2026-09-11T07:28:46.721829+00:00",
+      "duration_ms": 138346,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Knights",
+        "kickoff": "2026-09-11T19:50:00+10:00",
+        "round_number": 28,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Rabbitohs vs Knights NRL round 28 preview",
+          "Rabbitohs Knights NRL odds OR price OR favourite",
+          "Rabbitohs Knights NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "kickoff": "2026-09-11T19:50:00+10:00",
+          "round_number": 28,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Rabbitohs vs Knights NRL round 28 preview",
+            "Rabbitohs Knights NRL odds OR price OR favourite",
+            "Rabbitohs Knights NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-11T07:26:28.376366+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 13
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 7
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 8
+          }
+        },
+        "items": [
+          {
+            "id": "9ed10a9fae83831b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals History lesson: Last time the contenders met in a final 43 mins ago",
+            "url": "https://www.nrl.com/news/2026/09/11/history-lesson-last-time-the-contenders-met-in-a-final/",
+            "published_at": "2026-09-11T06:42:46+00:00",
+            "snippet": "History lesson: Last time the contenders met in a final\nA whole new competition starts this weekend as eight contenders go into battle across four matches in three days with one goal in mind.\nThe Panthers have proven themselves the masters of finals football across the past five ",
+            "body_excerpt": "History lesson: Last time the contenders met in a final\nA whole new competition starts this weekend as eight contenders go into battle across four matches in three days with one goal in mind.\nThe Panthers have proven themselves the masters of finals football across the past five years while the Roosters (2002, 2013, 2018, 2019), Sharks (2016), Cowboys (2015), Rabbitohs (2014) and Knights (2001) all have premierships to their name in the NRL era.\nThe Dolphins are in their first ever finals series and their opponents the Warriors have been here 10 times but never come away with a title.\nWith two sudden-death showdowns and two qualifying finals coming up this weekend, NRL.com takes a look at the most recent September clash between the sides.\nKnights v Rabbitohs\n2020 elimination final\nThe Rabbitohs and Knights have only met once in finals football, and it came in exactly the same circumstances as Friday night at Allianz Stadium.\nSix years ago, South Sydney and Newcastle finished sixth and seventh respectively before meeting in a sudden-death elimination final.\nNow, with the Rabbitohs sixth and the Knights seventh again, history is repeating itself as the two sides prepare to do battle for a place in the semi-finals.\nThere is still plenty of familiar faces from that 2020 clash.\nMatch Highlights: Rabbitohs v Knights\nAlex Johnston, Campbell Graham, Cody Walker, Tevita Tatola and Cameron Murray were all part of the Rabbitohs side that night six years ago, while Dane Gagai, who will now wear a Knights jersey, also featured for South Sydney.\nNewcastle has just three players remaining from that team in Kalyn Ponga, Bradman Best and Jacob Saifiti.\nAnd if Friday night follows the script from 2020, South Sydney will be hoping for a repeat of the result.\nThe Rabbitohs blew the Knights away 46-20, with Johnston crossing twice alongside Tatola, two names who will again feature in the elimination final six years later.\nAlex Johnston finds the line during the Bunnies' 46-20 win over the Knights in the 2020 elimination final.\nRoosters v Panthers\n2024 qualifying final\nThe Roosters and Panthers know each other all too well when it comes to September football.\nTheir last three finals meetings have all come in the qualifying final, and once again, they find themselves in exactly the same position.\nTheir most recent showdown came in 2024, when Penrith began its march towards a fourth straight premiership with a commanding 30-10 victory over the Roosters at BlueBet Stadium.\nPanthers v Roosters – Finals Week 1, 2024\nThere is still plenty of familiar faces from that clash, with the Panthers’ champion core and the Roosters’ star-studded spine preparing to renew one of the competition’s fiercest finals rivalries.\nPenrith has won four of its past five finals meetings with the Roosters, but with a preliminary-final spot and a precious week off on the line, history will count for little when these two heavyweight clubs collide again.\nYep, he's back!\nSharks v Cowboys\n2024 semi-final\nThe Sharks and Cowboys have plenty of finals history, and their most recent meeting could provide the perfect blueprint for another high-stakes showdown.\nThe two clubs have met six times in finals football, with the teams splitting those matches at three apiece but it was the Sharks who had the last laugh.\nSharks v Cowboys – Finals Week 2, 2024\nWhen the sides met in the 2024 semi-final at Allianz Stadium, Cronulla held on for a 26-18 victory to book a place in the preliminary final and end the Cowboys’ campaign.\nBraydon Trindall played a starring role that night, scoring twice, and now, two years on, he’ll return from injury with another chance to make his mark.\nThis time, there is no second chance.\nWith both sides fighting to keep their premiership dreams alive, Saturday afternoon’s clash promises another chapter in a finals rivalry that has produced plenty of drama over the years.\nRelated /\n'No one gave us a chance': Chasing pack desperate to defy history\nFinals\n'Our biggest moti",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.7284378794444444,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c8036df6c4a9688f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals 'No one gave us a chance': Chasing pack desperate to defy history 46 mins ago",
+            "url": "https://www.nrl.com/news/2026/09/10/no-one-gave-us-a-chance-chasing-pack-desperate-to-defy-history/",
+            "published_at": "2026-09-11T06:40:01+00:00",
+            "snippet": "'No one gave us a chance': Chasing pack desperate to defy history\nCronulla captain Blayke Brailey will draw on NSW's unexpected State of Origin series victory as the Sharks look to defy history by becoming the first team in more than three decades to win the NRL premiership from ",
+            "body_excerpt": "'No one gave us a chance': Chasing pack desperate to defy history\nCronulla captain Blayke Brailey will draw on NSW's unexpected State of Origin series victory as the Sharks look to defy history by becoming the first team in more than three decades to win the NRL premiership from outside the top four.\nIt's been 31 years since Terry Lamb led the Bulldogs from sixth place to premiership glory in 1995. While plenty of clubs have come close, the challenge of winning four-straight sudden death finals has proved an insurmountable task.\nIt's a stat this year's contenders are determined to change, with the Sharks leading a group of teams desperate to rewrite the record books.\nBrailey made his NSW debut during this year's series and returned from a broken arm to help the Blues defy history when they upset the Maroons in a Suncorp Stadium decider.\nFew gave Laurie Daley's men a chance when they travelled north for Game Three and Brailey said Cronulla will adopt a similar mindset throughout the finals campaign.\n\"We have the underdog mentality and we all enjoy that approach,\" Brailey told NRL.com. \"No one gives us a chance but it's similar to the Origin series in Game Three when no one gave us a chance. We found it a way and we turned it around.\n\"People thought we'd just turn up and lose and I'm sure in this finals series people just expect the same. We know what it takes now to deal with that pressure. We've got a few players in our side that love the underdog mentality so we're taking it all in and excited for the weeks to come.\"\nTrindall raring to return for Cowboys clash\nCronulla have received a major boost for Saturday's clash with North Queensland at Allianz Stadium with five-eighth Braydon Trindall named to return from a dislocated shoulder.\nThe Sharks are in a familiar position entering this year's finals series, Craig Fitzgibbon's men also finishing fifth last season before surging to the preliminary final.\nThe Cowboys don't have to look too far for inspiration in their bid for the premiership, with Jason Taumalolo and Coen Hess playing a key role in the club's charge from eighth to the 2017 grand final.\nNorth Queensland have also received a major boost in recent weeks with star halfback Tom Dearden making a successful return from an ankle injury.\nAlso looking to defy history this year are the Rabbitohs and Knights, who will do battle in a Friday night blockbuster at Allianz Stadium to kick off the weekend.\nTom Dearden Try\nBoth teams also have a track record of deep finals runs from outside the top four, with Newcastle progressing to the preliminary final in 2013 after finishing seventh on the ladder.\nFullback Kalyn Ponga has returned to the form that saw him claim the Dally M Medal in 2023 and has the potential to emulate Reece Walsh's stunning run to the premiership with the Broncos last year.\nSouth Sydney went from seventh to a prelim the last time they played finals football in 2022.\nThe Rabbitohs are peaking at the right time of year, with star centre Latrell Mitchell back on deck and powerful back-rower David Fifita back to his damaging best.\nLatrell Mitchell returns for the Rabbitohs\nWith finals experience spread across the park, South Sydney captain Cameron Murray is confident his team has the talent to upstage their more fancied rivals.\n\"We're not paying too much attention to the history books,\" Murray said. \"We're paying attention to the footy we can play and the product we can put on the field.\n\"If we're disciplined and we turn up with the right attitude, I'm confident we can be successful in the finals.\n\"We have a lot of big game experience in the team so that helps, but for us it's about our discipline and turning up to play the footy we know we can play.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats today.\nRelated /\nHistory lesson: Last time the contenders met in a final\nFinals\n'Fight fire with fire': Sparks set to fly",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.7742712127777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c828f71ba1bd1b37",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Late Mail: Finals Week 1",
+            "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/",
+            "published_at": "2026-09-11T06:08:34+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 1\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 matches before suffering",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 1\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 matches before suffering a pectoral injury in Round 16 while Crichton was part of Trent Robinson's starting side in his 13 matches before succumbing to a foot injury.\nA host of big-name stars return after being rested in Round 27, including Sharks quartet Nicho Hynes , Blayke Brailey , KL Iro and Teig Wilton , while playmaker Braydon Trindall is back after two games out with a shoulder injury.\nSee all the late mail, official team news and updates for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Knights is number 2 Dominic Young\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Knights is number 3 Dane Gagai\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Knights is number 4 Bradman Best\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Rabbitohs is number 12 Tallis Duncan 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Rabbitohs is number 18 Adam Elliott 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Rabbitohs is number 19 Latrell Siegwalt 19 Interchange for Knights is number 19 Toby Winter\n19\nReserves\nReserve for Rabbitohs is number 21 Talanoa Penitani 21 20 Reserve for Knights is number 20 Kyle McCarthy\n21 20\nRabbitohs Ins\nTalanoa Penitani\nTallis Duncan\nKnights Ins\nDominic Young\nKyle McCarthy\nPhoenix Crossland\nTyson Frizell\nRabbitohs Outs\nEuan Aitken\nJai Arrow\nDiesel Hagan\nJacob Saifiti\nTrey Mooney\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 2:01:03 AM\nRabbitohs: After starting eight games in a row at fullback from Round 19-26, Matt Dufty was an unused reserve last week, with Jye Gray getting the nod. With Souths' season on the line, Dufty is back in the No.1 jersey for his first NRL finals appearance since 2018 with the Dragons against Souths. Tallis Duncan returns after sitting out the Roosters game due to hamstring tightness so Adam Elliott reverts to the bench. No changes in Thursday's 24-hour update with Talanoa Penitani remaining in the squad as the reserve.\nKnights: Edge forward Francis Manuleleua has shown great ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.2984378794444447,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "207dd54c9af09c1e",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals 'Falling into place': New mindset driving Latrell's premiership charge",
+            "url": "https://www.nrl.com/news/2026/09/11/falling-into-place-new-mindset-driving-latrells-premiership-charge/",
+            "published_at": "2026-09-10T20:01:22+00:00",
+            "snippet": "'Falling into place': New mindset driving Latrell's premiership charge\nSouth Sydney star Latrell Mitchell is ready to translate off-field stability into premiership success as he prepares to end a four-year wait to play finals football.\nMitchell will take centre-stage on Friday n",
+            "body_excerpt": "'Falling into place': New mindset driving Latrell's premiership charge\nSouth Sydney star Latrell Mitchell is ready to translate off-field stability into premiership success as he prepares to end a four-year wait to play finals football.\nMitchell will take centre-stage on Friday night when he plays his first finals game since the 2022 preliminary final as the Rabbitohs host Newcastle in a sudden-death showdown.\nIt's been an eventful four years for the South Sydney star, who has battled a string of injuries on the field at the same time he has become increasingly comfortable with his status as an Indigenous leader.\nLatrell Mitchell returns for the Rabbitohs\nMitchell's maturity was on display this week when he fronted the media in the lead up to Friday's elimination final and reflected on the challenges he's faced throughout his career.\n\"My advice to any young fella coming through is that adversity is always going to be there and challenges are always going to be faced,\" Mitchell said. \"It's just the way you come out of it [that matters].\n\"The moments I've had in my time and my career and what I've learned, they're just lessons, they're not losses. For me moving forward, I've lived probably a lot more experiences than most older men, so for me, it is what it is.\n\"I love what I'm doing, I love the team, and everything's just falling into place. I'm just cruising along now and I just want to play footy and have fun.\"\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nIt's hard to believe it's been a decade since Mitchell made his NRL debut as a fresh-faced 18-year-old for the Roosters in 2016.\nIt quickly became clear the youngster was destined for superstardom and it didn't take long for Mitchell to deliver on his potential.\nA NSW debut came in 2018, with his first Kangaroos jumper coming later that season and he helped set up the winning try in the 2019 grand final to secure his second NRL premiership.\nTedesco finishes blindside raid by Roosters\nIt hasn't all been smooth sailing, however. Mitchell has long been one of the most polarising figures in the game and was not afraid to speak his mind earlier in his career.\nHis outspoken personality drew criticism from some fans, prompting the centre to step out of the spotlight in the past few years.\nA country boy from the NSW mid-north coast, Mitchell has found peace on his farm in Taree where he hopes to one day raise his four children.\n\"Coming from a small town, Taree, footy was everything,\" Mitchell said. \"It was the only way I got out of town and created a dream and everything that I wanted to achieve.\n\"For me, it's just going back to that and never forgetting that young fella who was running around with his brothers, fighting around, carrying on, and having a laugh. That's what it was about back then, and I just want to carry that on to the big stage, keep that feel, and just be there for your mates and help them out.\"\nWhile the farm is Mitchell's happy place, he's just as confident taking centre-stage under the bright lights of a rugby league field.\nIn many ways it's the place the centre is most comfortable. The bigger the stage, the better Mitchell performs.\nThe centre's South Sydney teammates repeatedly talk of his aura and they can instantly feel the energy he brings to a game.\nRabbitohs v Knights: Finals Week 1\nIt's no surprise the Rabbitohs have found their stride since the centre returned to the field a fortnight ago and he's provided the confidence boost needed to make a deep run through the finals.\n\"When I first signed at this club, he was one of the first boys to keep in contact with me on the phone,\" forward David Fifita said. \"Just to be with him, you know, he's a special talent, Latrell.\n\"It hasn't been ideal with the injuries but he's finding his way at the right time. I've got nothing but love for L",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 11.418437879444443,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "ca68a28b802a7bde",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Rabbitohs v Knights: Tallis gets green light; Manuleleua's miracle",
+            "url": "https://www.nrl.com/news/2026/09/08/rabbitohs-v-knights-tallis-gets-green-light-manuleleuas-miracle/",
+            "published_at": "2026-09-10T09:52:02+00:00",
+            "snippet": "Presented By\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nThe Rabbitohs are back in the finals for the first time since 2022 and riding high after a big win over the Roosters and the emotion of Jai Arrow's 100th game celebrations.\nWith Latrell Mitchell getti",
+            "body_excerpt": "Presented By\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nThe Rabbitohs are back in the finals for the first time since 2022 and riding high after a big win over the Roosters and the emotion of Jai Arrow's 100th game celebrations.\nWith Latrell Mitchell getting through a full 80 minutes against the Roosters and looking in ominous form, the Bunnies are primed for a huge performance in front of their home fans.\nAfter sitting fourth with eight rounds to play, the Knights won just three of their final eight games to finish seventh as injuries and suspension took a toll.\nThe Knights have done a remarkable job to turn their fortunes around and finishing last in 2025 and they will be banking on the brilliance of Kalyn Ponga, Bradman Best and Fletcher Sharpe to keep the dream alive for another week.\nThe two meetings between these sides during the regular season produced a total of 130 points with the Knights getting home 42-38 in Round 9 before the Rabbitohs turned the tables 26-24 in Round 19.\nA tighter contest can be expected in the pressure cooker atmosphere of a sudden-death final but there's enough attacking weapons on both sides to ensure an entertaining night for fans at Allianz Stadium.\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nRabbitohs: Gun back-rower Tallis Duncan returns after sitting out the Roosters game due to hamstring tightness so Adam Elliott reverts to the bench and fills the void left by Euan Aitken (scapula). After being an unused reserve last week, Matt Dufty has won back the No.1 jersey from Jye Gray, who goes to the bench. No changes in Thursday's 24-hour update.\nKnights: Winger Dom Young and back-rower Tyson Frizell return from suspension while hooker Phoenix Crossland (knee) is also back to bolster Justin Holbrook's squad for the sudden-death showdown. A massive boost in the pack with edge forward Francis Manuleleua named to play despite dislocating his elbow just a fortnight ago against the Warriors. The season-ending shoulder injury to Trey Mooney brings Cody Hopwood into the starting side at prop. Fletcher Hunt and Harrison Graham slide to bench after starting in Round 26. No changes in Thursday's 24-hour update.\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Knights is number 2 Dominic Young\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Knights is number 3 Dane Gagai\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Knights is number 4 Bradman Best\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Rabbitohs is number 12 Tallis Duncan 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Knights is number 16 Pas",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 21.573993435,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Pec pain over for Ford; Crichton good to go",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-09-08T06:08:14+00:00",
+            "snippet": "NRL Casualty Ward: Pec pain over for Ford; Crichton good to go\nThe Warriors have received a huge boost ahead of their qualifying final against the Dolphins with gun forward Jackson Ford set to return from a pectoral injury.\nAfter making a dynamic start to the season in which he a",
+            "body_excerpt": "NRL Casualty Ward: Pec pain over for Ford; Crichton good to go\nThe Warriors have received a huge boost ahead of their qualifying final against the Dolphins with gun forward Jackson Ford set to return from a pectoral injury.\nAfter making a dynamic start to the season in which he averaged 161 run metres and 41 tackles per game, Ford suffered the injury in Round 16 against the Cowboys and initial fears were he could miss the rest of the year.\nFord has been named on the bench for the blockbuster Go Media Stadium showdown against the Dolphins, who get Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) back for their first ever final.\nNikorima and Finefeuiaki were given last week off to get over niggling injuries ahead of the finals.\nThe Roosters also have a star forward returning for their qualifying final against Penrith with Angus Crichton back after 11 games out with a foot injury.\nAlso back on deck at the Roosters are Victor Radley (concussion) and a posse of stars who were rested in Round 27 including James Tedesco , Daly Cherry-Evans and Rob Toia .\nThe Rabbitohs have Tallis Duncan back from a hamstring injury but will be without veteran back-rower Euan Aitken for the rest of the season after he fractured his scapula in the win over the Roosters.\nThe injury is a cruel blow for 31-year-old Aitken, who was on the verge of playing in just the second finals match of his 223-game career.\nAitken's only finals appearance came with the Dragons in his debut season in 2015.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nSouth Sydney's elimination final opponents Newcastle paid a heavy price for their loss to the Warriors in Round 26 with prop Trey Mooney out for the rest of the season with a fractured shoulder blade while prop Jacob Saifiti copped a season-ending four-game ban for a Reckless High Tackle.\nEdge forward Francis Manuleleua suffered a dislocated elbow against the Warriors but scans confirmed he had no fractures to his arm and he has been named to face Souths.\nCowboys trio Zac Laybutt (concussion), Griffin Neame (toe) and Jeremiah Nanai (knee) all return after missing the loss to Canberra in Round 27 but Murray Taulagi remains sidelined with ongoing concussion issues.\nStorm winger Siulagi Tuimalatu-Brown was taken to hospital as a precaution after he was stretchered from Ocean Protect Stadium last Saturday night.\nThe game was just five minutes old when Tuimalatu-Brown was taken low by Cam McInnes and Michael Gabrael over the top, with the Sharks debutant making high contact.\nIn an update on Sunday morning , the Storm said initial assessments indicate the youngster does not have a severe spinal injury but he will undergo further testing due to numbness in his arm.\n\"Siulagi was admitted to hospital overnight after concerns for a neck injury,\" the statement said. \"There was no severe spinal injury on initial assessment but he will undergo further scans today due to concerns for some ongoing numbness to the arm.\"\nThe Storm also lost halfback Jahrome Hughes to a hamstring injury late in the first half after he was twisted awkwardly while trying to clean up a loose ball.\nHughes will be sent for scans and faces a nervous wait for the results with the Kiwis' World Cup opener just six weeks away.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nCasualty Ward\nBrisbane Broncos\nPreston Riki (syndesmosis, World Cup)\nBrendan Piakura (concussion, World Cup)\nReece Walsh (syndesmosis, 2027)\nCory Paix (shoulder, 2027)\nBlake Mozer (concussion, 2027)\nCanberra Raiders\nMorgan Smithies (concussion, World Cup)\nHudson Young (Achilles, 2027)\nZac Hosking (hamstring, ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 73.303993435,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "cf4268478d22b005",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Team Lists NRL Team Lists: Finals Week 1",
+            "url": "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+            "published_at": "2026-09-08T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knigh",
+            "body_excerpt": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Knights is number 2 Dominic Young\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Knights is number 3 Dane Gagai\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Knights is number 4 Bradman Best\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Rabbitohs is number 12 Tallis Duncan 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Rabbitohs is number 18 Adam Elliott 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Rabbitohs is number 19 Latrell Siegwalt 19 Interchange for Knights is number 19 Toby Winter\n19\nReserves\nReserve for Rabbitohs is number 21 Talanoa Penitani 21 20 Reserve for Knights is number 20 Kyle McCarthy\n21 20\nRabbitohs Ins\nTalanoa Penitani\nTallis Duncan\nKnights Ins\nDominic Young\nKyle McCarthy\nPhoenix Crossland\nTyson Frizell\nRabbitohs Outs\nEuan Aitken\nJai Arrow\nDiesel Hagan\nJacob Saifiti\nTrey Mooney\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 2:01:03 AM\nRabbitohs: Gun back-rower Tallis Duncan returns after sitting out the Roosters game due to hamstring tightness so Adam Elliott reverts to the bench and fills the void left by Euan Aitken (scapula). After being an unused reserve last week, Matt Dufty has won back the No.1 jersey from Jye Gray, who goes to the bench.\nKnights: Winger Dom Young and back-rower Tyson Frizell return from suspension while hooker Phoenix Crossland (knee) is also back to bolster Justin Holbrook's squad for the sudden-death showdown. A massive boost in the pack with edge forward Francis Manuleleua named to play despite dislocating his elbow just a fortnight ago against the Warriors. The season-ending shoulder injury to Trey Mooney brings Cody Hopwood into the starting side at prop. Fletcher Hunt and Harrison Graham slide to bench after starting in Round 26.\nWarriors v Dolphins, Saturday 4.05pm (AEST), 6.05pm (local time) at Go Media Stadium\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nWarriors\nDolphins\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolp",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 73.45788232388888,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "4e37945b7daadf7b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail - foxsports.com.au",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-finals-2026-week-1-team-news-injuries-changes-late-mail-who-is-in-and-out/news-story/19748a07cd154a6af4a7810773fdcf09",
+            "published_at": "2026-09-11T00:09:44+00:00",
+            "snippet": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail &nbsp;&nbsp; foxsports.com.au",
+            "body_excerpt": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail\nSome big names are firming to make their returns for week one of the NRL Finals, but there could still be late changes for this weekend’s blockbuster battles.\nIt comes as Wayne Bennett moved to ease the pressure on superstar Latrell Mitchell ahead of Souths’ do-or-die clash with Newcastle tonight.\nRead below for Finals Week 1 team news and Late Mail!\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nFRIDAY SEPTEMBER 11\nSouth Sydney Rabbitohs vs Newcastle Knights @ Allianz Stadium, 7:50pm AEST\nRabbitohs Team: 1. Matthew Dufty 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Tallis Duncan 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott 19. Latrell Siegwalt Res: 21. Talanoa Penitani\nPlayers cut: 20. Liam Le Blanc 22. Peter Mamouzelos\nLate Mail: Tallis Duncan (hamstring) is ready to start after being rested last week, returning in the backrow in place of Euan Aitken (shoulder) who is out for the rest of the season. In-form Matthew Dufty returns to fullback ahead of Jye Gray with Wayne Bennett declaring on Thursday “he is our best option there”. Bennett has also lowered expectations around Latrell Mitchell , who plays just his third game back from a worrying nerve problem with his back. “He hasn’t played a lot of football in the last couple of months so my expectations are not high,” Bennett said. “I just want him to have the presence that he has, and he’ll have that. That’s all I’m asking for, nothing special.”\nKnights Team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Thomas Cant 18. Fletcher Hunt 19. Toby Winter Res: 20. Kyle McCarthy\nPlayers cut: 21. Elijah Leaumoana 22. Diesel Hagan\nLate Mail: In a big boost Francis Manuleleua (elbow) is set to return from a gruesome dislocation with coach Justin Holbrook indicating both he and Phoenix Crossland (knee) will be fit to start as named. “They’re tracking really good. We’re expecting to be 1-19 which is excellent,” Holbrook said on Thursday. “Obviously we’ve had the bye which has given them a bit of time to get right and they should be good to go.” Dominic Young and Tyson Frizell both return from suspension in a welcome boost for the Knights, who lost prop Trey Mooney to a season ending scapula injury in Round 26.\nREAD MORE NRL\nHOLBROOK: Inside coach’s rise from scrapheap to finals... and why some saw it coming\nKENNY: Inside the mind and ‘shock’ rise of Penrith’s underdog... and Cleary reveal that stunned\nWHISPERS: Dolphins’ $1.4m battle to retain superstar flyer emerges in 15-player free agency headache\nSATURDAY SEPTEMBER 12\nNew Zealand Warriors vs Dolphins @ Go Media Stadium, 4:05pm AEST\nWarriors Team: 1. Taine Tuaupiki 2. Charnze Nicoll-Klokstad 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Jackson Ford 18. Eddie Ieremia-Toeava 20. Adam Pompey 21. Jett Cleary 22. Luke Laulilii 23. Makaia Tafua\nPlayers cut:\nLate Mail: Jackson Ford (pectoral) appears cleared to make his long-awaited comeback off the bench with Warriors coach Andrew Webster on Friday telling New Zealand radio station Newstalk ZB it was a “welcome return” for the injury-ravaged side. Webster also revealled Dallin Watene-Zel",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 7.278993435,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "69f2ee0756a40cbe",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Knights Prediction & NRL Betting Preview - 11/9/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/rabbitohs-vs-knights-prediction-betting-tips-friday-11-september-2026/",
+            "published_at": "2026-09-11T07:09:44+00:00",
+            "snippet": "Rabbitohs vs Knights Prediction & NRL Betting Preview - 11/9/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Rabbitohs vs Knights Prediction: Marzhew on the mark in narrow Newcastle defeat\n| Thursday 10th September 2026, 7:00\nThursday 10th September 2026, 7:00\nEight potential Grand Final winners will become seven on Friday when the NRL Finals begin with an elimination play-off between the South Sydney Rabbitohs and Newcastle Knights at Allianz Stadium (7:50pm local, 10:50am BST, Watch NRL).\nThe two sides finished the regular season level on 34 points, making this the tightest of the four contests in Week 1. Here are my Rabbitohs vs Knights predictions, the latest team news and Betfred’s match odds.\nRabbitohs vs Knights Betting Tips\nRabbitohs by 1-12 @ 21/10\nGreg Marzhew Anytime Tryscorer @ 10/11\n*odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Acca Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nRabbitohs vs Knights Odds\nThe home advantage counts for a lot in the eyes of Betfred, with the bookies favouring the Bunnies to progress to Week 2.\nSouths are 4/9 for the win in 80 minutes, while you can get 2/1 about a Knights victory. The draw, and a subsequent extra-time period, is a 16/1 bet.\nTeam News\nWayne Bennett has initially named Matt Dufty as full-back, dropping Jye Gray to the bench. But there has to be a suspicion that by kick-off it will be Gray lining up from the start and the former Warrington man among the interchange options.\nTallis Duncan is back after a hamstring complaint, moving Adam Elliott to a sub berth, while Euan Aitken misses out completely due to injury.\nRugby League Odds\nKnights boss Justin Holbrook is boosted by the returns of Tyson Frizell and Dom Young following suspensions, and both are given the go-ahead to start.\nPhoenix Crossland has overcome a knee injury and is handed the No.9 jumper, with Harrison Graham switched to 14, while Francis Manuleleua makes it despite putting his elbow out in Round 26 against the Warriors.\nTrey Mooney is out of the play-offs due to injury, while Jacob Saifiti is the other name to miss out. Cody Hopwood comes into the front row, with Fletcher Hunt named on the bench after stepping in for Young last time out.\nYou can see why the Bunnies are favourites here, but the Knights can’t be underestimated.\nHolbrook has a record many would love to boast, having taken the unfancied Titans to the Finals in 2021. And, but for a poor final play, they could easily have overcome the Roosters in the opening week too.\nThis year he’s made Newcastle one of the most reliable teams in the sport, and were it not for three consecutive one-score losses in July they may have been playing a qualifying fixture this week rather than this eliminator.\nThe Rabbitohs, of course, have the big-name power here. And in Bennett they have the wiliest of old pros. They’ve also eked out key wins all season long, with four of their 14 successes coming by a single socre.\nSo I have this one down to go right to the wire, and the 21/10 about Souths to edge it is a very enticing price given the likely game scenario.\nOdds correct at time of publishing.\nThe Newcastle wingers rarely fail to score. Young has crossed 20 times this term, while Greg Marzhew scored 24 in the regular season in 23 appearances.\nThe Auckland-born 29-year-old is my pick here, informed in large part by the generous price.\nAlex Johnston is 8/15 for a try in 80 minutes, and understandably so. Only twice this season has he left the field without having registered a try. But the value lies in Marzhew at 10/11 given his own exploits in scoring positions in 2026.\nShare Article\nBetfred Rugby League Markets\nBetfred Super League Odds\nBetfred Challenge Cup Odds\nBetfred Championship Odds\nBetfred League One Odds\nRugby League Insights\nSuper League Tips\nChallenge Cup Tips\nNew customers only. Register , deposit with a Debi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.278993435,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "4f8b79b9f0ccfe93",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Wests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa",
+            "url": "https://www.nrl.com/news/2026/09/08/wests-tigers-v-raiders-turnbull-good-to-go-dodd-in-for-taufa/",
+            "published_at": "2026-09-11T06:14:16+00:00",
+            "snippet": "Presented By\nWests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa\nFew matches carry more significance than this Round 11 clash at Leichhardt Oval with both sides looking to fine tune their game ahead of sudden-death finals next week.\nThe Raiders enter the final rou",
+            "body_excerpt": "Presented By\nWests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa\nFew matches carry more significance than this Round 11 clash at Leichhardt Oval with both sides looking to fine tune their game ahead of sudden-death finals next week.\nThe Raiders enter the final round knowing a win could possibly lift them to fifth depending on how the Knights go on Sunday, while a loss won't knock them out because their points differential is far superior to the Warriors in seventh.\nThe Raiders are coming off a heartbreaking 17-16 defeat to Parramatta last week. Canberra controlled large portions of that contest but were left stunned when Rachael Pearson landed a field goal as time expired.\nWests Tigers have already guaranteed their maiden finals berth but will be eager to rebound after a disappointing 58-0 loss to the Titans. Injury concerns and defensive lapses combined to throw a spanner in the works of their stunning 2026 turnaround.\nCanberra's challenge will be converting pressure into points after missed opportunities proved costly against the Eels.\nWith finals footy effectively starting a week early, this is sure to be a cracker at the iconic Leichhardt Oval.\nMatch: Wests Tigers v Raiders\nRound 11 - Round 11 - Friday 11 Sep\nhome Team\nWests Tigers\n4th Position\naway Team\nRaiders\n6th Position\nVenue: Leichhardt Oval, Sydney\nMatch broadcasters:\nGem\nNine Now\nFoxtel\nKayo\nTeam News\nWests Tigers: No further game day changes after Kezie Apps (leg) and Caitlin Turnbull (foot) dropped out on Thursday. Kayla Henderson takes over at fullback while Shaniece Monschau will start in the back row. Tara Reinke and Jetaya Faifua have been added to the bench alongside Shenai Lendill who returns from an arm injury. Tyla Amiatu is 18th player.\nRaiders: The Raiders are 1-17 with no late changes. With co-captain Simaima Taufa banned for three games after being found guilty of Dangerous Contact at the judiciary, England representative Holli-Mae Dodd will fill in at lock. Lili Boyle will take her spot on the bench, with Ellie Brander the new 18th player.\nTeam Lists\nBacks\nFullback for Wests Tigers is number 16 Kayla Henderson 16 1 Fullback for Raiders is number 1 Sheridan Gallagher\n16 1\nWinger for Wests Tigers is number 2 Harmony Crichton 2 Winger for Raiders is number 2 Isabella Waterman\nCentre for Wests Tigers is number 3 Rikeya Horne 3 Centre for Raiders is number 3 Leianne Tufuga\nCentre for Wests Tigers is number 4 Portia Bourke 4 Centre for Raiders is number 4 Bobbi Law\nWinger for Wests Tigers is number 5 Lily Rogan 5 Winger for Raiders is number 5 Mackenzie Wiki\nFive-Eighth for Wests Tigers is number 6 Losana Lutu 6 Five-Eighth for Raiders is number 6 Krystal Blackwell\nHalfback for Wests Tigers is number 7 Raecene McGregor 7 Halfback for Raiders is number 7 Zahara Temara\nForwards\nProp for Wests Tigers is number 8 Sarah Togatuki 8 Prop for Raiders is number 8 Chloe Saunders\nHooker for Wests Tigers is number 9 Salma Nour 9 Hooker for Raiders is number 9 Chanté Temara\nProp for Wests Tigers is number 10 Christian Pio 10 Prop for Raiders is number 10 Sophie Holyman\n10\n2nd Row for Wests Tigers is number 12 Shaylee Bent 12 11 2nd Row for Raiders is number 11 Jordyn Preston\n12 11\n2nd Row for Wests Tigers is number 14 Shaniece Monschau 14 12 2nd Row for Raiders is number 12 Charlotte Basham\n14 12\nLock for Wests Tigers is number 13 Holli Wheeler 13 Lock for Raiders is number 13 Hollie-Mae Dodd\n13\nInterchange\nInterchange for Wests Tigers is number 15 Shenai Lendill 15 14 Interchange for Raiders is number 14 Emma Barnes\n15 14\nInterchange for Wests Tigers is number 17 Brooke Talataina 17 15 Interchange for Raiders is number 15 Grace Kemp\n17 15\nInterchange for Wests Tigers is number 18 Tara Reinke 18 16 Interchange for Raiders is number 16 Lili Boyle\n18 16\nInterchange for Wests Tigers is number 20 Jetaya Faifua 20 17 Interchange for Raiders is number 17 Grace Kukutai\n20 17\nReserves\nReplacement for Wests Tigers is number 22 Tyla Amiatu 22 18 Replacement for R",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.2034378794444445,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "74cd576bb28d03b3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Match Preview Warriors v Dolphins: Ford set to motor; Big Three return",
+            "url": "https://www.nrl.com/news/2026/09/08/warriors-v-dolphins-ford-set-to-motor-big-three-return/",
+            "published_at": "2026-09-11T06:09:51+00:00",
+            "snippet": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch",
+            "body_excerpt": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch and expectation growing that the club's first ever premiership could be just three wins away, the Dolphins are heading into an intimidating atmosphere that will test their mental and physical resolve.\nCoach Kristian Woolf is sure to have his men primed for their first finals match and the Phins have bragging rights over the Wahs courtesy of a 26-24 triumph in Round 17 at Suncorp Stadium.\nThe battle in the middle is set to rock the foundations of Go Media as James Fisher-Harris, Erin Clark and Mitch Barnett defend their turf against Tom Flegler, Max Plath and Tom Gilbert.\nThe prize for the winner is a week off to recharge the batteries before a preliminary final in front of a heaving home crowd daring to dream of a maiden premiership.\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nWarriors: A huge in for the Wahs on the bench with Jackson Ford named for his first game since suffering a pectoral injury against the Cowboys in Round 16. Centre Leka Halasima is back from an ankle injury while rested duo Wayde Egan and Kurt Capewell also return for the qualifying final. Sam Healey, Adam Pompey and Eddie Ieremia-Toeava revert to the six-man interchange while Jett Cleary is the reserve. Tryscoring machine Dallin Watene-Zelezniak remains sidelined with a collarbone injury. No changes in Friday's 24-hour update.\nDolphins: The Phins are at full strength for their first ever finals match with winger Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) all back on deck after being given last week off to rest up and overcome niggling injuries. Tevita Naufahu remained in the squad as the reserve when it was trimmed on Friday.\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Warriors is number 17 Jackson Ford 17 Interchange for Dolphins is number 17 Connelly Lemuelu\n17\nInterchange for Warriors is number 18 Eddie Ieremia-Toea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.2770489905555558,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "7d489943cfc8cef6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Rabbitohs How Adam and Millie turned the Book of Feuds into a romance novel",
+            "url": "https://www.nrl.com/news/2026/09/11/how-adam-and-millie-turned-the-book-of-feuds-into-a-romance-novel/",
+            "published_at": "2026-09-11T00:01:52+00:00",
+            "snippet": "How Adam and Millie turned the Book of Feuds into a romance novel\nIt seems the love of a Rooster has helped this South Sydney Rabbitoh get back on the field in time to help his club try to win a 22nd NRL premiership.\nAnd who said Roosters and Rabbitohs hate each other? Have you m",
+            "body_excerpt": "How Adam and Millie turned the Book of Feuds into a romance novel\nIt seems the love of a Rooster has helped this South Sydney Rabbitoh get back on the field in time to help his club try to win a 22nd NRL premiership.\nAnd who said Roosters and Rabbitohs hate each other? Have you met the Elliotts?\nClearly Adam and Millie Elliott have no problem washing their jerseys and training gear together.\n“It probably doesn’t get touched by us because there’s no Rabbitohs NRLW side, so there’s a bit of a loophole there at the moment,” Adam told NRL.com.\n“If I’m at a game cheering for the Roosters NRLW side if they were paying Souths that would turn a few people off.\n“But we’ve both jumped around in our careers a fair bit.\nYou’re kidding yourself if you’re not loyal to your wife or husband in whatever team they play for\nMillie is heading for another finals campaign herself with the Roosters NRLW side completing an unbeaten season to secure the club's third minor premiership.\nAlongside Hall of Fame prop Glenn Lazarus, Millie is the only other player to win premierships with three different clubs - Lazarus with the Raiders, Broncos and Storm, Elliott with the Broncos, Knights and Roosters.\nIn fact, it’s Millie’s support that Adam credits as one of the defining factors in him getting back on the field earlier than expected after a shocking ankle injury in Round 12 and then an adductor muscle strain in his groin in Round 24. He had already missed the opening nine round of the season with a torn calf.\nAdam Elliott penalty Try\n“I like the fact I can heal quick because it means people aren’t telling me I’m too old,” he said.\n“I think being hard-headed, especially with the ankle. That was a big one coming back from that but I set myself a goal and got there.\n“Obviously it helps a lot having Millie at home because she knows exactly what it takes for a footy player to play each week.\n“So our smooth home life makes it easier for me to focus on my rehab. She gives me so much support in helping me get back and she’s a playing herself.\n“It’s broken her heart as it’s broken mine with the injuries I’ve had the last couple of years. She’s been massive.”\nElliott is on the bench for Friday night’s elimination final against his old club, the Knights.\nThis will be his fourth finals series with his third different club – Raiders in 2022, Knights in 2023-24.\nInside Camp: Millie Elliott\nSince making his NRL debut in 2016 with the Bulldogs, Elliott has picked up a few new tricks in the rehab department that weren’t available back then.\n“Things like red-light therapy, hyperbaric oxygen therapy, which all help me to prepare my muscles for training sessions and games,\" he said.\n“It’s just the combination of all that – diving in and doing those things that I know help my recovery and that includes the usuals like bone broth, collagen and getting lots of good sleep.”\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\n'Falling into place': New mindset driving Latrell's premiership charge\nMatch Preview\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nTwo into seven won't go but Bud and Jamie find the solution\nFinals\nTrell finding his groove at the perfect time\nRabbitohs v Knights: Finals Week 1",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 7.4101045461111115,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "8d52c7200248e97a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "South Sydney Rabbitohs vs Newcastle Knights: NRL elimination final preview and prediction - Zero Tackle",
+            "url": "https://www.zerotackle.com/south-sydney-rabbitohs-vs-newcastle-knights-nrl-elimination-final-preview-and-prediction-237970/",
+            "published_at": "2026-09-10T22:54:27+00:00",
+            "snippet": "South Sydney Rabbitohs vs Newcastle Knights: NRL elimination final preview and prediction &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The South Sydney Rabbitohs will head into the finals as heavy favourites to advance out of the first week when they clash with the understrength Newcastle Knights on Friday evening.\nFor the second year in a row, the minor premiers don't open the finals, but that gives us an immediate knockout fixture.\nThe Rabbitohs have been one of the more inconsistent teams throughout the course of the year, but their ability to put points up in a hurry and dominate on the back of it, has seen then finish in sixth spot, and earn the all-important hosting rights this weekend.\nIn truth, that is as big a boost as any, with the road trip to the Hunter being a tough one at the best of times.\nTheir recent form has continued those inconsistency question marks.\nA big win over the resting Roosters, a big win over the Titans, and wins over the Eels and Bulldogs litter their final five weeks of the season, but that is all offset by a 19-point loss to the New Zealand Warriors where they conceded 45 in Round 25 on home soil.\nMaybe that isn't the end of the world if it's a one-off, but defensive issues are certainly the key question mark for the Rabbitohs.\nThe Rabbitohs have only conceded more than 40 points twice this season, but they have conceded more than 30 on nine occasions.\nMaybe, if there is a positive to be taken, it's that the bulk of those were in the first half of the season, and they seem to have slowly adjusted to the rules and pace of the game throughout the course of the year.\nThey are still heavily reliant on a number of players to spark their attack, led by Latrell Mitchell , while selection questions also linger heading into the finals with Matt Dufty recalled at fullback.\nAt the very least, South Sydney aren't all that understrength as they head in to the business stage of the year.\nThe same can't be said for the Knights, who have been, in a word brave.\nTwin season ending injuries to Dylan Brown and Dylan Lucas in Round 21 against the Sydney Roosters had the potential to nuke their season on the spot, but instead, they have kept fighting.\nWins against the Broncos, Raiders and Titans all but locked up their finals spot, although the concern for Newcastle is they copped 44 points against Manly and 46 against the Warriors leading in to their bye that concluded the regular season.\nThat game against the Warriors was played with 12 men for the most part after Jacob Saifiti ended his season with a horror high tackle.\nThat is three big names out for Justin Holbrook's side, and while they have outperformed expectations, it's tough to see how so much experience off the park come the biggest time of year allows them to put up a winning performance.\nThat all said, prior to their final two games of the year, the Knights have had only conceded more than 40 points once all year, way back in Round 6 against the Wests Tigers , and it has been clear for the most part that the playing group have bought in to everything Justin Holbrook has asked for.\nTeam news\nSouth Sydney Rabbitohs 1. Matthew Dufty 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Tallis Duncan 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott 19. Latrell Siegwalt 21. Talanoa Penitani\nThe Rabbitohs have recalled Matt Dufty to fullback for the start of the finals, with Jye Gray dropping back to the interchange bench.\nEuan Aitken is also devastatingly out of what would have been his first finals series in a decade, with Tallis Duncan recalled from a rest to replace him.\nAdam Elliott drops back to the bench, with the Rabbitohs naming a side that was otherwise just about as expected.\nNEWCASTLE, AUSTRALIA - MAY 03: Matthew Dufty of the Rabbitohs runs the ball during the round nine NRL match between Newcastle Knights and South Sydney Rabbitohs at McDonald Jones Stadium, on May 03, 2026, in Newcastle, Australi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 8.533715657222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5bed498aa3c017a8",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "South Sydney Rabbitohs vs Newcastle Knights live stream: How to watch the NRL finals online or on TV, start time, squads - Zero Tackle",
+            "url": "https://www.zerotackle.com/south-sydney-rabbitohs-vs-newcastle-knights-live-stream-how-to-watch-the-nrl-finals-online-or-on-tv-start-time-squads-237971/",
+            "published_at": "2026-09-10T20:04:14+00:00",
+            "snippet": "South Sydney Rabbitohs vs Newcastle Knights live stream: How to watch the NRL finals online or on TV, start time, squads &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The South Sydney Rabbitohs and Newcastle Knights will open the NRL finals with a knockout clash at Allianz Stadium on Friday evening. This is your guide to live streaming the match online, or watching it on TV.\nKick-off in the NRL's second elimination final (which is played first), is set for 7:50pm (AEST) on Friday, September 11.\nThe Rabbitohs, who finished sixth in the regular season, come into the finals in good form having won four of their last five, and enter as heavy favourites against the Knights.\nNewcastle, understrength with key injuries and suspensions, have lost their last two games on the hop, although have overachieved all season under the coaching of Justin Holbrook , who has taken the club from the wooden spoon to the top eight in 12 months.\nHow to watch South Sydney Rabbitohs vs Newcastle Knights on TV\nAs has been the case in recent seasons, there will be two ways to watch this elimination final on TV, through both of the NRL's broadcast partners.\nFox Sports will commence their coverage on Fox League at 7pm (AEST), while Channel Nine will do the same.\nThe Fox Sports coverage is only available on Pay TV with a Foxtel subscription, while the Channel Nine coverage is available on free to air TV at Channel 90 in high definition, 91 in standard definition.\nHow to live stream South Sydney Rabbitohs vs Newcastle Knights online\nThe match will also be available to live stream through both services provided by the two TV networks.\nTo watch the live stream on Fox Sports' coverage, you'll need to use Kayo Sports with a valid subscription, which starts at $30 per month.\nKey game information: South Sydney Rabbitohs vs Newcastle Knights, NRL qualifying final\nKick-off: Friday, Septmeber 11, 7:50pm (AEST) Venue: Allianz Stadium, Sydney TV: Live, Channel 9, Fox Sports Online: Live, Kayo Sports, 9 Now Betting: Rabbitohs $1.40, Knights $2.99 Referee: Ashley Klein\nSquads\nSouth Sydney Rabbitohs 1. Matthew Dufty 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Tallis Duncan 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott 19. Latrell Siegwalt 21. Talanoa Penitani\nNewcastle Knights 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Thomas Cant 18. Fletcher Hunt 19. Toby Winter 20. Kyle McCarthy",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.370660101666665,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "a15c5f27df0c2a0e",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Knights Phoenix rises as Holbrook looks to keep the dream alive",
+            "url": "https://www.nrl.com/news/2026/09/11/phoenix-rises-as-holbrook-looks-to-keep-the-dream-alive/",
+            "published_at": "2026-09-10T20:01:21+00:00",
+            "snippet": "Phoenix rises as Holbrook looks to keep the dream alive\nJustin Holbrook doesn’t want the dream year to end.\nIn his first season at the helm, Holbrook has transformed the Knights from wooden spooners into a finals contender, and with an elimination final against Souths looming on ",
+            "body_excerpt": "Phoenix rises as Holbrook looks to keep the dream alive\nJustin Holbrook doesn’t want the dream year to end.\nIn his first season at the helm, Holbrook has transformed the Knights from wooden spooners into a finals contender, and with an elimination final against Souths looming on Friday night, he is adamant his side can keep their remarkable revival alive.\nNewcastle finished seventh after winning 14 of their 24 games, earning their first finals appearance since 2023 after a season that has tested the depth and resilience of their squad.\nMarquee signing Dylan Brown suffered an ACL injury in Round 21 while Dylan Lucas (ankle), Jacob Saifiti (suspended) and Trey Mooney (shoulder) are also gone for the season.\nSkipper Kalyn Ponga has played just 15 matches and centre Bradman Best 14 but still the Knights hung tough to finish seventh.\n“It’s a reward for being consistent during the year,” Holbrook said.\n“We don’t want to be just happy to be there. We want to be winning games.\nTyson Frizell celebrates game 300\n“I loved this year and I want it to continue.”\nThat belief has been there since Holbrook took charge of pre-season training last November.\nThe Knights entered 2026 determined to put last year’s wooden spoon behind them, but the prospect of September football was never seen as an unrealistic target with the addition of star playmaker Brown.\n“Since November we were confident once we started pre-season training,” Holbrook said.\n“When you think about finals and the teams that are in it versus the teams that aren’t in it, everyone should pat themselves on the back. It is hard to get into.”\nBradman Best Try\nGetting there, however, is only half the job.\nThe Knights now face a Rabbitohs side hitting its best form at the business end of the season, with the added motivation of doing it for their mate Jai Arrow.\nHolbrook knows exactly where the danger lies.\n“We have a big job to do,” he said.\n“They are threats. They are playing this good right at the end of the season, so we need to do a job on their key guys.”\nBut there is no shortage of confidence in the Newcastle camp.\n“I’m confident that if we play well, we will win,” Holbrook said.\nAnd he has received the perfect boost at the perfect time.\nPhoenix Crossland returns at hooker after undergoing keyhole knee surgery, with the 26-year-old coming back into the side after being crowned Newcastle’s player of the year with the Danny Buderus Medal.\nPhoenix Crossland Try\n“It’s great that he got to freshen up. He’s had a long, hard year for us, playing through a lot of pain and being uncomfortable in a lot of games,” Holbrook said.\n“Phoenix has been terrific.\n“We need him back and we’ve got him. We are a much better side with him in it.”\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nFree public transport ensuring finals fever takes over Sydney\nFinals\nHolbrook: \"We've got a big job to do\"\nMatch Preview\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nRabbitohs v Knights: Finals Week 1\nThey can be my wingmen anytime: Ponga pins faith in flyers",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 11.418715657222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "b2f65125d363097c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Shock Roosters comeback in mass changes; Wayne’s big switch as stars return: Teams Analysis - foxsports.com.au",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-week-one-finals-team-lists-selection-news-and-injuries-jackson-ford-and-braydon-trindall-return-from-injuries/news-story/0c9c8d769df7b6c49596fabb0090a2ac",
+            "published_at": "2026-09-10T10:58:06+00:00",
+            "snippet": "Shock Roosters comeback in mass changes; Wayne’s big switch as stars return: Teams Analysis &nbsp;&nbsp; foxsports.com.au",
+            "body_excerpt": "Shock Roosters comeback in mass changes; Wayne’s spine switch as stars return — NRL Finals Teams Analysis\nThe first week of finals football is here and the New Zealand Warriors and Cronulla Sharks will welcome back star players back from injuries.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nElsewhere, an Origin representative will make his long-awaited return despite there being fears he wouldn’t play again this season\nRead below for the full NRL Team Lists ahead of finals week one.\nFRIDAY SEPTEMBER 11\nSouth Sydney Rabbitohs vs Newcastle Knights @ Allianz Stadium, 7:50pm AEST\nRabbitohs Team: 1. Matthew Dufty 2. Alex Johnston 3. Latrell Mitchell 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Jayden Sullivan 8. Tevita Tatola 9. Brandon Smith 10. Keaon Koloamatangi 11. David Fifita 12. Tallis Duncan 13. Cameron Murray 14. Jye Gray 15. Lachlan Hubner 16. Sean Keppie 17. Jamie Humphreys 18. Adam Elliott 19. Latrell Siegwalt 20. Liam Le Blanc 21. Talanoa Penitani 22. Peter Mamouzelos\nAnalysis: The Rabbitohs have made a couple of changes for their match against the Knights. Tallis Duncan (hamstring tightness) returns to the team and will immediately slot into the starting line-up in the back-row. This pushes Adam Elliott back to the interchange bench with Euan Aitken (scapula) dropping out of the squad after being ruled out for the remainder of the season. The only other change is Matthew Dufty replacing Jye Gray as the club’s starting fullback.\nKnights Team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Thomas Cant 18. Fletcher Hunt 19. Toby Winter 20. Kyle McCarthy 21. Elijah Leaumoana 22. Diesel Hagan\nAnalysis: It is mixed news for the Newcastle Knights who receive Dominic Young (suspension), Phoenix Crossland (knee) and Tyson Frizell (suspension) back. However, they will be without the forward duo of Jacob Saifiti (suspension) and Trey Mooney (shoulder) who picked up a season-ending injury. Mooney’s omission will see former Australian Schoolboys sensation Cody Hopwood start in the front-row. Meanwhile, young rising star Francis Manuleleua (dislocated elbow) has been cleared to play after originally being in doubt.\nSATURDAY SEPTEMBER 12\nNew Zealand Warriors vs Dolphins @ Go Media Stadium, 4:05pm AEST\nWarriors Team: 1. Taine Tuaupiki 2. Charnze Nicoll-Klokstad 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Jackson Ford 18. Eddie Ieremia-Toeava 20. Adam Pompey 21. Jett Cleary 22. Luke Laulilii 23. Makaia Tafua\nAnalysis: A massive boost for the Warriors for the opening finals match with early 2026 Dally M Medal favourite Jackson Ford (pectoral) named to play his first match since Round 16. Named on the extended bench, Ford replaces Morgan Gannon who has been dropped alongside Jett Cleary , Makaia Tafua and Jye Linnane . Explosive centre Leka Halasima (ankle) is back on deck and so is Wayde Egan and Kurt Capewell after they were rested last round. Unfortunately, winger Dallin Watene-Zelezniak (collarbone) remains sidelined but according to all reports he will be available for their next match.\nDolphins Team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Connelly Lemuelu 1",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.47288232388889,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "b3eb423d20090bca",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs vs Knights Preview & Betting Tips: 2026 NRL Elimination Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-knights-preview-betting-tips-2026-nrl-elimination-final",
+            "published_at": "2026-09-10T06:04:14+00:00",
+            "snippet": "Rabbitohs vs Knights Preview & Betting Tips: 2026 NRL Elimination Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Rabbitohs vs Knights Preview & Betting Tips: 2026 NRL Elimination Final\nSeptember 10 th 2026, 3:55pm , By: Scooby\nThe NRL Finals action is finally here and after a long season, fans will be delighted to witness high intensity rugby league. Everything this season has been leading to these moments and the time for talk is over. The blockbuster weekend begins on Friday with an elimination match between the Rabbitohs and Knights . With everything on the line, both teams will be desperate to extend their season another week. Before You Bet is here with a comprehensive look at what is ahead with the aim of finding you a winner or two to start your weekend off on the right note.\nRabbitohs vs Knights Prediction & Tips: 2026 NRL Elimination Final\nPeaking at the right time but still doing things wrong\nYet to put together a complete 80-minute performance, the Rabbitohs took another positive step forward with a 50-20 home win over their rivals, the Roosters. Despite their opponents missing a host of first choice players, the Rabbitohs executed to the level expected. Nevertheless, it was still littered with moments that they would admit, could be improved upon. Dominating possession (60%) and having a high completion rate (85%), they made 8.4m per carries and 617 PCM’s, which lead to 12 line breaks. Their defence was also strong for majority of the contest, missing just 23 tackles. Conceding 2 tries within 2 minutes in the second half highlights their vulnerability which can be exposed by better teams.\nTime to get things right\nThe Knights enjoyed a week off in Round 27 to regroup ahead of the Finals. Few would’ve expected them to be in this situation at the beginning of the season, but credit must go to this organisation. The bye was timely considering they were coming off a 46-32 road loss to the Warriors. Playing with 12 men for majority of the match, the Knights were brave. With just 46% possession they completed at 75% and made 9.4m per carry. Unfortunately, their opponents were superior in most areas; the Knights poor defensive structure saw them miss 55 tackles which must be improved upon moving forward. With injuries to several key players, the resilience of this team will be tested but they have proven so far this season that they can perform under such circumstances.\nStats that matter\n- Both teams have a poor record at this ground. The Rabbitohs have won 33% of games here, superior to the Knights 31% record. These two sides met in Round 9 (42-38 Knights) and Round 19 (26-24 Rabbitohs).\n- The Knights have won 4 of the past 5 games against the Rabbitohs. The average margin of victory for both teams in this time is 14.2 points, with 2 games (both this season) decided by fewer than 4 points. The average total points in the same number of matches is 51 points.\n- The Rabbitohs have a slight edge over the Knights in 2026. With both conceding an average of 24ppg, the Rabbitohs score 28ppg in attack compared to the Knights 26ppg.\nStronger on paper but the game isn’t played there\nThe Knights have been dealt several blows ahead of this game. On top of players already suffering season ending injuries, they have now lost Mooney and Saifiti. Thankfully, they welcome back Crossland, Young, and Frizell to their team. On the other side, the Rabbitohs have Duncan to add to their backrow, and he will be ready to fire following a rest last week. The Rabbitohs have the strong of two teams on paper, but the Knights have proven several times this season that they cannot be understated. Their effort with 12-players against the Warriors should highlight that. Furthermore, a week off to prepare for this contest will serve them well.\nThe Rabbitohs are riding high on emotion but are still doing things wrong to allow their opponents a chance over 80 minutes. They did just that last week 10 minutes into the second half; better teams will take their opportunities, and the Knights do not need an open invitation. Considering both games this season have been close",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 25.370660101666665,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "60fc197c422cd554",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Rabbitohs Two into seven won't go but Bud and Jamie find the solution",
+            "url": "https://www.nrl.com/news/2026/09/10/two-into-seven-wont-go-but-bud-and-jamie-find-the-solution/",
+            "published_at": "2026-09-09T20:01:21+00:00",
+            "snippet": "Two into seven won't go but Bud and Jamie find the solution\nTwo talented South Sydney players have been duelling for the Rabbitohs halfback jersey but both have such deep respect for the other that there will be no bunny fight over it.\nJamie Humphreys and Jayden Sullivan are both",
+            "body_excerpt": "Two into seven won't go but Bud and Jamie find the solution\nTwo talented South Sydney players have been duelling for the Rabbitohs halfback jersey but both have such deep respect for the other that there will be no bunny fight over it.\nJamie Humphreys and Jayden Sullivan are both 24 and both joined the Rabbitohs in 2025.\nThey are now about to play in their first NRL finals series, when Souths play the Knights in a sudden-death semi-final at Allianz Stadium.\nHumphreys had the inside running for the No.7 last season and up until Round 9 this year, when a rib injury put him on the sidelines for three weeks.\nIn came Ashton Ward and Humphreys became the everywhere-man for coach Wayne Bennett playing at lock, hooker and back row as well as the halves.\nWard suffered a season-ending hamstring tear in Round 23 and in came Sullivan for the final four games of the regular season.\nSullivan and Humphreys played in the halves for the last 13 minutes of the 50-20 over the Roosters in Round 27, when five-eighth Cody Walker was given an early mark.\nJamie Humphreys Try\nThey are both open about coveting the No.7 but are willing to work hard at training together and let the supercoach Wayne Bennett decide.\n“All of us in the spine talk a lot and I was lucky enough to play a fair bit alongside Cody last year,” Humphreys told NRL.com.\n“I’ve been pretty much on the same page as Cody and although I’ve not played as much with Jayden, I feel just as connected with him.”\nSullivan enjoys the friendly rivalry with Humphreys and wants him in his team regardless of who plays halfback.\n“With Jamie he just puts the team first,” Sullivan said.\nJayden Sullivan Try\n“Obviously he wants to play a certain position and I want that same position.\n“But he’s a really good person and he’s going to have a wonderful career.\n\"He’s one of our best trainers – just look at his physique and you can see that.\n“He’s a player that staff are always trying to get off the field after training because he wants to stay out there and do extras.”\nHumphreys is looking at the upside of being called on to cover a number of positions off the bench.\n“I think taking opportunities in different positions exposes me to different scenarios,” he said.\n“If I bring that back to being a half, now that I’ve been defending in the middle a lot of this year, that’s going to help me a lot in the halves defensively.\n“I definitely had to toughen up a bit to play in the middle. And I’m gladly taking all those lessons.\n“Certainly elements of all that can only help me going forward when I get a chance back in the halves.”\nCody Walker finding space as usual\nAs for his relationship with Sullivan, he has seen the fight in him after coming from the Dragons and Wests Tigers with limited game time but still the hunger.\n“He’s really putting his best foot forward and playing with a lot of confidence which is awesome to see after some of the ups and downs he’s had,” Humphreys said.\n“We’re winning with him at No.7 so let’s hope he keeps that streak going.”\nFor his part, Walker has a connection with both players but admires what Humphreys is doing.\n“I don’t many players that can come off the bench and play lock, hooker, half, five-eighth so Jamie's versatility is so valuable in our team and he’s got no issues with doing any of them,\" Walker said.\n“There’s not many people in the NRL that can handle those types of roles.”\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nHow Adam and Millie turned the Book of Feuds into a romance novel\nFinals\n'Falling into place': New mindset driving Latrell's premiership charge\nMatch Preview\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nTrell finding his groove at the perfect time\nRabbitohs v Knights: Finals Week 1",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 35.41871565722222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "4eb2f98429f9093a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Rabbitohs v Knights: Finals Week 1 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/09/rabbitohs-v-knights-finals-week-1/",
+            "published_at": "2026-09-09T06:10:58+00:00",
+            "snippet": "Rabbitohs v Knights: Finals Week 1\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:59 Panthers v Roosters: Finals Week 1\nPanthers v Roosters: Finals Week 1\n03:27 Sharks v Cowboys: Finals Week 1\nSharks v Cowboys: Finals Week 1\n04:19 Warriors v",
+            "body_excerpt": "Rabbitohs v Knights: Finals Week 1\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n03:59 Panthers v Roosters: Finals Week 1\nPanthers v Roosters: Finals Week 1\n03:27 Sharks v Cowboys: Finals Week 1\nSharks v Cowboys: Finals Week 1\n04:19 Warriors v Dolphins: Finals Week 1\nWarriors v Dolphins: Finals Week 1\nRelated /\nHolbrook: \"We've got a big job to do\"\nRabbitohs\nHow Adam and Millie turned the Book of Feuds into a romance novel\nFinals\n'Falling into place': New mindset driving Latrell's premiership charge\nKnights\nPhoenix rises as Holbrook looks to keep the dream alive\nMatch Preview\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 49.25843787944445,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "234fde8a038d171e",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Knights They can be my wingmen anytime: Ponga pins faith in flyers",
+            "url": "https://www.nrl.com/news/2026/09/09/they-can-be-my-wingmen-anytime-ponga-pins-faith-in-flyers/",
+            "published_at": "2026-09-09T06:01:31+00:00",
+            "snippet": "They can be my wingmen anytime: Ponga pins faith in flyers\nThe bye in the final round may well have denied Newcastle flyers Greg Marzhew and Dominic Young the chance to claim the crown as the NRL's best wingmen.\nHeading into Round 27 and the Knights pair had 44 tries between them",
+            "body_excerpt": "They can be my wingmen anytime: Ponga pins faith in flyers\nThe bye in the final round may well have denied Newcastle flyers Greg Marzhew and Dominic Young the chance to claim the crown as the NRL's best wingmen.\nHeading into Round 27 and the Knights pair had 44 tries between them – 24 to Marzhew and 20 to Young.\nRight on their tail were Penrith’s Tom Jenkins and Brian To’o with a combined tally of 42.\nBut while the Knights had their feet up during a bye, To’o scored the first of the Panthers' seven tries against Wests Tigers and Jenkins bagged a double giving them 45 for the season.\nOn Friday the Knights wingmen oppose another two prolific finishers in South Sydney’s Alex Johnston (30 tries) and Campbell Graham (13) in the elimination final at Allianz Stadium.\nKnights skipper Kalyn Ponga is backing his dynamic duo to outscore the Rabbitohs and is staggered by the finishing power of Marzhew and Young.\nDom-inating display from Young\n“It’s crazy. And that’s not just for the tries but the work they do out of our backfield,” Ponga told NRL.com.\n“Some of the carries they take I’d hate to take but they just do it – charge head-on – without us asking them to do all that.\n“I know they just love it because they know what an important part good wingers can play in a team.”\nAdding another twist to tale is the fact Marzhew needs just one try to equal Young's club record for most tries in a season (25 in 2023).\nFive-course meal: Marzhew feasts on Dragons\nHaving endured grand final defeats in the 2017 Holden Cup U20s decider with Parramatta and the 2019 NSW Cup grand final with Wentworthville Magpies, Marzhew would love nothing better than to stand on top of the podium come October 4.\nYoung was part of the England side that suffered a heartbreaking 27-26 loss to Samoa in the World Cup semi-final in 2022 and played in the Roosters side that was blown away by the Storm in a preliminary final in 2024.\nPonga said the pair had earned the respect of their teammates for their individual skills and would play a leading role in the club's push for a first premiership since 2001.\n“They are both special in their own right,” he said.\nKnights v Rabbitohs – Round 9, 2026\n“Dom has incredible speed and then Greg has incredible strength. They are different body shapes but they have that same great anticipation.\n“They’ve even got a little battle going on between them just to keep things nice and competitive – what is it about wingers trying to out-score each other?\n“But they’ve put a lot of work in – both of them – it just doesn’t happen to be that solid in such small spaces at times down the touchline.”\nBoth players celebrated their 100-game milestones this year – Marzhew is now on 110 NRL games and Young 115 – but it's a premiership they crave and that quest begins at Allianz Stadium on Friday night.\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\n6th Position\naway Team\nKnights\n7th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nFree public transport ensuring finals fever takes over Sydney\nFinals\nHolbrook: \"We've got a big job to do\"\nPhoenix rises as Holbrook looks to keep the dream alive\nMatch Preview\nRabbitohs v Knights: Tallis gets green light; Manuleleua's miracle\nRabbitohs v Knights: Finals Week 1",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 49.41593787944445,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Rabbitohs vs Knights NRL round 28 preview",
+          "Rabbitohs Knights NRL odds OR price OR favourite",
+          "Rabbitohs Knights NRL finals race OR ladder stakes",
+          "Rabbitohs Knights NRL",
+          "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Rabbitohs Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 28 Rabbitohs OR Knights"
+        ],
+        "filter_summary": {
+          "dropped_stale": 68,
+          "dropped_wrong_round": 1,
+          "dropped_noise": 10,
+          "dropped_irrelevant": 15,
+          "kept": 20,
+          "deferred_pending_body": 75,
+          "promoted_after_body": 9,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 3
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "e3a54106e172",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-11T07:26:28.375433+00:00",
+      "finished_at": "2026-09-11T07:28:46.721830+00:00",
+      "duration_ms": 138346,
+      "request": {
+        "home_team": "Rabbitohs",
+        "away_team": "Knights",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-09-11T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.5624,
+        "home_win_probability": 0.5624,
+        "shap_explanations": {
+          "positive_drivers": [
+            "5-game form: all run metres (+125.40) — contribution 0.098 (13% of total)",
+            "Ladder points differential per game (+1.9 points) — contribution 0.061 (8% of total)",
+            "Elo rating advantage (+23 points) — contribution 0.036 (5% of total)",
+            "Bradley-Terry strength advantage (+0.12 log-strength) — contribution 0.026 (3% of total)",
+            "5-game form: points against (-3.40) — contribution 0.018 (2% of total)"
+          ],
+          "negative_drivers": [
+            "5-game momentum: penalty cluster rate (-1.00) — contribution 0.094 (12% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: kicking metres (+136.60) — contribution 0.039 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "3-game form: kicking metres (+292.33) — contribution 0.032 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Pythagorean form (last 10) (-3% expected-win gap) — contribution 0.031 (4% of total)",
+            "3-game form: errors (-2.33) — contribution 0.027 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.3505,
+            "total_toward_away": 0.4243,
+            "net": -0.0738,
+            "leans": "away",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game momentum: penalty cluster rate (-1.00)",
+            "5-game form: kicking metres (+136.60)",
+            "3-game form: kicking metres (+292.33)",
+            "3-game form: errors (-2.33)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Rabbitohs",
+          "away_team": "Knights",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-09-11T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "run_id": "20260803T090516Z-0de3e8f7",
+  "created_at": "2026-08-03T09:05:16.929232+00:00",
+  "updated_at": "2026-08-03T09:16:44.048523+00:00",
+  "request": {
+    "home_team": "Titans",
+    "away_team": "Cowboys",
+    "season": null,
+    "round_number": 23,
+    "force_refresh": false,
+    "user_question": "Who wins Titans vs Cowboys?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b"
+  },
+  "tool_calls": [
+    {
+      "call_id": "17f2569c1886",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-08-03T09:05:16.929376+00:00",
+      "finished_at": "2026-08-03T09:05:16.929576+00:00",
+      "duration_ms": 0,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "season": null,
+        "round_number": 23,
+        "force_refresh": false
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "season": null,
+          "round_number": 23
+        },
+        "retrieved_at": "2026-08-03T09:05:16.929574+00:00",
+        "cache_hit": true,
+        "fixture": {
+          "season": 2026,
+          "round_number": 23,
+          "round_title": "Round 23",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "venue": "Cbus Super Stadium",
+          "venue_city": "Gold Coast",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/titans-v-cowboys/",
+          "match_mode": "Pre",
+          "match_id": "20261112310",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [],
+          "team_lists": {
+            "home": [],
+            "away": [],
+            "status": "unavailable"
+          }
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-08-06T19:00",
+            "temperature_c": 14.4,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 3.7,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -28.067,
+            "longitude": 153.378,
+            "venue": "Cbus Super Stadium",
+            "venue_city": "Gold Coast"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-08-03T08:45:35.978863+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=23&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/round-23/titans-v-cowboys/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-28.067&longitude=153.378&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "0d93e76016e8",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-08-03T09:06:29.353140+00:00",
+      "finished_at": "2026-08-03T09:06:53.533534+00:00",
+      "duration_ms": 24180,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "kickoff": "2026-08-06T19:50:00+10:00",
+        "round_number": 23,
+        "venue": "Cbus Super Stadium",
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL ladder stakes OR finals race"
+        ],
+        "force_refresh": false
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "round_number": 23,
+          "venue": "Cbus Super Stadium",
+          "queries": [
+            "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+            "Titans vs Cowboys NRL round 23 preview",
+            "Titans Cowboys NRL ladder stakes OR finals race"
+          ]
+        },
+        "retrieved_at": "2026-08-03T09:06:29.355124+00:00",
+        "cache_hit": true,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 2
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 9
+          },
+          "reddit": {
+            "status": "ok",
+            "items_kept": 0
+          }
+        },
+        "items": [
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Injuries NRL Casualty Ward: McLean faces surgery; Double blow for Sharks Now",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-08-03T08:44:55+00:00",
+            "snippet": "NRL Casualty Ward: McLean faces surgery; Double blow for Sharks\nPanthers centre Casey McLean is set for surgery on a fractured hand and could be sidelined for up to four weeks.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with",
+            "body_excerpt": "NRL Casualty Ward: McLean faces surgery; Double blow for Sharks\nPanthers centre Casey McLean is set for surgery on a fractured hand and could be sidelined for up to four weeks.\nMcLean suffered the injury during Saturday's game against the Raiders in Mudgee and left the field with 20 minutes to play.\nThe Broncos were dealt a blow early in their clash with the Knights with Adam Reynolds leaving the field after a head knock.\nThe halfback tried to tackle Greg Marzhew front-on in the seventh minute of the clash at Suncorp Stadium but his head copped the winger's shoulder and he was deemed a Category 1 head knock and ruled out for the night.\nForward Xavier Willison left the field around the same time as Reynolds with a nasty gash to his leg. The Broncos initially hoped Willison would return but he did not get back on the field.\nThere was also drama in the warm-up for Brisbane with Payne Haas injuring his shoulder, however the prop received treatment and was able to take his place in the starting side.\nThe Broncos went into the match without Preston Riki , who has had surgery to repair a syndesmosis injury suffered in Round 21 against the Cowboys.\nIn Sunday's opening game, the Sharks lost both centre KL Iro and utility Sifa Talakai in their game against the Bunnies.\nIro failed his HIA in the first half, while Talakai came off with a biceps injury.\nFollowing the match, coach Craig Fitzgibbon was hopeful Talakai's injury wasn't as bad as first feared.\n\"It's the top end, so it's not the bottom end, the bottom end means you're out, you're gone, it's the top end, so it's not as bad ... he's definitely done something to it, so we've got to work out what the time frame on that is, which was disappointing for us ...\"\nIn Saturday's first game of the day, Titans halfback Zane Harrison came from the field late in the second half with a suspected hamstring injury.\nHarrison had to be helped from the field by a trainer in the 75th minute as the Titans fell to a 42-6 loss.\n\"It's too early to tell,\" Titans coach Josh Hannay said when asked about the severity of the injury. \"When I first saw it, the nature of it being his own doing, I was worried it was his knee.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\n\"It's his hamstring, we know that for sure so that's a slight positive because it could've been much worse.\"\nThe Warriors lost Demitric Vaimauga following captain's run with a ribs complaint, but he is only expected to miss one week.\nThe Dragons lost hard-working forward Toby Couchman to a failed HIA at WIN Stadium on Friday night.\nStorm playmaker Jahrome Hughes was a late withdrawal from Friday night's clash against the Bulldogs due to hamstring tightness.\nCentre Jack Howarth missed the match after injuring his shoulder at training while Harry Grant (hamstring) and Cameron Munster (knee) are also sidelined.\nThe Raiders suffered a blow ahead of their trip to Mudgee with gun centre Simi Sasagi ruled out with a hamstring injury.\nSasagi joined forward Noah Martin (quad) in the Raiders' casualty ward.\nIn Round 23's opening match, Roosters captain James Tedesco didn't play in the second half of his side's record 82-12 win over the Cowboys, sitting out the second half with ice on his left ankle.\nHowever, the club weren't too concerned, with coach Trent Robinson saying Tedesco had informed him he was 'right to go' - but given the score, they opted to sit him out.\n\"There was a choice around his ankle, he was going okay, so I think he did it in the first five minutes,\" Robinson told reporters post-game.\n\"I saw him hobbling and ... he had a pretty good first half, and he said he was right to go, and I as a coach is sort of there going, 'I really want to set the tone again for the start of the second half', so you want to send your captain out there and the scoreline was what it was anyway, I decided to put Cody out there.\n\"Teddy said he",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 0.03665258805555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ed57cd87504f760e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Titans vs Cowboys - Round 23, 2026 - Live Scores & Stats - Match Centre - zerotackle.com",
+            "url": "https://www.zerotackle.com/titans-cowboys-round-23-2026-mc10396506-236524/",
+            "published_at": "2026-08-02T21:16:51+00:00",
+            "snippet": "Titans vs Cowboys - Round 23, 2026 - Live Scores & Stats - Match Centre &nbsp;&nbsp; zerotackle.com",
+            "body_excerpt": "MATCH CENTRE MATCH CENTRE ROUND 23, 2026 TITANS V COWBOYS KICK OFF Cbus Super Stadium #NRLTitansCowboys 2026-08-06T09:50:00Z Preview\nTITANS\nCOWBOYS\nPreview\nTitans vs Cowboys \u2013 Round 23, 2026\nThe Gold Coast Titans face the North Queensland Cowboys in Round 23 of the 2026 NRL season. Follow the live scores, team lists, match statistics and key moments from the game at Cbus Super Stadium. Ladder Position Injury Report Titans NAME REASON EXPECTED RETURN Jensen Taumoepeau Ankle Next Season Jaimin Jolliffe Knee Next Season Brock Gray ACL TBC Zane Harrison Hamstring TBC Cowboys NAME REASON EXPECTED RETURN Griffin Neame Suspension Round 23 John Bateman Hamstring Round 23 Reed Mahoney Concussion Round 23 Tom Dearden Ankle TBC Previous 5 Games Titans DATE OPP RESULT 1/8/26 Warriors L 6 - 42 26/7/26 Dragons W 18 - 38 19/7/26 Sea Eagles W 38 - 32 12/7/26 Storm L 22 - 18 26/6/26 Bulldogs L 12 - 30 Cowboys DATE OPP RESULT 30/7/26 Roosters L 12 - 82 25/7/26 Broncos W 18 - 10 19/7/26 Dolphins L 36 - 16 12/7/26 Sea Eagles W 18 - 19 27/6/26 Panthers W 26 - 12\nLadder Position\nInjury Report\nNAME REASON EXPECTED RETURN\nREASON EXPECTED RETURN\nEXPECTED RETURN\nJensen Taumoepeau\nAnkle\nNext Season\nJaimin Jolliffe\nKnee\nBrock Gray\nACL\nTBC\nZane Harrison\nHamstring\nGriffin Neame\nSuspension\nRound 23\nJohn Bateman\nReed Mahoney\nConcussion\nTom Dearden\nPrevious 5 Games\nDATE\nOPP\nRESULT\n1/8/26\nWarriors\nL 6 - 42\n26/7/26\nDragons\nW 18 - 38\n19/7/26\nSea Eagles\nW 38 - 32\n12/7/26\nStorm\nL 22 - 18\n26/6/26\nBulldogs\nL 12 - 30\n30/7/26\nRoosters\nL 12 - 82\n25/7/26\nBroncos\nW 18 - 10\nDolphins\nL 36 - 16\nW 18 - 19\n27/6/26\nPanthers\nW 26 - 12\nMatch Summary\nTeam Stats\nPlayer Stats\nTeam Lists",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.504430365833333,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7eeeef19ecf43d09",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 team lists: Every club's predicted lineup for Round 23 - sportingnews.com",
+            "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242",
+            "published_at": "2026-08-02T19:28:32+00:00",
+            "snippet": "NRL 2026 team lists: Every club's predicted lineup for Round 23 &nbsp;&nbsp; sportingnews.com",
+            "body_excerpt": "If you purchase a product or register for an account through one of the links on our site, we may receive compensation. Learn more >\nNRL 2026 team lists: Every club's predicted lineup for Round 23\nPeter Maniaty\nGetty Images\nRound 23 begins with a Queensland derby on Thursday night as the Titans and Cowboys lock horns on the Gold Coast.\nFriday sees two potential finals previews as the Warriors host Penrith in Auckland and the Roosters meet the Bulldogs at Allianz in Sydney.\nThe Storm and Sea Eagles clash at HBF Stadium in Perth on Saturday afternoon in the city's final NRL match before the arrival of its own team next March, followed by the latest instalment of the 'Battle of Brisbane' at Suncorp.\nThe Dragons and Sharks close out the round on Sunday afternoon at Kogarah.\nThe Tigers have the bye this week.\nBEST NRL ODDS: Betfair - where you find better value than the bookies\nNRL 2026 - ROUND 23\nGold Coast Titans vs. North Queensland Cowboys\n(Thursday, August 6 at Cbus Super Stadium , 7:50pm AEST)\nGold Coast predicted team:\n1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Lachlan Ilias 8. Moeaki Fotuaika (c) 9. Oliver Pascoe 10. Tino Fa'asuamaleaui (c) 11. Arama Hau 12. Beau Fermor 13. Chris Randall\n14. Kurtis Morrin 15. Josh Patston 16. Klese Haas 17. Cooper Bai 18. Sam Verrills 19. Jaylan De Groot\nTitans team news:\nZane Harrison left the field in the loss to the Warriors with a hamstring injury and looks set for some time on the sidelines, with Lachlan Ilias likely to come into the halves.\nNorth Queensland predicted team:\n1. Scott Drinkwater 2. Braidon Burns 3. Zac Laybutt 4. Tom Chester 5. Murray Tualagi 6. Jaxon Purdue 7. Jake Clifford 8. Tom Mikaele 9. Reed Mahoney 10. Jason Taumalolo 11. Heilum Luki 12. Jeremiah Nanai 13. Rueben Cotter (c)\n14. Soni Luke 15. Coen Hess 16. Matthew Lodge 17. Ethan King 18. John Bateman 19. Sam McIntyre\nCowboys team news:\nAfter the home humiliation at the hands of the Roosters, Todd Payten can go one of two ways: treat it as an aberration, or make wholesale changes. Time will tell which way he goes. John Bateman (hamstring) was a late withdrawal in Round 22 and will try again this week. Tom Dearden (ankle) remains out, but Reed Mahoney should return at No. 9.\nNew Zealand Warriors vs. Penrith Panthers\n(Friday, August 7 at Go Media Stadium , 6:00pm AEST)\nWarriors predicted team:\n1. Charnze Nicoll-Klokstad 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris (c) 9. Wayde Egan 10. Mitch Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark\n14. Sam Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga* 17. Adam Pompey 18. Eddie Ieremia-Toeava 19. Luke Metcalf\nWarriors team news:\nLeka Halasima was impressive in the centres against the Titans with Adam Pompey pushing back to the bench and the Warriors will surely stick with the same formula for the Panthers. Taine Tuaupiki (foot) is a chance to return but the Wahs may give him another week as a precaution with Charnze Nicoll-Klokstad remaining at the back. Demitric Vaimauga (ribs) missed Round 23 and is in some doubt.\nPenrith predicted team:\n1. Jaxen Edgar 2. Thomas Jenkins 3. Izack Tago 4. Paul Alamoti 5. Brian To'o 6. Jack Cogger 7. Nathan Cleary (c) 8. Moses Leota 9. Freddy Lussick 10. Lindsay Smith 11. Liam Martin 12. Isaiah Papali'i 13. Isaah Yeo\n14. Billy Scott 15. Scott Sorensen 16. Liam Henry 17. Billy Phillips 18. Blaize Talagi 19. Jack Cole\nPanthers team news:\nDylan Edwards (shoulder) is likely to have another week on the sidelines with Jaxen Edgar remaining in the No.1 jersey. Hooker Mitch Kenny (leg) continues to be under an injury cloud with some suggestions he may not be back until the finals. The Panthers have confirmed Casey McLean suffered a broken right thumb in the Raiders clash and is out. Izack Tago is set to take his place in the centres while Blaize Talagi provides another option in",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 13.309708143611111,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "round_23_match",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c03b95170b11560d",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "\u2018Won\u2019t be playing\u2019: Bellamy\u2019s brutal warning; Manly make Turbo call \u2014 Team Tips - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-23-team-news-and-injury-updates-penrith-panthers-casey-mclean-scan-results-mitch-kenny-return/news-story/be64312dc07ac28b37663896487fcff7",
+            "published_at": "2026-08-03T08:31:37+00:00",
+            "snippet": "\u2018Won\u2019t be playing\u2019: Bellamy\u2019s brutal warning; Manly make Turbo call \u2014 Team Tips &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "\u2018Won\u2019t be playing\u2019: Bellamy\u2019s brutal warning; Manly make Turbo call \u2014 Round 23 Team Tips\nIt is being billed as the match-ups of the season, but Penrith are set to be without at least two of their big stars in a huge encounter against the New Zealand Warriors on Friday.\nWatch every game of every round of the Premiership Season LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nElsewhere, the Sydney Roosters are sweating on the availability of captain James Tedesco, but receive a welcome boost with the expected return of Lindsay Collins and Billy Smith.\nThe Sharks are also nursing a string of injuries as they look to continue their red-hot run into the NRL finals, while the Bulldogs prepare to welcome back a big-name enforcer against the Roosters.\nRead on for NRL Team Tips for Round 23!\nTHURSDAY AUGUST 6\nGold Coast Titans vs North Queensland Cowboys, 7.50pm @ Cbus Super Stadium\nLast week\u2019s Titans team: 1. Keano Kini 2. Dean Ieremia 3. Jojo Fifita 4. AJ Brimson 5. Phillip Sami 6. Jayden Campbell 7. Zane Harrison 8. Moeaki Fotuaika 9. Oliver Pascoe 10. Tino Fa\u2019asuamaleaui 11. Arama Hau 12. Beau Fermor 13. Chris Randall 14. Kurtis Morrin 15. Josh Patston 16. Klese Haas 17. Cooper Bai 18. Sam Verrills 19. Jaylan De Groot\nTeam tips: The Titans back up from their bruising 42-6 loss to the Warriors with another tough encounter against the Cowboys. They are set to face North Queensland without halfback Zane Harrison , who is looking at some time on the sidelines with a hamstring injury. Former St George Illawarra playmaker Lachlan Illias looms as Harrison\u2019s most likely replacement.\nLast week\u2019s Cowboys team: 1. Scott Drinkwater 2. Braidon Burns 3. Zac Laybutt 4. Tomas Chester 5. Murray Taulagi 6. Jake Clifford 7. Jaxon Purdue 8. Thomas Mikaele 9. Soni Luke 10. Jason Taumalolo 11. Heilum Luki 12. Jeremiah Nanai 13. Reuben Cotter 14. Ethan King 16. Matthew Lodge 17. Coen Hess 18. Sam McIntyre 19. Kaiden Lahrs 20. Kai O\u2019Donnell\nTeam tips: The Cowboys are in for a huge reset against the Titans following their 82-12 walloping by the Roosters last week. The good news is they are set to welcome back a string of players, including John Bateman (hamstring), Reed Mahoney (concussion) and Griffin Neame (suspension). Tom Dearden (shin) says he\u2019s hoping to return after the Cowboys\u2019 Round 25 bye. If he does, it means he\u2019ll be available for the Cowboys\u2019 final two regular season games. \u201cIt\u2019s tracking pretty well...I hopefully only have a few more weeks. Hoping to be back after the bye,\u201d Dearden said on Monday. Dearden has been sidelined with a rare peroneal muscle avulsion tear. \u201cIt\u2019s a bit of a weird injury. It was a weird place to be swelling and we got scans and they came back with something that was pretty hard to explain. I\u2019d need the medical staff up here to explain it but thankfully, I didn\u2019t need surgery.\u201d\nFRIDAY AUGUST 7\nNew Zealand Warriors vs Penrith Panthers, 6pm @ Go Media Stadium\nLast week\u2019s Warriors team: 1. Charnze Nicoll-Klokstad 2. Dallin Watene-Zelezniak 3. Ali Leiataua 4. Leka Halasima 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Adam Pompey 15. Samuel Healey 17. Tanner Stowers-Smith 18. Luke Metcalf 20. Eddie Ieremia-Toeava 22. Riley Price\nTeam tips: It is being billed as one of the matches of the season, and New Zealand is looking to put its best side forward in what could be a grand final preview against the Panthers. Coach Andrew Webster believes Demetric Vaimauga will be fit to play against Penrith after being ruled out late in last week\u2019s win over the Titans. Otherwise the Warriors are looking as though their 1-19 from last weekend will take to the park again.\nLast week\u2019s Panthers team: 1. Jaxen Edgar 2. Thomas Jenkins 3. Paul Alamoti 4. Casey McLean 5. Brian To\u2019o 6. Jack Cogger 7. Nathan Cleary 8. Moses Leota ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.2583192547222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "467b29cf25661916",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Five weeks to go: Every NRL team's run home, likely final ladder, best and worst case scenarios - zerotackle.com",
+            "url": "https://www.zerotackle.com/five-weeks-to-go-every-nrl-teams-run-home-likely-final-ladder-best-and-worst-case-scenarios-236508/",
+            "published_at": "2026-08-02T21:11:18+00:00",
+            "snippet": "Five weeks to go: Every NRL team's run home, likely final ladder, best and worst case scenarios &nbsp;&nbsp; zerotackle.com",
+            "body_excerpt": "A week that has gone to script means chances for teams at the bottom of the ladder to make the finals are closing, as the likely top eight takes shape.\nIn this week's edition of the run home, Zero Tackle takes you through every game remaining, what each team needs to go right for their best-case scenarios, and where you can expect your side to be finished.\nThere has been just one change on the final predicted ladder, but the number of teams requiring miracles to play finals footy is growing.\nHere is the run home for every team.\nNote: In the best and worst case scenarios, we are assuming a maximum for and against turnaround of 40 points per game remaining.\nRound 23 tips\nGold Coast Titans lose to North Queensland Cowboys New Zealand Warriors defeat Penrith Panthers Sydney Roosters defeat Manly Sea Eagles The Dolphins defeat Brisbane Broncos South Sydney Rabbitohs defeat Parramatta Eels Canberra Raiders defeat Newcastle Knights St George Illawarra Dragons lose to Cronulla Sharks\n1. Penrith Panthers\nCurrent position: 1st, 36 points, + 308 Byes remaining: 0 Games remaining Round 23: New Zealand Warriors (away) Round 24: Sydney Roosters (home) Round 25: Melbourne Storm (away) Round 26: Canterbury Bulldogs (home) Round 27: Wests Tigers (home)\nThe Panthers took care of business against the Raiders over the weekend, and took a major step towards the minor premiership in doing so.\nRegardless of this weekend's result against the Warriors, they'd still be a little bit off locking it up properly, but they could land a major knockout blow across the Tasman in the race for top spot at the end of the regular season.\nAs it stands, the Panthers are now the only team mathematically locked into the finals, although by the end of the coming week they may not be alone.\nThe Panthers missing the top four would also now require a lot to go wrong - likely at least four losses from their final five.\nLikely finish: 1st Change from last week: Nil Best finishing spot: 1st Worst finishing spot: 6th\n2. Sydney Roosters\nCurrent position: 2nd, 34 points, + 155 Byes remaining: 0 Games remaining Round 23: Canterbury Bulldogs (home) Round 24: Penrith Panthers (away) Round 25: Wests Tigers (home) Round 26: The Dolphins (home) Round 27: South Sydney Rabbitohs (away)\nThe Roosters set an NRL-era record over the weekend, putting 82 points on the North Queensland Cowboys . It was the first time in 90 years that the clock has been beaten at the top level of Australian rugby league.\nThe tri-colours will face far stiffer tests over the coming weeks than the one the pathetic Cowboys defence served up in Townsville though.\nThey start their final five weeks against the Bulldogs this week, looking for a slip up from the Panthers ahead of them to claim the minor premiership.\nThey can still technically miss the finals, but would just about need to lose all five of their remaining games.\nLikely finish: 3rd Change from last week: Nil Best finishing spot: 1st Worst finishing spot: 9th\nSYDNEY, AUSTRALIA - JULY 06: James Tedesco of the Roosters runs out during the round 18 NRL match between Sydney Roosters and Wests Tigers at Allianz Stadium, on July 06, 2025, in Sydney, Australia. (Photo by Jeremy Ng/Getty Images)\n3. New Zealand Warriors\nCurrent position: 3rd, 32 points, + 226 Byes remaining: 0 Games remaining Round 23: Penrith Panthers (home) Round 24: Brisbane Broncos (away) Round 25: South Sydney Rabbitohs (away) Round 26: Newcastle Knights (home) Round 27: Manly Sea Eagles (home)\nThe Warriors got back to winning ways with a thumping of the Titans on Saturday afternoon, and now get ready for a far tougher run in.\nThey certainly aren't in must-win territory, but their top four spot could be under pressure without some wins against top sides on the way in.\nThat starts at home against the Panthers this weekend - it's a place they must lock up if they want to have a home qualifying final.\nWe have them needing at least two, but probably three wins from their last five to lock up a top",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.596930365833334,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "4cfa0ba539617d43",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks\u2019 late switch as gun benched; Bunnies\u2019 huge call on emerging star \u2014 Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-22-late-mail-and-team-changes-injury-updates-why-benji-marshall-named-adam-doueihi-ben-hunt/news-story/416eaef2e7903a229af0bc0d2e1f2986",
+            "published_at": "2026-08-02T04:58:20+00:00",
+            "snippet": "Sharks\u2019 late switch as gun benched; Bunnies\u2019 huge call on emerging star \u2014 Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Sharks\u2019 late switch as gun benched; Bunnies\u2019 huge call on emerging star \u2014 Late Mail\nSouths have elected to err on the side of caution with the versatile Tallis Duncan, who is battling a hamstring injury.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nMeanwhile, the Sharks have made a surprising call on one of their best players.\nRead on for Round 22 Late Mail!\nSUNDAY AUGUST 2\nCronulla Sharks vs South Sydney Rabbitohs, 2pm @ Ocean Protect Stadium\nSharks Team: 1. William Kennedy 2. Sione Katoa 3. Jesse Ramien 4. KL Iro 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 16. Oregon Kaufusi 9. Blayke Brailey 17. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 8. Addin Fonua-Blake 10. Thomas Hazelton 14. Siosifa Talakai 15. Billy Burns 19. Jayden Berrell 21. Samuel Stonestreet\nPlayers cut: 18. Mawene Hiroti 20. Braden Hamlin-Uele 22. Niwhai Puru\nLate Mail: Addin Fonua-Blake and Tom Hazelton have been dropped to the bench to start the game, replaced by Jesse Colquhoun and Oregon Kaufusi.\nRabbitohs Team: 1. Matthew Dufty 2. Alex Johnston 3. Latrell Siegwalt 4. Jack Wighton 5. Campbell Graham 6. Cody Walker 7. Ashton Ward 8. Tevita Tatola 9. Brandon Smith 10. John Radel 11. Keaon Koloamatangi 22. Adam Elliott 13. Lachlan Hubner 14. Jye Gray 15. Jamie Humphreys 16. Liam Le Blanc 17. Sean Keppie 18. Jayden Sullivan 20. Thomas Fletcher\nPlayers cut: 19. Edward Kosi 21. Tallis Duncan 12. Euan Aitken\nLate Mail: Tallis Duncan was always up against it to play, being named on the extended bench and it\u2019s now being revealed the versatile star won\u2019t line up for the Bunnies. According to Code Sports , the Rabbitohs will err on the side of caution with Duncan\u2019s hamstring injury. He is set to return next week along with Cameron Murray according to coach Wayne Bennett. There is less certainty around Latrell Mitchell , with Bennett telling reporters the \u201ctimeline (for him to return) is when he\u2019s fit\u201d. Elsewhere, Bennett said Dayne Jennings is not running yet but that \u201cwe won\u2019t see much of him before the season is over\u201d after he badly cut his leg against Penrith. \u201cHe got an infection in it so he spot seven or eight days in hospital,\u201d Bennett added. Euan Aitken has been dropped with Adam Elliott to take his place in the starting side.\nWests Tigers vs Parramatta, 4.05pm @ CommBank Stadium\nTigers Team: 1. Jahream Bula 2. Junior Tupou 3. Heamasi Makasini 4. Patrick Herbert 5. Sunia Turuva 6. Jarome Luai 7. Adam Doueihi 8. Terrell May 9. Apisai Koroisau 16. Alex Seyfarth 11. Samuela Fainu 12. Sione Fainu 13. Alex Twal 10. Fonua Pole 14. Heath Mason 15. Charlie Murray 17. Tony Sukkar 18. Tristan Hope 19. Starford To\u2019a\nPlayers cut: 21. Ethan Roberts 22. Bunty Afoa 20. Javon Andrews\nLate Mail: Coach Benji Marshall told reporters on Wednesday the decision to recall Adam Doueihi to the halfback jumper was simply based on what he thought was best for the team\u2019s chances of winning. \u201cSometimes you\u2019ve got to put your ego to the side and think about what the team actually needs and what the club needs and what we\u2019re going through and what our fans need is a win,\u201d Marshall said.\nEels Team: 1. Isaiah Iongi 2. Brian Kelly 3. Viliami Penisini 4. Jordan Samrani 5. Josh Addo-Carr 6. Ronald Volkman 7. Mitchell Moses 8. Sam Tuivaiti 9. Tallyn Da Silva 10. Jack Williams 11. Kelma Tuilagi 12. Kitione Kautoga 13. Jack de Belin 14. Dylan Walker 15. Junior Paulo 16. Teancum Brown 17. Harrison Edwards 18. Joash Papali\u2019i 19. Toni Mataele\nPlayers cut: 21. Ryley Smith 22. Jonah Pezet 20. Araz Nanva\nLate Mail: Front rower Luca Moretti will miss Sunday\u2019s game with a concussion but is expected to return for Round 23 along with Sean Russell (adductor) and Bailey Simonsson (ankle) according to Parramatta\u2019s latest injury update.\nBye: Sea Eagles",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 27.813041476944445,
+            "relevance_score": 1.5,
+            "keep_reasons": [
+              "in_time_window",
+              "league_round_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "2838bb00770531f7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Late mail: De Groot joins bench against Warriors - titans.com.au",
+            "url": "https://www.titans.com.au/news/2026/08/01/late-mail-de-groot-joins-bench-against-warriors/",
+            "published_at": "2026-08-01T03:29:00+00:00",
+            "snippet": "Presented By\nLate mail: De Groot joins bench against Warriors\nJaylan De Groot will join the Titans' bench for Saturday's clash against the Warriors at a sold out Cbus Super Stadium.\nThe 23-year-old is set to offer Josh Hannay outside back coverage after scoring a double at left c",
+            "body_excerpt": "Presented By\nLate mail: De Groot joins bench against Warriors\nJaylan De Groot will join the Titans' bench for Saturday's clash against the Warriors at a sold out Cbus Super Stadium.\nThe 23-year-old is set to offer Josh Hannay outside back coverage after scoring a double at left centre last Sunday against the Dragons - AJ Brimson returning in that position after missing last week's win due to concussion.\nKurtis Morrin also returns from a leg infection as Gold Coast eye to notch up three wins on the trot for the first time in 2026; having won four of their past seven games - including two of their last three at home.\nHoping to avenge their Round 7 defeat in New Zealand, Hannay's men have won six of their last nine games against the Warriors, including four of their past six Trans-Tasman clashes at Robina.\nKick-off is at 3pm; live on Fox League and Kayo Sports.\nMatch: Titans v Warriors\nRound 22 - Round 22 - Saturday 1 Aug\nhome Team\nTitans\naway Team\nWarriors\nTeam Lists\nBacks\nFullback for Titans is number 1 Keano Kini 1 Fullback for Warriors is number 1 Charnze Nicoll-Klokstad\nWinger for Titans is number 2 Dean Ieremia 2 Winger for Warriors is number 2 Dallin Watene-Zelezniak\nCentre for Titans is number 3 Jojo Fifita 3 Centre for Warriors is number 3 Ali Leiataua\nCentre for Titans is number 4 AJ Brimson 4 17 Centre for Warriors is number 17 Leka Halasima\n4 17\nWinger for Titans is number 5 Phillip Sami 5 Winger for Warriors is number 5 Alofiana Khan-Pereira\nFive-Eighth for Titans is number 6 Jayden Campbell 6 Five-Eighth for Warriors is number 6 Chanel Harris-Tavita\nHalfback for Titans is number 7 Zane Harrison 7 Halfback for Warriors is number 7 Te Maire Martin\nForwards\nProp for Titans is number 8 Moeaki Fotuaika 8 Prop for Warriors is number 8 James Fisher-Harris\nHooker for Titans is number 9 Oliver Pascoe 9 Hooker for Warriors is number 9 Wayde Egan\nProp for Titans is number 10 Tino Fa'asuamaleaui 10 Prop for Warriors is number 10 Mitchell Barnett\n10\n2nd Row for Titans is number 11 Arama Hau 11 2nd Row for Warriors is number 11 Kurt Capewell\n11\n2nd Row for Titans is number 12 Beau Fermor 12 2nd Row for Warriors is number 12 Jacob Laban\n12\nLock for Titans is number 13 Chris Randall 13 Lock for Warriors is number 13 Erin Clark\n13\nInterchange\nInterchange for Titans is number 14 Kurtis Morrin 14 Interchange for Warriors is number 14 Sam Healey\n14\nInterchange for Titans is number 15 Josh Patston 15 Interchange for Warriors is number 15 Tanner Stowers-Smith\n15\nInterchange for Titans is number 16 Klese Haas 16 20 Interchange for Warriors is number 20 Eddie Ieremia-Toeava\n16 20\nInterchange for Titans is number 17 Cooper Bai 17 22 Interchange for Warriors is number 22 Riley Price\n17 22\nReserve for Titans is number 18 Sam Verrills 18 4 Reserve for Warriors is number 4 Adam Pompey\n18 4\nReserve for Titans is number 20 Jaylan De Groot 20 18 Reserve for Warriors is number 18 Luke Metcalf\n20 18\nMatch Officials\nSenior Review Official: Wyatt Raymond\nLast updated: 8/2/2026 1:50:35 PM\nRelated /\nPress conference: Round 22 v Warriors\nInstant Highlights\nPascoe is all effort\nMatch Highlights\nRound 22 highlights: Titans v Warriors\nHau scores first for the Titans\nLocked in: Titans bolstered by Morrin return for Warriors showdown",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 53.30193036583333,
+            "relevance_score": 1.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ec17aa16aa31d07a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Judiciary update: Georgia Hale - titans.com.au",
+            "url": "https://www.titans.com.au/news/2026/08/03/judiciary-update-georgia-hale/",
+            "published_at": "2026-08-03T03:43:16+00:00",
+            "snippet": "Presented By\nJudiciary update: Georgia Hale\nGeorgia Hale has been charged by the match review committee following the Titans' Magic Round win against the Warriors on Sunday afternoon.\nPlaced on report in the 53rd minute of the game, the NRLW captain has been hit with a Grade 1 Co",
+            "body_excerpt": "Presented By\nJudiciary update: Georgia Hale\nGeorgia Hale has been charged by the match review committee following the Titans' Magic Round win against the Warriors on Sunday afternoon.\nPlaced on report in the 53rd minute of the game, the NRLW captain has been hit with a Grade 1 Contrary Contact charge on Kaiyah Atai, resulting in a one match suspension should she elect to take the early plea; although Hale does have the option to pay a $400 fine in lieu of the ban.\nShould she fight the charge and be found guilty, she will also miss the Titans' Round 7 clash at home against the Dragons alongside this weekend's showdown against the Sharks.\nNo plea has been submitted at this time.\nRelated /\nWhat's On: Celebrating culture, community and Country this Indigenous Round\nPress Conference\nPress conference: Round 5 v Warriors\nMatch Highlights\nRound 5 highlights: Warriors v Titans\nTeam Lists\nLate mail: Desic to debut in Wagga Wagga\nPress conference: Round 22 v Warriors",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 5.064152588055555,
+            "relevance_score": 1.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "f2e87a52dd6ab232",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Tom Dearden unloads on \u2018nonsense\u2019 speculation - Brisbane Times",
+            "url": "https://www.brisbanetimes.com.au/sport/nrl/tom-dearden-unloads-on-nonsense-speculation-20260803-p60kvk.html",
+            "published_at": "2026-08-03T06:55:31+00:00",
+            "snippet": "Tom Dearden has shut down chatter the North Queensland star would tear up his contract and move to Sydney in a fiery press conference in Townsville.\nThe rugby league rumour mill ignited when the Cowboys co-captain\u2019s partner \u2013 Sydney business owner Millie Olliver \u2013 revealed the pa",
+            "body_excerpt": "Tom Dearden has shut down chatter the North Queensland star would tear up his contract and move to Sydney in a fiery press conference in Townsville.\nThe rugby league rumour mill ignited when the Cowboys co-captain\u2019s partner \u2013 Sydney business owner Millie Olliver \u2013 revealed the pair were expecting their first child .\nAmong those suggestions were the Queensland Maroons halfback would seek an early release from his lucrative five-year deal which expires at the end of 2029.\nTom Dearden is closing in on a return from injury. Getty Images\nBut Dearden, fronting reporters despite remaining sidelined through injury, dispelled the theory and said he was fed up with the questions aimed at his family.\n\u201cI don\u2019t feel like I should have to get up here and explain myself against speculation because it\u2019s just been a whole lot of nonsense. I\u2019ve got my private life with a partner who\u2019s pregnant, and I\u2019d like for that to all be kept private,\u201d Dearden said.\n\u201cIt\u2019s had an impact on the private life. When there\u2019s speculation going around like that, you know that people are reading that, and it gives them questions to ask, and you always have to answer to people \u2013 my partner has had to do the same as well.\n\u201cThe private life part is private for a reason, and I just think it\u2019s a bit disappointing my partner and family has had to deal with a lot of questions because of speculation that has gone around in the media.\n\u201cThere have been no suggestions or no thinking about not being committed to the Cowboys. I\u2019m not recommitting \u2026 I\u2019ve always been committed to the Cowboys.\u201d\nDearden has endured an injury-riddled campaign, having undergone surgery on a syndesmosis issue which robbed him of a State of Origin appearance \u2014 one which would have given him the chance to defend his Wally Lewis Medal.\nHe managed just one game on his comeback \u2013 scoring a try and setting up another in the Cowboys\u2019 loss to the Dolphins \u2013 before being sidelined again with a muscle tear in his shin.\nIn his absence, North Queensland secured a hard-fought triumph of the Broncos before suffering the worst defeat in their history against the Roosters \u2013 an 82-12 capitulation which coach Todd Payten described as their \u201cdarkest day\u201d.\nThe loss leaves the club teetering on the brink of the finals\u2019 wilderness, currently sitting in ninth but with a bye up their sleeve, which Dearden revealed was his intended comeback date.\n\u201cIt\u2019s actually tracking pretty well, I\u2019ve hopefully only got a few more weeks and the shin is starting to feel pretty good,\u201d Dearden said.\n\u201cI\u2019m hoping to be back after the bye, I think that\u2019s about three or four weeks away now, and that\u2019ll give it enough time for this injury to heal. I want to make sure I\u2019m right before I come back.\u201d\nYou have reached your maximum number of saved items.\nRemove items from your saved list to add more.\nMore:\nNRL 2026\nNorth Queensland Cowboys",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.8599859213888887,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "820ff7dbb878999f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "As it happened: Ruthless Roosters roast Cowboys - nrl.com",
+            "url": "https://www.nrl.com/news/2026/07/30/thursday-night-lights-cowboys-v-roosters/",
+            "published_at": "2026-07-30T13:08:26+00:00",
+            "snippet": "Presented By\nAs it happened: Ruthless Roosters roast Cowboys\nThe Cowboys were back at home again in Round 22 and were keen to make a statement against one of the competition heavyweights, the Roosters.\nInstead, they were handed a record defeat, with the huge 82-12 score conceded ",
+            "body_excerpt": "Presented By\nAs it happened: Ruthless Roosters roast Cowboys\nThe Cowboys were back at home again in Round 22 and were keen to make a statement against one of the competition heavyweights, the Roosters.\nInstead, they were handed a record defeat, with the huge 82-12 score conceded putting doubt on their spot in the top eight.\nThe fast-finishing Bulldogs are now a chance of jumping into their place if they can defeat the Storm on Friday night.\nThe Roosters continued their winning run at Queensland Country Bank Stadium, and have now won five from five.\nCaptain James Tedesco didn't play the second half and was seen with ice on his left ankle, but the club did not seem too concerned about any long-term issue.\nFollow all the action from Round 22 of the NRL Telstra Premiership on NRL.com's live blog.\nCowboys v Roosters at Queensland Country Bank Stadium\nMatch: Cowboys v Roosters\nRound 22 - Round 22 - Thursday 30 Jul\nhome Team\nCowboys\n9th Position\naway Team\nRoosters\n2nd Position\nVenue: Queensland Country Bank Stadium, Townsville\nPress conferences\nCowboys: Round 22\nRoosters: Round 22\nPoints, points, points: Mark Nawaqanitawase and Sam Walker both scored hat-tricks, James Tedesco scored a double playing only in the first half and Hugo Savala also had a double. Walker also kicked 12 conversions. The Roosters made a statement against a top eight contender and are challenging for the minor premiership.\nFull-time: An utterly devastating performance by the Roosters who have destroyed the Cowboys at home and could have stuck a knife in their top eight standing with their huge 82-12 victory. It was the most points conceded in a game for 91 years - the first time a team has scored 80 points since 1935. The Roosters were dominant in all facets - they had 64 percent of the possession with a 90 percent completion rate with 43/39. The Cowboys missed 42 tackles compared to 19 from the Roosters and in the metres run, the Sydney-siders produced almost double, pumping out 2275 compared to 1154 for North Queensland.\nFrom the field: Reuben Cotter\n78th min: The Roosters have hit 80 points. It's been one way traffic - bar two tries to the Cowboys, one in each half - and this time it is Cody Ramsey who scores the try. Walker kicks another conversion - his 12th of the night. Roosters are up 82-12 .\n78th min: After giving up a 'downtown' penalty to carry the Roosters all the way back into their attacking half, the Cowboys can't hold out the visitors, with Hugo Savala going through a gap at the line created from a Walker dummy to get his second. Walker converts again for a huge 76-12 lead.\n72nd min: It's just one of those nights they'd like to forget for the Cowboys - but one to savour for the Roosters. The play ends up in a hat-trick for Sam Walker , but it was shaping to be a try for the home side on the other end of the field. Instead, a pass to Drinkwater with the try-line begging proved too hard to handle, with Ramsey picking up the ball and sprinting away. The Cowboys chase, so the ball goes back inside to Walker who gets in under the posts. Walker is back on the conversion and it's 70-12 .\nSam Walker 3rd Try\n71st min: A captain's challenge from the Roosters is successful - but they instead give up a penalty.\n68th min: A hat-trick for Mark Nawaqanitawase who shows his strength to get the ball down despite the attention of four Cowboys defenders who can't drag him down. Cody Ramsey has taken over the kicking duties and slots it from the right sideline for a 64-12 lead.\n62nd min: More points for the Roosters off a scrum play 10m out from their attacking line, gained from a double knock on call. They set the scrum to the right with a 3-3 split and Rob Toia runs his way around to score through a gaping hole. Sam Walker slots another one from in front and it's 58-12 .\nRobert Toia Try\n58th min: Some continued pressure by Cowboys is undone with the Bunker calling for Scott Drinkwater to be penalised for holding back when he and Foketi were going for the ball in ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 91.64470814361111,
+            "relevance_score": 0.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL ladder stakes OR finals race",
+          "Titans Cowboys NRL",
+          "Titans NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Titans Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 23 Titans OR Cowboys",
+          "Titans Cowboys",
+          "Titans injury",
+          "Cowboys injury",
+          "round 23 Titans OR Cowboys"
+        ],
+        "filter_summary": {
+          "dropped_stale": 93,
+          "dropped_wrong_round": 7,
+          "dropped_noise": 16,
+          "dropped_irrelevant": 20,
+          "kept": 10,
+          "deferred_pending_body": 42,
+          "promoted_after_body": 3,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "a937a45a194c",
+      "tool_name": "predict_match",
+      "started_at": "2026-08-03T09:06:29.353141+00:00",
+      "finished_at": "2026-08-03T09:06:53.533538+00:00",
+      "duration_ms": 24180,
+      "request": {
+        "home_team": "Titans",
+        "away_team": "Cowboys",
+        "venue": "Cbus Super Stadium",
+        "kickoff": "2026-08-06T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Away Win",
+        "probability": 0.5347,
+        "home_win_probability": 0.4653,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Ladder points differential per game (-1.5 points)",
+            "5-game form: all run metres (+44.80)",
+            "Pythagorean form (last 10) (+11% expected-win gap)",
+            "5-game form: support plays (+2.80)",
+            "3-game form: points against (-12.00)"
+          ],
+          "negative_drivers": [
+            "Elo rating advantage (-129 points)",
+            "Bradley-Terry strength advantage (-0.92 log-strength)",
+            "3-game form: errors (-1.67)",
+            "3-game form: possession pct (+6.33)",
+            "5-game form: penalties conceded (-2.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "venue": "Cbus Super Stadium",
+          "kickoff": "2026-08-06T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-08-03T09:06:29.350519+00:00",
+      "payload": {
+        "queries": [
+          "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+          "Titans vs Cowboys NRL round 23 preview",
+          "Titans Cowboys NRL ladder stakes OR finals race"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-08-03T09:10:08.606802+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.52,
+          "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. However, confidence is tempered by a significant injury list for North Queensland in Round 23, including John Bateman, Reed Mahoney, and Griffin Neame as reported by zerotackle.com. Both teams enter this clash coming off heavy defeats.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+            },
+            {
+              "source": "research",
+              "detail": "The Cowboys are missing key players for Round 23, including John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) according to zerotackle.com."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-08-03T09:16:44.046871+00:00",
+      "payload": {
+        "issues": [
+          "The claim that John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) are missing for the Cowboys is a hallucination; these player names and their specific injury statuses do not appear in any of the tool outputs provided in the ledger."
+        ],
+        "instruction": "Remove all player-specific injury claims that are not explicitly present in the research tool output.",
+        "before": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.52,
+          "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. However, confidence is tempered by a significant injury list for North Queensland in Round 23, including John Bateman, Reed Mahoney, and Griffin Neame as reported by zerotackle.com. Both teams enter this clash coming off heavy defeats.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+            },
+            {
+              "source": "research",
+              "detail": "The Cowboys are missing key players for Round 23, including John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) according to zerotackle.com."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "away",
+          "home_team": "Titans",
+          "away_team": "Cowboys",
+          "confidence": 0.53,
+          "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. This prediction is aligned with research from Zero Tackle, which also tips the Cowboys to win this Round 23 encounter.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+            },
+            {
+              "source": "research",
+              "detail": "Zero Tackle's Round 23 tips explicitly predict that the Gold Coast Titans will lose to the North Queensland Cowboys."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 10,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 2
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 9
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 2
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Titans NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Titans vs Cowboys NRL round 23 preview",
+      "Titans Cowboys NRL ladder stakes OR finals race"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "pass": false,
+      "issues": [
+        "The claim that John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) are missing for the Cowboys is a hallucination; these player names and their specific injury statuses do not appear in any of the tool outputs provided in the ledger."
+      ],
+      "instruction": "Remove all player-specific injury claims that are not explicitly present in the research tool output."
+    },
+    "instruction": "Remove all player-specific injury claims that are not explicitly present in the research tool output.",
+    "judgement_before": {
+      "winner": "away",
+      "home_team": "Titans",
+      "away_team": "Cowboys",
+      "confidence": 0.52,
+      "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. However, confidence is tempered by a significant injury list for North Queensland in Round 23, including John Bateman, Reed Mahoney, and Griffin Neame as reported by zerotackle.com. Both teams enter this clash coming off heavy defeats.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+        },
+        {
+          "source": "research",
+          "detail": "The Cowboys are missing key players for Round 23, including John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) according to zerotackle.com."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "away",
+      "home_team": "Titans",
+      "away_team": "Cowboys",
+      "confidence": 0.53,
+      "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. This prediction is aligned with research from Zero Tackle, which also tips the Cowboys to win this Round 23 encounter.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+        },
+        {
+          "source": "research",
+          "detail": "Zero Tackle's Round 23 tips explicitly predict that the Gold Coast Titans will lose to the North Queensland Cowboys."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The claim that John Bateman (hamstring), Reed Mahoney (concussion), and Griffin Neame (suspension) are missing for the Cowboys is a hallucination; these player names and their specific injury statuses do not appear in any of the tool outputs provided in the ledger."
+    ]
+  },
+  "final_judgement": {
+    "winner": "away",
+    "home_team": "Titans",
+    "away_team": "Cowboys",
+    "confidence": 0.53,
+    "summary": "The math model favors the Cowboys based on superior run metres and Pythagorean form over the last 10 games. This prediction is aligned with research from Zero Tackle, which also tips the Cowboys to win this Round 23 encounter.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Pythagorean form (last 10) indicates an expected-win gap in favor of the Cowboys."
+      },
+      {
+        "source": "research",
+        "detail": "Zero Tackle's Round 23 tips explicitly predict that the Gold Coast Titans will lose to the North Queensland Cowboys."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "error": null
+}

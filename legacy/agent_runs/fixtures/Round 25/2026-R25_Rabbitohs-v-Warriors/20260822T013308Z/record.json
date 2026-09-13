@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "run_id": "20260822T013308Z-486b4dcd",
+  "run": {
+    "predicted_at_utc": "2026-08-22T01:44:23.021139+00:00",
+    "predicted_at_local": "2026-08-22T11:44:23.021139+10:00",
+    "started_at_utc": "2026-08-22T01:33:08.642794+00:00",
+    "wall_seconds": 674.4,
+    "hours_before_kickoff": 5.8,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 25,
+    "home_team": "Rabbitohs",
+    "away_team": "Warriors",
+    "venue": "Accor Stadium",
+    "kickoff": "2026-08-22T17:30:00+10:00",
+    "kickoff_local": "2026-08-22T17:30:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 25,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Rabbitohs",
+      "position": 7,
+      "played": 21,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 30,
+      "points_for": 576,
+      "points_against": 494,
+      "points_difference": 82,
+      "points_difference_per_game": 3.9,
+      "recent_form_last_4": "3 - 2",
+      "streak": "2W",
+      "home_record": "8 - 2",
+      "away_record": "4 - 7"
+    },
+    "away": {
+      "team": "Warriors",
+      "position": 3,
+      "played": 21,
+      "wins": 15,
+      "drawn": 0,
+      "lost": 6,
+      "competition_points": 36,
+      "points_for": 606,
+      "points_against": 330,
+      "points_difference": 276,
+      "points_difference_per_game": 13.14,
+      "recent_form_last_4": "4 - 1",
+      "streak": "3W",
+      "home_record": "8 - 2",
+      "away_record": "7 - 4"
+    },
+    "comparison": {
+      "higher_on_ladder": "Warriors",
+      "ladder_positions_gap": -4,
+      "points_difference_per_game_gap": -9.24,
+      "points_difference_favours": "Warriors"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=25"
+  },
+  "prediction": {
+    "predicted_winner": "Warriors",
+    "predicted_side": "away",
+    "confidence": 0.6,
+    "home_win_probability": 0.4
+  },
+  "math_model": {
+    "home_win_probability": 0.4297,
+    "prediction": "Away Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Head-to-head record (last 5) (60% to the home side) — contribution 0.036 (4% of total)",
+        "3-game form: errors (+1.33) — contribution 0.022 (2% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "5-game form: support plays (+1.80) — contribution 0.018 (2% of total)",
+        "Head-to-head average margin (last 5) (+5.2 points) — contribution 0.018 (2% of total)",
+        "Home travel to venue (0 km) — contribution 0.016 (2% of total)"
+      ],
+      "negative_drivers": [
+        "Ladder points differential per game (-9.2 points) — contribution 0.276 (27% of total)",
+        "Bradley-Terry strength advantage (-0.36 log-strength) — contribution 0.132 (13% of total)",
+        "5-game form: all run metres (-163.00) — contribution 0.081 (8% of total)",
+        "Pythagorean form (last 10) (-27% expected-win gap) — contribution 0.070 (7% of total)",
+        "5-game form: points against (+13.60) — contribution 0.062 (6% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (+1.33)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 25",
+      "Rabbitohs vs Warriors NRL round 25 preview",
+      "Rabbitohs Warriors NRL odds OR price OR favourite",
+      "Rabbitohs Warriors NRL finals race OR ladder stakes",
+      "Rabbitohs Warriors NRL",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs Warriors NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 25 Rabbitohs OR Warriors"
+    ],
+    "items_kept": 17,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 25 - Latrell on hold; Turbo on track",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-21T10:04:46+00:00",
+        "age_hours": 15.499626595833332,
+        "url": "https://www.nrl.com/news/2026/08/19/nrl-late-mail-round-25---trell-touch-and-go-best-good-to-go/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Round 25",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-18T06:00:29+00:00",
+        "age_hours": 91.57101548472222,
+        "url": "https://www.nrl.com/news/2026/08/18/nrl-team-lists-round-25/"
+      },
+      {
+        "title": "South Sydney Rabbitohs vs New Zealand Warriors Tips, Odds, Teams & Predictions – NRL Round 25 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T03:04:12+00:00",
+        "age_hours": 46.509071040277775,
+        "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-new-zealand-warriors-tips-odds-teams-predictions-nrl-round-25-2026/609973"
+      },
+      {
+        "title": "NRL Casualty Ward: Surgery for Doueihi, Walsh; Turbo good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-21T09:34:49+00:00",
+        "age_hours": 15.9987932625,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Rabbitohs v Warriors: Mitchell return delayed; Hanson steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-21T07:34:26+00:00",
+        "age_hours": 18.005182151388887,
+        "url": "https://www.nrl.com/news/2026/08/18/rabbitohs-v-warriors-mitchell-in-the-mix-hanson-steps-up/"
+      },
+      {
+        "title": "Rabbitohs vs Warriors Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T05:11:25+00:00",
+        "age_hours": 20.3887932625,
+        "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-warriors-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Rabbitohs v Warriors: Round 25 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:47:59+00:00",
+        "age_hours": 67.77934881805555,
+        "url": "https://www.nrl.com/news/2026/08/19/rabbitohs-v-warriors-round-25/"
+      },
+      {
+        "title": "Team List: NRL Round 25 vs Knights - Manly Warringah Sea Eagles",
+        "source": "seaeagles.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:59:00+00:00",
+        "age_hours": 91.59573770694445,
+        "url": "https://www.seaeagles.com.au/news/2026/08/18/team-list-nrl-round-25-vs-knights/"
+      },
+      {
+        "title": "NRL Team List Round 25 v Raiders - Brisbane Broncos",
+        "source": "broncos.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-18T05:48:55+00:00",
+        "age_hours": 91.7637932625,
+        "url": "https://www.broncos.com.au/news/2026/08/18/nrl-team-list-round-25-v-raiders/"
+      },
+      {
+        "title": "‘It’s his decision’: Wayne’s Latrell reveal; Foran’s Turbo warning shot to Knights — Late Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-22T01:11:02+00:00",
+        "age_hours": 0.3951821513888889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-round-25-latest-team-news-and-injury-updates-latrell-mitchell-clint-gutherson-tom-trbojevic/news-story/1362e2e046e9793d10ba74e544d57765"
+      },
+      {
+        "title": "Warriors v Rabbitohs: When they play, kick-off time, team list, injuries, NRL ladder - what to know - RNZ",
+        "source": "rnz.co.nz",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T01:19:21+00:00",
+        "age_hours": 24.256571040277777,
+        "url": "https://www.rnz.co.nz/news/sport/1073040/warriors-v-rabbitohs-when-they-play-kick-off-time-team-list-injuries-nrl-ladder-what-to-know"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 25 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-21T10:18:00+00:00",
+        "age_hours": 15.279071040277778,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-25-2026-lineups-injuries-results/6d589fc01ec29d216192b2fb"
+      },
+      {
+        "title": "Raiders vs Broncos Preview & Betting Tips: NRL Round 25 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T06:04:37+00:00",
+        "age_hours": 43.50212659583333,
+        "url": "https://www.beforeyoubet.com.au/raiders-vs-broncos-preview-betting-tips-nrl-round-25-2026"
+      },
+      {
+        "title": "Brandy and Jimmy's Round 25 NRL Tips - SEN",
+        "source": "sen.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-20T03:05:56+00:00",
+        "age_hours": 46.48018215138889,
+        "url": "https://www.sen.com.au/news/2026/08/20/nrl-2026-brandy-and-jimmy-s-expert-round-25-tips"
+      },
+      {
+        "title": "2026 NRL Round 25 Predictions - Ladbrokes",
+        "source": "ladbrokes.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-19T05:28:23+00:00",
+        "age_hours": 68.10601548472222,
+        "url": "https://www.ladbrokes.com.au/blog/2026/08/19/2026-nrl-round-25-predictions/"
+      },
+      {
+        "title": "\"Well-oiled machine\": Former Warrior praises team's consistency heading into Rabbitohs clash",
+        "source": "newstalkzb.co.nz",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-17T01:35:03+00:00",
+        "age_hours": 119.9949043736111,
+        "url": "https://www.newstalkzb.co.nz/on-air/the-all-sport-breakfast/audio/joe-vagana-former-warriors-prop-on-the-nrl-season-upcoming-clash-against-the-rabbitohs/"
+      },
+      {
+        "title": "Match Preview Knights v Wests Tigers: Predebon, White return; Big guns back Presented by 11 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-22T01:22:56+00:00",
+        "age_hours": 0.19684881805555557,
+        "url": "https://www.nrl.com/news/2026/08/19/knights-v-wests-tigers-predebon-white-return-big-guns-back/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The judgement omits several top SHAP drivers: 'Head-to-head record (last 5)', '3-game form: errors' (Rabbitohs), and '5-game form: all run metres' (Warriors)."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Latrell Mitchell's absence is sourced from Fox Sports and nrl_news; Warriors spine issues are sourced from Before You Bet."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims that Mitchell, Metcalf, and Nicoll-Klokstad are missing align with the research excerpts."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Ladder points differential is correctly attributed to the Warriors from the favouring_Warriors_away_win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include research from Fox Sports and Before You Bet."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence is 0.6, which is within range and appropriately capped below 0.65 due to the Warriors' spine disruptions."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The primary driver (0.276) is correctly identified as the main influence."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers 'Head-to-head record (last 5)', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.6
+  },
+  "reasoning": {
+    "summary": "The Warriors hold a significant advantage in ladder position (3rd vs 7th) and overall strength, supported by a strong run-metre advantage. While the Rabbitohs have a slight head-to-head edge and home-ground advantage, these are outweighed by the Warriors' dominant points differential. Both teams face availability issues in their spine, but the Warriors remain the stronger side.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The Warriors are heavily favoured by ladder points differential per game (contribution 0.276) and 5-game run-metre form (contribution 0.081)."
+      },
+      {
+        "source": "math",
+        "detail": "The Rabbitohs have a slight edge in head-to-head records (60% win rate in last 5), though this is a minor driver (contribution 0.036)."
+      },
+      {
+        "source": "math",
+        "detail": "The 3-game error form is noted as a conflict; while the model nets a small contribution to the Rabbitohs, the raw value actually favours the Warriors."
+      },
+      {
+        "source": "research",
+        "detail": "Latrell Mitchell is ruled out for this match, targeting a return in Round 26 (Fox Sports)."
+      },
+      {
+        "source": "research",
+        "detail": "The Warriors are missing Luke Metcalf (hamstring) and Charnze Nicoll-Klokstad (suspension), creating disruption in their spine (Before You Bet)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Warriors sit 3rd on the ladder with a points difference per game of 13.14, compared to the Rabbitohs in 7th with 3.9."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Rabbitohs-v-Warriors/20260822T013308Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R25_Rabbitohs-v-Warriors/20260822T013308Z/summary.md"
+  }
+}

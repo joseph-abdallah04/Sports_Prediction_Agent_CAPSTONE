@@ -22,7 +22,7 @@ reasoning for the Agent to weigh in its final call.
 | [`Limitations.md`](Limitations.md) | Honest account of accuracy, the 70% question, and what the system cannot do. |
 | [`agent_runs/README.md`](agent_runs/README.md) | Where **new-system** results are written and how to read a run ledger. |
 | [`docs/agent_judgement/`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) | How the agent is supposed to judge (Round 26 on), why it was recalibrated, and how to run the old system beside the new one. |
-| [`legacy/`](docs/agent_judgement/TWO_SYSTEMS.md) | Local-only git worktree: the exact pre-recalibration agent (`dccb09c`). Git-ignored; not on `main`. |
+| [`legacy/`](legacy/README.md) | Frozen snapshot of the pre-recalibration agent (commit `dccb09c`). Committed on `main` beside the current system. |
 
 ## Build status
 
@@ -426,10 +426,10 @@ From Round 26 the agent’s judgement rules changed (prompts, verifier, research
 filter, confidence ceiling). Rounds 23–25 were produced by the **old** system.
 To compare the two fairly on upcoming fixtures, both stay runnable. This is not
 a `--legacy` flag in the current code — that would be easy to contaminate. The
-old system is the **exact commit** that produced Rounds 23–25, checked out as a
-second working copy.
+old system is the **exact commit** that produced Rounds 23–25, stored as
+`legacy/` on `main` (a snapshot, not a `--legacy` flag and not a live worktree).
 
-The operator runbook (symlinks, worktree recreate, smoke check) is
+The operator runbook (shared-model links, clone setup, smoke check) is
 [`docs/agent_judgement/TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md).
 Why the change: [`FINDINGS_AFTER_ROUND25.md`](docs/agent_judgement/FINDINGS_AFTER_ROUND25.md)
 and [`SYSTEM_RECALIBRATION.md`](docs/agent_judgement/SYSTEM_RECALIBRATION.md).
@@ -439,7 +439,7 @@ What a new-system run should do:
 | | Old system | New system |
 | --- | --- | --- |
 | What it is | Commit `dccb09c` (`final predictions for round 25`, 23 Aug 2026) | Current `main` |
-| Where the code lives | `legacy/` — a git worktree at detached HEAD `dccb09c` | This repo (`agent/`) |
+| Where the code lives | [`legacy/`](legacy/) — snapshot of commit `dccb09c` | This repo (`agent/`) |
 | Where results go | `legacy/agent_runs/` | `agent_runs/` |
 | Official log | `legacy/agent_runs/predictions_log.csv` | `agent_runs/predictions_log.csv` |
 | Official rounds in that log | 23–25 (run on the old code at the time) | 26 onwards |
@@ -447,18 +447,18 @@ What a new-system run should do:
 | Confidence ceiling in code | 0.95 | 0.85 |
 | Judgement rules | Pre-recalibration prompts and verifier | [`EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) |
 
-`legacy/` is in [`.gitignore`](.gitignore). It is a local checkout, not part of
-`main`. Do not commit it. Do not merge the two CSVs.
+`legacy/` is on `main`. Do not replace the current `agent/` with it, and do not
+merge the two CSVs.
 
 ### What they share, and what they do not
 
 Both trees use the **same trained XGBoost model and the same match data**, so a
 difference in pick or confidence is a difference in **judgement**, not in
-training data. Inside the worktree, `models`, `data_lake`, and `feature_store`
+training data. Inside `legacy/`, `models`, `data_lake`, and `feature_store`
 are symlinks back to `tools/mathematical_engine/` on this repo. `legacy/agent/.env`
 points at `agent/.env`.
 
-Run the weekly ETL from **this** tree only. The worktree picks up the retrained
+Run the weekly ETL from **this** tree only. The snapshot picks up the retrained
 model automatically.
 
 The old tree keeps its own prompts, verifier, research filter, and `explain.py`.
@@ -497,8 +497,8 @@ systematically gets fresher news. Budget ~8–12 minutes per run on local Ollama
 
 Wests Tigers needs the full nickName: `--away "Wests Tigers"`.
 
-If `legacy/` is missing, or the engine symlinks dropped after recreating the
-worktree, follow the recreate steps in
+After a fresh clone, recreate the engine symlinks and run `uv sync` in
+`legacy/agent` — steps in
 [`TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md). A quick identity check:
 the old smoke reports a 0.95 confidence ceiling; the new smoke reports 0.85.
 
@@ -652,7 +652,7 @@ See [`tools/fixture_scene/README.md`](tools/fixture_scene/README.md) and
 - [`Architecture.md`](Architecture.md) — system, control-loop and data-flow diagrams.
 - [`Limitations.md`](Limitations.md) — measured accuracy ceiling, what would move it, and what the agent cannot do.
 - [`agent/Architecture.md`](agent/Architecture.md) — Orchestrator control loop and agency.
-- [`docs/agent_judgement/TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md) — old vs new: worktree, shared model, both CLIs, separate logs.
+- [`docs/agent_judgement/TWO_SYSTEMS.md`](docs/agent_judgement/TWO_SYSTEMS.md) — old vs new: `legacy/` snapshot, shared model, both CLIs, separate logs.
 - [`docs/agent_judgement/EXPECTED_BEHAVIOUR.md`](docs/agent_judgement/EXPECTED_BEHAVIOUR.md) — intended new-system judgement (Round 26 on).
 - [`docs/agent_judgement/SYSTEM_RECALIBRATION.md`](docs/agent_judgement/SYSTEM_RECALIBRATION.md) — what changed in the prompts and verifier.
 - [`docs/agent_judgement/FINDINGS_AFTER_ROUND25.md`](docs/agent_judgement/FINDINGS_AFTER_ROUND25.md) — why the recalibration happened.

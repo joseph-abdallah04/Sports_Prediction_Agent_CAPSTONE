@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "run_id": "20260808T051614Z-181ab3a6",
+  "run": {
+    "predicted_at_utc": "2026-08-08T05:26:39.366447+00:00",
+    "predicted_at_local": "2026-08-08T15:26:39.366447+10:00",
+    "started_at_utc": "2026-08-08T05:16:14.898983+00:00",
+    "wall_seconds": 624.5,
+    "hours_before_kickoff": 4.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 23,
+    "home_team": "Rabbitohs",
+    "away_team": "Eels",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-08-08T19:35:00+10:00",
+    "kickoff_local": "2026-08-08T19:35:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 23,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Rabbitohs",
+      "position": 8,
+      "played": 19,
+      "wins": 10,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 26,
+      "points_for": 526,
+      "points_against": 464,
+      "points_difference": 62,
+      "points_difference_per_game": 3.26,
+      "recent_form_last_4": "2 - 3",
+      "streak": "1L",
+      "home_record": "7 - 2",
+      "away_record": "3 - 7"
+    },
+    "away": {
+      "team": "Eels",
+      "position": 13,
+      "played": 19,
+      "wins": 7,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 20,
+      "points_for": 365,
+      "points_against": 544,
+      "points_difference": -179,
+      "points_difference_per_game": -9.42,
+      "recent_form_last_4": "2 - 2",
+      "streak": "1W",
+      "home_record": "4 - 6",
+      "away_record": "3 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Rabbitohs",
+      "ladder_positions_gap": 5,
+      "points_difference_per_game_gap": 12.68,
+      "points_difference_favours": "Rabbitohs"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=23"
+  },
+  "prediction": {
+    "predicted_winner": "Rabbitohs",
+    "predicted_side": "home",
+    "confidence": 0.7,
+    "home_win_probability": 0.7
+  },
+  "math_model": {
+    "home_win_probability": 0.6978,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.27 log-strength) — contribution 0.141 (14% of total)",
+        "Ladder points differential per game (+12.7 points) — contribution 0.141 (14% of total)",
+        "Elo rating advantage (+44 points) — contribution 0.069 (7% of total)",
+        "Pythagorean form (last 10) (+10% expected-win gap) — contribution 0.060 (6% of total)",
+        "Away travel to venue (23 km) — contribution 0.053 (5% of total)"
+      ],
+      "negative_drivers": [
+        "5-game form: points against (+8.20) — contribution 0.043 (4% of total)",
+        "3-game form: errors (-5.00) — contribution 0.038 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: errors (-4.80) — contribution 0.024 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: post contact metres (+56.80) — contribution 0.019 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: effective tackle pct (-2.37) — contribution 0.019 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-5.00)",
+        "5-game form: errors (-4.80)",
+        "5-game form: post contact metres (+56.80)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 23",
+      "Rabbitohs vs Eels NRL round 23 preview",
+      "Rabbitohs Eels NRL odds OR price OR favourite",
+      "Rabbitohs Eels NRL finals race OR form guide",
+      "Rabbitohs Eels NRL",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs Eels NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 23 Rabbitohs OR Eels"
+    ],
+    "items_kept": 17,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Late Mail: Round 23 - Rabbitohs lose Graham; Best sidelined",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-08T04:06:17+00:00",
+        "age_hours": 1.1752215044444445,
+        "url": "https://www.nrl.com/news/2026/08/05/nrl-late-mail-round-23---origin-guns-return-as-finals-loom/"
+      },
+      {
+        "title": "NRL Team Lists: Round 23",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-08-04T06:00:45+00:00",
+        "age_hours": 95.26744372666667,
+        "url": "https://www.nrl.com/news/2026/08/04/nrl-team-lists-round-23/"
+      },
+      {
+        "title": "Indigenous Round Moran comes full circle as Indigenous officers unite for historic match",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-07T07:57:23+00:00",
+        "age_hours": 21.323554837777777,
+        "url": "https://www.nrl.com/news/2026/08/06/moran-comes-full-circle-as-indigenous-officers-unite/"
+      },
+      {
+        "title": "South Sydney Rabbitohs vs Parramatta Eels Tips, Odds, Teams & Predictions – NRL Round 23 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-06T05:04:54+00:00",
+        "age_hours": 48.198277059999995,
+        "url": "https://www.sportsnews.com.au/nrl/south-sydney-rabbitohs-vs-parramatta-eels-tips-odds-teams-predictions-nrl-round-23-2026/609769"
+      },
+      {
+        "title": "Live Blog Super Saturday: Storm v Sea Eagles; Dolphins v Broncos; Rabbitohs v Eels Presented by 3 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T05:13:34+00:00",
+        "age_hours": 0.05383261555555555,
+        "url": "https://www.nrl.com/news/2026/08/08/super-saturday-storm-v-sea-eagles-dolphins-v-broncos-rabbitohs-v-eels/"
+      },
+      {
+        "title": "Injuries NRL Casualty Ward: Panthers' Yeo blow; Tupouniua sidelined again 38 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-08T04:38:02+00:00",
+        "age_hours": 0.6460548377777777,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Rabbitohs v Eels: Big guns return; Moretti back on deck",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-07T09:40:25+00:00",
+        "age_hours": 19.606332615555555,
+        "url": "https://www.nrl.com/news/2026/08/04/rabbitohs-v-eels-big-guns-return-moretti-back-on-deck/"
+      },
+      {
+        "title": "Rabbitohs vs Eels Preview & Betting Tips: NRL Round 23 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T05:28:04+00:00",
+        "age_hours": 23.81216594888889,
+        "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-eels-preview-betting-tips-nrl-round-23-2026"
+      },
+      {
+        "title": "Rabbitohs v Eels: Round 23 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:03:52+00:00",
+        "age_hours": 73.21549928222223,
+        "url": "https://www.nrl.com/news/2026/08/05/rabbitohs-v-eels-round-23/"
+      },
+      {
+        "title": "Rabbitohs v Eels: Round 23 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-05T04:03:52+00:00",
+        "age_hours": 73.21549928222223,
+        "url": "https://www.nrl.com/watch/news/rabbitohs-v-eels-round-23-1972320/"
+      },
+      {
+        "title": "Rabbitohs vs Eels - Round 23, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-02T19:24:18+00:00",
+        "age_hours": 129.87494372666666,
+        "url": "https://www.zerotackle.com/rabbitohs-eels-round-23-2026-mc10396511-236514/"
+      },
+      {
+        "title": "NRL Team List Update: Round 23 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T09:35:00+00:00",
+        "age_hours": 19.696610393333334,
+        "url": "https://www.parraeels.com.au/news/2026/08/07/nrl-team-list-update-round-23/"
+      },
+      {
+        "title": "NRL Team List: Round 23 v Dragons - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:00:00+00:00",
+        "age_hours": 95.27994372666666,
+        "url": "https://www.sharks.com.au/news/2026/08/04/nrl-team-list-round-23-v-dragons/"
+      },
+      {
+        "title": "NRL Team List: Round 23 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:00:00+00:00",
+        "age_hours": 95.27994372666666,
+        "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-team-list-round-23/"
+      },
+      {
+        "title": "NRL Injury Report: Round 23 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-04T06:00:00+00:00",
+        "age_hours": 95.27994372666666,
+        "url": "https://www.parraeels.com.au/news/2026/08/04/nrl-injury-report-round-23/"
+      },
+      {
+        "title": "NRL 2026: Confirmed lineups, results for Round 23 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-07T02:22:53+00:00",
+        "age_hours": 26.898554837777777,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-23-2026-lineups-injuries-results/b358f066284f90e03d93a242"
+      },
+      {
+        "title": "Sharks v Titans: Ankle sidelines Kiria-Ratu; Ibrahim to debut",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Match Preview",
+        "published_at": "2026-08-08T03:59:27+00:00",
+        "age_hours": 1.2891103933333334,
+        "url": "https://www.nrl.com/news/2026/08/05/sharks-v-titans-byers-george-sidelined-ibrahim-to-debut/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Hallucinated market price of $1.36 in the summary.",
+      "Omitted several top SHAP drivers including Elo rating advantage and 5-game form: points against."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The market price '$1.36' is mentioned in the summary but does not appear in any research body_excerpt or title."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "No player availability claims were made in the judgement."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the home win group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 identifies beforeyoubet.com.au regarding finals implications."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.7 is within the allowed range and attributed to ladder/motivation factors."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judge focused on the top two SHAP drivers (14% each) rather than minor ones."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top math drivers 'Elo rating advantage (+44 points)', 'Pythagorean form', and '5-game form: points against' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.7
+  },
+  "reasoning": {
+    "summary": "The Rabbitohs are strong favourites based on a significant ladder advantage and superior Elo rating (+44 points) and Pythagorean form. While the Eels have shown better recent defensive form (points against), the overall model lean is heavily toward South Sydney, who are fighting for a top-eight finals berth while Parramatta is out of contention.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model predicts a home win (0.6978 probability), driven by Bradley-Terry strength and ladder points differential per game (14% each), as well as an Elo rating advantage (+44 points) and positive Pythagorean form."
+      },
+      {
+        "source": "research",
+        "detail": "Rabbitohs are fighting for a top-eight berth while the Eels are out of contention and playing for pride (beforeyoubet.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "Official standings show Rabbitohs in 8th with a positive points difference (+62), compared to the Eels in 13th with a significant negative difference (-179)."
+      },
+      {
+        "source": "math",
+        "detail": "The only notable signal favouring the away side is recent defensive form (5-game points against), though it contributes only 4% to the total model weight."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Rabbitohs-v-Eels/20260808T051614Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R23_Rabbitohs-v-Eels/20260808T051614Z/summary.md"
+  }
+}

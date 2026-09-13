@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "run_id": "20260815T043801Z-73529dbb",
+  "run": {
+    "predicted_at_utc": "2026-08-15T04:48:08.950628+00:00",
+    "predicted_at_local": "2026-08-15T14:48:08.950628+10:00",
+    "started_at_utc": "2026-08-15T04:38:01.000895+00:00",
+    "wall_seconds": 607.9,
+    "hours_before_kickoff": 0.2,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 24,
+    "home_team": "Sharks",
+    "away_team": "Raiders",
+    "venue": "Ocean Protect Stadium",
+    "kickoff": "2026-08-15T15:00:00+10:00",
+    "kickoff_local": "2026-08-15T15:00:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 24,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Sharks",
+      "position": 5,
+      "played": 20,
+      "wins": 13,
+      "drawn": 0,
+      "lost": 7,
+      "competition_points": 32,
+      "points_for": 584,
+      "points_against": 415,
+      "points_difference": 169,
+      "points_difference_per_game": 8.45,
+      "recent_form_last_4": "4 - 1",
+      "streak": "1L",
+      "home_record": "8 - 2",
+      "away_record": "5 - 5"
+    },
+    "away": {
+      "team": "Raiders",
+      "position": 12,
+      "played": 21,
+      "wins": 9,
+      "drawn": 0,
+      "lost": 12,
+      "competition_points": 22,
+      "points_for": 477,
+      "points_against": 542,
+      "points_difference": -65,
+      "points_difference_per_game": -3.1,
+      "recent_form_last_4": "3 - 2",
+      "streak": "2L",
+      "home_record": "5 - 6",
+      "away_record": "4 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Sharks",
+      "ladder_positions_gap": 7,
+      "points_difference_per_game_gap": 11.55,
+      "points_difference_favours": "Sharks"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+  },
+  "prediction": {
+    "predicted_winner": "Sharks",
+    "predicted_side": "home",
+    "confidence": 0.72,
+    "home_win_probability": 0.72
+  },
+  "math_model": {
+    "home_win_probability": 0.7852,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Elo rating advantage (+113 points) — contribution 0.179 (15% of total)",
+        "Bradley-Terry strength advantage (+0.46 log-strength) — contribution 0.157 (13% of total)",
+        "Ladder points differential per game (+12.3 points) — contribution 0.143 (12% of total)",
+        "Pythagorean form (last 10) (+32% expected-win gap) — contribution 0.138 (12% of total)",
+        "5-game form: points against (-9.20) — contribution 0.081 (7% of total)"
+      ],
+      "negative_drivers": [
+        "Away rest (13.9 days) — contribution 0.042 (4% of total)",
+        "Away travel to venue (234 km) — contribution 0.020 (2% of total)",
+        "5-game form: missed tackles (-3.40) — contribution 0.011 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Home travel to venue (8 km) — contribution 0.010 (1% of total)",
+        "5-game momentum: penalty gap seconds (+37.27) — contribution 0.008 (1% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game form: missed tackles (-3.40)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Raiders NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Sharks vs Raiders NRL round 24 preview",
+      "Sharks Raiders NRL odds OR price OR favourite",
+      "Sharks Raiders NRL finals race ladder stakes",
+      "Sharks Raiders NRL",
+      "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Raiders NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sharks Raiders NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 24 Sharks OR Raiders"
+    ],
+    "items_kept": 19,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 24 - Crossland back, Best on hold for Knights Presented by 27 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-15T04:11:15+00:00",
+        "age_hours": 0.45728606583333337,
+        "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Round 24",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-11T05:59:00+00:00",
+        "age_hours": 94.66145273250001,
+        "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/"
+      },
+      {
+        "title": "NRL Late Mail: Round 24 v Raiders - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-15T03:27:00+00:00",
+        "age_hours": 1.1947860658333334,
+        "url": "https://www.sharks.com.au/news/2026/08/15/nrl-late-mail-round-24-v-raiders/"
+      },
+      {
+        "title": "NRL Team List: Round 24 v Raiders - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:57:00+00:00",
+        "age_hours": 94.69478606583334,
+        "url": "https://www.sharks.com.au/news/2026/08/11/nrl-team-list-round-24-v-raiders/"
+      },
+      {
+        "title": "Cronulla Sharks vs Canberra Raiders Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T00:21:50+00:00",
+        "age_hours": 52.28089717694444,
+        "url": "https://www.sportsnews.com.au/nrl/cronulla-sharks-vs-canberra-raiders-tips-odds-teams-predictions-nrl-round-24-2026/609873"
+      },
+      {
+        "title": "Live Blog Super Saturday: Sharks v Raiders; Eels v Cowboys; Broncos v Warriors Presented by 26 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-15T04:11:51+00:00",
+        "age_hours": 0.44728606583333336,
+        "url": "https://www.nrl.com/news/2026/08/15/super-saturday-sharks-v-raiders-eels-v-cowboys-broncos-v-warriors/"
+      },
+      {
+        "title": "Match Preview Sharks v Raiders: Iro returns; Sasagi ruled out",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-15T03:34:32+00:00",
+        "age_hours": 1.0692305102777777,
+        "url": "https://www.nrl.com/news/2026/08/11/sharks-v-raiders-iro-returns-sasagi-ruled-out/"
+      },
+      {
+        "title": "NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-08-14T10:43:19+00:00",
+        "age_hours": 17.922841621388887,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "NRL Match Preview: Round 24 v Raiders",
+        "source": "sharks.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-14T04:55:00+00:00",
+        "age_hours": 23.72811939916667,
+        "url": "https://www.sharks.com.au/news/2026/08/14/nrl-match-preview-round-24-v-raiders/"
+      },
+      {
+        "title": "Sharks vs Raiders Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T05:31:42+00:00",
+        "age_hours": 47.1164527325,
+        "url": "https://www.beforeyoubet.com.au/sharks-vs-raiders-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Sharks v Raiders: Round 24 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:04:07+00:00",
+        "age_hours": 71.57617495472222,
+        "url": "https://www.nrl.com/news/2026/08/12/sharks-v-raiders-round-24/"
+      },
+      {
+        "title": "NRL Gameday Guide: Round 24 v Raiders - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T00:58:56+00:00",
+        "age_hours": 75.66256384361111,
+        "url": "https://www.sharks.com.au/news/2026/08/12/nrl-gameday-guide-round-24-v-raiders/"
+      },
+      {
+        "title": "Sharks vs Raiders - Round 24, 2026 - Live Scores & Stats - Match Centre - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-09T17:57:17+00:00",
+        "age_hours": 130.6900638436111,
+        "url": "https://www.zerotackle.com/sharks-raiders-round-24-2026-mc10397670-236786/"
+      },
+      {
+        "title": "NRL 2026 team lists: Confirmed lineups, results for Round 24 - sportingnews.com",
+        "source": "sportingnews.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T19:02:01+00:00",
+        "age_hours": 33.61117495472222,
+        "url": "https://www.sportingnews.com/au/rugby-league/news/nrl-team-lists-round-24-2026-lineups-injuries-results/6511ddaebad07f3a28a97529"
+      },
+      {
+        "title": "NRL Team Lists Round 24: Big ins, surprise calls and every confirmed squad",
+        "source": "zerotackle.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-11T15:55:00+00:00",
+        "age_hours": 84.72811939916667,
+        "url": "https://www.zerotackle.com/round-24-team-lists-2026-236834/"
+      },
+      {
+        "title": "NRL Team List: Round 24 vs. Wests Tigers - St George Illawarra Dragons",
+        "source": "dragons.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:57:12+00:00",
+        "age_hours": 94.69145273250001,
+        "url": "https://www.dragons.com.au/news/2026/08/11/nrl-team-list-round-24-vs.-wests-tigers/"
+      },
+      {
+        "title": "NRL Team List: Raiders v Sharks - raiders.com.au",
+        "source": "raiders.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:57:07+00:00",
+        "age_hours": 94.6928416213889,
+        "url": "https://www.raiders.com.au/news/2026/08/11/nrl-team-list-raiders-v-sharks/"
+      },
+      {
+        "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:48:51+00:00",
+        "age_hours": 48.830619399166665,
+        "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18"
+      },
+      {
+        "title": "Bulldogs vs Rabbitohs Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:16:40+00:00",
+        "age_hours": 49.36700828805555,
+        "url": "https://www.beforeyoubet.com.au/bulldogs-vs-rabbitohs-preview-betting-tips-nrl-round-24-2026"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The market price '$1.32' is a hallucination as it does not appear in the research.",
+      "Top math drivers for the Raiders (Away rest and Away travel) were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The market price '$1.32' is not present in any research body excerpt or scene field."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Claims for Fonua-Blake (suspended) and Iro (returning) match the source text."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Sharks' advantage."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors cite sportsnews.com.au and sharks.com.au."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.72 is within range and justified by the Fonua-Blake suspension."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "Decisive factors are based on top SHAP drivers (Elo, Bradley-Terry)."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top Raiders drivers 'Away rest (13.9 days)' and 'Away travel to venue (234 km)' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.72
+  },
+  "reasoning": {
+    "summary": "The Sharks hold a significant statistical and ladder advantage, supported by an exceptional home record of 14 wins from their last 15 matches at Ocean Protect Stadium (sportsnews.com.au). While the Raiders benefit from a rest advantage of 13.9 days and relatively short travel, these factors are heavily outweighed by Cronulla's Elo and strength superiority. Confidence is tempered slightly by the suspension of key forward Addin Fonua-Blake.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Elo rating advantage (+113 points) and Bradley-Terry strength gap, which far outweigh the Raiders' minor advantages in rest (13.9 days) and travel."
+      },
+      {
+        "source": "research",
+        "detail": "The Sharks have won 14 of their past 15 matches at Ocean Protect Stadium (sportsnews.com.au)."
+      },
+      {
+        "source": "scene",
+        "detail": "Sharks sit 7 places higher on the ladder with a points difference per game advantage of 11.55 over the Raiders."
+      },
+      {
+        "source": "research",
+        "detail": "Positive availability news for Cronulla with KL Iro returning from concussion protocols (sharks.com.au)."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Sharks-v-Raiders/20260815T043801Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Sharks-v-Raiders/20260815T043801Z/summary.md"
+  }
+}

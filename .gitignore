@@ -6,9 +6,15 @@
 /tools/qualitative_research/debug
 /tools/fixture_scene/cache
 !/agent_runs/README.md
-# Frozen pre-recalibration agent, checked out as a git worktree at dccb09c.
-# See docs/agent_judgement/TWO_SYSTEMS.md.
-/legacy
+# Frozen old-system snapshot at legacy/ (commit dccb09c). Shared engine
+# artifacts stay in the parent tree — do not copy models/data into legacy/.
+/legacy/tools/mathematical_engine/data_lake
+/legacy/tools/mathematical_engine/feature_store
+/legacy/tools/mathematical_engine/models
+/legacy/tools/mathematical_engine/.backup_v1
+/legacy/tools/qualitative_research/cache
+/legacy/tools/qualitative_research/debug
+/legacy/tools/fixture_scene/cache
 **/.venv/
 **/.uv-python/
 **/.uv-cache/

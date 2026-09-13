@@ -1,0 +1,1306 @@
+{
+  "schema_version": 2,
+  "run_id": "20260911T213251Z-7f3ddb01",
+  "at_a_glance": {
+    "fixture": "Sharks v Cowboys",
+    "round": 28,
+    "kickoff": "2026-09-12T19:50:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Sharks",
+    "confidence": 0.72,
+    "model_home_win_probability": 0.7649,
+    "model_prediction": "Home Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-11T21:32:51.326334+00:00",
+  "updated_at": "2026-09-11T21:43:41.338109+00:00",
+  "request": {
+    "home_team": "Sharks",
+    "away_team": "Cowboys",
+    "season": null,
+    "round_number": 28,
+    "force_refresh": true,
+    "user_question": "Who wins Sharks vs Cowboys?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Sharks",
+    "away_team": "Cowboys",
+    "confidence": 0.72,
+    "summary": "The Sharks hold a clear edge based on a strong math prior (0.76 probability) and a market price of $1.44 (sportsnews.com.au). While the Cowboys benefit from 14 days of rest and the model notes the travel burden, these are outweighed by the Sharks' strength advantage and superior possession metrics. The return of the Hynes-Trindall halves pairing (sharks.com.au) further solidifies the home side's advantage despite their recent form slump.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong Bradley-Terry strength advantage and superior 5-game possession percentage (each contributing ~13-14% to the home win prediction)"
+      },
+      {
+        "source": "research",
+        "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+      },
+      {
+        "source": "scene",
+        "detail": "Significant ladder advantage (5th vs 8th) and a points difference gap of 233 points (+149 for Sharks vs -84 for Cowboys)"
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 6
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 12
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 11
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Sharks vs Cowboys NRL round 28 preview",
+      "Sharks Cowboys NRL odds OR price OR favourite",
+      "Sharks Cowboys NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The 'market price of $1.44' is not mentioned in any research body_excerpt or scene field."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Claims that Hynes, Trindall, and others are returning match the sharks.com.au source."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the Sharks' home win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from sharks.com.au."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.72 is within 0.50-0.85 and accounts for the Sharks' poor recent form."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP factors are treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers '5-game form: possession pct' (Sharks), 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' (Cowboys) were not addressed."
+        }
+      ],
+      "issues": [
+        "Market price $1.44 is not sourced from research.",
+        "Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were omitted from the evaluation."
+      ],
+      "instruction": "Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output."
+    },
+    "instruction": "Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Sharks",
+      "away_team": "Cowboys",
+      "confidence": 0.72,
+      "summary": "The Sharks hold a significant advantage in ladder position and points differential, supported by a market price of $1.44. They are further bolstered by the return of key players including Nicho Hynes and Braydon Trindall (sharks.com.au). Despite a poor run of recent form, the combined weight of the math model and team news suggests a clear edge.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Bradley-Terry strength advantage and ladder points differential (each contributing 14% to the model's home win prediction)"
+        },
+        {
+          "source": "research",
+          "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+        },
+        {
+          "source": "scene",
+          "detail": "Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference"
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Sharks",
+      "away_team": "Cowboys",
+      "confidence": 0.72,
+      "summary": "The Sharks hold a clear edge based on a strong math prior (0.76 probability) and a market price of $1.44 (sportsnews.com.au). While the Cowboys benefit from 14 days of rest and the model notes the travel burden, these are outweighed by the Sharks' strength advantage and superior possession metrics. The return of the Hynes-Trindall halves pairing (sharks.com.au) further solidifies the home side's advantage despite their recent form slump.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong Bradley-Terry strength advantage and superior 5-game possession percentage (each contributing ~13-14% to the home win prediction)"
+        },
+        {
+          "source": "research",
+          "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+        },
+        {
+          "source": "scene",
+          "detail": "Significant ladder advantage (5th vs 8th) and a points difference gap of 233 points (+149 for Sharks vs -84 for Cowboys)"
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "Market price $1.44 is not sourced from research.",
+      "Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T21:33:12.854810+00:00",
+      "thinking": "*   Home Team: Sharks\n    *   Away Team: Cowboys\n    *   Round Number: 28\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1 (Home Availability): `Sharks NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Query 2 (Away Availability): `Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28`\n    *   Query 3 (Fixture Preview): `Sharks vs Cowboys NRL round 28 preview`\n    *   Query 4 (Market Prices): `Sharks Cowboys NRL odds OR price OR favourite`\n    *   Query 5 (Specific Context): Round 28 is the final round of the regular season. This usually means finals race/ladder stakes are critical.\n    *   Query 5 (Context): `Sharks Cowboys NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Sharks, Cowboys).\n    *   JSON format? Yes.",
+      "chars": 927
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T21:38:35.709845+00:00",
+      "thinking": "*   Match: Sharks (Home) vs Cowboys (Away).\n    *   Venue: Allianz Stadium.\n    *   Round: 28 (Elimination Final).\n    *   Math Model: Prediction \"Home Win\", Probability 0.7649.\n    *   SHAP Drivers (Home): Bradley-Terry strength (14%), Ladder points diff per game (14%), 5-game possession (13%), Pythagorean form (9%), Elo rating (5%).\n    *   SHAP Drivers (Away): Travel (2%), Penalties conceded (2% - CONFLICT), Rest (2%), Effective tackle % (1%), Penalty gap seconds (1%).\n    *   Attribution Balance: Leans strongly home (1.017 vs 0.2003).\n    *   Standings: Sharks (5th, 14-10, +149 diff), Cowboys (8th, 13-11, -84 diff). Sharks are higher and have a significantly better points difference.\n    *   Research:\n        *   Sharks: Returning key players (Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, Braydon Trindall). Late withdrawal: Hohepa Puru (illness).\n        *   Cowboys: Inconsistent season (highlight wins vs record lows).\n        *   Context: Elimination final.\n    *   Market: Prices $1.44 (Sharks) and $8.00 (Cowboys) mentioned in `market_mentions`. Sharks are strong favourites.\n\n    *   Winner: Home (Sharks).\n    *   Confidence: The model is at 0.76. The standings support this (5th vs 8th, huge points diff gap). Research shows a massive boost for the Sharks with the return of Hynes, Brailey, Iro, Wilton, and Trindall.\n    *   Strongest reason for loss: Sharks' recent form is poor (lost 4 of last 5, including a last-second loss to Storm). Cowboys are capable of high-scoring upsets.\n    *   Confidence Band: 0.65-0.75 (Clear edge). While the model is 0.76, the recent form (lost 4 of 5) keeps it from being \"rare\" (0.75+).\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Sharks\"\n    *   `away_team`: \"Cowboys\"\n    *   `confidence`: 0.72 (Adjusted slightly down from model due to recent form, but still a clear edge).\n    *   `summary`: Sharks enter as strong favourites with a significant ladder and points differential advantage. They receive a major boost with the return of key players including Nicho Hynes and Braydon Trindall (per sharks.com.au). While the Sharks have struggled in recent weeks, the combined strength of their returning stars and home-ground advantage at Allianz Stadium provides a clear edge.\n    *   `key_factors`:\n        1.  Math: Bradley-Terry strength and ladder points differential (14% each).\n        2.  Research: Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au).\n        3.  Scene: Sharks are 5th on the ladder with a +149 points difference compared to the Cowboys' 8th place and -84 difference.\n    *   `disagreements_with_math`: null.\n\n    *   No invented stats? Checked.\n    *   Math as prior? Checked.\n    *   Research quoted? Checked (sharks.com.au).\n    *   SHAP drivers correct? Checked (Bradley-Terry, Ladder points diff).\n    *   Conflict handled? No conflicted drivers used as plain support.\n    *   Attribution balance checked? Leans home.\n    *   Standings sanity check? 5th vs 8th, +149 vs -84. Correct.\n    *   Availability direction? Returns are positive. Puru is out (negative, but minor).\n    *   Weather? Not used.\n    *   Market? Acknowledged ($1.44 fav).\n    *   Confidence band? 0.72 is in the \"clear edge\" band.\n\n    *   Wait, the research says \"Sharks come into this game having lost four of their past five games\" (nrl_news). This is a credible reason they could lose.\n    *   Confidence: 0.72.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Sharks\"\n    *   `away_team`: \"Cowboys\"\n    *   `confidence`: 0.72\n    *   `summary`: The Sharks hold a significant advantage in ladder position and points differential, supported by a market price of $1.44. They are further bolstered by the return of key players including Nicho Hynes and Braydon Trindall (sharks.com.au). Despite a poor run of recent form, the combined weight of the math model and team news suggests a clear edge.\n    *   `key_factors`: [\n        {\"source\": \"math\", \"detail\": \"Strong Bradley-Terry strength advantage and ladder points differential (each contributing 14% to the model's home win prediction)\"},\n        {\"source\": \"research\", \"detail\": \"Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)\"},\n        {\"source\": \"scene\", \"detail\": \"Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference\"}\n    ]\n    *   `disagreements_with_math`: \"null\"",
+      "chars": 4488
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T21:42:25.389646+00:00",
+      "thinking": "The user wants me to audit a run ledger for an NRL prediction.\nI need to check eight specific criteria:\n1. `sourced_claims`: Are all player names, injuries, quotes, or team-list claims sourced from the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source (returning vs missing)?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed?\n\n- Home: Sharks\n- Away: Cowboys\n- Prediction: Home Win\n- Confidence: 0.72\n\n- \"Nicho Hynes and Braydon Trindall (sharks.com.au)\" -> Found in `sharks.com.au` body: \"KL Iro, Nicho Hynes, Blayke Brailey and Teig Wilton are all back in... Braydon Trindall has been named to return\".\n- \"Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)\" -> Found in `sharks.com.au` body.\n- \"Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference\" -> Found in `set_fixture_scene` response: Sharks pos 5, diff 149; Cowboys pos 8, diff -84.\n- \"market price of $1.44\" -> Not found in any tool output. The research results mention \"Odds\" in titles but no specific price of $1.44 is in the body excerpts.\n\n- Nicho Hynes, Braydon Trindall, etc. are described as returning. Source says \"all back in\" and \"named to return\". Correct.\n\n- \"Bradley-Terry strength advantage\" -> `favouring_Sharks_home_win`. Correct.\n- \"ladder points differential per game\" -> `favouring_Sharks_home_win`. Correct.\n\n- Weather is \"Fine\". It is not mentioned in the summary or key factors. Pass.\n\n- Key factor 2 is sourced from `sharks.com.au`. Pass.\n\n- Confidence is 0.72. Summary says \"combined weight of the math model and team news suggests a clear edge\". 0.72 is within 0.50-0.85. It's below 0.65? No, but is there a \"credible unresolved reason the pick could lose\"? The summary mentions \"poor run of recent form\" for Sharks. This justifies a confidence lower than the math probability (0.76). Pass.\n\n- Top drivers for Sharks: Bradley-Terry (14%), Ladder points diff (14%). Both are mentioned.\n- Minor drivers for Cowboys: Travel (2%), Penalties (2%), Rest (2%). None are mentioned as decisive. Pass.\n\n- `favouring_Sharks_home_win` top drivers:\n    - Bradley-Terry strength advantage (14%) -> Mentioned.\n    - Ladder points differential per game (14%) -> Mentioned.\n    - 5-game form: possession pct (13%) -> NOT mentioned.\n    - Pythagorean form (9%) -> NOT mentioned.\n- `favouring_Cowboys_away_win` top drivers:\n    - Away travel to venue (2%) -> NOT mentioned.\n    - 5-game form: penalties conceded (2%) -> NOT mentioned.\n    - Away rest (2%) -> NOT mentioned.\n\nWait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n\n- Sharks side:\n    1. Bradley-Terry (Mentioned)\n    2. Ladder points differential (Mentioned)\n    3. 5-game form: possession pct (NOT mentioned)\n- Cowboys side:\n    1. Away travel (NOT mentioned)\n    2. 5-game form: penalties (NOT mentioned)\n    3. Away rest (NOT mentioned)\n\nThe judge completely ignored the Cowboys' drivers and the 3rd Sharks driver.\n\n- `sourced_claims`: The market price \"$1.44\" is not in the provided tool outputs.\n- `omitted_math_signals`: Missed \"5-game form: possession pct\", \"Away travel to venue\", \"5-game form: penalties conceded\", and \"Away rest\".\n\nLet's double check the market price.\nResearch items:\n- `sportsnews.com.au` title mentions \"Odds\", but the body excerpt is cut off: \"Bet On This Match HERE\". No price.\n- No other source mentions $1.44.\nThis is a hallucination.\n\n- `sourced_claims`: Fail. Market price $1.44 is not in the sources.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail. Missed top drivers for Cowboys (Travel, Penalties, Rest) and 3rd driver for Sharks (Possession pct).\n\nWait, the prompt says \"Return ONLY JSON\".\n\nRefining `omitted_math_signals` evidence:\nTop drivers for Sharks: Bradley-Terry (ok), Ladder points diff (ok), possession pct (missing).\nTop drivers for Cowboys: Travel (missing), penalties (missing), rest (missing).\n\nRefining `sourced_claims` evidence:\n\"market price of $1.44\" is not found in any research body or scene field.\n\nFinal check on `confidence_justified`:\nConfidence 0.72. Math prob 0.76. Justification: \"combined weight of the math model and team news suggests a clear edge\" and \"Despite a poor run of recent form\". This is defensible.\n\nFinal check on `shap_attribution`:\n\"Bradley-Terry strength advantage\" and \"ladder points differential\" are both in `favouring_Sharks_home_win`. Correct.\n\nOne more look at `sourced_claims`:\n\"Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall\" -> `sharks.com.au` body: \"KL Iro, Nicho Hynes, Blayke Brailey and Teig Wilton are all back in... Braydon Trindall has been named to return\". Correct.\n\"Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference\" -> `set_fixture_scene` response. Correct.\n\nThe only hallucination is the price.\n\nThe omitted signals are:\n- 5-game form: possession pct (Sharks)\n- Away travel to venue (Cowboys)\n- 5-game form: penalties conceded (Cowboys)\n- Away rest (Cowboys)\n\nInstruction for judge:\n\"The market price of $1.44 is not sourced from the provided research. Additionally, several math drivers were not evaluated: '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' — please consider these and re-output.\"\n\nWait, the instruction should be short.\n\"Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output.\"\n\nActually, the prompt says \"name the skipped driver(s) and ask the judge to evaluate them\".\n\nLet's re-verify the `sourced_claims` check.\n\"market price of $1.44\" -> searched all bodies. Not there. Fail.\n\nLet's re-verify `omitted_math_signals`.\nSharks top 3: Bradley-Terry (yes), Ladder points diff (yes), possession pct (no).\nCowboys top 3: Travel (no), penalties (no), rest (no).\nFail.\n\nOne detail: \"5-game form: possession pct\" is the 3rd driver. The rule says \"first two or three\". I will include it.\n\nFinal JSON structure:\n`checks` array with 8 entries.\n`pass`: false.\n`issues`: [\"Market price $1.44 is not sourced from research.\", \"Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were omitted.\"]\n`instruction`: \"Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output.\"",
+      "chars": 7342
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T21:43:41.337647+00:00",
+      "thinking": "*   Winner: Sharks (Home)\n    *   Confidence: 0.72\n    *   Summary: Mentioned ladder, market price ($1.44), and player returns.\n    *   Key Factors: Math (Bradley-Terry, ladder diff), Research (player returns), Scene (ladder/points diff).\n\n    *   *Market price $1.44 is not sourced from research:* I cited it in the summary but didn't explicitly link it to the `market_mentions` or the specific research item.\n    *   *Math drivers omitted:*\n        *   `5-game form: possession pct` (+0.160 contribution, favoring Sharks).\n        *   `Away travel to venue` (0.024 contribution, favoring Cowboys).\n        *   `5-game form: penalties conceded` (0.024 contribution, favoring Cowboys, but marked as CONFLICT).\n        *   `Away rest` (0.022 contribution, favoring Cowboys).\n\n    *   *Market Price:* The `market_mentions` block explicitly lists `$1.44` and `$8.00` from `sportsnews.com.au`. I will now explicitly attribute this.\n    *   *Possession Pct:* This is a strong driver for the Sharks (13% of total). It indicates the Sharks have controlled the ball better recently.\n    *   *Away Travel (1,680 km):* This favors the Cowboys (2% of total). It's a minor factor.\n    *   *Penalties Conceded:* This is a \"CONFLICT\" driver. The raw value favors the home side, but the model nets it toward the away side (2% of total). It's negligible.\n    *   *Away Rest (14 days):* This favors the Cowboys (2% of total). Minor factor.\n\n    *   The math model is heavily skewed toward the Sharks (net 0.8167 vs 0.2003).\n    *   The \"Away\" drivers (travel, rest, penalties) are all very low weight (1-2% each).\n    *   The \"Home\" drivers (strength, ladder diff, possession, Pythagorean form) are high weight (9-14% each).\n    *   Research confirms the return of the core halves pairing (Hynes/Trindall) and other key players.\n    *   The market ($1.44) strongly aligns with the model (0.7649 probability).\n    *   The strongest reason the Sharks could lose: Their recent form (lost 4 of last 5, as per research and `recent_form_last_4`). This is a credible risk.\n    *   Confidence: 0.72 is reasonable. It's a clear edge but not a certainty given the recent form slump.\n\n    *   Winner: Home (Sharks)\n    *   Confidence: 0.72 (maintained)\n    *   Summary: Update to include the specific source for the market price and acknowledge the minor away-side drivers (rest/travel) while noting they are outweighed by possession and strength metrics.\n    *   Key Factors: Add the possession driver.\n    *   Disagreements: None.",
+      "chars": 2504
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-11T21:33:12.855045+00:00",
+      "payload": {
+        "queries": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Sharks vs Cowboys NRL round 28 preview",
+          "Sharks Cowboys NRL odds OR price OR favourite",
+          "Sharks Cowboys NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-11T21:38:35.710253+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "confidence": 0.72,
+          "summary": "The Sharks hold a significant advantage in ladder position and points differential, supported by a market price of $1.44. They are further bolstered by the return of key players including Nicho Hynes and Braydon Trindall (sharks.com.au). Despite a poor run of recent form, the combined weight of the math model and team news suggests a clear edge.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Bradley-Terry strength advantage and ladder points differential (each contributing 14% to the model's home win prediction)"
+            },
+            {
+              "source": "research",
+              "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+            },
+            {
+              "source": "scene",
+              "detail": "Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference"
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-11T21:42:25.390565+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The 'market price of $1.44' is not mentioned in any research body_excerpt or scene field."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Claims that Hynes, Trindall, and others are returning match the sharks.com.au source."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength and ladder points differential are correctly attributed to the Sharks' home win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from sharks.com.au."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.72 is within 0.50-0.85 and accounts for the Sharks' poor recent form."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP factors are treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers '5-game form: possession pct' (Sharks), 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' (Cowboys) were not addressed."
+            }
+          ],
+          "issues": [
+            "Market price $1.44 is not sourced from research.",
+            "Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were omitted from the evaluation."
+          ],
+          "instruction": "Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-11T21:43:41.337786+00:00",
+      "payload": {
+        "issues": [
+          "Market price $1.44 is not sourced from research.",
+          "Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were omitted from the evaluation."
+        ],
+        "instruction": "Market price $1.44 is unsourced. Math drivers '5-game form: possession pct', 'Away travel to venue', '5-game form: penalties conceded', and 'Away rest' were not addressed — please evaluate them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "confidence": 0.72,
+          "summary": "The Sharks hold a significant advantage in ladder position and points differential, supported by a market price of $1.44. They are further bolstered by the return of key players including Nicho Hynes and Braydon Trindall (sharks.com.au). Despite a poor run of recent form, the combined weight of the math model and team news suggests a clear edge.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Bradley-Terry strength advantage and ladder points differential (each contributing 14% to the model's home win prediction)"
+            },
+            {
+              "source": "research",
+              "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+            },
+            {
+              "source": "scene",
+              "detail": "Sharks are 5th on the ladder with a +149 points difference, significantly superior to the Cowboys' 8th place and -84 difference"
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "confidence": 0.72,
+          "summary": "The Sharks hold a clear edge based on a strong math prior (0.76 probability) and a market price of $1.44 (sportsnews.com.au). While the Cowboys benefit from 14 days of rest and the model notes the travel burden, these are outweighed by the Sharks' strength advantage and superior possession metrics. The return of the Hynes-Trindall halves pairing (sharks.com.au) further solidifies the home side's advantage despite their recent form slump.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong Bradley-Terry strength advantage and superior 5-game possession percentage (each contributing ~13-14% to the home win prediction)"
+            },
+            {
+              "source": "research",
+              "detail": "Return of key players Nicho Hynes, Blayke Brailey, KL Iro, Teig Wilton, and Braydon Trindall (sharks.com.au)"
+            },
+            {
+              "source": "scene",
+              "detail": "Significant ladder advantage (5th vs 8th) and a points difference gap of 233 points (+149 for Sharks vs -84 for Cowboys)"
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "5e65fbc28f86",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-11T21:32:51.326470+00:00",
+      "finished_at": "2026-09-11T21:32:54.756778+00:00",
+      "duration_ms": 3430,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Cowboys",
+        "season": null,
+        "round_number": 28,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "season": null,
+          "round_number": 28
+        },
+        "retrieved_at": "2026-09-11T21:32:51.326525+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 28,
+          "round_title": "Finals Week 1",
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "kickoff": "2026-09-12T19:50:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/sharks-v-cowboys/",
+          "match_mode": "Pre",
+          "match_id": "20261112830",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Grant Atkins"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Ziggy Przeklasa-Adamski"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Ashley Klein"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Riley Jones",
+                "position": "Centre",
+                "player_id": 100009035
+              },
+              {
+                "number": 4,
+                "name": "KL Iro",
+                "position": "Centre",
+                "player_id": 508649
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Braydon Trindall",
+                "position": "Five-Eighth",
+                "player_id": 504321
+              },
+              {
+                "number": 7,
+                "name": "Nicho Hynes",
+                "position": "Halfback",
+                "player_id": 502490
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Blayke Brailey",
+                "position": "Hooker",
+                "player_id": 504274
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Teig Wilton",
+                "position": "2nd Row",
+                "player_id": 507615
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Lock",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Siosifa Talakai",
+                "position": "Interchange",
+                "player_id": 504175
+              },
+              {
+                "number": 15,
+                "name": "Billy Burns",
+                "position": "Interchange",
+                "player_id": 505413
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Thomas Hazelton",
+                "position": "Interchange",
+                "player_id": 510238
+              },
+              {
+                "number": 19,
+                "name": "Toby Rudolf",
+                "position": "Interchange",
+                "player_id": 504326
+              },
+              {
+                "number": 20,
+                "name": "Niwhai Puru",
+                "position": "Interchange",
+                "player_id": 509464
+              },
+              {
+                "number": 22,
+                "name": "Mawene Hiroti",
+                "position": "Reserve",
+                "player_id": 504666
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Scott Drinkwater",
+                "position": "Fullback",
+                "player_id": 504087
+              },
+              {
+                "number": 2,
+                "name": "Braidon Burns",
+                "position": "Winger",
+                "player_id": 506040
+              },
+              {
+                "number": 3,
+                "name": "Jaxon Purdue",
+                "position": "Centre",
+                "player_id": 100008940
+              },
+              {
+                "number": 4,
+                "name": "Tom Chester",
+                "position": "Centre",
+                "player_id": 100004781
+              },
+              {
+                "number": 5,
+                "name": "Zac Laybutt",
+                "position": "Winger",
+                "player_id": 510612
+              },
+              {
+                "number": 6,
+                "name": "Jake Clifford",
+                "position": "Five-Eighth",
+                "player_id": 505894
+              },
+              {
+                "number": 7,
+                "name": "Tom Dearden",
+                "position": "Halfback",
+                "player_id": 506424
+              },
+              {
+                "number": 8,
+                "name": "Griffin Neame",
+                "position": "Prop",
+                "player_id": 100004869
+              },
+              {
+                "number": 9,
+                "name": "Reed Mahoney",
+                "position": "Hooker",
+                "player_id": 505460
+              },
+              {
+                "number": 10,
+                "name": "Jason Taumalolo",
+                "position": "Prop",
+                "player_id": 500301
+              },
+              {
+                "number": 11,
+                "name": "Heilum Luki",
+                "position": "2nd Row",
+                "player_id": 100001946
+              },
+              {
+                "number": 12,
+                "name": "Jeremiah Nanai",
+                "position": "2nd Row",
+                "player_id": 100006109
+              },
+              {
+                "number": 13,
+                "name": "Reuben Cotter",
+                "position": "Lock",
+                "player_id": 504374
+              },
+              {
+                "number": 14,
+                "name": "Soni Luke",
+                "position": "Interchange",
+                "player_id": 502756
+              },
+              {
+                "number": 15,
+                "name": "John Bateman",
+                "position": "Interchange",
+                "player_id": 502214
+              },
+              {
+                "number": 17,
+                "name": "Coen Hess",
+                "position": "Interchange",
+                "player_id": 500405
+              },
+              {
+                "number": 18,
+                "name": "Kaiden Lahrs",
+                "position": "Interchange",
+                "player_id": 100012039
+              },
+              {
+                "number": 19,
+                "name": "Ethan King",
+                "position": "Interchange",
+                "player_id": 100010520
+              },
+              {
+                "number": 20,
+                "name": "Kai O'Donnell",
+                "position": "Reserve",
+                "player_id": 506555
+              },
+              {
+                "number": 21,
+                "name": "Sam McIntyre",
+                "position": "Interchange",
+                "player_id": 504065
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 28,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Sharks",
+            "position": 5,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 672,
+            "points_against": 523,
+            "points_difference": 149,
+            "points_difference_per_game": 6.21,
+            "recent_form_last_4": "1 - 4",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "away": {
+            "team": "Cowboys",
+            "position": 8,
+            "played": 24,
+            "wins": 13,
+            "drawn": 0,
+            "lost": 11,
+            "competition_points": 32,
+            "points_for": 568,
+            "points_against": 652,
+            "points_difference": -84,
+            "points_difference_per_game": -3.5,
+            "recent_form_last_4": "2 - 2",
+            "streak": "1L",
+            "home_record": "7 - 5",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Sharks",
+            "ladder_positions_gap": 3,
+            "points_difference_per_game_gap": 9.71,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-12T19:00",
+            "temperature_c": 16.8,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 15.3,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-11T21:32:54.752914+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=28&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/sharks-v-cowboys/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "6160ae66b2c5",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-11T21:33:12.855882+00:00",
+      "finished_at": "2026-09-11T21:35:22.286437+00:00",
+      "duration_ms": 129430,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Cowboys",
+        "kickoff": "2026-09-12T19:50:00+10:00",
+        "round_number": 28,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Sharks vs Cowboys NRL round 28 preview",
+          "Sharks Cowboys NRL odds OR price OR favourite",
+          "Sharks Cowboys NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "kickoff": "2026-09-12T19:50:00+10:00",
+          "round_number": 28,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28",
+            "Sharks vs Cowboys NRL round 28 preview",
+            "Sharks Cowboys NRL odds OR price OR favourite",
+            "Sharks Cowboys NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-11T21:33:12.856232+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 11
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 12
+          }
+        },
+        "items": [
+          {
+            "id": "a1684418ea2009ee",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'My last opportunity': Old school approach serving McInnes to the end",
+            "url": "https://www.nrl.com/news/2026/09/12/could-be-my-last-game-mcinnes-sticking-to-old-school-approach-until-the-end/",
+            "published_at": "2026-09-11T20:01:21+00:00",
+            "snippet": "'My last opportunity': Old school approach serving McInnes to the end\nAs the two-minute bell sounds in the Cronulla sheds on Saturday night, Cameron McInnes will take a moment to pause and reflect.\nDepending on how the next 80 minutes play out, he could be about to run on to an N",
+            "body_excerpt": "'My last opportunity': Old school approach serving McInnes to the end\nAs the two-minute bell sounds in the Cronulla sheds on Saturday night, Cameron McInnes will take a moment to pause and reflect.\nDepending on how the next 80 minutes play out, he could be about to run on to an NRL field for the final time.\nIt's the same routine McInnes has followed all season, the Sharks enforcer aware his time in the NRL could end at any moment.\nThose emotions have never been more real this week, Cronulla to play North Queensland in a sudden-death final at Allianz Stadium.\nMcInnes chats Cowboys blockbuster\nWin and McInnes' career continues for another week. Lose and one of the game's last old-school forwards will walk off the field for the final time.\n\"I have a moment before each game where I have a thought to myself, 'this could be my last game',\" McInnes said.\n\"Last year when I did my knee, [before that game] I didn't think it was going to be the end of my season. At some point I'll have played my last game and that is important.\"\nMatch: Panthers v Roosters\nFinals Week 1 - Finals Week 1 - Sunday 13 Sep\nhome Team\nPanthers\n1st Position\naway Team\nRoosters\n4th Position\nVenue: CommBank Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nA tough, rugged forward who never gives an inch, McInnes looks like he was plucked straight out of the 1980s and plays like it too.\nThe NRL record holder for most tackles in a match, the forward has set the standard at every club he's played for.\nAfter making his debut with the Rabbitohs, McInnes joined the Dragons in 2017 before his final season in the Red V was over before it even began when he tore his ACL during the 2021 pre-season.\nHe then moved to the Sharks in 2022 and was tasked with bringing a hard edge to the Shire. It's no coincidence Cronulla have made the finals in every season he has spent with the club.\n*Almost all of Cameron McInnes's record breaking tackles count\n\"He's such an inspirational leader for our team,\" co-captain Blayke Brailey said. \"He's changed our club and the way we play, the way we prepare for games since he turned up.\n\"He's done so much for our game and our team and hopefully we can send him off on the high he deserves because he's given every part of his body for the game and our team and deserves northing more than to go out on a high.\"\nBrailey isn't joking when he said McInnes has given every part of his body to the sport.\nThe 32-year-old has undergone 15 operations throughout his career. Ironically, given how much defensive work he does, McInnes' shoulders are one of the few body parts to get through his career largely unscathed.\nCameron McInnes Try\nThere were fears his playing days were finished 12 months ago when he suffered a second ACL rupture. The injury brought a premature end to his 2025 campaign but McInnes returned to the field earlier this season and hasn't skipped a beat.\n\"I've had some small surgeries and a few major ones,\" McInnes said. \"I'm lucky I'm quite routine-based. That's important when you're coming out of surgery because you need to do everything right.\n\"I don't enjoy being injured but I do enjoy that process. That helps me get back on the field and I've learnt that you'll never feel good out there. Some players have to feel like a Ferrari, that's not me, I don't have to feel like that.\"\nWhile his playing style was plucked from a past era, McInnes has managed to adapt and thrive in the modern age of fast-paced rugby league.\nThe trend towards undersized middle forwards has led to a new role for the forward, who moved from hooker to lock when he joined the Sharks.\nWhile many feared players such as McInnes would struggle to find a home in the modern game, the veteran believes he has been a major beneficiary of the changes.\n\"When I first came through I was playing hooker and someone my size wasn't going to be trusted in the middle to play big minutes,\" McInnes said. \"The speed in the game has allowed me to play in the middle and that proba",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 1.5310711755555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Walker goes down with calf injury",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-09-11T10:46:41+00:00",
+            "snippet": "NRL Casualty Ward: Walker goes down with calf injury\nThe Rabbitohs' have been dealt a body blow at Allianz Stadium on Friday night with spiritual leader Cody Walker suffering a calf injury.\nWalker collapsed to the turf with no one around him in the 31st minute and immediately sig",
+            "body_excerpt": "NRL Casualty Ward: Walker goes down with calf injury\nThe Rabbitohs' have been dealt a body blow at Allianz Stadium on Friday night with spiritual leader Cody Walker suffering a calf injury.\nWalker collapsed to the turf with no one around him in the 31st minute and immediately signalled to the bench that he was in trouble.\nThe 36-year-old felt for his calf and hobbled to the sideline where he was visibly distressed as the reality set in that his season looks over.\nWalker sat on the bench for the second half with ice on his calf and carrying a crutch.\nThe Warriors have received a huge boost ahead of their qualifying final against the Dolphins with gun forward Jackson Ford set to return from a pectoral injury.\nAfter making a dynamic start to the season in which he averaged 161 run metres and 41 tackles per game, Ford suffered the injury in Round 16 against the Cowboys and initial fears were he could miss the rest of the year.\nFord has been named on the bench for the blockbuster Go Media Stadium showdown against the Dolphins, who get Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) back for their first ever final.\nNikorima and Finefeuiaki were given last week off to get over niggling injuries ahead of the finals.\nThe Roosters also have a star forward returning for their qualifying final against Penrith with Angus Crichton back after 11 games out with a foot injury.\nAlso back on deck at the Roosters are Victor Radley (concussion) and a posse of stars who were rested in Round 27 including James Tedesco , Daly Cherry-Evans and Rob Toia .\nThe Rabbitohs have Tallis Duncan back from a hamstring injury but will be without veteran back-rower Euan Aitken for the rest of the season after he fractured his scapula in the win over the Roosters.\nThe injury is a cruel blow for 31-year-old Aitken, who was on the verge of playing in just the second finals match of his 223-game career.\nAitken's only finals appearance came with the Dragons in his debut season in 2015.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nSouth Sydney's elimination final opponents Newcastle paid a heavy price for their loss to the Warriors in Round 26 with prop Trey Mooney out for the rest of the season with a fractured shoulder blade while prop Jacob Saifiti copped a season-ending four-game ban for a Reckless High Tackle.\nEdge forward Francis Manuleleua suffered a dislocated elbow against the Warriors but scans confirmed he had no fractures to his arm and he has been named to face Souths.\nCowboys trio Zac Laybutt (concussion), Griffin Neame (toe) and Jeremiah Nanai (knee) all return after missing the loss to Canberra in Round 27 but Murray Taulagi remains sidelined with ongoing concussion issues.\nStorm winger Siulagi Tuimalatu-Brown was taken to hospital as a precaution after he was stretchered from Ocean Protect Stadium last Saturday night.\nThe game was just five minutes old when Tuimalatu-Brown was taken low by Cam McInnes and Michael Gabrael over the top, with the Sharks debutant making high contact.\nIn an update on Sunday morning , the Storm said initial assessments indicate the youngster does not have a severe spinal injury but he will undergo further testing due to numbness in his arm.\n\"Siulagi was admitted to hospital overnight after concerns for a neck injury,\" the statement said. \"There was no severe spinal injury on initial assessment but he will undergo further scans today due to concerns for some ongoing numbness to the arm.\"\nThe Storm also lost halfback Jahrome Hughes to a hamstring injury late in the first half after he was twisted awkwardly while trying to clean up a loose ball.\nHughes will be sent for scans and faces a nervous wait for the results with the Kiwis' World Cup opener just six weeks away.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL C",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 10.77551562,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "78ee06cc6a3232d6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Sharks v Cowboys: Tricky treat for home fans; Nanai, Neame add punch",
+            "url": "https://www.nrl.com/news/2026/09/08/sharks-v-cowboys-tricky-treat-for-home-fans-nanai-neame-add-punch/",
+            "published_at": "2026-09-11T10:06:02+00:00",
+            "snippet": "Presented By\nSharks v Cowboys: Tricky treat for home fans; Nanai, Neame add punch\nNo strangers to facing off in finals - both the Sharks and Cowboys will be hoping to shake off their most recent form in this elimination final.\nThe Sharks come into this game having lost four of th",
+            "body_excerpt": "Presented By\nSharks v Cowboys: Tricky treat for home fans; Nanai, Neame add punch\nNo strangers to facing off in finals - both the Sharks and Cowboys will be hoping to shake off their most recent form in this elimination final.\nThe Sharks come into this game having lost four of their past five games - with their win in Round 25 against the Titans also seeing them have to fight back from a poor 16-8 deficit in the first half to claim the win.\nLast round, they had victory stolen from them in the final seconds, with the Storm producing a try of the year contender to snatch the win.\nFor the Cowboys, it has been an inconsistent season overall, with some highlight wins like taking down Penrith in a milestone match for Jason Taumalolo and record lows like their 82-12 loss to the Roosters.\nLast round, they were outplayed and out-enthused 50-30 by a Raiders side with nothing to lose, so will be looking to aim up for this must-win clash.\nThe two clubs have plenty of post-season history as well, so will be aiming to reset their campaigns and claim another win against their finals rivals.\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\n5th Position\naway Team\nCowboys\n8th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nSharks: A blow for the Sharks on Friday with bench utility Hohepa Puru dropping out due to illness. His place is taken by his brother Niwhai. Playmaker Braydon Trindall will have his shoulder heavily strapped but he is ready to tackle the Cowboys after missing the last two games. Nicho Hynes, Blayke Brailey, KL Iro and Teig Wilton are all back on deck after a rest in Round 27. Prop Tom Hazelton has served a one-game ban for dangerous contact and returns on the bench. The Sharks have won 14 of their last 17 games against the Cowboys.\nCowboys: A win at the judiciary for the Cowboys with co-captain Reuben Cotter getting a downgrade on a careless high tackle charge and copping a fine rather than a ban. Prop Griffin Neame (toe), back-rower Jeremiah Nanai (knee) and winger Zac Laybutt (concussion) all return so Coen Hess and John Bateman slide to the bench. Winger Braidon Burns will make his 100th NRL appearance. Sam McIntyre has been added to the interchange on Friday in place of Thomas Mikaele.\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Sharks is number 3 Riley Jones 3 Centre for Cowboys is number 3 Jaxon Purdue\nCentre for Sharks is number 4 KL Iro 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Cowboys is number 5 Zac Laybutt\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Cowboys is number 7 Tom Dearden\nForwards\nProp for Sharks is number 8 Addin Fonua-Blake 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Cowboys is number 9 Reed Mahoney\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Cowboys is number 12 Jeremiah Nanai\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Sharks is number 14 Siosifa Talakai 14 Interchange for Cowboys is number 14 Soni Luke\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Cowboys is number 15 John Bateman\n15\nInterchange for Sharks is number 16 Oregon Kaufusi 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Sharks is number 17 Thomas Hazelton 17 18 Interchange for Cowboys is number 18 Kaiden",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 11.45301562,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "c828f71ba1bd1b37",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 1 - Sharks lose Puru",
+            "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/",
+            "published_at": "2026-09-11T10:05:17+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 1 - Sharks lose Puru\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 match",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 1 - Sharks lose Puru\nGun forwards Jackson Ford and Angus Crichton return from long-term injuries for this weekend's qualifying finals and both are a chance for a call-up to the starting side.\nFord started in the middle in 13 of his 14 matches before suffering a pectoral injury in Round 16 while Crichton was part of Trent Robinson's starting side in his 13 matches before succumbing to a foot injury.\nA host of big-name stars return after being rested in Round 27, including Sharks quartet Nicho Hynes , Blayke Brailey , KL Iro and Teig Wilton , while playmaker Braydon Trindall is back after two games out with a shoulder injury but utility Hohepa Puru is a late withdrawal due to illness.\nSee all the late mail, official team news and updates for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 1\nWarriors v Dolphins, Saturday 4.05pm (AEST), 6.05pm (local time) at Go Media Stadium\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Warriors is number 17 Jackson Ford 17 Interchange for Dolphins is number 17 Connelly Lemuelu\n17\nInterchange for Warriors is number 18 Eddie Ieremia-Toeava 18 Interchange for Dolphins is number 18 Felise Kaufusi\n18\nInterchange for Warriors is number 20 Adam Pompey 20 19 Interchange for Dolphins is number 19 Bradley Schneider\n20 19\nReserves\nReserve for Warriors is number 21 Jett Cleary 21 22 Reserve for Dolphins is number 22 Tevita Naufahu\n21 22\nWarriors Ins\nJackson Ford\nKurt Capewell\nLeka Halasima\nWayde Egan\nDolphins Ins\nKodi Nikorima\nKulikefu Finefeuiaki\nSelwyn Cobbo\nWarriors Outs\nJye Linnane\nMakaia Tafua\nMorgan Gannon\nBrian Pouniu\nJake Averillo\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 6:04:02 AM\nWarriors: A huge in for the Wahs with Jackson Ford named for his first game since suffering a pectoral injury against the Cowboys in Round 16. Ford is listed on the bench but could be called into the starting side closer to game day. Centre Leka Halasima is back from an ankle injury while rested duo Wayde Egan and Kurt Capewell also return. Sam Healey, Adam Pompey and Eddie Ieremia-Toeava revert to",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 11.46551562,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9ed10a9fae83831b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals History lesson: Last time the contenders met in a final",
+            "url": "https://www.nrl.com/news/2026/09/11/history-lesson-last-time-the-contenders-met-in-a-final/",
+            "published_at": "2026-09-11T06:42:46+00:00",
+            "snippet": "History lesson: Last time the contenders met in a final\nA whole new competition starts this weekend as eight contenders go into battle across four matches in three days with one goal in mind.\nThe Panthers have proven themselves the masters of finals football across the past five ",
+            "body_excerpt": "History lesson: Last time the contenders met in a final\nA whole new competition starts this weekend as eight contenders go into battle across four matches in three days with one goal in mind.\nThe Panthers have proven themselves the masters of finals football across the past five years while the Roosters (2002, 2013, 2018, 2019), Sharks (2016), Cowboys (2015), Rabbitohs (2014) and Knights (2001) all have premierships to their name in the NRL era.\nThe Dolphins are in their first ever finals series and their opponents the Warriors have been here 10 times but never come away with a title.\nWith two sudden-death showdowns and two qualifying finals coming up this weekend, NRL.com takes a look at the most recent September clash between the sides.\nKnights v Rabbitohs\n2020 elimination final\nThe Rabbitohs and Knights have only met once in finals football, and it came in exactly the same circumstances as Friday night at Allianz Stadium.\nSix years ago, South Sydney and Newcastle finished sixth and seventh respectively before meeting in a sudden-death elimination final.\nNow, with the Rabbitohs sixth and the Knights seventh again, history is repeating itself as the two sides prepare to do battle for a place in the semi-finals.\nThere is still plenty of familiar faces from that 2020 clash.\nMatch Highlights: Rabbitohs v Knights\nAlex Johnston, Campbell Graham, Cody Walker, Tevita Tatola and Cameron Murray were all part of the Rabbitohs side that night six years ago, while Dane Gagai, who will now wear a Knights jersey, also featured for South Sydney.\nNewcastle has just three players remaining from that team in Kalyn Ponga, Bradman Best and Jacob Saifiti.\nAnd if Friday night follows the script from 2020, South Sydney will be hoping for a repeat of the result.\nThe Rabbitohs blew the Knights away 46-20, with Johnston crossing twice alongside Tatola, two names who will again feature in the elimination final six years later.\nAlex Johnston finds the line during the Bunnies' 46-20 win over the Knights in the 2020 elimination final.\nRoosters v Panthers\n2024 qualifying final\nThe Roosters and Panthers know each other all too well when it comes to September football.\nTheir last three finals meetings have all come in the qualifying final, and once again, they find themselves in exactly the same position.\nTheir most recent showdown came in 2024, when Penrith began its march towards a fourth straight premiership with a commanding 30-10 victory over the Roosters at BlueBet Stadium.\nPanthers v Roosters – Finals Week 1, 2024\nThere is still plenty of familiar faces from that clash, with the Panthers’ champion core and the Roosters’ star-studded spine preparing to renew one of the competition’s fiercest finals rivalries.\nPenrith has won four of its past five finals meetings with the Roosters, but with a preliminary-final spot and a precious week off on the line, history will count for little when these two heavyweight clubs collide again.\nYep, he's back!\nSharks v Cowboys\n2024 semi-final\nThe Sharks and Cowboys have plenty of finals history, and their most recent meeting could provide the perfect blueprint for another high-stakes showdown.\nThe two clubs have met six times in finals football, with the teams splitting those matches at three apiece but it was the Sharks who had the last laugh.\nSharks v Cowboys – Finals Week 2, 2024\nWhen the sides met in the 2024 semi-final at Allianz Stadium, Cronulla held on for a 26-18 victory to book a place in the preliminary final and end the Cowboys’ campaign.\nBraydon Trindall played a starring role that night, scoring twice, and now, two years on, he’ll return from injury with another chance to make his mark.\nThis time, there is no second chance.\nWith both sides fighting to keep their premiership dreams alive, Saturday afternoon’s clash promises another chapter in a finals rivalry that has produced plenty of drama over the years.\nRelated /\nAs it happened: Knights send Bunnies packing to keep the dream alive\nFinals\n'No one gave u",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.840793397777777,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c8036df6c4a9688f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals 'No one gave us a chance': Chasing pack desperate to defy history",
+            "url": "https://www.nrl.com/news/2026/09/10/no-one-gave-us-a-chance-chasing-pack-desperate-to-defy-history/",
+            "published_at": "2026-09-11T06:40:01+00:00",
+            "snippet": "'No one gave us a chance': Chasing pack desperate to defy history\nCronulla captain Blayke Brailey will draw on NSW's unexpected State of Origin series victory as the Sharks look to defy history by becoming the first team in more than three decades to win the NRL premiership from ",
+            "body_excerpt": "'No one gave us a chance': Chasing pack desperate to defy history\nCronulla captain Blayke Brailey will draw on NSW's unexpected State of Origin series victory as the Sharks look to defy history by becoming the first team in more than three decades to win the NRL premiership from outside the top four.\nIt's been 31 years since Terry Lamb led the Bulldogs from sixth place to premiership glory in 1995. While plenty of clubs have come close, the challenge of winning four-straight sudden death finals has proved an insurmountable task.\nIt's a stat this year's contenders are determined to change, with the Sharks leading a group of teams desperate to rewrite the record books.\nBrailey made his NSW debut during this year's series and returned from a broken arm to help the Blues defy history when they upset the Maroons in a Suncorp Stadium decider.\nFew gave Laurie Daley's men a chance when they travelled north for Game Three and Brailey said Cronulla will adopt a similar mindset throughout the finals campaign.\n\"We have the underdog mentality and we all enjoy that approach,\" Brailey told NRL.com. \"No one gives us a chance but it's similar to the Origin series in Game Three when no one gave us a chance. We found it a way and we turned it around.\n\"People thought we'd just turn up and lose and I'm sure in this finals series people just expect the same. We know what it takes now to deal with that pressure. We've got a few players in our side that love the underdog mentality so we're taking it all in and excited for the weeks to come.\"\nTrindall raring to return for Cowboys clash\nCronulla have received a major boost for Saturday's clash with North Queensland at Allianz Stadium with five-eighth Braydon Trindall named to return from a dislocated shoulder.\nThe Sharks are in a familiar position entering this year's finals series, Craig Fitzgibbon's men also finishing fifth last season before surging to the preliminary final.\nThe Cowboys don't have to look too far for inspiration in their bid for the premiership, with Jason Taumalolo and Coen Hess playing a key role in the club's charge from eighth to the 2017 grand final.\nNorth Queensland have also received a major boost in recent weeks with star halfback Tom Dearden making a successful return from an ankle injury.\nAlso looking to defy history this year are the Rabbitohs and Knights, who will do battle in a Friday night blockbuster at Allianz Stadium to kick off the weekend.\nTom Dearden Try\nBoth teams also have a track record of deep finals runs from outside the top four, with Newcastle progressing to the preliminary final in 2013 after finishing seventh on the ladder.\nFullback Kalyn Ponga has returned to the form that saw him claim the Dally M Medal in 2023 and has the potential to emulate Reece Walsh's stunning run to the premiership with the Broncos last year.\nSouth Sydney went from seventh to a prelim the last time they played finals football in 2022.\nThe Rabbitohs are peaking at the right time of year, with star centre Latrell Mitchell back on deck and powerful back-rower David Fifita back to his damaging best.\nLatrell Mitchell returns for the Rabbitohs\nWith finals experience spread across the park, South Sydney captain Cameron Murray is confident his team has the talent to upstage their more fancied rivals.\n\"We're not paying too much attention to the history books,\" Murray said. \"We're paying attention to the footy we can play and the product we can put on the field.\n\"If we're disciplined and we turn up with the right attitude, I'm confident we can be successful in the finals.\n\"We have a lot of big game experience in the team so that helps, but for us it's about our discipline and turning up to play the footy we know we can play.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats today.\nRelated /\nSharks v Cowboys: Tricky treat for home fans; Nanai, Neame add punch\nFinals\nHistory lesson: Last time th",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.886626731111111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "ee28a90007c65e30",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "The family heartbreak driving young Shark's finals bid",
+            "url": "https://www.nrl.com/news/2026/09/11/the-family-heartbreak-driving-young-sharks-finals-bid/",
+            "published_at": "2026-09-11T02:01:22+00:00",
+            "snippet": "The family heartbreak driving young Shark's finals bid\nCronulla young gun Riley Jones has opened up on his emotional journey to the NRL as he looks to honour his late father's legacy in Saturday's sudden-death final.\nThe centre will play just his second match for the Sharks when ",
+            "body_excerpt": "The family heartbreak driving young Shark's finals bid\nCronulla young gun Riley Jones has opened up on his emotional journey to the NRL as he looks to honour his late father's legacy in Saturday's sudden-death final.\nThe centre will play just his second match for the Sharks when they take on North Queensland in an elimination final at Allianz Stadium.\nJones' dad Shane lost his battle with leukaemia in 2021, with the youngster using that pain as motivation on a rugby league journey that saw him play a solitary game for the Knights in 2023 while living with Kalyn Ponga before a fresh opportunity emerged with the Sharks last year.\nRiley Jones Try\nHaving ended a 1099-day wait to make his second NRL appearance last weekend, the 24-year-old knows his father will be looking down with a smile when he runs on to Allianz Stadium on Saturday night.\n\"I feel safe out there and confident knowing that he's watching,\" Jones told NRL.com. \"I wish he could be here but I know he's watching.\n\"My family's been amazing since he died. Mum has been great and I've got an amazing partner so that helps make a situation like this a lot easier.\n\"My brother wants to do something to help raise awareness for leukaemia so he's shaved his head which is pretty special to see. He presented my Sharks jersey last week. He's pretty shy so for him to step out of his comfort zone and do that was special.\"\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\n5th Position\naway Team\nCowboys\n8th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nA Central Coast product, Jones was coached by his father throughout his junior playing days before eventually joining the Newcastle system.\nShane was a highly regarded coach in the region and played a role in the development of fellow NRL players Harry Hayes and Oryn Keeley.\nRiley Jones received his first Sharks jersey from his brother in an emotional presentation last week. ©Sharks Media\nJones was playing SG Ball for the Knights in 2021 when his father died and he's carried the lessons learnt from his dad throughout his career.\n\"It was a difficult time,\" Jones said of his dad's passing. \"It was covid so we couldn't see him a whole lot, which was the hardest bit. It's hard to talk about, it's not a nice situation but I'm fortunate to have all the years leading up to it with him.\n\"I learnt a lot off him growing up. He coached me all the way through juniors, there's a couple of other boys who played under him so it's cool to see those boys' journeys come to life and know dad had a little bit of an impact on their journey.\"\nJones lived with Ponga during his time at Newcastle, the pair striking a close bond over their shared interests in fashion and golf.\nA golf clothing range is currently in the works and they are looking to release the line over the summer once the rugby league season ends.\nKalyn Ponga Try\nWhile Jones played hooker during his time at the Knights before making the switch to centre last year, he credits Ponga for providing an insight into what it takes to be an NRL player.\n\"Looking back I was so fortunate to live with him and learn off him,\" Jones said. \"I was playing hooker so it was a different position but I learnt how he prepares for a game, how he can switch off when he needs to but then lock in when he needs to.\n\"He's one of my best mates now and we both love golf and fashion so we're going to try and combine the two to see where it takes us. We're focusing on footy at the moment but the clothing line is in the works and in the off-season we'll have a bit more time to make it come to life.\"\nJones impressed in his Sharks debut last weekend, scoring a try in a four-point loss to Melbourne.\nThe 24-year-old has been rewarded for his commitment over the past 18 months with a contract extension for the 2027 season.\nA rib injury to Mawene Hiroti saw Jones retain his place in the team for Saturday's sudden-death showdown, where he will line ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 19.530793397777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "cf4268478d22b005",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Finals Week 1",
+            "url": "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+            "published_at": "2026-09-08T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knigh",
+            "body_excerpt": "Presented By\nNRL Team Lists: Finals Week 1\nOfficial team lists, updates and injury news for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRabbitohs v Knights, Friday 7.50pm at Allianz Stadium\nMatch: Rabbitohs v Knights\nFinals Week 1 - Finals Week 1 - Friday 11 Sep\nhome Team\nRabbitohs\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Rabbitohs is number 1 Matthew Dufty 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Rabbitohs is number 2 Alex Johnston 2 Winger for Knights is number 2 Dominic Young\nCentre for Rabbitohs is number 3 Latrell Mitchell 3 Centre for Knights is number 3 Dane Gagai\nCentre for Rabbitohs is number 4 Jack Wighton 4 Centre for Knights is number 4 Bradman Best\nWinger for Rabbitohs is number 5 Campbell Graham 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Rabbitohs is number 6 Cody Walker 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Rabbitohs is number 7 Jayden Sullivan 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Rabbitohs is number 8 Tevita Tatola 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Rabbitohs is number 9 Brandon Smith 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Rabbitohs is number 10 Keaon Koloamatangi 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Rabbitohs is number 11 David Fifita 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Rabbitohs is number 12 Tallis Duncan 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Rabbitohs is number 13 Cameron Murray 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Rabbitohs is number 14 Jye Gray 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Rabbitohs is number 15 Lachlan Hubner 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Rabbitohs is number 16 Sean Keppie 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Rabbitohs is number 17 Jamie Humphreys 17 Interchange for Knights is number 17 Thomas Cant\n17\nReserve for Rabbitohs is number 18 Adam Elliott 18 Reserve for Knights is number 18 Fletcher Hunt\n18\nReserve for Rabbitohs is number 19 Latrell Siegwalt 19 Reserve for Knights is number 19 Toby Winter\n19\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Dave Munro\nTouch Judge: Belinda Sharpe\nSenior Review Official: Chris Butler\nLast updated: 9/11/2026 1:40:32 PM\nRabbitohs: Gun back-rower Tallis Duncan returns after sitting out the Roosters game due to hamstring tightness so Adam Elliott reverts to the bench and fills the void left by Euan Aitken (scapula). After being an unused reserve last week, Matt Dufty has won back the No.1 jersey from Jye Gray, who goes to the bench.\nKnights: Winger Dom Young and back-rower Tyson Frizell return from suspension while hooker Phoenix Crossland (knee) is also back to bolster Justin Holbrook's squad for the sudden-death showdown. A massive boost in the pack with edge forward Francis Manuleleua named to play despite dislocating his elbow just a fortnight ago against the Warriors. The season-ending shoulder injury to Trey Mooney brings Cody Hopwood into the starting side at prop. Fletcher Hunt and Harrison Graham slide to bench after starting in Round 26.\nWarriors v Dolphins, Saturday 4.05pm (AEST), 6.05pm (local time) at Go Media Stadium\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nWarriors\nDolphins\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Ei",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 87.57023784222223,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "85e1d75ce17034f2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Updated Cowboys NRL team list: Elimination Final v Sharks - North Queensland Cowboys",
+            "url": "https://www.cowboys.com.au/news/2026/09/11/updated-cowboys-nrl-team-list-elimination-final-v-sharks-at-allianz-stadium/",
+            "published_at": "2026-09-11T09:50:00+00:00",
+            "snippet": "Updated Cowboys NRL team list: Elimination Final v Sharks &nbsp;&nbsp; North Queensland Cowboys",
+            "body_excerpt": "Updated Cowboys NRL team list: Elimination Final v Sharks\nNorth Queensland Toyota Cowboys Head Coach Todd Payten has trimmed his squad to 20 for tomorrow night’s Elimination Final against the Cronulla-Sutherland Sharks.\nTom Mikaele (back) and Liam Sutton drop out of the squad named on Tuesday.\nSaturday’s game kicks off at 7.50pm.\nCowboys team to play Sharks:\n1. Scott Drinkwater\n2. Braidon Burns\n3. Jaxon Purdue\n4. Tom Chester\n5. Zac Laybutt\n6. Jake Clifford\n7. Tom Dearden (c)\n8. Griffin Neame\n9. Reed Mahoney\n10. Jason Taumalolo\n11. Heilum Luki\n12. Jeremiah Nanai\n13. Reuben Cotter (c)\nInterchange\n14. Soni Luke\n15. John Bateman\n17. Coen Hess\n18. Kaiden Lahrs\n19. Ethan King\n20. Kai O’Donnell\n21. Sam McIntyre\nRelated /\nPayten: Every team would love to have a player like him\nCowboys\nHenry on 2026 rookie class; update on Manzelmann\nFinals\nJoin the Stampede to Allianz Stadium!\nTeam Lists\nCowboys NRL team list: Elimination Final v Sharks\nFinal Cowboys NRL team list: Round 27 v Raiders",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 11.720237842222222,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "91929ebafefe4e64",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Week 1 Finals v Cowboys - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/08/nrl-team-list-week-1-finals-v-cowboys/",
+            "published_at": "2026-09-08T06:00:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Week 1 Finals v Cowboys\nCronulla's rested troops return to take on the Cowboys in an elimination final at Allianz Stadium this Saturday night.\nKL Iro, Nicho Hynes, Blayke Brailey and Teig Wilton are all back in after a week off, during which the Sharks",
+            "body_excerpt": "Presented By\nNRL Team List: Week 1 Finals v Cowboys\nCronulla's rested troops return to take on the Cowboys in an elimination final at Allianz Stadium this Saturday night.\nKL Iro, Nicho Hynes, Blayke Brailey and Teig Wilton are all back in after a week off, during which the Sharks fell to the Storm 24-20 at Ocean Protect Stadium.\n24-year-old Riley Jones was impressive in that game scoring a try on his club debut and has kept his spot in the centres for the North Queensland clash.\nBraydon Trindall has been named to return from a shoulder injury suffered in round 24.\nTrindall and Hynes are back together again; no other halves pairing has more try assists this season than the Sharks' generals.\nThe winner of Cronulla and North Queensland will play the loser of the Panthers and Roosters in Week 2 of finals.\nIt'll be a double-header as well, with the Sharks NRLW side taking on the Dragons at 5:10pm at Allianz Stadium.\nFollowed by kick-off in the NRL elimination final at 7:50pm this Saturday.\nSee the two team lists below.\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Sharks is number 3 Riley Jones 3 Centre for Cowboys is number 3 Jaxon Purdue\nCentre for Sharks is number 4 KL Iro 4 Centre for Cowboys is number 4 Tom Chester\nWinger for Sharks is number 5 Ronaldo Mulitalo 5 Winger for Cowboys is number 5 Zac Laybutt\nFive-Eighth for Sharks is number 6 Braydon Trindall 6 Five-Eighth for Cowboys is number 6 Jake Clifford\nHalfback for Sharks is number 7 Nicho Hynes 7 Halfback for Cowboys is number 7 Tom Dearden\nForwards\nProp for Sharks is number 8 Addin Fonua-Blake 8 Prop for Cowboys is number 8 Griffin Neame\nHooker for Sharks is number 9 Blayke Brailey 9 Hooker for Cowboys is number 9 Reed Mahoney\nProp for Sharks is number 10 Jesse Colquhoun 10 Prop for Cowboys is number 10 Jason Taumalolo\n10\n2nd Row for Sharks is number 11 Briton Nikora 11 2nd Row for Cowboys is number 11 Heilum Luki\n11\n2nd Row for Sharks is number 12 Teig Wilton 12 2nd Row for Cowboys is number 12 Jeremiah Nanai\n12\nLock for Sharks is number 13 Cameron McInnes 13 Lock for Cowboys is number 13 Reuben Cotter\n13\nInterchange\nInterchange for Sharks is number 14 Siosifa Talakai 14 Interchange for Cowboys is number 14 Soni Luke\n14\nInterchange for Sharks is number 15 Billy Burns 15 Interchange for Cowboys is number 15 John Bateman\n15\nInterchange for Sharks is number 16 Oregon Kaufusi 16 17 Interchange for Cowboys is number 17 Coen Hess\n16 17\nInterchange for Sharks is number 17 Thomas Hazelton 17 18 Interchange for Cowboys is number 18 Kaiden Lahrs\n17 18\nInterchange for Sharks is number 19 Toby Rudolf 19 Interchange for Cowboys is number 19 Ethan King\n19\nInterchange for Sharks is number 20 Niwhai Puru 20 21 Interchange for Cowboys is number 21 Sam McIntyre\n20 21\nReserves\nReserve for Sharks is number 22 Mawene Hiroti 22 20 Reserve for Cowboys is number 20 Kai O'Donnell\n22 20\nSharks Ins\nBlayke Brailey\nBraydon Trindall\nMawene Hiroti\nNicho Hynes\nTeig Wilton\nThomas Hazelton\nCowboys Ins\nGriffin Neame\nJeremiah Nanai\nZac Laybutt\nSharks Outs\nBraden Uele\nHohepa Puru\nMichael Gabrael\nRiley Pollard\nSamuel Stonestreet\nRobert Derby\nThomas Mikaele\nMatch Officials\nReferee: Grant Atkins\nTouch Judge: Ziggy Przeklasa-Adamski\nSenior Review Official: Ashley Klein\nLast updated: 9/11/2026 12:01:02 PM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Riley Jones - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Braydon Trindall - Totally Workwear Kirrawee 7 - Nicho Hynes - John Ryan Freight Services 8 - Addin Fonua-Blake - Hicon 9 - Blayke Brailey - Elite Legal 10 - Jesse Colquhoun - Picker Financial 11 - Briton Nikora - Guardian Venu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 87.55357117555555,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "455dd2d5cfefff7c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cronulla Sharks vs North Queensland Cowboys Tips, Odds, Teams & Predictions – NRL Finals Week 1 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/cronulla-sharks-vs-north-queensland-cowboys-tips-odds-teams-predictions-nrl-finals-week-1-2026/610222",
+            "published_at": "2026-09-09T07:44:45+00:00",
+            "snippet": "Cronulla Sharks vs North Queensland Cowboys Tips, Odds, Teams & Predictions – NRL Finals Week 1 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Cronulla welcomes back several important players for a challenging elimination final against a North Queensland side capable of producing plenty of points.\nWhen: Saturday September 12, 2026 at 7:50 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nCronulla Sharks vs North Queensland Cowboys Odds\nCronulla Sharks vs North Queensland Cowboys Preview\nCronulla begins this elimination final under pressure after losing four of its past five matches, but several important returns strengthen the side for another postseason meeting with North Queensland. Braydon Trindall is back to partner Nicho Hynes, while KL Iro, Blayke Brailey and Teig Wilton are recalled after being rested. Thomas Hazelton also returns to the pack. The Cowboys regain Griffin Neame, Jeremiah Nanai and Zac Laybutt, although their defence remains a concern after conceding 50 points against Canberra last week and more points than any other top-eight team across the season. North Queensland did beat Cronulla 46-34 in Round 8, while the Sharks won their most recent finals clash 26-18 in 2024. Ronaldo Mulitalo’s seven-game try-scoring streak against the Cowboys adds a clear edge threat. With its first-choice spine restored, Cronulla has the firmer foundation at Allianz Stadium.\nHead To Head Bet\nWe're tipping Cronulla Sharks to win at $1.44 odds.\nFirst Try Scorer\nFirst Try Scorer: Ronaldo Mulitalo at $8.00 .\nCronulla Sharks vs North Queensland Cowboys Teams\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Riley Jones 4. KL Iro 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 8. Addin Fonua-Blake 9. Blayke Brailey 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 14. Siosifa Talakai 15. Billy Burns 16. Oregon Kaufusi 17. Thomas Hazelton 18. Hohepa Puru 19. Toby Rudolf 20. Niwhai Puru 21. Samuel Stonestreet 22. Mawene Hiroti\nCowboys team: 1. Scott Drinkwater 2. Braidon Burns 3. Jaxon Purdue 4. Tomas Chester 5. Zac Laybutt 6. Jake Clifford 7. Tom Dearden 8. Griffin Neame 9. Reed Mahoney 10. Jason Taumalolo 11. Heilum Luki 12. Jeremiah Nanai 13. Reuben Cotter 14. Soni Luke 15. John Bateman 16. Thomas Mikaele 17. Coen Hess 18. Kaiden Lahrs 19. Ethan King 20. Kai O’Donnell 21. Sam McIntyre 22. Liam Sutton",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 61.80773784222222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "74cd576bb28d03b3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Warriors v Dolphins: Ford set to motor; Big Three return",
+            "url": "https://www.nrl.com/news/2026/09/08/warriors-v-dolphins-ford-set-to-motor-big-three-return/",
+            "published_at": "2026-09-11T06:09:51+00:00",
+            "snippet": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch",
+            "body_excerpt": "Presented By\nWarriors v Dolphins: Ford set to motor; Big Three return\nThe atmosphere at Go Media Stadium will be electric as the Warriors host a home final for the first time since a 40-10 win over the Knights in week two of the 2023 play-offs.\nWith the Wahs Nation at fever pitch and expectation growing that the club's first ever premiership could be just three wins away, the Dolphins are heading into an intimidating atmosphere that will test their mental and physical resolve.\nCoach Kristian Woolf is sure to have his men primed for their first finals match and the Phins have bragging rights over the Wahs courtesy of a 26-24 triumph in Round 17 at Suncorp Stadium.\nThe battle in the middle is set to rock the foundations of Go Media as James Fisher-Harris, Erin Clark and Mitch Barnett defend their turf against Tom Flegler, Max Plath and Tom Gilbert.\nThe prize for the winner is a week off to recharge the batteries before a preliminary final in front of a heaving home crowd daring to dream of a maiden premiership.\nMatch: Warriors v Dolphins\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nDolphins\n3rd Position\nVenue: Go Media Stadium, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nWarriors: A huge in for the Wahs on the bench with Jackson Ford named for his first game since suffering a pectoral injury against the Cowboys in Round 16. Centre Leka Halasima is back from an ankle injury while rested duo Wayde Egan and Kurt Capewell also return for the qualifying final. Sam Healey, Adam Pompey and Eddie Ieremia-Toeava revert to the six-man interchange while Jett Cleary is the reserve. Tryscoring machine Dallin Watene-Zelezniak remains sidelined with a collarbone injury. No changes in Friday's 24-hour update.\nDolphins: The Phins are at full strength for their first ever finals match with winger Selwyn Cobbo (ankle), back-rower Kulikefu Finefeuiaki (knee) and five-eighth Kodi Nikorima (hamstring) all back on deck after being given last week off to rest up and overcome niggling injuries. Tevita Naufahu remained in the squad as the reserve when it was trimmed on Friday.\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Dolphins is number 1 Hamiso Tabuai-Fidow\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Dolphins is number 2 Jamayne Isaako\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Dolphins is number 3 Jack Bostock\nCentre for Warriors is number 4 Leka Halasima 4 Centre for Dolphins is number 4 Herbie Farnworth\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Dolphins is number 5 Selwyn Cobbo\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Dolphins is number 6 Kodi Nikorima\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Dolphins is number 7 Isaiya Katoa\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Dolphins is number 8 Thomas Flegler\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Dolphins is number 9 Jeremy Marshall-King\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Dolphins is number 10 Tom Gilbert\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Dolphins is number 11 Max Plath\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Dolphins is number 13 Morgan Knowles\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Dolphins is number 14 Kurt Donoghoe\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Dolphins is number 15 Ray Stone\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Dolphins is number 16 Francis Molo\n16\nInterchange for Warriors is number 17 Jackson Ford 17 Interchange for Dolphins is number 17 Connelly Lemuelu\n17\nInterchange for Warriors is number 18 Eddie Ieremia-Toea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 15.389404508888889,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "688fc45b7e0c498f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "How do you get from eighth to a grand final? ‘A prime Jason Taumalolo helps’ - SMH.com.au",
+            "url": "https://www.smh.com.au/sport/nrl/how-do-you-get-from-eighth-to-a-grand-final-a-prime-jason-taumalolo-helps-20260910-p60w5l.html",
+            "published_at": "2026-09-11T05:59:00+00:00",
+            "snippet": "How do you get from eighth to a grand final? ‘A prime Jason Taumalolo helps’ &nbsp;&nbsp; SMH.com.au",
+            "body_excerpt": "Coen Hess doesn’t need to ponder long when asked what it takes for a team to rise from eighth to thrust themselves into an NRL grand final.\n“A prime Jason Taumalolo and Michael Morgan helps,” the Cowboys enforcer says with a laugh, recalling North Queensland’s scintillating 2017 finals campaign.\nThat season marked Hess as an NRL player – bursting onto the scene to garner a State of Origin call-up for Queensland as an impact back rower. Even playing most of his footy off the bench, the now 30-year-old scored 13 tries and ran for a career-best 108 metres a game.\nJason Taumalolo carried the Cowboys on his back in 2017. Can he do it again? Getty Images\nHe and Taumalolo are the last men standing from that 2017 charge, in which the Cowboys fell to the Melbourne Storm at the final hurdle.\nNo side has replicated the feat since, with every decider determined between two teams who completed the regular season inside the top four.\nIt was a fortuitous run, Hess recalls, as North Queensland needed the Dragons to lose their round 26 clash with the Bulldogs after the Cowboys fell to the Broncos earlier in the week in a run of five defeats in their past six games.\nBut when St George-Illawarra succumbed, a window opened. Coincidentally, Hess and his teammates faced the same rivals – the Sharks – as they will on Saturday night from the same position. It’s the seventh time they will square off in a finals’ campaign.\nHistory of Cowboys v Sharks in NRL finals\n2013 elimination final: Cronulla 20 def North Queensland 18 in a clash marred by controversy after Beau Ryan crossed in the corner in what was the seventh tackle of the set, after a miscount had ensued.\n2015 semi-final: North Queensland 39 def Cronulla as Johnathan Thurston set up two tries and another three linebreaks to book a preliminary final berth en route to a maiden title.\n2016 preliminary final: Cronulla 32 def North Queensland 20, with the Cowboys’ three tries in the final 10 minutes not enough to overcome a sluggish start. The week before, North Queensland had fought a 90-minute thriller against the Broncos in Townsville.\n2017 elimination final: North Queensland 15 def Cronulla 14, with Michael Morgan kicking an extra time field goal after the Cowboys trailed 8-2 at halftime.\n2022 qualifying final: North Queensland 32 def Cronulla 30 in a contest Coen Hess describes as “one of the best wins I’ve been a part of” after Valentine Holmes slotted a two-point field goal after 92 minutes.\n2024 semi-final: Cronulla 26 def North Queensland 18, as a Braydon Trindall masterclass – scoring twice and setting up another try – guided the Sharks home.\nThe season has not been smooth for the Cowboys – their historic 82-10 capitulation against the Roosters, and a heavy 50-30 loss to Canberra each occurring at home in their last five. No side in 2026’s top 12 have conceded as many as North Queensland’s 652 points.\nBut momentum, Hess believes, can be wrestled back quickly, as 2017 proved.\n“One win can really springboard you and give you a lot of confidence, and I think we just rode the high for as long as we could. We were just grateful to be in the position we were – we didn’t even know we were making finals, so we just got thrust into the finals and went on a run,” Hess says.\n“This year, the way the games go, anyone can beat anyone on their given day, so it’s just a matter of turning up each week, playing like it’s going to be your last game.\n“We haven’t really spoken about it [the 2017 campaign]. During the year you make running comments here and there, but it’s not something we’ve leant on.”\nIn their three finals victories en route to the grand final, Morgan and Taumalolo struck up a dominant combination.\nOn the back of Taumalolo’s 756 running metres and 13 tackle busts across those outings, Morgan scored and set up a try in each encounter to overcome the Sharks (15-14), Eels (24-16) and Roosters (29-16).\nCoen Hess believes one win is all it can take for the Cowboys to spark a surprising finals run.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.570237842222221,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "c6cb47bf85171718",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks vs Cowboys Preview & Betting Tips: 2026 NRL Elimination Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/sharks-vs-cowboys-preview-betting-tips-2026-nrl-elimination-final",
+            "published_at": "2026-09-11T03:59:24+00:00",
+            "snippet": "Sharks vs Cowboys Preview & Betting Tips: 2026 NRL Elimination Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Sharks vs Cowboys Preview & Betting Tips: 2026 NRL Elimination Final\nSeptember 11 th 2026, 1:58pm , By: Scooby\nThe second game on a Finals edition of NRL Super Saturday heads to Sydney for a blockbuster Elimination Final between the Sharks and Cowboys. Momentum is everything at this stage of the season and both sides previous performances were questionable. This contest will come down to which team can bounce back to the positive displays which has them qualified for the Finals in season 2026. Before You Bet is here to help with a detailed look at what is ahead in this contest.\nSharks vs Cowboys Prediction & Tips: 2026 NRL Elimination Final\nStumbling towards the Finals\nIt’s been a rough few weeks for the Sharks, winning just 1 of their past 5 matches. They took the option of resting several players in their Round 27 match against the Storm and were unsurprisingly defeated 24-20 at home. Despite this result, the spirit they showed to compete with a capable opponent highlights the belief within this team. It took a brilliant play in the dying seconds of the match for the visitors to prevail. They will be disappointed that they gave away an 18-12 HT lead but there are positive signs. With 48% they completed at 75%, ran for 8.4m per carry, and made 528 PCM’s. Defensively, they must be better as they missed a total of 50 tackles. Undoubtedly, their focus was on this match ahead of Round 27 and a week to rest to key players will serve them well.\nLimping towards the Finals\nIt’s been an inconsistent year for the Cowboys, perfectly highlighted by their 50-30 home loss to the Raiders last week to finish the regular season. Unable to alter their position on the ladder, a better showing was expected but they failed to deliver. The match was meant to be a positive launching pad towards the Finals. It was anything but that as they conceded 8 tries, allowed 8 line breaks, and missed 48 tackles. Thankfully, they can take confidence from making 10.9m per carry, 488 PCM’s, and 7 line breaks. Confidence will only take them so far though; a better standard of execution is demanded from teams who wish to achieve success at the business end of the season.\nStats that matter\n- The Sharks have won 7 of the past 10 against the Cowboys but were unsuccessful in Round 8, losing 46-34. Both teams have a negative record at this ground, but the Sharks (48%) do have an edge over the Cowboys (35%).\n- In the past 5 matches between these two sides, 3 games have been decided by 20 points or more. This has the average margin of victory sitting at 20 points. In the same number of matches, the average total points scored is 54.4 points.\n- The Sharks are the superior team on both sides of the ball this season. They score 28ppg n attack and concede 21ppg defensively. The Cowboys score 23ppg in attack but leak 27ppg in defence.\nKey players return to spark each team’s attack\nBoth sides receive a huge boost to spark their attack into action, but the different will likely come down to which team improves defensively. The Sharks have Hynes, Brailey, Iro, and most notably, Trindall, back in their team. Trindall’s omission in the past few weeks has coincided with a dip in performance as the attack has been one dimensional. The Cowboys have Neame, Nanai, and Laybutt back to their team. There is a strong argument that the inclusion of those players to their team increases the defensive resolve, while the news that Cotter is free to play is invaluable to them on both sides of the ball; he does plenty of work which goes unnoticed.\nUnfortunately for the Cowboys, having most of those players available for majority of the season has not ensured victory. It will also be a struggle here. If they allow the Sharks to control the ruck to a speed that benefits them, they will dominate their opponents up the middle. There is no doubt that they are more capable, but the Cowboys will take their chances, it’s just a matter of getting them. Gritty and determined, the Sharks can be tough to br",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.563571175555555,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "17511e9387f30faf",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Week 1 Finals v Cowboys - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/11/nrl-match-preview-week-1-finals-v-cowboys/",
+            "published_at": "2026-09-11T03:50:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Week 1 Finals v Cowboys\nCronulla have lost the recently re-signed Hohepa Puru to an illness 24 hours out from their elimination final.\nNo other changes ahead of the 5th-placed Sharks hosting the 8th-placed Cowboys at Allianz Stadium tomorrow night ",
+            "body_excerpt": "Presented By\nNRL Match Preview: Week 1 Finals v Cowboys\nCronulla have lost the recently re-signed Hohepa Puru to an illness 24 hours out from their elimination final.\nNo other changes ahead of the 5th-placed Sharks hosting the 8th-placed Cowboys at Allianz Stadium tomorrow night at 7:50pm.\nCronulla has hosted Week 1 Finals games at Ocean Protect Stadium in recent years, but a decision was made to move it to the bigger ground in Moore Park.\nNo complaints from Sharks coach Craig Fitzgibbon though, \"We're super excited about playing at Allianz Stadium. It's one of the best stadiums in the country, and it's got that big game atmosphere about it, and that's where we want to be.\"\n\"We've worked all year to get to this point, and we want to play in big games so we're super excited about that.\"\nThey're super excited to welcome Braydon Trindall back from a shoulder injury as well.\nThe Sharks half broke the club record for most try-assists in a season with 30 earlier in the year.\nHis halves partner Nicho also has 23, which means they have the most try assists (53) by a halves combination in recent memory.\n\"In my opinion it's been his (Trindall's) strongest season for the Sharks and he's grown up a lot and understands his position within the team and how commanding he can be,\" the Sharks coach said.\n\"I think also his combination with Nicho is probably the strongest it's been this season, so looking forward to getting him back.\"\nComing up against a North Queensland side that Cronulla have met six times in finals since 2013.\nBoth sides have won three apiece out of those encounters with the Cowboys knocking out the Sharks on their way to the 2015 title.\nThen the black, white and blue did the same on their route to winning the club's first premiership in 2016.\nThe Sharks have won three out of the four finals matches played between them at Allianz Stadium.\n\"It's semi-finals, so the most important thing is who gets it done tomorrow night,\" Fitzgibbon expressed.\n\"They've got some wonderfully talented players and have had some really strong performances this year, so we know what they can bring, but we know what we can bring too, and it's whoever brings it on the day.\"\nFitzgibbon is now the first Cronulla coach in the club's history to make five straight finals appearances.\nHis Sharks have won three of their past five Finals games, with preliminary final losses to Penrith in 2024 and Melbourne in 2025.\nCronulla has won 14 of the past 17 games against North Queensland, but the Cowboys won their last encounter in Round 8 in Townsville 46-34.\nThe Sharks have lost their past two games, and four of five going into this week, but have not lost three straight since 2024.\nCronulla receives the fewest penalties, concedes the equal third most in the NRL, and they also receive the equal most ruck infringements.\nNicho Hynes needs one point to become the outright third all-time Sharks points scorer, currently level with Luke Covell on 948 points.\nHynes is also chasing his 100th NRL win in what will be his 148th NRL game with a 67%-win record.\nSione Katoa requires one try to bring up his 100th NRL try, with only Andrew Ettingshausen (165), Ronaldo Mulitalo (112) and David Peachey (110) having done so for Cronulla.\nDon't miss the Sharks NRL and NRLW double-header on Saturday!\nCatch the Sharks women in action against the Dragons from 5:10pm at Allianz Stadium tomorrow.\nFollowed by the Sharks men in their all-important Week 1 Finals clash against the Cowboys at 7:50pm – get your tickets HERE .\nSee the 24-hour team lists below.\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\naway Team\nCowboys\nTeam Lists\nBacks\nFullback for Sharks is number 1 William Kennedy 1 Fullback for Cowboys is number 1 Scott Drinkwater\nWinger for Sharks is number 2 Sione Katoa 2 Winger for Cowboys is number 2 Braidon Burns\nCentre for Sharks is number 3 Riley Jones 3 Centre for Cowboys is number 3 Jaxon Purdue\nCentre for Sharks is number 4 KL Iro 4 Cent",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.72023784222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "d19b34dc6629e998",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘Anger, surprise, joy’: Coach’s wild ride to the finals - News.com.au",
+            "url": "https://www.news.com.au/sport/nrl/anger-surprise-and-then-joy-todd-payten-rides-the-emotional-rollercoaster-at-the-judiciary-says-50point-stat-is-ready-to-fall/news-story/1df950a905085749d11160487f60d3b9",
+            "published_at": "2026-09-11T02:36:22+00:00",
+            "snippet": "‘Anger, surprise, joy’: Coach’s wild ride to the finals &nbsp;&nbsp; News.com.au",
+            "body_excerpt": "‘Anger, surprise, and then joy’: Todd Payten rides emotional rollercoaster at judiciary, says 50-point stat ready to fall\nIf the Cowboys are to break a 118-year-old curse, then they’ll have one man to thank for keeping their season alive.\nThere are any number of Cowboys stars who can help coach Todd Payten keep their season going this weekend, but it’s the club’s secret weapon off the field who may have played the biggest role leading into Saturday’s elimination final.\nTom Hancock played a dozen games in the National Youth Competition for North Queensland and then spent eight seasons playing reserve grade, but his most valuable contribution came on Tuesday night at the judiciary .\nFormer player Tom Hancock helped Reuben Cotter avoid a ban at the judiciary. Picture: Brendan Radke.\nCowboys co-captain Reuben Cotter was facing a two-game ban for a high shot on Raiders legend Josh Papalii, and things didn’t look great when the panel found him guilty.\nBut Hancock – who represented him on Tuesday – had one more trick to play and got his client a downgrade, which means Cotter is free to face the Sharks, with Hancock helping him twice at the judiciary in the space of four weeks.\n“I think he’s had four cases for us this year and a 100 per cent strike rate, so he’s super smart,” Payten said.\n“The way he conducted things on Tuesday night was a masterclass and I think he was well prepared, very good at his craft, and I’m glad he’s representing our clients.”\nOthers you may like\nPayten, Cotter and Hancock appeared via video link on Tuesday and rode a wave of emotions as the different verdicts came through.\nCotter would have missed two games if he had been found guilty. Picture: Ian Hitchcock/Getty Images\n“Anger, surprise, and then joy. They’re the three emotions in the space of 15 minutes, but we’re here now and everyone’s super excited and looking forward to tomorrow night,” Payten said, thrilled to have his representative lock available.\n“We’ve seen him play Origin and how reliable he is in that arena. Finals is a similar pace, and to have someone with the ability to play 80 minutes in that environment is pretty crucial for us.\n“Every team would love to have a player like ‘Reubs’, and I’m glad he’s playing tomorrow.”\nThe Cowboys boast one of the most dynamic attacks in the league, but they also leaked more points than any of the top eight sides.\nThey are coming off a 50-30 loss last week and also conceded a staggering 82 against the Roosters, with no team in history winning the comp after giving up 50.\nThe Cowboys have had some bad defensive performances this year, with history suggesting they can’t win the comp. Picture: Ian Hitchcock/Getty Images\nMore Coverage\n“We get past it. This is a new competition,” Payten said of last week’s loss.\n“We’ve had some up-and-down moments throughout the season. I think there are probably two or three teams within the competition that haven’t had those, so we’re not on our own. We know our best footy is good enough and we’re here to play well.\n“The game has gotten so quick, it’s changed so much over 18 months. I think two teams have made the final before (after conceding 50) and got beaten in the GF. It’s going to happen eventually, so why not now?”\nAdd your comment to this story\nTo join the conversation, please log in. Don't have an account? Register\nJoin the conversation, you are commenting as Logout\nBennett goes nuclear in savage comments\nWayne Bennett has let rip in a savage post-game press conference after his Rabbitohs were sent packing from NRL finals.\nBennett blows up at the bunker as Bunnies bow out\nSouth Sydney’s season is officially over, but not before legendary coach Wayne Bennett unleashed an almighty attack on the bunker following a couple of controversial calls.\nKnightmare moments end South Sydney’s season\nLatrell Mitchell lost his cool when it mattered most and Cody Walker suffered a heartbreaking injury as the Knights knocked South Sydney out of the finals to continue their dream season.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.947460064444446,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "34512d0b13a9912a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Cowboys 'We deserve to be here': Purdue backs Cowboys to make finals chance count",
+            "url": "https://www.nrl.com/news/2026/09/10/we-deserve-to-be-here-purdue-backs-cowboys-to-make-finals-chance-count/",
+            "published_at": "2026-09-10T00:01:51+00:00",
+            "snippet": "'We deserve to be here': Purdue backs Cowboys to make finals chance count\nFrom cheering on the team as a child to preparing for his first finals series for the club, Jaxon Purdue can’t wait to “rip in” for the Cowboys in their sudden-death final against the Sharks.\nA North Devils",
+            "body_excerpt": "'We deserve to be here': Purdue backs Cowboys to make finals chance count\nFrom cheering on the team as a child to preparing for his first finals series for the club, Jaxon Purdue can’t wait to “rip in” for the Cowboys in their sudden-death final against the Sharks.\nA North Devils Mackay junior, the versatile Purdue has been named to pair with fellow exciting young North Queensland prospect Tom Chester in the centres as the team aim to claim their third win out of four finals games against the Sharks in Sydney.\nRelated Match Preview\nSharks v Cowboys: Tricky treat for home fans; Nanai, Neame add punch\n“I am very excited … it's my first ever finals appearance, so very excited and I can't wait to rip in on Saturday night,” Purdue said.\n“It's all pretty new to me, to be honest … we had a training session (today), we trained really well and it sort of didn't feel really much different.\n“But talking to some of the leaders and more experienced guys, they're saying through the back-end of the week, that's when the nerves start to kick in and a bit more pressure hits your way.\n“(For now) I feel like it's just another week and another game to play.\n“Obviously it's a do-or-die match, but that's what's so exciting about it and I can't wait.\nJaxon Purdue with fans at the club's opening training session in the lead up to their finals match against the Sharks. ©North Queensland Cowboys\n“It means a lot to us this final series, but I think to the whole of North Queensland, our fan base, it's a massive, massive thing for everyone here.\n“It's a great community and everyone gets behind us.\n“I still remember as a kid when the Cowboys would make the finals, I used to race home and that'd be the best thing and most exciting day for me – to watch the Cowboys play in the finals.\n“I still remember that 2022 match when they won against Sharks at Shark Park and it's a pretty cool experience to be able to finally play in a finals game and to put that Cowboys jersey on for a final … is very exciting.\"\nMatch Highlights: Sharks v Cowboys\nLike others in his team have conceded, Purdue admits consistency has been the side’s biggest weakness this season as their fought their way to an eighth-place finish.\nHowever, he felt his side deserved to be in the play-offs and knew what they needed to do in order to upset the fifth-placed Cronulla side.\n“In our meeting (this morning), we talked about how the past five weeks don't really matter and it's how you show up on a final game and play; and how you prepare for that game,” Purdue told NRL.com.\n“Because it is a do-or-die, you have got to scrap the past weeks out of your memory bank and really switch on.\n“From now on in, you have got to play your best game every game, otherwise you'll be knocked out.\nRelated Finals\nWins that defined a season for the eight title contenders\n“I think in the past weeks, we haven't respected our ball a lot, so I think we're making too many errors out of yardage, which is giving the other team way too many opportunities in our own end.\n“I think if we respect the ball, kick to our corners and just do the boring stuff right, that's really going to take us a long way out of the game.\n“Sharks have such a good spine and such a good team where we can't give them many opportunities, because they'll pounce on it.\n“We've got our homework to do this week ... and then we will know what we've got to do to beat them Saturday night.”\nJaxon Purdue and Tom Chester celebrate a try for the Cowboys. ©NRL Images\nWhile they recorded strong wins over heavyweight clubs throughout the season, including a defining win over the Panthers in Jason Taumalolo’s record-breaking game played in front of Tongan royalty, there have also been some historic lows.\nTheir 82-12 loss to the Roosters was a dark day for the club, with the Roosters 48-0 lead at the break also the highest halftime score in competition history.\nHowever, with doubter using those types of results as a reason to discount the Townsville-based side from progr",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 45.52273784222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "ddcf8d9d191e5142",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Gameday Guide: Week 1 Finals v Cowboys - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/09/nrl-gameday-guide-week-1-finals-v-cowboys/",
+            "published_at": "2026-09-09T07:00:00+00:00",
+            "snippet": "NRL Gameday Guide: Week 1 Finals v Cowboys\nThe 5th-placed Cronulla-Sutherland Sharks will host the 8th-placed North Queensland Cowboys at Allianz Stadium this Saturday night at 7:50pm (September 12) - get your tickets HERE .\nWith the winner advancing to Finals Week Two to meet th",
+            "body_excerpt": "NRL Gameday Guide: Week 1 Finals v Cowboys\nThe 5th-placed Cronulla-Sutherland Sharks will host the 8th-placed North Queensland Cowboys at Allianz Stadium this Saturday night at 7:50pm (September 12) - get your tickets HERE .\nWith the winner advancing to Finals Week Two to meet the loser of the Panthers v Roosters qualifying final, the club is calling all Cronulla fans to rise together and turn Allianz into Sydney's black, white and blue 'Shark Tank.'\nAs an added bonus, Saturday will be billed as a Sharks double-header, with the NRLW Sharks v Dragons match also relocated to Allianz and kicking off at 5.10‌pm.\nHere's all you need to know in our Week 1 Finals gameday guide!\nKey Timings: Saturday, September 12th 3.50pm - First round of Sharks shuttle buses depart Ocean Protect Stadium for Allianz Stadium 4.00pm - Sharks Official Fan Meet-Up opens at Watson’s Hotel, EQ 5.00pm - Gates Open at Allianz Stadium 5.02pm - G-train (dedicated train for Sharks fans) departs the Cronulla Train Station for Central Station 5.10pm - NRLW Round 11 Kick-Off: Sharks v Dragons 5.50pm - Second round of Sharks shuttle buses departs Ocean Protect Stadium 6.30pm - NRLW Full-Time (approx) 7.00pm - Sharks fans march from Watson's Hotel to Allianz Stadium 7.50pm – NRL Week 1 Finals Kick-Off: Sharks v Storm 9.40pm – NRL Full-Time (approx.) *Post-match - shuttle buses return to the Shire\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\n5th Position\naway Team\nCowboys\n8th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nWhat’s On: Sharks Week 1 Finals\nSHARKS FAN MEET-UP 4PM–7PM | Watson’s Hotel, EQ - Moore Park Sharks' fans, this one’s for you! Meet up with fellow Sharkies at Watson's EQ and a few Cronulla legends could be popping in as well. There'll be Sharks' merch giveaways and F&B discounts for ticket holders\nMARCH INTO STADIUM 7PM | Watson’s EQ → Allianz Stadium Then we march. Together. Sharks' fans uniting with drums, giant banners, Mermaids and some Cronulla legends to lead the pack. Join the crew, raise your voice, and rise together as we enter Sydney’s Shark Tank! One pack. One voice. Let’s make some noise.\nMake Allianz the SHARK TANK Black, white and blue should be the only colours in your wardrobe this week. Go all out and make a bold statement from head to toe. Allianz Stadium will light up in Sharks blue as we turn it into the SHARK TANK! Make sure you're there to get behind our NRLW and NRL teams.\n50-50 Charity Raffle We'll still be running the 50-50 Charity Raffle at Allianz Stadium, so purchase a ticket and go in the draw to win a big cash prize! This weekend's charity partner is the Sharks Have Heart Foundation, supporting the great work our club does in the local community. The other 50% will be pocketed by a lucky raffle winner.\nSee one of our Shark Crew members – unmissable in bright green! – or scan the QR code on the big screens to buy a ticket and support a great cause. If you can't make it to the game, CLICK HERE to enter the raffle online.\nSharks Mermaids It's not a home game without the peerless Sharks Mermaids! Who will deliver a very special performance after our NRLW match and before the NRL Finals clash at Allianz Stadium. Enjoy watching the NRL's finest cheer squad bring the heat pre-game\nSharks Finals Fever Fan Hub Send us your best Sharks photo, a message of support, or a 10 to 15 second video firing up the team. We will share them with the players, and you could be featured on Sharks socials - send via THIS link!\nNRL Finals Week 1 and NRLW Round 11 ticketing information\nTickets are now available to the general public via THIS link with a ticket valid for both NRLW and NRL games.\nTicketed Members must use their Advantage Access Number (AAN) to purchase tickets. Unique codes can be found by clicking HERE . Ticketed Members should keep a record of their AAN for seamless purchasing.\nNon-ticketed Members will be provided with a generic code via e",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 62.553571175555554,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "a9860eec2b55d8c1",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Trindall ready to spark Sharks in high-stakes comeback",
+            "url": "https://www.nrl.com/news/2026/09/08/trindall-ready-to-spark-sharks-in-high-stakes-comeback/",
+            "published_at": "2026-09-07T20:01:21+00:00",
+            "snippet": "Trindall ready to spark Sharks in high-stakes comeback\nSharks captain Blayke Brailey is confident Braydon Trindall's return from a shoulder injury will unlock halfback Nicho Hynes as Cronulla look to kickstart their finals campaign.\nTrindall is set to be named on Tuesday afternoo",
+            "body_excerpt": "Trindall ready to spark Sharks in high-stakes comeback\nSharks captain Blayke Brailey is confident Braydon Trindall's return from a shoulder injury will unlock halfback Nicho Hynes as Cronulla look to kickstart their finals campaign.\nTrindall is set to be named on Tuesday afternoon in the Sharks squad for Saturday's sudden-death clash with the Cowboys at Allianz Stadium.\nThe comeback comes just four weeks after the five-eighth dislocated his shoulder in a Round 24 loss to the Raiders, with Cronulla winning just one of three games without Trindall.\nTrindall dislocates shoulder while scoring try\nDespite missing the last month of the season, Trindall still finished the year as the NRL's try-assist leader, with a club record 30 try assists, and Brailey backed the playmaker to make an instant impact on Saturday night.\n\"It's a massive in for us,\" Brailey said. \"He's a great player. Everyone can see how good he is for our side. He brings so much calmness and joy to our game, not only with the ball but without it too.\n\"He's massive for us, he's looking fit and healthy and I'm keen to see him run out there again.\"\nMatch: Sharks v Cowboys\nFinals Week 1 - Finals Week 1 - Saturday 12 Sep\nhome Team\nSharks\n5th Position\naway Team\nCowboys\n8th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTrindall and Hynes have developed a unique combination over the past few years, the pair's contrasting styles complementing each other nicely on the field.\nWhile Hynes largely orchestrates the team's attack and steers the side around the park, Trindall takes charge in the attacking 20-metre zone to create opportunities for the Sharks outside backs.\nTrindall's short kicking game is also among the best in the business and Cronulla have used it to lethal effect this season.\nThe halves partnership has played a key role in the Sharks' emergence as a perennial finals contender, but the challenge now is to turn a top-eight finish into a premiership.\nTricky in everything\n\"Their partnership is huge for us,\" Brailey said. \"They kick really well, if one's running, the other will steer the team around. They're both sevens in their own right and they both can produce great plays for our side.\n\"They calm each other really well. They both drive the team, steer the direction of where we're going and off the field they're so close. Tricky's return will bring out the best in all of us, not just Nicho but the whole side.\"\nTrindall will need to hit the ground running if the Sharks are to keep their season alive with a victory over the Cowboys.\nNorth Queensland prevailed in a high-scoring affair when the two sides faced off in Round 8 and the recent return of halfback Tom Dearden has helped lift the Cowboys to another level.\nKennedy and Trindall win it with two massive plays\nWhile Trindall's attacking impact attracts much of the attention, his teammates feel the playmaker's defence often flies under the radar.\nThat, according to prop Addin Fonua-Blake, will prove crucial on Saturday night.\n\"It's no secret how big a part he plays for us,\" Fonua-Blake said. \"Him and Nicho complement each other so well. If we're going to do anything special in this competition, we're going to need them both for this end of the season.\n\"Those two can do things in a game you can't coach, that's what makes them great. When you're defending your line, you get the ball back and they can kick a 40-20.\n\"Then seeing the way they fight in defence, it's a good feeling seeing your halves putting their bodies on the line like that.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. The Sharks need your support as they chase premiership glory. Click here to secure your seats and get behind your team.\nRelated /\n'My last opportunity': Old school approach serving McInnes to the end\nFinals\n'No one gave us a chance': Chasing pack desperate to defy history\nThe family heartbreak driving young Shark's finals bi",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 97.53107117555555,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "da0cf129f48e177f",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sharks v Cowboys - Finals Week 1, 2026 - Match Centre - NRL.com",
+            "url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-1/sharks-v-cowboys/",
+            "published_at": "2026-09-06T08:39:40+00:00",
+            "snippet": "Telstra Premiership Finals Week 1 Sharks vs Cowboys\nTelstra Premiership\nPremier Partner\nMedia Partners\nMajor Partners",
+            "body_excerpt": "Telstra Premiership Finals Week 1 Sharks vs Cowboys\nTelstra Premiership\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 132.89246006444444,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 28",
+          "Sharks vs Cowboys NRL round 28 preview",
+          "Sharks Cowboys NRL odds OR price OR favourite",
+          "Sharks Cowboys NRL finals race OR ladder stakes",
+          "Sharks Cowboys NRL",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 28 Sharks OR Cowboys"
+        ],
+        "filter_summary": {
+          "dropped_stale": 55,
+          "dropped_wrong_round": 3,
+          "dropped_noise": 11,
+          "dropped_irrelevant": 19,
+          "kept": 20,
+          "deferred_pending_body": 77,
+          "promoted_after_body": 8,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "9d194a518456",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-11T21:33:12.855882+00:00",
+      "finished_at": "2026-09-11T21:35:22.286439+00:00",
+      "duration_ms": 129430,
+      "request": {
+        "home_team": "Sharks",
+        "away_team": "Cowboys",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-09-12T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7649,
+        "home_win_probability": 0.7649,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.40 log-strength) — contribution 0.173 (14% of total)",
+            "Ladder points differential per game (+9.4 points) — contribution 0.168 (14% of total)",
+            "5-game form: possession pct (+6.60) — contribution 0.160 (13% of total)",
+            "Pythagorean form (last 10) (+40% expected-win gap) — contribution 0.116 (9% of total)",
+            "Elo rating advantage (+46 points) — contribution 0.062 (5% of total)"
+          ],
+          "negative_drivers": [
+            "Away travel to venue (1,680 km) — contribution 0.024 (2% of total)",
+            "5-game form: penalties conceded (-1.80) — contribution 0.024 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Away rest (14.0 days) — contribution 0.022 (2% of total)",
+            "5-game form: effective tackle pct (-1.41) — contribution 0.017 (1% of total)",
+            "5-game momentum: penalty gap seconds (-29.82) — contribution 0.016 (1% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.017,
+            "total_toward_away": 0.2003,
+            "net": 0.8167,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: penalties conceded (-1.80)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Sharks",
+          "away_team": "Cowboys",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-09-12T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

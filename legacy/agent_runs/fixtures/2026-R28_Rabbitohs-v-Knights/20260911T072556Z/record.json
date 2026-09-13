@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "run_id": "20260911T072556Z-65d3bde8",
+  "run": {
+    "predicted_at_utc": "2026-09-11T07:37:54.971612+00:00",
+    "predicted_at_local": "2026-09-11T17:37:54.971612+10:00",
+    "started_at_utc": "2026-09-11T07:25:56.620692+00:00",
+    "wall_seconds": 718.4,
+    "hours_before_kickoff": 2.2,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 28,
+    "home_team": "Rabbitohs",
+    "away_team": "Knights",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-09-11T19:50:00+10:00",
+    "kickoff_local": "2026-09-11T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 28,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Rabbitohs",
+      "position": 6,
+      "played": 24,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 34,
+      "points_for": 694,
+      "points_against": 581,
+      "points_difference": 113,
+      "points_difference_per_game": 4.71,
+      "recent_form_last_4": "4 - 1",
+      "streak": "2W",
+      "home_record": "9 - 3",
+      "away_record": "5 - 7"
+    },
+    "away": {
+      "team": "Knights",
+      "position": 7,
+      "played": 24,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 34,
+      "points_for": 633,
+      "points_against": 591,
+      "points_difference": 42,
+      "points_difference_per_game": 1.75,
+      "recent_form_last_4": "2 - 2",
+      "streak": "2L",
+      "home_record": "8 - 4",
+      "away_record": "6 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Rabbitohs",
+      "ladder_positions_gap": 1,
+      "points_difference_per_game_gap": 2.96,
+      "points_difference_favours": "Rabbitohs"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=28"
+  },
+  "prediction": {
+    "predicted_winner": "Rabbitohs",
+    "predicted_side": "home",
+    "confidence": 0.6,
+    "home_win_probability": 0.6
+  },
+  "math_model": {
+    "home_win_probability": 0.5624,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "5-game form: all run metres (+125.40) — contribution 0.098 (13% of total)",
+        "Ladder points differential per game (+1.9 points) — contribution 0.061 (8% of total)",
+        "Elo rating advantage (+23 points) — contribution 0.036 (5% of total)",
+        "Bradley-Terry strength advantage (+0.12 log-strength) — contribution 0.026 (3% of total)",
+        "5-game form: points against (-3.40) — contribution 0.018 (2% of total)"
+      ],
+      "negative_drivers": [
+        "5-game momentum: penalty cluster rate (-1.00) — contribution 0.094 (12% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game form: kicking metres (+136.60) — contribution 0.039 (5% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "3-game form: kicking metres (+292.33) — contribution 0.032 (4% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Pythagorean form (last 10) (-3% expected-win gap) — contribution 0.031 (4% of total)",
+        "3-game form: errors (-2.33) — contribution 0.027 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "5-game momentum: penalty cluster rate (-1.00)",
+        "5-game form: kicking metres (+136.60)",
+        "3-game form: kicking metres (+292.33)",
+        "3-game form: errors (-2.33)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Rabbitohs NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 28",
+      "Rabbitohs vs Knights NRL round 28 preview",
+      "Rabbitohs Knights NRL odds OR price OR favourite",
+      "Rabbitohs Knights NRL finals race OR ladder stakes",
+      "Rabbitohs Knights NRL",
+      "Rabbitohs NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Rabbitohs Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 28 Rabbitohs OR Knights"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Finals History lesson: Last time the contenders met in a final 43 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T06:42:46+00:00",
+        "age_hours": 0.7284378794444444,
+        "url": "https://www.nrl.com/news/2026/09/11/history-lesson-last-time-the-contenders-met-in-a-final/"
+      },
+      {
+        "title": "Finals 'No one gave us a chance': Chasing pack desperate to defy history 46 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T06:40:01+00:00",
+        "age_hours": 0.7742712127777778,
+        "url": "https://www.nrl.com/news/2026/09/10/no-one-gave-us-a-chance-chasing-pack-desperate-to-defy-history/"
+      },
+      {
+        "title": "Team Lists NRL Late Mail: Finals Week 1",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T06:08:34+00:00",
+        "age_hours": 1.2984378794444447,
+        "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/"
+      },
+      {
+        "title": "Finals 'Falling into place': New mindset driving Latrell's premiership charge",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-10T20:01:22+00:00",
+        "age_hours": 11.418437879444443,
+        "url": "https://www.nrl.com/news/2026/09/11/falling-into-place-new-mindset-driving-latrells-premiership-charge/"
+      },
+      {
+        "title": "Match Preview Rabbitohs v Knights: Tallis gets green light; Manuleleua's miracle",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-10T09:52:02+00:00",
+        "age_hours": 21.573993435,
+        "url": "https://www.nrl.com/news/2026/09/08/rabbitohs-v-knights-tallis-gets-green-light-manuleleuas-miracle/"
+      },
+      {
+        "title": "NRL Casualty Ward: Pec pain over for Ford; Crichton good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Injuries",
+        "published_at": "2026-09-08T06:08:14+00:00",
+        "age_hours": 73.303993435,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Finals Week 1",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-08T05:59:00+00:00",
+        "age_hours": 73.45788232388888,
+        "url": "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/"
+      },
+      {
+        "title": "Wayne’s Latrell warning as Knights boost confirmed; Sharks stars face final hurdle — Finals Late Mail - foxsports.com.au",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T00:09:44+00:00",
+        "age_hours": 7.278993435,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-finals-2026-week-1-team-news-injuries-changes-late-mail-who-is-in-and-out/news-story/19748a07cd154a6af4a7810773fdcf09"
+      },
+      {
+        "title": "Rabbitohs vs Knights Prediction & NRL Betting Preview - 11/9/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-11T07:09:44+00:00",
+        "age_hours": 0.278993435,
+        "url": "https://insights.betfred.com/rugby-league/rabbitohs-vs-knights-prediction-betting-tips-friday-11-september-2026/"
+      },
+      {
+        "title": "Match Preview Wests Tigers v Raiders: Apps, Turnbull sidelined; Dodd in for Taufa",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T06:14:16+00:00",
+        "age_hours": 1.2034378794444445,
+        "url": "https://www.nrl.com/news/2026/09/08/wests-tigers-v-raiders-turnbull-good-to-go-dodd-in-for-taufa/"
+      },
+      {
+        "title": "Match Preview Warriors v Dolphins: Ford set to motor; Big Three return",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T06:09:51+00:00",
+        "age_hours": 1.2770489905555558,
+        "url": "https://www.nrl.com/news/2026/09/08/warriors-v-dolphins-ford-set-to-motor-big-three-return/"
+      },
+      {
+        "title": "Rabbitohs How Adam and Millie turned the Book of Feuds into a romance novel",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-11T00:01:52+00:00",
+        "age_hours": 7.4101045461111115,
+        "url": "https://www.nrl.com/news/2026/09/11/how-adam-and-millie-turned-the-book-of-feuds-into-a-romance-novel/"
+      },
+      {
+        "title": "South Sydney Rabbitohs vs Newcastle Knights: NRL elimination final preview and prediction - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T22:54:27+00:00",
+        "age_hours": 8.533715657222222,
+        "url": "https://www.zerotackle.com/south-sydney-rabbitohs-vs-newcastle-knights-nrl-elimination-final-preview-and-prediction-237970/"
+      },
+      {
+        "title": "South Sydney Rabbitohs vs Newcastle Knights live stream: How to watch the NRL finals online or on TV, start time, squads - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T20:04:14+00:00",
+        "age_hours": 11.370660101666665,
+        "url": "https://www.zerotackle.com/south-sydney-rabbitohs-vs-newcastle-knights-live-stream-how-to-watch-the-nrl-finals-online-or-on-tv-start-time-squads-237971/"
+      },
+      {
+        "title": "Knights Phoenix rises as Holbrook looks to keep the dream alive",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-10T20:01:21+00:00",
+        "age_hours": 11.418715657222222,
+        "url": "https://www.nrl.com/news/2026/09/11/phoenix-rises-as-holbrook-looks-to-keep-the-dream-alive/"
+      },
+      {
+        "title": "Shock Roosters comeback in mass changes; Wayne’s big switch as stars return: Teams Analysis - foxsports.com.au",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T10:58:06+00:00",
+        "age_hours": 20.47288232388889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-week-one-finals-team-lists-selection-news-and-injuries-jackson-ford-and-braydon-trindall-return-from-injuries/news-story/0c9c8d769df7b6c49596fabb0090a2ac"
+      },
+      {
+        "title": "Rabbitohs vs Knights Preview & Betting Tips: 2026 NRL Elimination Final - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-10T06:04:14+00:00",
+        "age_hours": 25.370660101666665,
+        "url": "https://www.beforeyoubet.com.au/rabbitohs-vs-knights-preview-betting-tips-2026-nrl-elimination-final"
+      },
+      {
+        "title": "Rabbitohs Two into seven won't go but Bud and Jamie find the solution",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-09T20:01:21+00:00",
+        "age_hours": 35.41871565722222,
+        "url": "https://www.nrl.com/news/2026/09/10/two-into-seven-wont-go-but-bud-and-jamie-find-the-solution/"
+      },
+      {
+        "title": "Rabbitohs v Knights: Finals Week 1 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-09T06:10:58+00:00",
+        "age_hours": 49.25843787944445,
+        "url": "https://www.nrl.com/news/2026/09/09/rabbitohs-v-knights-finals-week-1/"
+      },
+      {
+        "title": "Knights They can be my wingmen anytime: Ponga pins faith in flyers",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-09-09T06:01:31+00:00",
+        "age_hours": 49.41593787944445,
+        "url": "https://www.nrl.com/news/2026/09/09/they-can-be-my-wingmen-anytime-ponga-pins-faith-in-flyers/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The judgement omitted several top SHAP drivers from both the home and away groups."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "All claims match research bodies (e.g., Knights winning 3 of final 8 in 'Match Preview Rabbitohs v Knights') or scene data (e.g., Rabbitohs 9-3 home record)."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Latrell Mitchell is described as fit and in-form, matching the source 'looking in ominous form'."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Ladder points differential and Elo rating are correctly attributed to the Rabbitohs from the 'favouring_Rabbitohs_home_win' group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from 'nrl_news: Match Preview Rabbitohs v Knights'."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence of 0.6 is within the 0.50-0.85 range and justified by a 'modest edge' and home advantage."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judgement focuses on top-tier drivers and research-backed form."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers '5-game form: all run metres', '5-game momentum: penalty cluster rate', '5-game form: kicking metres', and '3-game form: kicking metres' were not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.6
+  },
+  "reasoning": {
+    "summary": "The Rabbitohs hold a modest edge, supported by a strong home record and a superior points differential. While the model's attribution balance leans slightly toward the Knights, this is driven by several conflicted metrics—including penalty cluster rates and kicking metres—where the raw values actually favour the Rabbitohs. Combined with the Knights' late-season slump and Latrell Mitchell's 'ominous form', the Rabbitohs are well-positioned to win this elimination final.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The Rabbitohs' strongest driver is their 5-game form in all run metres (+125.40), contributing 13% to the model's probability."
+      },
+      {
+        "source": "math",
+        "detail": "Several key drivers favoring the Knights (penalty cluster rate, kicking metres, and errors) are marked as CONFLICT, meaning the raw statistical values actually favour the Rabbitohs."
+      },
+      {
+        "source": "research",
+        "detail": "The Knights struggled late in the season, winning only three of their final eight games, while Latrell Mitchell is reported to be in 'ominous form' (nrl_news: 'Match Preview Rabbitohs v Knights')."
+      },
+      {
+        "source": "scene",
+        "detail": "Rabbitohs enter the match on a 2-game winning streak with a strong 9-3 home record, whereas the Knights are on a 2-game losing streak."
+      }
+    ],
+    "disagreements_with_math": "The model's attribution balance leans away (-0.0738), but this is offset by the fact that the primary drivers for the away side are conflicted raw values that actually favour the home side."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/legacy/agent_runs/fixtures/2026-R28_Rabbitohs-v-Knights/20260911T072556Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/legacy/agent_runs/fixtures/2026-R28_Rabbitohs-v-Knights/20260911T072556Z/summary.md"
+  }
+}

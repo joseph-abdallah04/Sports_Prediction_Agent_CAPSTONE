@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "run_id": "20260815T044822Z-a99ec147",
+  "run": {
+    "predicted_at_utc": "2026-08-15T05:00:27.628003+00:00",
+    "predicted_at_local": "2026-08-15T15:00:27.628003+10:00",
+    "started_at_utc": "2026-08-15T04:48:22.598240+00:00",
+    "wall_seconds": 725.0,
+    "hours_before_kickoff": 2.5,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 24,
+    "home_team": "Eels",
+    "away_team": "Cowboys",
+    "venue": "CommBank Stadium",
+    "kickoff": "2026-08-15T17:30:00+10:00",
+    "kickoff_local": "2026-08-15T17:30:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 24,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Eels",
+      "position": 13,
+      "played": 20,
+      "wins": 7,
+      "drawn": 0,
+      "lost": 13,
+      "competition_points": 20,
+      "points_for": 389,
+      "points_against": 572,
+      "points_difference": -183,
+      "points_difference_per_game": -9.15,
+      "recent_form_last_4": "1 - 3",
+      "streak": "1L",
+      "home_record": "4 - 6",
+      "away_record": "3 - 7"
+    },
+    "away": {
+      "team": "Cowboys",
+      "position": 8,
+      "played": 21,
+      "wins": 12,
+      "drawn": 0,
+      "lost": 9,
+      "competition_points": 28,
+      "points_for": 484,
+      "points_against": 560,
+      "points_difference": -76,
+      "points_difference_per_game": -3.62,
+      "recent_form_last_4": "3 - 2",
+      "streak": "1W",
+      "home_record": "6 - 4",
+      "away_record": "6 - 5"
+    },
+    "comparison": {
+      "higher_on_ladder": "Cowboys",
+      "ladder_positions_gap": -5,
+      "points_difference_per_game_gap": -5.53,
+      "points_difference_favours": "Cowboys"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=24"
+  },
+  "prediction": {
+    "predicted_winner": "Eels",
+    "predicted_side": "home",
+    "confidence": 0.56,
+    "home_win_probability": 0.56
+  },
+  "math_model": {
+    "home_win_probability": 0.5628,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "5-game form: points against (-9.40) — contribution 0.074 (9% of total)",
+        "3-game form: errors (+3.00) — contribution 0.053 (6% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Head-to-head record (last 5) (80% to the home side) — contribution 0.044 (5% of total)",
+        "Ladder points differential per game (-4.5 points) — contribution 0.025 (3% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here",
+        "Home travel to venue (0 km) — contribution 0.022 (3% of total)"
+      ],
+      "negative_drivers": [
+        "Elo rating advantage (-75 points) — contribution 0.133 (16% of total)",
+        "Bradley-Terry strength advantage (-0.45 log-strength) — contribution 0.124 (15% of total)",
+        "5-game form: all run metres (-96.20) — contribution 0.069 (8% of total)",
+        "Away rest (15.9 days) — contribution 0.027 (3% of total)",
+        "Away travel to venue (1,665 km) — contribution 0.021 (3% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (+3.00)",
+        "Ladder points differential per game (-4.5 points)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Eels NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Cowboys NRL injury OR \"late mail\" OR \"team list\" round 24",
+      "Eels vs Cowboys NRL round 24 preview",
+      "Eels Cowboys NRL odds OR price OR favourite",
+      "Eels Cowboys NRL finals race ladder stakes form",
+      "Eels Cowboys NRL",
+      "Eels NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Cowboys NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Eels Cowboys NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 24 Eels OR Cowboys"
+    ],
+    "items_kept": 18,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Late Mail: Round 24 - Crossland back, Best on hold for Knights Presented by 37 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-15T04:11:15+00:00",
+        "age_hours": 0.6269176063888888,
+        "url": "https://www.nrl.com/news/2026/08/12/nrl-late-mail-round-24---teddy-races-clock-knights-stars-return/"
+      },
+      {
+        "title": "Team Lists NRL Team Lists: Round 24",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-11T05:59:00+00:00",
+        "age_hours": 94.83108427305555,
+        "url": "https://www.nrl.com/news/2026/08/11/nrl-team-lists-round-24/"
+      },
+      {
+        "title": "Cowboys NRL team list: Round 24 v Eels - North Queensland Cowboys",
+        "source": "cowboys.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T05:53:00+00:00",
+        "age_hours": 94.93108427305556,
+        "url": "https://www.cowboys.com.au/news/2026/08/11/cowboys-nrl-team-list-round-24-v-eels-reed-returns/"
+      },
+      {
+        "title": "Parramatta Eels vs North Queensland Cowboys Tips, Odds, Teams & Predictions – NRL Round 24 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T15:40:11+00:00",
+        "age_hours": 61.14469538416667,
+        "url": "https://www.sportsnews.com.au/nrl/parramatta-eels-vs-north-queensland-cowboys-tips-odds-teams-predictions-nrl-round-24-2026/609874"
+      },
+      {
+        "title": "Live Blog Super Saturday: Sharks v Raiders; Eels v Cowboys; Broncos v Warriors Presented by 37 mins ago",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-08-15T04:11:51+00:00",
+        "age_hours": 0.6169176063888888,
+        "url": "https://www.nrl.com/news/2026/08/15/super-saturday-sharks-v-raiders-eels-v-cowboys-broncos-v-warriors/"
+      },
+      {
+        "title": "Injuries NRL Casualty Ward: Fresh Reynolds injury; Ramien's season over",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-14T10:43:19+00:00",
+        "age_hours": 18.092473161944444,
+        "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/"
+      },
+      {
+        "title": "Match Preview Eels v Cowboys: Walker back on deck; Mahoney good to go",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-08-14T07:37:02+00:00",
+        "age_hours": 21.197195384166665,
+        "url": "https://www.nrl.com/news/2026/08/11/eels-v-cowboys-walker-back-on-deck-mahoney-good-to-go/"
+      },
+      {
+        "title": "Eels vs Cowboys Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T07:00:00+00:00",
+        "age_hours": 45.814417606388886,
+        "url": "https://www.beforeyoubet.com.au/eels-vs-cowboys-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "NRL Press Conference: Eels v Cowboys - Round 24, 2026 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T09:10:00+00:00",
+        "age_hours": 67.64775093972221,
+        "url": "https://www.nrl.com/watch/matches/telstra-premiership/2026/round-24/nrl-press-conference-eels-v-cowboys---round-24-2026/"
+      },
+      {
+        "title": "Eels v Cowboys: Round 24 - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-12T05:03:06+00:00",
+        "age_hours": 71.76275093972222,
+        "url": "https://www.nrl.com/watch/news/eels-v-cowboys-round-24-1975477/"
+      },
+      {
+        "title": "NRL Team List Update: Round 24 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-14T07:30:00+00:00",
+        "age_hours": 21.314417606388886,
+        "url": "https://www.parraeels.com.au/news/2026/08/14/nrl-team-list-update-round-24/"
+      },
+      {
+        "title": "NRL Injury Report: Round 24 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T06:00:00+00:00",
+        "age_hours": 94.81441760638889,
+        "url": "https://www.parraeels.com.au/news/2026/08/11/nrl-injury-report-round-24/"
+      },
+      {
+        "title": "Team List: NRL Round 24 v Dragons - Wests Tigers",
+        "source": "weststigers.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T06:00:00+00:00",
+        "age_hours": 94.81441760638889,
+        "url": "https://www.weststigers.com.au/news/2026/08/11/team-list-nrl-round-24-v-dragons/"
+      },
+      {
+        "title": "NRL Team List: Round 24 - Parramatta Eels",
+        "source": "parraeels.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-11T06:00:00+00:00",
+        "age_hours": 94.81441760638889,
+        "url": "https://www.parraeels.com.au/news/2026/08/11/nrl-team-list-round-24/"
+      },
+      {
+        "title": "NRL Late Mail: Round 24 v Raiders",
+        "source": "sharks.com.au",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-08-10T04:49:00+00:00",
+        "age_hours": 119.99775093972222,
+        "url": "https://www.sharks.com.au/news/2026/08/15/nrl-late-mail-round-24-v-raiders/"
+      },
+      {
+        "title": "Broncos vs Warriors Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-15T03:17:03+00:00",
+        "age_hours": 1.5302509397222221,
+        "url": "https://www.beforeyoubet.com.au/broncos-vs-warriors-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "Knights vs Titans Preview & Betting Tips: NRL Round 24 2026 - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-14T14:08:33+00:00",
+        "age_hours": 14.671917606388888,
+        "url": "https://www.beforeyoubet.com.au/knights-vs-titans-preview-betting-tips-nrl-round-24-2026"
+      },
+      {
+        "title": "NRL Round 24 teams: Raiders star axed over ‘brain explosion’ - News.com.au",
+        "source": "news.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-08-13T03:48:51+00:00",
+        "age_hours": 49.00025093972222,
+        "url": "https://www.news.com.au/sport/nrl/nrl-teams-round-24-eels-star-isaiah-iongi-ruled-out-for-the-season/news-story/3e8f2b9ef18a7a662bffef54b8bf3d18"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "The market price '$1.52' is unsourced.",
+      "Math drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "fail",
+        "evidence": "The market price '$1.52' for North Queensland is not mentioned in any research body or title."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Walker and Mahoney are correctly described as returning."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "The head-to-head record driver is correctly attributed to the Eels (home win group)."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors are sourced from 'Before You Bet' and 'nrl_news'."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.56) is within the allowed range and reflects the conflict between H2H history and ladder/market position."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The judge acknowledges that Elo and strength ratings (larger drivers) favor the away side while using H2H to justify the pick."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Top drivers '5-game form: points against', '3-game form: errors', and '5-game form: all run metres' are not addressed."
+      }
+    ],
+    "recalibration_triggered": true,
+    "confidence_before_recalibration": 0.56
+  },
+  "reasoning": {
+    "summary": "The Eels are predicted to win based on a strong historical head-to-head record and the Cowboys' poor history at CommBank Stadium. While North Queensland is the market favourite and holds superior Elo ratings, Parramatta's recent defensive form and venue dominance provide a sufficient edge.",
+    "key_factors": [
+      {
+        "source": "research",
+        "detail": "According to 'Before You Bet', the Eels have won five of the last six meetings between these sides and the Cowboys have won only once in their last five visits to CommBank Stadium."
+      },
+      {
+        "source": "math",
+        "detail": "The model's home-win prediction is supported by a strong head-to-head record (80% win rate) and recent defensive form, specifically the '5-game form: points against' driver (contribution 0.074)."
+      },
+      {
+        "source": "math",
+        "detail": "The model nets the '3-game form: errors' driver toward the Eels (contribution 0.053), although this is a conflicted value where the raw stat actually favours the Cowboys."
+      },
+      {
+        "source": "math",
+        "detail": "Conversely, the Cowboys hold an advantage in '5-game form: all run metres' (contribution 0.069) and superior Elo ratings, which contributes to the model's attribution balance leaning toward the away side."
+      },
+      {
+        "source": "research",
+        "detail": "Both teams receive availability boosts with Dylan Walker returning for the Eels and hooker Reed Mahoney returning from concussion for the Cowboys ('nrl_news')."
+      }
+    ],
+    "disagreements_with_math": "The model's attribution balance leans away (0.4673 vs 0.3849), indicating that while it predicts a home win, the aggregate weight of ratings and run-metre data favours the Cowboys."
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Eels-v-Cowboys/20260815T044822Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R24_Eels-v-Cowboys/20260815T044822Z/summary.md"
+  }
+}

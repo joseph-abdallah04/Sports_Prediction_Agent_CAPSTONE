@@ -183,7 +183,10 @@ CONFIDENCE BANDS (where a number *belongs*, not a ladder to climb)
              prior is rare and needs a real this-week shock, not extra votes
              from the same math packet.
 - 0.75-0.85  rare: large ratings gap already in this band, confirmed by news
-- above 0.85 do not use
+- above 0.85 exceedingly rare: almost never use this unless there is 
+a virtual certainty that a given team will win. Given the 
+unpredictability of the sport, this band should be avoided in the 
+vast majority of cases
 
 Code will reject: pasting the math P without real `confirms`; going above
 0.65 without `confirms`; `conflicts` that keep or raise the math number.

@@ -1,0 +1,1260 @@
+{
+  "schema_version": 2,
+  "run_id": "20260925T030945Z-db3e3263",
+  "at_a_glance": {
+    "fixture": "Dolphins v Roosters",
+    "round": 30,
+    "kickoff": "2026-09-25T19:50:00+10:00",
+    "venue": "Suncorp Stadium",
+    "predicted_winner": "Dolphins",
+    "confidence": 0.62,
+    "model_home_win_probability": 0.6606,
+    "model_prediction": "Home Win",
+    "research_items_kept": 21,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": true,
+    "verifier_checks_reported": 8,
+    "recalibrated": false,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-25T03:09:45.958615+00:00",
+  "updated_at": "2026-09-25T03:19:22.447189+00:00",
+  "request": {
+    "home_team": "Dolphins",
+    "away_team": "Roosters",
+    "season": null,
+    "round_number": 30,
+    "force_refresh": true,
+    "user_question": "Who wins Dolphins vs Roosters?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Dolphins",
+    "away_team": "Roosters",
+    "confidence": 0.62,
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The return of star halfback Sam Walker, who is confirmed '100 per cent' fit after syndesmosis surgery.",
+    "loss_reason_specific": true,
+    "summary": "The Dolphins are in dominant form with an eight-game winning streak and a strong math prior of 0.66. While the Roosters have struggled recently with a three-game losing streak, the return of Sam Walker provides a significant boost to their attack. Confidence is set slightly below the math prior to account for Walker's availability.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Strong home lean driven by 5-game form run metres (18% contribution) and ladder points differential per game."
+      },
+      {
+        "source": "research",
+        "detail": "Roosters halfback Sam Walker is confirmed '100 per cent' and ready to return after missing three games (Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return)."
+      },
+      {
+        "source": "scene",
+        "detail": "Dolphins hold a higher ladder position (3rd vs 4th) and are on a 5-game winning streak."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 21,
+      "items_mentioning_both_teams": 21,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 8
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 12
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 10
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30",
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 30",
+      "Dolphins vs Roosters NRL round 30 preview",
+      "Dolphins Roosters NRL odds OR price OR favourite",
+      "Dolphins Roosters NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": false,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": true,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims regarding Sam Walker's return and fitness are sourced from 'Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return'; winning/losing streaks are sourced from Ladbrokes research; ladder positions are in the scene standings."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Source confirms Sam Walker is '100 per cent' and ready to return, and the judgement correctly describes this as a boost to the Roosters."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Run metres and ladder points differential are correctly attributed to the Dolphins (home win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 2 is sourced from the research article regarding Sam Walker."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.62) is correctly adjusted downwards from the math prior (0.66) to account for the conflict introduced by Sam Walker's return."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the primary SHAP drivers (18% and 9%)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "pass",
+          "evidence": "Both material drivers (run metres and ladder points differential) are explicitly named in the first key factor."
+        }
+      ],
+      "issues": [],
+      "instruction": ""
+    },
+    "instruction": "",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Dolphins",
+      "away_team": "Roosters",
+      "confidence": 0.62,
+      "research_stance": "conflicts",
+      "strongest_reason_could_lose": "The return of star halfback Sam Walker, who is confirmed '100 per cent' fit after syndesmosis surgery.",
+      "loss_reason_specific": true,
+      "summary": "The Dolphins are in dominant form with an eight-game winning streak and a strong math prior of 0.66. While the Roosters have struggled recently with a three-game losing streak, the return of Sam Walker provides a significant boost to their attack. Confidence is set slightly below the math prior to account for Walker's availability.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Strong home lean driven by 5-game form run metres (18% contribution) and ladder points differential per game."
+        },
+        {
+          "source": "research",
+          "detail": "Roosters halfback Sam Walker is confirmed '100 per cent' and ready to return after missing three games (Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return)."
+        },
+        {
+          "source": "scene",
+          "detail": "Dolphins hold a higher ladder position (3rd vs 4th) and are on a 5-game winning streak."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": null
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-25T03:10:17.986918+00:00",
+      "thinking": "*   Home Team: Dolphins\n    *   Away Team: Roosters\n    *   Round Number: 30\n    *   Goal: Determine who wins (requires availability, preview, odds, and specific context).\n\n    *   Query 1: Home team availability (Dolphins).\n    *   Query 2: Away team availability (Roosters).\n    *   Query 3: Fixture preview (Dolphins vs Roosters Round 30).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific context (Form/Finals/Pressure).\n\n    *   Query 1: `Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30`\n    *   Query 2: `Roosters NRL injury OR \"late mail\" OR \"team list\" round 30`\n    *   Query 3: `Dolphins vs Roosters NRL round 30 preview`\n    *   Query 4: `Dolphins Roosters NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 30 (very late in the season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Dolphins Roosters NRL finals race OR ladder stakes`\n\n    *   Keywords only? Yes.\n    *   No questions/full sentences? Yes.\n    *   4-10 words? Yes.\n    *   Order of importance followed? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames used? Yes.\n    *   JSON format? Yes.",
+      "chars": 1152
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-25T03:16:19.922523+00:00",
+      "thinking": "Dolphins (Home) vs. Roosters (Away).\nSuncorp Stadium.\nPreliminary Final (Finals Week 3).\n\n        *   `home_win_probability`: 0.6606.\n        *   `prediction`: \"Home Win\".\n        *   `shap_drivers` (Home): 5-game form run metres (18%), Ladder points diff per game (9%), Elo rating (7%), 5-game form points against (6%), Venue home advantage (3%).\n        *   `shap_drivers` (Away): Head-to-head (3%), 3-game form play the ball speed (3%), 5-game form missed tackles (3%), 3-game form kicking metres (2% - CONFLICT), Pythagorean form (2%).\n        *   `attribution_balance`: Home 0.5422 vs Away 0.2185 (Strong lean home).\n        *   `standings`: Dolphins (3rd, 17 wins, 5W streak), Roosters (4th, 16 wins, 3L streak).\n\n        *   *Sam Walker (Roosters):* Returning from syndesmosis surgery after missing 3 games. Coach Trent Robinson confirms he is \"100 per cent\" and \"ready to play\" (Source: \"Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return\").\n        *   *Dolphins Form:* On an 8-match winning streak, including a finals win over Warriors (Source: Ladbrokes).\n        *   *Roosters Form:* \"Limped into the finals\" (Source: Ladbrokes), currently on a 3-game losing streak (from `standings`).\n        *   *Other news:* Reece Robson (Roosters hooker) hailed as \"missing piece\" (Source: \"Finals 'Missing piece'...\").\n        *   *Market:* Ladbrokes tips Roosters to cover the line (+3.5); sportsnews.com.au tips Dolphins to win at $1.67.\n\n    *   Math prior is 0.66 (Home Win).\n    *   Research:\n        *   Dolphins are in peak form (8-game win streak, 5W streak in standings).\n        *   Roosters are in poor form (3L streak).\n        *   *However*, Sam Walker is returning. He is a star halfback. This is a positive for the Roosters.\n        *   The return of Sam Walker is a \"concrete reason\" that could shift the game, but does it flip a 0.66 probability? Probably not, but it's a significant factor.\n    *   `research_stance`: The return of Sam Walker *conflicts* with the math's strong home lean (since the math model likely doesn't fully account for the specific impact of a star returning from injury in a preliminary final). Wait, let's re-read the `research_stance` rules.\n        *   `confirms`: named team news backs the eventual pick.\n        *   `conflicts`: named team news cuts against the math favourite.\n        *   Since I'm picking Dolphins (math favourite), and Sam Walker returning helps the Roosters, this is `conflicts`.\n\n    *   Math prior: 0.66.\n    *   Research:\n        *   Dolphins form is dominant (8 wins).\n        *   Roosters form is poor (3 losses).\n        *   Sam Walker returning is a boost for Roosters.\n    *   Decision: Stick with Dolphins. The form gap (8W vs 3L) and the math prior (0.66) are strong.\n    *   Confidence: The prior is 0.66. Because there is a significant star returning for the opposition (Walker), I must come down from the prior.\n    *   Confidence Band: 0.55-0.65 (Modest edge). I'll set it around 0.60-0.62.\n\n    *   `winner`: \"home\"\n    *   `home_team`: \"Dolphins\"\n    *   `away_team`: \"Roosters\"\n    *   `confidence`: 0.62 (Reduced from 0.66 due to Walker's return).\n    *   `research_stance`: \"conflicts\" (Walker's return helps the Roosters).\n    *   `strongest_reason_could_lose`: The return of star halfback Sam Walker, who is confirmed \"100 per cent\" fit after surgery.\n    *   `loss_reason_specific`: true.\n    *   `summary`: The Dolphins enter the match in dominant form with an eight-game winning streak and a strong math prior of 0.66. While the Roosters have struggled recently (3L streak), the return of Sam Walker provides a significant boost to their attack. Confidence is adjusted slightly downward from the prior to account for Walker's availability.\n    *   `key_factors`:\n        1.  Math: 5-game form run metres and ladder differential (SHAP drivers).\n        2.  Research: Sam Walker's return (confirmed \"100 per cent\" by Trent Robinson in \"Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return\").\n        3.  Scene: Dolphins' current 5-game winning streak and 3rd place standing.\n    *   `disagreements_with_math`: null.\n\n    *   *Check SHAP drivers:* \"5-game form: all run metres\" is the biggest driver.\n    *   *Check Market:* $1.67 for Dolphins (sportsnews) suggests they are favourites.\n    *   *Check Confidence:* 0.62 is in the 0.55-0.65 band. Correct.\n    *   *Check Research Stance:* `conflicts` because Walker's return helps the non-pick. Correct.\n    *   *Check Loss Reason:* Specific to Walker. Correct.",
+      "chars": 4557
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-25T03:19:22.446513+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, etc.) in the research/scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right team?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.62) justified based on the math prior (0.66) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) covered?\n\n- Home: Dolphins\n- Away: Roosters\n- Math Prior (home_win_probability): 0.6606\n- Prediction: Home Win\n- Confidence: 0.62\n- Research Stance: conflicts\n\n- \"eight-game winning streak\" (Summary): Research \"Dolphins are on their second eight-match winning streak of the season\" (Ladbrokes).\n- \"three-game losing streak\" (Summary): Research \"Roosters limped into the finals with three straight losses\" (Ladbrokes).\n- \"Sam Walker... confirmed '100 per cent' fit after syndesmosis surgery\" (Strongest reason could lose, Key Factor): Research \"Roosters coach Trent Robinson has confirmed that halfback Sam Walker has done 'more than enough' to prepare himself for a comeback... Walker had syndesmosis surgery... 'The only reason that I would put Sam in is if I knew he was 100 per cent, and he's right'\" (Team Lists NRL Late Mail).\n- \"5-game form run metres (18% contribution)\" (Key Factor): Math `favouring_Dolphins_home_win` -> \"5-game form: all run metres (+173.40) — contribution 0.138 (18% of total)\".\n- \"ladder points differential per game\" (Key Factor): Math `favouring_Dolphins_home_win` -> \"Ladder points differential per game (+1.0 points) — contribution 0.067 (9% of total)\".\n- \"Dolphins hold a higher ladder position (3rd vs 4th)\" (Key Factor): Scene `standings` -> home position 3, away position 4.\n- \"5-game winning streak\" (Key Factor): Scene `standings` -> home streak \"5W\". (Note: Summary says 8-game, scene says 5W streak. Research says 8-game. This is consistent).\n\n- Sam Walker is returning/fit. Judgement says he is returning/fit. Pass.\n\n- \"5-game form run metres (18% contribution)\" -> `favouring_Dolphins_home_win`. Correct.\n- \"ladder points differential per game\" -> `favouring_Dolphins_home_win`. Correct.\n\n- Weather is \"Fine\" in scene. Not mentioned as a key factor in judgement. Pass.\n\n- Key factor 2 is sourced from research (Sam Walker). Pass.\n\n- Math prior: 0.6606.\n- Confidence: 0.62.\n- Adjustment: \"Confidence is set slightly below the math prior to account for Walker's availability.\"\n- Research stance: \"conflicts\".\n- Logic: The return of a star player (Walker) is a negative for the home team (Dolphins). Moving the confidence down from 0.66 to 0.62 is a reasonable research adjustment. Pass.\n\n- Top drivers (18%, 9%) are the ones highlighted. Pass.\n\n- Material drivers (>= 8%):\n    1. \"5-game form: all run metres (+173.40) — contribution 0.138 (18% of total)\" -> Mentioned in Key Factor 1.\n    2. \"Ladder points differential per game (+1.0 points) — contribution 0.067 (9% of total)\" -> Mentioned in Key Factor 1.\n- Both material drivers are covered. Pass.\n\nAll checks pass.",
+      "chars": 3349
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-25T03:10:17.987584+00:00",
+      "payload": {
+        "queries": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Dolphins vs Roosters NRL round 30 preview",
+          "Dolphins Roosters NRL odds OR price OR favourite",
+          "Dolphins Roosters NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-25T03:16:19.923415+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Dolphins",
+          "away_team": "Roosters",
+          "confidence": 0.62,
+          "research_stance": "conflicts",
+          "strongest_reason_could_lose": "The return of star halfback Sam Walker, who is confirmed '100 per cent' fit after syndesmosis surgery.",
+          "loss_reason_specific": true,
+          "summary": "The Dolphins are in dominant form with an eight-game winning streak and a strong math prior of 0.66. While the Roosters have struggled recently with a three-game losing streak, the return of Sam Walker provides a significant boost to their attack. Confidence is set slightly below the math prior to account for Walker's availability.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Strong home lean driven by 5-game form run metres (18% contribution) and ladder points differential per game."
+            },
+            {
+              "source": "research",
+              "detail": "Roosters halfback Sam Walker is confirmed '100 per cent' and ready to return after missing three games (Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return)."
+            },
+            {
+              "source": "scene",
+              "detail": "Dolphins hold a higher ladder position (3rd vs 4th) and are on a 5-game winning streak."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-25T03:19:22.446960+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": true,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims regarding Sam Walker's return and fitness are sourced from 'Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return'; winning/losing streaks are sourced from Ladbrokes research; ladder positions are in the scene standings."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Source confirms Sam Walker is '100 per cent' and ready to return, and the judgement correctly describes this as a boost to the Roosters."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Run metres and ladder points differential are correctly attributed to the Dolphins (home win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 2 is sourced from the research article regarding Sam Walker."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.62) is correctly adjusted downwards from the math prior (0.66) to account for the conflict introduced by Sam Walker's return."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the primary SHAP drivers (18% and 9%)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "pass",
+              "evidence": "Both material drivers (run metres and ladder points differential) are explicitly named in the first key factor."
+            }
+          ],
+          "issues": [],
+          "instruction": ""
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "71d4d0f86f90",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-25T03:09:45.958765+00:00",
+      "finished_at": "2026-09-25T03:09:49.657639+00:00",
+      "duration_ms": 3698,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Roosters",
+        "season": null,
+        "round_number": 30,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Dolphins",
+          "away_team": "Roosters",
+          "season": null,
+          "round_number": 30
+        },
+        "retrieved_at": "2026-09-25T03:09:45.958842+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 30,
+          "round_title": "Finals Week 3",
+          "home_team": "Dolphins",
+          "away_team": "Roosters",
+          "kickoff": "2026-09-25T19:50:00+10:00",
+          "venue": "Suncorp Stadium",
+          "venue_city": "Brisbane",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/dolphins-v-roosters/",
+          "match_mode": "Pre",
+          "match_id": "20261113010",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Tyson Brough"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Ashley Klein"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Hamiso Tabuai-Fidow",
+                "position": "Fullback",
+                "player_id": 100001936
+              },
+              {
+                "number": 2,
+                "name": "Jamayne Isaako",
+                "position": "Winger",
+                "player_id": 502014
+              },
+              {
+                "number": 3,
+                "name": "Jack Bostock",
+                "position": "Centre",
+                "player_id": 100007515
+              },
+              {
+                "number": 4,
+                "name": "Herbie Farnworth",
+                "position": "Centre",
+                "player_id": 508300
+              },
+              {
+                "number": 5,
+                "name": "Selwyn Cobbo",
+                "position": "Winger",
+                "player_id": 100004649
+              },
+              {
+                "number": 6,
+                "name": "Kodi Nikorima",
+                "position": "Five-Eighth",
+                "player_id": 500265
+              },
+              {
+                "number": 7,
+                "name": "Isaiya Katoa",
+                "position": "Halfback",
+                "player_id": 100006258
+              },
+              {
+                "number": 8,
+                "name": "Thomas Flegler",
+                "position": "Prop",
+                "player_id": 504315
+              },
+              {
+                "number": 9,
+                "name": "Jeremy Marshall-King",
+                "position": "Hooker",
+                "player_id": 502511
+              },
+              {
+                "number": 10,
+                "name": "Tom Gilbert",
+                "position": "Prop",
+                "player_id": 506156
+              },
+              {
+                "number": 11,
+                "name": "Max Plath",
+                "position": "2nd Row",
+                "player_id": 100002172
+              },
+              {
+                "number": 12,
+                "name": "Kulikefu Finefeuiaki",
+                "position": "2nd Row",
+                "player_id": 100007811
+              },
+              {
+                "number": 13,
+                "name": "Morgan Knowles",
+                "position": "Lock",
+                "player_id": 505736
+              },
+              {
+                "number": 14,
+                "name": "Kurt Donoghoe",
+                "position": "Interchange",
+                "player_id": 100005899
+              },
+              {
+                "number": 15,
+                "name": "Ray Stone",
+                "position": "Interchange",
+                "player_id": 503964
+              },
+              {
+                "number": 16,
+                "name": "Francis Molo",
+                "position": "Interchange",
+                "player_id": 500264
+              },
+              {
+                "number": 17,
+                "name": "Connelly Lemuelu",
+                "position": "Interchange",
+                "player_id": 507949
+              },
+              {
+                "number": 18,
+                "name": "Felise Kaufusi",
+                "position": "Interchange",
+                "player_id": 500598
+              },
+              {
+                "number": 19,
+                "name": "Bradley Schneider",
+                "position": "Interchange",
+                "player_id": 100002660
+              },
+              {
+                "number": 20,
+                "name": "Jake Averillo",
+                "position": "Reserve",
+                "player_id": 505643
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "James Tedesco",
+                "position": "Fullback",
+                "player_id": 500663
+              },
+              {
+                "number": 2,
+                "name": "Daniel Tupou",
+                "position": "Winger",
+                "player_id": 500002
+              },
+              {
+                "number": 3,
+                "name": "Billy Smith",
+                "position": "Centre",
+                "player_id": 509128
+              },
+              {
+                "number": 4,
+                "name": "Robert Toia",
+                "position": "Centre",
+                "player_id": 100008243
+              },
+              {
+                "number": 5,
+                "name": "Mark Nawaqanitawase",
+                "position": "Winger",
+                "player_id": 100018452
+              },
+              {
+                "number": 6,
+                "name": "Daly Cherry-Evans",
+                "position": "Five-Eighth",
+                "player_id": 500024
+              },
+              {
+                "number": 7,
+                "name": "Sam Walker",
+                "position": "Halfback",
+                "player_id": 100004843
+              },
+              {
+                "number": 8,
+                "name": "Naufahu Whyte",
+                "position": "Prop",
+                "player_id": 100006390
+              },
+              {
+                "number": 9,
+                "name": "Reece Robson",
+                "position": "Hooker",
+                "player_id": 503944
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Collins",
+                "position": "Prop",
+                "player_id": 501781
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Siua Wong",
+                "position": "2nd Row",
+                "player_id": 100004373
+              },
+              {
+                "number": 13,
+                "name": "Victor Radley",
+                "position": "Lock",
+                "player_id": 503920
+              },
+              {
+                "number": 14,
+                "name": "Connor Watson",
+                "position": "Interchange",
+                "player_id": 503327
+              },
+              {
+                "number": 15,
+                "name": "Angus Crichton",
+                "position": "Interchange",
+                "player_id": 503240
+              },
+              {
+                "number": 16,
+                "name": "Nat Butcher",
+                "position": "Interchange",
+                "player_id": 503639
+              },
+              {
+                "number": 17,
+                "name": "Spencer Leniu",
+                "position": "Interchange",
+                "player_id": 505560
+              },
+              {
+                "number": 18,
+                "name": "Hugo Savala",
+                "position": "Interchange",
+                "player_id": 509599
+              },
+              {
+                "number": 19,
+                "name": "Cody Ramsey",
+                "position": "Interchange",
+                "player_id": 509404
+              },
+              {
+                "number": 22,
+                "name": "Benaiah Ioelu",
+                "position": "Reserve",
+                "player_id": 100007527
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 30,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Dolphins",
+            "position": 3,
+            "played": 24,
+            "wins": 17,
+            "drawn": 0,
+            "lost": 7,
+            "competition_points": 40,
+            "points_for": 662,
+            "points_against": 506,
+            "points_difference": 156,
+            "points_difference_per_game": 6.5,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "8 - 4",
+            "away_record": "9 - 3"
+          },
+          "away": {
+            "team": "Roosters",
+            "position": 4,
+            "played": 24,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 38,
+            "points_for": 619,
+            "points_against": 501,
+            "points_difference": 118,
+            "points_difference_per_game": 4.92,
+            "recent_form_last_4": "2 - 3",
+            "streak": "3L",
+            "home_record": "8 - 4",
+            "away_record": "8 - 4"
+          },
+          "comparison": {
+            "higher_on_ladder": "Dolphins",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": 1.58,
+            "points_difference_favours": "Dolphins"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=30"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-25T19:00",
+            "temperature_c": 19.2,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 7.8,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -27.4649,
+            "longitude": 153.0095,
+            "venue": "Suncorp Stadium",
+            "venue_city": "Brisbane"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4649&longitude=153.0095&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-25T03:09:49.653296+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=30&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/dolphins-v-roosters/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4649&longitude=153.0095&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=30"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "8ef07b817e1f",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-25T03:10:17.990800+00:00",
+      "finished_at": "2026-09-25T03:12:24.116235+00:00",
+      "duration_ms": 126125,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Roosters",
+        "kickoff": "2026-09-25T19:50:00+10:00",
+        "round_number": 30,
+        "venue": "Suncorp Stadium",
+        "queries": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Dolphins vs Roosters NRL round 30 preview",
+          "Dolphins Roosters NRL odds OR price OR favourite",
+          "Dolphins Roosters NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Dolphins",
+          "away_team": "Roosters",
+          "kickoff": "2026-09-25T19:50:00+10:00",
+          "round_number": 30,
+          "venue": "Suncorp Stadium",
+          "queries": [
+            "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30",
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 30",
+            "Dolphins vs Roosters NRL round 30 preview",
+            "Dolphins Roosters NRL odds OR price OR favourite",
+            "Dolphins Roosters NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-25T03:10:17.991913+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 10
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 8
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 12
+          }
+        },
+        "items": [
+          {
+            "id": "cf3dc5e55584a898",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Team Lists NRL Team Lists: Preliminary Finals",
+            "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+            "published_at": "2026-09-22T06:00:15+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Preliminary Finals\nOfficial team lists, updates and injury news for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nDolphins v Roosters, Friday 7.50pm at Suncorp Stadium\nMatch: Dolphins v R",
+            "body_excerpt": "Presented By\nNRL Team Lists: Preliminary Finals\nOfficial team lists, updates and injury news for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nDolphins v Roosters, Friday 7.50pm at Suncorp Stadium\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Roosters is number 3 Billy Smith\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Roosters is number 4 Robert Toia\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Roosters is number 9 Reece Robson\nProp for Dolphins is number 10 Tom Gilbert 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Dolphins is number 11 Max Plath 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Dolphins is number 15 Ray Stone 15 Interchange for Roosters is number 15 Angus Crichton\n15\nInterchange for Dolphins is number 16 Francis Molo 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Dolphins is number 17 Connelly Lemuelu 17 Interchange for Roosters is number 17 Spencer Leniu\n17\nInterchange for Dolphins is number 18 Felise Kaufusi 18 Interchange for Roosters is number 18 Hugo Savala\n18\nInterchange for Dolphins is number 19 Bradley Schneider 19 Interchange for Roosters is number 19 Cody Ramsey\n19\nReserves\nReserve for Dolphins is number 20 Jake Averillo 20 22 Reserve for Roosters is number 22 Benaiah Ioelu\n20 22\nDolphins Ins\nFelise Kaufusi\nJake Averillo\nRoosters Ins\nBenaiah Ioelu\nSam Walker\nDolphins Outs\nTevita Naufahu\nToby Rodwell\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Tyson Brough\nSenior Review Official: Ashley Klein\nLast updated: 9/25/2026 2:08:02 AM\nDolphins: The big-game experience of Felise Kaufusi has earned him a spot on the six-man interchange for his first NRL game since Round 25. A two-time premiership winner with the Storm, Kaufusi is back in Kristian Woolf's squad after two finals appearances with Redcliffe in Qld Cup. Prop Tom Flegler failed a HIA early in the match against the Warriors in week one but has cleared the concussion protocols and will line up on Friday. Tevita Naufuhu drops to the reserves after being part of the 19 in Auckland a fortnight ago but failing to get a run. Jake Averillo and Brian Pouniu round out the extended squad.\nRoosters: A huge boost for the Roosters with halfback Sam Walker back on deck just 24 days after suffering a syndesmosis injury against the Dolphins and undergoing surgery. Daly Cherry-Evans moves back to five-eighth, Hugo Savala goes to the bench and Toby Rodwell makes way. Egan Butcher is listed among the reserves after coming through the concussion protocols. Tommy Talau and Benaiah Ioelu round out the squad.\nGet your preliminary final tickets HERE\nPanthers v Knights, Sunday 4.00pm at Accor Stadium\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nPanthers\nKnights\nFullback for Panthers is number 1 Dylan Edwards 1 F",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 69.16749775361112,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "dd7d5b40230ebf85",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Dolphins",
+            "title": "NRL Community Doing it for Yak: Friend's fighting spirit inspires Dolphins duo",
+            "url": "https://www.nrl.com/news/2026/09/24/doing-it-for-yak-friends-fighting-spirit-inspires-dolphins-duo/",
+            "published_at": "2026-09-23T21:01:21+00:00",
+            "snippet": "Doing it for Yak: Friend's fighting spirit inspires Dolphins duo\nDolphins duo Kurt Donoghoe and Jack Bostock have extra motivation driving them through the club’s historic finals campaign, with the bravery of a close friend inspiring them to make each moment matter.\nThey pair hav",
+            "body_excerpt": "Doing it for Yak: Friend's fighting spirit inspires Dolphins duo\nDolphins duo Kurt Donoghoe and Jack Bostock have extra motivation driving them through the club’s historic finals campaign, with the bravery of a close friend inspiring them to make each moment matter.\nThey pair have seen the unwavering resolve and fight of Jacek 'Yak' McLaurin, whose life was irrevocably changed while playing in a trial match earlier this year for Burleigh Bears. The outside back was involved in a tackle that went tragically wrong, landing on his head.\nKurt Donoghoe has been a key part of the charge to the finals for the Dolphins. ©Scott Davis / NRL Images\nHe was airlifted to hospital, where it was confirmed he sustained a catastrophic, life-changing spinal injury, where he had no feeling from the shoulders down, including fractures to his C4 and C5 vertebrae.\nAfter undergoing two major surgeries, he is now overseas receiving treatment and provides raw and honest updates on his social media about his progress – and sometimes lack thereof – and the challenges he continues to face.\nSpeaking before their preliminary final showdown with the Roosters, the pair shared how their friend had helped inspire them all season.\n“He inspires me a lot, he definitely motivates me,” Donoghoe told NRL.com.\n“What he's gone through, it'd be so hard.\n“To see him keep fighting and how strong he's been, it just makes me want to do the same and just keep fighting for success and for greatness.\n“I've got another friend that's been in a similar boat, had a bad injury, he would have liked to be playing footy – and I've had a few actually – and just for everyone that has gone down a path like that, it inspires me to just do what I can do because I'm very grateful to be where I am.\n“Whenever I play, that's why I try to play every game like it's my last and just try not to ever get too comfortable, because it could all be taken away from me within a minute.”\nJack Bostock has been in fine form for the Dolphins. ©NRL Images\nBostock first met the McLaurin family when he and Jacek were Shellharbour Stingrays juniors together and the friendship has continued ever since.\n“It's definitely something I've carried with me for this season,” Bostock said.\n“What's happened to him was obviously very, very upsetting for everyone, especially him.\n“Going from what he was doing, playing rugby league and doing everything to have that completely taken away from him in a matter of seconds.\n“It's pretty upsetting and just to see how strong he is and what he can do, still now for us, he's overseas getting treatment and doing his rehab, but we still catch-up on phone calls every now and then, we chat for hours, and he's so proud of what me and Kurt and also Plathy [Max Plath] are doing at the Dolphins.\n“He's met a lot of the boys here through living up here as well, and he's super proud of us, so we just want (to do him proud).\nRelated Match Preview\nDolphins v Roosters: Kaufusi recalled; Walker's miracle return\n“Especially me, I feel like when I'm going out there, there's definitely a little bit of extra motivation to just know what he would do to get back out on the footy field.\n“So just know that every game, play it like it's your last and just give it a red-hot crack for him.\n“(His experiences teaches you) every day's not given.”\nSince the injury, the rugby league community - like it so often does - has banded together to help raise funds to help support ‘Yak’ and his family.\nFriends Kurt Donoghoe, Jacek McLaurin and Jack Bostock in the Dolphins sheds. ©Jacek McLaurin Instagram\nThere was a Row for Yak challenge and a Sock Round for Yak raising money, while people can also donate directly through the 'Return of the Yak' GoFundMe and Family of League campaign.\n“The game we play, there's obviously injuries in it and it’s so unfortunate for it to happen to Yak playing the game that he loved and probably gave him everything in life, all his friends and all his connections,” Bostock said.\n“He's a great",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 30.149164420277778,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "971e613d780f29a6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Team Lists NRL Late Mail: Preliminary Finals - Walker '100 per cent' for return",
+            "url": "https://www.nrl.com/news/2026/09/24/nrl-late-mail-preliminary-finals---walker-100-per-cent-for-return/",
+            "published_at": "2026-09-24T10:03:08+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Preliminary Finals - Walker '100 per cent' for return\nRoosters coach Trent Robinson has confirmed that halfback Sam Walker has done \"more than enough\" to prepare himself for a comeback against the Dolphins.\nWalker had syndesmosis surgery after sufferin",
+            "body_excerpt": "Presented By\nNRL Late Mail: Preliminary Finals - Walker '100 per cent' for return\nRoosters coach Trent Robinson has confirmed that halfback Sam Walker has done \"more than enough\" to prepare himself for a comeback against the Dolphins.\nWalker had syndesmosis surgery after suffering the injury in Round 26 and has missed the Roosters' past three games.\n'The only reason that I would put Sam in is if I knew he was 100 per cent, and he's right,\" Robinson said on Wednesday.\n\"It hasn't been that long since he played and he got moving quite quickly after that operation so ready to play.\"\nSee all the late mail, official team news and updates for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Preliminary Finals\nDolphins v Roosters, Friday 7.50pm at Suncorp Stadium\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Roosters is number 3 Billy Smith\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Roosters is number 4 Robert Toia\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Roosters is number 9 Reece Robson\nProp for Dolphins is number 10 Tom Gilbert 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Dolphins is number 11 Max Plath 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Dolphins is number 15 Ray Stone 15 Interchange for Roosters is number 15 Angus Crichton\n15\nInterchange for Dolphins is number 16 Francis Molo 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Dolphins is number 17 Connelly Lemuelu 17 Interchange for Roosters is number 17 Spencer Leniu\n17\nInterchange for Dolphins is number 18 Felise Kaufusi 18 Interchange for Roosters is number 18 Hugo Savala\n18\nInterchange for Dolphins is number 19 Bradley Schneider 19 Interchange for Roosters is number 19 Cody Ramsey\n19\nReserves\nReserve for Dolphins is number 20 Jake Averillo 20 22 Reserve for Roosters is number 22 Benaiah Ioelu\n20 22\nDolphins Ins\nFelise Kaufusi\nJake Averillo\nRoosters Ins\nBenaiah Ioelu\nSam Walker\nDolphins Outs\nTevita Naufahu\nToby Rodwell\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Tyson Brough\nSenior Review Official: Ashley Klein\nLast updated: 9/25/2026 2:08:02 AM\nDolphins: Two-time premiership winner Felise Kaufusi is back in the fold for the do-or-die clash and brings 15 games of finals experience to the table. Five-eighth Kodi Nikorima (11) is the only other Dolphin with more than five finals appearances to his name. Kaufusi is back in Kristian Woolf's squad after two finals appearances with Redcliffe in Qld Cup. Prop Tom Flegler failed a HIA early in the match against the Warriors in week one but has cleared the concussion protocols and will line up on Friday. No changes in Thursday's 24-hour update with Jake Averillo remaining in the squad as the reserve.\nRoosters: A huge boost for the Roosters with halfback Sam Walker back on",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.119442198055555,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "59255c3c1e0b7f4f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Dolphins",
+            "title": "Departing Isaako embraces the firsts and lasts  in quest for decider",
+            "url": "https://www.nrl.com/news/2026/09/25/departing-isaako-embraces-the-firsts-and-lasts--in-quest-for-decider/",
+            "published_at": "2026-09-24T23:58:41+00:00",
+            "snippet": "Departing Isaako embraces the firsts and lasts in quest for decider\nEach step on their journey to finals has been a fresh ‘first’ for the Dolphins, but it has also been the beginning of the end for departing players, including Jamayne Isaako.\nA foundation player, Isaako won the c",
+            "body_excerpt": "Departing Isaako embraces the firsts and lasts in quest for decider\nEach step on their journey to finals has been a fresh ‘first’ for the Dolphins, but it has also been the beginning of the end for departing players, including Jamayne Isaako.\nA foundation player, Isaako won the club’s inaugural Arthur Beetson Medal as player of year and has never missed a game for the club. And until their Round 19 horror show against the Sharks where they suffered a 66-0 loss, he had scored in every game.\nJamayne Isaako goes for goal. ©NRL Images\nHowever, the bursting stocks of backline talent and rise of young players like Tevita Naufahu meant there was no longer the space to keep him beyond 2026, which he hopes will end with the Dolphins lifting the trophy on grand final day.\nHe joins Kodi Nikorima (Dragons) and Jake Averillo (Wests Tigers) as players parting ways with the club as season's end, with fan favourite Ray Stone also hanging up his boots.\n“Obviously I know I'm leaving at the end of this year and it has been a bit emotional reflecting on it,” the Melbourne-bound Isaako said.\n“After the last regular season game against the Titans … driving home on the bus, on the M1, there was a long drive from the Goldie back to Brisbane, but I reflected on it a little bit, and it is a bit of a bittersweet moment.\n“I'm moving on at the end of this year, and being in this finals campaign, I want to give it a red-hot crack.\nWoolf: 'Back ourselves and enjoy the moment'\n“I think everyone understands it's hard to get to this point.\n“It's a long season and not too many teams get the opportunity to play finals.\n“I'm certainly coming towards the back end of my career and I probably won't have too many of these opportunities again, so it is special to play with the bunch of boys here as well.\n“There's so much talent in this group and the sky's the limit for everyone.\n“If we can make something work and hopefully get ourselves to the big dance, then I'm sure we'll give ourselves every opportunity to get what we want.”\nJamayne Isaako runs the ball. ©Scott Davis / NRL Images\nOne of the team’s most reliable performers, the Kiwis winger has also claimed the top-point-scoring award for three of the past four seasons, with his goal-kicking accuracy achieved by following a meticulous routine and putting in countless hours of extras.\n“It hasn't been something that I've been thinking of … (but) it's something I’m certainly proud of,” Isaako said.\n“Obviously the last couple of years, our attacking – especially here at the Dolphins – has been a credit to scoring a lot of points (to convert with goals).\n“Playing on the wing, being a try scoring winger, it's kind of hard to miss (on scoring opportunities) as well.\n“So, certainly, proud to have that achievement and three out of the last four years, it's certainly something I'm proud of.”\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nIsaako’s latest challenge will see the Dolphins face off against stories rivals the Roosters in their preliminary final, with the winner to earn their place in the decider.\nBeyond that, the 2025 Pacific Championships winner was hoping to enjoy more success with the Kiwis in the Rugby League World Cup.\nMatch: Australia v New Zealand\nRound 1 - Round 1 - Thursday 15 Oct\nAustralia\nNew Zealand\nVenue: Allianz Stadium, Sydney\nChannel 7\n“I've had conversations with Stace (coach Stacey Jones) over the last couple of weeks and he’s notified me … to just to get through the season and there'll be a jersey there waiting … but that’s not something I'm too worried about right now, my main focus is here at clubland,” Isaako said.\n“The ultimate prize is to win a premiership and then hopefully, win a World Cup ring.\n“We'll see when the time comes round and if the body's still fit enough to play World Cup, but just the main focus is here",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 3.193608864722222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7a234af18c579f28",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals 'Remembers his foundations': DCE ready for full-circle moment",
+            "url": "https://www.nrl.com/news/2026/09/25/remembers-his-foundations-dce-ready-for-full-circle-moment-in-dolphins-showdown/",
+            "published_at": "2026-09-24T20:01:21+00:00",
+            "snippet": "'Remembers his foundations': DCE ready for full-circle moment\nBob Jones doesn't remember the first time he met Daly Cherry-Evans.\nThe son of hooker Troy Evans and nephew of Dolphins legends Cam and Steve Cherry, a young Cherry-Evans was always just there.\nWhether it was in the lo",
+            "body_excerpt": "'Remembers his foundations': DCE ready for full-circle moment\nBob Jones doesn't remember the first time he met Daly Cherry-Evans.\nThe son of hooker Troy Evans and nephew of Dolphins legends Cam and Steve Cherry, a young Cherry-Evans was always just there.\nWhether it was in the locker room after a game or hanging around training during the week, the youngster was a fixture at the club's Redcliffe base during his early years.\nDCE excited to return to Redcliffe\n\"I remember him as a young fella following his dad around,\" Jones, a club legend and the current Dolphins chairman, said.\n\"I knew the family very well. The Cherry family had been involved with the club since before my time. Daly's grandfather was a very good player, his uncles were pretty fair players for the club and his cousins were also good players.\n\"I played one or two games with his dad, as I was finishing up he was coming through.\"\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nFast forward three decades and Cherry-Evans' life has come full circle.\nThe halfback has returned to Queensland to take on the Dolphins in Friday night's preliminary final.\nThe 37-year-old will leave the NRL to play for Hull FC next season, meaning the clash at a sold-out Suncorp Stadium will be Cherry-Evans' final game of elite rugby league in Brisbane and potentially the last of a decorated 16-year career.\nLast time they met: Dolphins v Roosters\nThe halfback is well aware of the storylines attached to Friday's match, however was eager to shine the spotlight back on the game itself when pressed earlier this week.\n\"I completely understand the sentiment, but they are just storylines,\" Cherry-Evans said. \"At the end of the day we're playing a prelim.\n\"We actually don't care where we have to play it. We just wanted to give ourselves an opportunity and we have created that opportunity.\n\"Now we just have to get our bodies recovered and our minds right and go after it again.\"\nIn an alternate universe, Cherry-Evans would be lining up for the Dolphins on Friday night rather than plotting to end their season.\nThe halfback met with the club last year before ultimately opting to join the Roosters for his NRL swansong.\nDaly Cherry-Evans celebrates milestone game in style\nWhile disappointed Cherry-Evans is not leading the Dolphins out on Friday night, Jones remains proud of the role his club played in laying the foundation for a decorated NRL career.\n\"I've met him a few times since he started in the NRL and he's a really pleasant fella,\" Jones said. \"He's level-headed, down to earth and remembers his foundations here very well.\n\"He would've made an ideal captain in an ideal world. It would have been great if he was our first captain but it wasn't to be and he's been a terrific player for our game.\"\nCherry-Evans isn't the only Redcliffe junior preparing to line up for the Roosters on Friday night, with Rob Toia also growing up in the region before making the move south.\nToia too good\nIt's a situation Jones knows well, the former hooker spending a season with the Tricolours back in 1977 before returning to Queensland the following year.\nThe desire to give locals a clear path to the NRL played a key role in the club's bid for entry into the competition and the talent nursery is already in full operation.\nThe Dolphins will line up in Saturday's Queensland Cup grand final, with a host of young stars on track to step up to first grade in the coming years.\nWhile Jones enjoys watching Redcliffe juniors running around for rival clubs, his proudest moments come when local juniors make their NRL debut for the Dolphins.\n\"It's exciting for our juniors,\" Jones said. \"They don't have to leave and go to Sydney, which most kids had to do.\n\"It's what a couple of my boys had to do because we didn't have an NRL club. We've been supplying kids to NRL c",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 7.149164420277779,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6a9ff6bfc8361dc9",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Dolphins v Roosters: Kaufusi recalled; Walker's miracle return",
+            "url": "https://www.nrl.com/news/2026/09/22/dolphins-v-roosters-kaufusi-recalled-walkers-miracle-return/",
+            "published_at": "2026-09-24T10:04:12+00:00",
+            "snippet": "Presented By\nDolphins v Roosters: Kaufusi recalled; Walker's miracle return\nThe Dolphins have progressed to a preliminary final in just their fourth season in the competition and they will have a heaving crowd behind them at Suncorp Stadium on Friday night as they look to book th",
+            "body_excerpt": "Presented By\nDolphins v Roosters: Kaufusi recalled; Walker's miracle return\nThe Dolphins have progressed to a preliminary final in just their fourth season in the competition and they will have a heaving crowd behind them at Suncorp Stadium on Friday night as they look to book their ticket to the big dance.\nStanding in their way are the Roosters, playing in their 13th finals series in the past 14 seasons and chasing the foundation club's 16th premiership.\nWhen the Dolphins entered the NRL in 2023 it was the Roosters they played in their first ever match at Suncorp Stadium and the new boys came away with a 28-18 victory in front of 32,000 fans.\nAdd on another 18,000 supporters this weekend and The Cauldron will be rocking as Kristian Woolf's men look to take down one of the NRL's superpowers in a mouth-watering do-or-die clash.\nThe Roosters last tasted premiership success in 2019 with James Tedesco, Daniel Tupou, Victor Radley, Angus Crichton and Nat Butcher all part of the side that downed Canberra 14-8 in the grand final.\nOn the back of a standout performance in the win over the Sharks, Tedesco will again look to show the way while Crichton will be all the better for the run after playing 30 minutes in his comeback from a foot injury in that match.\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nDolphins: The big-game experience of Felise Kaufusi has earned him a spot on the six-man interchange for his first NRL game since Round 25. A two-time premiership winner with the Storm, Kaufusi is back in Kristian Woolf's squad after two finals appearances with Redcliffe in Qld Cup. Prop Tom Flegler failed a HIA early in the match against the Warriors in week one but has cleared the concussion protocols and will line up on Friday. Tevita Naufuhu drops to the reserves after being part of the 19 in Auckland a fortnight ago but failing to get a run. Jake Averillo remained in the squad as the reserve in the 24-hour update.\nRoosters: A huge boost for the Roosters with halfback Sam Walker back on deck just 24 days after suffering a syndesmosis injury against the Dolphins and undergoing surgery. Daly Cherry-Evans moves back to five-eighth, Hugo Savala goes to the bench and Toby Rodwell makes way. Egan Butcher is listed among the reserves after coming through the concussion protocols. Benaiah Ioelu remained in the squad when it was trimmed to 20 on Thursday.\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Roosters is number 3 Billy Smith\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Roosters is number 4 Robert Toia\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Roosters is number 9 Reece Robson\nProp for Dolphins is number 10 Tom Gilbert 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Dolphins is number 11 Max Plath 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchan",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 17.10166442027778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7f633b0e20bceec2",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals 'Missing piece': Dynamic hooker changing Roosters premiership fortunes",
+            "url": "https://www.nrl.com/news/2026/09/24/missing-piece-dynamic-hooker-changing-roosters-premiership-fortunes/",
+            "published_at": "2026-09-24T05:01:21+00:00",
+            "snippet": "'Missing piece': Dynamic hooker changing Roosters premiership fortunes\nRoosters hooker Reece Robson has been hailed as the missing piece in the side's quest for their first NRL premiership since 2019.\nThe unexpected retirement of club legend Jake Friend midway through the 2021 se",
+            "body_excerpt": "'Missing piece': Dynamic hooker changing Roosters premiership fortunes\nRoosters hooker Reece Robson has been hailed as the missing piece in the side's quest for their first NRL premiership since 2019.\nThe unexpected retirement of club legend Jake Friend midway through the 2021 season left the Tricolours with a void at dummy half that they have struggled to feel.\nBrandon Smith had two injury-riddled years in 2023 and 2024, and utility Connor Watson has done a serviceable job but the Roosters have largely played without a specialist No.9 until Robson's arrival at the start of this season.\nReece Robson Try\nVeteran prop Lindsay Collins said the impact of the hooker's arrival was immediate and backed Robson to lead the Roosters past the Dolphins in Friday's preliminary final.\n\"He's a player no one really talks about but he's been the missing piece from the last couple of years,\" Collins told NRL.com. \"Not to discredit anyone but our last genuine No.9 was Friendy.\n\"We haven't had that power game that we were so good at in 18, 19 and 20 since him. Robbo's just come in and it's the small details but as a front rower, the speed of his pass, the crispness of his pass, it hits you on the chest and it gets there quickly.\n\"Everything starts from him. All our tries on the edges, he has to choose which way the ball goes. He's not just listening, he's seeing as well. He knows where people are moving and the spots to take. He's one of the great minds of this footy era and a bit of an unsung hero in our team, I don't think he gets the credit he deserves.\"\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThe NSW No.9 for the past four years, Robson's move to the Roosters flew under the radar last summer amid all the hype and headlines surrounding Daly Cherry-Evans' arrival.\nThe 28-year-old missed the first two games of the season with a fractured thumb but it didn't take long for Robson to find his feet in a star-studded team.\nPlaying off the back of a dominant forward pack, the hooker has plenty of space to snipe around the ruck and quickly formed a lethal combination through the middle of the field with fullback James Tedesco.\nRobson had arguably his best game of the season in last week's semi-final victory over the Sharks, with a try assist, 83 run metres and 37 tackles.\nRoosters v Sharks - Finals Week 2, 2026\nWhile pleased with his performance, the hooker was quick to turn his focus to Friday's grand-final qualifier at a sold-out Suncorp Stadium.\n\"It was a great game and so many of the boys did well,\" Robson said. \"I was lucky enough to roll off the back of the big boys and what they do.\n\"I'm just trying to do my job and hopefully build to the grand final. We've got a long road still to go. We're only a couple of games away but it will take such a big effort on Friday night to get the win.\n\"That's all my focus is on now. Everything's working towards building and preparing the best we can to go up there on Friday night, hopefully get that win and then for the GF.\"\nWhile he has become a regular in the Origin arena, Robson is playing in just his third finals series. The hooker is preparing for his second preliminary final, having lined up in North Queensland's 24-20 loss to the Eels in 2022.\nThe Roosters received a major boost this week with star halfback Sam Walker cleared to make a shock return from an ankle injury.\nRobinson: 'The rewards are high'\nWhile the chance to play alongside players such as Walker played a key role in Robson's decision to sign with the Roosters, the hooker said the opportunity to learn from coach Trent Robinson was also a big factor.\n\"I can't give him enough credit for how much he's taken my game to another level this year,\" Robson said. \"He's been such a great coach for so long and I've seen that first-hand.\n\"There's been a lot of things I've le",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 22.149164420277778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e27634087988aaf9",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals Relentless, respected, reliable: Nat's a heart and soul Rooster",
+            "url": "https://www.nrl.com/news/2026/09/24/relentless-respected-reliable-nats-a-heart-and-soul-rooster/",
+            "published_at": "2026-09-23T22:01:21+00:00",
+            "snippet": "Relentless, respected, reliable: Nat's a heart and soul Rooster\nForward Nat Butcher is the ‘Quiet Achiever’ of the Sydney Roosters who teammates certainly appreciate even if he gets overlooked at times among the galaxy of stars at the Bondi club.\n\"He is definitely under-rated - b",
+            "body_excerpt": "Relentless, respected, reliable: Nat's a heart and soul Rooster\nForward Nat Butcher is the ‘Quiet Achiever’ of the Sydney Roosters who teammates certainly appreciate even if he gets overlooked at times among the galaxy of stars at the Bondi club.\n\"He is definitely under-rated - both the Butcher boys are,” Connor Watson told NRL.com of Nat and younger brother Egan.\n\"To go out for a match and look to your right and see Nat there you just know you're in a good spot.\"\nButcher is enjoying his 11th season at the Roosters since debuting off the bench as a 19-year-old in the last round of the 2016 season.\nHe has two premiership rings (2018-19) and made the Junior Kangaroos touring side in 2019 alongside players like Kalyn Ponga, Tino Fa’asuamaleaui and Roosters teammates Angus Crichton and Victor Radley.\nNat Butcher Try\nWhile those four have all gone on to play State of Origin, Butcher’s lone rep jumper came in the 2022 Prime Minister’s XIII.\n\"He's been doing the same thing since we started playing together and that's just holding down the middle of the field,” Radley said.\n\"He's someone you want out there because his defence is exceptional - he doesn't miss tackles and he'll have 20 carries.”\nRoosters v Sharks - Finals Week 2, 2026\nButcher makes an average 13 carries and 127 metres coming off the bench for the Roosters, with a tackle efficiency of 97.6 per cent. He also has 22 tackle-breaks in his 24 games this year.\n\"He is Mr Consistent,” Watson said.\n\"He's had a pretty interrupted last couple of years with injuries (knee reconstruction) and some illness, so for him to get a full pre-season in for us shows because he's been so reliable whether it's off the bench or starting.\nNat Butcher and wife Harmony with son Beau and twins Belle and Billie after a win over the Knights in Round 7. ©Mark Kolbe\n\"He's played lock, played in the back row and in the front and been consistent in all his performances.”\nThe 29-year-old Butcher looks almost unflappable on the field with a presence and calmness.\n\"He is - he has to be - he and Harmony have three kids under three,\" said Watson.\nSon Beau was born in April 2024 and then twin daughters Belle and Billie arrived January this year.\nRadley adds: \"He's got that spark back this year... he's carrying like Jason Taumalolo.\n”He just goes about his work and does it relentlessly.\n\"This year I feel he's been unbelievable. No matter how much fatigue is in the game if you're looking for someone to get you out of trouble, give you some yardage, it's always him.”\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nClassic Prelim: Roosters v Rabbitohs, 2018\nFinals\n'Remembers his foundations': DCE ready for full-circle moment\n'Missing piece': Dynamic hooker changing Roosters premiership fortunes\nLast time they met: Dolphins v Roosters\n'You can dream': Past pain driving Collins towards GF goal",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 29.149164420277778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "9a48d3b364363be3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Finals 'You can dream': Past pain driving Collins towards GF goal",
+            "url": "https://www.nrl.com/news/2026/09/23/you-can-dream-past-pain-driving-collins-towards-gf-goal/",
+            "published_at": "2026-09-23T05:01:21+00:00",
+            "snippet": "'You can dream': Past pain driving Collins towards GF goal\nThe chance to finally play in a grand final is driving Lindsay Collins as he looks to lead the Roosters past the Dolphins in Friday night's preliminary final.\nCollins featured in the Roosters preliminary final victories i",
+            "body_excerpt": "'You can dream': Past pain driving Collins towards GF goal\nThe chance to finally play in a grand final is driving Lindsay Collins as he looks to lead the Roosters past the Dolphins in Friday night's preliminary final.\nCollins featured in the Roosters preliminary final victories in both 2018 and 2019 but was the unlucky man to drop out of the squad for the grand final the following week.\nThe prop was replaced by Dylan Napa in 2018, who made his return from a three-game ban, with Collins the odd-man out after Cooper Cronk made a miraculous recovery from a fractured shoulder blade. Twelve months later it was Jared Waerea-Hargreaves who was back from suspension for the decider forcing Collins out.\nMatch Highlights: Roosters v Raiders\nA fresh-faced youngster at the time, the prop concedes he figured another shot at a grand final was just around the corner.\nInstead it has been seven long years since the Roosters have featured on the first Sunday in October. According to stats compiled by rugby league historian David Middleton, Collins is the only player in the NRL era to have won two preliminary finals but not featured in a grand final.\nWhile he can see the silver linings from the situation, Collins is desperate to lead the Roosters past the Dolphins and into his first decider.\nTrent Robinson presented his premiership ring to Lindsay Collins after the 2018 grand final victory.\n\"The thing is, if they don't get suspended, then I don't even get to experience a preliminary final and I don't get to be part of it,\" Collins told NRL.com. \"I was fortunate to be a part of that because they were out.\n\"It was my second year in the NRL and I was playing finals and in a prelim. It was the same in '19, it was my third year in the NRL so I was just happy to be there.\n\"But where I am now in my career, it shows how hard it is to get there and these opportunities don't come by too often. I've learnt from that to make the most of what you have right now.\n\"Right now we have an opportunity and I've got to make the most of it.\"\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\n3rd Position\naway Team\nRoosters\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nA Brisbane junior who has become a mainstay in the Queensland pack since his Origin debut in 2020, Collins will enjoy a homecoming on Friday night when the Roosters travel north to play the Dolphins at a sold-out Suncorp Stadium.\nIt's his first match at the ground since he suffered a concussion in a Round 17 victory over the Broncos.\nThe head knock ruled Collins out of the State of Origin decider and a specialist advised him to spend six weeks on the sidelines to give his body a chance to fully recover before returning to the field.\nWhile frustrated to miss a number of important games, the 30-year-old used the period to set himself up for the Roosters' charge to the finals.\nLindsay Collins celebrates the Roosters 2018 grand final victory.\n\"I felt like I was coming into form after a slow start,\" Collins said. \"With Origin and the Sharks game off the back of that I found a bit of form and then I got a knock.\n\"It is what it is. It was good at the time to know it was six weeks, I knew what I was dealt with and then could build a plan off the back of it. It was almost like a mini pre-season to get everything right and get ready for the back end of the year.\"\nGiven how close he came to a grand final earlier in his career, Collins doesn't need to be reminded about what's on the line on Friday night.\nAfter winning back-to-back preliminary finals in 2018 and 2019, the prop's only other grand final qualifier was in 2024.\nThat appearance lasted just 18 seconds, Collins knocked out by a Nelson Asofa-Solomona high shot in a collision off the kick-off.\nSo while he's desperate to feature in his first grand final, the veteran is eager to avoid thinking too far ahead.\nLindsay Collins Try\n\"You can dream but I don't want to dream",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 46.14916442027778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "b2e50f95b08c0df7",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Dolphins",
+            "title": "Feature Katoa's quiet confidence grows as Dolphins enter new frontier",
+            "url": "https://www.nrl.com/news/2026/09/22/katoas-quiet-confidence-grows-as-dolphins-enter-new-frontier/",
+            "published_at": "2026-09-21T22:01:21+00:00",
+            "snippet": "Katoa's quiet confidence grows as Dolphins enter new frontier\nA humble son of the Pacific, Isaiya Katoa has had to grow up quickly since taking on the role of halfback and captain at the Dolphins.\nStill only 22 years old, he is the youngest captain in the finals series (sharing t",
+            "body_excerpt": "Katoa's quiet confidence grows as Dolphins enter new frontier\nA humble son of the Pacific, Isaiya Katoa has had to grow up quickly since taking on the role of halfback and captain at the Dolphins.\nStill only 22 years old, he is the youngest captain in the finals series (sharing the duties with forward Tom Gilbert) but has a quiet confidence about himself on and off the field that has grown with each passing season at the club.\nFrom the field: Isaiya Katoa\nSince making a ‘surprise’ debut in the maiden game of the club’s inaugural NRL 2023 season as five-eighth under Wayne Bennett, he has since developed into one of the competition’s leading halfbacks.\nAfter taking down the Warriors in their maiden finals match, the Phins are now preparing to take on the Roosters at Suncorp Stadium on Friday night for a place in the decider.\nWhile his actions on the field speak volumes, he is also one of the more eloquent speakers in the game, thoughtful with his responses and respectful of his audience, in line with his Pasifika upbringing.\nHowever, as a young player coming through, he was almost too respectful for his role in the halves, with Dolphins leaders at the time including Jesse Bromwich and Felise Kaufusi telling him to “yell at them” more.\n“A lot of credit has to go to my teammates, just allowing me to go out there and demand things and I guess tell them what to do,\" Katoa said.\n“I remember my first couple of years, we had Jesse, Kenny [Bromwich] and Fus, at the time.\nDolphins Isaiya Katoa, Felise Kaufusi and Tom Gilbert make a tackle in their maiden NRL game in season 2023, while Jesse Bromwich looks on. ©Scott Davis / NRL Images\n“All three had come from a successful club, all three were some of the best players in their positions at the time.\n\"I remember they pulled me aside one training session and they said to me, ‘you're the halfback of the team, we want you to tell us what to do, we want you to direct us around, we're not going to get angry at you if you yell at us, that's your job and that's your role as a halfback’ – so that gave me so much confidence in my first couple of years.\n“(And) when you pick up that sort of leadership role in being the captain as well, one thing I felt personally was my role didn't really change because as the halfback, you're normally talking anyways and you're normally demanding things.\n\"(But) I felt the best leaders always lead through their actions and not just through their words, so for me that's always constantly been in the back of my mind and just making sure that if I'm going to lead this team, I lead through my actions rather than my words.\n“It's been an awesome learning curve.\n“I felt like I haven't gotten everything right and there's still things that I'm always constantly learning, in terms of leadership.\n\"There's some great leaders at the club here that could also be great captains for this club.\nCulture key to Dolphins success\n“Tom Gilbert, obviously he's a co-captain with me at the moment and Felise ... he's been a in a leadership role at every club that he's been too, so, for me it’s still a learning curve.\n“I know that I've got awesome leaders to lean on if I need advice ... but at the same time as a halfback, I feel like that sort of maturity comes with the position.\n\"Especially because you've got to be on the ball, you're making probably the most decisions in a game and you normally are driving the mindset of your team as well.”\nRelated Dolphins\nWoolf hails Dolphins' bravery to secure prelim final berth\nFor Gilbert, seeing Katoa blossom into the leader and playmaker he is now has been special.\n“It’s awesome (seeing how much he has developed),” Gilbert said.\n“It’s not really surprising to see how he’s kicked on.\n“He’s real dedicated in the way he prepares and he cares a lot about results and his performances.\n“For him, it was always a matter of time when that was going to come in.\nGilbert's blessing in disguise\n“I love that he had such a great year last year and a lot of pressure ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 77.14916442027778,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8a06964debb4e765",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘Terribly unlucky’ star to miss out in tough Roosters call; secret behind miraculous recovery: Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-week-3-team-news-injuries-changes-late-mail-whos-in-and-out-finals-series-preliminary-final-sam-walker-trai-fuller-suspended/news-story/6de3ebcf331603f399cec5dacf1c9574",
+            "published_at": "2026-09-24T00:10:22+00:00",
+            "snippet": "‘Terribly unlucky’ star to miss out in tough Roosters call; secret behind miraculous recovery: Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "‘Terribly unlucky’ star to miss out in tough Roosters call; secret behind miraculous recovery: Late Mail\nOne unlucky star is set to miss out as Sam Walker returns for the Roosters, while Dylan Lucas has opened up on how he made a miraculous comeback.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nElsewhere, a Dolphins star has been slapped with a one-match suspension.\nRead below for Finals Week 3 team news and Late Mail!\nFRIDAY SEPTEMBER 25\nDolphins vs Sydney Roosters @ Suncorp Stadium, 7:50pm\nDolphins Team: 1. Hamiso Tabuai-Fidow 2. Jamayne Isaako 3. Jack Bostock 4. Herbie Farnworth 5. Selwyn Cobbo 6. Kodi Nikorima 7. Isaiya Katoa 8. Thomas Flegler 9. Jeremy Marshall-King 10. Tom Gilbert 11. Max Plath 12. Kulikefu Finefeuiaki 13. Morgan Knowles 14. Kurt Donoghoe 15. Ray Stone 16. Francis Molo 17. Connelly Lemuelu 18. Felise Kaufusi 19. Brad Schneider 20. Jake Averillo 21. Brian Pouniu 22. Tevita Naufahu\nPlayers Cut: To come.\nLate Mail: No changes are expected with Kristian Woolf confirming on Thursday the Dolphins are set to line up as named. Away from the NRL squad that has been named to face the Roosters, it has been confirmed that fullback sensation Trai Fuller will miss the 2026 QLD Cup Grand Final this weekend after accepting an early guilty plea for dangerous contact on Wednesday. This means he has only been hit with a one-match ban and will be available to play in the 2026 State Challenge against the NSW Cup premiers on grand final day. It also makes him available for selection for the NRL Grand Final if the Dolphins are to defeat the Tricolours on Friday.\n“The Redcliffe Dolphins and fullback Trai Fuller will not contest his Grade 1 charge from Sunday’s preliminary final,” a statement from the Redcliffe Dolphins read. “As a result, he will miss this weekend’s grand final. While this was an incredibly tough call for both the club and Trai to make, we are extremely grateful for his efforts and camaraderie throughout the season, and the role he has played in getting us to this point. Thank you, Trai.”\nRoosters Team: 1. James Tedesco 2. Daniel Tupou 3. Billy Smith 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 14. Connor Watson 15. Angus Crichton 16. Nat Butcher 17. Spencer Leniu 18. Hugo Savala 19. Cody Ramsey 20. Egan Butcher 21. Tommy Talau 22. Benaiah Ioelu\nLate Mail: Roosters coach Trent Robinson has declared returning halfback Sam Walker is “fit and ready to go” and will play 80 minutes in Friday’s preliminary final after his incredible comeback from injury. Walker suffered a syndesmosis injury in round 26 against the Dolphins on August 29 but has been named to play just four weeks later against the same opposition in the grand final qualifier. The Queensland star will wear the No.7 on his back, with Hugo Savala dropping back to the bench after filling in alongside Daly Cherry-Evans . Walker got through Monday’s training session and will be on the plane with the team on Thursday when they fly up to Brisbane. “He’s fit and ready to go,” Robinson said. “Hugo’s been outstanding and he’s ready to go, and the only reason that I would put Sam in is if I knew he was 100 per cent and he’s right. He’s moved in lots of directions so far, so another good session today. But it hasn’t actually been that long since he played. There are obviously some guys that get out with injury for a long period of time, whereas he didn’t play that long ago and he got moving quite quickly after that op.”\nSam Walker will be back on deck. Picture: Richard Dobson Source: News Corp Australia\nWalker will kick goals on Friday, but Savala is ready to step up if required. It’s a remarkable return given the doom and gloom when Walker went down with the injury, but he made it clear to ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 26.9988866425,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "e608b0a034b66a54",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins vs Sydney Roosters Prediction, Tips & Odds - Ladbrokes",
+            "url": "https://www.ladbrokes.com.au/blog/2026/09/24/dolphins-vs-sydney-roosters-predictions/",
+            "published_at": "2026-09-24T03:22:45+00:00",
+            "snippet": "Dolphins host Sydney Roosters in Finals Week 3 of the 2026 NRL season at Suncorp Stadium on Friday, 25th September. Read on for our full match preview, betting tips, and best odds.\nPlaying in just the second finals match in club history, the Dolphins are hosting a preliminary fin",
+            "body_excerpt": "Dolphins host Sydney Roosters in Finals Week 3 of the 2026 NRL season at Suncorp Stadium on Friday, 25th September. Read on for our full match preview, betting tips, and best odds.\nPlaying in just the second finals match in club history, the Dolphins are hosting a preliminary final – against a Sydney Roosters team with plentiful big-match experience and newfound momentum.\nFORM: The Dolphins are on their second eight-match winning streak of the season, surging to a third-placed finish then producing a gutsy 26-16 win over the Warriors in Auckland on finals debut.\nDown 16-8 with 20 minutes left, the Dolphins dominated the last quarter of the match with Herbie Farnworth almost unstoppable as they ran in three tries to stun the heavily-favoured hosts.\nThe Roosters limped into the finals with three straight losses – and lost halfback Sam Walker to injury – but regained confidence in a gallant 19-12 qualifying final defeat to Penrith where they could easily have prevailed if a couple of things went their way.\nThey steamrolled an injury-hit Cronulla 46-10 in last week’s semi, scoring five unanswered tries in the second half with Daly Cherry-Evans, Robert Toia and Mark Nawaqanitawase especially prominent.\nINS AND OUTS: The Dolphins’ 17 is unchanged, with Felise Kaufusi and Brad Schneider the players rounding out their six-man bench. Tom Flegler has passed concussion protocols after an early exit against the Warriors.\nSam Walker makes a stunning return from the ankle injury he suffered against the Dolphins only four weeks ago, which sees Cherry-Evans go back to five-eighth and Hugo Savala move to the bench.\nKEY MATCH-UP: While Isaiya Katoa’s one-on-one battle with Walker will be arguably the most important overall, it’s hard to go past the mouth-watering duel between the NRL’s two form centres, Farnworth and Toia.\nHISTORY: The Roosters have a 4-3 edge in the rivalry, but the Dolphins won both clashes this season – a 48-10 rout at Suncorp Stadium with a host of Origin players missing from both teams, and a 26-12 statement win in Sydney in Round 26.\nKEY STAT: Mark Nawaqanitawase has scored five tries in three games against the Dolphins.\nVERDICT: The Dolphins are looking to join Canberra, St George Illawarra and Wests Tigers as the only clubs in the past 50 years to make a grand final in their maiden finals series.\nThere’s a sense that the fortnight’s break in this instance could do more harm than good, but Kristian Woolf’s side can take heart from the fact teams with the week off have won 13 of the last 16 preliminary finals.\nThe Dolphins were outstanding against the Warriors, weathering an hour-long storm to stay within striking distance, then flicking the attacking switch when the opportunities arose in the last 20 minutes. It was a performance that defied their collective lack of playoffs experience.\nThe Roosters will have taken so much out of their two finals, however, gaining plenty of belief from the high-quality loss to the Panthers then wiping the floor with the Sharks.\nStacked with big-game players, this is the sort of form we’ve only seen in brief patches this year – and it’s come at precisely the right time for the Tricolours, who are into only their second prelim since winning back-to-back premierships in 2018-19.\nThe Dolphins have won their last eight at Suncorp Stadium, but the Roosters have a fair record at the ground and are a compelling underdog in what shapes as a down-to-the-wire classic. Expect the 2026 finals trend of low-scorers to continue.\nTip: Back the Roosters to Cover the Line (+3.5) @ $1.90\nSGM: ROOSTERS WIN / UNDER 45.5 TOTAL POINTS / JAMES TEDESCO ANYTIME TRYSCORER / HAMISO TABUAI-FIDOW ANYTIME TRYSCORER / MARK NAWAQANITAWASE ANYTIME TRYSCORER @ $54.01\nDolphins vs Sydney Roosters Odds & Popular Betting Markets\nHere’s a quick look at the current odds and popular betting markets for the Dolphins vs Sydney Roosters matchup.\n*odds are correct at the time of publishing and are subject to change\nMatch Betting Odds",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.792497753611112,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "d1620b18374b82d7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins vs Sydney Roosters Tips, Odds, Teams & Predictions – NRL Finals Week 3 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/dolphins-vs-sydney-roosters-tips-odds-teams-predictions-nrl-finals-week-3-2026/610373",
+            "published_at": "2026-09-22T01:58:40+00:00",
+            "snippet": "Dolphins vs Sydney Roosters Tips, Odds, Teams & Predictions – NRL Finals Week 3 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "The Dolphins host Sydney at Suncorp Stadium with a grand-final berth on the line. Fresh from a week off, the hosts face a Roosters side surging after its 46-10 demolition of Cronulla. Sydney carries proven finals experience, but the Dolphins’ home advantage and outstanding night record shape a fascinating contest.\nWhen: Friday September 25, 2026 at 7:50 pm\nWhere: Suncorp Stadium\nBet 💰: Bet On This Match HERE\nDolphins vs Sydney Roosters Odds\nDolphins vs Sydney Roosters Preview\nThe Dolphins enter their first preliminary final after a week off, while the Roosters arrive in Brisbane with momentum from a commanding 46-10 win over Cronulla. Sydney led 18-10 at half-time before scoring five tries after the break, with James Tedesco producing 161 run metres and 11 tackle breaks and Mark Nawaqanitawase crossing twice. The Dolphins earned this home final by beating the Warriors 26-16 in the opening week and have won their past 13 night matches. That record, together with the Suncorp Stadium setting and extra recovery, gives the hosts a sound platform. Sydney’s experience and renewed attacking fluency make this dangerous, particularly if its quick shifts test the Dolphins’ edges. However, the Dolphins’ consistency in night football and capacity to control the middle should help them withstand a confident Roosters challenge.\nHead To Head Bet\nWe're tipping Dolphins to win at $1.67 odds.\nFirst Try Scorer\nFirst Try Scorer: Mark Nawaqanitawase at $8.75 .",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 73.1938866425,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "afc0b9409ed0cec4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Tips: Dolphins on notice after star left ‘screaming’ at coach - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/finals-tips-news-dolphins-roosters-knights-panthers-andrew-johns-brad-fittler-20260925-p60rze.html",
+            "published_at": "2026-09-25T02:05:56+00:00",
+            "snippet": "Tips: Dolphins on notice after star left ‘screaming’ at coach &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Andrew Johns has warned the Dolphins to be prepared for a fired-up Naufahu Whyte after the Roosters prop was left “screaming” at his coach last week.\nThe 24-year-old has been the best middle forward in the NRL this year, going past the likes of Payne Haas and James Fisher-Harris for the title.\nNaufahu Whyte of the Roosters runs the ball. Getty Images\nBut as his Chooks pulled Cronulla’s pants down in a 46-10 semi final rout last weekend, the hulking Kiwi was left sitting on the bench by Trent Robinson.\nWhyte played just 25 minutes against the Sharks, with Robinson opting to put his best big man on ice ahead of Friday night’s preliminary final clash with the Dolphins at Suncorp Stadium.\nNow the Brisbane-based side faces the prospect of a well-rested, and very frustrated Roosters prop tearing them to shreds.\n“He wasn’t happy last week, he came out publicly and said,” Johns told Nine’s NRL Tips .\n“He only played 25 minutes, he said he was on the bench screaming.\nRead more\nNawaqanitawase desperate to extend wild NRL sojourn one more week\n“Which is good, you want him out there.”\nWhile the Roosters beat the Sharks easily to reach the preliminary final, club legend Brad Fittler saw some worrying signs from the Tricolours.\n“The one place they looked a little bit vulnerable was when (Sharks hooker) Blayke Brailey went through the middle,” Fittler said.\n“Every now and then the Roosters forwards get a little tired and tardy around there, so watch out for (Dolphins hooker) Jeremy Marshall-King.”\nThe Dolphins have the wood over the Roosters this season, and head into Friday’s game with the added benefit of a week’s rest.\nThey upset the Warriors in Auckland a fortnight ago to earn that right, and now host a final at Suncorp Stadium for the first time.\nEven though the Roosters played last week, Johns pointed out Cronulla didn’t exactly run the Chooks ragged.\n“You’ve got to say last week against Cronulla, the last 50 minutes was like a club game,” Johns said.\n“But look at that game against Penrith, the intensity in that game when Roosters got beat, (last week was) nowhere near that.”\nAs for Sunday’s game, Johns is the only expert tipster backing the Knights to upset the Panthers and reach a first grand final in 25 years.\nScroll below for preliminary final tips by all Nine’s expert tipsters!\nV’landys wins historic job, all in on league after quitting racing role\nBunnies’ big Latrell call will send centre market into a frenzy\n‘Don’t talk about it’: Crichton’s pact with coach amid one last Roosters dance\nIt feels like I’m finally waking from a two-decade Knight-mare",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.072775531388889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "90133c67b016c457",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Nawaqanitawase desperate to extend wild NRL sojourn one more week - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/news-mark-nawaqanitawase-dolphins-v-roosters-preliminary-final-selywn-cobbo-battle-20260925-p610fe.html",
+            "published_at": "2026-09-25T01:46:32+00:00",
+            "snippet": "Nawaqanitawase desperate to extend wild NRL sojourn one more week &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "He’s been in the NRL for basically five minutes, but Mark Nawaqanitawase has achieved more in his short career than others do over years.\nHe’s played State of Origin , he’s played for the Kangaroos , and he’s a win away from playing in a grand final .\nMark Nawaqanitawase scores against the Sharks last weekend. Getty Images\nSince making the switch from rugby sevens after the Paris 2024 Olympics, ‘Marky Mark’ has undeniably set the NRL on fire. He’s scored tries for fun – and stopped just as many – opposite some of the best wingers in the game, and done it all with a smile.\nHe scored on debut in the final round of the 2024 season, and virtually hasn’t stopped. He’s scored 43 tries from 45 appearances, including nine doubles, four hat-tricks and even a four-try haul against the Storm in late 2025.\nIt’s a cliché in sport for a player to say they’re taking it a game at a time, but Nawaqanitawase has been savouring every moment he can with the Roosters before he returns to rugby later this year.\n“I’m just happy to be playing another game,” he told media including nine.com.au after the Roosters’ semi final win over the Sharks .\n“Obviously, I want to get to the (grand final), but there’s a process to that, and that’s being able to play each week with everyone. It’s exciting to go again.\nRead more\nBunnies’ big Latrell call will send centre market into a frenzy\n\"I've got to try and enjoy every day with a lot of my teammates, with the people at the club.\"\nNawaqanitawase arrived in the NRL after a four-year stint with the NSW Waratahs , during which time he also played 11 Tests for the Wallabies .\nHe is returning to the 15-man game with an eye to the home Rugby World Cup next October-November. He is not expecting to play any internationals in either code this year, opting to join his new Japanese club rather than play for Australia at the Rugby League World Cup next month.\nBut before he leaves, he has one more NRL bucket list item to tick off.\n“Just to play for the Roosters was a big thing for me … a huge honour” Nawaqanitawase said.\n“Obviously, representing Australia, to don the Blues jersey as well, they’re all great feats. I guess this is another one – going to my first prelim.\nCobbo and Nawaqanitawase leap for a high ball during Origin III. NRL Images\nHis rivalry with Ronaldo Mulitalo was one of the most fierce in the competition, and he will on Friday night find himself opposite Dolphins flyer Selwyn Cobbo – as he did during Origin.\n“He’s having a terrific year, the Dolphins are doing really well … I versed him in Origin, so I know it’s going to be good,” he said.\n“It’s going to be a tough effort. He’s a great player, he’s physically a great athlete as well. I will be ready for it.\n\"Do or die.\"\nThe Roosters flew to Brisbane on Thursday ahead of Friday night’s game at Suncorp Stadium.\nV’landys wins historic job, all in on league after quitting racing role\n‘Don’t talk about it’: Crichton’s pact with coach amid one last Roosters dance\nIt feels like I’m finally waking from a two-decade Knight-mare",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.3961088647222222,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7c5d6004d1e9d98a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins v Roosters: Finals Week 3 - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/23/dolphins-v-roosters-finals-week-3/",
+            "published_at": "2026-09-24T23:04:21+00:00",
+            "snippet": "Dolphins v Roosters: Finals Week 3\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n05:23 Panthers v Knights: Finals Week 3\nPanthers v Knights: Finals Week 3\nRelated /\nDeparting Isaako embraces the firsts and lasts in quest for decider\nFinals\nCla",
+            "body_excerpt": "Dolphins v Roosters: Finals Week 3\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nUp Next\n05:23 Panthers v Knights: Finals Week 3\nPanthers v Knights: Finals Week 3\nRelated /\nDeparting Isaako embraces the firsts and lasts in quest for decider\nFinals\nClassic Prelim: Roosters v Rabbitohs, 2018\n'Remembers his foundations': DCE ready for full-circle moment\nMatch Preview\nDolphins v Roosters: Kaufusi recalled; Walker's miracle return\nLast time they met: Dolphins v Roosters\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 4.099164420277778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "2ec4fe3324d10f99",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "The Dolphins are two and zero against Roosters this year, but not ‘this’ Roosters team - zerotackle.com",
+            "url": "https://www.zerotackle.com/the-dolphins-are-two-and-zero-against-roosters-this-year-but-not-this-roosters-team-238390/",
+            "published_at": "2026-09-24T21:47:43+00:00",
+            "snippet": "The Dolphins are two and zero against Roosters this year, but not ‘this’ Roosters team &nbsp;&nbsp; zerotackle.com",
+            "body_excerpt": "The Dolphins are riding one of rugby league's greatest fairytales, chasing a maiden grand final berth in just their fourth campaign, but their next challenge is one they are yet to meet eye to eye.\nThey have the upper hand against the Roosters in the regular season claiming victory on both occasions they squared off, 48-10 in Round 15 and 26-12 in Round 26.\nThis regular season success holds more than what meets the eye and there is much more behind the margin of the victories.\nYet being on the receiving end of these results, the Roosters walk into Suncorp on Friday night holding all the cards.\nWhen the sides clashed for the first time this season back in Round 15, the scoreline suggests the Dolphins thrashed the Roosters, which they did, but the credit of this victory is marginal.\nThe Eastern Suburbs based club were without a host of their Origin stars. James Tedesco , Sam Walker , Lindsay Collins , Reece Robson , Robert Toia , Victor Radley and Mark Nawaqanitawase were all absent on State of Origin duties.\nOn that night, the Roosters spine read - Cody Ramsey , Hugo Savala , Daly Cherry-Evans and Connor Watson , only one of those a regular first-grade starter week in week out.\nSYDNEY, AUSTRALIA - AUGUST 23: Hugo Savala kicking a conversion in the NRL match between Penrith Panthers and Sydney Roosters at CommBank Stadium, on August 23, 2025, in Sydney, Australia. (Photo by Joshua Davis/Zero Digital Sports)\nThe Dolphins faced a side that was without seven of their key starting players and yes they still had to win the game, which they did, but they were not as heavily impacted by the Origin period.\nThey were still without five of their regular starters in Hamiso Tabuai-Fidow , Selwyn Cobbo , Tom Flegler , Kulikefu Finefeuiaki and Max Plath , but it was their squad depth that saw them overcome the first challenge the Roosters threw down.\nIn Round 26 the sides met again. There was no Origin period to compete with, it was two sides charging towards September footy, the Roosters were out to avenge their shock loss to the Tigers the week before, and the Dolphins were shooting for six straight wins.\nThe The Dolphins won the early battle in Tedesco's first game back after sitting on the sidelines for three weeks with an ankle injury, leading 20-6 at half time.\nThe Roosters were steadily building momentum to get back into the encounter but that was all undone when Sam Walker went down in the 53rd minute with a syndesmosis injury after getting his ankle caught in a tackle, seemingly ending his season.\nThe second challenge thrown down by the Roosters was too overcome.\nSo the record reads, two matches, two Dolphins victories, but that doesn't tell the whole story.\nThe outfit walking out in the tri-colours on Friday simply have not played the Dolphins .\nIn their biggest match in their short history, the Redcliffe-based club are now having to face Tedesco, DCE and Walker alongside with a full strength Roosters outfit, the only dent the unknown of Walker's fitness.\nSYDNEY, AUSTRALIA - MARCH 17: Sam Walker of the Roosters kicks during the round two NRL match between Manly Sea Eagles and Sydney Roosters at 4 Pines Park, on March 17, 2024, in Sydney, Australia. (Photo by Cameron Spencer/Getty Images)\nSeemingly Walker's season was over after getting injured in their last face-off, but now he is back to potentially haunt the Dolphins .\nShould the Dolphins and their fans be worried? Short answer is yes, but they have history on their side. They are shooting for their ninth straight victory at their home-away-from-home, a sold-out Suncorp Stadium with a grand final spot on the line.\nIt is a new challenge for the club, but with their recent form and their newfound ability to not overplay their hand and build pressure, opposed to trying to score on every play, the Dolphins are primed for this contest.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 5.376386642500001,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7993bc6063d8e8b2",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins vs Roosters Preview & Betting Tips: 2026 NRL Preliminary Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/dolphins-vs-roosters-preview-betting-tips-2026-nrl-preliminary-final",
+            "published_at": "2026-09-24T06:07:28+00:00",
+            "snippet": "Dolphins vs Roosters Preview & Betting Tips: 2026 NRL Preliminary Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Dolphins vs Roosters Preview & Betting Tips: 2026 NRL Preliminary Final\nSeptember 24 th 2026, 1:42pm , By: Scooby\nIt’s ‘prelim time’ in the NRL this weekend and with just 4 teams remaining, the excitement from fans is higher than ever. There have been some thrilling games of rugby league recently and the on-field action is tipped to jump to another level this weekend. The weekend begins on Friday night in Brisbane as the Dolphins host the Roosters . Having met only recently, these two sides will know one another well. This promises to be an epic encounter and Before You Bet is here to look at the game with this comprehensive preview of what is ahead.\nDolphins vs Roosters Prediction & Tips: 2026 NRL Preliminary Final\nGritty, determined, and resilient\nIt was a tough set of circumstances to overcome for the Dolphins in Week 1 of the Finals as they travelled over to New Zealand to face the Warriors. Down 12-8 at HT, they rallied in the second half, scoring 3 tries in the final 20 minutes of the contest to prevail 26-16. Clinical in their execution, they overcame only 47% possession and an inferior completion rate (81%) to turn their momentum into points. They were also fierce in defence; despite missing 42 tackles, they allowed their opponents to make 8.5m per carry. Their 5 line breaks in attack caused chaos and they took their chances when presented. It was a classic example of a team playing well with confidence in one another and themselves.\nWorrying signs ahead… for their opponents\nOn a short turnaround from a loss to the Panthers, the Roosters had plenty of excuses for a poor performance. They produced anything but that in their dominating 46-10 victory over the Sharks. Starting strongly, they appeared faster than their opponents and maintained this intensity throughout the contest, eventually scoring 8 tries in 80 minutes. With 51% possession, they completed at 79%, ran for 9m per carry, and made 9 line breaks. Their defence was also strong, missing just 20 tackles. It is amazing to think that they should only get stronger with their first-choice team taking the field for this contest. It’s exciting to see what they can produce.\nStats that matter\n- These two sides have played twice this season already with the Dolphins successful on both occasions. They recorded a dominant 48-10 victory in Round 15 with both sides missing their Origin players. On the road in Round 26, they won 26-12 with the Roosters impacted by injury.\n- The Dolphins have a strong home record, winning 60% of matches played here. The Roosters do not struggle, having a 50% strike rate.\n- In the past 5 matches between these two sides, only twice has the margin of victory been below 10 points; two blowout victories takes the average margin of victory to 24 points. The average total is also high, sitting at 61.6 points.\n- There isn’t much between these two sides throughout the season. Both concede an average of 20 points defensively. The Dolphins have a slight edge in attack, scoring 27ppg to the Roosters 26ppg.\nThe difference is minimal\nThis is about as close as Preliminary Finals get and don’t let the odds fool you, these two sides are evenly matched. The miraculous recovery of Sam Walker to be named in this contest provides a boost for the visitors; their attacking spark flows through his creativity and reduces the attention on other key players around him. Providing the forwards can generate a fast ruck speed, the Roosters will benefit greatly from his inclusion.\nThe week off also benefits the Dolphins; the Roosters are facing consecutive 6-day turnarounds heading into this game and fatigue will undoubtedly be a factor. Both teams play an up-tempo style which is fast and uncompromising if defenders are slow to react. The Dolphins points scoring ability against the Warriors was something to behold in performing to this standard and it will be difficult to counter. If there is one side that can generate a positive game plan to achieve this, it is the Roosters",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.047219975833336,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3baa2b277a619bc0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Match Preview: Preliminary Final – Dolphins v Roosters - Official website of The Dolphins",
+            "url": "https://www.dolphinsnrl.com.au/news/2026/09/24/match-preview-preliminary-final--dolphins-v-roosters/",
+            "published_at": "2026-09-24T04:07:36+00:00",
+            "snippet": "Match Preview: Preliminary Final – Dolphins v Roosters &nbsp;&nbsp; Official website of The Dolphins",
+            "body_excerpt": "Presented By\nMatch Preview: Preliminary Final – Dolphins v Roosters\nOne win. One Grand Final spot on the line.\nThe Dolphins are one game away from a maiden Grand Final appearance as they prepare to face the Sydney Roosters in a blockbuster Preliminary Final at a sold-out Suncorp Stadium.\nWith a packed house behind them and history within reach, the Dolphins will look to continue a record-breaking run on Friday night.\nThe Dolphins enter the contest chasing a ninth consecutive victory, which would extend the club record for the most wins in a row.\nSuncorp Stadium has also become a fortress for the Dolphins, with the side winning its past eight matches at the venue this season.\nThe two sides have already met twice during the regular season, with the Dolphins claiming victory in both encounters.\nThere could also be individual history for Jamayne Isaako, who enters the Preliminary Final just two points shy of 300 for the season.\nShould Isaako reach the milestone, he will become just the fourth player in rugby league history to score 300 points in a single season.\nWith a Grand Final berth on the line, a sold-out Suncorp Stadium and history within touching distance, everything is set for a huge night in Brisbane.\nTeam News\nDolphins\nHead Coach Kristian Woolf has backed the same 17 that got the job done across the Tasman in the Qualifying Final.\nWoolf has named an unchanged line-up for the Preliminary Final showdown, with Tevita Naufahu moving to the extended reserves after being part of the 19-man squad in Auckland.\nRoosters\nThe Roosters welcome back halfback Sam Walker after several weeks on the sidelines through injury.\nDaly Cherry-Evans shifts back to five-eighth, with Hugo Savala moving to the interchange and Toby Rodwell making way.\nEgan Butcher has been named among the reserves after progressing through the concussion protocols.\nMatch-Up\nKurt Donoghoe v Connor Watson\nThis week’s match-up turns to two interchange weapons ready to ignite their teams when it matters most.\nKurt Donoghoe and Connor Watson bring toughness, intensity and energy through the middle, with both capable of changing the tempo of a contest from the bench.\nFor Donoghoe, Friday night will mark his 55th NRL appearance. The tough forward has built a reputation for rolling up his sleeves and getting through the hard work, averaging 28 tackles per game this season.\nAcross from him is the vastly experienced Watson, who brings 192 NRL appearances into the Preliminary Final. The Roosters utility has been just as busy defensively in 2026, averaging 26 tackles per game.\nIt shapes as experience against a rising hard man, with both players providing the spark and defensive effort their sides will need when the game opens up.\nAs fatigue sets in and the Preliminary Final reaches its decisive stages, the impact of Donoghoe and Watson from the interchange bench could prove crucial.\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\n3rd Position\naway Team\n4th Position\nVenue: Suncorp Stadium, Brisbane\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nFull Circle: Gilbert Ready to embrace historic prelim\nNRL Community\nDoing it for Yak: Friend's fighting spirit inspires Dolphins duo\nTeam Lists\nDolphins Team List: Preliminary Final v Roosters\nPlayer Media\nKatoa's quiet confidence grows as Dolphins enter new frontier\nMatch Preview\nMatch Preview: Qualifying Final – Dolphins v Warriors",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.044997753611113,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ab51d29dfc88fdc4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Cleary and Walker will wage a war in their own heads. But only one might survive - SMH.com.au",
+            "url": "https://www.smh.com.au/sport/nrl/cleary-and-walker-will-wage-a-war-in-their-own-heads-but-only-one-might-survive-20260924-p60zo5.html",
+            "published_at": "2026-09-23T19:00:00+00:00",
+            "snippet": "Cleary and Walker will wage a war in their own heads. But only one might survive &nbsp;&nbsp; SMH.com.au",
+            "body_excerpt": "September 24, 2026 — 5:00am\nYou have reached your maximum number of saved items.\nRemove items from your saved list to add more.\nNathan Cleary and Sam Walker are going off to war inside their own heads this week.\nThat’s what playing with an injury, or coming back from an injury, is. And the bigger the injury, and the bigger the game, the more intense that psychological warfare with yourself is.\nHow with Nathan Cleary and Sam Walker handle their returns from injury? Artwork: Stephen Kiprillis\nNow, Nathan and the Panthers have been far more vague about their superstar No.7’s “stress-related bone issue” ahead of Sunday’s clash against Newcastle and how he’s travelling, though it seems he’s going to be right to play.\nSam Walker has had a month to heal after surgery on a syndesmosis injury and is closing in on a remarkable recovery to lead the Roosters in Friday’s grand final qualifier against the Dolphins.\nInjuries are a fact of life in rugby league, but when they hit, you’re nothing like yourself. You’re filled with self-doubt and even guilt about letting your teammates down. Your routine and training loads are entirely different and for Nathan, I think that’s amplified because he’s the most thorough player I’ve ever seen with his preparation.\nThink you can’t target Nathan’s foot injury? Think again\nI have a couple of reservations about how Nathan handles this injury, particularly given it’s to his right kicking foot.\nThe talk is that he will hand the goal kicking over to Dylan Edwards and that Jack Cole (named at five-eighth) or Jack Cogger (who I think could easily start in the halves) will take on more general-play kicking. Either way, it’s not ideal on the left side of the ruck because Cole and Cogger are both right-footers, but obviously not in Nathan’s elite class.\nThe other issue with ankle and foot injuries is when you’re trying to get up on your toes to sprint and accelerate. This would obviously hamper Cleary’s running game. But I think it could be even more critical to his lateral defensive movements.\nOne of the few parts of Nathan’s game that can be targeted is that he will occasionally over-chase an attacking side’s lead runners, which we saw most famously in the 2023 grand final against Brisbane when Reece Walsh skewered Penrith.\nDefending as the three-man (the third defender in from the sideline) means you have to “double defend” – where you pivot off the opposition’s lead ball-runner or decoy and cover the fullback if they’re sweeping around to the outside.\nYou need to be able to accelerate, and you certainly don’t need any doubts about whether you can do it.\nEspecially if it’s Kalyn Ponga, Francis Manuleleua and Bradman Best making a beeline for you.\nManuleleua is just the perfect young back-rower with plenty of mongrel to go after Cleary in this situation. But then again, Liam Martin is the best bodyguard Nathan could ask for, too.\nSo, does that change the way Penrith defend on their right edge to help out Nathan?\nBlaize Talagi was fantastic against the Roosters, but he’s had his issues this year, while Luke Garner and Izack Tago are still there on Ivan Cleary’s extended bench, too.\nAnd don’t worry. Ivan will have a plan to protect his superstar No.7 and the best defensive system in the game, but it’s a fascinating question.\nEspecially when we’re all wondering how much training he will do , how much movement Penrith can get into Nathan’s foot this week, and how that head noise is playing out between his ears.\n‘If I step, is this thing going to pop?’\nAs for Sam Walker, he’s coming back from surgery on his left or “plant” foot – which stays on the ground when he kicks, so that won’t affect his best asset.\nCome game day, it’ll be 27 days since he went down against the Dolphins with ruptured ankle ligaments.\nBy all accounts, he’s been back running for a couple of weeks , easing that head noise. But then you have to ask, just how fast and how intense has that running been?\nSammy is the Roosters’ left-side half and lov",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 32.17166442027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "feb5fe65c8c325e4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Dolphins v Roosters: Finals Week 3 - NRL.com",
+            "url": "https://www.nrl.com/watch/news/dolphins-v-roosters-finals-week-3-1994822/",
+            "published_at": "2026-09-23T06:11:47+00:00",
+            "snippet": "Dolphins v Roosters: Finals Week 3\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Finals Week 3\nPanthers v Knights: Finals Week 3\nTelstra Women's Premiership\n2026 / Finals Week 2\nTitans v Broncos: Finals Week 2\n",
+            "body_excerpt": "Dolphins v Roosters: Finals Week 3\nSean Ormerod and Denan Kemp from Sportsbet preview this week's NRL clashes\nMatch Preview\nTelstra Premiership\n2026 / Finals Week 3\nPanthers v Knights: Finals Week 3\nTelstra Women's Premiership\n2026 / Finals Week 2\nTitans v Broncos: Finals Week 2\nRoosters v Raiders: Finals Week 2\nWarriors v Knights: Finals Week 2\nRoosters v Sharks: Finals Week 2\n2026 / Finals Week 1\nBroncos v Knights: Finals Week 1\nWests Tigers v Raiders: Finals Week 1\nRabbitohs v Knights: Finals Week 1",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 44.97527553138889,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Dolphins NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Dolphins vs Roosters NRL round 30 preview",
+          "Dolphins Roosters NRL odds OR price OR favourite",
+          "Dolphins Roosters NRL finals race OR ladder stakes",
+          "Dolphins Roosters NRL",
+          "Dolphins NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Dolphins Roosters NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 30 Dolphins OR Roosters"
+        ],
+        "filter_summary": {
+          "dropped_stale": 81,
+          "dropped_wrong_round": 0,
+          "dropped_noise": 9,
+          "dropped_irrelevant": 18,
+          "kept": 21,
+          "deferred_pending_body": 58,
+          "promoted_after_body": 10,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 3
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "b6479be896b4",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-25T03:10:17.990804+00:00",
+      "finished_at": "2026-09-25T03:12:24.116239+00:00",
+      "duration_ms": 126125,
+      "request": {
+        "home_team": "Dolphins",
+        "away_team": "Roosters",
+        "venue": "Suncorp Stadium",
+        "kickoff": "2026-09-25T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.6606,
+        "home_win_probability": 0.6606,
+        "shap_explanations": {
+          "positive_drivers": [
+            "5-game form: all run metres (+173.40) — contribution 0.138 (18% of total)",
+            "Ladder points differential per game (+1.0 points) — contribution 0.067 (9% of total)",
+            "Elo rating advantage (+49 points) — contribution 0.057 (7% of total)",
+            "5-game form: points against (-13.20) — contribution 0.049 (6% of total)",
+            "Venue home advantage (55% historical home rate) — contribution 0.021 (3% of total)"
+          ],
+          "negative_drivers": [
+            "Head-to-head record (last 5) (40% to the home side) — contribution 0.026 (3% of total)",
+            "3-game form: play the ball speed (-0.21) — contribution 0.024 (3% of total)",
+            "5-game form: missed tackles (+1.40) — contribution 0.021 (3% of total)",
+            "3-game form: kicking metres (+84.33) — contribution 0.019 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Pythagorean form (last 10) (-9% expected-win gap) — contribution 0.018 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.5422,
+            "total_toward_away": 0.2185,
+            "net": 0.3237,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: kicking metres (+84.33)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Dolphins",
+          "away_team": "Roosters",
+          "venue": "Suncorp Stadium",
+          "kickoff": "2026-09-25T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -11,7 +11,6 @@ from .cache import cache_key, load as cache_load, save as cache_save
 from .channels.duckduckgo import fetch_duckduckgo
 from .channels.google_news_rss import fetch_google_news_rss
 from .channels.nrl_news import fetch_nrl_news
-from .channels.reddit import fetch_reddit
 from .debug_log import write_dropped_sources
 from .filter import (
     dedupe_by_canonical_url,
@@ -54,7 +53,6 @@ def research_fixture(
     max_items: int = 25,
     max_deferred_body_fetches: int = 15,
     queries: list[str] | None = None,
-    include_reddit: bool = False,
 ) -> dict:
     """Run all channels, filter, optionally cache, return ResearchResponse dict.
 
@@ -64,10 +62,6 @@ def research_fixture(
     Relevance runs in two passes: a title/snippet pass, then a second pass over
     deferred items once article bodies have been fetched, so articles that only
     name the fixture in their body are recovered rather than dropped.
-
-    Reddit is off by default (DD-34): it contributes ~0 usable items per fixture
-    and its search endpoint is blocked to unauthenticated clients. Pass
-    ``include_reddit=True`` to run it anyway.
     """
     custom = sanitize_custom_queries(queries)
     request = {
@@ -119,10 +113,6 @@ def research_fixture(
         "duckduckgo": ddg,
         "google_news_rss": gnews,
     }
-    if include_reddit:
-        channels["reddit"] = fetch_reddit(
-            client, home_team, away_team, round_number=round_number, now=now
-        )
 
     all_items = []
     for ch in channels.values():

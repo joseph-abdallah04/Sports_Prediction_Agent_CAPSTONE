@@ -1,0 +1,1300 @@
+{
+  "schema_version": 2,
+  "run_id": "20260919T022238Z-a682966c",
+  "at_a_glance": {
+    "fixture": "Roosters v Sharks",
+    "round": 29,
+    "kickoff": "2026-09-19T19:50:00+10:00",
+    "venue": "Allianz Stadium",
+    "predicted_winner": "Roosters",
+    "confidence": 0.62,
+    "model_home_win_probability": 0.62,
+    "model_prediction": "Home Win",
+    "research_items_kept": 19,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-19T02:22:38.880418+00:00",
+  "updated_at": "2026-09-19T02:32:52.115449+00:00",
+  "request": {
+    "home_team": "Roosters",
+    "away_team": "Sharks",
+    "season": null,
+    "round_number": 29,
+    "force_refresh": true,
+    "user_question": "Who wins Roosters vs Sharks?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Roosters",
+    "away_team": "Sharks",
+    "confidence": 0.62,
+    "summary": "The Roosters are favoured by their Elo rating and a 2-0 regular season record against the Sharks, though they enter this match on a three-game losing streak. While the Sharks possess stronger recent run metres and a positive Pythagorean expected-win gap, the model still nets the advantage to the home side. The return of Angus Crichton provides further support for a Roosters victory.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+      },
+      {
+        "source": "research",
+        "detail": "The Roosters won both encounters against the Sharks during the regular season (sportsnews.com.au)."
+      },
+      {
+        "source": "research",
+        "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+      },
+      {
+        "source": "math",
+        "detail": "The Sharks' strongest drivers are their 5-game run metre advantage and Pythagorean form, which act as the primary counter-signals to the home win."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 19,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 12
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 9
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Roosters vs Sharks NRL round 29 preview",
+      "Roosters Sharks NRL odds OR price OR favourite",
+      "Roosters Sharks NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The claim that the market is pricing the Roosters at $1.46 does not appear in any research body_excerpt or title."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Angus Crichton is described as returning, matching the research 'Angus Crichton is set to return for the Roosters this weekend'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo rating and H2H record are correctly attributed to the Roosters as per the favouring_Roosters_home_win group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors cite sportsnews.com.au and nrl_news."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence is 0.62, which is within the 0.50-0.85 range and justified by H2H and Elo advantages."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP factors are treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top Sharks drivers '5-game form: all run metres' and 'Pythagorean form' are not mentioned or evaluated."
+        }
+      ],
+      "issues": [
+        "The market price of $1.46 is a hallucination as it is not present in the research.",
+        "The top math drivers for the Sharks (run metres and Pythagorean form) were omitted from the evaluation."
+      ],
+      "instruction": "Remove the unsupported market price of $1.46. Additionally, math drivers include '5-game form: all run metres' and 'Pythagorean form' for the Sharks; these are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Remove the unsupported market price of $1.46. Additionally, math drivers include '5-game form: all run metres' and 'Pythagorean form' for the Sharks; these are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Roosters",
+      "away_team": "Sharks",
+      "confidence": 0.62,
+      "summary": "The Roosters are strong favourites based on home ground advantage and a dominant 2-0 record against the Sharks during the regular season. While the Roosters are currently on a three-game losing streak, the return of Angus Crichton and a superior Elo rating support a home win. The market strongly aligns with this, pricing the Roosters at $1.46.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+        },
+        {
+          "source": "research",
+          "detail": "The Roosters held sway over the Sharks on both occasions they met during the regular season (sportsnews.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Roosters",
+      "away_team": "Sharks",
+      "confidence": 0.62,
+      "summary": "The Roosters are favoured by their Elo rating and a 2-0 regular season record against the Sharks, though they enter this match on a three-game losing streak. While the Sharks possess stronger recent run metres and a positive Pythagorean expected-win gap, the model still nets the advantage to the home side. The return of Angus Crichton provides further support for a Roosters victory.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+        },
+        {
+          "source": "research",
+          "detail": "The Roosters won both encounters against the Sharks during the regular season (sportsnews.com.au)."
+        },
+        {
+          "source": "research",
+          "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+        },
+        {
+          "source": "math",
+          "detail": "The Sharks' strongest drivers are their 5-game run metre advantage and Pythagorean form, which act as the primary counter-signals to the home win."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The market price of $1.46 is a hallucination as it is not present in the research.",
+      "The top math drivers for the Sharks (run metres and Pythagorean form) were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-19T02:23:15.722342+00:00",
+      "thinking": "*   Home Team: Roosters\n    *   Away Team: Sharks\n    *   Round Number: 29\n    *   Goal: Determine who wins (requires availability, preview, odds, and context).\n\n    *   Query 1 (Home Availability): `Roosters NRL injury OR \"late mail\" OR \"team list\" round 29`\n    *   Query 2 (Away Availability): `Sharks NRL injury OR \"late mail\" OR \"team list\" round 29`\n    *   Query 3 (Fixture Preview): `Roosters vs Sharks NRL round 29 preview`\n    *   Query 4 (Market Prices): `Roosters Sharks NRL odds OR price OR favourite`\n    *   Query 5 (Specific Context): Round 29 is very late in the season (likely finals race/ladder stakes). `Roosters Sharks NRL finals race OR ladder stakes` or `Roosters Sharks NRL form streak`. Let's go with finals race/ladder stakes given it's Round 29.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Roosters, Sharks).\n    *   JSON format? Yes.",
+      "chars": 967
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-19T02:28:13.853185+00:00",
+      "thinking": "Roosters (Home) vs. Sharks (Away).\nAllianz Stadium (Home ground for Roosters).\nSudden-death semi-final (Finals Week 2).\n\n        *   Prediction: Home Win.\n        *   Probability: 0.62.\n        *   SHAP Drivers (Home): Travel (11%), H2H avg margin (6%), Elo advantage (6%), H2H record (5%), 3-game errors (5% - *Conflict*).\n        *   SHAP Drivers (Away): 5-game run metres (12%), Pythagorean form (8%), Penalty gap (3%), Tackle share (2%), Possession (2%).\n        *   Attribution Balance: Leans Home (0.4126 vs 0.2587).\n\n        *   Roosters: Position 4, 16 wins, 38 pts. Recent form: 2-3 (streak 3L).\n        *   Sharks: Position 5, 14 wins, 34 pts. Recent form: 1-4 (streak 2L).\n        *   Comparison: Roosters higher on ladder. Sharks have better points difference per game.\n\n        *   Roosters: Angus Crichton is confirmed/set to return (named on interchange). Salesi Foketi returns to starting team (replacing Egan Butcher, who is out with concussion).\n        *   Sharks: Braydon Trindall is fit (shoulder tested in previous game). Sione Katoa is fit (passed HIA). Hohepa Puru is out (virus).\n        *   H2H: Roosters beat Sharks twice during the regular season (confirmed by `sportsnews.com.au` and `nrl_news`).\n        *   Context: Sudden-death semi-final. Roosters coming off a narrow loss to Panthers; Sharks coming off a win over Cowboys.\n\n        *   Market mentions: $1.46 (likely Roosters) and $9.75 (likely Sharks). Roosters are strong favourites.\n\n    *   *Winner:* Roosters (Home).\n    *   *Confidence:* The math model says 0.62. The market is strongly in favour ($1.46). The Roosters have the home ground, higher ladder position, and beat the Sharks twice in the regular season. However, the Roosters are on a 3-game losing streak (though one was a narrow loss to the Panthers). The Sharks have momentum from a win.\n    *   *Strongest reason for loss:* Roosters' current form (3L streak) and the Sharks' recent win over the Cowboys.\n    *   *Confidence Adjustment:* 0.62 is a modest edge. Given the H2H dominance (2-0) and home ground, but the current form slump, 0.60-0.65 is appropriate. I'll stick close to the model's 0.62.\n\n    *   *Key Factor 1 (Math):* Elo rating advantage and H2H record (60% win rate last 5).\n    *   *Key Factor 2 (Research):* Roosters beat the Sharks twice during the regular season (`sportsnews.com.au`).\n    *   *Key Factor 3 (Research/Scene):* Return of Angus Crichton to the squad (`nrl_news`).\n\n    *   *Summary:* Roosters are the favourites based on home ground advantage and a dominant regular-season head-to-head record (2-0). While they are on a three-game losing streak, the return of Angus Crichton and a strong Elo advantage support a home win. The market strongly favours the Roosters at $1.46.\n\n    *   *Check:* Did I use weather? No.\n    *   *Check:* Did I use conflicted drivers incorrectly? The 3-game error driver is conflicted; I won't cite it as a positive for Roosters.\n    *   *Check:* Did I quote research? Yes, `sportsnews.com.au` for H2H.\n    *   *Check:* Did I check availability? Crichton is returning (positive). Puru is out (negative for Sharks).\n    *   *Check:* Confidence band? 0.62 is in the \"modest edge\" band.\n\n    *   Winner: home\n    *   Home Team: Roosters\n    *   Away Team: Sharks\n    *   Confidence: 0.62\n    *   Summary: Roosters enter as strong favourites, backed by a 2-0 regular season head-to-head record and home ground advantage. Despite a recent three-game losing streak, the return of Angus Crichton and a superior Elo rating provide a clear edge. The market aligns with this view, pricing the Roosters at $1.46.\n    *   Key Factors:\n        1. Math: Elo rating advantage and head-to-head record.\n        2. Research: Roosters beat the Sharks twice during the regular season (sportsnews.com.au).\n        3. Research: Angus Crichton is confirmed to return to the squad (nrl_news).\n    *   Disagreements: null.",
+      "chars": 3911
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-19T02:31:18.194541+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are top SHAP drivers from both sides addressed?\n\n- Home: Roosters\n- Away: Sharks\n- Winner: Home (Roosters)\n- Confidence: 0.62\n\n- \"dominant 2-0 record against the Sharks during the regular season\" -> Research: \"These sides met twice during the regular season and the Roosters held sway on both occasions\" (Match Preview Roosters v Sharks).\n- \"three-game losing streak\" -> Scene: `streak: \"3L\"` for Roosters.\n- \"return of Angus Crichton\" -> Research: \"Angus Crichton is set to return for the Roosters this weekend\" (NRL Late Mail: Finals Week 2).\n- \"superior Elo rating\" -> Math: `Elo rating advantage (+17 points)` in `favouring_Roosters_home_win`.\n- \"market strongly aligns... pricing the Roosters at $1.46\" -> Research: I don't see any mention of $1.46 in the provided `body_excerpt`s. Let me re-scan.\n    - `sportsnews.com.au` mentions \"Odds\" in the title but the body excerpt doesn't list the price.\n    - `nrl_news` doesn't list prices.\n    - `sharks.com.au` doesn't list prices.\n    - `duckduckgo` doesn't list prices.\n    - Result: The $1.46 price is a hallucination.\n\n- Angus Crichton: \"set to return\" (source) -> \"return of Angus Crichton\" (judgement). Correct.\n\n- Elo rating advantage (+17 points) -> attributed to Roosters. Correct.\n- 60% head-to-head win rate -> attributed to Roosters. Correct.\n\n- Weather is \"Fine\". Not mentioned as a key factor. Pass.\n\n- Key factor 2: \"Roosters held sway... (sportsnews.com.au)\".\n- Key factor 3: \"Angus Crichton... (nrl_news)\".\n- Pass.\n\n- Confidence: 0.62.\n- Justification: \"home ground advantage and a dominant 2-0 record... return of Angus Crichton and a superior Elo rating\".\n- Range: 0.50-0.85.\n- Defensible: Yes, 0.62 is reasonable for a semi-final.\n- Pass.\n\n- Top Roosters drivers: Travel (0.072), H2H margin (0.039), Elo (0.038).\n- Top Sharks drivers: Run metres (-0.079), Pythagorean form (-0.055).\n- Judgement focuses on H2H, Elo, and Home ground (Travel). No minor factor is treated as decisive. Pass.\n\n- `favouring_Roosters_home_win`:\n    - Away travel to venue (19 km) -> Mentioned as \"home ground advantage\".\n    - Head-to-head average margin -> Mentioned as \"dominant 2-0 record\".\n    - Elo rating advantage -> Mentioned.\n    - Head-to-head record (60%) -> Mentioned.\n    - 3-game form: errors -> Not mentioned. (This is the 5th driver, usually top 2-3 are required).\n- `favouring_Sharks_away_win`:\n    - 5-game form: all run metres (-0.079) -> NOT mentioned.\n    - Pythagorean form (-0.055) -> NOT mentioned.\n    - 5-game momentum: penalty gap -> NOT mentioned.\n- Failure: The top two drivers for the Sharks (Run metres and Pythagorean form) are completely ignored.\n\n- `sourced_claims`: Fail ($1.46 price).\n- `omitted_math_signals`: Fail (Sharks' top drivers ignored).\n\n- `sourced_claims`: \"The market strongly aligns with this, pricing the Roosters at $1.46.\" -> Not found in any research body.\n- `omitted_math_signals`: \"5-game form: all run metres (-116.00)\" and \"Pythagorean form (last 10) (-10% expected-win gap)\" are the top drivers for the Sharks but are not addressed.\n\n- `sourced_claims`: fail\n- `availability_direction`: pass\n- `shap_attribution`: pass\n- `weather_not_headline`: pass\n- `research_used`: pass\n- `confidence_justified`: pass\n- `driver_proportionality`: pass\n- `omitted_math_signals`: fail\n\nInstruction: \"The market price of $1.46 is not in the research; please remove it. Also, math drivers include '5-game form: all run metres' and 'Pythagorean form' for the Sharks, which are not addressed — please evaluate them.\"",
+      "chars": 4200
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-19T02:32:52.114255+00:00",
+      "thinking": "*   Winner: Roosters (Home)\n    *   Confidence: 0.62\n    *   Summary: Cited home ground, 2-0 regular season record, Angus Crichton's return, Elo rating, and a market price of $1.46.\n    *   Key Factors: Math (Elo/H2H), Research (2-0 regular season), Research (Crichton return).\n\n    *   *Market Price:* The verifier says $1.46 is a hallucination. Looking at `market_mentions`, there are prices `[\"$1.46\", \"$9.75\"]`. Wait, the `market_mentions` block *does* contain $1.46. However, the verifier says it's a hallucination. Let me re-read the `market_mentions` carefully.\n        *   `market_mentions`: `{\"title\": \"...\", \"url\": \"...\", \"source_tier\": \"...\", \"prices_found\": [\"$1.46\", \"$9.75\"], \"snippet\": \"...\"}`.\n        *   The prices *are* there in the JSON. But the verifier says it's a hallucination. Wait, looking at the `snippet` provided in `market_mentions`, the snippet *ends* before the prices are actually shown in the text. The `prices_found` array is a regex extraction.\n        *   Actually, looking at the `market_mentions` block again, the prices are explicitly listed in `prices_found`. If the verifier says it's a hallucination, perhaps they mean it's not in the *text* of the research items or they are being extremely strict about the snippet. Regardless, the instruction is \"Remove the unsupported market price of $1.46\". I must follow the instruction.\n\n    *   *Math Drivers (Sharks):* The verifier notes that '5-game form: all run metres' and 'Pythagorean form' were omitted.\n        *   `favouring_Sharks_away_win`:\n            *   \"5-game form: all run metres (-116.00) — contribution 0.079 (12% of total)\"\n            *   \"Pythagorean form (last 10) (-10% expected-win gap) — contribution 0.055 (8% of total)\"\n        *   These are the two strongest drivers for the Sharks. I need to acknowledge them.\n\n    *   *Winner:* Roosters.\n    *   *Confidence:* 0.62.\n    *   *Math Model:* Probability 0.62. Attribution balance leans home (0.4126 vs 0.2587).\n    *   *Research:* Roosters won both regular season games. Crichton is back.\n    *   *Sharks' strengths:* Better run metres and Pythagorean form (expected win gap).\n    *   *Roosters' weaknesses:* 3-game losing streak (streak: \"3L\").\n    *   *Confidence check:* The Roosters have a clear edge in H2H and Elo, but the Sharks have better recent run metres and a positive Pythagorean gap. The Roosters are on a losing streak. This suggests the 0.62 confidence is reasonable, but I should mention the Sharks' strengths to justify why it's not higher.\n\n    *   Remove the $1.46 price.\n    *   Incorporate the Sharks' math drivers (run metres and Pythagorean form) into the summary or key factors to show they were evaluated.\n    *   The Roosters' 3-game losing streak is a credible reason they could lose, which keeps confidence at or below 0.65.\n\n    *   Winner: home\n    *   Confidence: 0.62\n    *   Summary: Roosters are favoured by Elo and a 2-0 regular season record, though they enter on a three-game losing streak. The Sharks show strength in recent run metres and Pythagorean form, but the model still nets the advantage to the home side. The return of Angus Crichton further bolsters the Roosters' outlook.\n    *   Key Factors:\n        1.  Math: Elo rating and H2H record.\n        2.  Research: 2-0 regular season record (sportsnews.com.au).\n        3.  Research: Return of Angus Crichton (nrl_news).\n        4.  Math: Acknowledge Sharks' run metres/Pythagorean form as the primary counter-signals.",
+      "chars": 3476
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-19T02:23:15.731771+00:00",
+      "payload": {
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Roosters vs Sharks NRL round 29 preview",
+          "Roosters Sharks NRL odds OR price OR favourite",
+          "Roosters Sharks NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-19T02:28:13.853439+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "confidence": 0.62,
+          "summary": "The Roosters are strong favourites based on home ground advantage and a dominant 2-0 record against the Sharks during the regular season. While the Roosters are currently on a three-game losing streak, the return of Angus Crichton and a superior Elo rating support a home win. The market strongly aligns with this, pricing the Roosters at $1.46.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+            },
+            {
+              "source": "research",
+              "detail": "The Roosters held sway over the Sharks on both occasions they met during the regular season (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-19T02:31:18.194963+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The claim that the market is pricing the Roosters at $1.46 does not appear in any research body_excerpt or title."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Angus Crichton is described as returning, matching the research 'Angus Crichton is set to return for the Roosters this weekend'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo rating and H2H record are correctly attributed to the Roosters as per the favouring_Roosters_home_win group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors cite sportsnews.com.au and nrl_news."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence is 0.62, which is within the 0.50-0.85 range and justified by H2H and Elo advantages."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP factors are treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top Sharks drivers '5-game form: all run metres' and 'Pythagorean form' are not mentioned or evaluated."
+            }
+          ],
+          "issues": [
+            "The market price of $1.46 is a hallucination as it is not present in the research.",
+            "The top math drivers for the Sharks (run metres and Pythagorean form) were omitted from the evaluation."
+          ],
+          "instruction": "Remove the unsupported market price of $1.46. Additionally, math drivers include '5-game form: all run metres' and 'Pythagorean form' for the Sharks; these are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-19T02:32:52.115276+00:00",
+      "payload": {
+        "issues": [
+          "The market price of $1.46 is a hallucination as it is not present in the research.",
+          "The top math drivers for the Sharks (run metres and Pythagorean form) were omitted from the evaluation."
+        ],
+        "instruction": "Remove the unsupported market price of $1.46. Additionally, math drivers include '5-game form: all run metres' and 'Pythagorean form' for the Sharks; these are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "confidence": 0.62,
+          "summary": "The Roosters are strong favourites based on home ground advantage and a dominant 2-0 record against the Sharks during the regular season. While the Roosters are currently on a three-game losing streak, the return of Angus Crichton and a superior Elo rating support a home win. The market strongly aligns with this, pricing the Roosters at $1.46.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+            },
+            {
+              "source": "research",
+              "detail": "The Roosters held sway over the Sharks on both occasions they met during the regular season (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "confidence": 0.62,
+          "summary": "The Roosters are favoured by their Elo rating and a 2-0 regular season record against the Sharks, though they enter this match on a three-game losing streak. While the Sharks possess stronger recent run metres and a positive Pythagorean expected-win gap, the model still nets the advantage to the home side. The return of Angus Crichton provides further support for a Roosters victory.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model favours the Roosters based on an Elo rating advantage and a 60% head-to-head win rate over the last five meetings."
+            },
+            {
+              "source": "research",
+              "detail": "The Roosters won both encounters against the Sharks during the regular season (sportsnews.com.au)."
+            },
+            {
+              "source": "research",
+              "detail": "Angus Crichton is confirmed to return to the squad for this semi-final (nrl_news)."
+            },
+            {
+              "source": "math",
+              "detail": "The Sharks' strongest drivers are their 5-game run metre advantage and Pythagorean form, which act as the primary counter-signals to the home win."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "20a03fb6dc25",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-19T02:22:38.880562+00:00",
+      "finished_at": "2026-09-19T02:22:42.377187+00:00",
+      "duration_ms": 3496,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Sharks",
+        "season": null,
+        "round_number": 29,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "season": null,
+          "round_number": 29
+        },
+        "retrieved_at": "2026-09-19T02:22:38.880620+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 29,
+          "round_title": "Finals Week 2",
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "kickoff": "2026-09-19T19:50:00+10:00",
+          "venue": "Allianz Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/roosters-v-sharks/",
+          "match_mode": "Pre",
+          "match_id": "20261112910",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Daniel Luttringer"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Wyatt Raymond"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "James Tedesco",
+                "position": "Fullback",
+                "player_id": 500663
+              },
+              {
+                "number": 2,
+                "name": "Daniel Tupou",
+                "position": "Winger",
+                "player_id": 500002
+              },
+              {
+                "number": 3,
+                "name": "Billy Smith",
+                "position": "Centre",
+                "player_id": 509128
+              },
+              {
+                "number": 4,
+                "name": "Robert Toia",
+                "position": "Centre",
+                "player_id": 100008243
+              },
+              {
+                "number": 5,
+                "name": "Mark Nawaqanitawase",
+                "position": "Winger",
+                "player_id": 100018452
+              },
+              {
+                "number": 6,
+                "name": "Hugo Savala",
+                "position": "Five-Eighth",
+                "player_id": 509599
+              },
+              {
+                "number": 7,
+                "name": "Daly Cherry-Evans",
+                "position": "Halfback",
+                "player_id": 500024
+              },
+              {
+                "number": 8,
+                "name": "Naufahu Whyte",
+                "position": "Prop",
+                "player_id": 100006390
+              },
+              {
+                "number": 9,
+                "name": "Reece Robson",
+                "position": "Hooker",
+                "player_id": 503944
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Collins",
+                "position": "Prop",
+                "player_id": 501781
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Siua Wong",
+                "position": "2nd Row",
+                "player_id": 100004373
+              },
+              {
+                "number": 13,
+                "name": "Victor Radley",
+                "position": "Lock",
+                "player_id": 503920
+              },
+              {
+                "number": 14,
+                "name": "Connor Watson",
+                "position": "Interchange",
+                "player_id": 503327
+              },
+              {
+                "number": 15,
+                "name": "Spencer Leniu",
+                "position": "Interchange",
+                "player_id": 505560
+              },
+              {
+                "number": 16,
+                "name": "Nat Butcher",
+                "position": "Interchange",
+                "player_id": 503639
+              },
+              {
+                "number": 17,
+                "name": "Angus Crichton",
+                "position": "Interchange",
+                "player_id": 503240
+              },
+              {
+                "number": 18,
+                "name": "Cody Ramsey",
+                "position": "Interchange",
+                "player_id": 509404
+              },
+              {
+                "number": 19,
+                "name": "Tommy Talau",
+                "position": "Interchange",
+                "player_id": 505642
+              },
+              {
+                "number": 22,
+                "name": "Toby Rodwell",
+                "position": "Reserve",
+                "player_id": 100011333
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "William Kennedy",
+                "position": "Fullback",
+                "player_id": 504279
+              },
+              {
+                "number": 2,
+                "name": "Sione Katoa",
+                "position": "Winger",
+                "player_id": 503922
+              },
+              {
+                "number": 3,
+                "name": "Riley Jones",
+                "position": "Centre",
+                "player_id": 100009035
+              },
+              {
+                "number": 4,
+                "name": "KL Iro",
+                "position": "Centre",
+                "player_id": 508649
+              },
+              {
+                "number": 5,
+                "name": "Ronaldo Mulitalo",
+                "position": "Winger",
+                "player_id": 506086
+              },
+              {
+                "number": 6,
+                "name": "Braydon Trindall",
+                "position": "Five-Eighth",
+                "player_id": 504321
+              },
+              {
+                "number": 7,
+                "name": "Nicho Hynes",
+                "position": "Halfback",
+                "player_id": 502490
+              },
+              {
+                "number": 8,
+                "name": "Addin Fonua-Blake",
+                "position": "Prop",
+                "player_id": 500449
+              },
+              {
+                "number": 9,
+                "name": "Blayke Brailey",
+                "position": "Hooker",
+                "player_id": 504274
+              },
+              {
+                "number": 10,
+                "name": "Jesse Colquhoun",
+                "position": "Prop",
+                "player_id": 100004272
+              },
+              {
+                "number": 11,
+                "name": "Briton Nikora",
+                "position": "2nd Row",
+                "player_id": 507062
+              },
+              {
+                "number": 12,
+                "name": "Teig Wilton",
+                "position": "2nd Row",
+                "player_id": 507615
+              },
+              {
+                "number": 13,
+                "name": "Cameron McInnes",
+                "position": "Lock",
+                "player_id": 500180
+              },
+              {
+                "number": 14,
+                "name": "Siosifa Talakai",
+                "position": "Interchange",
+                "player_id": 504175
+              },
+              {
+                "number": 15,
+                "name": "Billy Burns",
+                "position": "Interchange",
+                "player_id": 505413
+              },
+              {
+                "number": 16,
+                "name": "Oregon Kaufusi",
+                "position": "Interchange",
+                "player_id": 504460
+              },
+              {
+                "number": 17,
+                "name": "Thomas Hazelton",
+                "position": "Interchange",
+                "player_id": 510238
+              },
+              {
+                "number": 19,
+                "name": "Toby Rudolf",
+                "position": "Interchange",
+                "player_id": 504326
+              },
+              {
+                "number": 20,
+                "name": "Niwhai Puru",
+                "position": "Interchange",
+                "player_id": 509464
+              },
+              {
+                "number": 22,
+                "name": "Mawene Hiroti",
+                "position": "Reserve",
+                "player_id": 504666
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 29,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Roosters",
+            "position": 4,
+            "played": 24,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 38,
+            "points_for": 619,
+            "points_against": 501,
+            "points_difference": 118,
+            "points_difference_per_game": 4.92,
+            "recent_form_last_4": "2 - 3",
+            "streak": "3L",
+            "home_record": "8 - 4",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Sharks",
+            "position": 5,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 672,
+            "points_against": 523,
+            "points_difference": 149,
+            "points_difference_per_game": 6.21,
+            "recent_form_last_4": "1 - 4",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Roosters",
+            "ladder_positions_gap": 1,
+            "points_difference_per_game_gap": -1.29,
+            "points_difference_favours": "Sharks"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=29"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-19T19:00",
+            "temperature_c": 24.7,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 10.7,
+            "weather_code": 0,
+            "summary": "Clear",
+            "latitude": -33.889,
+            "longitude": 151.2254,
+            "venue": "Allianz Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-19T02:22:42.374108+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=29&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/roosters-v-sharks/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.889&longitude=151.2254&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=29"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "361cedbb6207",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-19T02:23:15.750091+00:00",
+      "finished_at": "2026-09-19T02:25:01.824677+00:00",
+      "duration_ms": 106074,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Sharks",
+        "kickoff": "2026-09-19T19:50:00+10:00",
+        "round_number": 29,
+        "venue": "Allianz Stadium",
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Roosters vs Sharks NRL round 29 preview",
+          "Roosters Sharks NRL odds OR price OR favourite",
+          "Roosters Sharks NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "kickoff": "2026-09-19T19:50:00+10:00",
+          "round_number": 29,
+          "venue": "Allianz Stadium",
+          "queries": [
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+            "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+            "Roosters vs Sharks NRL round 29 preview",
+            "Roosters Sharks NRL odds OR price OR favourite",
+            "Roosters Sharks NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-19T02:23:15.794992+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 9
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 12
+          }
+        },
+        "items": [
+          {
+            "id": "ae91f06b22ec884f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Not talking this week': Fitzgibbon out to turn tables on former mentor",
+            "url": "https://www.nrl.com/news/2026/09/18/not-talking-this-week-fitzgibbon-out-to-turn-tables-on-former-mentor/",
+            "published_at": "2026-09-18T02:01:21+00:00",
+            "snippet": "'Not talking this week': Fitzgibbon out to turn tables on former mentor\nCraig Fitzgibbon has opened up on the key role Trent Robinson played in his development as a coach as he looks to turn the tables on his former mentor.\nThe pair will go head-to-head when the Sharks take on th",
+            "body_excerpt": "'Not talking this week': Fitzgibbon out to turn tables on former mentor\nCraig Fitzgibbon has opened up on the key role Trent Robinson played in his development as a coach as he looks to turn the tables on his former mentor.\nThe pair will go head-to-head when the Sharks take on the Roosters in Saturday's sudden-death semi-final at Allianz Stadium.\nA premiership winner with the Roosters as a player, Fitzgibbon transitioned to coaching soon after hanging up the boots and was a key member of Robinson's coaching staff for a decade.\nFitzgibbon gets another grand final try\nThe pair tasted success together in 2018 and 2019 but there will be no love lost when they face off on Saturday night.\n\"I had 10 years working with Trent so it was a long apprenticeship,\" Fitzgibbon said. \"I had plenty of lessons and I'm forever grateful for my time there and his mentoring of me as a coach.\n\"He was always supportive and backed me in to take the opportunity when it came. I'll be forever grateful for that but this week's about Sharks versus Roosters and while we talk regularly, we're not talking this week.\"\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRobinson has long been viewed as one of the smartest and most respected coaches in the game. The former Tiger and Eel enjoyed instant success as a coach, first with Catalans before leading the Roosters to premiership glory in his first season in charge in 2013.\nThroughout more than a decade, Robinson has mentored and helped develop a production line of assistants who have gone on to become head coaches.\nFitzgibbon headlines the list, along with current Eels coach Jason Ryles, former Knights coach Adam O'Brien and current Knights coach Justin Holbrook.\nIt's no coincidence both the Sharks and Newcastle are still alive in this year's competition.\nNicho calls on Sharks faithful to pack the stands\nCurrent Roosters assistants Matt King and Michael Cheika are also in their final days with the club before taking on head coaching roles of the NSW Blues and NSW Waratahs, respectively.\nWhile proud to see his former assistants flourish, Robinson said personal relationships will be put to the side this week as the Roosters put their season on the line.\n\"We honour the clubs we play for and coach for and that's our role,\" Robinson said. \"All of [the relationships] get put aside.\n\"If that emotion creeps in, you're not built for the role. You go about your business, you're purely focused on what the Roosters need to do this week.\n\"We're a close group from a friendship point of view, there's a shared care for each other but it's footy, no one cares about that outside our personal relationships. It's about Saturday night, for Justin it's about Sunday.\n\"We've got roles to play. Our role is to go out there and coach our team, offer the best support we can to our players to go and nail the best game.\"\nFitzgibbon has enjoyed considerable success since leaving the Roosters to take charge of the Sharks in 2022.\nCronulla have played finals football in every year since he took over and are chasing a third-straight preliminary final this weekend.\nThe Sharks are riding high after an elimination final victory over the Cowboys, while the Roosters are desperate to rebound from last week's tight loss to Penrith.\nCronulla knocked the Roosters out of the competition last season but Robinson enjoyed some revenge this year, his side winning both matches played throughout the season.\nNawaqanitawase v Mulitalo: Round 2 Incoming\nWhile he learnt plenty from his former mentor, Fitzgibbon has made a point of forging his own path and backed his team to upset the Roosters on Saturday night.\n\"I was never silly enough to imitate or clone him,\" Fitzgibbon said. \"He's a unique guy, a unique coach and I'm entirely different as a man.\n\"Any coach has to do things their own way, you'",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 24.36522083111111,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "289044625239b25f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Taught me a lot': Hynes embracing blockbuster halves battle",
+            "url": "https://www.nrl.com/news/2026/09/19/taught-me-a-lot-hynes-embracing-blockbuster-halves-battle/",
+            "published_at": "2026-09-18T20:01:21+00:00",
+            "snippet": "'Taught me a lot': Hynes embracing blockbuster halves battle\nA close friendship will be put to the side when star playmakers Nicho Hynes and Daly Cherry-Evans go head-to-head in Saturday night's blockbuster semi-final.\nTwo of the biggest names in the game, the battle of the halfb",
+            "body_excerpt": "'Taught me a lot': Hynes embracing blockbuster halves battle\nA close friendship will be put to the side when star playmakers Nicho Hynes and Daly Cherry-Evans go head-to-head in Saturday night's blockbuster semi-final.\nTwo of the biggest names in the game, the battle of the halfbacks will go a long way to determining the winner of the sudden-death clash at Allianz Stadium.\nA Sea Eagles junior, Hynes first crossed paths with Cherry-Evans more than a decade ago when he spent a summer training alongside the Manly senior squad.\nNicho in the tries\nIt wasn't until they were representative teammates that they formed a close bond, with Hynes crediting the Roosters halfback for helping him handle the pressure of life in the No.7 jumper.\n\"I spent one pre-season with him,\" Hynes said. \"When you're going through the grades and you get to watch people, how they go about their business, they're mannerisms and the way they speak. That's what I learned the most.\n\"I didn't get to develop a great relationship at the time because I was so young and didn't get to experience too much with him. As I've gotten older and experienced an Aussie tour with him, I've got heaps closer to him.\n\"I've rung him for advice over the last couple of years. He's a great guy and I really valued my time with Chez in that Aussie camp and the Prime Minister's XIII we played in together.\n\"He's a great guy, been there and done it all before so he'll be coming out firing this week.\"\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nA well-paid halfback and former Dally M Medal winner, Hynes has spent much of his time at Cronulla in the spotlight.\nThe playmaker is often the first to be blamed when the Sharks lose and was heavily criticised for his finals record in his first couple of years with the club.\nResults on the field have helped silence the critics but Hynes remains under plenty of pressure to deliver a win this weekend.\nNicho calls on Sharks faithful to pack the stands\nIt's a position Cherry-Evans has learned to live with throughout a decorated 16-year career and he's passed on plenty of advice to his fellow halfback.\n\"We've talked about how to deal with certain things, how to speak as a leader and dealing with outside noise,\" Hynes said. \"How to deal with things that go on in day-to-day life as a rugby league player.\n\"He's copped his fair share of criticism in his career, whether it was warranted or not. Some things I don't believe were warranted but he's taught me a lot and I appreciate that.\"\nHynes is out to lead the Sharks to a third-straight preliminary final, with the winner of Saturday's match to take on the Dolphins at Suncorp Stadium next Friday night.\nNicholas Hynes Try\nCherry-Evans' advice has helped the playmaker enjoy his best season in years. The halfback has 23 try assists and 25 linebreak assists in 2026 as he has developed into a more well-rounded halfback.\nHynes' combination with five-eighth Braydon Trindall continues to flourish and he clearly benefited from his halves partner's return from a shoulder injury last weekend.\nCherry-Evans has also starred since joining the Roosters at the start of the year and has taken over the primary playmaking duties after Sam Walker went down with an ankle injury in Round 26.\nDaly Cherry-Evans celebrates milestone game in style\nThe 37-year-old continues to boast one of the best long kicking games in the competition and will be desperate to make amends for last week's missed field goal in the loss to Penrith.\nSaturday's match could be Cherry-Evans' final game in the NRL, the halfback to join Hull FC in England next season.\nThat, according to Hynes, makes the veteran even more dangerous and the Sharks will be on high alert throughout the contest.\n\"He's so calm and clear,\" Hynes said. \"He seems like he has a lot of time and nothing seems to faze h",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 6.3652208311111105,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "61d793654874f09f",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Match Preview Roosters v Sharks: Crichton on track; Puru joins bench",
+            "url": "https://www.nrl.com/news/2026/09/15/roosters-v-sharks-crichton-on-track-berrell-called-up/",
+            "published_at": "2026-09-18T10:01:20+00:00",
+            "snippet": "Presented By\nRoosters v Sharks: Crichton on track; Puru joins bench\nThe Roosters will have taken plenty of positives away from their narrow loss to the Panthers in a pulsating qualifying final and they now confront a dangerous Sharks outfit coming off a victory over the Cowboys.\n",
+            "body_excerpt": "Presented By\nRoosters v Sharks: Crichton on track; Puru joins bench\nThe Roosters will have taken plenty of positives away from their narrow loss to the Panthers in a pulsating qualifying final and they now confront a dangerous Sharks outfit coming off a victory over the Cowboys.\nThese sides met twice during the regular season and the Roosters held sway on both occasions but the Sharks have been hardened by one sudden-death showdown and they'll be ready to leave it all on the paddock again on Saturday night.\nA host of mouth-watering clashes across the park but none bigger than halfbacks Daly Cherry-Evans and Nicho Hynes squaring off in a final for just the second time in their careers.\nBack in 2021, DCE was steering Manly around the park and Hynes was coming off the bench for the Storm, who steamrolled the Sea Eagles 40-12 in a qualifying final before bowing out to the Panthers in a preliminary final.\nMiddle men Naufahu Whyte and Addin Fonua-Blake will also have a huge say in the result as the Roosters and Sharks slug it out for the right to meet the Dolphins in Brisbane in a fortnight.\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nRoosters: Sam Walker's comeback from an ankle injury remains on ice for another week but star back-rower Angus Crichton is on track to return from a long-term foot injury. \"He's ready to go,\" coach Trent Robinson said on Friday morning. The departing forward was a late withdrawal last weekend but is set to come off the bench for Saturday's sudden-death semi-final. Young talent Salesi Foketi is set to start in the backrow after coming off the bench last week, with Egan Butcher unavailable due to a concussion. No changes in Friday's 24-hour update with Toby Rodwell remaining in the squad as the reserve.\nSharks: A change on Friday with Jayden Berrell dropping off the bench. His place is taken by Niwhai Puru, who was a late call-up last week to replace his brother Hohepa. Centre Mawene Hiroti remains in the reserves as he looks to return from a rib injury.\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 Centre for Sharks is number 3 Riley Jones\nCentre for Roosters is number 4 Robert Toia 4 Centre for Sharks is number 4 KL Iro\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Roosters is number 17 Angus Crichton 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 19 Interchange for Sharks is number 19 Toby R",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 16.36549860888889,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "9e5b7b9184097f6b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 2 - Lucas in the mix; Crichton cleared",
+            "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+            "published_at": "2026-09-18T10:00:22+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 2 - Lucas in the mix; Crichton cleared\nNewcastle star Dylan Lucas has until Saturday to prove his fitness for a sudden-death clash with the Warriors while Angus Crichton is set to return for the Roosters this weekend.\nLucas fractured his an",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 2 - Lucas in the mix; Crichton cleared\nNewcastle star Dylan Lucas has until Saturday to prove his fitness for a sudden-death clash with the Warriors while Angus Crichton is set to return for the Roosters this weekend.\nLucas fractured his ankle in Round 21 and has been listed in the Knights' extended squad for this weekend's semi-final at a sold-out Eden Park in Auckland.\nTalking to the media on Thursday afternoon, Newcastle coach Justin Holbrook said a final decision on Lucas' fitness will be made on Saturday.\n\"Everyone trained well, obviously Dyl Lucas is the one we will see how he pulls up and we won’t make a decision on him until Saturday,\" Holbrook told reporters.\n\"Credit to the medical staff and Dylan, the day he got injured he wanted to fast track himself and do everything right. If he gets there on Sunday we will all be happy for Dyl.\"\nRoosters coach Trent Robinson has also declared Crichton will return from a long-term foot injury in Saturday's clash with the Sharks.\n\"He's ready to go,\" Robinson said on Friday.\nSee all the late mail, official team news and updates for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 2\nRoosters v Sharks, Saturday 7.50pm at Allianz Stadium\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 Centre for Sharks is number 3 Riley Jones\nCentre for Roosters is number 4 Robert Toia 4 Centre for Sharks is number 4 KL Iro\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Roosters is number 17 Angus Crichton 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 19 Interchange for Sharks is number 19 Toby Rudolf\n18 19\nInterchange for Roosters is number 19 Tommy Talau 19 20 Interchange for Sharks is number 20 Niwhai Puru\n19 20\nReserves\nReserve for Roosters is number 22 Toby Rodwell 22 Reserve for Sharks is number 22 Mawene Hiroti\n22\nRoosters Ins\nAngus Crichton\nToby Rodwell\nSharks Ins\nMawene Hiroti\nRoosters Outs\nEgan Butcher\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Wyatt Raymond\nLast updated: 9/19/2026 1:22:02 AM\nRoosters: Sam Walker's comeback from an ankle injury remains on ice for another week but star back-rower Angus Crichton is on track to return from a long-term foot injury. \"He's ready to go,\" coach Trent Robinson said on Friday morning. The departing forward was a late withdraw",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 16.38160972,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Ford sidelined again; Crichton confirmed",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-09-18T02:02:42+00:00",
+            "snippet": "NRL Casualty Ward: Ford sidelined again; Crichton confirmed\nWarriors forward Jackson Ford has had his comeback cut short by an ankle injury suffered against the Dolphins in Saturday's qualifying final.\nPlaying his first match since suffering a pectoral injury in Round 16, Ford pl",
+            "body_excerpt": "NRL Casualty Ward: Ford sidelined again; Crichton confirmed\nWarriors forward Jackson Ford has had his comeback cut short by an ankle injury suffered against the Dolphins in Saturday's qualifying final.\nPlaying his first match since suffering a pectoral injury in Round 16, Ford played just 24 minutes at Go Media Stadium before his leg was twisted awkwardly in a Max Plath tackle and he could not continue.\nIn positive news for the Warriors, Leka Halasima is listed among the reserves as he looks to return from a hamstring tweak suffered in the warm-up last week.\nWinger Dallin Watene-Zelezniak is also part of the extended squad as he closes in on a return from a collarbone injury suffered in Round 25.\nTheir opponents Newcastle have named star back-rower Dylan Lucas among their reserves as he makes a late bid to be part of the finals.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nLucas suffered a fractured ankle against the Roosters in Round 21 on a horror night for the Knights which also saw Dylan Brown's season ended by an ACL injury.\nThe 26-year-old will be given up until kick-off to prove his fitness as his side prepares for the do-or-die clash.\nPanthers halfback Nathan Cleary sustained a stress-related bone issue in his foot during Sunday's qualifying final win over the Roosters.\nCleary looked to be in some discomfort during the second half and handed the goalkicking duties to Dylan Edwards for the last shot of the game after Brian To'o scored a runaway try in the 78th minute.\nThe Panthers confirmed on Monday that the champion No.7 had the bone issue and would be assessed and monitored by the club's medical team.\nThe Panthers were dealt a blow prior to kick-off with Luke Garner ruled out due to a minor groin strain. The centre was replaced in the starting line-up by Blaize Talagi.\nThe Roosters lost bench forward Egan Butcher midway through the first half after he failed a HIA.\nButcher is now subject to the 11-day stand-down period and will miss the game against Cronulla.\nThe Roosters welcome back Angus Crichton after 12 games out with a foot injury.\nCrichton had been named to return last week against the Panthers but dropped out of the side the day before the game.\n\"He wasn't ready to go last week, he still had some issues, and he hasn't had them this week,\" Roosters coach Trent Robinson said on Friday.\n\"He's ready to go. He has played enough of these sort of quality games to get ready to go back in.\"\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nCasualty Ward\nBrisbane Broncos\nPreston Riki (syndesmosis, World Cup)\nBrendan Piakura (concussion, World Cup)\nReece Walsh (syndesmosis, 2027)\nCory Paix (shoulder, 2027)\nBlake Mozer (concussion, 2027)\nCanberra Raiders\nMorgan Smithies (concussion, World Cup)\nHudson Young (Achilles, 2027)\nZac Hosking (hamstring, 2027)\nCorey Horsburgh (shoulder, 2027)\nSavelio Tamale (knee, 2027)\nCanterbury-Bankstown Bulldogs\nJethro Rinakama (knee, 2027)\nKurt Mann (groin, 2027)\nSitili Tupouniua (hamstring, 2027)\nSam Hughes (neck, 2027)\nCronulla Sharks\nHohepa Puru (illness, TBC)\nMawene Hiroti (ribs, Finals Week 2)\nMichael Gabrael (suspended, Finals Week 3)\nJesse Ramien (pectoral, 2027)\nTom Flegler (head knock, Finals Week 3)\nGold Coast Titans\nLachlan Ilias (back, 2027)\nJaylan de Groot (knee, 2027)\nZane Harrison (hamstring, 2027)\nJojo Fifita (hip pointer, 2027)\nOliver Pascoe (concussion, 2027)\nJensen Taumoepeau (ankle, 2027)\nJaimin Jolliffe (knee, 2027)\nManly-Warringah Sea Eagles\nTolu Koula (ankle, World Cup)\nEthan Bullemor (concussion, 2027)\nTaniela Paseka (knee, 2027)\nJoey Walsh (jaw, 2027)\nLuke Brooks (knee, 2027)\nKobe Hetherington (bicep, 2027)\nMelbourne Storm\nJahrome",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 24.34272083111111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "eb8b7f3cf046dfd6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Finals Week 2",
+            "url": "https://www.nrl.com/news/2026/09/15/nrl-team-lists-finals-week-2/",
+            "published_at": "2026-09-15T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Finals Week 2\nOfficial team lists, updates and injury news for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Sharks, Saturday 7.50pm at Allianz Stadium\nMatch: Roosters v Sharks",
+            "body_excerpt": "Presented By\nNRL Team Lists: Finals Week 2\nOfficial team lists, updates and injury news for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Sharks, Saturday 7.50pm at Allianz Stadium\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 Centre for Sharks is number 3 Riley Jones\nCentre for Roosters is number 4 Robert Toia 4 Centre for Sharks is number 4 KL Iro\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Roosters is number 17 Angus Crichton 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 19 Interchange for Sharks is number 19 Toby Rudolf\n18 19\nInterchange for Roosters is number 19 Tommy Talau 19 20 Interchange for Sharks is number 20 Niwhai Puru\n19 20\nReserves\nReserve for Roosters is number 22 Toby Rodwell 22 Reserve for Sharks is number 22 Mawene Hiroti\n22\nRoosters Ins\nAngus Crichton\nToby Rodwell\nSharks Ins\nMawene Hiroti\nRoosters Outs\nEgan Butcher\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Wyatt Raymond\nLast updated: 9/19/2026 1:22:02 AM\nRoosters: Angus Crichton has again been named to return from a foot injury after being a late withdrawal last week. Back-rower Salesi Foketi left the field for a HIA inside the final 15 minutes last Sunday but is right to play. He comes into the side in place of Egan Butcher (concussion). Young playmaker Toby Rodwell is part of the extended squad having recovered from a head knock suffered in Round 27 against Souths.\nSharks: Just the one change for Craig Fitzgibbon with back-up hooker Jayden Berrell recalled on the bench for his fifth NRL game of the season and his first since Round 18. Niwhai Peru has dropped back to the reserves after being a late call-up last week to replace his brother Hohepa, who withdrew due to illness. Outside backs Mawene Hiroti and Sam Stonestreet are part of the extended squad.\nWarriors v Knights, Sunday 4.05pm (AEST), 6.05pm (local time) at Eden Park\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nWarriors\nKnights\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Knights is number 2 Dominic Young\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Knights is number 3 Dane Gagai\nCentre for Warriors is number 4 Adam Pompey 4 Centre for Knights is number 4 Bra",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 92.40438749777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c828f71ba1bd1b37",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out",
+            "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/",
+            "published_at": "2026-09-13T04:42:43+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out\nPanthers young gun Blaize Talagi will line up in the centres for the first time since 2024 after L uke Garner succumbed to a minor groin injury.\nThe first choice five-eighth for much of the season, ",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out\nPanthers young gun Blaize Talagi will line up in the centres for the first time since 2024 after L uke Garner succumbed to a minor groin injury.\nThe first choice five-eighth for much of the season, Talagi in the lead up to the finals but has now been thrust into a new role for Penrith's qualifying final against the Roosters.\nTrent Robinson's men will not have the services of Angus Crichton for the clash after he failed to overcome a foot injury.\nThe second rower has missed the past 11 weeks with the ailment and will eye a return in their next finals match.\nSee all the late mail, official team news and updates for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 1\nPanthers v Roosters, Sunday 4.05pm at CommBank Stadium\nMatch: Panthers v Roosters\nFinals Week 1 - Finals Week 1 - Sunday 13 Sep\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Panthers is number 4 Casey McLean 4 3 Centre for Roosters is number 3 Billy Smith\n4 3\nCentre for Panthers is number 18 Blaize Talagi 18 4 Centre for Roosters is number 4 Robert Toia\n18 4\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Roosters is number 6 Hugo Savala\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Daly Cherry-Evans\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 16 Liam Henry 16 10 Prop for Roosters is number 10 Lindsay Collins\n16 10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 12 2nd Row for Roosters is number 12 Siua Wong\n11 12\n2nd Row for Panthers is number 12 Liam Martin 12 20 2nd Row for Roosters is number 20 Egan Butcher\n12 20\nLock for Panthers is number 10 Lindsay Smith 10 13 Lock for Roosters is number 13 Victor Radley\n10 13\nInterchange\nInterchange for Panthers is number 13 Isaah Yeo 13 11 Interchange for Roosters is number 11 Salesi Foketi\n13 11\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 17 Billy Phillips 17 15 Interchange for Roosters is number 15 Spencer Leniu\n17 15\nInterchange for Panthers is number 19 Billy Scott 19 16 Interchange for Roosters is number 16 Nat Butcher\n19 16\nReserve for Panthers is number 14 Freddy Lussick 14 18 Reserve for Roosters is number 18 Cody Ramsey\n14 18\nReserve for Panthers is number 22 Jesse McLean 22 19 Reserve for Roosters is number 19 Tommy Talau\n22 19\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Phil Henderson\nSenior Review Official: Wyatt Raymond\nLast updated: 9/13/2026 1:12:02 PM\nPanthers: A minor groin strain to Luke Garner has prompted a reshuffle for the Panthers with Blaize Talagi coming into the centres. Skipper Isaah Yeo has also shifted to the bench, with Liam Henry to start at prop and Lindsay Smith moving to lock. Jesse McLean is the other new face on the six-man bench. Scott Sorensen re-joins the bench after he was rested last following a gruelling campaign in which he had played every match. The Panthers have won 12 of their last 14 games against the Roosters.\nRoosters: One late change for the Roosters with Egan Butcher to start in the back row and Salesi Foketi shifting to the interchange. Angus Crichton was ruled out on Saturday after failing to overcome a foot injury. Victor Radley returns from concussion in another boost. Premiership winner Daly Cherry-Evans takes over at halfback with Sam Walker gone for the sea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 141.67577638666666,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ea2017faa1eb0d7a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knight’s incredible comeback from horror injury; Roosters to make life hell for Sharks star — NRL Daily - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-fletcher-sharpes-incredible-comeback-from-injury-roosters-to-make-life-hell-for-braydon-trindall-inside-the-brilliance-of-mark-nawaqanitawase-nrl-daily-nrl-news/news-story/8169442eb6c64651fffbb6705bc9c2e1",
+            "published_at": "2026-09-18T23:06:53+00:00",
+            "snippet": "Knight’s incredible comeback from horror injury; Roosters to make life hell for Sharks star — NRL Daily &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Knight’s incredible comeback from horror injury; Roosters to target Sharks star — NRL Daily\nRugby league is full of stories about players who have returned from serious knee and shoulder injuries the following year, but few stars have experienced what Fletcher Sharpe went through in 2025.\nIt makes Newcastle’s run to the second week of the finals even more impressive when you consider their speedy five-eighth was in hospital with a lacerated kidney and damaged spleen last June.\nWatch every game of the 2026 NRL Telstra Premiership Finals Series before the Grand Final LIVE with no ad-breaks during play on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nWhat looked like a head knock quickly escalated, with Sharpe in an operating theatre later that night in Perth as doctors worked on injuries that were described at the time as something you see in car crash victims.\nIt took months for him to get back to full fitness, but you wouldn’t know it watching him now, with Sharpe a key reason behind Newcastle’s incredible bounce back in 2026 a year after they finished with the wooden spoon.\n“I’m really enjoying my footy again. It took a bit to get going, but I’m in a confident spot with where my game is at,” he said.\n“I think sort of post-Christmas in pre-season I got all the ticks of approval from specialists, and that obviously gave me a bit of confidence and let me know that I was right to go.\n“So from there, it was just a slow, gradual build back into it. Once you’re back into it – full contact and stuff – instincts take over. You’re back out on the footy field and just back doing what you love.\n“It took a little bit to get past it and get back to loving my footy, but it’s back now. I’m enjoying it.”\nSYDNEY, AUSTRALIA - SEPTEMBER 11: Fletcher Sharpe of the Knights runs the ball during the NRL Elimination Final match between the South Sydney Rabbitohs and Newcastle Knights at Allianz Stadium on September 11, 2026, in Sydney, Australia. (Photo by Cameron Spencer/Getty Images) Source: Getty Images\nThere were questions going into the round 1 game in Las Vegas whether Sharpe would play five-eighth, in the outside backs or come off the bench.\nThose doubts only amplified when he was forced off with a knee injury that thankfully wasn’t overly serious.\nHe returned in round 4 and has been a constant threat on the left edge, which has allowed skipper Kalyn Ponga to both sides of the field knowing that Sharpe has the speed and talent to make things happeplay n.\n“The most pleasing thing about his footy is his consistency,” Ponga said.\n“With a young guy in a different position, you often find they aren’t as consistent week in and week out. But he’s been one of our best players, if not the best, throughout the whole year. He’s won us a couple of games just on his own back.\n“Every week, we know exactly what we’re going to get from him. He’s a natural footy player, and he works hard. He earns everything he gets and puts himself in good positions – you don’t do that through luck. I’m definitely glad he’s on our team.”\nNew coach Justin Holbrook has revamped their attack and turned them into one of the most exciting teams to watch.\nA lot of that starts with Ponga and ends with their try-scoring wingers, but Sharpe has played a key role even though the Knights lost record-signing Dylan Brown to a knee injury earlier in the year.\nSharpe has scored a career-high 12 tries and has 11 assists – more than double his previous two years combined – with his speed through the middle a nightmare for rival teams.\nThey face the Warriors this weekend, with the Panthers waiting for the winner in a grand final qualifier.\nThat felt like an impossible dream a year ago, but footy has a strange way of making fairytales come true.\n“It definitely felt a long way away going into the start of the year,” he said.\n“But Justin got us all into a room on his first day and said ‘I don’t really care what happened last year, this year is a new year. I’m confident",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 3.2729986088888885,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "31c87b60e7891903",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Team List: Week 2 Finals v Roosters - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/15/nrl-team-list-week-2-finals-v-roosters/",
+            "published_at": "2026-09-15T05:55:00+00:00",
+            "snippet": "Presented By\nNRL Team List: Week 2 Finals v Roosters\nThe Sharks have named the same 1-17 to take on the Roosters in a do-or-die semi-final at Allianz Stadium this Saturday night - tickets are available via THIS link.\nCronulla's number 6 Braydon Trindall is good to go after his re",
+            "body_excerpt": "Presented By\nNRL Team List: Week 2 Finals v Roosters\nThe Sharks have named the same 1-17 to take on the Roosters in a do-or-die semi-final at Allianz Stadium this Saturday night - tickets are available via THIS link.\nCronulla's number 6 Braydon Trindall is good to go after his recently injured shoulder came through unscathed in the club's 26-16 elimination final win over the Cowboys last weekend.\nThe Sharks' new centurion Sione Katoa is also fit after he passed his HIA in Saturday's game before coming back to score his 100th and 101st tries for the club.\nRecently re-signed middle forward Hohepa Puru was a late out with a virus for the North Queensland clash and will miss the Roosters rumble as well.\nJayden Berrell takes Puru's place in jersey #18, which is the only change to Cronulla's 22-man squad.\nBerrell is back after helping Newtown snatch victory from the jaws of defeat in their 26-25 Minor semi-final win over North Sydney.\nThe 31-year-old hooker provided the pinpoint passes for Taj Ford to nail not one, but TWO field goals in the final 4 minutes of their NSW Cup clash.\nThe Sharks are calling on their supporters to pack out Allianz Stadium and rival the Roosters fans for what should be an epic battle on Saturday night.\nKick-off is scheduled for 7:50pm AEST on Saturday.\nSee the two team lists below.\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 Centre for Sharks is number 3 Riley Jones\nCentre for Roosters is number 4 Robert Toia 4 Centre for Sharks is number 4 KL Iro\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Sharks is number 16 Oregon Kaufusi\n16\nInterchange for Roosters is number 17 Angus Crichton 17 Interchange for Sharks is number 17 Thomas Hazelton\n17\nInterchange for Roosters is number 18 Cody Ramsey 18 19 Interchange for Sharks is number 19 Toby Rudolf\n18 19\nInterchange for Roosters is number 19 Tommy Talau 19 20 Interchange for Sharks is number 20 Niwhai Puru\n19 20\nReserves\nReserve for Roosters is number 22 Toby Rodwell 22 Reserve for Sharks is number 22 Mawene Hiroti\n22\nRoosters Ins\nAngus Crichton\nToby Rodwell\nSharks Ins\nMawene Hiroti\nRoosters Outs\nEgan Butcher\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Wyatt Raymond\nLast updated: 9/19/2026 1:22:02 AM\nSHARKS TEAM LIST 1 - Will Kennedy - The Roaming Cup 2 - Sione Katoa - Bath Haus 3 - Riley Jones - The Vinyl Room Nightclub Gymea 4 - KL Iro - Shire Steel & Fabrication 5 - Ronaldo Mulitalo - A Corp. Computers 6 - Braydon Trindall - Totally Workwear Kirrawee 7 - Nicho Hynes - Joh",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 92.47105416444444,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "b7329bf0e1e5b3d3",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Updated Team Lists: Roosters vs Sharks – Finals Week 2, 2026",
+            "url": "https://www.zerotackle.com/updated-team-lists-roosters-vs-sharks-12073970-238228/",
+            "published_at": "2026-09-13T02:23:32+00:00",
+            "snippet": "The Zero Tackle editorial team delivers breaking NRL news, team lists, player movement and analysis, providing accurate and ...",
+            "body_excerpt": "The Roosters and Sharks have cut their squads to 20 ahead of tomorrow's match at Allianz Stadium. 2026-09-19T09:50:00Z Allianz Stadium SYD 2026-09-19T09:50:00Z CRO #NRLRoostersSharks MATCH CENTRE ▶︎ 1 James Tedesco James Tedesco 2 Daniel Tupou Daniel Tupou 3 Billy Smith Billy Smith 4 Robert Toia Robert Toia 5 M. Nawaqanitawase Mark Nawaqanitawase 6 Hugo Savala Hugo Savala 7 Daly Cherry-Evans Daly Cherry-Evans 8 Naufahu Whyte Naufahu Whyte 9 Reece Robson Reece Robson 10 Lindsay Collins Lindsay Collins 11 Salesi Foketi Salesi Foketi 12 Siua Wong Siua Wong 13 Victor Radley Victor Radley INTERCHANGE 14 Connor Watson Connor Watson 15 Spencer Leniu Spencer Leniu 16 Nat Butcher Nat Butcher 17 Angus Crichton Angus Crichton 18 Cody Ramsey Cody Ramsey 19 Tommy Talau Tommy Talau RESERVES 22 Toby Rodwell Toby Rodwell Fullback Wing Centre Centre Wing Five-eighth Halfback Prop Hooker Prop Second Row Second Row Lock Interchange Interchange Interchange Interchange Interchange Interchange Reserves William Kennedy William Kennedy 1 Sione Katoa Sione Katoa 2 Riley Jones Riley Jones 3 KL Iro KL Iro 4 Ronaldo Mulitalo Ronaldo Mulitalo 5 Braydon Trindall Braydon Trindall 6 Nicho Hynes Nicho Hynes 7 Addin Fonua-Blake Addin Fonua-Blake 8 Blayke Brailey Blayke Brailey 9 Jesse Colquhoun Jesse Colquhoun 10 Briton Nikora Briton Nikora 11 Teig Wilton Teig Wilton 12 Cameron McInnes Cameron McInnes 13 INTERCHANGE Siosifa Talakai Siosifa Talakai 14 Billy Burns Billy Burns 15 Oregon Kaufusi Oregon Kaufusi 16 Thomas Hazelton Thomas Hazelton 17 Toby Rudolf Toby Rudolf 19 Niwhai Puru Niwhai Puru 20 RESERVES Mawene Hiroti Mawene Hiroti 22\nJames Tedesco James Tedesco\nDaniel Tupou Daniel Tupou\nBilly Smith Billy Smith\nRobert Toia Robert Toia\nM. Nawaqanitawase Mark Nawaqanitawase\nHugo Savala Hugo Savala\nDaly Cherry-Evans Daly Cherry-Evans\nNaufahu Whyte Naufahu Whyte\nReece Robson Reece Robson\n10\nLindsay Collins Lindsay Collins\n11\nSalesi Foketi Salesi Foketi\n12\nSiua Wong Siua Wong\n13\nVictor Radley Victor Radley\nINTERCHANGE\n14\nConnor Watson Connor Watson\n15\nSpencer Leniu Spencer Leniu\n16\nNat Butcher Nat Butcher\n17\nAngus Crichton Angus Crichton\n18\nCody Ramsey Cody Ramsey\n19\nTommy Talau Tommy Talau\nRESERVES\n22\nToby Rodwell Toby Rodwell\nFullback\nWing\nCentre\nFive-eighth\nHalfback\nProp\nHooker\nSecond Row\nLock\nWilliam Kennedy William Kennedy\nSione Katoa Sione Katoa\nRiley Jones Riley Jones\nKL Iro KL Iro\nRonaldo Mulitalo Ronaldo Mulitalo\nBraydon Trindall Braydon Trindall\nNicho Hynes Nicho Hynes\nAddin Fonua-Blake Addin Fonua-Blake\nBlayke Brailey Blayke Brailey\nJesse Colquhoun Jesse Colquhoun\nBriton Nikora Briton Nikora\nTeig Wilton Teig Wilton\nCameron McInnes Cameron McInnes\nSiosifa Talakai Siosifa Talakai\nBilly Burns Billy Burns\nOregon Kaufusi Oregon Kaufusi\nThomas Hazelton Thomas Hazelton\nToby Rudolf Toby Rudolf\nNiwhai Puru Niwhai Puru\n20\nMawene Hiroti Mawene Hiroti",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 143.99549860888888,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "8ca43af038f4c30b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sydney Roosters vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Finals Week 2 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-finals-week-2-2026/610316",
+            "published_at": "2026-09-17T02:49:19+00:00",
+            "snippet": "Sydney Roosters vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Finals Week 2 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "The Roosters and Sharks renew their finals rivalry at Allianz Stadium, where the winner advances to face the Dolphins and the loser’s season comes to an end.\nWhen: Saturday September 19, 2026 at 7:50 pm\nWhere: Allianz Stadium\nBet 💰: Bet On This Match HERE\nSydney Roosters vs Cronulla Sharks Odds\nSydney Roosters vs Cronulla Sharks Preview\nThe Roosters and Sharks meet at Allianz Stadium with a preliminary final against the Dolphins awaiting the winner. Sydney enters after a 19-12 loss to Penrith, its fourth consecutive defeat, but retains the core of the side that beat Cronulla twice during the regular season. Salesi Foketi returns to the starting team because Egan Butcher is unavailable following a concussion, while Angus Crichton is named on the interchange. Cronulla kept its campaign alive with a 26-16 win over North Queensland and makes only one squad change, adding Jayden Berrell to the extended bench. The Sharks won last season’s elimination final between these clubs, but the Roosters answered with victories of 34-22 and 27-8 this year. Cronulla’s edge threats remain dangerous, particularly Sione Katoa, yet Sydney’s recent record in the matchup and home setting provide the stronger platform.\nHead To Head Bet\nWe're tipping Sydney Roosters to win at $1.46 odds.\nFirst Try Scorer\nFirst Try Scorer: Sione Katoa at $9.75 .\nSydney Roosters vs Cronulla Sharks Teams\nRoosters team: 1. James Tedesco 2. Daniel Tupou 3. Billy Smith 4. Robert Toia 5. Mark Nawaqanitawase 6. Hugo Savala 7. Daly Cherry-Evans 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 14. Connor Watson 15. Spencer Leniu 16. Nat Butcher 17. Angus Crichton 18. Cody Ramsey 19. Tommy Talau 20. Taylor Losalu 21. Benaiah Ioelu 21. Toby Rodwell\nSharks team: 1. William Kennedy 2. Sione Katoa 3. Riley Jones 4. KL Iro 5. Ronaldo Mulitalo 6. Braydon Trindall 7. Nicho Hynes 8. Addin Fonua-Blake 9. Blayke Brailey 10. Jesse Colquhoun 11. Briton Nikora 12. Teig Wilton 13. Cameron McInnes 14. Siosifa Talakai 15. Billy Burns 16. Oregon Kaufusi 17. Thomas Hazelton 18. Jayden Berrell 19. Toby Rudolf 20. Niwhai Puru 21. Samuel Stonestreet 22. Mawene Hiroti",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 47.56577638666667,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "a7d3da43b0b8cbd4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Match Preview: Week 2 Finals v Roosters - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/18/nrl-match-preview-week-2-finals-v-roosters/",
+            "published_at": "2026-09-18T09:50:00+00:00",
+            "snippet": "Presented By\nNRL Match Preview: Week 2 Finals v Roosters\nThe Sharks take some finals momentum into their semi-final against the Roosters at Allianz Stadium tomorrow night.\nAfter a tough end to the regular season, a 26-16 win over the Cowboys has Cronulla cracking the whips at the",
+            "body_excerpt": "Presented By\nNRL Match Preview: Week 2 Finals v Roosters\nThe Sharks take some finals momentum into their semi-final against the Roosters at Allianz Stadium tomorrow night.\nAfter a tough end to the regular season, a 26-16 win over the Cowboys has Cronulla cracking the whips at the right time.\nEspecially with Braydon Trindall's shoulder tried and tested and all the better for the hit-out.\n\"His shoulder pulled up really good to be honest,\" coach Craig Fitzgibbon shared.\n\"A couple of little stingers there which sort of shocked it, but it's really stable, and his strength's really good at the moment, so I think he'll be better for it.\n\"Obviously it was about a month on the sidelines there and he worked really hard in that. The performance staff didn't miss him to make sure he was ready to come back in.\"\nFans won't want to miss Ronaldo Mulitalo versus Mark Nawaqanitawase either.\nOne of the most anticipated winger duels in recent memory.\n\"Ronnie really respects Mark, and I think you would have seen it after the last game and Ronnie knows that the discipline in a semi-final is crucial,\" Fitzgibbon said.\n\"So, he'll be playing for his team in the way Ronnie does and with a respect for his opponent, but it's great to have two of the better wingers in the competition going at it, but no, it'll be focused on the game of football rather than any theatrics.\"\nThe battle off the field has been intense too. Sharks' fans HAD purchased the majority of Saturday's tickets as of Thursday night, before the Roosters faithful took the lead in what is their home final.\n\"We feel the support immensely in the Shire and yeah having them out there to know they'll be vocal for us is definitely an asset, but we want to perform for them as well,\" the Cronulla coach added.\nFitzgibbon is the first coach in the Sharks history to lead the club to five straight finals appearances.\nThe Roosters have won 3/4 of the final's clashes between both clubs, but Cronulla broke the drought in last year's week 1 elimination final with a 20-10 win over the tri-colours at Ocean Protect Stadium.\nThe Sharks have won four of their past six Finals games, with preliminary final losses to Penrith (2024) and Melbourne (2025).\nCronulla receives the fewest penalties and concedes the third-most and records the second-most ruck infringements.\nBraydon Trindall (31) and Nicho Hynes (23) have the most try-assists by a halves combination in recent memory.\nBriton Nikora is chasing his 100th NRL win and Addin Fonua-Blake will play his 50th NRL game for the Sharks in tomorrow's semi-final against the Roosters.\nKick-off is scheduled for 7:50pm at Allianz Stadium.\nSee the two 24-hour team lists below.\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 Centre for Sharks is number 3 Riley Jones\nCentre for Roosters is number 4 Robert Toia 4 Centre for Sharks is number 4 KL Iro\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.55438749777778,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5d721c619151a7f1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters vs Sharks Preview & Betting Tips: 2026 NRL Semi Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/roosters-vs-sharks-preview-betting-tips-2026-nrl-semi-final",
+            "published_at": "2026-09-18T08:04:37+00:00",
+            "snippet": "Roosters vs Sharks Preview & Betting Tips: 2026 NRL Semi Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Roosters vs Sharks Preview & Betting Tips: 2026 NRL Semi Final\nSeptember 18 th 2026, 5:01pm , By: Scooby\nEight teams are now reduced to six and with two resting this weekend, four teams will take centre stage in Week 2 of the NRL Finals series . Following an exhilarating start, the intensity is expected to lift to another level, with action beginning on Saturday as the Roosters host the Sharks . Facing elimination with a loss, neither team will want to end their season with a poor performance here. Two quality teams face off and bring different form lines into this contest. Before You Bet is here to help with a comprehensive look at what is ahead in this match.\nRoosters vs Sharks Prediction & Tips: 2026 NRL Semi Final\nRoosters Brave in defeat\nFew gave the Roosters a chance of competing with the Panthers last week, but they were gallant in their 19-12 defeat. In a gruelling match, the Roosters overcame a 45% share of possession and 73% completion rate to push their opponents over 80 minutes. This saw them make 8.7m per carry and 5 line breaks, continually taking their chances but failing to close out the last part of the match. What went wrong for them was a lack of execution in key moments rather than missing opportunities; they had their chances to build pressure when it mattered. Providing they can recover quickly; they should take confidence from how they performed in that match.\nSharks Back on track\nIn a confidence building victory, the Sharks defeated the Cowboys 26-16 in an elimination match. The improved performance coincided with the return of Trindall in the halves, changing their attacking structure and giving others confidence. Commanding possession (54%), they had a superior completion rate (82%), made 9.2m per carry, and 618 PCM’s. Continually creating second phase play, they made 5 line breaks also, pressuring their opponents in the middle and striking on the edges. The performance of several key players in the spine was also impressive to watch and should serve them well moving forward.\nStats that matter\n- These two sides have met twice this year, with the Roosters prevailing on both occasions. They won the Round 16 meeting 27-8 at this ground, while they captured victory in Perth during Round 6 34-22.\n- The Roosters have a 64% record at this ground compared to the Sharks 49%. Interestingly, the home side has won 7 out of the past 10 matches between these two sides.\n- In the past 5 matches between these two sides, only 2 have been decided by fewer that 12 points, with the average margin of victory being 16 points. They have been relatively low-scoring affairs, with the average sitting at 45.6 total points with 2 games under 35 total points.\n- The Sharks have a great attack this year, averaging 27ppg compared to the Roosters 25ppg. The difference in their defence isn’t much either. The Roosters have the edge though, allowing 20ppg ahead of the Sharks 21ppg.\nFatigue to be a deciding factor\nThe Roosters are coming off a bruising contest against the Panthers and have a short turnaround heading into this match. This gives a Sharks a chance to perform well but in equal measure, the Roosters are a professional organisation capable of managing it. For the Sharks to win, they must set a relentless intensity throughout this match. It starts with their forwards, hopefully giving the outside backs extra space. Like the earlier point, the Roosters are strong defensively on the edge and will be prepared for this.\nThe preference still rests with the Roosters; even without the attacking spark of Walker at halfback, they proved last week that points can still come. Tedesco is crucial to this, as are their middle forwards creating second phase play. The fact they also have two wins already over the Sharks signals that their gameplan will be well thought out. Expect this game to only be decided late, with a grinding affair over 80 minutes as each team attempts to gain the ascendency. This brings the line into play and while there ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.310776386666664,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "76ce25b3b44fb870",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Now or Never: Roosters v Sharks - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/18/now-or-never-roosters-v-sharks/",
+            "published_at": "2026-09-18T03:37:39+00:00",
+            "snippet": "Now or Never: Roosters v Sharks\nThe Sydney Roosters and Cronulla Sharks face off in an elimination Semi Final during Week 2 of the NRL Finals Series\nUp Next\n05:08 Fitzgibbon versus the Sharks\nFitzgibbon versus the Sharks\n14:12 NRL Finals rewind: Roosters v Sharks - Qualifying Fin",
+            "body_excerpt": "Now or Never: Roosters v Sharks\nThe Sydney Roosters and Cronulla Sharks face off in an elimination Semi Final during Week 2 of the NRL Finals Series\nUp Next\n05:08 Fitzgibbon versus the Sharks\nFitzgibbon versus the Sharks\n14:12 NRL Finals rewind: Roosters v Sharks - Qualifying Final, 2002\nNRL Finals rewind: Roosters v Sharks - Qualifying Final, 2002\n00:46 Gallagher hoping finals experience can help Raiders\nGallagher hoping finals experience can help Raiders\n01:01 Bouncing back: The Knights 2026 fightback\nBouncing back: The Knights 2026 fightback\n01:28 You're not losing, you're learning: The 2026 Brisbane Broncos\nYou're not losing, you're learning: The 2026 Brisbane Broncos\nRelated /\nRoosters v Sharks: Finals Week 2\nFinals\n'Taught me a lot': Hynes embracing blockbuster halves battle\nMatch Preview\nRoosters v Sharks: Crichton on track; Puru joins bench\n'Not talking this week': Fitzgibbon out to turn tables on former mentor\nKangaroos jumper on the line as childhood rivals face off\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 22.76022083111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ebf8db19ed70e1d8",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "How injured star helped unleash Roosters young gun",
+            "url": "https://www.nrl.com/news/2026/09/18/how-injured-star-helped-unleash-roosters-young-gun/",
+            "published_at": "2026-09-17T20:01:21+00:00",
+            "snippet": "How injured star helped unleash Roosters young gun\nEmerging forward Salesi Foketi has credited representative star Angus Crichton for mentoring him during a rapid rise from NRL debut to Roosters star.\nFoketi has long been viewed as Crichton's long-term replacement when the vetera",
+            "body_excerpt": "How injured star helped unleash Roosters young gun\nEmerging forward Salesi Foketi has credited representative star Angus Crichton for mentoring him during a rapid rise from NRL debut to Roosters star.\nFoketi has long been viewed as Crichton's long-term replacement when the veteran departs at the end of the season but a serious foot injury accelerated the succession plan.\nThe 20-year-old has looked at home on the Roosters left edge and delivered 53 exceptional minutes in his maiden finals appearance last weekend.\nSalesi Foketi Try\nWhile Crichton is expected to return from injury in Saturday's sudden-death clash with the Sharks, Foketi has retained his place in the starting side and will look to target Cronulla halfback Nicho Hynes throughout the match at Allianz Stadium.\n\"Seeing the way Gussy trains and the way he plays every time he takes the field is inspiring,\" Foketi told NRL.com.\n\"Being able to learn from him, seeing how he goes about it all and picking up tiny details from him is huge. It's helped me tremendously out there on the field.\"\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nFoketi grew up in Auckland before moving to Sydney as a 17-year-old to join the Roosters pathways program.\nThe edge forward quickly rose through the club's flourishing development pipeline before making his debut in Round 1 last season.\nFoketi featured in 19 games in his rookie campaign and has quickly developed into a key figure in the Roosters pack.\nIn a sign of how important the youngster is to coach Trent Robinson, an ill Foketi was given every chance to prove his fitness for last week's clash with the Panthers.\nThe forward battled influenza all week leading into the game and was only cleared to take his place in the squad a few hours before kick-off.\nWhile he remained in the squad, Foketi started the match on the six-man bench and was only expecting to feature late in the contest. That changed just 19 minutes into the game when Egan Butcher suffered a head knock, with Foketi thrust into the action much earlier than anticipated.\n\"I hadn't been with the boys since [Wednesday],\" Foketi said. \"I hadn't trained, barely ate and was in bed most of the time.\n\"I went in on the day of the game and Robbo asked how I was feeling. You put the boys first, they give you that bit of energy so I said I was good to go.\n\"It was an intense atmosphere but in some ways I was fortunate to be sick and not have all the build up around it being a finals game. Leading into this week there will be more hype.\"\nFoketi will line up on the Roosters left edge on Saturday night, directly opposite Sharks, and Kiwis, forward Briton Nikora.\nThe match provides Foketi with a chance to prove he belongs in Stacy Jones' New Zealand squad for the upcoming World Cup, while he is also eligible for Tonga and was a member of Kristian Woolf's squad for last year's Pacific Championships.\nThe representative hype comes as no surprise to the youngster's Roosters teammates, who have been impressed with Foketi's ability to repeatedly elevate his game.\nRadley ready for showdown in the middle\n\"Salesi's character is the most impressive thing,\" experienced lock Victor Radley said. \"He puts his teammates first, you can tell in his effort areas and what he works on in his game.\n\"He's got some brilliant moments, when he folds blokes or steps someone or carries as powerfully as he does but his character and how he puts his teammates before anyone else is super impressive.\n\"[Last week] he could have easily said 'it's not for me today' just to cover his own backside but he said 'no, I want to turn up and give it my all'. We ended up needing him to play big minutes so it's super impressive.\"\nOne play can define a season. These are the moments that matter. Family tickets are available from just $59. Click here to secure your seats a",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 30.36522083111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "e694f88b34370370",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Gameday Guide: Week 2 Finals v Roosters - sharks.com.au",
+            "url": "https://www.sharks.com.au/news/2026/09/16/nrl-gameday-guide-week-2-finals-v-roosters/",
+            "published_at": "2026-09-16T06:00:00+00:00",
+            "snippet": "NRL Gameday Guide: Week 2 Finals v Roosters\nThe Cronulla-Sutherland Sharks take on the Sydney Roosters in Week 2 of the NRL Finals this Saturday (September 19) - get your tickets HERE .\nIt's all on the line in this do-or-die semi-final, with the winner advancing to the Preliminar",
+            "body_excerpt": "NRL Gameday Guide: Week 2 Finals v Roosters\nThe Cronulla-Sutherland Sharks take on the Sydney Roosters in Week 2 of the NRL Finals this Saturday (September 19) - get your tickets HERE .\nIt's all on the line in this do-or-die semi-final, with the winner advancing to the Preliminary Final the week after against the Dolphins in Brisbane.\nThat's why the club is calling on ALL Sharks fans to turn out in force again and make Allianz Stadium a black, white and blue SHARK TANK .\nBe there to celebrate with YOUR team!\nHere's all you need to know in our Week 2 Finals gameday guide!\nKey Timings: Saturday, September 19 4.00pm - Sharks Official Fan Meet-Up opens at Captain Cook Hotel, Paddington 5.02pm - G-train (dedicated train for Sharks fans) departs the Cronulla Train Station for Central Station 5.45pm - Gates Open to Stadium Members via Gate C 6.15pm - Gates Open to Public at Allianz Stadium 6.50pm - Sharks fans march from Captain Cook Hotel to Allianz Stadium 7.50pm - NRL Week 2 Finals Kick-Off: Sharks v Roosters 9.40pm - NRL Full-Time (approx.)\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nWhat’s On: Sharks Week 2 Finals\nSHARKS FAN MEET-UP 4PM–7PM | Captain Cook Hotel, Paddington\nOne week later and we unite again! This time at the iconic Captain Cook for the perfect pre-game meet-up just a short stroll to Allianz Stadium.\nEnjoy the buzzing indoor-outdoor atmosphere, cold beers, pub meals and Joe's pizza. Plus, show your game ticket to receive 10% off all menu items.\nHeritage Pub & Sports Bar in Paddington | Captain Cook Hotel\nMARCH INTO STADIUM 6:50PM | Captain Cook Hotel → Allianz Stadium\nThen we march again. Even louder and stronger. Join the crew, raise your voice and rise together as we enter the Shark Tank!\nONE PACK. ONE VOICE. LET'S MAKE SOME NOISE.\nMake Allianz the SHARK TANK Black, white and blue should be the only colours in your wardrobe this week. Go all out and make a bold statement from head to toe. Make sure you're there to get behind the boys, and let's turn Allianz Stadium into the SHARK TANK !\nSharks Finals Fever Fan Hub Send us your best Sharks photo, a message of support, or a 10 to 15 second video firing up the team. We will share them with the players, and you could be featured on Sharks socials - send via THIS link!\nNRL Finals Week 2 Ticketing Information\nTickets became available to the general public at 10am on Tuesday (September 15), which means the pre-sale window for members is closed - get your tickets HERE .\nA family of four can now go to the game and cheer on the Sharks for just $59! Footy's better when everyone's there so to help with the cost of living, it's just $59 for two adults and two children to be part of the unique atmosphere of a sudden-death semi-final. Single adult tickets start from $29 - Tickets HERE .\nThe Cronulla Sharks and Sharks at Kareela are unable to process any transactions or assist with the purchasing of tickets, including accessible and group ticketing.\nAccessible & Companion Seating – CLICK HERE\nYou can reach Ticketmaster customer service at 1-800-653-8000 for assistance with tickets, accounts, or refunds.\nMembership & Ticketing\nA reminder that 2026 Membership Passes will not grant entry into Saturday Allianz Stadium. All tickets to the match will need to be pre-purchased via Ticketmaster HERE .\nTicketed Members will be required to use their AAN Code to purchase tickets. Ticketed Members should've received several emails over the last few weeks, with details about how to access your AAN code directly from the NRL. Still haven't got your code? CLICK HERE to obtain it.\nNon-Ticketed Members can purchase tickets from 4:00 PM on Monday, 14 September, 2026 using the unique code emailed to them.\nPlease note – Sharks Membership cards cannot be scanned for entry to the game.\nGetting to the Game - Transport\nCatch the ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 68.38772083111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "333a9915eb3464c5",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Redemption mission driving Roosters into sudden-death showdown",
+            "url": "https://www.nrl.com/news/2026/09/16/redemption-mission-driving-roosters-into-sudden-death-showdown/",
+            "published_at": "2026-09-16T02:01:21+00:00",
+            "snippet": "Redemption mission driving Roosters into sudden-death showdown\nThe opportunity for a rematch with the Panthers is driving the Roosters in their bid to navigate two weeks of sudden-death football and book a spot in the NRL grand final.\nThe two teams played out an epic qualifying f",
+            "body_excerpt": "Redemption mission driving Roosters into sudden-death showdown\nThe opportunity for a rematch with the Panthers is driving the Roosters in their bid to navigate two weeks of sudden-death football and book a spot in the NRL grand final.\nThe two teams played out an epic qualifying final last weekend, with Nathan Cleary slotting a 70th minute field goal to help send Penrith into the preliminary final.\nThe result has forced the Roosters into sudden-death football a week earlier than hoped and Trent Robinson's men will now take on Cronulla in a must-win semi-final at Allianz Stadium on Saturday night.\nPanthers v Roosters – Finals Week 1, 2026\nWhile disappointed not to come away with the result, the Roosters have taken plenty of confidence from their performance and set their sights on setting up a rematch with the Panthers on grand final day.\n\"We saw we're able to go toe-to-toe with the premiership favourites,\" centre Rob Toia said. \"That was a big takeaway we can take from that game.\n\"Some of the boys on the Penrith team mentioned a few times 'we'll be seeing you in the GF'. I didn't think of it at the time but if we win our games the next two weeks we'll meet them in the grand final if both teams get through.\"\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThe winner of Saturday's match will take on the Dolphins in a Suncorp Stadium preliminary final next weekend, while Penrith will host the winner of the Warriors' clash with the Knights.\nAfter a Round 24 win over the Panthers, the Roosters have now lost four on the trot but confidence remains high within the club's Moore Park HQ.\nTrent Robinson's side pushed the minor premiers to the brink and could have prevailed had a couple of key moments swung in their favour.\nTedesco chats Panthers lessons and Sharks challenge\nLock Victor Radley revealed he was up at 3am on Monday pondering the chance that slipped through his side's grasp but has quickly turned his focus to Saturday's clash with the Sharks.\n\"I had that feeling [after Sunday] that I know where we stand,\" Radley said. \"We're in a good spot and nothing's more important than this week.\n\"As disappointing as the weekend was, we know we're in a good place.\"\nWhile the result didn't go their way, there were plenty of positives to take out of Sunday's game for the Roosters.\nThe Tricolours were superb in defence and largely contained Penrith's attacking weapons.\nMark Nawaqanitawase was immense for the Roosters\nThere were also promising signs from Daly Cherry-Evans' halves partnership with Hugo Savala, with the pair to link up again this weekend as Sam Walker continues his recovery from an ankle injury.\nWhile Cronulla will pose a different challenge on Saturday night, Roosters captain James Tedesco is confident his side can finish on top.\n\"Our performance was really good,\" Tedesco said. \"I didn't think we got outplayed, our physicality was really good and our defence on the goal line was awesome.\nRadley ready for showdown in the middle\n\"You look at those positives and there's a couple of moments we want to clear up and fix this weekend but it's about bringing positivity into this week. Especially with the young crew we've got, we're not getting down on ourselves.\n\"We know the areas we want to improve on and focus on in our sessions this week so we're ready to go on Saturday night.\"\nOne play can define a season. These are the moments that matter. Family tickets are available from just $59. Click here to secure your seats and get behind your team.\nRelated /\n'Taught me a lot': Hynes embracing blockbuster halves battle\nFinals\nNow or Never: Roosters v Sharks\n'Not talking this week': Fitzgibbon out to turn tables on former mentor\nHow injured star helped unleash Roosters young gun\nKangaroos jumper on the line as childhood rivals face off",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 72.36522083111112,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "1c2352741e678b54",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Don't miss this special family ticket offer for Roosters-Sharks showdown - NRL.com",
+            "url": "https://www.nrl.com/news/2026/09/14/dont-miss-this-special-family-ticket-offer-for-roosters-sharks-showdown/",
+            "published_at": "2026-09-14T10:36:53+00:00",
+            "snippet": "Don't miss this special family ticket offer for Roosters-Sharks showdown &nbsp;&nbsp; NRL.com",
+            "body_excerpt": "Don't miss this special family ticket offer for Roosters-Sharks showdown\nIf you want to be part of the action at this weekend's semi-final at Allianz Stadium, we have a special offer on a family ticket for you and your crew.\nFor fans of the Roosters and Sharks headed to Allianz Stadium on Saturday night, a family of four can go and cheer on their team for just $59.\nFooty's better when everyone's there so to help with the cost of living, it's just $59 for two adults and two children to be part of the unique atmosphere of a sudden-death semi-final. Single adult tickets start from $29.\nThe winner marches on to a preliminary final against the Dolphins but for the loser, the season is over.\nWith Braydon Trindall, Nicho Hynes and Addin Fonua-Blake matching motors with Daly Cherry-Evans, Rob Toia and Naufahu Whyte, this promises to be a spectacular clash and you can share the night with the family for just $59.\nTickets go on sale from 10am AEST on Tuesday at nrl.com/tickets\nDon't miss your chance to be part of the action.\nFooty's better when everyone's there!\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\n4th Position\naway Team\nSharks\n5th Position\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nFinals Week 2: Everything you need to know\nFinals\n'Taught me a lot': Hynes embracing blockbuster halves battle\nNow or Never: Roosters v Sharks\n'Not talking this week': Fitzgibbon out to turn tables on former mentor\nHow injured star helped unleash Roosters young gun",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 111.77299860888888,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "3f6afa7ae2e2940e",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters v Sharks - Finals Week 2, 2026 - Match Centre - NRL.com",
+            "url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/roosters-v-sharks/",
+            "published_at": "2026-09-13T08:32:02+00:00",
+            "snippet": "Telstra Premiership Finals Week 2 Roosters vs Sharks\nTelstra Premiership\nPremier Partner\nMedia Partners\nMajor Partners",
+            "body_excerpt": "Telstra Premiership Finals Week 2 Roosters vs Sharks\nTelstra Premiership\nPremier Partner\nMedia Partners\nMajor Partners",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 137.85383194222223,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Roosters vs Sharks NRL round 29 preview",
+          "Roosters Sharks NRL odds OR price OR favourite",
+          "Roosters Sharks NRL finals race OR ladder stakes",
+          "Roosters Sharks NRL",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 29 Roosters OR Sharks"
+        ],
+        "filter_summary": {
+          "dropped_stale": 71,
+          "dropped_wrong_round": 0,
+          "dropped_noise": 13,
+          "dropped_irrelevant": 22,
+          "kept": 19,
+          "deferred_pending_body": 71,
+          "promoted_after_body": 3,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 4
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "ebda43078741",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-19T02:23:15.750094+00:00",
+      "finished_at": "2026-09-19T02:25:01.824679+00:00",
+      "duration_ms": 106074,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Sharks",
+        "venue": "Allianz Stadium",
+        "kickoff": "2026-09-19T19:50:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.62,
+        "home_win_probability": 0.62,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Away travel to venue (19 km) — contribution 0.072 (11% of total)",
+            "Head-to-head average margin (last 5) (+6.8 points) — contribution 0.039 (6% of total)",
+            "Elo rating advantage (+17 points) — contribution 0.038 (6% of total)",
+            "Head-to-head record (last 5) (60% to the home side) — contribution 0.032 (5% of total)",
+            "3-game form: errors (+1.00) — contribution 0.031 (5% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+          ],
+          "negative_drivers": [
+            "5-game form: all run metres (-116.00) — contribution 0.079 (12% of total)",
+            "Pythagorean form (last 10) (-10% expected-win gap) — contribution 0.055 (8% of total)",
+            "5-game momentum: penalty gap seconds (+13.44) — contribution 0.020 (3% of total)",
+            "5-game workload: top3 tackle share (+0.01) — contribution 0.014 (2% of total)",
+            "5-game form: possession pct (-4.80) — contribution 0.014 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.4126,
+            "total_toward_away": 0.2587,
+            "net": 0.1539,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (+1.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Roosters",
+          "away_team": "Sharks",
+          "venue": "Allianz Stadium",
+          "kickoff": "2026-09-19T19:50:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

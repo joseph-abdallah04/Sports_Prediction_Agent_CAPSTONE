@@ -1,11 +1,11 @@
 """Shared prediction serving layer.
 
-One code path used by BOTH the `model.predict` CLI and the MCP gateway
+One code path used by BOTH the `model.predict` CLI and the agent
 (`predict_match` tool), so there is no drift between how predictions are
 made on the command line and via the agent tool interface.
 
 Also implements artifact hot-reload: the weekly ETL overwrites the files in
-models/ while a long-lived process (e.g. MCP server) may be running. Before
+models/ while a long-lived process may be running. Before
 each prediction we compare the modification time of models/metrics.json
 (always rewritten last by train.py) against the loaded bundle; if it changed,
 we transparently reload the model, calibrator, and feature metadata.

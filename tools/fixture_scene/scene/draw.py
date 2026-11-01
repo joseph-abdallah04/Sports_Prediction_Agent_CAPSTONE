@@ -150,29 +150,6 @@ def list_round_fixtures(
     ]
 
 
-def fixture_result(fixture_card: dict[str, Any]) -> dict[str, Any] | None:
-    """Final score from a fixture card, or None if the match is not complete."""
-    fixture = fixture_card.get("fixture_card") or {}
-    if (fixture.get("matchState") or "").strip() != "FullTime":
-        return None
-    home_score = (fixture.get("homeTeam") or {}).get("score")
-    away_score = (fixture.get("awayTeam") or {}).get("score")
-    if home_score is None or away_score is None:
-        return None
-    home_score, away_score = int(home_score), int(away_score)
-    return {
-        "home_score": home_score,
-        "away_score": away_score,
-        "margin": home_score - away_score,
-        # Draws are rare but real; the model only predicts home/away.
-        "winner": (
-            "home" if home_score > away_score
-            else "away" if away_score > home_score
-            else "draw"
-        ),
-    }
-
-
 def find_upcoming_fixture(
     client: RateLimitedHttpClient,
     home_team: str,

@@ -1,7 +1,7 @@
 """SHAP-based reasoning payload for a single prediction.
 
 Converts a model prediction into the contextualised JSON the LLM
-Orchestrator consumes (see mathematical_engine/Overview.md): the predicted
+Orchestrator consumes: the predicted
 outcome, its calibrated probability, and the feature drivers that pushed the
 prediction toward each side - in human-readable language.
 

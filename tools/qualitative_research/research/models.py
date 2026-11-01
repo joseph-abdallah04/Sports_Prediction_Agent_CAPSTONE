@@ -46,9 +46,3 @@ class ChannelResult:
 def item_id(channel: str, url: str) -> str:
     import hashlib
     return hashlib.sha256(f"{channel}|{url}".encode()).hexdigest()[:16]
-
-
-def hours_since(published_at: datetime | None, now: datetime) -> float | None:
-    if published_at is None:
-        return None
-    return (now - published_at).total_seconds() / 3600.0

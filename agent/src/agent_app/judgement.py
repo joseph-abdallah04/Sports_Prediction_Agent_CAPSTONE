@@ -140,8 +140,8 @@ def label_shap_drivers(
 
     The math tool speaks in terms of the label: positive pushes P(home win) up.
     An LLM reads "positive_drivers" as "points my way" and, when the model picks
-    the away side, cheerfully attributes home-favouring drivers to the away team
-    (ADR 0008). Naming the club removes the ambiguity.
+    the away side, cheerfully attributes home-favouring drivers to the away team.
+    Naming the club removes the ambiguity.
     """
     if not isinstance(shap, dict):
         return shap

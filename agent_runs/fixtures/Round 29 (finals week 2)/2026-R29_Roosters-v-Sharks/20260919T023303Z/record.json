@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "run_id": "20260919T023303Z-f6aeebfb",
+  "run": {
+    "predicted_at_utc": "2026-09-19T02:42:07.048511+00:00",
+    "predicted_at_local": "2026-09-19T12:42:07.048511+10:00",
+    "started_at_utc": "2026-09-19T02:33:03.932197+00:00",
+    "wall_seconds": 543.1,
+    "hours_before_kickoff": 7.1,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 29,
+    "home_team": "Roosters",
+    "away_team": "Sharks",
+    "venue": "Allianz Stadium",
+    "kickoff": "2026-09-19T19:50:00+10:00",
+    "kickoff_local": "2026-09-19T19:50:00+10:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 29,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Roosters",
+      "position": 4,
+      "played": 24,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 38,
+      "points_for": 619,
+      "points_against": 501,
+      "points_difference": 118,
+      "points_difference_per_game": 4.92,
+      "recent_form_last_4": "2 - 3",
+      "streak": "3L",
+      "home_record": "8 - 4",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Sharks",
+      "position": 5,
+      "played": 24,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 34,
+      "points_for": 672,
+      "points_against": 523,
+      "points_difference": 149,
+      "points_difference_per_game": 6.21,
+      "recent_form_last_4": "1 - 4",
+      "streak": "2L",
+      "home_record": "8 - 4",
+      "away_record": "6 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Roosters",
+      "ladder_positions_gap": 1,
+      "points_difference_per_game_gap": -1.29,
+      "points_difference_favours": "Sharks"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=29"
+  },
+  "prediction": {
+    "predicted_winner": "Roosters",
+    "predicted_side": "home",
+    "confidence": 0.63,
+    "home_win_probability": 0.63
+  },
+  "math_model": {
+    "home_win_probability": 0.62,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Away travel to venue (19 km) — contribution 0.072 (11% of total)",
+        "Head-to-head average margin (last 5) (+6.8 points) — contribution 0.039 (6% of total)",
+        "Elo rating advantage (+17 points) — contribution 0.038 (6% of total)",
+        "Head-to-head record (last 5) (60% to the home side) — contribution 0.032 (5% of total)",
+        "3-game form: errors (+1.00) — contribution 0.031 (5% of total); CONFLICT: the raw value on its own favours the away side — the model still nets it toward home here"
+      ],
+      "negative_drivers": [
+        "5-game form: all run metres (-116.00) — contribution 0.079 (12% of total)",
+        "Pythagorean form (last 10) (-10% expected-win gap) — contribution 0.055 (8% of total)",
+        "5-game momentum: penalty gap seconds (+13.44) — contribution 0.020 (3% of total)",
+        "5-game workload: top3 tackle share (+0.01) — contribution 0.014 (2% of total)",
+        "5-game form: possession pct (-4.80) — contribution 0.014 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (+1.00)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Sharks NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Roosters vs Sharks NRL round 29 preview",
+      "Roosters Sharks NRL odds OR price OR favourite",
+      "Roosters Sharks NRL finals race OR ladder stakes",
+      "Roosters Sharks NRL",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Sharks NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters Sharks NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 29 Roosters OR Sharks"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "NRL Team Lists: Finals Week 2",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-15T05:59:00+00:00",
+        "age_hours": 92.57592587111111,
+        "url": "https://www.nrl.com/news/2026/09/15/nrl-team-lists-finals-week-2/"
+      },
+      {
+        "title": "'Not talking this week': Fitzgibbon out to turn tables on former mentor",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-18T02:01:21+00:00",
+        "age_hours": 24.536759204444444,
+        "url": "https://www.nrl.com/news/2026/09/18/not-talking-this-week-fitzgibbon-out-to-turn-tables-on-former-mentor/"
+      },
+      {
+        "title": "NRL Late Mail: Finals Week 2 - Lucas in the mix; Crichton cleared",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-18T10:00:22+00:00",
+        "age_hours": 16.553148093333334,
+        "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/"
+      },
+      {
+        "title": "'Taught me a lot': Hynes embracing blockbuster halves battle",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-18T20:01:21+00:00",
+        "age_hours": 6.5367592044444445,
+        "url": "https://www.nrl.com/news/2026/09/19/taught-me-a-lot-hynes-embracing-blockbuster-halves-battle/"
+      },
+      {
+        "title": "Match Preview Roosters v Sharks: Crichton on track; Puru joins bench",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-18T10:01:20+00:00",
+        "age_hours": 16.537036982222222,
+        "url": "https://www.nrl.com/news/2026/09/15/roosters-v-sharks-crichton-on-track-berrell-called-up/"
+      },
+      {
+        "title": "How injured star helped unleash Roosters young gun",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-17T20:01:21+00:00",
+        "age_hours": 30.536759204444444,
+        "url": "https://www.nrl.com/news/2026/09/18/how-injured-star-helped-unleash-roosters-young-gun/"
+      },
+      {
+        "title": "Redemption mission driving Roosters into sudden-death showdown",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Finals",
+        "published_at": "2026-09-16T02:01:21+00:00",
+        "age_hours": 72.53675920444445,
+        "url": "https://www.nrl.com/news/2026/09/16/redemption-mission-driving-roosters-into-sudden-death-showdown/"
+      },
+      {
+        "title": "Knight’s incredible comeback from horror injury; Roosters to make life hell for Sharks star — NRL Daily - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-18T23:06:53+00:00",
+        "age_hours": 3.444536982222222,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-fletcher-sharpes-incredible-comeback-from-injury-roosters-to-make-life-hell-for-braydon-trindall-inside-the-brilliance-of-mark-nawaqanitawase-nrl-daily-nrl-news/news-story/8169442eb6c64651fffbb6705bc9c2e1"
+      },
+      {
+        "title": "NRL Team List: Week 2 Finals v Roosters - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-15T05:55:00+00:00",
+        "age_hours": 92.64259253777777,
+        "url": "https://www.sharks.com.au/news/2026/09/15/nrl-team-list-week-2-finals-v-roosters/"
+      },
+      {
+        "title": "Updated Team Lists: Roosters vs Sharks – Finals Week 2, 2026",
+        "source": "zerotackle.com",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-09-13T02:33:52+00:00",
+        "age_hours": 143.99481476,
+        "url": "https://www.zerotackle.com/updated-team-lists-roosters-vs-sharks-12073970-238228/"
+      },
+      {
+        "title": "NRL Late Mail: Week 1 Finals v Cowboys - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-12T08:20:00+00:00",
+        "age_hours": 162.22592587111112,
+        "url": "https://www.sharks.com.au/news/2026/09/12/nrl-late-mail-week-1-finals-v-cowboys/"
+      },
+      {
+        "title": "Sydney Roosters vs Cronulla Sharks Tips, Odds, Teams & Predictions – NRL Finals Week 2 2026 - sportsnews.com.au",
+        "source": "sportsnews.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-17T02:49:19+00:00",
+        "age_hours": 47.737314760000004,
+        "url": "https://www.sportsnews.com.au/nrl/sydney-roosters-vs-cronulla-sharks-tips-odds-teams-predictions-nrl-finals-week-2-2026/610316"
+      },
+      {
+        "title": "Roosters vs Sharks Prediction & NRL Betting Preview - 19/9/26 - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-18T18:03:18+00:00",
+        "age_hours": 8.504259204444445,
+        "url": "https://insights.betfred.com/rugby-league/roosters-vs-sharks-prediction-betting-tips-saturday-19-september-2026/"
+      },
+      {
+        "title": "NRL Match Preview: Week 2 Finals v Roosters - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-18T09:50:00+00:00",
+        "age_hours": 16.725925871111112,
+        "url": "https://www.sharks.com.au/news/2026/09/18/nrl-match-preview-week-2-finals-v-roosters/"
+      },
+      {
+        "title": "Roosters vs Sharks Preview & Betting Tips: 2026 NRL Semi Final - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-18T08:04:37+00:00",
+        "age_hours": 18.48231476,
+        "url": "https://www.beforeyoubet.com.au/roosters-vs-sharks-preview-betting-tips-2026-nrl-semi-final"
+      },
+      {
+        "title": "Now or Never: Roosters v Sharks - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-18T03:37:39+00:00",
+        "age_hours": 22.931759204444443,
+        "url": "https://www.nrl.com/news/2026/09/18/now-or-never-roosters-v-sharks/"
+      },
+      {
+        "title": "NRL Gameday Guide: Week 2 Finals v Roosters - sharks.com.au",
+        "source": "sharks.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-16T06:00:00+00:00",
+        "age_hours": 68.55925920444444,
+        "url": "https://www.sharks.com.au/news/2026/09/16/nrl-gameday-guide-week-2-finals-v-roosters/"
+      },
+      {
+        "title": "Don't miss this special family ticket offer for Roosters-Sharks showdown - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-14T10:36:53+00:00",
+        "age_hours": 111.94453698222222,
+        "url": "https://www.nrl.com/news/2026/09/14/dont-miss-this-special-family-ticket-offer-for-roosters-sharks-showdown/"
+      },
+      {
+        "title": "Roosters v Sharks - Finals Week 2, 2026 - Match Centre - NRL.com",
+        "source": "nrl.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-09-13T08:32:02+00:00",
+        "age_hours": 138.02537031555553,
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/roosters-v-sharks/"
+      },
+      {
+        "title": "NRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Team Lists",
+        "published_at": "2026-09-13T04:42:43+00:00",
+        "age_hours": 141.84731476,
+        "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP drivers 'Away travel to venue', '5-game form: all run metres', and 'Pythagorean form' were omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "All claims matched: 3L streak (standings), Egan Butcher concussion (sportsnews.com.au), Elo/H2H (predict_match), Crichton return (nrl_news), Puru virus (sharks.com.au), and $1.46 odds (sportsnews.com.au)."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Crichton returning, Puru missing, and Butcher missing all align with source text."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Elo and H2H drivers are correctly attributed to the Roosters from the 'favouring_Roosters_home_win' group."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not mentioned as a factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factors include Crichton (NRL Late Mail) and Puru (sharks.com.au)."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence (0.63) is a slight, justified increase from the prior (0.62) based on confirming research (Crichton return, Puru out)."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "No minor SHAP factors are treated as decisive."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material drivers 'Away travel to venue' (11%), '5-game form: all run metres' (12%), and 'Pythagorean form' (8%) are not addressed."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The math model sets a prior of 0.62 for a Roosters win, supported by their head-to-head record and Elo advantage. Research confirms this edge with the return of Angus Crichton to the Roosters' side and the loss of Hohepa Puru for the Sharks due to illness. The market aligns with this view, pricing the Roosters as favourites at $1.46.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Home win probability of 0.62, driven by Elo rating advantage and a positive head-to-head average margin."
+      },
+      {
+        "source": "research",
+        "detail": "Angus Crichton is set to return for the Roosters in this sudden-death clash (NRL Late Mail)."
+      },
+      {
+        "source": "research",
+        "detail": "Sharks forward Hohepa Puru is ruled out of the match with a virus (sharks.com.au)."
+      }
+    ],
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Roosters are currently on a three-game losing streak and are missing Egan Butcher due to concussion.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R29_Roosters-v-Sharks/20260919T023303Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R29_Roosters-v-Sharks/20260919T023303Z/summary.md"
+  }
+}

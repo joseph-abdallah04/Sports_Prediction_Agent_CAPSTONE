@@ -1,0 +1,1354 @@
+{
+  "schema_version": 2,
+  "run_id": "20260927T003734Z-d001bb07",
+  "at_a_glance": {
+    "fixture": "Panthers v Knights",
+    "round": 30,
+    "kickoff": "2026-09-27T16:00:00+10:00",
+    "venue": "Accor Stadium",
+    "predicted_winner": "Panthers",
+    "confidence": 0.8,
+    "model_home_win_probability": 0.7969,
+    "model_prediction": "Home Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-27T00:37:34.766959+00:00",
+  "updated_at": "2026-09-27T01:03:12.448569+00:00",
+  "request": {
+    "home_team": "Panthers",
+    "away_team": "Knights",
+    "season": null,
+    "round_number": 30,
+    "force_refresh": true,
+    "user_question": "Who wins Panthers vs Knights?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Panthers",
+    "away_team": "Knights",
+    "confidence": 0.8,
+    "research_stance": "confirms",
+    "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+    "loss_reason_specific": false,
+    "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner. The model's edge is further supported by a strong 5-game run-metre advantage, and the market aligns with this pick, pricing the Panthers at $1.28 in the provided market mentions.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+      },
+      {
+        "source": "math",
+        "detail": "Strong 5-game form advantage in all run metres (+138.80), contributing 0.142 to the home win probability."
+      },
+      {
+        "source": "research",
+        "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+      },
+      {
+        "source": "research",
+        "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "items_mentioning_both_teams": 20,
+      "has_fixture_availability": true,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 3
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 12
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 11
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Panthers NRL injury OR \"late mail\" OR \"team list\" round 30",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 30",
+      "Panthers vs Knights NRL round 30 preview",
+      "Panthers Knights NRL odds OR price OR favourite",
+      "Panthers Knights NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "fail",
+          "evidence": "The market price of '$1.28' does not appear in any research body_excerpt, title, or price_quote."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Claims that Nathan Cleary, Jack Cogger, and Luke Garner are playing/returning match the research excerpts."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry and Elo advantages are correctly attributed to the Panthers (home win group)."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned as a key factor in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factors identify research articles regarding Nathan Cleary and the return of Cogger/Garner."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence (0.8) is a reasonable rounding of the math prior (0.7969) with confirming research."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the top SHAP drivers (Bradley-Terry and Elo)."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "The material driver '5-game form: all run metres' (10% of total) is not mentioned or alluded to in the judgement."
+        }
+      ],
+      "issues": [
+        "The market price of $1.28 is not sourced from the research provided.",
+        "The material math driver '5-game form: all run metres' was omitted from the evaluation."
+      ],
+      "instruction": "The market price of $1.28 is not sourced from the research. Additionally, the material math driver '5-game form: all run metres' was not addressed; please consider it and re-output."
+    },
+    "instruction": "The market price of $1.28 is not sourced from the research. Additionally, the material math driver '5-game form: all run metres' was not addressed; please consider it and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Knights",
+      "confidence": 0.8,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+      "loss_reason_specific": false,
+      "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner, which supports the model's strength advantage. The market also aligns with this pick, pricing the Panthers at $1.28.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+        },
+        {
+          "source": "research",
+          "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+        },
+        {
+          "source": "research",
+          "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Panthers",
+      "away_team": "Knights",
+      "confidence": 0.8,
+      "research_stance": "confirms",
+      "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+      "loss_reason_specific": false,
+      "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner. The model's edge is further supported by a strong 5-game run-metre advantage, and the market aligns with this pick, pricing the Panthers at $1.28 in the provided market mentions.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+        },
+        {
+          "source": "math",
+          "detail": "Strong 5-game form advantage in all run metres (+138.80), contributing 0.142 to the home win probability."
+        },
+        {
+          "source": "research",
+          "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+        },
+        {
+          "source": "research",
+          "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The market price of $1.28 is not sourced from the research provided.",
+      "The material math driver '5-game form: all run metres' was omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-27T00:38:39.896728+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Knights\n    *   Round Number: 30\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Panthers).\n    *   Query 2: Away team availability (Knights).\n    *   Query 3: Fixture preview (Panthers vs Knights Round 30).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure).\n\n    *   Query 1 (Home): `Panthers NRL injury OR \"late mail\" OR \"team list\" round 30`\n    *   Query 2 (Away): `Knights NRL injury OR \"late mail\" OR \"team list\" round 30`\n    *   Query 3 (Fixture): `Panthers vs Knights NRL round 30 preview`\n    *   Query 4 (Market): `Panthers Knights NRL odds OR price OR favourite`\n    *   Query 5 (Specific Angle): Since it's Round 30 (very late in the season), \"finals race\" or \"ladder stakes\" is the most relevant angle. `Panthers Knights NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/referee? Yes.\n    *   Exact nicknames? Yes (Panthers, Knights).\n    *   JSON format? Yes.",
+      "chars": 1111
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-27T00:48:46.304812+00:00",
+      "thinking": "*   Home Team: Panthers\n    *   Away Team: Knights\n    *   Venue: Accor Stadium\n    *   Math Prediction: Home Win\n    *   Home Win Probability: 0.7969\n    *   Standings: Panthers (1st), Knights (7th). Gap of 6 positions.\n    *   SHAP Drivers:\n        *   Favouring Panthers: Bradley-Terry strength (0.230), Elo rating (0.206), Ladder points differential (0.162), 5-game form run metres (0.142), Pythagorean form (0.099).\n        *   Favouring Knights: Kicking metres (0.040 - CONFLICT), Line breaks (0.025), Errors (0.024 - CONFLICT), Possession pct (0.021 - CONFLICT), Travel (0.020).\n    *   Market: Panthers favourite at $1.28 (from `market_mentions`).\n\n    *   Nathan Cleary (Panthers halfback): Had a foot injury (bone stress), but Ivan Cleary confirmed he \"will take his place\" and is \"ready\" (Source: \"Team Lists NRL Late Mail: Preliminary Finals - Cleary on track\").\n    *   Panthers returns: Jack Cogger and Luke Garner return (Source: \"Match Preview Panthers v Knights: Cogger, Garner return\").\n    *   Knights: Same 19 for Holbrook (Source: \"Match Preview Panthers v Knights\").\n    *   Context: Preliminary Final. Knights are on a \"giant-killing run\" (Source: \"Take it to them\").\n\n    *   Math prior: 0.7969 (Home Win).\n    *   Research:\n        *   Nathan Cleary is available (confirms the strength of the Panthers).\n        *   Cogger and Garner return (confirms/strengthens Panthers).\n        *   Knights are in good form (giant-killing run), but the math already accounts for recent form (though the SHAP drivers for Knights are very small).\n    *   Research Stance: `confirms`. The return of key players (Cogger, Garner) and the confirmation that the star halfback (Cleary) is playing supports the math's strong preference for the Panthers.\n\n    *   Math probability is ~0.80.\n    *   Research confirms (Cleary playing, returns for Panthers).\n    *   Confidence Band: 0.75-0.85 is for large ratings gaps confirmed by news. This fits.\n    *   Confidence: 0.80 (keeping the prior as research confirms).\n\n    *   Strongest reason could lose: The Knights' \"giant-killing run\" and momentum from recent finals wins (e.g., beating Warriors at Eden Park).\n    *   `loss_reason_specific`: False (this is general momentum/variance, not a specific player out for Panthers or back for Knights). Wait, the research mentions the Knights' \"giant-killing run\" and \"fairytale charge\". This is a form-based reason. Is it \"specific\"? The rules say \"a named player ruled out or returning, or a specific this-week form/availability fact\". The \"giant-killing run\" is a general form trend. I'll mark it false as it's not a specific *new* shock this week.\n\n    *   Winner: home\n    *   Confidence: 0.80\n    *   Research Stance: confirms\n    *   Key Factors:\n        1.  Math: Bradley-Terry strength and Elo rating advantage.\n        2.  Research: Nathan Cleary confirmed available despite foot injury (\"Team Lists NRL Late Mail: Preliminary Finals - Cleary on track\").\n        3.  Research: Return of Jack Cogger and Luke Garner (\"Match Preview Panthers v Knights\").\n    *   Summary: The Panthers enter as strong favourites with a significant ratings and ladder advantage. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner, supporting the math prior. The market also heavily favours Penrith at $1.28.",
+      "chars": 3354
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-27T00:57:56.991359+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific points:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, prices) in the research body/title/price_quote?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence score (0.8) justified based on the math prior (0.7969) and research?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are all material SHAP drivers (>= 8%) covered?\n\n`sourced_claims`\n- Nathan Cleary confirmed to play: Found in \"Team Lists NRL Late Mail: Preliminary Finals - Cleary on track\" (\"Penrith coach Ivan Cleary has declared halfback Nathan Cleary will take his place in Sunday's preliminary final against the Knights\").\n- Jack Cogger and Luke Garner return: Found in \"Match Preview Panthers v Knights: Cogger, Garner return; Same 19 for Holbrook\" (Title: \"Cogger, Garner return\").\n- Market price $1.28: I need to check the research. I see no price of $1.28 in any of the `body_excerpt` or titles. Let me re-read.\n    - \"Panthers, Knights drop two... $1\" (This is for Kayo).\n    - No mention of $1.28 in any research item.\n    - **FAIL**: The price $1.28 is not in the research.\n\n`availability_direction`\n- Nathan Cleary: Source says he'll be ready. Judgement says confirmed to play. (Pass)\n- Cogger/Garner: Source says return. Judgement says return. (Pass)\n\n`shap_attribution`\n- Bradley-Terry strength advantage: Attributed to Panthers (favouring_Panthers_home_win). (Pass)\n- Elo rating advantage: Attributed to Panthers (favouring_Panthers_home_win). (Pass)\n\n`weather_not_headline`\n- Weather is \"Rain\" in `set_fixture_scene` and `predict_match`.\n- Is it in the judgement? No. (Pass)\n\n`research_used`\n- Key factors include Nathan Cleary and Cogger/Garner from research. (Pass)\n\n`confidence_justified`\n- Math prior: 0.7969.\n- Judgement confidence: 0.8.\n- Research stance: \"confirms\".\n- The number 0.8 is essentially a rounded version of 0.7969.\n- The judgement says \"Research confirms... which supports the model's strength advantage.\"\n- Does it get \"surer\" than the math prior? 0.8 is slightly higher than 0.7969.\n- Rule 6(d): \"Getting surer is rare and needs a real this-week shock\".\n- Is Nathan Cleary playing a \"shock\"? He was injured, but the coach said he's on track. The model might have already known he was injured (it's a prior).\n- However, 0.8 is a very minor rounding of 0.7969.\n- Let's check 6(a): \"the number matches math P(that side) to two decimals without real confirms\". 0.80 vs 0.80.\n- Actually, 0.7969 rounds to 0.80.\n- The research stance is \"confirms\".\n- I'll mark this as pass since it's just rounding.\n\n`driver_proportionality`\n- Top drivers are Bradley-Terry (16%), Elo (14%), Ladder diff (11%), Run metres (10%).\n- Judgement focuses on Bradley-Terry and Elo. (Pass)\n\n`omitted_math_signals`\n- Material drivers (>= 8%):\n    1. Bradley-Terry strength advantage (16%) - Mentioned.\n    2. Elo rating advantage (14%) - Mentioned.\n    3. Ladder points differential per game (11%) - Mentioned in summary (\"significant ladder gap\").\n    4. 5-game form: all run metres (10%) - **NOT mentioned**.\n- **FAIL**: \"5-game form: all run metres\" is a material driver (10%) and is not addressed.\n\n- `sourced_claims`: Fail. Price $1.28 not found.\n- `omitted_math_signals`: Fail. \"5-game form: all run metres\" skipped.\n\nWait, let me double check the price $1.28.\nI've read all the `body_excerpt` and titles.\n- \"Dolphins v Roosters...\"\n- \"Panthers product ready to haunt...\"\n- \"Cleary on track...\"\n- \"Gagai out to write...\"\n- \"Match Preview... Cogger, Garner return...\"\n- \"Phillips' rise...\"\n- \"Yeo urges Panthers fans...\"\n- \"Town's buzzing...\"\n- \"Panthers back Cleary...\"\n- \"Knights out to continue...\"\n- \"Panthers, Knights drop two... $1\" (Kayo promo).\n- \"NRL Updated Team List...\"\nNo $1.28.\n\nLet's double check the material drivers.\n`material_shap_drivers`:\n- Bradley-Terry strength advantage (16%)\n- Elo rating advantage (14%)\n- Ladder points differential per game (11%)\n- 5-game form: all run metres (10%)\nJudgement mentions:\n- Bradley-Terry (Key factor 1)\n- Elo (Key factor 1)\n- Ladder gap (Summary)\n- Run metres (Not mentioned).\n\nVerdict: pass=false.\n\nIssues:\n1. Sourced claims: Price $1.28 is not in research.\n2. Omitted math signals: \"5-game form: all run metres\" is material (10%) but not mentioned.\n\nInstruction: \"The market price of $1.28 is not sourced from the research provided. Additionally, the material math driver '5-game form: all run metres' was not addressed; please evaluate it and re-output.\"",
+      "chars": 4830
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-27T01:03:12.448459+00:00",
+      "thinking": "*   Winner: Panthers (Home)\n    *   Confidence: 0.80\n    *   Research Stance: confirms\n    *   Key Factors: Math (Bradley-Terry, Elo), Research (Cleary playing, Cogger/Garner return).\n    *   Market: Mentioned $1.28.\n\n    *   Issue 1: Market price $1.28 not sourced from research.\n        *   *Check evidence:* `market_mentions` contains: `{\"title\": \"...\", \"url\": \"...\", \"source_tier\": \"search_discovery\", \"prices_found\": [\"$1.28\", \"$11.50\"], \"price_quote\": \"We're tipping Penrith Panthers to win at $1.28 odds.\"}`.\n        *   *Correction:* I did cite it in the summary, but the verifier says it's not sourced from \"research\". Actually, `market_mentions` is part of the provided packet. I should ensure I acknowledge it as coming from the market data provided.\n    *   Issue 2: Math driver '5-game form: all run metres' omitted.\n        *   *Check evidence:* `shap_drivers` -> `favouring_Panthers_home_win` -> \"5-game form: all run metres (+138.80) — contribution 0.142 (10% of total)\".\n        *   *Correction:* I need to include this in the key factors or summary to show it was evaluated.\n\n    *   Math Prior: 0.7969 (Home Win).\n    *   Research:\n        *   Nathan Cleary (star halfback) is confirmed to play (confirmed by \"Team Lists NRL Late Mail: Preliminary Finals - Cleary on track\").\n        *   Jack Cogger and Luke Garner return (confirmed by \"Match Preview Panthers v Knights\").\n        *   Knights are on a \"giant-killing run\" (semi-final win over Warriors).\n    *   SHAP Drivers:\n        *   Strong home advantage: Bradley-Terry strength, Elo rating, Ladder points differential, and 5-game form (all run metres).\n        *   Away drivers are mostly conflicted or low weight.\n    *   Market: Panthers at $1.28.\n\n    *   The research `confirms` the math prior (Cleary playing, returns).\n    *   The math prior is 0.7969.\n    *   Confidence Band: 0.75-0.85 is for \"large ratings gap already in this band, confirmed by news\".\n    *   The prior is ~0.80. Research confirms. So 0.80 is appropriate.\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.80\n    *   `research_stance`: \"confirms\"\n    *   `strongest_reason_could_lose`: \"The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.\"\n    *   `loss_reason_specific`: false (momentum/run is generally a vibe/form factor, though the Warriors win is a specific event, it's not a \"named this-week fact that helps the other side or hurts yours\" in the sense of a player return/injury). Wait, the Warriors win is a specific result, but the \"giant-killing run\" is a general state. I'll keep it false as it's not a specific player-based shock.\n    *   `summary`: Update to include the run-metre driver and correctly attribute the market price.\n    *   `key_factors`: Add the run-metre driver.\n\n    *   *Market Price:* The verifier said it wasn't sourced from research. It is in `market_mentions`. I will explicitly mention it comes from the provided market data.\n    *   *Run Metres:* I will add \"5-game form: all run metres\" to the key factors.\n\n    *   Math P: 0.7969.\n    *   Research: Confirms (Cleary, Cogger, Garner).\n    *   Confidence: 0.80 (matches prior, research confirms).\n\n    *   `winner`: \"home\"\n    *   `confidence`: 0.80\n    *   `research_stance`: \"confirms\"\n    *   `strongest_reason_could_lose`: \"The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.\"\n    *   `loss_reason_specific`: false\n    *   `summary`: \"The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner. The model's edge is further supported by a strong 5-game run-metre advantage, and the market aligns with this pick, pricing the Panthers at $1.28 in the provided market mentions.\"\n    *   `key_factors`:\n        1. Math: Bradley-Terry strength and Elo rating advantages.\n        2. Math: 5-game form advantage in all run metres (0.142 contribution).\n        3. Research: Nathan Cleary confirmed to play (\"Team Lists NRL Late Mail: Preliminary Finals - Cleary on track\").\n        4. Research: Return of Jack Cogger and Luke Garner (\"Match Preview Panthers v Knights\").",
+      "chars": 4273
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-27T00:38:39.897214+00:00",
+      "payload": {
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Panthers vs Knights NRL round 30 preview",
+          "Panthers Knights NRL odds OR price OR favourite",
+          "Panthers Knights NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-27T00:48:46.305347+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "confidence": 0.8,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+          "loss_reason_specific": false,
+          "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner, which supports the model's strength advantage. The market also aligns with this pick, pricing the Panthers at $1.28.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+            },
+            {
+              "source": "research",
+              "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-27T00:57:56.992214+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "fail",
+              "evidence": "The market price of '$1.28' does not appear in any research body_excerpt, title, or price_quote."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Claims that Nathan Cleary, Jack Cogger, and Luke Garner are playing/returning match the research excerpts."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry and Elo advantages are correctly attributed to the Panthers (home win group)."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned as a key factor in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factors identify research articles regarding Nathan Cleary and the return of Cogger/Garner."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence (0.8) is a reasonable rounding of the math prior (0.7969) with confirming research."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the top SHAP drivers (Bradley-Terry and Elo)."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "The material driver '5-game form: all run metres' (10% of total) is not mentioned or alluded to in the judgement."
+            }
+          ],
+          "issues": [
+            "The market price of $1.28 is not sourced from the research provided.",
+            "The material math driver '5-game form: all run metres' was omitted from the evaluation."
+          ],
+          "instruction": "The market price of $1.28 is not sourced from the research. Additionally, the material math driver '5-game form: all run metres' was not addressed; please consider it and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-27T01:03:12.448515+00:00",
+      "payload": {
+        "issues": [
+          "The market price of $1.28 is not sourced from the research provided.",
+          "The material math driver '5-game form: all run metres' was omitted from the evaluation."
+        ],
+        "instruction": "The market price of $1.28 is not sourced from the research. Additionally, the material math driver '5-game form: all run metres' was not addressed; please consider it and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "confidence": 0.8,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+          "loss_reason_specific": false,
+          "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner, which supports the model's strength advantage. The market also aligns with this pick, pricing the Panthers at $1.28.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+            },
+            {
+              "source": "research",
+              "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+            },
+            {
+              "source": "research",
+              "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "confidence": 0.8,
+          "research_stance": "confirms",
+          "strongest_reason_could_lose": "The Knights are on a 'giant-killing run' with significant momentum after upsetting the Warriors at Eden Park.",
+          "loss_reason_specific": false,
+          "summary": "The Panthers are strong favourites based on a high math prior (0.7969) and a significant ladder gap. Research confirms the availability of star halfback Nathan Cleary and the return of Jack Cogger and Luke Garner. The model's edge is further supported by a strong 5-game run-metre advantage, and the market aligns with this pick, pricing the Panthers at $1.28 in the provided market mentions.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "Significant Bradley-Terry strength advantage (0.230 contribution) and Elo rating advantage (0.206 contribution)."
+            },
+            {
+              "source": "math",
+              "detail": "Strong 5-game form advantage in all run metres (+138.80), contributing 0.142 to the home win probability."
+            },
+            {
+              "source": "research",
+              "detail": "Nathan Cleary is confirmed to play in Sunday's preliminary final despite a bone-stress foot injury, as reported in 'Team Lists NRL Late Mail: Preliminary Finals - Cleary on track'."
+            },
+            {
+              "source": "research",
+              "detail": "The Panthers squad is bolstered by the return of Jack Cogger and Luke Garner according to the 'Match Preview Panthers v Knights'."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "6494cc8c2396",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-27T00:37:34.767110+00:00",
+      "finished_at": "2026-09-27T00:37:38.134428+00:00",
+      "duration_ms": 3367,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Knights",
+        "season": null,
+        "round_number": 30,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "season": null,
+          "round_number": 30
+        },
+        "retrieved_at": "2026-09-27T00:37:34.767179+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 30,
+          "round_title": "Finals Week 3",
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "kickoff": "2026-09-27T16:00:00+10:00",
+          "venue": "Accor Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/panthers-v-knights/",
+          "match_mode": "Pre",
+          "match_id": "20261113020",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Gerard Sutton"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Matt Noyen"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Daniel Luttringer"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Dylan Edwards",
+                "position": "Fullback",
+                "player_id": 503340
+              },
+              {
+                "number": 2,
+                "name": "Thomas Jenkins",
+                "position": "Winger",
+                "player_id": 100007927
+              },
+              {
+                "number": 3,
+                "name": "Blaize Talagi",
+                "position": "Centre",
+                "player_id": 100006848
+              },
+              {
+                "number": 4,
+                "name": "Casey McLean",
+                "position": "Centre",
+                "player_id": 100011678
+              },
+              {
+                "number": 5,
+                "name": "Brian To'o",
+                "position": "Winger",
+                "player_id": 505410
+              },
+              {
+                "number": 6,
+                "name": "Jack Cole",
+                "position": "Five-Eighth",
+                "player_id": 100003896
+              },
+              {
+                "number": 7,
+                "name": "Nathan Cleary",
+                "position": "Halfback",
+                "player_id": 504120
+              },
+              {
+                "number": 8,
+                "name": "Moses Leota",
+                "position": "Prop",
+                "player_id": 501461
+              },
+              {
+                "number": 9,
+                "name": "Mitch Kenny",
+                "position": "Hooker",
+                "player_id": 505414
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Smith",
+                "position": "Prop",
+                "player_id": 505555
+              },
+              {
+                "number": 11,
+                "name": "Isaiah Papali'i",
+                "position": "2nd Row",
+                "player_id": 505976
+              },
+              {
+                "number": 12,
+                "name": "Liam Martin",
+                "position": "2nd Row",
+                "player_id": 504125
+              },
+              {
+                "number": 13,
+                "name": "Isaah Yeo",
+                "position": "Lock",
+                "player_id": 500534
+              },
+              {
+                "number": 14,
+                "name": "Jack Cogger",
+                "position": "Interchange",
+                "player_id": 502695
+              },
+              {
+                "number": 15,
+                "name": "Scott Sorensen",
+                "position": "Interchange",
+                "player_id": 500852
+              },
+              {
+                "number": 16,
+                "name": "Liam Henry",
+                "position": "Interchange",
+                "player_id": 100007929
+              },
+              {
+                "number": 17,
+                "name": "Billy Phillips",
+                "position": "Interchange",
+                "player_id": 100008487
+              },
+              {
+                "number": 18,
+                "name": "Luke Garner",
+                "position": "Interchange",
+                "player_id": 501271
+              },
+              {
+                "number": 21,
+                "name": "Freddy Lussick",
+                "position": "Interchange",
+                "player_id": 504830
+              },
+              {
+                "number": 22,
+                "name": "Izack Tago",
+                "position": "Reserve",
+                "player_id": 509467
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Dane Gagai",
+                "position": "Centre",
+                "player_id": 500043
+              },
+              {
+                "number": 4,
+                "name": "Bradman Best",
+                "position": "Centre",
+                "player_id": 506682
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Tyson Frizell",
+                "position": "Prop",
+                "player_id": 500622
+              },
+              {
+                "number": 9,
+                "name": "Phoenix Crossland",
+                "position": "Hooker",
+                "player_id": 504597
+              },
+              {
+                "number": 10,
+                "name": "Cody Hopwood",
+                "position": "Prop",
+                "player_id": 100011256
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Francis Manuleleua",
+                "position": "2nd Row",
+                "player_id": 100013721
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Interchange",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 16,
+                "name": "Pasami Saulo",
+                "position": "Interchange",
+                "player_id": 504079
+              },
+              {
+                "number": 17,
+                "name": "Dylan Lucas",
+                "position": "Interchange",
+                "player_id": 505582
+              },
+              {
+                "number": 18,
+                "name": "Fletcher Hunt",
+                "position": "Interchange",
+                "player_id": 100008414
+              },
+              {
+                "number": 19,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 20,
+                "name": "Kyle McCarthy",
+                "position": "Reserve",
+                "player_id": 100006946
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 30,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Panthers",
+            "position": 1,
+            "played": 24,
+            "wins": 18,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 42,
+            "points_for": 683,
+            "points_against": 347,
+            "points_difference": 336,
+            "points_difference_per_game": 14.0,
+            "recent_form_last_4": "3 - 2",
+            "streak": "3W",
+            "home_record": "10 - 2",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Knights",
+            "position": 7,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 633,
+            "points_against": 591,
+            "points_difference": 42,
+            "points_difference_per_game": 1.75,
+            "recent_form_last_4": "2 - 2",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Panthers",
+            "ladder_positions_gap": 6,
+            "points_difference_per_game_gap": 12.25,
+            "points_difference_favours": "Panthers"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=30"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-27T16:00",
+            "temperature_c": 15.4,
+            "precipitation_mm": 0.2,
+            "precipitation_probability_pct": 92,
+            "wind_speed_kmh": 15.7,
+            "weather_code": 51,
+            "summary": "Light drizzle",
+            "latitude": -33.8474,
+            "longitude": 151.0632,
+            "venue": "Accor Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Rain",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-27T00:37:38.133169+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=30&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/panthers-v-knights/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=30"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "e6a0c50032bd",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-27T00:38:39.900987+00:00",
+      "finished_at": "2026-09-27T00:41:04.929745+00:00",
+      "duration_ms": 145028,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Knights",
+        "kickoff": "2026-09-27T16:00:00+10:00",
+        "round_number": 30,
+        "venue": "Accor Stadium",
+        "queries": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Panthers vs Knights NRL round 30 preview",
+          "Panthers Knights NRL odds OR price OR favourite",
+          "Panthers Knights NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "kickoff": "2026-09-27T16:00:00+10:00",
+          "round_number": 30,
+          "venue": "Accor Stadium",
+          "queries": [
+            "Panthers NRL injury OR \"late mail\" OR \"team list\" round 30",
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 30",
+            "Panthers vs Knights NRL round 30 preview",
+            "Panthers Knights NRL odds OR price OR favourite",
+            "Panthers Knights NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-27T00:38:39.901505+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 11
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 3
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 12
+          }
+        },
+        "items": [
+          {
+            "id": "cf3dc5e55584a898",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Team Lists NRL Team Lists: Preliminary Finals",
+            "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+            "published_at": "2026-09-22T06:00:15+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Preliminary Finals\nOfficial team lists, updates and injury news for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nDolphins v Roosters, Friday 7.50pm at Suncorp Stadium\nMatch: Dolphins v R",
+            "body_excerpt": "Presented By\nNRL Team Lists: Preliminary Finals\nOfficial team lists, updates and injury news for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nDolphins v Roosters, Friday 7.50pm at Suncorp Stadium\nMatch: Dolphins v Roosters\nFinals Week 3 - Finals Week 3 - Friday 25 Sep\nhome Team\nDolphins\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Dolphins is number 1 Hamiso Tabuai-Fidow 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Dolphins is number 2 Jamayne Isaako 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Dolphins is number 3 Jack Bostock 3 Centre for Roosters is number 3 Billy Smith\nCentre for Dolphins is number 4 Herbie Farnworth 4 Centre for Roosters is number 4 Robert Toia\nWinger for Dolphins is number 5 Selwyn Cobbo 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Dolphins is number 6 Kodi Nikorima 6 Five-Eighth for Roosters is number 6 Daly Cherry-Evans\nHalfback for Dolphins is number 7 Isaiya Katoa 7 Halfback for Roosters is number 7 Sam Walker\nForwards\nProp for Dolphins is number 8 Thomas Flegler 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Dolphins is number 9 Jeremy Marshall-King 9 Hooker for Roosters is number 9 Reece Robson\nProp for Dolphins is number 10 Tom Gilbert 10 Prop for Roosters is number 10 Lindsay Collins\n10\n2nd Row for Dolphins is number 11 Max Plath 11 2nd Row for Roosters is number 11 Salesi Foketi\n11\n2nd Row for Dolphins is number 12 Kulikefu Finefeuiaki 12 2nd Row for Roosters is number 12 Siua Wong\n12\nLock for Dolphins is number 13 Morgan Knowles 13 Lock for Roosters is number 13 Victor Radley\n13\nInterchange\nInterchange for Dolphins is number 14 Kurt Donoghoe 14 Interchange for Roosters is number 14 Connor Watson\n14\nInterchange for Dolphins is number 15 Ray Stone 15 Interchange for Roosters is number 15 Angus Crichton\n15\nInterchange for Dolphins is number 16 Francis Molo 16 Interchange for Roosters is number 16 Nat Butcher\n16\nInterchange for Dolphins is number 17 Connelly Lemuelu 17 18 Interchange for Roosters is number 18 Hugo Savala\n17 18\nReserve for Dolphins is number 19 Bradley Schneider 19 17 Reserve for Roosters is number 17 Spencer Leniu\n19 17\nReserve for Dolphins is number 20 Jake Averillo 20 19 Reserve for Roosters is number 19 Cody Ramsey\n20 19\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Phil Henderson\nTouch Judge: Tyson Brough\nSenior Review Official: Ashley Klein\nLast updated: 9/26/2026 9:54:12 PM\nDolphins: The big-game experience of Felise Kaufusi has earned him a spot on the six-man interchange for his first NRL game since Round 25. A two-time premiership winner with the Storm, Kaufusi is back in Kristian Woolf's squad after two finals appearances with Redcliffe in Qld Cup. Prop Tom Flegler failed a HIA early in the match against the Warriors in week one but has cleared the concussion protocols and will line up on Friday. Tevita Naufuhu drops to the reserves after being part of the 19 in Auckland a fortnight ago but failing to get a run. Jake Averillo and Brian Pouniu round out the extended squad.\nRoosters: A huge boost for the Roosters with halfback Sam Walker back on deck just 24 days after suffering a syndesmosis injury against the Dolphins and undergoing surgery. Daly Cherry-Evans moves back to five-eighth, Hugo Savala goes to the bench and Toby Rodwell makes way. Egan Butcher is listed among the reserves after coming through the concussion protocols. Tommy Talau and Benaiah Ioelu round out the squad.\nGet your preliminary final tickets HERE\nPanthers v Knights, Sunday 4.00pm at Accor Stadium\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nPanthers\nKnights\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Knights is number 2 Dominic Young\nCentre for Panthers is number 3 Blaize Talagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 114.64025041805556,
+            "relevance_score": 7.5,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "01068084a0c0c06d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Take it to them': Panthers product ready to haunt former side",
+            "url": "https://www.nrl.com/news/2026/09/25/take-it-to-them-panthers-product-ready-to-haunt-former-side/",
+            "published_at": "2026-09-25T02:01:20+00:00",
+            "snippet": "'Take it to them': Panthers product ready to haunt former side\nNewcastle forward Francis Manuleleua is relishing the chance to bundle his former club out of the NRL finals as the Knights look to extend their giant-killing run on Sunday afternoon.\nThe New Zealand-born talent was l",
+            "body_excerpt": "'Take it to them': Panthers product ready to haunt former side\nNewcastle forward Francis Manuleleua is relishing the chance to bundle his former club out of the NRL finals as the Knights look to extend their giant-killing run on Sunday afternoon.\nThe New Zealand-born talent was lured to Australia by the Panthers and spent two years in the club's famed development system before joining Newcastle last season.\nThe two teams will collide in a blockbuster preliminary final at Accor Stadium on Sunday afternoon, with thousands of Knights fans preparing to descend on Sydney for the clash.\nFrancis Manuleleua Try\nManuleleua completed a hands-on apprenticeship in Penrith, even spending a stint as a groundskeeper at the club's HQ, and will use those lessons to his advantage this weekend.\n\"I played a lot of footy with them so it's going to be a little weird seeing them across the field,\" Manuleleua told NRL.com. \"They've been the benchmark the last four or five years and we want to be the team that upsets them, just like we did with the Bunnies and Warriors.\n\"They pride themselves on a full 80-minute performance, they always back their fitness and are the team that tries to outlast others. It's worked for them, they keep grinding down teams until they cause an error and then they pounce.\n\"We need to make sure we play our style of footy, reduce our errors and if we go with them for the whole 80 minutes we can come away with the win.\"\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nManuleleua grew up in Auckland and quickly developed into a schoolboy rugby league and union star.\nThe 13-man game remained his true passion and he jumped at the opportunity to move to Australia when Penrith came calling.\nManuleleua played SG Ball in 2023 and Jersey Flegg in 2024 alongside current Panthers Billy Phillips, Billy Scott and Luron Patea.\nThe freakish talent started his time in Penrith as a halfback before shifting to the backrow in his second season with the club.\n\"Francis was a very good player,\" Phillips said. \"We had a good time while we were here together. He's been killing it this year so I'm looking forward to going up against him.\n\"He played a couple of different positions at Penrith but he's found his true colours in the backrow so it'll be good on Sunday.\"\nWith opportunities limited in Penrith, Manuleleua joined the Knights at the start of 2025 and his shot at the NRL finally arrived when he made his first grade debut in Round 3.\nThe 22-year-old hasn't looked back, quickly developing into one of the most damaging ball runners in the game. Such is his form, Manuleleua has retained his place in the starting side despite the return of NSW Origin backrower Dylan Lucas from an ankle injury.\nManuleleua headlines a young Knights pack, with Cody Hopwood, Jermaine McEwen, Lachlan Crouch and Harrison Graham all in the early stage of their careers.\nThe youngsters have thrived under the finals spotlight and Manuleleua is confident they won't be overawed playing in front of more than 55,000 fans on Sunday afternoon.\nLast time they met: Panthers v Knights\nEveryone underestimates our team,\" Manuleleua said. \"With how young we are and how much experience we have but we're going out there and showing we can hang with anyone.\n\"We went with the Warriors, with the Bunnies. Whoever they put in front of us, we can take it to them and they're not going to get one over us.\n\"It's a good sign for our club moving forward in the future. Hopefully we can keep this finals window going for the next four or five years and be that team in the finals every year.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats and get behind your team.\nRelated /\nGagai out to write final chapter in 14-year odyssey\nMatch Preview\nPa",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 46.622194862499995,
+            "relevance_score": 7.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "971e613d780f29a6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Team Lists NRL Late Mail: Preliminary Finals - Cleary on track",
+            "url": "https://www.nrl.com/news/2026/09/24/nrl-late-mail-preliminary-finals---walker-100-per-cent-for-return/",
+            "published_at": "2026-09-26T06:04:13+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Preliminary Finals - Cleary on track\nPenrith coach Ivan Cleary has declared halfback Nathan Cleary will take his place in Sunday's preliminary final against the Knights.\nCleary suffered a foot injury during the qualifying final against the Roosters and",
+            "body_excerpt": "Presented By\nNRL Late Mail: Preliminary Finals - Cleary on track\nPenrith coach Ivan Cleary has declared halfback Nathan Cleary will take his place in Sunday's preliminary final against the Knights.\nCleary suffered a foot injury during the qualifying final against the Roosters and has trained under a veil of secrecy this week with the Panthers closing off their sessions.\nTalking to the media on Saturday morning, Ivan acknowledged there was a risk his son could do more damage to the bone-stress injury but expressed confident the playmaker will get through the match.\n\"He'll be ready. He's done a bit of everything,\" Cleary said.\n\"He's actually living with us at the moment, so I've actually seen it firsthand how much he's actually done.\n\"It's crazy. He's left no stone unturned.\"\nSee all the late mail, official team news and updates for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Preliminary Finals\nPanthers v Knights, Sunday 4.00pm at Accor Stadium\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Knights is number 2 Dominic Young\nCentre for Panthers is number 3 Blaize Talagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Panthers is number 4 Casey McLean 4 Centre for Knights is number 4 Bradman Best\nWinger for Panthers is number 5 Brian To'o 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Panthers is number 10 Lindsay Smith 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Panthers is number 13 Isaah Yeo 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Panthers is number 14 Jack Cogger 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Panthers is number 16 Liam Henry 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Panthers is number 18 Luke Garner 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Panthers is number 21 Freddy Lussick 21 19 Interchange for Knights is number 19 Thomas Cant\n21 19\nReserves\nReserve for Panthers is number 22 Izack Tago 22 20 Reserve for Knights is number 20 Kyle McCarthy\n22 20\nPanthers Ins\nIzack Tago\nJack Cogger\nLuke Garner\nKnights Ins\nKyle McCarthy\nPanthers Outs\nBilly Scott\nJesse McLean\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Chris Butler\nLast updated: 9/27/2026 12:28:01 AM\nPanthers: A couple of minor changes in Saturday's 24-hour update with Freddy Lussick coming into the six-man bench in place of Billy Scott. Izack Tago remains in the reserves as he looks to return from a knee injury. Superstar halfback Nathan Cleary will play through the pain of a foot injury as he looks to guide the Panthers into a sixth grand final in seven years. Cleary has worked around the clock on rehab after suffering the injury in the win over the Roosters in week one. \"He'll be ready,\" coach Ivan Cleary declared on Saturday ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.574139306944446,
+            "relevance_score": 6.5,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup_on_fixture",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f8fa4d54eebf246a",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Gagai out to write final chapter in 14-year odyssey",
+            "url": "https://www.nrl.com/news/2026/09/27/gagai-out-to-write-final-chapter-in-14-year-odyssey/",
+            "published_at": "2026-09-26T20:01:21+00:00",
+            "snippet": "Gagai out to write final chapter in 14-year odyssey\nNewcastle veteran Dane Gagai has vowed to finish a journey he started back in 2012 by leading the Knights to their first grand final in 25 years.\nThe centre moved to the Hunter a fresh-faced 21-year-old back in 2012 and quickly ",
+            "body_excerpt": "Gagai out to write final chapter in 14-year odyssey\nNewcastle veteran Dane Gagai has vowed to finish a journey he started back in 2012 by leading the Knights to their first grand final in 25 years.\nThe centre moved to the Hunter a fresh-faced 21-year-old back in 2012 and quickly developed into a key figure in the side's charge to the preliminary final the following season.\nGagai didn't realise it would be another 13 years before Newcastle would be back on this stage, the Queensland representative spending a stint at the Rabbitohs along the way.\nThe Great Dane: Gagai to join 300 club\nNow back in a grand final qualifier, the centre has vowed to help the Knights upset Penrith in Sunday's blockbuster at Accor Stadium.\n\"To be able to get back to this position, not just for the club and us players but for the fans and the town is special,\" Gagai told NRL.com. \"The support since I've been at this club is second to none.\n\"They were there in the dark times when we had three wooden spoons so it's nice to get back to this stage. We're not looking at stopping here.\n\"We've got a big challenge ahead of us with the Panthers and we're focusing on getting a job done so we can give the fans something to really be proud about.\"\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThe Knights fairytale run from wooden spoon to the final four has taken on even greater importance for Gagai, who will return to Brisbane next year to finish a decorated NRL career with the Broncos.\nThe centre was a young pup in an experienced Knights squad in 2013, coach Wayne Bennett recruiting a number of veterans in a bid to bring success back to Newcastle.\nPremiership winner Danny Buderus was lured home from the Super League to help recreate the club's glory years, while Neville Costigan, Jeremy Smith and Beau Scott all followed Bennett from St George Illawarra to the Knights.\nPF: Roosters v Knights (Hls)\nThe 2013 preliminary final was Buderus' final game of rugby league and the Knights quickly dropped away amid Nathan Tinkler's tumultuous ownership of the club.\nWhile his own career didn't end with a title, Buderus is currently on Justin Holbrook's coaching staff and Gagai said the club legend has passed on plenty of lessons to the playing squad.\n\"He was all about action and leading through his actions,\" Gagai said. \"I've been fortunate enough to play alongside a lot of great players. I debuted under Darren Lockyer [in Brisbane] and then came here with Bedsy, [Kurt] Gidley, Jeremy Smith.\n\"There were a lot of great leaders I learned from but Bedsy was among the best. He's one of the nicest blokes you'll meet but he's able to go out there and flick the switch.\n\"He's the kindest man on Earth off the field, but then when he gets on the field he demands a lot from his players so that was the biggest thing I learned.\"\nWhile the 2013 squad was filled with veterans, the current Knights run to the preliminary final has been fuelled by a crop of young stars.\nGun five-eighth Fletcher Sharpe is just 22 years old, prop Cody Hopwood is 20 and only 17 games into his NRL career, while bench forward Lachlan Crouch made his debut just 12 weeks ago.\nCentre Bradman Best is still only 25, halfback Sandon Smith is only 23, and back-rowers Jermaine McEwen and Francis Manuleleua are in the early years of their careers.\nRather than be overawed by the occasion, the youngsters have relished the bright lights of sudden-death football.\nWarriors v Knights - Finals Week 2, 2026\nRemarkably, it was the inexperienced Knights who best handled the pressure cooker of 48,000 screaming Warriors fans at Eden Park last weekend.\nGagai is expecting a similar performance this Sunday in front of a crowd expected to nudge 60,000 at Accor Stadium.\n\"The biggest change we've had is we have a few senior players and some young boys growing into leaders,",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 4.621917084722223,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "66bdc24be4876e63",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Match Preview Panthers v Knights: Cogger, Garner return; Same 19 for Holbrook",
+            "url": "https://www.nrl.com/news/2026/09/21/prelim-final-preview-panthers-v-knights/",
+            "published_at": "2026-09-26T06:05:31+00:00",
+            "snippet": "Presented By\nPanthers v Knights: Cogger, Garner return; Same 19 for Holbrook\nCan the Panthers progress to a sixth grand final in seven years or will Newcastle's fairytale run continue?\nAfter finishing 2025 as wooden spooners, the Knights rose to seventh spot at the end of the reg",
+            "body_excerpt": "Presented By\nPanthers v Knights: Cogger, Garner return; Same 19 for Holbrook\nCan the Panthers progress to a sixth grand final in seven years or will Newcastle's fairytale run continue?\nAfter finishing 2025 as wooden spooners, the Knights rose to seventh spot at the end of the regular season and have knocked off the Rabbitohs and Warriors to move into their first preliminary final since 2013.\nThe Knights' gutsy win in enemy territory at Eden Park last Sunday has given their fans reason to believe that a first premiership since 2001 can become a reality.\nTo make it to the big dance they will need to get past the greatest team of the modern era who are fresh off a week's rest and hell bent on making amends for last year's preliminary final defeat when Brisbane knocked them out.\nThe Panthers are the NRL's big-game specialists and they will enter the prelim as warm favourites with Nathan Cleary, Isaah Yeo and Dylan Edwards primed to lead them into another grand final.\nThe Knights and Panthers have met on 60 occasions since Newcastle entered the competition in 1988 but this will be their first ever finals clash.\nGET YOUR TICKETS HERE\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nPanthers : A couple of minor changes in Saturday's 24-hour update with Freddy Lussick coming into the six-man bench in place of Billy Scott. Izack Tago remains in the reserves as he looks to return from a knee injury. Superstar halfback Nathan Cleary will play through the pain of a foot injury as he looks to guide the Panthers into a sixth grand final in seven years. Cleary has worked around the clock on rehab after suffering the injury in the win over the Roosters in week one. \"He'll be ready,\" coach Ivan Cleary declared on Saturday morning. Jack Cogger returns from a three-game suspension and has been added to the bench along with Luke Garner, who was a late withdrawal a fortnight ago with a groin strain.\nKnights : Coach Justin Holbrook goes with the same 19-man squad that stunned the Warriors at Eden Park to progress to their first preliminary final since 2013. Back-rower Dylan Lucas got through 14 minutes in his comeback from a fractured ankle and has again been named on the bench, although a late call-up to the starting side could be on the cards. The Knights boast 92 games of finals experience compared to the Panthers' 233. No changes in Saturday's 24-hour update with Kyle McCarthy remaining in the reserves.\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Knights is number 2 Dominic Young\nCentre for Panthers is number 3 Blaize Talagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Panthers is number 4 Casey McLean 4 Centre for Knights is number 4 Bradman Best\nWinger for Panthers is number 5 Brian To'o 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Panthers is number 10 Lindsay Smith 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Panthers is number 13 Isaah Yeo 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Panthers is number 14 Jack Cogger 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.552472640277777,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e71961367d3260d3",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Thoughts of going home': The sliding doors moment behind Phillips' rise",
+            "url": "https://www.nrl.com/news/2026/09/26/thoughts-of-going-home-the-sliding-doors-moment-behind-phillips-rise/",
+            "published_at": "2026-09-26T02:01:22+00:00",
+            "snippet": "'Thoughts of going home': The sliding doors moment behind Phillips' rise\nBoom Panthers rookie Billy Phillips has revealed he nearly walked away from his rugby league dream as he battled home sickness during his first year in Sydney.\nThe 22-year-old has been dubbed the next Isaah ",
+            "body_excerpt": "'Thoughts of going home': The sliding doors moment behind Phillips' rise\nBoom Panthers rookie Billy Phillips has revealed he nearly walked away from his rugby league dream as he battled home sickness during his first year in Sydney.\nThe 22-year-old has been dubbed the next Isaah Yeo but his NRL career was nearly over before it even began.\nA Lake Cargelligo product who progressed through the Panthers junior pathway before moving to Sydney at the end of 2021 to chase his rugby league dream, Phillips couldn't crack the club's SG Ball side and featured in just one game in his first season.\nBilly Phillips Try\nLiving more than six hours away from his friends and family, the young forward struggled with the adjustment and spent countless hours pondering a return home.\nNow as he prepares to play his first preliminary final in Sunday's blockbuster against the Knights at Accor Stadium, Phillips has revealed how close he came to walking away.\n\"There were definitely thoughts of going back home,\" Phillips told NRL.com. \"The move was hard, I was getting home sick and wasn't sure if this was for me.\n\"I had a great crew around me. The house parents that I moved in with and the boys I was with all pushed me to keep going. I got to train with the [Panthers development squad] Pearls and got to train with the Jersey Flegg boys the rest of the year.\n\"That was a good experience and got me ready for the next year. Then the next year I was off and racing.\"\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nA rugged youngster who gets through a mountain of work on the football field, Phillips grew up working on his parents' farm in western NSW.\nAfter a number of epic battles in the backyard with his brothers, the forward attended boarding school at Red Bend College in Forbes.\nA rugby league nursery that has produced Billy Burns, Josh Miller, Joel Thompson and a host of others, Phillips' time at the school set him on a path to the NRL.\n\"I was playing for Red Bend and the Western Rams when [Penrith pathways staff] Jim Jones and Sam Jones were out there and scouted me,\" Phillips said.\n\"I was in Year 11, they rang me up and asked if I was keen on coming down and seeing what the Panthers are all about. Of course I said yes.\n\"They used to come out to Orange and pick us all up in a bus. With school it was hard for us to get up on weekdays so we'd get the bus on weekends and train before going back home. There were a few nerves on the bus because we were still young but I wouldn't change anything.\"\nPhillips made his NRL debut in Round 26 last year when coach Ivan Cleary opted to rest the bulk of his squad and he entered the 2026 expecting limited opportunities in the top flight.\nInstead, he has played in 22 games this season and developed into a key figure in the Panthers pack.\nA hardworking forward with crafty skills, Phillips was often compared to Yeo during his time in the Penrith pathway and it didn't take long for the skipper to see why.\n\"He's been outstanding for us,\" Yeo said. \"We've seen within our four walls how good he's been, not just going into the middle but helping out on the edge; he defends really well.\n\"His stints have been really big for us. He's got more confidence as the season has gone on, and his last two pre-seasons have been outstanding. There's real confidence from the group with what he can bring, and he's shown that this season. It's a big game for him, and he'll go out and do his job wonderfully.\"\nPhillips made his finals debut in Penrith's thrilling win over the Roosters a fortnight ago but the stakes go up another level on Sunday afternoon.\nA crowd pushing 60,000 is expected to pack into Accor Stadium for the Panthers clash with Newcastle with a grand final berth on the line.\nLast time they met: Panthers v Knights\nHaving had a taste of finals football already, Phill",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 22.621639306944445,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "7f889b591fb3be72",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Stadium will be rocking': Yeo urges Panthers fans to help silence Knights",
+            "url": "https://www.nrl.com/news/2026/09/24/stadium-will-be-rocking-yeo-urges-panthers-fans-to-help-silence-knights/",
+            "published_at": "2026-09-24T02:01:20+00:00",
+            "snippet": "'Stadium will be rocking': Yeo urges Panthers fans to help silence Knights\nPenrith skipper Isaah Yeo has urged Panthers fans to turn out in force on Sunday afternoon amid fears his side's supporters will be swamped by the Knights army.\nExcitement for Sunday's preliminary final is",
+            "body_excerpt": "'Stadium will be rocking': Yeo urges Panthers fans to help silence Knights\nPenrith skipper Isaah Yeo has urged Panthers fans to turn out in force on Sunday afternoon amid fears his side's supporters will be swamped by the Knights army.\nExcitement for Sunday's preliminary final is at fever pitch in the Hunter , with thousands of fans set to descend on Accor Stadium as Justin Holbrook's side looks to continue a fairytale charge to the grand final.\nYeo: We can't wait\nPenrith fans have rallied in recent days after NRL data showed 65% of tickets had been purchased by Knights supporters earlier this week.\nPostcode data suggests 60% of tickets sold in the past 48 hours have been bought by Panthers fans and Yeo is eager to keep the momentum rolling to ensure Accor Stadium is painted black on Sunday afternoon.\n\"I want a lot of Penrith supporters there,\" Yeo said.\n\"The stadium will be rocking, that's what you want in these games. Players want to play in big games and the atmosphere is a big part of that. We're looking forward to the challenge and the crowd.\"\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nThe Knights have enjoyed a remarkable rise from the wooden spoon last year to the final four in 2026. Justin Holbrook's side is looking to emulate the 2010 Roosters by making the grand final just 12 months after finishing last on the ladder.\nIt's been 25 years since Newcastle played in a decider and 13 since their last preliminary final, with many in the current squad not even born when Andrew Johns led the Knights to glory in 2001.\nDespite the on-field struggles throughout the past two decades, the region's rabid supporter base has continued to pack out McDonald Jones Stadium on a weekly basis.\nCaptain's knock: Ponga puts on a show\nGiven that consistent support, the players are not surprised by how many fans plan on making the trip to Sydney and forward Dylan Lucas said the squad is eager to send them home with a victory.\n\"Everyone's been mentioning how many Newcastle fans have bought tickets,\" Lucas said. \"It doesn't surprise me, we see them pack out the joint all the time.\n\"To jump on the bus for two hours, I don't think that fazes them. There's a fair few buses heading down so that would be really cool as a fan. It brings our community together and they'll be having a lot of fun heading down there to watch us. Hopefully we can put on a good performance for them.\"\nHaving played in six-straight preliminary finals, and five consecutive grand finals from 2020-2024, the Panthers are used to playing in front of big crowds.\nIt's a different story for a Knights side packed with a host of young stars receiving their first taste of finals football.\nWarriors v Knights - Finals Week 2, 2026\nWhile the season opener at Allegiant Stadium helped lay the platform for this year's rise, last week's trip to Eden Park provided their first taste of a truly hostile finals atmosphere.\nThe Knights weren't daunted by the prospect of 48,000 screaming Wahs supporters and youngster Lachlan Crouch said they are excited to play in front of more than 55,000 fans on Sunday afternoon.\n\"If it beats the 48,000 at Eden Park last weekend, it will be the biggest crowd I've played in front of,\" Crouch said.\n\"There's going to be quite a buzz around the ground when we run out. It will be quite exciting and hopefully we can give them a lot to cheer about.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats and get behind your team.\nRelated /\nPanthers v Knights: Cogger, Garner return; Same 19 for Holbrook\nFinals\n'Take it to them': Panthers product ready to haunt former side\nLast time they met: Panthers v Knights\n'All systems go': Panthers back Cleary for Newcastle showdown",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 70.6221948625,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1dd4d1214e6f9d66",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'Town's buzzing': Fan frenzy has Knights pumped for prelim",
+            "url": "https://www.nrl.com/news/2026/09/23/towns-buzzing-knights-riding-wave-of-support-into-prelim-showdown/",
+            "published_at": "2026-09-23T02:01:21+00:00",
+            "snippet": "'Town's buzzing': Fan frenzy has Knights pumped for prelim\nThe Newcastle Knights are determined to ride a wave of fan support all the way to the NRL grand final as excitement in the Hunter grows for Sunday's clash with the Panthers.\nA convoy of Sid Foggs buses is set to descend o",
+            "body_excerpt": "'Town's buzzing': Fan frenzy has Knights pumped for prelim\nThe Newcastle Knights are determined to ride a wave of fan support all the way to the NRL grand final as excitement in the Hunter grows for Sunday's clash with the Panthers.\nA convoy of Sid Foggs buses is set to descend on Accor Stadium on Sunday afternoon with the Knights desperate to continue their fairytale run through the finals series.\nWhile the match is a Penrith home game, current sales data shows Knights fans have bought 65% of tickets.\nDominic Young Try\nMore than a thousand fans descended on Knights HQ on Wednesday morning for an open training session, with supporters receiving a glimpse of their heroes up close.\n\"The town's buzzing and they deserve it,\" backrower Dylan Lucas said. \"They've turned up for all those years when results haven't been so good so to now be able to repay that is special.\n\"You can't go and get a coffee without someone telling you how good the Knights are going and how happy they are that the Knights are going good. We've still got another job to do this weekend so we can't take those pats on the back, we've just got to keep working towards that goal.\"\nWhile Newcastle boasts one of the most passionate fan bases in the game, they have been starved of success over the years.\nIt's been 25 years since Andrew Johns led the Knights to the 2001 premiership and 13 years since their last preliminary final.\nDespite the struggles, supporters have continued to pack into McDonald Jones Stadium and they have received their reward with this year's giant-killing run.\nWarriors v Knights - Finals Week 2, 2026\nRookie forward Lachlan Crouch grew up in Maitland wanting to play for the Knights and is relishing the chance to live out his childhood dream.\n\"All you want to do as a little kid is to fulfil that dream and play for the Newcastle Knights,\" Crouch said. \"I'm lucky I'm doing it now.\n\"There's a good buzz about town, it's very exciting. You can always see the fans in their Knights jerseys, we see them down at the beach and all around so it's unreal to see this support.\"\nCrouch is exactly the type of player Newcastle officials are determined to build around moving forward, with the club investing in a grassroots program they hope will soon rival Penrith's famed talent nursery.\nThe 23-year-old progressed through the Knights junior pathway before moving to Cronulla in 2022.\nThe opportunity to return home popped up last season and he hasn't looked back. Crouch made his NRL debut in Round 18 and is among a young core of promising forwards to impress throughout the finals series.\nMcEwen gets career first double!\nAlong with Cody Hopwood, Harrison Graham, Francis Manuleleua and Jermaine McEwen, the group have shown this year's success is just a sign of what's to come.\n\"It was a dream come true to make my debut,\" Crouch said. \"Growing up as a little kid supporting the Knights, you always wanted to play first grade for the Knights and I'm lucky I got to debut with them.\n\"We all love playing footy together. We all played a fair bit of NSW Cup together last year and we've just been enjoying this experience.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Click here to secure your seats and get behind your team.\nRelated /\nGagai out to write final chapter in 14-year odyssey\nFinals\n'Take it to them': Panthers product ready to haunt former side\n'The town was painted red and blue:' 2001 magic returning to Newcasle\nHolbrook: 'We're ready to go'\nLucas out to turn miracle recovery into premiership glory",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 94.62191708472223,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e781206807d8aae1",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'All systems go': Panthers back Cleary for Newcastle showdown",
+            "url": "https://www.nrl.com/news/2026/09/22/all-systems-go-panthers-back-cleary-for-newcastle-showdown/",
+            "published_at": "2026-09-22T06:01:22+00:00",
+            "snippet": "'All systems go': Panthers back Cleary for Newcastle showdown\nPenrith co-captain Isaah Yeo has backed star halfback Nathan Cleary to overcome a foot injury and lead the Panthers to a sixth grand final in seven years.\nThe playmaker has been named in the No.7 jumper for Sunday's pr",
+            "body_excerpt": "'All systems go': Panthers back Cleary for Newcastle showdown\nPenrith co-captain Isaah Yeo has backed star halfback Nathan Cleary to overcome a foot injury and lead the Panthers to a sixth grand final in seven years.\nThe playmaker has been named in the No.7 jumper for Sunday's preliminary final against the Knights despite suffering a bone stress injury in the Panthers' qualifying final win over the Roosters.\nCleary has been in this position before, carrying injuries through the 2021 and 2024 finals series and still managing to lead Penrith to grand final glory in both years.\nCleary puts the Panthers in front\nThe halfback has been on restricted duties since the qualifying final victory and has benefited from both a week off and the extra recovery time that comes with a Sunday match.\nWhile the Knights have vowed to target the NSW and Australian No.7, Yeo is confident his co-captain will be up to the task.\n\"He had a pretty quiet week last week, but the week off was certainly nice for him and a few others,\" Yeo said. \"I'm confident he'll be ready to go.\n\"If we had to play last week it would have been pretty sore, and he would have pushed through it, but it's settled down a little bit, so hopefully all systems go.\"\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nCoach Ivan Cleary has named Jack Cole to partner Cleary in the halves, with Jack Cogger listed in jumper No.14 as bench cover in his return from a three-game suspension.\nThe utility is no stranger to this role, having come off the bench in the 2023 grand final to replace an injured Jarome Luai and playing a key role in the Panthers' stunning18-point comeback.\nYeo will start at lock in his third game back from a pectoral rupture, the co-captain making a miracle recovery of his own from an injury initially expected to end his season.\nYeo: We can't wait\nNewcastle have a settled squad, with coach Justin Holbrook selecting the same 19 that stunned the Warriors at Eden Park last weekend.\nCleary isn't the only star playmaker entering this weekend under an injury cloud, with the Roosters naming Sam Walker at halfback just four weeks after undergoing ankle surgery for Friday's preliminary final against the Dolphins in Brisbane.\nWhile the Roosters benefit from Daly Cherry-Evans' presence in the halves, Cole is playing just his second finals game on Sunday afternoon and will likely carry additional kicking responsibilities.\nAfter making his NRL debut in 2022, the 23-year-old has had the chance to learn from Cleary during a lengthy apprenticeship.\nNow preparing to play the biggest game of his career, Cole declared he is ready to stand tall in front of more than 50,000 fans on Sunday afternoon.\n\"Having played [two weeks ago] I can expect what the intensity's going to be like,\" Cole said. \"It will go up another notch this weekend but it's good to have that run under my belt and have experienced that intensity.\n\"We'll talk more during the week about how I can support Nathan but if I need to kick more I've done the reps so that won't be a problem.\"\nHaving served his apprenticeship, Cole is in his final weeks as a Panther before moving to Perth to join the Bears next year.\nCole, calm, collected\nHe will do so with a wealth of knowledge developed over multiple years playing and training alongside Cleary.\n\"The main thing I learnt is preparation,\" Cole said. \"Putting my time into my prep and doing the little things, whether it's extras on the field or in the video room.\n\"At the end of the day, if you're not all in you'll get found out. In the first couple of years my prep bit me in the backside a bit, I wasn't preparing as well as I could have. I had a few injuries and was missing a bit of footy, which put me on the back foot. That's something I've learned from Nathan and has helped me out.\"\nAfter 27 epic rounds, it all comes d",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 114.62163930694445,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ca61cc7932a3481d",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "'We're not done': Knights out to continue giant-killing run",
+            "url": "https://www.nrl.com/news/2026/09/21/were-not-done-knights-out-to-continue-giant-killing-run/",
+            "published_at": "2026-09-20T20:01:21+00:00",
+            "snippet": "'We're not done': Knights out to continue giant-killing run\nThe Knights will draw on the emotions from Sunday's stunning semi-final victory over the Warriors as they set their sights on an unexpected grand final berth.\nNewcastle booked a date with Penrith in next weekend's prelim",
+            "body_excerpt": "'We're not done': Knights out to continue giant-killing run\nThe Knights will draw on the emotions from Sunday's stunning semi-final victory over the Warriors as they set their sights on an unexpected grand final berth.\nNewcastle booked a date with Penrith in next weekend's preliminary final at Accor Stadium with a thrilling 12-10 win over the Warriors in front of a record crowd at Eden Park.\nWarriors v Knights - Finals Week 2, 2026\nDom Young put the Knights in front early in the second half and Justin Holbrook's men tackled their way to victory to silence more than 48,000 screaming Wahs fans.\nWhile Newcastle are hoping thousands of their own supporters will make the trip south from the Hunter to Homebush, they are under no illusions of the challenge facing them on Sunday afternoon.\n\"We've got a lot of confidence in our side,\" Holbrook said. \"We've got a lot of self-belief that whoever we're playing, if we play well enough we know we can win.\n\"We've got a huge task again [next week]. Each week you go further in, they're just going to get harder. We knew that from last week to this week, it's going to be the same again next week.\n\"We're going to play Penrith with a rest next Sunday afternoon but I'm sitting here confident and can't wait for the game.\"\nPanthers-Knights square off. Get your tickets HERE\nThere were nervous moments both on and off the field late in Sunday's win over the Warriors, with the Knights desperately holding on to a two-point lead after captain Kalyn Ponga was sent for an HIA.\nA failed test would have placed the fullback in the 11-day standdown protocol and out of next week's preliminary final but Ponga revealed post-game that he passed his HIA and will be free to take his place at Accor Stadium.\nHalasima flattens Ponga\nSunday's win has Newcastle just one game away from the grand final, 12 months after they finished last on the ladder.\nHolbrook spent the summer building a relentless defensive foundation before later introducing an attacking structure that helped turn the Knights into one of the most exciting teams in the competition.\nWhile the points were flowing throughout the regular season, Newcastle's two finals victories have come via their defence.\nPonga recognises how much has changed since last year but is determined to ensure the Knights still have two more games to play this season.\nFletcher Sharpe Try\n\"It's hard [to reflect on the year] because you're grateful for the win but don't want to sit in that for too long,\" Ponga said. \"You want to get your mind to the next game.\n\"That's been our strength this year. When it's all said and done, when you're sitting at home in the off-season, I'll look back and be proud of this season but it's hard right now because we're not done.\n\"What I do know is I'm proud of this group for the effort they've put in throughout the year, I don't want to reflect too much just yet.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. The Knights need your support as they chase premiership glory. Click here to secure your seats and get behind your team.\nRelated /\nGagai out to write final chapter in 14-year odyssey\nFinals\n'Take it to them': Panthers product ready to haunt former side\n'The town was painted red and blue:' 2001 magic returning to Newcasle\nHolbrook: 'We're ready to go'\n'Stadium will be rocking': Yeo urges Panthers fans to help silence Knights",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 148.6219170847222,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "8a06964debb4e765",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers, Knights drop two ahead of prelim blockbuster as star set for increased role — Late Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-week-3-team-news-injuries-changes-late-mail-whos-in-and-out-finals-series-preliminary-final-sam-walker-trai-fuller-suspended/news-story/6de3ebcf331603f399cec5dacf1c9574",
+            "published_at": "2026-09-26T07:26:41+00:00",
+            "snippet": "Panthers, Knights drop two ahead of prelim blockbuster as star set for increased role — Late Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Panthers, Knights drop two ahead of prelim blockbuster as star set for increased role — Late Mail\nA Knights star is again expected to play a big role off the bench after a miraculous recovery as both Newcastle and Penrith trim their teams 24 hours before kick off.\nWatch every game of every round of the NRL Premiership LIVE with no ad-breaks during play on FOX LEAGUE, available on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nRead below for Finals Week 3 team news and Late Mail!\nSUNDAY SEPTEMBER 27\nPenrith Panthers vs Newcastle Knights @ Accor Stadium, 4:05pm AEST\nPanthers Team: 1. Dylan Edwards 2. Thomas Jenkins 3. Blaize Talagi 4. Casey McLean 5. Brian To’o 6. Jack Cole 7. Nathan Cleary 8. Moses Leota 9. Mitch Kenny 10. Lindsay Smith 11. Isaiah Papali’i 12. Liam Martin 13. Isaah Yeo 14. Jack Cogger 15. Scott Sorensen 16. Liam Henry 17. Billy Phillips 18. Luke Garner 21. Freddy Lussick 22. Izack Tago\nPlayers Cut: 19. Billy Scott 20. Luron Patea\nLate Mail: The Panthers have dropped two from their extended bench, Billy Scott and Luron Patea., 24 hours before kick off.\nKnights Team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Dylan Lucas 18. Fletcher Hunt 19. Thomas Cant 20. Kyle McCarthy\nPlayers Cut: 21. Elijah Leaumoana 22. Toby Winter\nLate Mail: Second rower Dylan Lucas is once again expected to play an impact role off the bench after making a successful return from his ankle injury last week. Lucas opened up on his miraculous comeback in an interview with CODE Sports this week, revealing how he was able to return four weeks earlier than expected. Lucas said he spent plenty of time with his foot in an ice bath doing rehab at home while also pestering club medicos for advice. “I was doing rehab at home, just rubbing cream into it, trying to free up that swelling. Trying to massage the joint, get the movement back in it, and pretty much just sitting in the ice machine,” he told Code Sports. “There’s this company called Athlelite, he makes these creams that are supposed to improve healing. I brought some of that into training and they were happy to massage me with that, just buying into things that I was trying to do to get there. They might have thought that it won’t do anything and could be a placebo, but I definitely felt like it was helping me. For them to be able to buy into that stuff and not shut it down definitely helped.” It was around six weeks in that Lucas started to think he was a realistic chance of returning for the finals.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 17.1996948625,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "6693b7baa56b1569",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Updated Team List: Preliminary Final - Penrith Panthers",
+            "url": "https://www.penrithpanthers.com.au/news/2026/09/26/nrl-updated-team-list-preliminary-final/",
+            "published_at": "2026-09-26T05:59:00+00:00",
+            "snippet": "NRL Updated Team List: Preliminary Final\nPanthers Head Coach Ivan Cleary has updated his squad for Sunday's preliminary final clash against the Newcastle Knights at Accor Stadium.\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Posit",
+            "body_excerpt": "NRL Updated Team List: Preliminary Final\nPanthers Head Coach Ivan Cleary has updated his squad for Sunday's preliminary final clash against the Newcastle Knights at Accor Stadium.\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\n1st Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nGameday Guide: Panthers v Bulldogs\nCoach Media\nPanthers enjoying prelim preparations: Cleary\nFinals\n'Stadium will be rocking': Yeo urges Panthers fans to help silence Knights\nMatch Preview\nPanthers v Knights: Cogger, Garner return; Same 19 for Holbrook\n'All systems go': Panthers back Cleary for Newcastle showdown",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.66108375138889,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "f33530c95c6ef9f5",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers ‘trying to manage’ Cleary injury as coach makes big admission - Nine.com.au",
+            "url": "https://www.nine.com.au/sport/nrl/finals-news-nathan-cleary-foot-injury-penrith-panthers-newcastle-knights-training-tarps-20260925-p610ii.html",
+            "published_at": "2026-09-26T05:07:50+00:00",
+            "snippet": "Panthers ‘trying to manage’ Cleary injury as coach makes big admission &nbsp;&nbsp; Nine.com.au",
+            "body_excerpt": "Panthers coach Ivan Cleary insists star half and son Nathan is ready to go for the preliminary final against the Knights on Sunday afternoon.\nBut he also conceded there is a chance he might be playing with a foot fracture that could rule him out of the Rugby League World Cup .\nNathan Cleary during a Panthers training session this week. Wolter Peeters/SMH\nPenrith went into full lockdown mode on Friday, pitching a series of black tarpaulins around their training facility to block out prying eyes, which only fuelled concerns of his fitness .\nBut speaking to media on Saturday morning, Cleary senior said Nathan had benefited from the week off and was “good to go”.\nCleary suffered the injury in the win over the Roosters a fortnight ago, and while he finished the match, his post-kick reaction – hobbling, unable to rise onto his toes, running on his heels – raised alarms. His late field goal also wobbled unnaturally – a stark contrast to his usual textbook strike.\nJack Cole has been named to partner Cleary in the halves, with Jack Cogger on the extended bench. The coach ruled out the suggestion his son could come off the bench, but switching Cogger and Cole remains a possibility.\n“No, Nath’s ready to play. He’s obviously carrying an injury, but there wouldn’t be many players out there at the moment for any team that aren’t,” he said.\nRead more\nRadley learns grand final fate after ugly hip-drop\n“It’s just that time of year, but we’re super confident all our players are ready to play.”\nThe coach said MRI scans were inconclusive about exactly what the injury is, but conceded there was a chance a small fracture has been missed.\n“There’s basically enough on there that there’s something wrong,” he said.\n“But you’ve got to go by what I think is called ‘clinically’ – how does it feel, can you walk, etc.\n“So we’ve basically worked out enough that it’s an injury that could get worse, for sure, so we’re trying to manage it as best we can so he can play so we can get him to play.\n“He’ll be ready. Yeah, he’s done a bit of everything. He’s actually living with us at the moment, so I’ve actually seen firsthand how much he’s actually done. It’s crazy, yeah. He has left no stone unturned.”\nTarps block sight of Penrith training. X\nShould the Panthers make it, the grand final would be a match up of the hobbled halves. On Friday night, Roosters half Sam Walker made a miraculous return only a month after surgery on a syndesmosis injury.\n“This is what the players dream about,” Cleary said.\n“It’s what they go through all the hard work in pre-season for, and all through the year, to get themselves into this sort of arena. So, they’re all true competitors and they find ways to get out there and perform.”\nAndrew Johns believes Cleary’s injury is the single biggest factor that will decide the preliminary final.\n“The game is going to be dictated by Nathan Cleary’s foot,” Johns said on Freddy and the Eighth .\n“It’s the great unknown with the Panthers and their medical staff at the moment.”\nJohns broke down Penrith’s kicking blueprint, a system perfected and built around Cleary’s precision and technique.\nNathan Cleary is in doubt. Getty Images\n“I’ve watched it for half a dozen years. They come to the right, hit Liam Martin, he puts it in. Nathan comes around the short side and kicks. You get the ball back in that 10x10 square, 10 metres out from your line,” Johns explained.\n‘Special’ swansong looms for DCE as 16-year career comes full-circle\n“They bash you, get the ball back on the 40, and Nathan has an attacking kick.”\nIf Cleary cannot execute that pattern, Penrith’s entire territorial game could collapse.\nWith Cole named at five-eighth and Cogger on the bench, Johns believes the kicking angles may become skewed.\n“If Nathan’s not kicking, the five-eighth will be Jack Cole or Jack Cogger. They’re right‑foot kickers on the left side of the ruck,” he said.\n“If Newcastle can harass them enough, instead of getting the ball two metres out, you might be getting it 15 me",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 19.513861529166668,
+            "relevance_score": 4.5,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "92688102026052d8",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Penrith Panthers vs Newcastle Knights Tips, Odds, Teams & Predictions – NRL Finals Week 3 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/penrith-panthers-vs-newcastle-knights-tips-odds-teams-predictions-nrl-finals-week-3-2026/610374",
+            "published_at": "2026-09-22T01:58:02+00:00",
+            "snippet": "Penrith Panthers vs Newcastle Knights Tips, Odds, Teams & Predictions – NRL Finals Week 3 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "Penrith welcomes Newcastle to Accor Stadium for a place in the grand final. The rested Panthers bring enormous finals experience and a formidable home record, while the Knights arrive inspired by their tense 12-10 victory over the Warriors. Newcastle’s resilience will be tested by Penrith’s defensive control and composure throughout.\nWhen: Sunday September 27, 2026 at 4:00 pm\nWhere: Accor Stadium\nBet 💰: Bet On This Match HERE\nPenrith Panthers vs Newcastle Knights Odds\nPenrith Panthers vs Newcastle Knights Preview\nPenrith returns from a week’s rest for its seventh consecutive preliminary final, facing a Newcastle side carrying belief after a remarkable 12-10 win over the Warriors at Eden Park. Dominic Young’s early second-half try proved decisive, while the Knights’ defence held firm through sustained late pressure. Kalyn Ponga left that match for a head-injury assessment, but early reports indicated he passed the test; his availability should still be monitored through the week. Penrith brings a powerful record to Accor Stadium, having won its past 11 home finals, and has scored the opening try in each of its past seven home finals. Newcastle’s resilience and edge speed can keep the contest competitive, but the Panthers’ defensive control, finals experience and extra preparation make them difficult to dislodge with a grand-final place at stake.\nHead To Head Bet\nWe're tipping Penrith Panthers to win at $1.28 odds.\nFirst Try Scorer\nFirst Try Scorer: Dominic Young at $11.50 .",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 118.6771948625,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "63ded11f33da3736",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Finals",
+            "title": "Live Blog As it happened: Knights stun Warriors to set up Penrith showdown",
+            "url": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
+            "published_at": "2026-09-20T09:49:25+00:00",
+            "snippet": "Presented By\nAs it happened: Knights stun Warriors to set up Penrith showdown\nNewcastle have taken another step on their giant killing run towards the NRL premiership with a stunning upset of the Warriors in front of a record crowd at Eden Park.\nThe Knights will now face Penrith ",
+            "body_excerpt": "Presented By\nAs it happened: Knights stun Warriors to set up Penrith showdown\nNewcastle have taken another step on their giant killing run towards the NRL premiership with a stunning upset of the Warriors in front of a record crowd at Eden Park.\nThe Knights will now face Penrith in a blockbuster preliminary final at Accor Stadium next Sunday afternoon and Justin Holbrook's men have shown no environment intimidates them.\nThe largest crowd ever assembled for a rugby league game in New Zealand turned out for the semi-final, with 48,511 packing into Eden Park and the contest lived up to the occasion.\nThere was drama from the opening minute, Newcastle almost scoring after Kalyn Ponga sliced straight through the Warriors defensive line.\nThe hosts opened the scoring through Leka Halasima before Fletcher Sharpe levelled the scores before half-time.\nDom Young put Newcastle on top soon after the break and the Novocastrians defended their way to victory for the remaining 36 minutes.\nHalasima set up a grandstand finish when he crossed in the corner but Warriors fullback Taine Tuaupiki was unable to level the scores with his sideline conversion.\nThere was more drama in the final 10 minutes, the hosts coming close to scoring on multiple occasions and Ponga leaving the field for an HIA after a bone-cruncher from Halasima.\nIn the end the Knights held firm to secure a famous victory and punch their ticket to the preliminary final.\nEarly reports suggest the inspirational skipper passed his test, clearing the way for him to take his place against the Panthers on Sunday afternoon.\nTickets for next Sunday's match are now on sale and the Knights are hoping thousands of Newcastle fans make the trip to Sydney to get behind their team. Click here to secure your seats now.\nFollow all the NRL Telstra Premiership Week 2 finals action on NRL.com's live blog.\nWarriors v Knights at Eden Park, Auckland\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nWarriors v Knights - Finals Week 2, 2026\nPress Conferences\nKnights: Finals Week 2\nWarriors: Finals Week 2\nFull-time: The Knights have pulled off a famous victory in front of a record crowd at Eden Park, Newcastle holding on for a 12-10 win. A Dom Young try in the opening minutes of the second half ultimately proved the difference and helped his side book their place in next week's preliminary final. The Knights will play Penrith at Accor Stadium next Sunday with tickets on sale now. Click here to secure your seats before the sell out.\n80th minute: Fletcher Sharpe has somehow managed to catch a bomb amid heavy traffic from the Warriors chasers. The hosts are appealing for an escort but the referee has cleared it. Newcastle are less than a minute away from victory. Warriors 10 - Knights 12.\n79th minute: We're off to the Bunker with the Knights claiming a try but it appeared Dane Gagai dropped the ball in the chaos. He kicked the ball after it hit the deck but it's not an intentional drop-kick and the Warriors survive. The hosts have just two minutes to pull off the comeback. Warriors 10 - Knights 12.\n76th minute: Another big moment coming up with the Warriors challenging an on-field ruling of strip. Greg Marzehw spilled the ball in a heavy collision, Te Maire Martin reeling out of the contact. The Bunker has ruled he attempted to strip the ball as he fell backwards. Newcastle get the penalty with less than five on the clock. Warriors 10 - Knights 12.\nHalasima flattens Ponga\n74th minute: More drama at Eden Park with the Warriors receiving a penalty for a high shot on Dallin Watene-Zelezniak. As this is happening, Kalyn Ponga has been taken from the field for an HIA after being crunched by Leka Halasima in the previous set of six. Warriors 10 - Knights 12.\n73rd minute: The Knights have lodged their Captain's Challenge after Bradman Best was ruled to have dropped the ball. Kalyn Ponga was convinced it was ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 158.8208059736111,
+            "relevance_score": 4.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "live_coverage_penalty"
+            ]
+          },
+          {
+            "id": "2e8bbc5ec131725b",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "From Cleary’s halfback understudy to enforcer targeting megastar: Young Knight’s stunning switch - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-inside-francis-manuleleuas-journey-to-the-nrl-his-time-at-the-panthers-position-switch-knights-v-panthers-feature-news/news-story/013a244f6edb78d013f960d48f9b87ef",
+            "published_at": "2026-09-26T22:22:13+00:00",
+            "snippet": "From Cleary’s halfback understudy to enforcer targeting megastar: Young Knight’s stunning switch &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "From Cleary’s halfback understudy to enforcer targeting megastar: Young Knight’s stunning switch\nIn 2023, Francis Manuleleua decided to move to Penrith, believing the Panthers could take his game to another level.\nBorn in New Zealand, the youngster arrived at the club as a talented halfback, so the opportunity to learn from Nathan Cleary was an obvious attraction.\nWatch every game of the 2026 NRL Telstra Premiership Finals Series before the Grand Final LIVE with no ad-breaks during play on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nHaving grown up idolising Adam Reynolds, Manuleleua loved watching how elite halfbacks controlled a game and was eager to gain insight into what made Cleary one of the best in the NRL.\n“He thought Penrith was going to make him a better player,” Francis’ older brother Sam Manuleleua told foxsports.com.au.\n“I think he chose that in a way where he’ll be improving as a player and as he was a half, he had Nathan Cleary at the club (which was amazing).\n“He thought he’d try and go under his wing and see what he’s like … but it didn’t work out.”\nHowever, his decision to move to Australia would ultimately take his career in a direction nobody, including his own family, could have predicted.\n“We always thought he was going to be a half, but then he started growing a bit too long,” Sam added.\n“I don’t think he thought that he would be a back rower, but he had to transition into that.”\nNow, three years later, his role has been dramatically reversed.\nInstead of learning from Cleary, Manuleleua has been tasked with helping shut down the Panthers superstar as he prepares to lead the Newcastle Knights to the 2026 NRL Grand Final.\nMORE KNIGHTS NEWS\n‘NOBODY SAID YES’: How Knights revolution started with ‘crazy’ reality check\n‘NOT GOOD ENOUGH’: Shock finals run reignites debate over one of NRL’s great blunders\nTHE PANTHER WHO BECAME A FORWARD\nDespite emerging as one of the best young back-rowers in the NRL this season, Manulelua’s transition into the forwards was hardly part of the original plan.\nGrowing up in New Zealand, the rookie was primarily a rugby union player and attended the famed King’s College in Auckland on a scholarship.\nHowever, he was also progressing through the New Zealand Warriors junior pathways system, forcing him to juggle commitment in both codes as he plotted his future\n“It was mostly rugby union he played growing up,” Sam, his older brother, said.\n“He was at King’s College in New Zealand and got a scholarship to play there for rugby union.\n“He was with the Warriors, so it was pretty hard for him to pick between Warriors training and then union training. I want to say he was half-half of union and league, but he was good at both.”\nAfter deciding to stick with rugby league, there was never much doubt about what position Manuleleua saw himself as.\nOnce he committed to rugby league, Manuleleua had always pictured himself playing in the halves.\nAt the time, that was the position he had grown up playing and it was where he felt most comfortable, despite his size.\nIt’s been a meteoric rise for Francis Manuleleua this season. Source: Getty Images\n“He always played half even when he came to Australia,” his older brother said.\n“It was quite funny because when the forwards and halves split at training he’d always go off with the halves.\n“If you see the halves at the time, they were tiny compared to him. I felt sorry for him because these little kids were pretty quick for their size and it was a big change for him.”\nBut as he continued to grow, Penrith eventually decided the halves was no longer the right position for him.\nThis saw the Panthers shift him into the centres, but the experiment didn’t last long before they moved him onto the edges and into the back row.\n“They put him in the centres when he started at Penrith and that didn’t really go too well, so they chucked him out to the back-row,” his brother Sam continued.\n“I think it was SG Ball or Jersey Flegg when they ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 2.2741393069444444,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "5f5608df1c39fda3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Knights Preview & Betting Tips: 2026 NRL Preliminary Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/panthers-vs-knights-preview-betting-tips-2026-nrl-preliminary-final",
+            "published_at": "2026-09-26T08:14:56+00:00",
+            "snippet": "Panthers vs Knights Preview & Betting Tips: 2026 NRL Preliminary Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Panthers vs Knights Preview & Betting Tips: 2026 NRL Preliminary Final\nSeptember 26 th 2026, 6:02pm , By: Scooby\nThe second NRL Preliminary Final this weekend heads to Sydney as the Panthers host the Knights . With just 2 games remaining in the 2026 NRL season, the rugby league action is as exhilarating as ever, and this game promises to be another epic contest. With a week off, the Panthers will be well prepared for what is ahead. Meanwhile, the Knights are continuing to prove everyone wrong and will relish another opportunity to cause an upset. Before You Bet is here to help make sense of the chaos with a comprehensive look at what is ahead in this match.\nPanthers vs Knights Prediction & Tips: 2026 NRL Preliminary Final\nContinuing to set the standard\nThe Panthers enjoyed a week off following a determined 19-12 victory against the Roosters. Against a resilient opponent, the Panthers had to overcome several setbacks, with unknown injuries to key players failing to slow them down; at the top of this list is Cleary and he slotted the game sealing field goal. Locked at 12-all at HT, the Panthers had 55% possession for the match. They were loose with their sets, completing at just 78%, which is uncharacteristic for them. For the match, they made 8.2m per carry and had 555 PCM’s. As usual, they generate strong momentum in the middle of the field, and this positively impacts other areas of the match. This will be a key focus for them again in this match.\nMomentum is with the Knights\nThe Knights have captured consecutive road victories as the outsider to keep their 2026 title hopes alive. Last week, they travelled to New Zealand to face the Warriors and were at their spirited best. Despite having a lesser share of possession (49%) and an inferior completion rate (73%), they made 8.8m per carry and had 6 line breaks. Playing as the better team throughout the match, they overcome further adversity towards the end of the match with Ponga leaving the field. This will be another tough test for them too and their defence must improve; despite conceding just 2 tries, they missed 62 tackles and allowed 7 line breaks. A team like the Panthers will hold them accountable for a similar standard of execution.\nStats that matter\n- These two sides have met just once this year, with the Panthers recording a commanding 44-12 road victory over the Knights in Round 8.\n- The Panthers are without their traditional home ground but still win 52% of games at their adopted one. The Knights have a 48% record here.\n- In the past 5 matches between these two sides, the Panthers have won 4. The average margin of victory in those matches is 20.6 points. There has been a mixture of high and low scoring games, seeing the average points scored sitting at 45.4 points.\n- It is no surprise that the Panthers are the superior team on both sides of the ball in 2026. Their attack is slight better, scoring 28ppg to the Knights 26ppg. Defensively is where the major difference comes though, with the Panthers allowing just 14ppg to the Knights 23ppg.\nTime for a reality check\nThe Knights have been strong in the post season, dominating opponents in effort areas to capture spirited victories. Without taking anything away from them, they will face a completely different challenge this weekend against a team who executes consistently well. Despite the doubts around the fitness of Cleary and Yeo, the Panthers play a relentless style which takes a lot to disrupt. The Knights can cause this, but doubts remain about their consistency in achieving this over 80 minutes. The relentless pressure needed is taxing; the Finals draw has been kind to their recovery and a 7-day turnaround ahead of this game provides a timely boost. The Panthers, well rested and prepared for this game, will come out firing.\nThe Knights will need to wrestle momentum away from their opponents and continue to dictate the terms of the match if they wish to be a chance. Then, a lot more must still have to go right for t",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.395528195833332,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "70c232fa22b0d303",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Update | Preliminary Final - Newcastle Knights",
+            "url": "https://www.newcastleknights.com.au/news/2026/09/22/nrl-team-list--preliminary-final/",
+            "published_at": "2026-09-26T06:01:21+00:00",
+            "snippet": "Presented By\n24 Hour Update | Preliminary Final\nnib Newcastle Knights Head Coach Justin Holbrook has reduced his squad for tomorrow afternoon's Preliminary Final against the Penrith Panthers at Accor Stadium.\nToby Winter and Elijah Salesa-Leaumoana come out of the side this week.",
+            "body_excerpt": "Presented By\n24 Hour Update | Preliminary Final\nnib Newcastle Knights Head Coach Justin Holbrook has reduced his squad for tomorrow afternoon's Preliminary Final against the Penrith Panthers at Accor Stadium.\nToby Winter and Elijah Salesa-Leaumoana come out of the side this week.\nThe remainder of the side is 1-20 as named on Tuesday afternoon.\nOriginally published Tuesday, September 22, 2026:\nnib Newcastle Knights Head Coach Justin Holbrook has named his 22-man squad for Sunday afternoon's Preliminary Final against the Penrith Panthers at Accor Stadium.\nHolbrook has confirmed the team will be unchanged from the one which defeated the New Zealand Warriors 12-10 at Eden Park last weekend.\nDylan Lucas has again been named on the bench, following his successful return to the field against the Warriors.\nSee the squad below:\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Knights is number 2 Dominic Young\nCentre for Panthers is number 3 Blaize Talagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Panthers is number 4 Casey McLean 4 Centre for Knights is number 4 Bradman Best\nWinger for Panthers is number 5 Brian To'o 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Panthers is number 10 Lindsay Smith 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Panthers is number 12 Liam Martin 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Panthers is number 13 Isaah Yeo 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Panthers is number 14 Jack Cogger 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Panthers is number 15 Scott Sorensen 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Panthers is number 16 Liam Henry 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Panthers is number 18 Luke Garner 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Panthers is number 21 Freddy Lussick 21 19 Interchange for Knights is number 19 Thomas Cant\n21 19\nReserves\nReserve for Panthers is number 22 Izack Tago 22 20 Reserve for Knights is number 20 Kyle McCarthy\n22 20\nPanthers Ins\nIzack Tago\nJack Cogger\nLuke Garner\nKnights Ins\nKyle McCarthy\nPanthers Outs\nBilly Scott\nJesse McLean\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Chris Butler\nLast updated: 9/27/2026 12:28:01 AM\nThe nib Newcastle Knights would like to thank our proud Club 17 partners for bringing you this week's team list:\nJersey 1 presented by:\nHoneywell Capital\nJersey 2 presented by:\nPalmerbet\nJersey 3 presented by:\nEast Coast Building & Pest Services\nJersey 4 presented by:\nHunter Imaging\nJersey 5 presented by:\nHunter City Motor Group\nJersey 6 presented by:\nGreg Tapp Printing\nJersey 7 presented by:\nEtch Couriers\nJersey 8 presented by:\nPrime Edge Caravans\nJersey 9 presented by:\nNEX\nJersey 10 presented by:\nNewcastle Airport\nJersey 11 presented by:\nCaltex\nJersey 12 presented by:\nBella Group Services\nJersey 13 presented by:\nNBN News\nJersey 14 presented by:\nReward Hospitality\nJersey 15 presented by:\nThe Executive Inn\nJersey 16 presented by:\nGuardi",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.621917084722224,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "799d15822563fc34",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Isaah Yeo makes decision on long-term future",
+            "url": "https://www.zerotackle.com/isaah-yeo-makes-decision-on-long-term-future-238460/",
+            "published_at": "2026-09-26T00:39:04+00:00",
+            "snippet": "Penrith Panthers skipper Isaah Yeo is set to re-sign with the club on a long-term extension, to have him remain at the foot ...",
+            "body_excerpt": "Penrith Panthers skipper Isaah Yeo is set to re-sign with the club on a long-term extension, to have him remain at the foot of the mountains.\nPlenty of speculation has been bubbling away during 2026 about the long-term future of a bunch of Panthers stars off contract at the end of next season, including Yeo.\nAlthough News Corp is reporting Yeo has agreed to an extension with the club, which will see him skyrocket past 350 NRL games in Panthers colours.\nHis new deal is expected to see him add an extra four years at Penrith from 2026.\nThere are also negotiations still ongoing of what a post-retirement role at the Panthers looks like.\nYeo has remained one of the Panthers' elite players for a long amount of time, and established himself as the pioneer ball-playing lock in the increased pace era in the NRL .\nHe is so crucial to the side's success that Yeo is currently playing with a torn pec to give the side every chance of raising the trophy on October next weekend.\nSYDNEY, AUSTRALIA - SEPTEMBER 09: Isaah Yeo of the Penrith Panthers poses during the 2024 NRL Telstra Premiership Finals Series Launch at Hickson Reserve on September 09, 2024 in Sydney, Australia. (Photo by Mark Metcalfe/Getty Images)\nYeo has also flexed his muscle in the representative space, earning captaincy duties for both NSW and Australia for his fearless leadership during the Panthers' dominant four-peat.\nMeanwhile, it is understood contract talks with Nathan Cleary are also progressing in the right direction amid heavy speculation of an exit.\nCleary has been tight-lipped for quite some time on what his future looks like, but fresh reports indicate the Panthers remain in the hot seat to secure his services beyond 2027.\nThe maestro halfback is free to negotiate with rival clubs on November 1 this year for a 2028 contract, and will likely attract interest from more than three thirds of the entire competition given his stature in the game.\nWith younger brother Jett set to return to Australia to continue his NRL development, Cleary may have the opportunity to play alongside him at Panthers clubland, potentially playing a pivotal role on what his next contract is.\nPenrith stars Mitch Kenny , Isaiah Papali'i , Thomas Jenkins , Paul Alamoti and Casey McLean have all committed long-term to the club as they face a fresh chapter under Peter Wallace beyond next season.\nIvan Cleary will step down as Panthers head coach after 2027, with long-term assistant Wallace ready to take charge.\nYeo and Cleary's re-signings would be a massive show of faith for rookie coach Wallace as he begins a new chapter in his coaching journey in 2028.\nThe club will farewell fan-favourite Brian To'o , who is PNG Chiefs bound at the end of next year, while also losing many star comrades over the years in their premiership dominance.\nThe Panthers will host the Newcastle Knights at Accor Stadium on Sunday afternoon to book the last place in the Grand Final against the Sydney Roosters the following week.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 23.99330597361111,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "promoted_after_body_fetch",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "162f65987798dffe",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Panthers vs Knights Prediction & NRL Betting Preview - 26/9/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/panthers-vs-knights-prediction-betting-tips-sunday-27-september-2026/",
+            "published_at": "2026-09-25T11:45:32+00:00",
+            "snippet": "Panthers vs Knights Prediction & NRL Betting Preview - 26/9/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Panthers vs Knights Prediction: Cleary’s class to show in 4/1 Penrith Prelim triumph\n| Friday 25th September 2026, 12:45\nFriday 25th September 2026, 12:45\nNewcastle Knights’ sensational run meets its reckoning on Sunday when they meet the Penrith Panthers at Accor Stadium in the second NRL Preliminary Final (4pm local, 7am BST, Sky Sports+).\nThe winners will play the Roosters in next week’s Grand Final, but can the Knights upset the odds one more time to topple the club who won four straight titles between 2021 and 2024? Below are my Panthers vs Knights predictions, the latest team news and Betfred’s match odds.\nPanthers vs Knights Betting Tips\nPrice Boost: Panthers to Win & Nathan Cleary to Score a Try @ 7/2 4/1\nHandicap 3-way: Panthers -10 @ EVENS\n*odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Acca Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nPanthers vs Knights Odds\nThere is a 75% chance of Penrith coming out on top at Accor. At least, that’s the implication of their 1/3 odds with Betfred. The Knights are 13/5 to secure an unlikely spot in the Grand Final, while it’s 16/1 for extra-time to be needed to split the sides.\nTeam News\nNathan Cleary’s inclusion is the biggest news for his father and coach, Ivan. The scrum-half’s foot injury has cleared up since the victory over the Roosters a fortnight ago and the 28-year-old superstar is ready to go.\nJack Cogger’s back from suspension, so he’s included among the bench options, while there’s a reshuffle among the middles. Isaah Yeo returns to the first XIII at loose-forward, with Lindsay Smith switching to prop and Liam Henry moving down to the interchange panel.\nRugby League Odds\nThere’s no panic changes for Justin Holbrook, as the former St Helens and Titans head coach selects the same 19 that accounted for the Warriors last week.\nDylan Lucas remains in the squad after a short stint in his return at Eden Park, so Holbrook will potentially be looking for a longer spell out of the back-rower against the Panthers.\nI said last week that – much as I love the Knights story and their fantastic strike weapons – they looked set for the end of the road. And I was wrong.\nThis week? I’m saying the same thing. Holbrook and Newcastle are one of the stories of the season, and given the way he has gone about all three of his first-grade head-coach roles so far one has to say it’s not the biggest of surprises to see them make a face Preliminary final in 13 years.\nBut the Panthers have been simmering around their 2021-2024 form for much of this year, and if they’re even 90% of that level on Sunday then one has to believe they’ll get the job done and reach a sixth Grand Final in seven years.\nCleary’s return could have a big say in the course of this one, and I love the value in a Panthers win and the star half-back crossing at any time at 4/1.\nOdds correct at time of publishing.\nI don’t expect this one to be all one-way traffic. The Knights will definitely play their part in it, and then some.\nBut if Penrith have the lead late on, Newcastle will naturally have to open up a little. And that is where the prospect of a 10+ point win comes in for the Panthers.\nClass could really tell at the end, and so the EVENS for the Panthers to cover the handicap looks on the big side.\nShare Article\nBetfred Rugby League Markets\nBetfred Super League Odds\nBetfred Challenge Cup Odds\nBetfred Championship Odds\nBetfred League One Odds\nRugby League Insights\nSuper League Tips\nChallenge Cup Tips\nNew customers only. Register , deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Bet Builder Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclu",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 36.88552819583333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Panthers NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 30",
+          "Panthers vs Knights NRL round 30 preview",
+          "Panthers Knights NRL odds OR price OR favourite",
+          "Panthers Knights NRL finals race OR ladder stakes",
+          "Panthers Knights NRL",
+          "Panthers NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Panthers Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 30 Panthers OR Knights"
+        ],
+        "filter_summary": {
+          "dropped_stale": 65,
+          "dropped_wrong_round": 0,
+          "dropped_noise": 13,
+          "dropped_irrelevant": 26,
+          "kept": 20,
+          "deferred_pending_body": 60,
+          "promoted_after_body": 8,
+          "dropped_evergreen_casualty_ward": 1,
+          "dropped_duplicate_url": 3,
+          "dropped_no_body": 2
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "8cca040c307a",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-27T00:38:39.900991+00:00",
+      "finished_at": "2026-09-27T00:41:04.929746+00:00",
+      "duration_ms": 145028,
+      "request": {
+        "home_team": "Panthers",
+        "away_team": "Knights",
+        "venue": "Accor Stadium",
+        "kickoff": "2026-09-27T16:00:00+10:00",
+        "weather": "Rain"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7969,
+        "home_win_probability": 0.7969,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.99 log-strength) — contribution 0.230 (16% of total)",
+            "Elo rating advantage (+115 points) — contribution 0.206 (14% of total)",
+            "Ladder points differential per game (+11.6 points) — contribution 0.162 (11% of total)",
+            "5-game form: all run metres (+138.80) — contribution 0.142 (10% of total)",
+            "Pythagorean form (last 10) (+22% expected-win gap) — contribution 0.099 (7% of total)"
+          ],
+          "negative_drivers": [
+            "5-game form: kicking metres (+176.80) — contribution 0.040 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: line breaks (-2.40) — contribution 0.025 (2% of total)",
+            "3-game form: errors (-3.67) — contribution 0.024 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: possession pct (+3.00) — contribution 0.021 (1% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Away travel to venue (120 km) — contribution 0.020 (1% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.24,
+            "total_toward_away": 0.2415,
+            "net": 0.9985,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals. This is the split of SHAP mass, not a second prediction. home_win_probability is the prior."
+          },
+          "value_contribution_conflicts": [
+            "5-game form: kicking metres (+176.80)",
+            "3-game form: errors (-3.67)",
+            "5-game form: possession pct (+3.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Panthers",
+          "away_team": "Knights",
+          "venue": "Accor Stadium",
+          "kickoff": "2026-09-27T16:00:00+10:00",
+          "weather": "Rain"
+        }
+      },
+      "error": null
+    }
+  ]
+}

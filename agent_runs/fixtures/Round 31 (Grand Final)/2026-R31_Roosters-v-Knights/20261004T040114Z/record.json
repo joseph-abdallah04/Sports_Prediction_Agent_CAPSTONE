@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "run_id": "20261004T040114Z-a5f95e80",
+  "run": {
+    "predicted_at_utc": "2026-10-04T04:10:10.916969+00:00",
+    "predicted_at_local": "2026-10-04T15:10:10.916969+11:00",
+    "started_at_utc": "2026-10-04T04:01:14.328669+00:00",
+    "wall_seconds": 536.6,
+    "hours_before_kickoff": 4.3,
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx",
+    "failed": false,
+    "error": null
+  },
+  "fixture": {
+    "season": 2026,
+    "round": 31,
+    "home_team": "Roosters",
+    "away_team": "Knights",
+    "venue": "Accor Stadium",
+    "kickoff": "2026-10-04T19:30:00+11:00",
+    "kickoff_local": "2026-10-04T19:30:00+11:00",
+    "weather": "Fine"
+  },
+  "standings": {
+    "available": true,
+    "as_at_round": 31,
+    "teams_in_competition": 17,
+    "home": {
+      "team": "Roosters",
+      "position": 4,
+      "played": 24,
+      "wins": 16,
+      "drawn": 0,
+      "lost": 8,
+      "competition_points": 38,
+      "points_for": 619,
+      "points_against": 501,
+      "points_difference": 118,
+      "points_difference_per_game": 4.92,
+      "recent_form_last_4": "2 - 3",
+      "streak": "3L",
+      "home_record": "8 - 4",
+      "away_record": "8 - 4"
+    },
+    "away": {
+      "team": "Knights",
+      "position": 7,
+      "played": 24,
+      "wins": 14,
+      "drawn": 0,
+      "lost": 10,
+      "competition_points": 34,
+      "points_for": 633,
+      "points_against": 591,
+      "points_difference": 42,
+      "points_difference_per_game": 1.75,
+      "recent_form_last_4": "2 - 2",
+      "streak": "2L",
+      "home_record": "8 - 4",
+      "away_record": "6 - 6"
+    },
+    "comparison": {
+      "higher_on_ladder": "Roosters",
+      "ladder_positions_gap": 3,
+      "points_difference_per_game_gap": 3.17,
+      "points_difference_favours": "Roosters"
+    },
+    "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=31"
+  },
+  "prediction": {
+    "predicted_winner": "Roosters",
+    "predicted_side": "home",
+    "confidence": 0.63,
+    "home_win_probability": 0.63
+  },
+  "math_model": {
+    "home_win_probability": 0.7064,
+    "prediction": "Home Win",
+    "shap_drivers": {
+      "positive_drivers": [
+        "Bradley-Terry strength advantage (+0.56 log-strength) — contribution 0.180 (21% of total)",
+        "Ladder points differential per game (+3.7 points) — contribution 0.137 (16% of total)",
+        "Pythagorean form (last 10) (+13% expected-win gap) — contribution 0.091 (11% of total)",
+        "Elo rating advantage (+60 points) — contribution 0.059 (7% of total)",
+        "5-game form: effective tackle pct (+2.72) — contribution 0.031 (4% of total)"
+      ],
+      "negative_drivers": [
+        "3-game form: errors (-2.67) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "Away travel to venue (120 km) — contribution 0.027 (3% of total)",
+        "5-game form: post contact metres (+78.20) — contribution 0.015 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+        "5-game workload: top3 tackle share (+0.02) — contribution 0.015 (2% of total)",
+        "5-game form: possession pct (-0.20) — contribution 0.014 (2% of total)"
+      ],
+      "attribution_balance": [
+        "total_toward_home",
+        "total_toward_away",
+        "net",
+        "leans",
+        "note"
+      ],
+      "value_contribution_conflicts": [
+        "3-game form: errors (-2.67)",
+        "5-game form: post contact metres (+78.20)"
+      ]
+    }
+  },
+  "research": {
+    "queries_run": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+      "Roosters vs Knights NRL round 31 preview",
+      "Roosters Knights NRL odds OR price OR favourite",
+      "Roosters Knights NRL finals race OR ladder stakes",
+      "Roosters Knights NRL",
+      "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+      "Roosters Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+      "NRL round 31 Roosters OR Knights"
+    ],
+    "items_kept": 20,
+    "refine_triggered": false,
+    "gate_passed": true,
+    "items": [
+      {
+        "title": "Team Lists NRL Team Lists: Grand Final",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-09-29T10:04:10+00:00",
+        "age_hours": 113.95942194083334,
+        "url": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/"
+      },
+      {
+        "title": "Team Lists NRL Late Mail: Grand Final - Ioelu in for Watson; Graham steps up",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Breaking",
+        "published_at": "2026-10-03T09:40:06+00:00",
+        "age_hours": 18.360533051944444,
+        "url": "https://www.nrl.com/news/2026/10/01/nrl-late-mail-grand-final---roosters-sweat-on-connor/"
+      },
+      {
+        "title": "Finals DCE eyeing slice of history in fairytale finale",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Updated",
+        "published_at": "2026-10-03T19:01:22+00:00",
+        "age_hours": 9.0060886075,
+        "url": "https://www.nrl.com/news/2026/10/04/dce-eyeing-slice-of-history-in-fairytale-finale/"
+      },
+      {
+        "title": "How a journey deep underground set Knights on path to NRL grand final",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-10-03T19:01:21+00:00",
+        "age_hours": 9.006366385277778,
+        "url": "https://www.nrl.com/news/2026/10/04/how-a-journey-deep-underground-set-knights-on-path-to-nrl-grand-final/"
+      },
+      {
+        "title": "Match Preview Roosters v Knights: Watson ruled out; Graham rises for Phoenix",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-10-03T09:45:15+00:00",
+        "age_hours": 18.27469971861111,
+        "url": "https://www.nrl.com/news/2026/09/29/roosters-v-knights-watson-races-clock-graham-set-to-step-up/"
+      },
+      {
+        "title": "World Cup Kiwis switch paves way for Gagai-Mitchell World Cup re-match",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-10-03T02:01:17+00:00",
+        "age_hours": 26.007477496388887,
+        "url": "https://www.nrl.com/news/2026/10/03/kiwis-switch-paves-way-for-gagai-mitchell-world-cup-re-match/"
+      },
+      {
+        "title": "Finals Mates to rivals: Coaches put friendship aside in battle for glory",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-10-02T20:01:21+00:00",
+        "age_hours": 32.00636638527778,
+        "url": "https://www.nrl.com/news/2026/10/03/from-mates-to-rivals-robbo-and-holbrook-put-friendship-aside-in-battle-for-glory/"
+      },
+      {
+        "title": "12 Knights In pictures: Knights fans get around their heroes",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-09-30T05:05:46+00:00",
+        "age_hours": 94.93275527416667,
+        "url": "https://www.nrl.com/news/2026/09/30/in-pictures-newcastle-knights-fan-day/"
+      },
+      {
+        "title": "Finals Knights riding wave of support as fans take over Harbour Bridge",
+        "source": "nrl.com",
+        "channel": "nrl_news",
+        "tier": "official",
+        "category": "Feature",
+        "published_at": "2026-09-28T08:45:09+00:00",
+        "age_hours": 139.27636638527778,
+        "url": "https://www.nrl.com/news/2026/09/28/knights-riding-wave-of-support-as-fans-takeover-harbour-bridge/"
+      },
+      {
+        "title": "24 Hour Team List | Grand Final v Knights - Sydney Roosters",
+        "source": "roosters.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-03T09:30:00+00:00",
+        "age_hours": 18.528866385277777,
+        "url": "https://www.roosters.com.au/news/2026/10/03/nrl-team-list--grand-final-v-knights/"
+      },
+      {
+        "title": "Best NRL Grand Final 2026 Betting Sites, Odds and Tips for Sydney Roosters vs Newcastle Knights - Bookies.com",
+        "source": "bookies.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-03T07:20:14+00:00",
+        "age_hours": 20.691644163055553,
+        "url": "https://bookies.com/au/news/nrl-grand-final-betting-odds-sites-tips-2026-sydney-roosters-vs-newcastle-knights-tomorrow"
+      },
+      {
+        "title": "Sydney Roosters vs Newcastle Knights: NRL Grand Final preview and prediction - Zero Tackle",
+        "source": "zerotackle.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-04T03:22:30+00:00",
+        "age_hours": 0.6538663852777777,
+        "url": "https://www.zerotackle.com/sydney-roosters-vs-newcastle-knights-nrl-grand-final-preview-and-prediction-238660/"
+      },
+      {
+        "title": "Newcastle Knights’ tale burns bright but Sydney Roosters are built just for NRL’s grand occasion | Jack Snape - The Guardian",
+        "source": "theguardian.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-04T03:17:34+00:00",
+        "age_hours": 0.7360886075,
+        "url": "https://www.theguardian.com/sport/blog/2026/oct/04/nrl-grand-final-2026-newcastle-knights-tale-sydney-roosters-preview"
+      },
+      {
+        "title": "NRL Grand Final ultimate guide: Start time and everything else you need to know - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-04T02:42:05+00:00",
+        "age_hours": 1.327477496388889,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-grand-final-2026-start-time-kickoff-and-full-schedule-for-sydney-roosters-v-newcastle-knights-how-to-watch-entertainment-betting-odds/news-story/a2d4c96da83c8ba112f95afaa1b5a786"
+      },
+      {
+        "title": "‘No stone unturned’: Star speaks after meeting with NRL seals GF heartbreak — Early Mail - Fox Sports",
+        "source": "foxsports.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-03T11:46:13+00:00",
+        "age_hours": 16.2585886075,
+        "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-grand-final-early-mail-teams-ins-and-outs-will-connor-watson-play-diesel-hagan-phoenix-crossland-suspension-news-updates-reaction/news-story/bdce6d0f92e2d89ee6cfe5b93fed547b"
+      },
+      {
+        "title": "24 Hour Update | Grand Final - Newcastle Knights",
+        "source": "newcastleknights.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-03T09:31:22+00:00",
+        "age_hours": 18.5060886075,
+        "url": "https://www.newcastleknights.com.au/news/2026/09/29/nrl-team-list--grand-final/"
+      },
+      {
+        "title": "Roosters vs Knights Prediction & NRL Grand Final 2026 Betting Preview - Betfred Insights",
+        "source": "insights.betfred.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-03T06:00:24+00:00",
+        "age_hours": 22.02219971861111,
+        "url": "https://insights.betfred.com/rugby-league/roosters-vs-knights-prediction-betting-tips-sunday-4-october-2026/"
+      },
+      {
+        "title": "NRL 2026 grand final: where the Sydney Roosters v Newcastle Knights decider will be won and lost | Angus Fontaine - The Guardian",
+        "source": "theguardian.com",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-02T06:15:00+00:00",
+        "age_hours": 45.77886638527778,
+        "url": "https://www.theguardian.com/sport/blog/2026/oct/02/nrl-2026-grand-final-sydney-roosters-vs-newcastle-knights-decider-won-lost"
+      },
+      {
+        "title": "2026 NRL Grand Final: Roosters vs Knights Preview & Betting Tips - Before You Bet",
+        "source": "beforeyoubet.com.au",
+        "channel": "google_news_rss",
+        "tier": "search_discovery",
+        "category": null,
+        "published_at": "2026-10-01T04:19:14+00:00",
+        "age_hours": 71.70831082972222,
+        "url": "https://www.beforeyoubet.com.au/2026-nrl-grand-final-roosters-vs-knights-preview-betting-tips"
+      },
+      {
+        "title": "'It's amazing': Newcastle Knights legend speaks ahead of NRL grand final",
+        "source": "newstalkzb.co.nz",
+        "channel": "duckduckgo",
+        "tier": "mainstream_news",
+        "category": null,
+        "published_at": "2026-10-01T04:02:10+00:00",
+        "age_hours": 71.99275527416667,
+        "url": "https://www.newstalkzb.co.nz/on-air/weekend-sport-with-jason-pine/audio/robbie-odavis-former-newcastle-knights-star-speaks-ahead-of-nrl-grand-final/"
+      }
+    ]
+  },
+  "verification": {
+    "verifier_ran": true,
+    "checklist_pass": true,
+    "checklist_issues": [],
+    "audit_pass": false,
+    "audit_issues": [
+      "Material SHAP driver 'Pythagorean form (last 10)' is omitted from the evaluation."
+    ],
+    "checks": [
+      {
+        "check": "sourced_claims",
+        "verdict": "pass",
+        "evidence": "Claims regarding Connor Watson/Benaiah Ioelu are in nrl_news; 'red-hot favourites' is in Zero Tackle; ladder/points data is in set_fixture_scene."
+      },
+      {
+        "check": "availability_direction",
+        "verdict": "pass",
+        "evidence": "Judgement correctly identifies Connor Watson as ruled out per the research."
+      },
+      {
+        "check": "shap_attribution",
+        "verdict": "pass",
+        "evidence": "Bradley-Terry and ladder differential are correctly attributed to the Roosters (home)."
+      },
+      {
+        "check": "weather_not_headline",
+        "verdict": "pass",
+        "evidence": "Weather is not presented as a key factor."
+      },
+      {
+        "check": "research_used",
+        "verdict": "pass",
+        "evidence": "Key factor 2 is sourced from nrl_news regarding Connor Watson."
+      },
+      {
+        "check": "confidence_justified",
+        "verdict": "pass",
+        "evidence": "Confidence was adjusted downward from 0.7064 to 0.63 due to a specific research conflict (injury)."
+      },
+      {
+        "check": "driver_proportionality",
+        "verdict": "pass",
+        "evidence": "The most significant SHAP drivers are the ones highlighted."
+      },
+      {
+        "check": "omitted_math_signals",
+        "verdict": "fail",
+        "evidence": "Material driver 'Pythagorean form (last 10)' (11% of total) is not addressed in the summary or key factors."
+      }
+    ],
+    "recalibration_triggered": false,
+    "confidence_before_recalibration": null
+  },
+  "reasoning": {
+    "summary": "The Roosters are strong mathematical favourites based on a significant Bradley-Terry strength advantage and superior ladder differential. While Zero Tackle describes them as red-hot favourites, the loss of Connor Watson to a concussion (nrl_news) creates a specific availability conflict that reduces confidence in the prior. I have adjusted the confidence downward from the math prior of 0.7064 to account for this loss.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "Significant Bradley-Terry strength advantage (contribution 0.180) and ladder points differential per game (contribution 0.137)."
+      },
+      {
+        "source": "research",
+        "detail": "Connor Watson has been ruled out of the Grand Final due to a concussion, replaced by Benaiah Ioelu (nrl_news)."
+      },
+      {
+        "source": "scene",
+        "detail": "Roosters hold a higher ladder position (4th vs 7th) and a superior points difference per game (4.92 vs 1.75)."
+      }
+    ],
+    "research_stance": "conflicts",
+    "strongest_reason_could_lose": "The Roosters have lost Connor Watson to a concussion, forcing the inclusion of inexperienced youngster Benaiah Ioelu in the Grand Final side.",
+    "loss_reason_specific": true,
+    "disagreements_with_math": "null"
+  },
+  "paths": {
+    "ledger": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R31_Roosters-v-Knights/20261004T040114Z/ledger.json",
+    "summary": "/Users/josephabdallah/Coding/UniversityProjects/Capstone/Sports_Prediction_Agent_CAPSTONE/agent_runs/fixtures/2026-R31_Roosters-v-Knights/20261004T040114Z/summary.md"
+  }
+}

@@ -150,10 +150,3 @@ def search_queries(
         if len(merged) >= MAX_MERGED_QUERIES:
             break
     return merged
-
-
-def reddit_queries(home: str, away: str, round_number: int | None = None) -> list[str]:
-    queries = [f"{home} {away}", f"{home} injury", f"{away} injury"]
-    if round_number is not None:
-        queries.append(f"round {round_number} {home} OR {away}")
-    return queries

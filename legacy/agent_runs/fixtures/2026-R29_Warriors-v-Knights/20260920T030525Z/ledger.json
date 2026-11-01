@@ -1,0 +1,1311 @@
+{
+  "schema_version": 2,
+  "run_id": "20260920T030525Z-4afff3c9",
+  "at_a_glance": {
+    "fixture": "Warriors v Knights",
+    "round": 29,
+    "kickoff": "2026-09-20T16:05:00+10:00",
+    "venue": "Eden Park",
+    "predicted_winner": "Warriors",
+    "confidence": 0.72,
+    "model_home_win_probability": 0.752,
+    "model_prediction": "Home Win",
+    "research_items_kept": 20,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-09-20T03:05:25.417651+00:00",
+  "updated_at": "2026-09-20T03:17:55.833382+00:00",
+  "request": {
+    "home_team": "Warriors",
+    "away_team": "Knights",
+    "season": null,
+    "round_number": 29,
+    "force_refresh": true,
+    "user_question": "Who wins Warriors vs Knights?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Warriors",
+    "away_team": "Knights",
+    "confidence": 0.72,
+    "summary": "The Warriors are strong favourites at Eden Park, supported by a significant Elo and strength advantage and a dominant regular-season record (2nd vs 7th). While the Knights have minor edges in recent line-break form and travel metrics, the Warriors' recent possession dominance (+6.00 over 5 games) and the return of Leka Halasima outweigh these factors. The market also aligns with this view, pricing the Warriors as clear favourites ($1.48).",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage, a +0.52 Bradley-Terry strength advantage, and a significant 5-game possession percentage advantage (+6.00)."
+      },
+      {
+        "source": "scene",
+        "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+      },
+      {
+        "source": "research",
+        "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 20,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 6
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 11
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 9
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Warriors NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 29",
+      "Warriors vs Knights NRL round 29 preview",
+      "Warriors Knights NRL odds OR price OR favourite",
+      "Warriors Knights NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "All claims (Halasima return, Lucas return, Ponga form, ladder/PD, Dolphins loss) are matched to research bodies or scene data."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "Halasima and Lucas are correctly described as returning based on 'added to the interchange' and 'promoted into the 19-man squad'."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Warriors from the 'favouring_Warriors_home_win' group."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not presented as a key factor."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 3 is sourced from 'NRL Late Mail: Finals Week 2'."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.72 is within the 0.50-0.85 range and justified by ladder/Elo advantages."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "The judgement focuses on the highest-weight drivers (Elo, Bradley-Terry) and does not overstate minor factors."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top drivers '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights) were not addressed."
+        }
+      ],
+      "issues": [
+        "The judgement omitted several top SHAP drivers from both the home and away groups, including possession percentages, travel, and line breaks."
+      ],
+      "instruction": "Math drivers include '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights); these are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights); these are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Warriors",
+      "away_team": "Knights",
+      "confidence": 0.72,
+      "summary": "The Warriors enter as strong favourites playing at a sold-out Eden Park, backed by a significant regular-season ladder advantage (2nd vs 7th) and a superior points differential. While they are coming off a shock loss to the Dolphins, the math model shows a clear edge in Elo and overall strength. The return of Leka Halasima provides a boost, though the Knights' return of Dylan Lucas and Kalyn Ponga's current form are the primary threats.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage and a +0.52 Bradley-Terry strength advantage."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Warriors",
+      "away_team": "Knights",
+      "confidence": 0.72,
+      "summary": "The Warriors are strong favourites at Eden Park, supported by a significant Elo and strength advantage and a dominant regular-season record (2nd vs 7th). While the Knights have minor edges in recent line-break form and travel metrics, the Warriors' recent possession dominance (+6.00 over 5 games) and the return of Leka Halasima outweigh these factors. The market also aligns with this view, pricing the Warriors as clear favourites ($1.48).",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage, a +0.52 Bradley-Terry strength advantage, and a significant 5-game possession percentage advantage (+6.00)."
+        },
+        {
+          "source": "scene",
+          "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+        },
+        {
+          "source": "research",
+          "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The judgement omitted several top SHAP drivers from both the home and away groups, including possession percentages, travel, and line breaks."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-20T03:06:03.290508+00:00",
+      "thinking": "*   Home Team: Warriors\n    *   Away Team: Knights\n    *   Round Number: 29\n    *   Goal: Determine who wins (prediction/research).\n\n    *   Query 1: Home team availability (Warriors).\n    *   Query 2: Away team availability (Knights).\n    *   Query 3: Fixture preview (Warriors vs Knights Round 29).\n    *   Query 4: Market prices (Warriors vs Knights odds).\n    *   Query 5: Specific angle (form, ladder, etc.).\n\n    *   Query 1: `Warriors NRL injury OR \"late mail\" OR \"team list\" round 29`\n    *   Query 2: `Knights NRL injury OR \"late mail\" OR \"team list\" round 29`\n    *   Query 3: `Warriors vs Knights NRL round 29 preview`\n    *   Query 4: `Warriors Knights NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 29 (very late in the season), the \"finals race\" or \"ladder stakes\" is the most relevant angle.\n    *   Query 5: `Warriors Knights NRL finals race OR ladder stakes`\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Warriors, Knights).\n    *   JSON format? Yes.",
+      "chars": 1086
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-20T03:11:42.121222+00:00",
+      "thinking": "*   Match: Warriors (Home) vs Knights (Away).\n    *   Venue: Eden Park (Home game for Warriors).\n    *   Round: 29 (Semi-Final).\n\n    *   Prediction: Home Win.\n    *   Probability: 0.752.\n    *   SHAP Drivers (Home):\n        *   Bradley-Terry strength advantage (+0.52 log-strength) - 12%\n        *   5-game form: possession pct (+6.00) - 11%\n        *   Ladder points differential per game (+9.9 points) - 11%\n        *   Elo rating advantage (+95 points) - 10%\n        *   Pythagorean form (last 10) (+27% expected-win gap) - 7%\n    *   SHAP Drivers (Away):\n        *   Travel km (3%)\n        *   3-game form possession (2%) - CONFLICT (raw value favours home).\n        *   5-game form line breaks (2%)\n        *   5-game form penalties (2%) - CONFLICT (raw value favours home).\n        *   5-game form errors (2%) - CONFLICT (raw value favours home).\n    *   Attribution Balance: Leans Home (1.0938 vs 0.3434).\n\n    *   Warriors: Position 2, 18 wins, 6 losses, +310 diff, 5-game streak: 5W (Wait, standings say 5W, but research says they lost to Dolphins last week. Let's check the standings block again: `recent_form_last_4: \"5 - 0\"`, `streak: \"5W\"`. This is a contradiction with the research. Research says \"shock loss to the Dolphins\" last week. I must prioritize the research/team lists for current state, but the standings block is the \"official ladder\". However, the research is very specific about the Dolphins loss in the Qualifying Final. Actually, the standings block says `as_at_round: 29`. If it's a semi-final, the \"regular season\" standings might be what's provided. The research says they lost the Qualifying Final. This is a critical detail).\n    *   Knights: Position 7, 14 wins, 10 losses, +42 diff, 2-game streak: 2L.\n\n    *   Warriors:\n        *   Leka Halasima returns (added to interchange in 24-hour update - \"NRL Late Mail: Finals Week 2\").\n        *   Jackson Ford is OUT (ankle injury - \"Warriors confirm Ford injury status\").\n    *   Knights:\n        *   Dylan Lucas returns (added to interchange - \"NRL Late Mail: Finals Week 2\").\n        *   Kalyn Ponga is in sensational form (\"The spark igniting Ponga's finals charge\").\n    *   Context: Sold-out Eden Park (48,500 tickets). Must-win for Warriors.\n\n    *   Market: Warriors are strong favourites ($1.48 vs $9.25 from sportsnews.com.au).\n\n    *   The model is strongly pro-Warriors (0.752).\n    *   The standings (regular season) strongly favour Warriors (Pos 2 vs Pos 7, +310 vs +42 diff).\n    *   The research shows the Warriors are coming off a loss (Dolphins), while the Knights are chasing an upset.\n    *   Both teams have key returns (Halasima for Warriors, Lucas for Knights).\n    *   The Warriors have a massive home-ground advantage at a sold-out Eden Park.\n    *   The model's SHAP drivers are dominated by strength, Elo, and ladder differential.\n\n    *   Strongest reason the pick could lose: The Warriors are coming off a \"shock loss\" to the Dolphins, and the Knights have Kalyn Ponga in \"sensational\" form.\n    *   Confidence: The model says 0.752. The standings gap is huge (Pos 2 vs Pos 7). The home advantage is extreme (Eden Park). Even with the recent loss, the Warriors are the clear superior side over the season. I'll set confidence around 0.70-0.75.\n\n    *   Winner: home (Warriors).\n    *   Confidence: 0.72 (Clear edge, but tempered by the recent loss to Dolphins).\n    *   Key Factors:\n        1.  Math: Elo rating advantage (+95 points) and Bradley-Terry strength advantage.\n        2.  Scene: Significant ladder gap (Pos 2 vs Pos 7) and points differential (+310 vs +42).\n        3.  Research: Leka Halasima returning to the squad (NRL Late Mail: Finals Week 2).\n    *   Disagreements: None, though I note the research mentions a recent loss not reflected in the \"5W\" streak of the standings block (which likely reflects regular season).\n\n    *   *Wait*, the standings block says `recent_form_last_4: \"5 - 0\"` and `streak: \"5W\"`. The research says they lost to the Dolphins last week. This is a conflict. The research is about the *Finals* (Qualifying Final), while the standings are likely the *Regular Season* standings. I will mention the home advantage and the overall season dominance.\n\n    *   *Check SHAP drivers again*:\n        *   `favouring_Warriors_home_win`: Bradley-Terry, possession, ladder diff, Elo, Pythagorean.\n        *   `favouring_Knights_away_win`: Travel, possession (conflict), line breaks, penalties (conflict), errors (conflict).\n        *   The \"Conflicts\" mean the raw value actually favours the Warriors, but the model is using them in a way that slightly helps the Knights (or just netting them there). Regardless, the net is heavily home.\n\n    *   *Market*: Warriors $1.48. I agree.\n\n    *   *Confidence check*: 0.72. The gap in class is high, but the \"shock loss\" and Ponga's form make it not a 0.80+ lock.\n\n    *   *Summary*: Warriors are strong favourites at home in a record-breaking Eden Park crowd. Despite a recent shock loss to the Dolphins, their season-long dominance (2nd on ladder) and significant Elo/strength advantages over the 7th-placed Knights make them clear favourites. The return of Leka Halasima further bolsters their squad.",
+      "chars": 5189
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-20T03:16:36.471862+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all player names, injuries, quotes, or team-list claims sourced from the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source (returning vs missing)?\n3. `shap_attribution`: Are SHAP drivers correctly named and attributed to the correct club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are the top 2-3 drivers from each SHAP group addressed?\n\n- Home: Warriors (Pos 2, PD +310)\n- Away: Knights (Pos 7, PD +42)\n- Venue: Eden Park\n- Weather: Fine\n\n- \"Leka Halasima added to the interchange in the 24-hour update\" (NRL Late Mail: Finals Week 2) -> Returning.\n- \"Dylan Lucas... promoted into the 19-man squad\" (NRL injury record looms...) / \"Dylan Lucas is set to complete a remarkable comeback... added to the six-man interchange bench\" (NRL Late Mail: Finals Week 2) -> Returning.\n- \"Kalyn Ponga's finals charge\" (Finals 'Big-game player'...) -> In form.\n- \"Jackson Ford... unable to play this weekend\" (Warriors confirm Ford injury status...) -> Missing.\n\n- `favouring_Warriors_home_win`:\n    - Bradley-Terry strength advantage (+0.52 log-strength)\n    - 5-game form: possession pct (+6.00)\n    - Ladder points differential per game (+9.9 points)\n    - Elo rating advantage (+95 points)\n    - Pythagorean form (last 10) (+27% expected-win gap)\n- `favouring_Knights_away_win`:\n    - ctx travel km home (no data)\n    - 3-game form: possession pct (+8.33)\n    - 5-game form: line breaks (-2.40)\n    - 5-game form: penalties conceded (-1.40)\n    - 5-game form: errors (-2.00)\n\n- Winner: Home (Warriors)\n- Confidence: 0.72\n- Summary: Mentions Eden Park, ladder advantage (2nd vs 7th), points differential, shock loss to Dolphins, Elo, strength, Leka Halasima (return), Dylan Lucas (return), Kalyn Ponga (form).\n- Key Factors:\n    - Math: Elo (+95), Bradley-Terry (+0.52).\n    - Scene: Ladder Pos 2, PD +310 vs +42.\n    - Research: Leka Halasima returning ('NRL Late Mail: Finals Week 2').\n\n- Leka Halasima returning: Sourced from \"NRL Late Mail: Finals Week 2\" (\"Leka Halasima added to the interchange\"). Pass.\n- Dylan Lucas returning: Sourced from \"NRL Late Mail: Finals Week 2\" (\"Dylan Lucas is set to complete a remarkable comeback\") and \"NRL injury record looms...\" (\"Dylan Lucas has been promoted into the 19-man squad\"). Pass.\n- Kalyn Ponga's form: Sourced from \"Finals 'Big-game player'...\" (\"The Knights have backed Kalyn Ponga to continue his sensational run of form\"). Pass.\n- Ladder positions (2nd vs 7th) and PD (+310 vs +42): Sourced from `set_fixture_scene` response. Pass.\n\n- Halasima: Source says \"added to the interchange\", judgement says \"return\". Pass.\n- Lucas: Source says \"promoted into the 19-man squad\", judgement says \"return\". Pass.\n\n- Elo rating advantage (+95 points): In `favouring_Warriors_home_win`. Attributed to Warriors. Pass.\n- Bradley-Terry strength advantage (+0.52): In `favouring_Warriors_home_win`. Attributed to Warriors. Pass.\n\n- Weather is \"Fine\". Not mentioned as a key factor. Pass.\n\n- Key factor 3 is sourced from research (\"NRL Late Mail: Finals Week 2\"). Pass.\n\n- Confidence is 0.72.\n- Justification: \"strong favourites playing at a sold-out Eden Park, backed by a significant regular-season ladder advantage... superior points differential... clear edge in Elo and overall strength.\"\n- Defensible? 0.72 is within 0.50-0.85. There is a \"credible unresolved reason the pick could lose\" (Knights' return of Lucas and Ponga's form), but 0.72 is below 0.85 and reasonably reflects a strong home favorite with some risks. Pass.\n\n- Top drivers for Warriors: Bradley-Terry (0.178), Possession (0.162), PD (0.160), Elo (0.142).\n- The judgement focuses on Elo and Bradley-Terry. It doesn't treat minor factors as decisive. Pass.\n\n- `favouring_Warriors_home_win` top drivers:\n    1. Bradley-Terry strength advantage (+0.52) -> Mentioned in key factors.\n    2. 5-game form: possession pct (+6.00) -> NOT mentioned.\n    3. Ladder points differential per game (+9.9 points) -> Mentioned in summary/key factors (\"superior points differential\").\n    4. Elo rating advantage (+95 points) -> Mentioned in key factors.\n- `favouring_Knights_away_win` top drivers:\n    1. ctx travel km home (no data) -> NOT mentioned.\n    2. 3-game form: possession pct (+8.33) -> NOT mentioned.\n    3. 5-game form: line breaks (-2.40) -> NOT mentioned.\n\nWait, the rule says: \"Look at the top drivers in *each* `favouring_*` SHAP group (the first two or three listed on each side). If any of those is neither named nor clearly alluded to... fail\".\n\n- Warriors side:\n    - Bradley-Terry: Mentioned.\n    - Possession pct: NOT mentioned.\n    - PD: Mentioned.\n- Knights side:\n    - Travel: NOT mentioned.\n    - Possession pct: NOT mentioned.\n    - Line breaks: NOT mentioned.\n\nThe judge completely ignored the Knights' math signals (which are small, but the rule says \"coverage, not weight\").\nThe judge also ignored the Warriors' possession signal.\n\nLet's re-verify the \"top two or three\".\nWarriors:\n1. Bradley-Terry (0.178) - Mentioned.\n2. Possession (0.162) - NOT mentioned.\n3. PD (0.160) - Mentioned.\n(One missing: Possession).\n\nKnights:\n1. Travel (0.037) - NOT mentioned.\n2. Possession (0.029) - NOT mentioned.\n3. Line breaks (0.025) - NOT mentioned.\n(Three missing).\n\nThis is a failure of `omitted_math_signals`.\n\n- `sourced_claims`: Pass.\n- `availability_direction`: Pass.\n- `shap_attribution`: Pass.\n- `weather_not_headline`: Pass.\n- `research_used`: Pass.\n- `confidence_justified`: Pass.\n- `driver_proportionality`: Pass.\n- `omitted_math_signals`: Fail.\n\nInstruction: \"Math drivers include '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights); these are not addressed in your evaluation — please consider them and re-output.\"\n\nWait, let me double check the \"alluded to\" part.\n\"superior points differential\" alludes to \"Ladder points differential per game\".\n\"Elo rating advantage\" alludes to \"Elo rating advantage\".\n\"Bradley-Terry strength advantage\" alludes to \"Bradley-Terry strength advantage\".\n\"Possession pct\" is not alluded to.\n\"Travel\" is not alluded to.\n\"Line breaks\" is not alluded to.\n\nThe failure is clear.\n\nOne more check on `sourced_claims`:\n- \"Leka Halasima returning\": \"Leka Halasima added to the interchange in the 24-hour update\" (NRL Late Mail: Finals Week 2).\n- \"Dylan Lucas return\": \"Dylan Lucas is set to complete a remarkable comeback... added to the six-man interchange bench\" (NRL Late Mail: Finals Week 2).\n- \"Kalyn Ponga's current form\": \"The Knights have backed Kalyn Ponga to continue his sensational run of form\" (Finals 'Big-game player'...).\n- \"Ladder advantage (2nd vs 7th)\": `set_fixture_scene` standings.\n- \"Points differential\": `set_fixture_scene` standings.\n- \"Shock loss to the Dolphins\": \"The Warriors are sure to be smarting after giving up a 16-8 lead... against the Dolphins\" (Match Preview Warriors v Knights).\n\nEverything is sourced.\n\nFinal check on `confidence_justified`:\nConfidence 0.72.\nJustification: \"strong favourites playing at a sold-out Eden Park, backed by a significant regular-season ladder advantage (2nd vs 7th) and a superior points differential... clear edge in Elo and overall strength.\"\nThe number is within 0.50-0.85.\nIs it at or below 0.65 if a credible unresolved reason the pick could lose is on the table?\nThe \"credible unresolved reason\" is the return of Lucas and Ponga's form.\nHowever, the prompt says \"at or below 0.65 if a credible unresolved reason... is on the table\".\nIs Ponga's form a \"credible unresolved reason the pick could lose\"? Yes, he's a star player in great form.\nIs 0.72 too high?\nThe rule says \"at or below 0.65 if a credible unresolved reason... is on the table\".\nPonga's form and Lucas's return are mentioned as \"primary threats\".\nIf the judge identifies them as threats, the confidence should probably be $\\le 0.65$.\nBut 0.72 is not *that* far off. Let's see if it's a hard fail.\n\"The summary says what set the confidence where it is, and the number is defensible... at or below 0.65 if a credible unresolved reason the pick could lose is on the table.\"\nThe judge acknowledges the threats. 0.72 is slightly above 0.65.\nI will flag this as a potential issue or just a pass if I think the \"threats\" aren't \"credible unresolved reasons\" enough to force 0.65. Actually, Ponga is the best player on the field; his form is a huge variable. I'll mark it as a fail for `confidence_justified` to be safe, or just stick to the math signals which are a definite fail.\nActually, looking at the prompt: \"at or below 0.65 if a credible unresolved reason the pick could lose is on the table.\"\nThe judge explicitly lists Ponga's form and Lucas's return as \"primary threats\". This means the judge *knows* there are reasons the pick could lose. Therefore, the confidence should be $\\le 0.65$. 0.72 is a fail.\n\nWait, let me re-read: \"at or below 0.65 if a credible unresolved reason the pick could lose is on the table.\"\nIs Ponga's form \"unresolved\"? It's a known factor. \"Unresolved\" usually means something like \"injury status unknown\" or \"weather uncertain\".\nPonga's form is a known quality.\nHowever, the return of Dylan Lucas is a \"miracle\" comeback. Is his fitness \"unresolved\"? The source says \"final decision on Lucas' fitness would be made after Saturday's captain's run\". The late mail says he \"is set to complete\" and \"has now come into the squad\". It seems resolved.\nI'll stick to `omitted_math_signals` as the primary fail. I'll pass `confidence_justified` because 0.72 is reasonably close and the \"threats\" are known variables, not \"unresolved\" ones.\n\nWait, `omitted_math_signals` is a very strict check.\nTop 3 Warriors:\n1. Bradley-Terry (Mentioned)\n2. Possession (Missing)\n3. PD (Mentioned)\nTop 3 Knights:\n1. Travel (Missing)\n2. Possession (Missing)\n3. Line breaks (Missing)\n\nDefinitely a fail.\n\nOne last check on `shap_attribution`:\n\"Elo rating advantage (+95 points)\" -> `favouring_Warriors_home_win`. Correct.\n\"Bradley-Terry strength advantage (+0.52)\" -> `favouring_Warriors_home_win`. Correct.\n\nFinal check on `sourced_claims`:\n\"Leka Halasima returning\" -> \"Leka Halasima added to the interchange\" (NRL Late Mail: Finals Week 2).\n\"Dylan Lucas return\" -> \"Dylan Lucas is set to complete a remarkable comeback\" (NRL Late Mail: Finals Week 2).\n\"Kalyn Ponga's current form\" -> \"The Knights have backed Kalyn Ponga to continue his sensational run of form\" (Finals 'Big-game player'...).\nAll good.",
+      "chars": 10836
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-20T03:17:55.832959+00:00",
+      "thinking": "*   Current Pick: Warriors (Home)\n    *   Confidence: 0.72\n    *   Issues: Omitted several SHAP drivers (possession %, travel, line breaks).\n\n    *   *Home (Warriors) Drivers:*\n        *   Bradley-Terry strength (+0.52 log-strength) -> 0.178 (12%) - *Cited*\n        *   5-game form: possession pct (+6.00) -> 0.162 (11%) - *Omitted*\n        *   Ladder points differential per game (+9.9 points) -> 0.160 (11%) - *Cited via scene*\n        *   Elo rating advantage (+95 points) -> 0.142 (10%) - *Cited*\n        *   Pythagorean form (last 10) (+27% expected-win gap) -> 0.102 (7%) - *Omitted*\n\n    *   *Away (Knights) Drivers:*\n        *   ctx travel km home (no data) -> 0.037 (3%) - *Omitted*\n        *   3-game form: possession pct (+8.33) -> 0.029 (2%) - *Omitted* (Note: CONFLICT - raw value favours home, model nets it away)\n        *   5-game form: line breaks (-2.40) -> 0.025 (2%) - *Omitted*\n        *   5-game form: penalties conceded (-1.40) -> 0.025 (2%) - *Omitted* (Note: CONFLICT - raw value favours home, model nets it away)\n        *   5-game form: errors (-2.00) -> 0.024 (2%) - *Omitted* (Note: CONFLICT - raw value favours home, model nets it away)\n\n    *   *Possession (Warriors):* The 5-game form possession percentage (+6.00) is a significant driver (11% of total) favoring the Warriors. This suggests they have been dominating field position and ball control recently.\n    *   *Possession (Knights):* The 3-game form possession percentage (+8.33) is listed under the Knights' group, but it is marked as a CONFLICT. The raw value actually favors the home side (Warriors), and the model's contribution to the away side is very small (2%).\n    *   *Travel (Knights):* `ctx travel km home` is a minor driver (3%) favoring the Knights (likely because the model accounts for the travel burden, though the label \"no data\" is odd, the contribution is positive toward the away win).\n    *   *Line Breaks (Knights):* 5-game form line breaks (-2.40) is a minor driver (2%) favoring the Knights.\n    *   *Overall Balance:* The `attribution_balance` is heavily skewed toward the home side (1.0938 vs 0.3434). The omitted drivers are mostly minor (2-3%) or strongly support the home side (11% for possession).\n\n    *   The omitted drivers do not change the outcome. The possession advantage for the Warriors is a strong signal. The Knights' drivers (line breaks, travel) are negligible in weight compared to the Elo and strength advantages of the Warriors.\n    *   Confidence remains high (0.72) because the primary drivers (Elo, Strength, Ladder) are all aligned, and the omitted drivers either support the home side or are too small to flip the result.\n\n    *   Winner: Home (Warriors)\n    *   Confidence: 0.72\n    *   Summary: Update to include the possession dominance and acknowledge the minor Knights drivers.\n    *   Key Factors: Add the possession driver.",
+      "chars": 2871
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-09-20T03:06:03.299742+00:00",
+      "payload": {
+        "queries": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Warriors vs Knights NRL round 29 preview",
+          "Warriors Knights NRL odds OR price OR favourite",
+          "Warriors Knights NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-09-20T03:11:42.121476+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "confidence": 0.72,
+          "summary": "The Warriors enter as strong favourites playing at a sold-out Eden Park, backed by a significant regular-season ladder advantage (2nd vs 7th) and a superior points differential. While they are coming off a shock loss to the Dolphins, the math model shows a clear edge in Elo and overall strength. The return of Leka Halasima provides a boost, though the Knights' return of Dylan Lucas and Kalyn Ponga's current form are the primary threats.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage and a +0.52 Bradley-Terry strength advantage."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-09-20T03:16:36.472286+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "All claims (Halasima return, Lucas return, Ponga form, ladder/PD, Dolphins loss) are matched to research bodies or scene data."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "Halasima and Lucas are correctly described as returning based on 'added to the interchange' and 'promoted into the 19-man squad'."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Elo and Bradley-Terry drivers are correctly attributed to the Warriors from the 'favouring_Warriors_home_win' group."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not presented as a key factor."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 3 is sourced from 'NRL Late Mail: Finals Week 2'."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.72 is within the 0.50-0.85 range and justified by ladder/Elo advantages."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "The judgement focuses on the highest-weight drivers (Elo, Bradley-Terry) and does not overstate minor factors."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top drivers '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights) were not addressed."
+            }
+          ],
+          "issues": [
+            "The judgement omitted several top SHAP drivers from both the home and away groups, including possession percentages, travel, and line breaks."
+          ],
+          "instruction": "Math drivers include '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights); these are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-09-20T03:17:55.833211+00:00",
+      "payload": {
+        "issues": [
+          "The judgement omitted several top SHAP drivers from both the home and away groups, including possession percentages, travel, and line breaks."
+        ],
+        "instruction": "Math drivers include '5-game form: possession pct' (Warriors), 'ctx travel km home', '3-game form: possession pct', and '5-game form: line breaks' (Knights); these are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "confidence": 0.72,
+          "summary": "The Warriors enter as strong favourites playing at a sold-out Eden Park, backed by a significant regular-season ladder advantage (2nd vs 7th) and a superior points differential. While they are coming off a shock loss to the Dolphins, the math model shows a clear edge in Elo and overall strength. The return of Leka Halasima provides a boost, though the Knights' return of Dylan Lucas and Kalyn Ponga's current form are the primary threats.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage and a +0.52 Bradley-Terry strength advantage."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "confidence": 0.72,
+          "summary": "The Warriors are strong favourites at Eden Park, supported by a significant Elo and strength advantage and a dominant regular-season record (2nd vs 7th). While the Knights have minor edges in recent line-break form and travel metrics, the Warriors' recent possession dominance (+6.00 over 5 games) and the return of Leka Halasima outweigh these factors. The market also aligns with this view, pricing the Warriors as clear favourites ($1.48).",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model shows a strong home edge driven by a +95 point Elo rating advantage, a +0.52 Bradley-Terry strength advantage, and a significant 5-game possession percentage advantage (+6.00)."
+            },
+            {
+              "source": "scene",
+              "detail": "The Warriors finished the regular season significantly higher on the ladder (Position 2) with a points differential of +310 compared to the Knights' +42."
+            },
+            {
+              "source": "research",
+              "detail": "The Warriors receive a boost with star player Leka Halasima returning to the interchange for this match ('NRL Late Mail: Finals Week 2')."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "d355a880d383",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-09-20T03:05:25.417799+00:00",
+      "finished_at": "2026-09-20T03:05:28.866797+00:00",
+      "duration_ms": 3448,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Knights",
+        "season": null,
+        "round_number": 29,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "season": null,
+          "round_number": 29
+        },
+        "retrieved_at": "2026-09-20T03:05:25.417864+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 29,
+          "round_title": "Finals Week 2",
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "kickoff": "2026-09-20T16:05:00+10:00",
+          "venue": "Eden Park",
+          "venue_city": "Auckland",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/warriors-v-knights/",
+          "match_mode": "Pre",
+          "match_id": "20261112920",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Ashley Klein"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Tyson Brough"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "Taine Tuaupiki",
+                "position": "Fullback",
+                "player_id": 508254
+              },
+              {
+                "number": 2,
+                "name": "Charnze Nicoll-Klokstad",
+                "position": "Winger",
+                "player_id": 501559
+              },
+              {
+                "number": 3,
+                "name": "Ali Leiataua",
+                "position": "Centre",
+                "player_id": 100006296
+              },
+              {
+                "number": 4,
+                "name": "Adam Pompey",
+                "position": "Centre",
+                "player_id": 508026
+              },
+              {
+                "number": 5,
+                "name": "Alofiana Khan-Pereira",
+                "position": "Winger",
+                "player_id": 100001619
+              },
+              {
+                "number": 6,
+                "name": "Chanel Harris-Tavita",
+                "position": "Five-Eighth",
+                "player_id": 506851
+              },
+              {
+                "number": 7,
+                "name": "Te Maire Martin",
+                "position": "Halfback",
+                "player_id": 501293
+              },
+              {
+                "number": 8,
+                "name": "James Fisher-Harris",
+                "position": "Prop",
+                "player_id": 502580
+              },
+              {
+                "number": 9,
+                "name": "Wayde Egan",
+                "position": "Hooker",
+                "player_id": 504123
+              },
+              {
+                "number": 10,
+                "name": "Mitchell Barnett",
+                "position": "Prop",
+                "player_id": 501267
+              },
+              {
+                "number": 11,
+                "name": "Kurt Capewell",
+                "position": "2nd Row",
+                "player_id": 500992
+              },
+              {
+                "number": 12,
+                "name": "Jacob Laban",
+                "position": "2nd Row",
+                "player_id": 100012134
+              },
+              {
+                "number": 13,
+                "name": "Erin Clark",
+                "position": "Lock",
+                "player_id": 503685
+              },
+              {
+                "number": 14,
+                "name": "Sam Healey",
+                "position": "Interchange",
+                "player_id": 509563
+              },
+              {
+                "number": 15,
+                "name": "Tanner Stowers-Smith",
+                "position": "Interchange",
+                "player_id": 100013671
+              },
+              {
+                "number": 16,
+                "name": "Demitric Vaimauga",
+                "position": "Interchange",
+                "player_id": 100013336
+              },
+              {
+                "number": 17,
+                "name": "Eddie Ieremia-Toeava",
+                "position": "Interchange",
+                "player_id": 100015584
+              },
+              {
+                "number": 20,
+                "name": "Morgan Gannon",
+                "position": "Interchange",
+                "player_id": 100008673
+              },
+              {
+                "number": 22,
+                "name": "Leka Halasima",
+                "position": "Interchange",
+                "player_id": 100013674
+              },
+              {
+                "number": 23,
+                "name": "Dallin Watene-Zelezniak",
+                "position": "Reserve",
+                "player_id": 500532
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Dane Gagai",
+                "position": "Centre",
+                "player_id": 500043
+              },
+              {
+                "number": 4,
+                "name": "Bradman Best",
+                "position": "Centre",
+                "player_id": 506682
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Tyson Frizell",
+                "position": "Prop",
+                "player_id": 500622
+              },
+              {
+                "number": 9,
+                "name": "Phoenix Crossland",
+                "position": "Hooker",
+                "player_id": 504597
+              },
+              {
+                "number": 10,
+                "name": "Cody Hopwood",
+                "position": "Prop",
+                "player_id": 100011256
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Francis Manuleleua",
+                "position": "2nd Row",
+                "player_id": 100013721
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Interchange",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 16,
+                "name": "Pasami Saulo",
+                "position": "Interchange",
+                "player_id": 504079
+              },
+              {
+                "number": 17,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 18,
+                "name": "Fletcher Hunt",
+                "position": "Interchange",
+                "player_id": 100008414
+              },
+              {
+                "number": 20,
+                "name": "Kyle McCarthy",
+                "position": "Reserve",
+                "player_id": 100006946
+              },
+              {
+                "number": 22,
+                "name": "Dylan Lucas",
+                "position": "Interchange",
+                "player_id": 505582
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 29,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Warriors",
+            "position": 2,
+            "played": 24,
+            "wins": 18,
+            "drawn": 0,
+            "lost": 6,
+            "competition_points": 42,
+            "points_for": 728,
+            "points_against": 418,
+            "points_difference": 310,
+            "points_difference_per_game": 12.92,
+            "recent_form_last_4": "5 - 0",
+            "streak": "5W",
+            "home_record": "10 - 2",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Knights",
+            "position": 7,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 633,
+            "points_against": 591,
+            "points_difference": 42,
+            "points_difference_per_game": 1.75,
+            "recent_form_last_4": "2 - 2",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Warriors",
+            "ladder_positions_gap": 5,
+            "points_difference_per_game_gap": 11.17,
+            "points_difference_favours": "Warriors"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=29"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-09-20T16:00",
+            "temperature_c": 13.0,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 25.0,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -36.8485,
+            "longitude": 174.7633,
+            "venue": "Eden Park",
+            "venue_city": "Auckland"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-36.8485&longitude=174.7633&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-09-20T03:05:28.864424+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=29&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-2/warriors-v-knights/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-36.8485&longitude=174.7633&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=29"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "1f5d65fb2835",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-09-20T03:06:03.316620+00:00",
+      "finished_at": "2026-09-20T03:07:57.335826+00:00",
+      "duration_ms": 114019,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Knights",
+        "kickoff": "2026-09-20T16:05:00+10:00",
+        "round_number": 29,
+        "venue": "Eden Park",
+        "queries": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Warriors vs Knights NRL round 29 preview",
+          "Warriors Knights NRL odds OR price OR favourite",
+          "Warriors Knights NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "kickoff": "2026-09-20T16:05:00+10:00",
+          "round_number": 29,
+          "venue": "Eden Park",
+          "queries": [
+            "Warriors NRL injury OR \"late mail\" OR \"team list\" round 29",
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 29",
+            "Warriors vs Knights NRL round 29 preview",
+            "Warriors Knights NRL odds OR price OR favourite",
+            "Warriors Knights NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-09-20T03:06:03.347649+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 9
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 6
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 11
+          }
+        },
+        "items": [
+          {
+            "id": "5e508d62650260e7",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Replays",
+            "title": "Finals 'Big-game player': The spark igniting Ponga's finals charge",
+            "url": "https://www.nrl.com/news/2026/09/18/big-game-player-the-spark-igniting-pongas-finals-charge/",
+            "published_at": "2026-09-18T06:01:21+00:00",
+            "snippet": "'Big-game player': The spark igniting Ponga's finals charge\nThe Knights have backed Kalyn Ponga to continue his sensational run of form as they chase a historic victory in Sunday's semi-final at a sold-out Eden Park.\nNewcastle have travelled to Auckland desperate to upset the War",
+            "body_excerpt": "'Big-game player': The spark igniting Ponga's finals charge\nThe Knights have backed Kalyn Ponga to continue his sensational run of form as they chase a historic victory in Sunday's semi-final at a sold-out Eden Park.\nNewcastle have travelled to Auckland desperate to upset the Warriors in front of a record crowd and claim their first finals win in New Zealand.\nIt's been three years since the Knights last played a final across the Tasman, the Warriors prevailing 40-10 on that occasion.\nPonga's form this season has eclipsed that from 2023, in which he led Newcastle on a nine-game winning streak and charged to the Dally M Medal with a sensational finish to the year.\nKalyn Ponga: 'Connection to my heritage is strong'\nSunday's match provides a homecoming for the Māori All Star and centre Bradman Best said the fullback travelled to New Zealand with a steely look in his eye.\n\"He's grown into his leadership role,\" Best told NRL.com. \"He's the captain of our club and what he's doing off the field is translating to the field.\n\"He's a big-game player and does a job every week. He's very consistent and fills the whole team with excitement and confidence. It's always good when he's running out in this form.\"\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nPonga has long been viewed as one of the biggest names in the game but injuries have limited his impact on the field over the past few years.\nThe fullback became just the sixth player to debut in a finals game for the Cowboys in 2016 before joining the Knights two years later.\nQueensland State of Origin honours followed but club success has been harder to come by.\nThat all changed this year, with new coach Justin Holbrook unlocking Ponga's lethal attacking skills in a high-octane system.\nKalyn Ponga Try\nThe fullback has 14 try assists and 12 linebreaks this season as the Knights went from wooden spooners to the most exciting team in the competition.\nA laidback personality off the field, Ponga has faced criticism at times for his relaxed attitude but Best has noticed a new mindset in his captain throughout the season.\n\"He's pretty easy-going but he's taking his footy seriously,\" Best said. \"He's really buying into it and leading by example. He's always putting his input in and talking up.\n\"He holds everyone to a higher standard, especially at training and on the field. That's showing and he's celebrating all the little wins. When we're playing under the bright lights he fills the boys up with a lot of confidence.\"\nAmong the biggest beneficiaries of Ponga's form have been the Newcastle halves, with Holbrooks' side effectively playing with three playmakers.\nThe fullback's presence takes the pressure of Sandon Smith and Fletcher Sharpe to create attacking opportunities, however they must remain switched on at all times and deliver him the football when demanded.\nHolbrook: \"This time of year is exciting\"\nThe chance to play alongside Ponga was among the key factors in Smith's decision to join the Knights this year and he quickly noticed the positive impact on his own performances.\n\"Playing with [James Tedesco] was similar,\" Smith said. \"You want the ball in your best player's hands as much as possible. One of my roles is to get Kalyn good ball and that's part of my job that I enjoy doing.\n\"When I create that space for Kalyn and then he sets up a try, I pat myself on the back knowing I contributed to that play for him. It's been awesome playing with a star player like that.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Don't miss a second of the action with kick-off at 4.05pm Sunday live on Nine, Kayo and Sky Sports.\nRelated /\nImmortal advice: How Johns helped Knights unlock attacking mindset\nMatch Preview\nWarriors v Knights: Halasima good to go; Lucas completes m",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 45.0784299025,
+            "relevance_score": 6.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Sharks lose Hynes, Hiroti; Lucas returns",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-09-19T12:43:48+00:00",
+            "snippet": "NRL Casualty Ward: Sharks lose Hynes, Hiroti; Lucas returns\nA huge blow for Cronulla in the opening minutes of Saturday night's clash against the Roosters with halfback Nicho Hynes failing a HIA.\nHynes got his head in an awkward position trying to tackle a rampaging Salesi Foketi",
+            "body_excerpt": "NRL Casualty Ward: Sharks lose Hynes, Hiroti; Lucas returns\nA huge blow for Cronulla in the opening minutes of Saturday night's clash against the Roosters with halfback Nicho Hynes failing a HIA.\nHynes got his head in an awkward position trying to tackle a rampaging Salesi Foketi and was left on the turf as the Roosters back-rower made big metres.\nThe Sharks No.7 left the field for an assessment and was unable to return.\nMore drama for the Sharks before half-time with centre Mawene Hiroti ruled out for the remainder of the game with a knee injury.\nHiroti crashed into the fence behind the dead ball line as he tried desperately to keep a kick alive in the 18th minute. The club reported he had suffered a PCL injury.\nKnights back-rower Dylan Lucas will complete a remarkable recovery when he lines up against the Wariors at Eden Park.\nLucas suffered a fractured ankle against the Roosters in Round 21 on a horror night for the Knights which also saw Dylan Brown's season ended by an ACL injury.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nThe 26-year-old was expected to miss the remainder of the season but after being named in Justin Holbrook's extended squad on Tuesday he has been added to the interchange on Saturday.\nTheir opponents the Warriors have received a boost with Leka Halasima back on deck after suffering a hamstring tweak in warm-up last week and being a late withdrawal.\nWinger Dallin Watene-Zelezniak is also part of the extended squad as he closes in on a return from a collarbone injury suffered in Round 25.\nWarriors forward Jackson Ford has had his comeback cut short by an ankle injury suffered against the Dolphins in Saturday's qualifying final.\nPlaying his first match since suffering a pectoral injury in Round 16, Ford played just 24 minutes at Go Media Stadium before his leg was twisted awkwardly in a Max Plath tackle and he could not continue.\nPanthers halfback Nathan Cleary sustained a stress-related bone issue in his foot during Sunday's qualifying final win over the Roosters.\nCleary looked to be in some discomfort during the second half and handed the goalkicking duties to Dylan Edwards for the last shot of the game after Brian To'o scored a runaway try in the 78th minute.\nThe Panthers confirmed on Monday that the champion No.7 had the bone issue and would be assessed and monitored by the club's medical team.\nThe Panthers were dealt a blow prior to kick-off with Luke Garner ruled out due to a minor groin strain. The centre was replaced in the starting line-up by Blaize Talagi.\nThe Roosters welcomed back Angus Crichton after 12 games out with a foot injury and he got through 31 minutes against the Sharks in good style.\nIn a further boost for the Roosters, halfback Sam Walker is on track to return from an ankle injury in the preliminary final.\n\"Pretty confident from what we've seen, Sam has had really good progressions and we'll get a really good gauge on Monday-Tuesday where he is at,\" said Roosters coach Trent Robinson.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nCasualty Ward\nBrisbane Broncos\nPreston Riki (syndesmosis, World Cup)\nBrendan Piakura (concussion, World Cup)\nReece Walsh (syndesmosis, 2027)\nCory Paix (shoulder, 2027)\nBlake Mozer (concussion, 2027)\nCanberra Raiders\nMorgan Smithies (concussion, World Cup)\nHudson Young (Achilles, 2027)\nZac Hosking (hamstring, 2027)\nCorey Horsburgh (shoulder, 2027)\nSavelio Tamale (knee, 2027)\nCanterbury-Bankstown Bulldogs\nJethro Rinakama (knee, 2027)\nKurt Mann (groin, 2027)\nSitili Tupouniua (hamstring, 2027)\nSam Hughes (neck, 2027)\nCronulla Sharks\nNicho Hynes (head knock, TBC)\nMawene Hiroti (knee, TBC)\nMichael Gabrael (suspended, Fin",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 14.3709299025,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "9e5b7b9184097f6b",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 2 - Miracle man Lucas; Leka returns",
+            "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+            "published_at": "2026-09-19T08:26:12+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 2 - Miracle man Lucas; Leka returns\nNewcastle star Dylan Lucas is set to complete a remarkable comeback from a fractured ankle after being added to the six-man interchange bench on Saturday.\nLucas fractured his ankle in Round 21 and was giv",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 2 - Miracle man Lucas; Leka returns\nNewcastle star Dylan Lucas is set to complete a remarkable comeback from a fractured ankle after being added to the six-man interchange bench on Saturday.\nLucas fractured his ankle in Round 21 and was given little chance of playing again this season but the NSW Blues back-rower left no stone unturned in his rehab and he was listed in the Knights' extended squad on Tuesday.\nTalking to the media on Thursday afternoon, Newcastle coach Justin Holbrook said a final decision on Lucas' fitness would be made after Saturday's captain's run and he has now come into the squad in place of Toby Winter.\nThe Warriors also get a star player back on deck with Leka Halasima added to the interchange in the 24-hour update.\nHalasima was a late withdrawal from last week's clash against the Dolphins after tweaking his hamstring in the warm-up.\nWarriors winger Dallin Watene-Zelezniak remains in the squad on Saturday as he chases a return from a collarbone injury.\nSee all the late mail, official team news and updates for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 2\nWarriors v Knights, Sunday 4.05pm (AEST), 6.05pm (local time) at Eden Park\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Knights is number 2 Dominic Young\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Knights is number 3 Dane Gagai\nCentre for Warriors is number 4 Adam Pompey 4 Centre for Knights is number 4 Bradman Best\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Warriors is number 17 Eddie Ieremia-Toeava 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Warriors is number 20 Morgan Gannon 20 18 Interchange for Knights is number 18 Fletcher Hunt\n20 18\nInterchange for Warriors is number 22 Leka Halasima 22 Interchange for Knights is number 22 Dylan Lucas\n22\nReserves\nReserve for Warriors is number 23 Dallin Watene-Zelezniak 23 20 Reserve for Knights is number 20 Kyle McCarthy\n23 20\nWarriors Ins\nDallin Watene-Zelezniak\nLeka Halasima\nMorgan Gannon\nKnights Ins\nDylan Lucas\nKyle McCarthy\nWarriors Outs\nJackson Ford\nJett Cleary\nToby Winter\nMatch Officials\nReferee: Ashley Klein\nTouch Judge: Phil Henderson\nTouch Judge: Tyson Brough\nSenior Review Official: Chris Butler\nLast updated: 9/20/2026 2:42:01 AM\nWarriors: Centre Leka Halasima has been added to the bench in Saturday's 24-hour update and winger Dalin Watene-Zelezniak remains in the squad as the reserve. Halas",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.664263235833335,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "d4bf2c6226968726",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Replays",
+            "title": "Match Preview Warriors v Knights: Halasima good to go; Lucas completes miracle",
+            "url": "https://www.nrl.com/news/2026/09/15/warriors-v-knights-leka-dwz-in-mix-lucas-nears-return/",
+            "published_at": "2026-09-19T06:15:46+00:00",
+            "snippet": "Presented By\nWarriors v Knights: Halasima good to go; Lucas completes miracle\nThe Warriors are sure to be smarting after giving up a 16-8 lead with 20 minutes to play against the Dolphins to consign themselves to a sudden-death showdown with the Knights at Eden Park.\nAll looked t",
+            "body_excerpt": "Presented By\nWarriors v Knights: Halasima good to go; Lucas completes miracle\nThe Warriors are sure to be smarting after giving up a 16-8 lead with 20 minutes to play against the Dolphins to consign themselves to a sudden-death showdown with the Knights at Eden Park.\nAll looked to be going to plan for Andrew Webster's men until Herbie Farnworth and Hamiso Tabuai-Fidow clicked into gear and turned Go Media Stadium into their own personal playground.\nThey must now regroup for a contest against a Knights team capable of scintillating attack on its day with Kalyn Ponga, Bradman and Fletcher Sharpe laying the foundation for prolific wingers Dom Young and Greg Marzhew to strike.\nThe last time the sides met in Round 26 the points flowed freely in a 46-32 Warriors victory but in the pressure cooker atmosphere of a 'loser goes home' final, expect a much tighter battle.\nAwaiting the winner are the Penrith Panthers, the greatest team of the modern era, and the perfect measuring stick for two clubs looking to break premiership droughts that stretch back 31 years (Warriors) and 25 years (Knights).\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nTeam News\nWarriors: Centre Leka Halasima has been added to the bench in Saturday's 24-hour update and winger Dalin Watene-Zelezniak remains in the squad as the reserve. Halasima was a late withdrawal last week after tweaking his hamstring in the warm-up while DWZ suffered a collarbone injury in Round 25. Morgan Gannon comes on to the bench to replace Jackson Ford, who injured his ankle last week in his comeback game from a pectoral tear.\nKnights: Dylan Lucas is back in business after being added to the six-man interchange bench on Saturday in a massive boost for the Knights. Lucas fractured his ankle against the Roosters in Round 21 and looked to be gone for the season but he has worked diligently to get himself right.\nTeam Lists\nBacks\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Knights is number 2 Dominic Young\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Knights is number 3 Dane Gagai\nCentre for Warriors is number 4 Adam Pompey 4 Centre for Knights is number 4 Bradman Best\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Warriors is number 7 Te Maire Martin 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Warriors is number 8 James Fisher-Harris 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Warriors is number 9 Wayde Egan 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Warriors is number 10 Mitchell Barnett 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Warriors is number 11 Kurt Capewell 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Warriors is number 12 Jacob Laban 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Warriors is number 13 Erin Clark 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Warriors is number 14 Sam Healey 14 Interchange for Knights is number 14 Harrison Graham\n14\nInterchange for Warriors is number 15 Tanner Stowers-Smith 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Warriors is number 16 Demitric Vaimauga 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Warriors is number 17 Eddie Ieremia-Toeava 17 Interchange for Knights is number 17 Thomas Cant\n17\nInterchange for Warriors is number 20 Morgan Gannon 20 18 Interchange for Knights is number 18 Fletcher Hunt\n20 18\nInterchange for Warriors is number 22 Leka Halasima 22 Interchange for Knights ",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 20.838152124722225,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "eb8b7f3cf046dfd6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Team Lists: Finals Week 2",
+            "url": "https://www.nrl.com/news/2026/09/15/nrl-team-lists-finals-week-2/",
+            "published_at": "2026-09-15T05:59:00+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Finals Week 2\nOfficial team lists, updates and injury news for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Sharks, Saturday 7.50pm at Allianz Stadium\nMatch: Roosters v Sharks",
+            "body_excerpt": "Presented By\nNRL Team Lists: Finals Week 2\nOfficial team lists, updates and injury news for Week 2 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Sharks, Saturday 7.50pm at Allianz Stadium\nMatch: Roosters v Sharks\nFinals Week 2 - Finals Week 2 - Saturday 19 Sep\nhome Team\nRoosters\naway Team\nSharks\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Sharks is number 1 William Kennedy\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Sharks is number 2 Sione Katoa\nCentre for Roosters is number 3 Billy Smith 3 4 Centre for Sharks is number 4 KL Iro\n3 4\nCentre for Roosters is number 4 Robert Toia 4 22 Centre for Sharks is number 22 Mawene Hiroti\n4 22\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Sharks is number 5 Ronaldo Mulitalo\nFive-Eighth for Roosters is number 6 Hugo Savala 6 Five-Eighth for Sharks is number 6 Braydon Trindall\nHalfback for Roosters is number 7 Daly Cherry-Evans 7 Halfback for Sharks is number 7 Nicho Hynes\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Sharks is number 8 Addin Fonua-Blake\nHooker for Roosters is number 9 Reece Robson 9 Hooker for Sharks is number 9 Blayke Brailey\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Sharks is number 10 Jesse Colquhoun\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Sharks is number 11 Briton Nikora\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Sharks is number 12 Teig Wilton\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Sharks is number 13 Cameron McInnes\n13\nInterchange\nInterchange for Roosters is number 14 Connor Watson 14 Interchange for Sharks is number 14 Siosifa Talakai\n14\nInterchange for Roosters is number 15 Spencer Leniu 15 Interchange for Sharks is number 15 Billy Burns\n15\nInterchange for Roosters is number 16 Nat Butcher 16 17 Interchange for Sharks is number 17 Thomas Hazelton\n16 17\nInterchange for Roosters is number 17 Angus Crichton 17 20 Interchange for Sharks is number 20 Niwhai Puru\n17 20\nReserve for Roosters is number 18 Cody Ramsey 18 3 Reserve for Sharks is number 3 Riley Jones\n18 3\nReserve for Roosters is number 22 Toby Rodwell 22 16 Reserve for Sharks is number 16 Oregon Kaufusi\n22 16\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Wyatt Raymond\nLast updated: 9/19/2026 1:40:32 PM\nRoosters: Angus Crichton has again been named to return from a foot injury after being a late withdrawal last week. Back-rower Salesi Foketi left the field for a HIA inside the final 15 minutes last Sunday but is right to play. He comes into the side in place of Egan Butcher (concussion). Young playmaker Toby Rodwell is part of the extended squad having recovered from a head knock suffered in Round 27 against Souths.\nSharks: Just the one change for Craig Fitzgibbon with back-up hooker Jayden Berrell recalled on the bench for his fifth NRL game of the season and his first since Round 18. Niwhai Peru has dropped back to the reserves after being a late call-up last week to replace his brother Hohepa, who withdrew due to illness. Outside backs Mawene Hiroti and Sam Stonestreet are part of the extended squad.\nWarriors v Knights, Sunday 4.05pm (AEST), 6.05pm (local time) at Eden Park\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nWarriors\nKnights\nFullback for Warriors is number 1 Taine Tuaupiki 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Warriors is number 2 Charnze Nicoll-Klokstad 2 Winger for Knights is number 2 Dominic Young\nCentre for Warriors is number 3 Ali Leiataua 3 Centre for Knights is number 3 Dane Gagai\nCentre for Warriors is number 4 Adam Pompey 4 Centre for Knights is number 4 Bradman Best\nWinger for Warriors is number 5 Alofiana Khan-Pereira 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Warriors is number 6 Chanel Harris-Tavita 6 Five-Eighth for Knig",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 117.11759656916666,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "c828f71ba1bd1b37",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Team Lists",
+            "title": "NRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out",
+            "url": "https://www.nrl.com/news/2026/09/10/nrl-late-mail-finals-week-1/",
+            "published_at": "2026-09-13T04:42:43+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out\nPanthers young gun Blaize Talagi will line up in the centres for the first time since 2024 after L uke Garner succumbed to a minor groin injury.\nThe first choice five-eighth for much of the season, ",
+            "body_excerpt": "Presented By\nNRL Late Mail: Finals Week 1 - Talagi's new role; Crichton ruled out\nPanthers young gun Blaize Talagi will line up in the centres for the first time since 2024 after L uke Garner succumbed to a minor groin injury.\nThe first choice five-eighth for much of the season, Talagi in the lead up to the finals but has now been thrust into a new role for Penrith's qualifying final against the Roosters.\nTrent Robinson's men will not have the services of Angus Crichton for the clash after he failed to overcome a foot injury.\nThe second rower has missed the past 11 weeks with the ailment and will eye a return in their next finals match.\nSee all the late mail, official team news and updates for Week 1 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Finals Week 1\nPanthers v Roosters, Sunday 4.05pm at CommBank Stadium\nMatch: Panthers v Roosters\nFinals Week 1 - Finals Week 1 - Sunday 13 Sep\nhome Team\nPanthers\naway Team\nRoosters\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Roosters is number 1 James Tedesco\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Roosters is number 2 Daniel Tupou\nCentre for Panthers is number 4 Casey McLean 4 3 Centre for Roosters is number 3 Billy Smith\n4 3\nCentre for Panthers is number 18 Blaize Talagi 18 4 Centre for Roosters is number 4 Robert Toia\n18 4\nWinger for Panthers is number 5 Brian To'o 5 Winger for Roosters is number 5 Mark Nawaqanitawase\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Roosters is number 6 Hugo Savala\nHalfback for Panthers is number 7 Nathan Cleary 7 Halfback for Roosters is number 7 Daly Cherry-Evans\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Roosters is number 8 Naufahu Whyte\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Roosters is number 9 Reece Robson\nProp for Panthers is number 16 Liam Henry 16 10 Prop for Roosters is number 10 Lindsay Collins\n16 10\n2nd Row for Panthers is number 11 Isaiah Papali'i 11 12 2nd Row for Roosters is number 12 Siua Wong\n11 12\n2nd Row for Panthers is number 12 Liam Martin 12 20 2nd Row for Roosters is number 20 Egan Butcher\n12 20\nLock for Panthers is number 10 Lindsay Smith 10 13 Lock for Roosters is number 13 Victor Radley\n10 13\nInterchange\nInterchange for Panthers is number 13 Isaah Yeo 13 11 Interchange for Roosters is number 11 Salesi Foketi\n13 11\nInterchange for Panthers is number 15 Scott Sorensen 15 14 Interchange for Roosters is number 14 Connor Watson\n15 14\nInterchange for Panthers is number 17 Billy Phillips 17 15 Interchange for Roosters is number 15 Spencer Leniu\n17 15\nInterchange for Panthers is number 19 Billy Scott 19 16 Interchange for Roosters is number 16 Nat Butcher\n19 16\nReserve for Panthers is number 14 Freddy Lussick 14 18 Reserve for Roosters is number 18 Cody Ramsey\n14 18\nReserve for Panthers is number 22 Jesse McLean 22 19 Reserve for Roosters is number 19 Tommy Talau\n22 19\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Phil Henderson\nSenior Review Official: Wyatt Raymond\nLast updated: 9/13/2026 1:12:02 PM\nPanthers: A minor groin strain to Luke Garner has prompted a reshuffle for the Panthers with Blaize Talagi coming into the centres. Skipper Isaah Yeo has also shifted to the bench, with Liam Henry to start at prop and Lindsay Smith moving to lock. Jesse McLean is the other new face on the six-man bench. Scott Sorensen re-joins the bench after he was rested last following a gruelling campaign in which he had played every match. The Panthers have won 12 of their last 14 games against the Roosters.\nRoosters: One late change for the Roosters with Egan Butcher to start in the back row and Salesi Foketi shifting to the interchange. Angus Crichton was ruled out on Saturday after failing to overcome a foot injury. Victor Radley returns from concussion in another boost. Premiership winner Daly Cherry-Evans takes over at halfback with Sam Walker gone for the sea",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 166.38898545805554,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "067f6052002ea13c",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL injury record looms as Knights recall Origin forward for Warriors final - Yahoo News Australia",
+            "url": "https://au.news.yahoo.com/nrl-injury-record-looms-knights-061642409.html",
+            "published_at": "2026-09-19T06:16:42+00:00",
+            "snippet": "NRL injury record looms as Knights recall Origin forward for Warriors final &nbsp;&nbsp; Yahoo News Australia",
+            "body_excerpt": "NRL injury record looms as Knights recall Origin forward for Warriors final originally appeared on The Sporting News . Add The Sporting News as a Preferred Source by clicking here .\nThe Newcastle Knights have received a massive boost with confirmation NSW Origin forward Dylan Lucas has been promoted into the 19-man squad take on the New Zealand Warriors at Eden Park on Sunday afternoon.\nIt caps a remarkable injury comeback for the 26-year-old who was taken from McDonald Jones Stadium on a medicab after suffering a gruesome ankle fracture and dislocation in Newcastle's 23-22 loss to Roosters back on July 24 - the same night star playmaker Dylan Brown also suffered a season-ending ACL rupture.\nLucas underwent ankle surgery and wasn't expected to be seen again until 2027, but eight weeks later he's set prove everyone wrong.\nMORE: NRL 2026 Team Lists: Every club's confirmed lineup for Week 2\n\"Credit to the medical staff and Dylan,\" Knights coach Justin Holbrook said earlier in the week.\n\"The day he got injured he wanted to fast-track himself and do everything right.\"\nAccording to NRL Physio Brien Seeney, if Lucas makes it on to the field on Sunday his return will set a new NRL record for the fastest recovery time from this type of ankle injury, the previous mark being 10 weeks set by former Roosters and Knights forward Aidan Guerra back 2019.\nCoupled with the imposing form of young forwards Jermaine McEwen and Francis Manuleleua it means the Knights head into the sudden death Auckland clash with one of the game's most dynamic back rows.\nThe Warriors host the Knights at a sold-out Eden Park on Sunday afternoon with kickoff at 4:05pm (AEST). The winner will face the Panthers a week later in a Sydney preliminary final at Accor Stadium.\nAbout our ads",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.822596569166667,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "ea2017faa1eb0d7a",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Knight’s incredible comeback from horror injury; Roosters take aim at Sharks star — NRL Daily - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-fletcher-sharpes-incredible-comeback-from-injury-roosters-to-make-life-hell-for-braydon-trindall-inside-the-brilliance-of-mark-nawaqanitawase-nrl-daily-nrl-news/news-story/8169442eb6c64651fffbb6705bc9c2e1",
+            "published_at": "2026-09-18T23:06:53+00:00",
+            "snippet": "Knight’s incredible comeback from horror injury; Roosters take aim at Sharks star — NRL Daily &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Knight’s incredible comeback from horror injury; Roosters to target Sharks star — NRL Daily\nRugby league is full of stories about players who have returned from serious knee and shoulder injuries the following year, but few stars have experienced what Fletcher Sharpe went through in 2025.\nIt makes Newcastle’s run to the second week of the finals even more impressive when you consider their speedy five-eighth was in hospital with a lacerated kidney and damaged spleen last June.\nWatch every game of the 2026 NRL Telstra Premiership Finals Series before the Grand Final LIVE with no ad-breaks during play on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nWhat looked like a head knock quickly escalated, with Sharpe in an operating theatre later that night in Perth as doctors worked on injuries that were described at the time as something you see in car crash victims.\nIt took months for him to get back to full fitness, but you wouldn’t know it watching him now, with Sharpe a key reason behind Newcastle’s incredible bounce back in 2026 a year after they finished with the wooden spoon.\n“I’m really enjoying my footy again. It took a bit to get going, but I’m in a confident spot with where my game is at,” he said.\n“I think sort of post-Christmas in pre-season I got all the ticks of approval from specialists, and that obviously gave me a bit of confidence and let me know that I was right to go.\n“So from there, it was just a slow, gradual build back into it. Once you’re back into it – full contact and stuff – instincts take over. You’re back out on the footy field and just back doing what you love.\n“It took a little bit to get past it and get back to loving my footy, but it’s back now. I’m enjoying it.”\nSYDNEY, AUSTRALIA - SEPTEMBER 11: Fletcher Sharpe of the Knights runs the ball during the NRL Elimination Final match between the South Sydney Rabbitohs and Newcastle Knights at Allianz Stadium on September 11, 2026, in Sydney, Australia. (Photo by Cameron Spencer/Getty Images) Source: Getty Images\nThere were questions going into the round 1 game in Las Vegas whether Sharpe would play five-eighth, in the outside backs or come off the bench.\nThose doubts only amplified when he was forced off with a knee injury that thankfully wasn’t overly serious.\nHe returned in round 4 and has been a constant threat on the left edge, which has allowed skipper Kalyn Ponga to both sides of the field knowing that Sharpe has the speed and talent to make things happeplay n.\n“The most pleasing thing about his footy is his consistency,” Ponga said.\n“With a young guy in a different position, you often find they aren’t as consistent week in and week out. But he’s been one of our best players, if not the best, throughout the whole year. He’s won us a couple of games just on his own back.\n“Every week, we know exactly what we’re going to get from him. He’s a natural footy player, and he works hard. He earns everything he gets and puts himself in good positions – you don’t do that through luck. I’m definitely glad he’s on our team.”\nNew coach Justin Holbrook has revamped their attack and turned them into one of the most exciting teams to watch.\nA lot of that starts with Ponga and ends with their try-scoring wingers, but Sharpe has played a key role even though the Knights lost record-signing Dylan Brown to a knee injury earlier in the year.\nSharpe has scored a career-high 12 tries and has 11 assists – more than double his previous two years combined – with his speed through the middle a nightmare for rival teams.\nThey face the Warriors this weekend, with the Panthers waiting for the winner in a grand final qualifier.\nThat felt like an impossible dream a year ago, but footy has a strange way of making fairytales come true.\n“It definitely felt a long way away going into the start of the year,” he said.\n“But Justin got us all into a room on his first day and said ‘I don’t really care what happened last year, this year is a new year. I’m confident",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 27.98620768027778,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "f575249c180b8bc7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors confirm Ford injury status, reveal Metcalf, Berry update - Zero Tackle",
+            "url": "https://www.zerotackle.com/warriors-confirm-ford-injury-status-reveal-metcalf-berry-update-238216/",
+            "published_at": "2026-09-18T07:38:41+00:00",
+            "snippet": "Warriors confirm Ford injury status, reveal Metcalf, Berry update &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The New Zealand Warriors have confirmed Jackson Ford's latest injury will not finish his season if the Warriors can continue to stay alive in the NRL finals.\nFord returned last weekend for the club's Qualifying Final - ultimately a losing effort against the Dolphins - having sustained an injury in the middle of the season that wrote off the second half of his campaign.\nThe prop, an important part of the Warriors' middle rotation, came off the bench and was immediately looking close to his best before suffering an ankle injury in an awkward looking tackle.\nFord is unable to play this weekend after the 24-minute stint was cut short, but the club has refused to suggest his season is over.\nThe minor injury means Ford could be back in time for a potential Preliminary Final, and if not the Grand Final, although the Auckland-based outfit have not put an official timeline on his return.\nJames Fisher-Harris and Mitch Barnett will continue starting for Andrew Webster's side this weekend.\nThey will need plenty out of the back up brigade led by Demitric Vaimauga and Tanner Stowers-Smith if they are to dominate the middle of the park against a gallant Knights side who knocked over the South Sydney Rabbitohs last Friday in an upset win at Allianz Stadium.\nRoger Tuivasa-Sheck and Tanah Boyd are finished for the season with ACL injuries, while the Warriors' latest medical update did give hope that Rocco Berry and Luke Metcalf , both recovering from hamstring injuries, could be a chance of playing in the finals.\nBerry will struggle to get back into the Warriors' best 17. But Metcalf, who spent a lot of the season on the outer before putting together strong performances on his return to first-grade, could start or come off the bench once he returns, with estimates putting him at the Preliminary Final stage.",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 43.45620768027778,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "214d1a72371869c9",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "Warriors v Knights: Line-ups, kickoff time, how to watch – all you need to know for semi-final",
+            "url": "https://www.nzherald.co.nz/sport/rugby-league/warriors/warriors-v-knights-line-ups-kickoff-time-how-to-watch-all-you-need-to-know-for-semi-final/UT5SCBGKGND7NLEWEPJH4A3ORE/",
+            "published_at": "2026-09-18T03:06:29+00:00",
+            "snippet": "After last week’s shock loss to the Dolphins, the Warriors are now in must-win mode in what is set to be the biggest rugby league game in New Zealand history against the Newcastle Knights on Sunday.",
+            "body_excerpt": "Warriors v Knights, NRL finals week 2 semi-final, 6.05pm Sunday, September 20, at Eden Park, Auckland\nAfter last week’s shock loss to the Dolphins, the Warriors are now in must-win mode in what is set to be the biggest rugby league game in New Zealand history against the Newcastle Knights this evening.\nAll 48,500 tickets for the match sold out within an hour of going on sale to the general public. The game is set to obliterate the record for the biggest crowd the Warriors have played in front of in New Zealand, which was at their 2011 season-opener against the Parramatta Eels , when 38,405 people attended.\nIt highlights the significance of the occasion and the challenge that awaits the Warriors.\n“We get to come here with the biggest crowd in Warriors history on New Zealand soil, so why would you be sulking? Just be excited,” Warriors coach Andrew Webster said.\n“The players are completely respectful of the occasion ... It’s such a cool challenge, it’s something different.”\nStanding in the Warriors’ way are the Knights, who claimed a shock 20-10 win over the South Sydney Rabbitohs in their elimination final last weekend.\nWhile recent head-to-head history isn’t on their side, the Knights can take confidence that since the current finals structure has been used, the seventh-ranked side have beaten the second-placed teams on both occasions.\nThe winner of this game will face the Penrith Panthers in the preliminary final next Sunday at Accor Stadium.\nWarriors v Knights line-ups\nWarriors star winger Dallin Watene-Zelezniak could return from a broken collarbone after being named on the extended bench. Also named on the extended bench is Leka Halasima, who withdrew late with a hamstring injury from the Warriors’ qualifying final defeat to the Dolphins .\nWebster said Watene-Zelezniak had “a chance of returning”, adding he will work through contact drills to ensure he’s ready, while Halasima was “highly doubtful” but that could change, depending on how training goes during the week.\nJackson Ford has been ruled out with an undisclosed ankle injury.\nWarriors: 1. Taine Tuaupiki, 2. Charnze Nicoll-Klokstad, 3. Ali Leiataua, 4. Adam Pompey, 5. Alofiana Khan-Pereira, 6. Chanel Harris-Tavita, 7. Te Maire Martin, 8. James Fisher-Harris, 9. Wayde Egan, 10. Mitchell Barnett, 11. Kurt Capewell, 12. Jacob Laban, 13. Erin Clark.\nInterchange (from): 14. Sam Healey, 15. Tanner Stowers-Smith, 16. Demitric Vaimauga, 17. Eddie Ieremia-Toeava, 20. Morgan Gannon, 22. Leka Halasima, 23. Dallin Watene-Zelezniak.\nThe Knights have made just one change to their side that beat the South Sydney Rabbitohs last week, with Dylan Lucas named on the extended bench, less than two months after a compound fracture in his ankle required surgery.\nKnights coach Justin Holbrook says the edge forward will be given until kickoff to prove his fitness.\nKnights: 1. Kalyn Ponga, 2. Dom Young, 3. Dane Gagai, 4. Bradman Best, 5. Greg Marzhew, 6. Fletcher Sharpe, 7. Sandon Smith, 8. Tyson Frizell, 9. Phoenix Crossland, 10. Cody Hopwood, 11. Jermaine McEwen, 12. Francis Manuleleua, 13. Mathew Croker.\nInterchange (from): 14. Harrison Graham, 15. Lachlan Crouch, 16. Pasami Saulo, 17. Thomas Cant, 18. Fletcher Hunt, 20. Kyle McCarthy, 22. Dylan Lucas.\nLeka Halasima. Photo / Photosport\nWhere will the match be won?\nAs it is every week, the key for the Warriors is to shut down the focal point of their opponents’ attack – in this case, that is Kalyn Ponga.\nExpect the Knights to target the Warriors’ right edge defence through Bradman Best and Greg Marzhew. According to Fox Sports, the Warriors’ right edge has conceded 20 line breaks to the opposition’s left second-rower, centre and winger over their past four games.\nAdam Pompey played right centre in their round-25 clash against Souths, where he had four line-break causes, and Ali Leiataua has been at fault for six line breaks in the past three games.\nWhen the Warriors last played the Knights in round 26, both Newcastle wingers (Marzhew and Fle",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 47.99287434694445,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "8dfa15fb58eb87a4",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Preview: Can the Warriors prevail in must-win joust against Knights? - 1News",
+            "url": "https://www.1news.co.nz/2026/09/18/preview-can-the-warriors-prevail-in-must-win-joust-against-knights/",
+            "published_at": "2026-09-18T01:43:36+00:00",
+            "snippet": "Preview: Can the Warriors prevail in must-win joust against Knights? &nbsp;&nbsp; 1News",
+            "body_excerpt": "Sunday's Eden Park showdown against the Knights is a must-win for the Warriors.\nDenied a trip straight to the preliminary finals last week after the Dolphins toppled them 26-16 at home, a loss to the Knights this weekend will end the Warriors' season - one that saw them finish second in the regular season – only pipped by the Panthers on points difference.\n1News sports reporter Zion Dayal spoke to Channel Nine Australia rugby league reporter Zac Bailey ahead of Sunday's clash, discussing the Warriors' chances.\nHe tipped the Knights to ruin the party for Warriors fans, but said it could go either way.\n\"I don't know why. Just in the moment, I thought, you know what, the way the Knights beat the Bunnies, I was really impressed with. They're going to have to bring that again.\n\"I wanted it to be a Panthers-Warriors Grand Final. We won't get that now. Hopefully it's a Panthers-Warriors prelim final.\"\nBailey said the loss to the Dolphins will \"make the job a lot harder\". Only two teams have lost in week one of the finals and gone all the way – the Cowboys in 2015 and the Panthers in 2021.\nA win last week would have also given the Warriors a week off.\nWarriors players - Warriors v Dolphins - Finals Week 1 - NRL Rugby League at Go Media Stadium, Auckland, New Zealand. (Source: Photosport)\n\"The week off is crucial,\" Bailey said. \"There's no doubt about it. That hurts their chances big time.\n\"I think they just have to prove on Sunday that they are the real deal.\"\nThe location could also be a big factor, with Bailey calling Mount Smart \"the toughest road trip in rugby league\".\n\"You basically can't hear yourself.\"\nNearly twice the Warriors' usual home's capacity, a sold-out Eden Park could be \"daunting\" for the visitors.\n\"This is just going to be like the Mount Smart or Go Media Stadium field on steroids, not only for the Knights players, but also for the Wahs players.\"\nAcross the ditch, Bailey said most NRL fans had the Warriors as their \"second team\".\n\"I've always loved to see their charge towards the finals campaign. This year it seems to be a little bit different.\nMore on this topic\n'A special place': Warriors tickets sell out for Eden Park semi-final\nMore than 22,000 fans snapped up tickets in the pre-sale alone, as the Warriors' elimination final was moved from Mt Smart to accommodate record demand.\nLeague\nTue, Sep 15\n2:23\n'Right the wrongs': Warriors dynamo eyes Knights bounce\nTaine Tuaupiki said the team won't dwell on their heart-breaking finals loss, vowing to \"work our arses off\" to keep their premiership dream alive.\nMon, Sep 14\nEden Park confirmed as venue for Warriors finals match against Knights\nThe Warriors will move away from their home at Mt Smart Stadium when they play the Knights next week.\nSun, Sep 13\n\"There seems to be a real buzz in the air, especially in the lead-up to last week.\"\nWatch Zion's Dayal's full chat with Zac Bailey on TVNZ+",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 49.37426323583333,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "179b3966f8d575eb",
+            "source_tier": "mainstream_news",
+            "channel": "duckduckgo",
+            "category": null,
+            "title": "'Just be excited': Warriors v Knights – all you need to know for NRL semi-final",
+            "url": "https://www.newstalkzb.co.nz/news/sport/warriors-v-knights-line-ups-kickoff-time-how-to-watch-all-you-need-to-know-for-semi-final/",
+            "published_at": "2026-09-17T03:06:26+00:00",
+            "snippet": "After last week’s shock loss to the Dolphins, the Warriors are now in must-win mode in what is set to be the biggest rugby league game in New Zealand histo ...",
+            "body_excerpt": "Warriors v Knights, NRL finals week 2 semi-final, 6.05pm Sunday, September 20, at Eden Park, Auckland\nAfter last week’s shock loss to the Dolphins, the Warriors are now in must-win mode in what is set to be the biggest rugby league game in New Zealand history against the Newcastle Knights this evening.\nAll 48,500 tickets for the match sold out within an hour of going on sale to the general public. The game is set to obliterate the record for the biggest crowd the Warriors have played in front of in New Zealand, which was at their 2011 season-opener against the Parramatta Eels, when 38,405 people attended.\nIt highlights the significance of the occasion and the challenge that awaits the Warriors.\n“We get to come here with the biggest crowd in Warriors history on New Zealand soil, so why would you be sulking? Just be excited,” Warriors coach Andrew Webster said.\n“The players are completely respectful of the occasion ... It’s such a cool challenge, it’s something different.”\nStanding in the Warriors’ way are the Knights, who claimed a shock 20-10 win over the South Sydney Rabbitohs in their elimination final last weekend.\nWhile recent head-to-head history isn’t on their side, the Knights can take confidence that since the current finals structure has been used, the seventh-ranked side have beaten the second-placed teams on both occasions.\nThe winner of this game will face the Penrith Panthers in the preliminary final next Sunday at Accor Stadium.\nWarriors v Knights line-ups\nWarriors star winger Dallin Watene-Zelezniak could return from a broken collarbone after being named on the extended bench. Also named on the extended bench is Leka Halasima, who withdrew late with a hamstring injury from the Warriors’ qualifying final defeat to the Dolphins.\nWebster said Watene-Zelezniak had “a chance of returning”, adding he will work through contact drills to ensure he’s ready, while Halasima was “highly doubtful” but that could change, depending on how training goes during the week.\nJackson Ford has been ruled out with an undisclosed ankle injury.\nWarriors: 1. Taine Tuaupiki, 2. Charnze Nicoll-Klokstad, 3. Ali Leiataua, 4. Adam Pompey, 5. Alofiana Khan-Pereira, 6. Chanel Harris-Tavita, 7. Te Maire Martin, 8. James Fisher-Harris, 9. Wayde Egan, 10. Mitchell Barnett, 11. Kurt Capewell, 12. Jacob Laban, 13. Erin Clark.\nInterchange (from): 14. Sam Healey, 15. Tanner Stowers-Smith, 16. Demitric Vaimauga, 17. Eddie Ieremia-Toeava, 20. Morgan Gannon, 22. Leka Halasima, 23. Dallin Watene-Zelezniak.\nThe Knights have made just one change to their side that beat the South Sydney Rabbitohs last week, with Dylan Lucas named on the extended bench, less than two months after a compound fracture in his ankle required surgery.\nKnights coach Justin Holbrook says the edge forward will be given until kickoff to prove his fitness.\nKnights: 1. Kalyn Ponga, 2. Dom Young, 3. Dane Gagai, 4. Bradman Best, 5. Greg Marzhew, 6. Fletcher Sharpe, 7. Sandon Smith, 8. Tyson Frizell, 9. Phoenix Crossland, 10. Cody Hopwood, 11. Jermaine McEwen, 12. Francis Manuleleua, 13. Mathew Croker.\nInterchange (from): 14. Harrison Graham, 15. Lachlan Crouch, 16. Pasami Saulo, 17. Thomas Cant, 18. Fletcher Hunt, 20. Kyle McCarthy, 22. Dylan Lucas.\nLeka Halasima. Photo / Photosport\nWhere will the match be won?\nAs it is every week, the key for the Warriors is to shut down the focal point of their opponents’ attack – in this case, that is Kalyn Ponga.\nExpect the Knights to target the Warriors’ right edge defence through Bradman Best and Greg Marzhew. According to Fox Sports, the Warriors’ right edge has conceded 20 line breaks to the opposition’s left second-rower, centre and winger over their past four games.\nAdam Pompey played right centre in their round-25 clash against Souths, where he had four line-break causes, and Ali Leiataua has been at fault for six line breaks in the past three games.\nWhen the Warriors last played the Knights in round 26, both Newcastle wingers (Marzhew and Fletc",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 71.99370768027778,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "5a0ce26810ffcc10",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "New Zealand Warriors vs Newcastle Knights Tips, Odds, Teams & Predictions – NRL Finals Week 2 2026 - sportsnews.com.au",
+            "url": "https://www.sportsnews.com.au/nrl/new-zealand-warriors-vs-newcastle-knights-tips-odds-teams-predictions-nrl-finals-week-2-2026/610317",
+            "published_at": "2026-09-17T02:49:19+00:00",
+            "snippet": "New Zealand Warriors vs Newcastle Knights Tips, Odds, Teams & Predictions – NRL Finals Week 2 2026 &nbsp;&nbsp; sportsnews.com.au",
+            "body_excerpt": "The Warriors seek to rebound at Eden Park against a confident Newcastle side chasing its first preliminary-final appearance since 2013.\nWhen: Sunday September 20, 2026 at 4:05 pm\nWhere: Eden Park\nBet 💰: Bet On This Match HERE\nNew Zealand Warriors vs Newcastle Knights Odds\nNew Zealand Warriors vs Newcastle Knights Preview\nNew Zealand shifts its home semi-final to Eden Park seeking a response after a 26-16 qualifying-final loss to the Dolphins. The Warriors had won six consecutive matches before that setback and defeated Newcastle twice during the regular season, while their most recent finals meeting produced a 40-10 victory in 2023. Jackson Ford is unavailable after sustaining an ankle injury on his return, with Morgan Gannon joining the interchange. Leka Halasima and Dallin Watene-Zelezniak are listed among the reserves as they push to overcome hamstring and collarbone injuries respectively. Newcastle arrives with confidence after eliminating South Sydney 20-10 and has retained the same squad, including Dylan Lucas on the extended bench following his ankle injury. Dominic Young provides a major attacking threat, but the Warriors’ strong record against Newcastle in New Zealand and their ability to control first halves give them the clearer route forward.\nHead To Head Bet\nWe're tipping New Zealand Warriors to win at $1.48 odds.\nFirst Try Scorer\nFirst Try Scorer: Dominic Young at $9.25 .\nNew Zealand Warriors vs Newcastle Knights Teams\nWarriors team: 1. Taine Tuaupiki 2. Charnze Nicoll-Klokstad 3. Ali Leiataua 4. Adam Pompey 5. Alofiana Khan-Pereira 6. Chanel Harris-Tavita 7. Te Maire Martin 8. James Fisher-Harris 9. Wayde Egan 10. Mitchell Barnett 11. Kurt Capewell 12. Jacob Laban 13. Erin Clark 14. Samuel Healey 15. Tanner Stowers-Smith 16. Demitric Vaimauga 17. Eddie Ieremia-Toeava 18. Jett Cleary 20. Morgan Gannon 21. Makaia Tafua 22. Leka Halasima 23. Dallin Watene-Zelezniak\nKnights team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 9. Phoenix Crossland 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 14. Harrison Graham 15. Lachlan Crouch 16. Pasami Saulo 17. Thomas Cant 18. Fletcher Hunt 19. Toby Winter 20. Kyle McCarthy 21. Elijah Leaumoana 22. Dylan Lucas",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 72.27898545805556,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "d12ee775391a6204",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "The 'forgotten' match: Why Eden Park boss was wrong about NZ's biggest league occasion - NZ Herald",
+            "url": "https://www.nzherald.co.nz/sport/rugby-league/warriors-vs-knights-why-nrl-finals-match-at-eden-park-raises-conflicting-emotions-for-fans/premium/QUBNNX7APRFEXNQX6IEQHZQOVU/",
+            "published_at": "2026-09-19T23:12:47+00:00",
+            "snippet": "The 'forgotten' match: Why Eden Park boss was wrong about NZ's biggest league occasion &nbsp;&nbsp; NZ Herald",
+            "body_excerpt": "Peter Brown attempts a kick for the Kiwis during the Rugby League World Cup final against Australia at Eden Park in 1988. Photo / Photosport\nFor anyone who follows the New Zealand Warriors, there are three conflicting emotions ahead of Sunday’s blockbuster NRL knockout against the Newcastle Knights at Eden Park.\nThe first is pride. Pride that their club, which was in such a mess for much of the last decade and then almost disappeared during the Covid pandemic, has become the hottest ticket in town, with the almost unprecedented interest in the team.\nThe second is anticipation. This evening’s match is set up perfectly. A capacity crowd at Eden Park, including many fans who may have struggled to get tickets across this season, yearning to see their heroes.\nThe Warriors nation will descend on Kingsland, in scenes that might be reminiscent of a mini-Magic Round scenario in Brisbane . It’s also a perfect window for television – on a weekend where there aren’t other major events on – which should ensure a massive broadcast audience.\nHowever, the third emotion is fear. This is the Warriors’ biggest home finals match in years – bigger than the 2023 encounter against the Knights – and they are not at home. Instead, they are at a ground they haven’t played at in more than a decade.\nAlthough some will brush that off, it does matter. Players like familiarity, they thrive on familiarity, especially when times are tough. They know the angles – especially the kickers – which are banked in the memory, while their peripheral vision is enough in the high-pressure moments.\nThe Warriors at an Eden Park training session. Photo / Photosport.\nBeing at Eden Park probably helps the Knights. The bigger ground isn’t as intimidating, with a less gladiatorial atmosphere, simply because most of the fans are further away. It’s hard to imagine the same intensity as can be produced at Go Media Stadium (Mt Smart). And while the grand occasion will inspire the Warriors, it also adds pressure; when you sell out the country’s biggest stadium, you need to perform.\nHowever, there is a positive vibe around the club and the players. They have to be positive – otherwise they would be criticised for making excuses, even though they had previously wanted to stay at Go Media for their finals campaign.\nBut there is now a feeling around the team that this switch could be a tonic, after the sour defeat last week and a couple of middling performances in Penrose across the fortnight before that. Maybe the change of scenery – and the massive support – will be just what the team need, the infusion of energy and excitement that can lift them to new levels.\nThere is recognition that the Warriors’ past record at Eden Park is poor (played six, won one), though it also understood they were a different team, at a different time (2011-2014) . This team have developed an appetite for big matches, whether it is a sold-out ground in Wellington or Christchurch or the epic battles at Suncorp Stadium.\nBut NRL finals footy is the biggest challenge. It’s harsh and unforgiving and a few Warriors players simply couldn’t step up last week. They have to this week – in the win-or-bust scenario – though also need to stay calm and focus on the process.\nIt also needs to be noted that while Sunday should be a tremendous occasion, it will not be, as Eden Park chief executive Nick Saunter tried to claim this week , “the biggest event in league history in New Zealand”. Saunter isn’t afraid of hyperbole and is a brilliant promoter who is always trying to remind everyone of Eden Park’s virtues.\nKiwis legend Mark Graham making a tackle during the 1988 Rugby League World Cup final at Eden Park. Photo / Photosport\nBut it was strange that he forgot – or didn’t know about – the 1988 Rugby League World Cup final between New Zealand and Australia at Eden Park, which remains, by some distance, the biggest event in league history in this country .\nAs recalled in The Kiwis by John Coffey and Bernard Wood, a record c",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 3.8878743469444443,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "ffef6fea46704f91",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors vs Knights Prediction & NRL Betting Preview - 20/9/26 - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/warriors-vs-knights-prediction-betting-tips-sunday-20-september-2026/",
+            "published_at": "2026-09-19T20:04:44+00:00",
+            "snippet": "Warriors vs Knights Prediction & NRL Betting Preview - 20/9/26 &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Warriors vs Knights Prediction: England flyer Young part of 10/3 try double\n| Saturday 19th September 2026, 9:00\nSaturday 19th September 2026, 9:00\nA hugely-promising season is on the line for the New Zealand Warriors on Sunday when they host the Newcastle Knights in the NRL semi-finals at Eden Park (6:05pm local, 4:05am BST, Sky Sports Mix).\nThe Wahs finished just-top of the ladder, missing out on the Minor Premiership by 26 points on score difference to the Panthers, but last week’s loss to the Dolphins has them playing sudden-death footy in week two. My Warriors vs Knights predictions are below, along with full team news and Betfred’s match odds.\nWarriors vs Knights Betting Tips\nHandicap 3-way: Warriors -6 @ EVENS\nPrice Boost: Charnze Nicoll-Klokstad to Score a Try & Dominic Young to Score a Try @ 11/4 10/3\n*odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Acca Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nWarriors vs Knights Odds\nGiven the fact the Warriors came into the Finals on a six-game winning streak, it’s no surprise that the bookies haven’t over-reacted to last week’s loss.\nThe Wahs are Betfred’s 8/15 favourites for the win on Sunday, implying a 65.2% probability.\nCan the Knights extend their against-the-odds participation in the play-offs? They’re 13/8 to do so in normal time, with the draw in 80 minutes 16/1.\nTeam News\nJackson Ford’s woes continued in week one of the Finals, with the Wahs replacement lasting just a quarter of his comeback game after a pec injury before sustaining an ankle problem.\nHe misses out this week, so Morgan Gannon is included. Leka Halasima, who missed out against the Dolphins with a hamstring issue, is listed as a reserve alongside Dallin Watene-Zelezniak, who has missed the last three after a collarbone break.\nRugby League Odds\nKnights boss Justin Holbrook names the same 19 which knocked out the Rabbitohs in week one, but Dylan Lucas is a potential late call from the reserve list.\nThe second-rower is being given every second possible to prove his fitness after breaking his ankle just eight weeks ago against the Roosters.\nI like the Knights. I like what they’ve done this year when nobody expected much of them. I like Justin Holbrook and what he built at St Helens, and thought he was incredibly hard done to at the Titans after making great strides.\nIt’s a great story what he and Newcastle have achieved, with Dom Young and Greg Marzhew leading the way with some incredible finishes in 2026.\nBut having watched what the Warriors have put out on the field most weeks this year, I just can’t back against them getting the win.\nThey have so much power, a huge degree of flair and a real swagger about their play when they’re on.\nSure, they were done on their own track at Mount Smart last week by a fantastic Dolphins performance. But lightning shouldn’t strike twice as they move across the city to Eden Park.\nThe brass tacks tell us that this contest is between a side which scored 728 points this season against one that shipped 591. If the Wahs attack is on, they should clear the handicap with a touch to spare.\nOdds correct at time of publishing.\nPoints shouldn’t be at a great premium on Sunday.\nThe Warriors have 10 players who registered six or more tries this season, with DWZ (20 in 21), Lofi Khan-Pereira (16 in 18) and Charnze Nicoll-Klokstad (12 in 15) all flirting with the try-per-game barrier.\nNewcastle, for their part, will be backing gun wingers Marzhew (24 in 24) and Young (21 in 24) to continue an incredible 2026 campaign.\nAnd two of those five names feature in one of Betfred’s Price Boosts. The 10/3 about CNK and England’s Young crossing during the 80 minutes looks big given these sides clocked up 128 points between them in their two earlier ",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 7.022041013611111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "6c019d0cdc002625",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Replays",
+            "title": "Finals Immortal advice: How Johns helped Knights unlock attacking mindset",
+            "url": "https://www.nrl.com/news/2026/09/20/immortal-advice-how-johns-helped-knights-unlock-attacking-mindset/",
+            "published_at": "2026-09-19T20:01:21+00:00",
+            "snippet": "Immortal advice: How Johns helped Knights unlock attacking mindset\nThe words of NRL Immortal Andrew Johns will be ringing in the ears of Newcastle halfback Sandon Smith when he runs on to Eden Park for Sunday's sudden-death clash with the Warriors.\nA two-time premiership winner a",
+            "body_excerpt": "Immortal advice: How Johns helped Knights unlock attacking mindset\nThe words of NRL Immortal Andrew Johns will be ringing in the ears of Newcastle halfback Sandon Smith when he runs on to Eden Park for Sunday's sudden-death clash with the Warriors.\nA two-time premiership winner and arguably the greatest No.7 to play the game, Johns' shadow has hung over the Knights since a neck injury forced him into retirement in 2007.\nSuccess in Newcastle has been limited since their 2001 grand final victory and a host of halfbacks have struggled to handle the pressure that comes with following in an Immortal's footsteps.\nClive Churchill Medal winner: Andrew Johns - 2001\nJohns hasn't shied away in his criticism of the club over the years but has embraced the current squad and has been a regular onlooker at training throughout the season.\nThe Immortal was on hand for the Knights captain's run prior to last week's elimination final victory over the Rabbitohs and Smith credited Johns for helping him handle the pressure on the big stage.\n\"It's awesome when he comes in,\" Smith told NRL.com. \"He has a presence about him and an aura when he comes in and watches training. You know things are starting to heat up when he's coming in.\n\"This is when the big players step up and that's what Joey did throughout his career. This is our moment to prove to him and prove to everyone that we're a team like the Knights used to be.\"\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nSunday's clash with the Warriors at Eden Park continues a remarkable turnaround from last year's wooden spoon to the second week of the finals.\nNew coach Justin Holbrook has completely overhauled the side's playing style and focused on rebuilding the club's connection with a passionate supporter base.\nWith a host of attacking weapons across the park, Holbrook has introduced a playing style that unlocks Kalyn Ponga, Fletcher Sharpe, Bradman Best and all the team's big names.\nHolbrook: \"This time of year is exciting\"\nThe Knights lead the NRL with 31 tries from inside their own half and enjoyed plenty of success shifting the ball in their Round 26 clash with the Warriors.\n\"It's an exciting playing style,\" Smith said. \"A lot of fans are enjoying the style we're playing at the moment and we're definitely enjoying playing this way too.\n\"With the playmakers we have in this team it would be stupid not to get them the ball as much as possible. We're enjoying it at the moment and we're finding a good balance between moving the ball and our discipline.\"\nThe Knights effectively play with three playmakers, with Smith, Sharpe and Ponga all responsible for creating attacking opportunities.\nThe outside backs are the biggest beneficiaries, wingers Dom Young and Greg Marzhew combining for 45 tries this season.\nMarzhew and back-up winger Fletcher Hunt each scored doubles in the recent loss to the Warriors, in which Newcastle played 68 minutes with just 12 men.\nWarriors v Knights – Round 26, 2026\nThe performance has many fans expecting plenty of points on Sunday afternoon, with the Knights looking to replicate the Dolphins attacking mindset after Kristian Woolf's men upset the Warriors last weekend.\n\"It's unreal playing outside those guys,\" centre Bradman Best said. \"Everyone knows what KP's about, then you've got Sharpie with that X-factor and Sandon's been a great addition.\n\"Having the playmakers helps the whole team, not just me. It helps everyone having those three on the field and that's why they get paid the big bucks.\"\nAfter 27 epic rounds, it all comes down to this. One play can define a season. These are the moments that matter. Don't miss a second of the action with kick-off at 4.05pm Sunday live on Nine, Kayo and Sky Sports.\nRelated /\nWarriors v Knights: Halasima good to go; Lucas completes miracle\nFinals\n'Big-game player': The spa",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 7.0784299025,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "7935ed317bc75f01",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "New Zealand Warriors v Newcastle Knights - Finals week 2, 2026 - NRL Score Centre - Live NRL Scores - ABC News & Headlines – Australian Broadcasting Corporation",
+            "url": "https://www.abc.net.au/news/sport/score-centre/nrl/2026-09-20/warriors-knights/231203314",
+            "published_at": "2026-09-19T12:40:32+00:00",
+            "snippet": "New Zealand Warriors v Newcastle Knights - Finals week 2, 2026 - NRL Score Centre - Live NRL Scores &nbsp;&nbsp; ABC News & Headlines – Australian Broadcasting Corporation",
+            "body_excerpt": "Fri, 11 Sept, 7:50 pm, Final score, Rabbitohs 10, Knights 20",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 14.425374346944444,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "e937d91c15567097",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Warriors vs Knights Preview & Betting Tips: 2026 NRL Semi Final - Before You Bet",
+            "url": "https://www.beforeyoubet.com.au/warriors-vs-knights-preview-betting-tips-2026-nrl-semi-final",
+            "published_at": "2026-09-19T11:29:20+00:00",
+            "snippet": "Warriors vs Knights Preview & Betting Tips: 2026 NRL Semi Final &nbsp;&nbsp; Before You Bet",
+            "body_excerpt": "Warriors vs Knights Preview & Betting Tips: 2026 NRL Semi Final\nSeptember 19 th 2026, 5:24pm , By: Scooby\nThe second NRL Semi Final heads to New Zealand on Sunday afternoon with a thrilling contest between the Warriors and Knights . Meeting only a few weeks ago, the stakes have increased now with the loser facing elimination. This sets the stage for an exciting contest with two quality teams set to do battle. Before You Bet is here to help find a winner or two with a comprehensive look at what is ahead in this exciting match.\nWarriors vs Knights Prediction & Tips: 2026 NRL Semi Final\nTime to regroup\nThe Warriors were upset at home 26-16 by the Dolphins, ambushed in the second half of the match as the result slipped away. Unable to build on a strong start which saw them lead 12-8 at HT, injuries at the beginning of the match and suffered throughout hurt their cause. The performance was flat also considering they scored just 1 try, accumulating 10 points via penalty goals. With a greater share of possession (53%), they had a superior completion rate (83%) and ran for 8.5m per carry. Unfortunately, they could only manage 2 line breaks and lacked creativity when it mattered and failed to turn their pressure into points. They were uncharacteristically poor defensively too, missing 54 tackles and allowing 9m per carry.\nPlaying with confidence\nThe Knights caused an upset with a 20-10 road victory over the Rabbitohs. Benefitting from a week off in Round 27, the Knights came out strongly and set a great intensity which they maintained for 80 minutes. Physical on both sides of the ball, they dictated the terms of the match. With a greater share of possession (51%), they completed at 83%, made 9.8m per carry, and had 584 PCM’s. This allowed them to make 6 line breaks, continually breaking the advantage line with their carries. Their defence was also strong, missing just 22 tackles and scrambling well to disrupt their opponent’s momentum.\nStats that matter\n- These two sides have met twice this season, with the Warriors victorious in both. The Round 26 encounter is fresh in the mind of fans, whereby the Warriors outlasted a 12-man Knights team 46-22. In Round 3, they were far more convincing, winning 38-12.\n- The Warriors will have reservations heading to this ground. They have just won victory from 6 attempts (17%) while it’ll be the first time the Knights take the field here.\n- Despite 2 of the past 5 games between these sides being decided by 6 points or less, the average margin of victory is still 13 points. They’ve been unusual matches too with a total of 22 to 78 points scored; the average total points in the past 5 matches is 44.6 points.\nIt is no surprise that the Warriors have an edge on both sides of the ball in 2026. They score an average of 29ppg compared to the Knights 24ppg. While that is close, the major difference comes in defence, where the Warriors concede just 17ppg compared to the Knights 24ppg.\nThe loss they had to have\nIt is an age-old saying in rugby league, but it is applicable to the Warriors this week. They were strong and motivated against the Dolphins to start the match but faded away. With emotion expected to again be high, the Warriors are better placed this week to handle such an environment. The two extra days to prepare for the Knights brings them into contention though; there were positive signs against the Rabbitohs but, in equal measure, there were some warning signs. Most are caught up with their dominance, but they were not perfect. Their attack lacked creativity in the early stages, and they failed to convert strong possession statistics into points. As good as they were, they were not all that they are made out to be.\nThe Warriors deserve credit for how they have performed throughout the season; you cannot be quick to overlook how they’ve dictated matches. Their most recent victory over the Knights can further cloud judgement but they are a better team from that outing. With nothing to prove and play",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 15.612041013611112,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1c6faa3eb322cc47",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Replays",
+            "title": "Knights Lucas races clock as Saturday deadline looms for comeback call",
+            "url": "https://www.nrl.com/news/2026/09/18/lucas-races-clock-as-saturday-deadline-looms-for-comeback-call/",
+            "published_at": "2026-09-18T01:01:20+00:00",
+            "snippet": "Lucas races clock as Saturday deadline looms for comeback call\nDylan Lucas’ brave bid to return from a fractured ankle suffered in Round 21 has given Knights coach Justin Holbrook a selection headache he didn't expect to be facing.\nLucas was expected to miss the rest of the seaso",
+            "body_excerpt": "Lucas races clock as Saturday deadline looms for comeback call\nDylan Lucas’ brave bid to return from a fractured ankle suffered in Round 21 has given Knights coach Justin Holbrook a selection headache he didn't expect to be facing.\nLucas was expected to miss the rest of the season after suffering the gruesome injury against the Roosters on July 24 - a horror night for the club which saw playmaker Dylan Brown do his ACL as well.\nBut Lucas has defied expectations to put himself in contention for Sunday’s sudden-death semi against the Warriors at Eden Park, with Holbrook praising the forward’s resilience and determination throughout his recovery.\n“Everyone trained well. Obviously Dyl Lucas is the one we will see how he pulls up, and we won’t make a decision on him until Saturday,” Holbrook said.\n“Credit to the medical staff and Dylan. The day he got injured he wanted to fast-track himself and do everything right.\n“If he gets there on Sunday, we’ll all be happy for Dyl.”\nHolbrook: \"This time of year is exciting\"\nLucas’ potential return would provide a major boost for the Knights but it would also leave the coach with a difficult decision after Francis Manuleleua and Jermaine McEwen have done an excellent job filling the void on the edges.\nMcEwen forced his way into the side during pre-season, while Manuleleua has made the most of his opportunity since Lucas’ injury.\n“If I go all the way back to pre-season, they had a lot to work on and to their credit they have done that,” Holbrook said.\n“Jermaine, from the start of the year, forced his way in, and now Francis, with his opportunity, has been outstanding for us.\n“Both our back-rowers are doing a great job. We need them again to do that again Sunday. It's a bigger test again and I'm sure they will.”\nThe Lucas star is rising\nFor Holbrook, seeing players push to return from serious injuries and compete for their positions is a reflection of the culture developing within the group.\n“It’s great as a coach to have players fighting to come back onto the field,” he said.\n“It’s what you want to see with your group, and the boys are doing it.”\nAfter overcoming South Sydney in an elimination final, Newcastle now faces a Warriors side on home soil, with Holbrook embracing the underdog tag once again.\n“A lot of people thought we wouldn’t beat Souths, we did, and it’s similar again this week,” he said.\n“But it’s different. You do get confidence, you have to be confident this time of year, but it’s a different challenge, a different game and different conditions.\n“We’re confident that if we go over there and play well, we can get the win.”\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nImmortal advice: How Johns helped Knights unlock attacking mindset\nMatch Preview\nWarriors v Knights: Halasima good to go; Lucas completes miracle\nFinals\n'Big-game player': The spark igniting Ponga's finals charge\n'Where it started': How Vegas launched Knights' rapid rise",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 50.07870768027778,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "bd77c773adc8a9fb",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Match Preview",
+            "title": "Warriors 'Test footy vibes': JFH embraces Eden Park magic",
+            "url": "https://www.nrl.com/news/2026/09/18/test-footy-vibes-jfh-embraces-eden-park-magic/",
+            "published_at": "2026-09-17T22:01:21+00:00",
+            "snippet": "'Test footy vibes': JFH embraces Eden Park magic\nJames Fisher-Harris knows what Eden Park can do to a team.\nHe has experienced the iconic stadium as a Kiwi international and watched the All Blacks turn it into one of the most intimidating fortresses in world rugby.\nNow, with a so",
+            "body_excerpt": "'Test footy vibes': JFH embraces Eden Park magic\nJames Fisher-Harris knows what Eden Park can do to a team.\nHe has experienced the iconic stadium as a Kiwi international and watched the All Blacks turn it into one of the most intimidating fortresses in world rugby.\nNow, with a sold-out crowd set to roar the Warriors on against Newcastle on Sunday, the veteran forward wants his men to create a piece of history of their own.\n“I’ve played Kiwis here a couple of times,” Fisher-Harris said.\n“Eden Park gives me Test footy vibes. Everything goes up a level for me personally.\n“Watching the All Blacks do their thing here, it’s definitely a fortress for them.\"\nThe Warriors' last game at Eden Park back in 2014, when they dismantled the Raiders 54-12 thanks to a 26-point haul from Shaun Johnson.\nMore than a decade later, they return for a much bigger occasion, a do-or-die semi-final with a place in a preliminary final against the Panthers on the line.\nJohnson goes 90 metres\nAnd the timing could not be more fitting for a Warriors side that has spent 2026 rewriting the record books.\nAndrew Webster’s men won 18 of their 24 regular-season games, setting a new club record and surpassing the previous benchmark of 17 wins in 2002 when the Wahs won their only minor premiership.\nAnd Sunday’s clash is expected to smash New Zealand’s rugby league attendance record, with more than 48,000 fans set to pack into Eden Park - surpassing the previous record which has stood for almost 38 years of 47,363 for the Rugby League World Cup final at Eden Park on October 9, 1988.\nWebster soaking up the Eden Park experience\nFor Fisher-Harris, though, one moment from the Warriors’ breakout season stands above the rest.\nIt came earlier in the year when the team performed the haka before their clash with his former club the Panthers.\nWhich they backed up with a statement 28-12 victory.\n“There’s been some good games and finals-like games that I like playing in,” Fisher-Harris said.\n“And probably one that comes to mind is when we did the haka here that trumps everything, because of the haka and the performance we backed up.\n“I think that’s No.1.”\nThe Warriors have already created plenty of history this season.\nBut Fisher-Harris believes the biggest chapter is still to come.\n“There’s been a lot of history this year, lots of pieces to the puzzle,” he said.\nThe Warriors’ loss to the Dolphins last week means they now have to take the longer route to the grand final.\nJames Fisher-Harris Try\nAnd co-captain Fisher-Harris wants the Warriors to find the ruthlessness that was missing in their opening finals match and produce their best football when it matters most.\n“The big thing is winning our little moments, not thinking too far ahead,” he said.\n“I think we still haven’t found our best game yet. We are still chasing that.\n“Great opportunity for us that we have put ourselves into this situation from being consistent heading into this weekend.\n“Ruthlessness, we missed it on the weekend.\nJames Fisher-Harris got a taste of the Eden Park vibe at training this week. ©Photosport\n“I’m keen to play our best game.”\nThe Warriors have the home-ground advantage to get them over the line, with the ultimate prize just three wins away.\n“Personally and for the team’s sake, it’s the last game on home soil, so it’s definitely something to play for.\"\n“We are going to leave it all out there.\n“Not fuss about the result, but more about the performance.”\nMatch: Warriors v Knights\nFinals Week 2 - Finals Week 2 - Sunday 20 Sep\nhome Team\nWarriors\n2nd Position\naway Team\nKnights\n7th Position\nVenue: Eden Park, Auckland\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nImmortal advice: How Johns helped Knights unlock attacking mindset\nMatch Preview\nWarriors v Knights: Halasima good to go; Lucas completes miracle\nWebster draws on Panthers lessons as Wahs take 'scenic route' to prelim\nWarriors v Knights: Finals Week 2\nFinals",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 53.0784299025,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Warriors NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 29",
+          "Warriors vs Knights NRL round 29 preview",
+          "Warriors Knights NRL odds OR price OR favourite",
+          "Warriors Knights NRL finals race OR ladder stakes",
+          "Warriors Knights NRL",
+          "Warriors NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Warriors Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 29 Warriors OR Knights"
+        ],
+        "filter_summary": {
+          "dropped_stale": 67,
+          "dropped_wrong_round": 0,
+          "dropped_noise": 12,
+          "dropped_irrelevant": 17,
+          "kept": 20,
+          "deferred_pending_body": 64,
+          "promoted_after_body": 6,
+          "dropped_duplicate_url": 2,
+          "dropped_no_body": 3
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "3fe94ca5027d",
+      "tool_name": "predict_match",
+      "started_at": "2026-09-20T03:06:03.316622+00:00",
+      "finished_at": "2026-09-20T03:07:57.335829+00:00",
+      "duration_ms": 114019,
+      "request": {
+        "home_team": "Warriors",
+        "away_team": "Knights",
+        "venue": "Eden Park",
+        "kickoff": "2026-09-20T16:05:00+10:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.752,
+        "home_win_probability": 0.752,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.52 log-strength) — contribution 0.178 (12% of total)",
+            "5-game form: possession pct (+6.00) — contribution 0.162 (11% of total)",
+            "Ladder points differential per game (+9.9 points) — contribution 0.160 (11% of total)",
+            "Elo rating advantage (+95 points) — contribution 0.142 (10% of total)",
+            "Pythagorean form (last 10) (+27% expected-win gap) — contribution 0.102 (7% of total)"
+          ],
+          "negative_drivers": [
+            "ctx travel km home (no data) — contribution 0.037 (3% of total)",
+            "3-game form: possession pct (+8.33) — contribution 0.029 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: line breaks (-2.40) — contribution 0.025 (2% of total)",
+            "5-game form: penalties conceded (-1.40) — contribution 0.025 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game form: errors (-2.00) — contribution 0.024 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 1.0938,
+            "total_toward_away": 0.3434,
+            "net": 0.7504,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: possession pct (+8.33)",
+            "5-game form: penalties conceded (-1.40)",
+            "5-game form: errors (-2.00)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Warriors",
+          "away_team": "Knights",
+          "venue": "Eden Park",
+          "kickoff": "2026-09-20T16:05:00+10:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

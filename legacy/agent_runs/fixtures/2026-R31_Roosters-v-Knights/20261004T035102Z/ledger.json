@@ -1,0 +1,1328 @@
+{
+  "schema_version": 2,
+  "run_id": "20261004T035102Z-ee5623f9",
+  "at_a_glance": {
+    "fixture": "Roosters v Knights",
+    "round": 31,
+    "kickoff": "2026-10-04T19:30:00+11:00",
+    "venue": "Accor Stadium",
+    "predicted_winner": "Roosters",
+    "confidence": 0.7,
+    "model_home_win_probability": 0.7064,
+    "model_prediction": "Home Win",
+    "research_items_kept": 21,
+    "research_refine_triggered": false,
+    "verifier_ran": true,
+    "verifier_checklist_pass": true,
+    "verifier_audit_pass": false,
+    "verifier_checks_reported": 8,
+    "recalibrated": true,
+    "llm": "ollama/gemma4:31b-mlx",
+    "failed": false
+  },
+  "created_at": "2026-10-04T03:51:02.344232+00:00",
+  "updated_at": "2026-10-04T04:00:42.888873+00:00",
+  "request": {
+    "home_team": "Roosters",
+    "away_team": "Knights",
+    "season": null,
+    "round_number": 31,
+    "force_refresh": true,
+    "user_question": "Who wins Roosters vs Knights?",
+    "llm_provider": "ollama",
+    "llm_model": "gemma4:31b-mlx"
+  },
+  "error": null,
+  "final_judgement": {
+    "winner": "home",
+    "home_team": "Roosters",
+    "away_team": "Knights",
+    "confidence": 0.7,
+    "summary": "The Roosters remain strong favorites based on a dominant ratings advantage and superior points differential. While the model notes minor factors favoring the Knights, such as travel and recent error rates, these are negligible in weight and the error driver is explicitly conflicted. The Roosters' statistical edge in strength and form outweighs the Knights' fairytale momentum.",
+    "key_factors": [
+      {
+        "source": "math",
+        "detail": "The model is heavily weighted toward the Roosters, led by Bradley-Terry strength (0.180 contribution) and ladder points differential (0.137 contribution). Factors favoring the Knights, such as '3-game form: errors' and 'Away travel to venue', provide minimal contribution (3% each), with the error driver being a conflicted value that rawly favors the home side."
+      },
+      {
+        "source": "scene",
+        "detail": "Official standings confirm the Roosters' superiority, sitting three places higher with a significantly stronger points difference per game (+4.92 vs +1.75)."
+      },
+      {
+        "source": "research",
+        "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the Grand Final."
+      }
+    ],
+    "disagreements_with_math": "null"
+  },
+  "research_loop": {
+    "triggered": false,
+    "gate_first": {
+      "kept_items_with_body": 21,
+      "has_official_or_nrl_news": true,
+      "has_availability_keyword_hit": true,
+      "every_wide_net_channel_failed_with_zero_items": false,
+      "channel_statuses": [
+        {
+          "name": "duckduckgo",
+          "status": "ok",
+          "items_kept": 8
+        },
+        {
+          "name": "google_news_rss",
+          "status": "ok",
+          "items_kept": 10
+        },
+        {
+          "name": "nrl_news",
+          "status": "ok",
+          "items_kept": 12
+        }
+      ],
+      "research_ok": true
+    },
+    "queries_before": [
+      "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+      "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+      "Roosters vs Knights NRL round 31 preview",
+      "Roosters Knights NRL odds OR price OR favourite",
+      "Roosters Knights NRL finals race OR ladder stakes"
+    ],
+    "queries_after": null,
+    "result_ok": true
+  },
+  "verifier_loop": {
+    "verifier_ran": true,
+    "recalibration_triggered": true,
+    "checklist": {
+      "pass": true,
+      "issues": []
+    },
+    "llm_audit": {
+      "ran": true,
+      "pass": false,
+      "checks": [
+        {
+          "check": "sourced_claims",
+          "verdict": "pass",
+          "evidence": "Claims regarding 'red-hot favourites' (Zero Tackle), 'seventh place' (Match Preview), and ladder positions/points diff (Scene) are all present in sources."
+        },
+        {
+          "check": "availability_direction",
+          "verdict": "pass",
+          "evidence": "No specific player availability claims were made in the judgement."
+        },
+        {
+          "check": "shap_attribution",
+          "verdict": "pass",
+          "evidence": "Bradley-Terry strength and Ladder points differential are correctly attributed to the Roosters."
+        },
+        {
+          "check": "weather_not_headline",
+          "verdict": "pass",
+          "evidence": "Weather is not mentioned in the judgement."
+        },
+        {
+          "check": "research_used",
+          "verdict": "pass",
+          "evidence": "Key factor 3 is sourced from Zero Tackle."
+        },
+        {
+          "check": "confidence_justified",
+          "verdict": "pass",
+          "evidence": "Confidence of 0.7 is within the 0.50-0.85 range and justified by ratings and differential."
+        },
+        {
+          "check": "driver_proportionality",
+          "verdict": "pass",
+          "evidence": "No minor SHAP factors were treated as decisive."
+        },
+        {
+          "check": "omitted_math_signals",
+          "verdict": "fail",
+          "evidence": "Top Knights drivers '3-game form: errors' and 'Away travel to venue (120 km)' are not addressed in the judgement."
+        }
+      ],
+      "issues": [
+        "The top math drivers favouring the Knights ('3-game form: errors' and 'Away travel to venue') were omitted from the evaluation."
+      ],
+      "instruction": "Math drivers include '3-game form: errors' and 'Away travel to venue (120 km)'; they are not addressed in your evaluation — please consider them and re-output."
+    },
+    "instruction": "Math drivers include '3-game form: errors' and 'Away travel to venue (120 km)'; they are not addressed in your evaluation — please consider them and re-output.",
+    "judgement_before": {
+      "winner": "home",
+      "home_team": "Roosters",
+      "away_team": "Knights",
+      "confidence": 0.7,
+      "summary": "The Roosters enter the Grand Final as strong favorites, supported by a significant ratings advantage and a superior points differential. While the Knights are on a fairytale run from seventh place, the Roosters' statistical dominance in strength and form is decisive. The market also views the Roosters as red-hot favorites according to Zero Tackle.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model strongly favors the Roosters, driven primarily by a Bradley-Terry strength advantage (0.180 contribution) and a superior ladder points differential per game (0.137 contribution)."
+        },
+        {
+          "source": "scene",
+          "detail": "Official standings show the Roosters are three positions higher than the Knights with a significantly better points difference per game (+4.92 vs +1.75)."
+        },
+        {
+          "source": "research",
+          "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the decider."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "judgement_after": {
+      "winner": "home",
+      "home_team": "Roosters",
+      "away_team": "Knights",
+      "confidence": 0.7,
+      "summary": "The Roosters remain strong favorites based on a dominant ratings advantage and superior points differential. While the model notes minor factors favoring the Knights, such as travel and recent error rates, these are negligible in weight and the error driver is explicitly conflicted. The Roosters' statistical edge in strength and form outweighs the Knights' fairytale momentum.",
+      "key_factors": [
+        {
+          "source": "math",
+          "detail": "The model is heavily weighted toward the Roosters, led by Bradley-Terry strength (0.180 contribution) and ladder points differential (0.137 contribution). Factors favoring the Knights, such as '3-game form: errors' and 'Away travel to venue', provide minimal contribution (3% each), with the error driver being a conflicted value that rawly favors the home side."
+        },
+        {
+          "source": "scene",
+          "detail": "Official standings confirm the Roosters' superiority, sitting three places higher with a significantly stronger points difference per game (+4.92 vs +1.75)."
+        },
+        {
+          "source": "research",
+          "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the Grand Final."
+        }
+      ],
+      "disagreements_with_math": "null"
+    },
+    "issues": [
+      "The top math drivers favouring the Knights ('3-game form: errors' and 'Away travel to venue') were omitted from the evaluation."
+    ]
+  },
+  "thinking_trace": [
+    {
+      "step": "query_plan",
+      "at": "2026-10-04T03:51:42.743701+00:00",
+      "thinking": "*   Home Team: Roosters\n    *   Away Team: Knights\n    *   Round Number: 31\n    *   Goal: Determine who wins (predictive/research).\n\n    *   Query 1: Home team availability (Roosters).\n    *   Query 2: Away team availability (Knights).\n    *   Query 3: Fixture preview (Roosters vs Knights Round 31).\n    *   Query 4: Market prices (Odds/Favourite).\n    *   Query 5: Specific angle (Form/Ladder/Pressure/Key player).\n\n    *   Query 1: `Roosters NRL injury OR \"late mail\" OR \"team list\" round 31`\n    *   Query 2: `Knights NRL injury OR \"late mail\" OR \"team list\" round 31`\n    *   Query 3: `Roosters vs Knights NRL round 31 preview`\n    *   Query 4: `Roosters Knights NRL odds OR price OR favourite`\n    *   Query 5: Since it's Round 31 (likely finals or very late season), \"finals race\" or \"ladder stakes\" is appropriate. Let's go with `Roosters Knights NRL finals race OR ladder stakes` or `Roosters Knights NRL form streak OR slump`. Let's use `Roosters Knights NRL finals race OR ladder stakes`.\n\n    *   No questions? Yes.\n    *   Keywords only? Yes.\n    *   4-10 words? Yes.\n    *   No weather/venue/ref? Yes.\n    *   Exact nicknames? Yes (Roosters, Knights).\n    *   JSON format? Yes.",
+      "chars": 1191
+    },
+    {
+      "step": "judgement",
+      "at": "2026-10-04T03:56:32.489324+00:00",
+      "thinking": "Roosters (Home) vs. Knights (Away).\nGrand Final (Round 31).\nAccor Stadium.\n\n        *   Prediction: Home Win.\n        *   Probability: 0.7064.\n        *   Key Drivers (Home): Bradley-Terry strength (0.180), Ladder points differential per game (0.137), Pythagorean form (0.091), Elo rating (0.059), Effective tackle % (0.031).\n        *   Key Drivers (Away): Errors (0.029 - CONFLICT), Travel (0.027), Post contact metres (0.015 - CONFLICT), Tackle share (0.015), Possession % (0.014).\n        *   Attribution Balance: Leans Home (0.693 vs 0.1639).\n\n        *   Roosters: Position 4, 16 wins, 38 pts, PD +118 (4.92/game).\n        *   Knights: Position 7, 14 wins, 34 pts, PD +42 (1.75/game).\n        *   Comparison: Roosters higher on ladder, better PD.\n\n        *   Roosters: Connor Watson is ruled out (concussion/denied clearance). Benaiah Ioelu replaces him (confirmed by \"NRL Late Mail: Grand Final - Ioelu in for Watson\").\n        *   Knights: Phoenix Crossland and Jacob Saifiti are mentioned as missing the GF in the \"Casualty Ward\" article. Harrison Graham is stepping up for Phoenix (confirmed by \"Match Preview Roosters v Knights\").\n        *   Context: Zero Tackle describes Roosters as \"red-hot favourites\". The Knights are on a \"fairytale run\" from 7th.\n\n        *   Market: Zero Tackle calls Roosters \"red-hot favourites\". No specific prices in `market_mentions` (empty `prices_found` lists), but the qualitative research indicates Roosters are the favorites.\n\n    *   The math model strongly favors the Roosters (70.6%).\n    *   The standings support this (higher position, significantly better points difference).\n    *   The research confirms the Roosters are the market favorites.\n    *   Availability: Roosters lose Connor Watson (utility), but the model already accounts for general strength. Knights are missing Crossland and Saifiti (though Saifiti's absence is mentioned in the \"Casualty Ward\" article as missing the GF).\n    *   The \"fairytale\" narrative for the Knights is a risk, but the statistical gap is wide.\n\n    *   *Winner:* Home (Roosters).\n    *   *Confidence:* The model says 0.7064. The standings and market agree. The loss of Watson is a minor blow, but the Roosters' overall strength (Bradley-Terry, Elo, PD) is dominant. However, the Knights have \"caused three upsets\" to get here.\n    *   *Confidence Band:* 0.65-0.75 (Clear edge). I'll set it at 0.70, aligning with the model as multiple signals (math, standings, market) agree.\n    *   *Strongest reason to lose:* The Knights' momentum/upset potential (coming from 7th) and the Roosters' \"big questions around their discipline and defensive consistency\" (Zero Tackle).\n\n    *   *Key Factors:*\n        1.  Math: Bradley-Terry strength and ladder points differential (significant contributions).\n        2.  Research: Zero Tackle identifies Roosters as \"red-hot favourites\" and notes the Knights' unlikely run from 7th.\n        3.  Scene: Standings show Roosters are 3 places higher with a much stronger points difference per game (+4.92 vs +1.75).\n\n    *   *Disagreements with math:* None.\n\n    *   Check SHAP drivers: \"Bradley-Terry strength advantage\" is in `favouring_Roosters_home_win`. Correct.\n    *   Check conflicts: \"3-game form: errors\" and \"5-game form: post contact metres\" are conflicted. I won't cite them as plain support for the Knights.\n    *   Check availability: Watson is OUT. Ioelu is IN. Correct.\n    *   Check market: Roosters are favorites (Zero Tackle). Correct.",
+      "chars": 3479
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-10-04T03:59:41.253708+00:00",
+      "thinking": "The user wants me to audit a ledger for an NRL prediction.\nI need to check 8 specific criteria:\n1. `sourced_claims`: Are all claims (injuries, players, quotes, team lists) in the research body/title or scene?\n2. `availability_direction`: Do availability claims match the source?\n3. `shap_attribution`: Are SHAP drivers correctly attributed to the right club?\n4. `weather_not_headline`: Is weather a key factor without being a SHAP driver?\n5. `research_used`: Is at least one key factor sourced from research?\n6. `confidence_justified`: Is the confidence number (0.50-0.85) justified and defensible?\n7. `driver_proportionality`: Are minor SHAP factors treated as decisive?\n8. `omitted_math_signals`: Are the top drivers from *each* SHAP group addressed?\n\n- Home: Roosters\n- Away: Knights\n- Prediction: Home Win\n- Confidence: 0.7\n\n- \"Roosters enter the Grand Final as strong favorites\" -> Research (Zero Tackle: \"red-hot favourites\").\n- \"significant ratings advantage\" -> Math (Elo rating advantage, Bradley-Terry strength).\n- \"superior points differential\" -> Scene (points_difference_per_game_gap: 3.17) / Math (Ladder points differential per game).\n- \"Knights are on a fairytale run from seventh place\" -> Research (Match Preview: \"Knights have come from seventh spot... fairytale revival\").\n- \"Roosters' statistical dominance in strength and form is decisive\" -> Math (Bradley-Terry, Pythagorean form).\n- \"market also views the Roosters as red-hot favorites according to Zero Tackle\" -> Research (Zero Tackle: \"red-hot favourites\").\n\n- \"Bradley-Terry strength advantage (0.180 contribution)\" -> Math (`favouring_Roosters_home_win`).\n- \"superior ladder points differential per game (0.137 contribution)\" -> Math (`favouring_Roosters_home_win`).\n- \"Roosters are three positions higher than the Knights with a significantly better points difference per game (+4.92 vs +1.75)\" -> Scene (`standings`).\n- \"Zero Tackle identifies the Roosters as 'red-hot favourites'...\" -> Research (Zero Tackle body: \"The Sydney Roosters enter their first grand final for seven years as red-hot favourites\").\n\n- No specific player availability claims (like \"X is returning\") are made in the judgement. It mentions the Knights' \"fairytale run\" and \"seventh place\", which are general facts.\n- Wait, the research mentions Connor Watson is out, and Phoenix Crossland/Jacob Saifiti are out. The judgement does *not* mention these. This is fine (not required to mention every injury, just that if it *is* mentioned, it's sourced).\n\n- Bradley-Terry strength advantage (Roosters) -> Correct.\n- Ladder points differential per game (Roosters) -> Correct.\n\n- Weather is \"Fine\". It is not mentioned in the judgement. Pass.\n\n- Key factor 3 is sourced from Zero Tackle. Pass.\n\n- Confidence is 0.7.\n- Justification: \"supported by a significant ratings advantage and a superior points differential.\"\n- Range: 0.50-0.85. 0.7 is within range.\n- Defensible: The model probability is 0.7064. The judge's 0.7 is very close. There are no major unresolved reasons for loss mentioned (though the Knights' \"fairytale run\" is noted, the judge deems Roosters' dominance \"decisive\"). Pass.\n\n- Top Roosters drivers: Bradley-Terry (0.180), Ladder points diff (0.137). Both are mentioned.\n- Top Knights drivers: 3-game form: errors (0.029), Away travel (0.027).\n- Are these mentioned? No.\n- The judgement mentions the Knights' \"fairytale run from seventh place\", but this is a research/scene point, not the specific math signal \"3-game form: errors\" or \"Away travel\".\n- The prompt says: \"If any of those [top drivers in each group] is neither named nor clearly alluded to... fail\".\n- The top Knights drivers are \"3-game form: errors\" and \"Away travel\". Neither is mentioned or alluded to.\n- Fail.\n\n- All claims are sourced.\n- \"red-hot favourites\" -> Zero Tackle.\n- \"seventh place\" -> Match Preview.\n- \"three positions higher\" -> Scene.\n- \"points difference per game (+4.92 vs +1.75)\" -> Scene.\n\n- No availability claims made. Pass.\n\n- Correct.\n\n- Not mentioned. Pass.\n\n- Used Zero Tackle. Pass.\n\n- 0.7 is justified by ratings/differential. Pass.\n\n- No minor drivers treated as decisive. Pass.\n\n- Top Knights drivers (3-game form: errors, Away travel) are missing. Fail.\n\n- `sourced_claims`: pass. Evidence: \"Zero Tackle identifies the Roosters as 'red-hot favourites' matches 'The Sydney Roosters enter... as red-hot favourites'\".\n- `availability_direction`: pass. Evidence: \"No availability claims made in judgement\".\n- `shap_attribution`: pass. Evidence: \"Bradley-Terry and Ladder points differential correctly attributed to Roosters\".\n- `weather_not_headline`: pass. Evidence: \"Weather not mentioned in judgement\".\n- `research_used`: pass. Evidence: \"Key factor 3 sources Zero Tackle\".\n- `confidence_justified`: pass. Evidence: \"0.7 is within 0.5-0.85 and justified by ratings/differential\".\n- `driver_proportionality`: pass. Evidence: \"No minor drivers treated as decisive\".\n- `omitted_math_signals`: fail. Evidence: \"Top Knights drivers '3-game form: errors' and 'Away travel to venue' are not addressed\".\n\nInstruction: \"Math drivers include '3-game form: errors' and 'Away travel to venue (120 km)'; they are not addressed in your evaluation — please consider them and re-output.\"",
+      "chars": 5235
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-10-04T04:00:42.888755+00:00",
+      "thinking": "*   Current Pick: Roosters (Home)\n    *   Confidence: 0.70\n    *   Verifier Issue: Omitted top math drivers favoring the Knights ('3-game form: errors' and 'Away travel to venue').\n\n    *   `favouring_Knights_away_win`:\n        *   \"3-game form: errors (-2.67) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here\"\n        *   \"Away travel to venue (120 km) — contribution 0.027 (3% of total)\"\n    *   `attribution_balance`:\n        *   Total toward home: 0.693\n        *   Total toward away: 0.1639\n        *   Net: 0.5291 (leans home)\n\n    *   *3-game form: errors*: The contribution is very small (3% of total). More importantly, it is marked as a \"CONFLICT\". The raw value actually favors the Roosters, but the model's internal logic nets it toward the Knights. Regardless, at 3% contribution, it's a minor factor.\n    *   *Away travel to venue (120 km)*: This is also a minor factor (3% contribution). 120km is a short distance (Newcastle to Sydney), so it's unlikely to be a decisive advantage for the away team.\n\n    *   The Roosters' drivers are far more impactful: Bradley-Terry strength (21%), Ladder points differential (16%), Pythagorean form (11%).\n    *   The total attribution balance (0.693 vs 0.1639) heavily favors the Roosters.\n    *   The \"conflicted\" nature of the error driver further weakens the Knights' case.\n\n    *   The omitted drivers are negligible in weight (3% each) compared to the primary drivers (21%, 16%).\n    *   The \"errors\" driver is conflicted, meaning the raw stat actually helps the Roosters.\n    *   The travel distance is minimal.\n    *   The pick (Roosters) and confidence (0.70) remain justified.\n\n    *   Update summary to acknowledge these factors or explicitly discount them.\n    *   Update key factors to show they were considered.",
+      "chars": 1864
+    }
+  ],
+  "agent_steps": [
+    {
+      "step": "query_plan",
+      "at": "2026-10-04T03:51:42.753368+00:00",
+      "payload": {
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Roosters vs Knights NRL round 31 preview",
+          "Roosters Knights NRL odds OR price OR favourite",
+          "Roosters Knights NRL finals race OR ladder stakes"
+        ]
+      }
+    },
+    {
+      "step": "judgement",
+      "at": "2026-10-04T03:56:32.489573+00:00",
+      "payload": {
+        "judgement": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "confidence": 0.7,
+          "summary": "The Roosters enter the Grand Final as strong favorites, supported by a significant ratings advantage and a superior points differential. While the Knights are on a fairytale run from seventh place, the Roosters' statistical dominance in strength and form is decisive. The market also views the Roosters as red-hot favorites according to Zero Tackle.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favors the Roosters, driven primarily by a Bradley-Terry strength advantage (0.180 contribution) and a superior ladder points differential per game (0.137 contribution)."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings show the Roosters are three positions higher than the Knights with a significantly better points difference per game (+4.92 vs +1.75)."
+            },
+            {
+              "source": "research",
+              "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the decider."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    },
+    {
+      "step": "verifier_audit",
+      "at": "2026-10-04T03:59:41.255340+00:00",
+      "payload": {
+        "checklist": {
+          "pass": true,
+          "issues": []
+        },
+        "llm_audit": {
+          "ran": true,
+          "pass": false,
+          "checks": [
+            {
+              "check": "sourced_claims",
+              "verdict": "pass",
+              "evidence": "Claims regarding 'red-hot favourites' (Zero Tackle), 'seventh place' (Match Preview), and ladder positions/points diff (Scene) are all present in sources."
+            },
+            {
+              "check": "availability_direction",
+              "verdict": "pass",
+              "evidence": "No specific player availability claims were made in the judgement."
+            },
+            {
+              "check": "shap_attribution",
+              "verdict": "pass",
+              "evidence": "Bradley-Terry strength and Ladder points differential are correctly attributed to the Roosters."
+            },
+            {
+              "check": "weather_not_headline",
+              "verdict": "pass",
+              "evidence": "Weather is not mentioned in the judgement."
+            },
+            {
+              "check": "research_used",
+              "verdict": "pass",
+              "evidence": "Key factor 3 is sourced from Zero Tackle."
+            },
+            {
+              "check": "confidence_justified",
+              "verdict": "pass",
+              "evidence": "Confidence of 0.7 is within the 0.50-0.85 range and justified by ratings and differential."
+            },
+            {
+              "check": "driver_proportionality",
+              "verdict": "pass",
+              "evidence": "No minor SHAP factors were treated as decisive."
+            },
+            {
+              "check": "omitted_math_signals",
+              "verdict": "fail",
+              "evidence": "Top Knights drivers '3-game form: errors' and 'Away travel to venue (120 km)' are not addressed in the judgement."
+            }
+          ],
+          "issues": [
+            "The top math drivers favouring the Knights ('3-game form: errors' and 'Away travel to venue') were omitted from the evaluation."
+          ],
+          "instruction": "Math drivers include '3-game form: errors' and 'Away travel to venue (120 km)'; they are not addressed in your evaluation — please consider them and re-output."
+        }
+      }
+    },
+    {
+      "step": "verifier_recalibrate",
+      "at": "2026-10-04T04:00:42.888810+00:00",
+      "payload": {
+        "issues": [
+          "The top math drivers favouring the Knights ('3-game form: errors' and 'Away travel to venue') were omitted from the evaluation."
+        ],
+        "instruction": "Math drivers include '3-game form: errors' and 'Away travel to venue (120 km)'; they are not addressed in your evaluation — please consider them and re-output.",
+        "before": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "confidence": 0.7,
+          "summary": "The Roosters enter the Grand Final as strong favorites, supported by a significant ratings advantage and a superior points differential. While the Knights are on a fairytale run from seventh place, the Roosters' statistical dominance in strength and form is decisive. The market also views the Roosters as red-hot favorites according to Zero Tackle.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model strongly favors the Roosters, driven primarily by a Bradley-Terry strength advantage (0.180 contribution) and a superior ladder points differential per game (0.137 contribution)."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings show the Roosters are three positions higher than the Knights with a significantly better points difference per game (+4.92 vs +1.75)."
+            },
+            {
+              "source": "research",
+              "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the decider."
+            }
+          ],
+          "disagreements_with_math": "null"
+        },
+        "after": {
+          "winner": "home",
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "confidence": 0.7,
+          "summary": "The Roosters remain strong favorites based on a dominant ratings advantage and superior points differential. While the model notes minor factors favoring the Knights, such as travel and recent error rates, these are negligible in weight and the error driver is explicitly conflicted. The Roosters' statistical edge in strength and form outweighs the Knights' fairytale momentum.",
+          "key_factors": [
+            {
+              "source": "math",
+              "detail": "The model is heavily weighted toward the Roosters, led by Bradley-Terry strength (0.180 contribution) and ladder points differential (0.137 contribution). Factors favoring the Knights, such as '3-game form: errors' and 'Away travel to venue', provide minimal contribution (3% each), with the error driver being a conflicted value that rawly favors the home side."
+            },
+            {
+              "source": "scene",
+              "detail": "Official standings confirm the Roosters' superiority, sitting three places higher with a significantly stronger points difference per game (+4.92 vs +1.75)."
+            },
+            {
+              "source": "research",
+              "detail": "Zero Tackle identifies the Roosters as 'red-hot favourites' against a Knights side that has relied on three consecutive upsets to reach the Grand Final."
+            }
+          ],
+          "disagreements_with_math": "null"
+        }
+      }
+    }
+  ],
+  "tool_calls": [
+    {
+      "call_id": "ebc70d592931",
+      "tool_name": "set_fixture_scene",
+      "started_at": "2026-10-04T03:51:02.344389+00:00",
+      "finished_at": "2026-10-04T03:51:05.842508+00:00",
+      "duration_ms": 3498,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Knights",
+        "season": null,
+        "round_number": 31,
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "fixture_scene",
+        "tool_version": "0.2.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "season": null,
+          "round_number": 31
+        },
+        "retrieved_at": "2026-10-04T03:51:02.344458+00:00",
+        "cache_hit": false,
+        "fixture": {
+          "season": 2026,
+          "round_number": 31,
+          "round_title": "Grand Final",
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "kickoff": "2026-10-04T19:30:00+11:00",
+          "venue": "Accor Stadium",
+          "venue_city": "Sydney",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/",
+          "match_mode": "Pre",
+          "match_id": "20261113110",
+          "ground_conditions": "Good",
+          "nrl_weather_field": "Fine",
+          "officials": [
+            {
+              "position": "Referee",
+              "name": "Adam Gee"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Tyson Brough"
+            },
+            {
+              "position": "Touch Judge",
+              "name": "Phil Henderson"
+            },
+            {
+              "position": "Senior Review Official",
+              "name": "Chris Butler"
+            }
+          ],
+          "team_lists": {
+            "home": [
+              {
+                "number": 1,
+                "name": "James Tedesco",
+                "position": "Fullback",
+                "player_id": 500663
+              },
+              {
+                "number": 2,
+                "name": "Daniel Tupou",
+                "position": "Winger",
+                "player_id": 500002
+              },
+              {
+                "number": 3,
+                "name": "Billy Smith",
+                "position": "Centre",
+                "player_id": 509128
+              },
+              {
+                "number": 4,
+                "name": "Robert Toia",
+                "position": "Centre",
+                "player_id": 100008243
+              },
+              {
+                "number": 5,
+                "name": "Mark Nawaqanitawase",
+                "position": "Winger",
+                "player_id": 100018452
+              },
+              {
+                "number": 6,
+                "name": "Daly Cherry-Evans",
+                "position": "Five-Eighth",
+                "player_id": 500024
+              },
+              {
+                "number": 7,
+                "name": "Sam Walker",
+                "position": "Halfback",
+                "player_id": 100004843
+              },
+              {
+                "number": 8,
+                "name": "Naufahu Whyte",
+                "position": "Prop",
+                "player_id": 100006390
+              },
+              {
+                "number": 9,
+                "name": "Reece Robson",
+                "position": "Hooker",
+                "player_id": 503944
+              },
+              {
+                "number": 10,
+                "name": "Lindsay Collins",
+                "position": "Prop",
+                "player_id": 501781
+              },
+              {
+                "number": 11,
+                "name": "Salesi Foketi",
+                "position": "2nd Row",
+                "player_id": 100008234
+              },
+              {
+                "number": 12,
+                "name": "Siua Wong",
+                "position": "2nd Row",
+                "player_id": 100004373
+              },
+              {
+                "number": 13,
+                "name": "Victor Radley",
+                "position": "Lock",
+                "player_id": 503920
+              },
+              {
+                "number": 15,
+                "name": "Angus Crichton",
+                "position": "Interchange",
+                "player_id": 503240
+              },
+              {
+                "number": 16,
+                "name": "Nat Butcher",
+                "position": "Interchange",
+                "player_id": 503639
+              },
+              {
+                "number": 17,
+                "name": "Spencer Leniu",
+                "position": "Interchange",
+                "player_id": 505560
+              },
+              {
+                "number": 18,
+                "name": "Hugo Savala",
+                "position": "Interchange",
+                "player_id": 509599
+              },
+              {
+                "number": 19,
+                "name": "Cody Ramsey",
+                "position": "Interchange",
+                "player_id": 509404
+              },
+              {
+                "number": 20,
+                "name": "Benaiah Ioelu",
+                "position": "Interchange",
+                "player_id": 100007527
+              },
+              {
+                "number": 22,
+                "name": "Egan Butcher",
+                "position": "Reserve",
+                "player_id": 504678
+              }
+            ],
+            "away": [
+              {
+                "number": 1,
+                "name": "Kalyn Ponga",
+                "position": "Fullback",
+                "player_id": 504870
+              },
+              {
+                "number": 2,
+                "name": "Dominic Young",
+                "position": "Winger",
+                "player_id": 100008071
+              },
+              {
+                "number": 3,
+                "name": "Dane Gagai",
+                "position": "Centre",
+                "player_id": 500043
+              },
+              {
+                "number": 4,
+                "name": "Bradman Best",
+                "position": "Centre",
+                "player_id": 506682
+              },
+              {
+                "number": 5,
+                "name": "Greg Marzhew",
+                "position": "Winger",
+                "player_id": 504325
+              },
+              {
+                "number": 6,
+                "name": "Fletcher Sharpe",
+                "position": "Five-Eighth",
+                "player_id": 100006482
+              },
+              {
+                "number": 7,
+                "name": "Sandon Smith",
+                "position": "Halfback",
+                "player_id": 509579
+              },
+              {
+                "number": 8,
+                "name": "Tyson Frizell",
+                "position": "Prop",
+                "player_id": 500622
+              },
+              {
+                "number": 10,
+                "name": "Cody Hopwood",
+                "position": "Prop",
+                "player_id": 100011256
+              },
+              {
+                "number": 11,
+                "name": "Jermaine McEwen",
+                "position": "2nd Row",
+                "player_id": 100008236
+              },
+              {
+                "number": 12,
+                "name": "Francis Manuleleua",
+                "position": "2nd Row",
+                "player_id": 100013721
+              },
+              {
+                "number": 13,
+                "name": "Mat Croker",
+                "position": "Lock",
+                "player_id": 504298
+              },
+              {
+                "number": 14,
+                "name": "Harrison Graham",
+                "position": "Hooker",
+                "player_id": 506220
+              },
+              {
+                "number": 15,
+                "name": "Lachlan Crouch",
+                "position": "Interchange",
+                "player_id": 100003974
+              },
+              {
+                "number": 16,
+                "name": "Pasami Saulo",
+                "position": "Interchange",
+                "player_id": 504079
+              },
+              {
+                "number": 17,
+                "name": "Dylan Lucas",
+                "position": "Interchange",
+                "player_id": 505582
+              },
+              {
+                "number": 18,
+                "name": "Fletcher Hunt",
+                "position": "Interchange",
+                "player_id": 100008414
+              },
+              {
+                "number": 19,
+                "name": "Thomas Cant",
+                "position": "Interchange",
+                "player_id": 509527
+              },
+              {
+                "number": 20,
+                "name": "Kyle McCarthy",
+                "position": "Interchange",
+                "player_id": 100006946
+              },
+              {
+                "number": 21,
+                "name": "Diesel Hagan",
+                "position": "Reserve",
+                "player_id": 100013938
+              }
+            ],
+            "status": "available"
+          }
+        },
+        "standings": {
+          "available": true,
+          "as_at_round": 31,
+          "teams_in_competition": 17,
+          "home": {
+            "team": "Roosters",
+            "position": 4,
+            "played": 24,
+            "wins": 16,
+            "drawn": 0,
+            "lost": 8,
+            "competition_points": 38,
+            "points_for": 619,
+            "points_against": 501,
+            "points_difference": 118,
+            "points_difference_per_game": 4.92,
+            "recent_form_last_4": "2 - 3",
+            "streak": "3L",
+            "home_record": "8 - 4",
+            "away_record": "8 - 4"
+          },
+          "away": {
+            "team": "Knights",
+            "position": 7,
+            "played": 24,
+            "wins": 14,
+            "drawn": 0,
+            "lost": 10,
+            "competition_points": 34,
+            "points_for": 633,
+            "points_against": 591,
+            "points_difference": 42,
+            "points_difference_per_game": 1.75,
+            "recent_form_last_4": "2 - 2",
+            "streak": "2L",
+            "home_record": "8 - 4",
+            "away_record": "6 - 6"
+          },
+          "comparison": {
+            "higher_on_ladder": "Roosters",
+            "ladder_positions_gap": 3,
+            "points_difference_per_game_gap": 3.17,
+            "points_difference_favours": "Roosters"
+          },
+          "source_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=31"
+        },
+        "weather": {
+          "provider": "open-meteo",
+          "at_kickoff": {
+            "time_local": "2026-10-04T19:00",
+            "temperature_c": 17.5,
+            "precipitation_mm": 0.0,
+            "precipitation_probability_pct": 0,
+            "wind_speed_kmh": 11.6,
+            "weather_code": 1,
+            "summary": "Mainly clear",
+            "latitude": -33.8474,
+            "longitude": 151.0632,
+            "venue": "Accor Stadium",
+            "venue_city": "Sydney"
+          },
+          "math_weather_label": "Fine",
+          "source_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "error": null,
+          "retrieved_at": "2026-10-04T03:51:05.841118+00:00"
+        },
+        "sources": {
+          "draw_url": "https://www.nrl.com/draw/?competition=111&round=31&season=2026",
+          "match_centre_url": "https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/",
+          "weather_url": "https://api.open-meteo.com/v1/forecast?latitude=-33.8474&longitude=151.0632&hourly=temperature_2m%2Cprecipitation%2Cprecipitation_probability%2Cweather_code%2Cwind_speed_10m&timezone=Australia%2FSydney&forecast_days=7",
+          "ladder_url": "https://www.nrl.com/ladder/?competition=111&season=2026&round=31"
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "dc491a809801",
+      "tool_name": "research_fixture_news",
+      "started_at": "2026-10-04T03:51:42.772982+00:00",
+      "finished_at": "2026-10-04T03:53:22.514337+00:00",
+      "duration_ms": 99741,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Knights",
+        "kickoff": "2026-10-04T19:30:00+11:00",
+        "round_number": 31,
+        "venue": "Accor Stadium",
+        "queries": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Roosters vs Knights NRL round 31 preview",
+          "Roosters Knights NRL odds OR price OR favourite",
+          "Roosters Knights NRL finals race OR ladder stakes"
+        ],
+        "force_refresh": true
+      },
+      "response": {
+        "tool": "qualitative_research",
+        "tool_version": "0.1.0",
+        "request": {
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "kickoff": "2026-10-04T19:30:00+11:00",
+          "round_number": 31,
+          "venue": "Accor Stadium",
+          "queries": [
+            "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+            "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+            "Roosters vs Knights NRL round 31 preview",
+            "Roosters Knights NRL odds OR price OR favourite",
+            "Roosters Knights NRL finals race OR ladder stakes"
+          ]
+        },
+        "retrieved_at": "2026-10-04T03:51:42.807604+00:00",
+        "cache_hit": false,
+        "channels": {
+          "nrl_news": {
+            "status": "ok",
+            "items_kept": 12
+          },
+          "duckduckgo": {
+            "status": "ok",
+            "items_kept": 8
+          },
+          "google_news_rss": {
+            "status": "ok",
+            "items_kept": 10
+          }
+        },
+        "items": [
+          {
+            "id": "6d6327e73b58a669",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Injuries",
+            "title": "NRL Casualty Ward: Watson out of GF; Promising signs for Cleary",
+            "url": "https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/",
+            "published_at": "2026-10-04T01:50:17+00:00",
+            "snippet": "NRL Casualty Ward: Watson out of GF; Promising signs for Cleary\nRoosters utility Connor Watson will miss the NRL grand final after failing to receive clearance from an independent doctor.\nWatson suffered a head knock just one minute after coming on to the field of last Friday's p",
+            "body_excerpt": "NRL Casualty Ward: Watson out of GF; Promising signs for Cleary\nRoosters utility Connor Watson will miss the NRL grand final after failing to receive clearance from an independent doctor.\nWatson suffered a head knock just one minute after coming on to the field of last Friday's preliminary final victory and was promptly ruled out of the remainder of the match.\nWith players typically placed into an 11-day stand-down period after a concussion, the Roosters sought clearance from an independent neurologist for Watson to line up in the decider.\nThe request has been denied, with the 30-year-old to miss what would have been his first grand final.\nWatson joins suspended Knights duo Phoenix Crossland and Jacob Saifiti as the unlucky players to miss out on the grand final.\nMeanwhile, Panthers Group CEO Andrew Hill has providing a promising update on the potential return of Dally M Medal winner Nathan Cleary.\nThe Penrith co-captain underwent surgery after suffering a compound fracture of his left leg in the preliminary final loss against the Knights.\nCleary had only been on the field for 10 minutes after coming off the bench in his return from a foot injury suffered in the qualifying final a fortnight ago.\nCleary posted a message of thanks from his hospital bed following the procedure.\nAn update from Nathan 🫶🏽 pic.twitter.com/8HJ4KWVbyT\nThe No.7 was attacking the line when he was dragged down by Newcastle hooker Phoenix Crossland, who was sent off for the hip-drop tackle.\nPenrith officials quickly confirmed it was a compound fracture as Cleary left the field and was transported to hospital.\nCoach Ivan Cleary confirmed post-match that Nathan would also require surgery to repair a broken right foot which he had carried into the match.\nCasualty Ward By Club /\nBroncos\nBulldogs\nCowboys\nDragons\nDolphins\nEels\nKnights\nPanthers\nRabbitohs\nRaiders\nRoosters\nSea Eagles\nSharks\nStorm\nTitans\nWarriors\nWests Tigers\nThat was the injury he suffered against the Roosters in the qualifying final but bravely took the field in the preliminary final.\n\"Who knows what an injury - these days - takes,\" Hill said speaking about Cleary's recovery.\n\"What used to take three months, is now three weeks.\n\"The indication from the surgeon is everything going to plan.\n\"Round 1 to Round 4 we're expecting him to be back. As good as news as we could have hoped from a terrible, terrible injury.\"\nEarlier, the Panthers coach also confirmed that co-captain Isaah Yeo had played with a fully torn pectoral muscle and fullback Dylan Edwards was nursing a knee injury.\nYoungster Blaize Talagi collapsed to the ground untouched in the second half and received treatment before being helped from the field with an Achilles injury.\nSharks playmaker Braydon Trindall is facing a 4-5 month recovery period after having surgery on his shoulder.\nTrindall dislocated his shoulder while scoring a try in Round 24 against the Raiders but initially put off surgery so he could return to play four weeks later, battling through two finals fixtures.\nTrindall's teammate Toby Rudolf has undergone knee surgery and is facing 3-4 months on the sideline after having an MCL reconstruction.\nTo view the complete NRL Casualty Ward , please visit the hub page .\nYour club's NRL Casualty Ward\nBroncos | Raiders | Bulldogs | Sharks | Dolphins Titans | Sea Eagles | Storm | Knights Eels | Cowboys | Panthers | Rabbitohs Dragons | Roosters | Warriors | Wests Tigers\nCasualty Ward\nBrisbane Broncos\nPreston Riki (syndesmosis, World Cup)\nReece Walsh (syndesmosis, World Cup)\nBrendan Piakura (concussion, 2027)\nCory Paix (shoulder, 2027)\nBlake Mozer (concussion, 2027)\nCanberra Raiders\nMorgan Smithies (concussion, World Cup)\nHudson Young (Achilles, 2027)\nZac Hosking (hamstring, 2027)\nCorey Horsburgh (shoulder, 2027)\nSavelio Tamale (knee, 2027)\nCanterbury-Bankstown Bulldogs\nJethro Rinakama (knee, 2027)\nKurt Mann (groin, 2027)\nSitili Tupouniua (hamstring, 2027)\nSam Hughes (neck, 2027)\nCronulla Sharks\nBraydon Trindall (shoulder, 2027)\nToby R",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 2.0238354455555556,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "09cdc5d420ca97e7",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Team Lists NRL State Championship Team Lists: Panthers v Dolphins",
+            "url": "https://www.nrl.com/news/2026/09/29/nrl-state-championship-team-lists/",
+            "published_at": "2026-10-04T01:21:30+00:00",
+            "snippet": "Presented By\nNRL State Championship Team Lists: Panthers v Dolphins\nThe winners of The Knock On Effect Cup Penrith will take on Queensland's Hostplus Cup winners Redcliffe Dolphins for the national title to kick off grand final day.\nOfficial team lists, updates and injury news fo",
+            "body_excerpt": "Presented By\nNRL State Championship Team Lists: Panthers v Dolphins\nThe winners of The Knock On Effect Cup Penrith will take on Queensland's Hostplus Cup winners Redcliffe Dolphins for the national title to kick off grand final day.\nOfficial team lists, updates and injury news for the 2026 NRL State Championship Final.\nAll you need to know about Grand Final Week\nTeam Lists: NRL State Championship\nPenrith Panthers v Redcliffe Dolphins, 1.20pm AEDT at Accor Stadium\nMatch: Panthers v Dolphins\nNRL State Championship - NRL State Championship - Sunday 4 Oct\nhome Team\nPanthers\naway Team\nDolphins\nTeam Lists\nBacks\nFullback for Panthers is number 1 Jaxen Edgar 1 Fullback for Dolphins is number 1 Trai Fuller\nWinger for Panthers is number 2 Nick Murphy 2 Winger for Dolphins is number 2 Joven Gyemore\nCentre for Panthers is number 3 Patrick Moimoi 3 Centre for Dolphins is number 3 Jude Saldanha\nCentre for Panthers is number 4 Jesse McLean 4 Centre for Dolphins is number 4 Kyle Coghill\nWinger for Panthers is number 5 Jirah Liddiard 5 Winger for Dolphins is number 5 Tevita Naufahu\nFive-Eighth for Panthers is number 6 Keahn Skipps 6 Five-Eighth for Dolphins is number 6 Jake Averillo\nHalfback for Panthers is number 7 Kurt Falls 7 Halfback for Dolphins is number 7 Joshua James\nForwards\nProp for Panthers is number 8 Tom Ale 8 Prop for Dolphins is number 8 Sebastian Su'a\nHooker for Panthers is number 9 Billy Scott 9 Hooker for Dolphins is number 9 Brent Woolf\nProp for Panthers is number 15 Jakeb Vailalo 15 10 Prop for Dolphins is number 10 Felise Kaufusi\n15 10\n2nd Row for Panthers is number 11 Zakauri Clarke 11 2nd Row for Dolphins is number 11 Brian Pouniu\n11\n2nd Row for Panthers is number 12 Kalani Leuluai-Going 12 2nd Row for Dolphins is number 12 Sam Elliott\n12\nLock for Panthers is number 13 Luron Patea 13 Lock for Dolphins is number 13 Bradley Schneider\n13\nInterchange\nInterchange for Panthers is number 10 Josh Ruxton 10 14 Interchange for Dolphins is number 14 Jordan Plath\n10 14\nInterchange for Panthers is number 14 Vea Tapa'atoutai 14 15 Interchange for Dolphins is number 15 Sheldon Pitama\n14 15\nInterchange for Panthers is number 17 Buster Hindmarsh 17 16 Interchange for Dolphins is number 16 Domenico De Stradis\n17 16\nInterchange for Panthers is number 23 Tuaomaliemavaitoelau Patea 23 17 Interchange for Dolphins is number 17 Jaron Purcell\n23 17\nReserves\nReplacement for Panthers is number 16 Delahia Wigmore 16 18 Replacement for Dolphins is number 18 Jack Johnson\n16 18\nMatch Officials\nSenior Review Official: Ashley Klein\nLast updated: 10/4/2026 3:53:03 AM\nPanthers: A few game-day changes, with Jakeb Vailalo to start at prop, moving Josh Ruston to the bench. Another switch sees Tuaomaliemavaitoelau Patea move up from reserves on to the bench, with Delahia Wigmore shifting to 18th player. Earlier in the week, with Izack Tago out of the side, Jirah Liddiard moved from the interchange bench to start on the wing. There is also a new five-eighth, with Keahn Skipps to partner with Kurt Falls and Haami Loza making way. Luron Patea has moved to lock, shifting captain Kalani Leuluai-Going to the second row.\nRelated Knock On Effect NSW Cup\nPanthers complete stellar season with NSW Cup crown\nDolphins: No changes on game day, with Jack Johnson retained as 18th player. After missing the Hostplus Cup grand final through suspension, Trai Fuller comes in at fullback, shifting Kyle Coghill into the more familiar centre position. This sees Brian Pouniu move into the second row and Jaron Purcell to the bench. Earlier in the week, Joven Gyemore came on to the wing for Steven Numambo. Fellow NRL Dolphins regulars Felise Kaufusi, Jake Averillo and Tevita Naufahu have all been named to reprise their roles this week, while former Cronulla and South Sydney forward Patrice Siolo has been omitted from the squad after tearing his pec.\nRelated Hostplus Cup\nRedcliffe clinch epic Hostplus Cup grand final\nMatch Official Appointments for the NRL State Championship pic.twitter",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 2.5035576677777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "5788511ea0794769",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals DCE eyeing slice of history in fairytale finale",
+            "url": "https://www.nrl.com/news/2026/10/04/dce-eyeing-slice-of-history-in-fairytale-finale/",
+            "published_at": "2026-10-03T19:01:22+00:00",
+            "snippet": "DCE eyeing slice of history in fairytale finale\nRoosters playmaker Daly Cherry-Evans has opened up on his evolution as a player and a person as he looks to cap a fairytale farewell to the NRL.\nThe veteran will play his final game in the competition in Sunday's grand final, 15 yea",
+            "body_excerpt": "DCE eyeing slice of history in fairytale finale\nRoosters playmaker Daly Cherry-Evans has opened up on his evolution as a player and a person as he looks to cap a fairytale farewell to the NRL.\nThe veteran will play his final game in the competition in Sunday's grand final, 15 years after he led Manly to the premiership in his rookie season.\nCherry-Evans was back in a decider two years later, winning the Clive Churchill Medal as his Sea Eagles went down to the Roosters.\nAlready have an NRL Account?\nLog In\nNot sure? Learn more about an NRL Account .\nIt's been 13 years since he's played in a grand final and plenty has changed for the playmaker as he eyes a fairytale farewell before joining Hull FC next season.\n\"If you look at anyone who's 22 years old and fast forward to them as a 37-year-old, things change,\" Cherry-Evans said. \"I'm a husband and a father now. I'm sure there are some mannerisms that have held true with my footy.\n\"I'm obviously more mature, so I have a better understanding of what the team needs. I was very instinctive as a young player coming through the grades. I didn't have a lot of structure around me; not that it wasn't getting coached into me, but my style of play and personality was just playing what I see.\n\"Over time I've become a halfback. For a long time I was a five-eighth wearing a number seven, and right now I'm probably a halfback wearing a number six.\"\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n4th Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nCherry-Evans took the NRL by storm in his rookie season and quickly developed into one of the best playmakers in the game.\nWhile he now concedes he was a five-eighth playing in the No.7 jumper, he eventually developed into a ball-playing halfback with a dynamic running game and one of the best kicking boots in the business.\nRepresentative honours quickly followed, Cherry-Evans making his Kangaroos debut just weeks after winning the 2011 grand final.\nDaly Cherry-Evans celebrates milestone game in style\nA maiden State of Origin appearance for Queensland followed in 2013 and he went on to captain his state while becoming the oldest player to feature in the interstate series.\nThe 2013 grand final, however, was the last time Cherry-Evans has featured on the first Sunday in October, with club success proving elusive.\nThe veteran acknowledges he eventually came to appreciate how tough it is to play for a premiership and is determined to make the most of one last shot at glory.\n\"Probably around year six to year 10 I started to realise how difficult it was to make finals, let alone a grand final,\" Cherry-Evans said.\n\"There were a couple of lean years there and it gives you a really strong appreciation for the times you do get to play in a finals series. It's definitely not lost on me how lucky I am to be playing in the grand final this weekend.\"\nCherry-Evans became the youngest halfback to win a premiership in the NRL era when he led Manly to glory in 2011 as a 22-year-old.\nA win on Sunday will make him the oldest player in the NRL era to prevail in a grand final, eclipsing Cam Smith's record set in 2020. He will also be the oldest premiership winner since North Sydney's George Green won in 1922 as a 38-year-old.\nCherry-Evans will also set a new record for longest gap between premierships, surpassing Lote Tuqiri's mark of 14 years.\nCherry-Evans puts the Roosters in front\nThe retired winger won titles with the Broncos in 2000 and Rabbitohs in 2014 and has watched on in awe as his fellow Queenslander has continued to play at an elite level for longer than most anticipated.\nWhile he could lose his own slice of rugby league history, Tuqiri is hopeful Cherry-Evans can get over the line on Sunday night.\n\"He's done unbelievably well to still be playing,\" Tuqiri told NRL.com. \"It's the week to week grind and the training that gets you more than the games. It's easy to tu",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 8.839113223333333,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "1179eb585c77289c",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Feature",
+            "title": "Match Preview Roosters v Knights: Watson ruled out; Graham rises for Phoenix",
+            "url": "https://www.nrl.com/news/2026/09/29/roosters-v-knights-watson-races-clock-graham-set-to-step-up/",
+            "published_at": "2026-10-03T09:45:15+00:00",
+            "snippet": "Presented By\nRoosters v Knights: Watson ruled out; Graham rises for Phoenix\nAfter 27 rounds and three pulsating weeks of finals, it all comes down to 80 minutes at Accor Stadium this Sunday to decide the 2026 NRL champions.\nThe pride of the Hunter taking on the boys from Bondi in",
+            "body_excerpt": "Presented By\nRoosters v Knights: Watson ruled out; Graham rises for Phoenix\nAfter 27 rounds and three pulsating weeks of finals, it all comes down to 80 minutes at Accor Stadium this Sunday to decide the 2026 NRL champions.\nThe pride of the Hunter taking on the boys from Bondi in an epic decider that no one saw coming and no one wants to miss.\nThe Knights have come from seventh spot to qualify for their first grand final since 2001 and are chasing just the third premiership in club history.\nThe Roosters are into their first decider since 2019 and will look to add a 16th premiership to one of the game's most glittering trophy cabinets.\nIn many ways the most unlikely of grand final pairings but also the most romantic as last year’s wooden spooners Newcastle look to complete a fairytale revival.\nThe last team to climb from the dungeon one year to decider the next was their opponents the Roosters, who dusted themselves off after a disastrous 2009 season to charge into the 2010 grand final, where they lost to the Dragons.\nDo the underdogs have one more upset left in them or have they spent all their chips? All will be revealed on Sunday night at Accor Stadium in front of a heaving crowd befitting the occasion.\nOne play can define a season. These are the moments that matter. Don't miss a second of the action with kick-off at 7.30pm Sunday night live on Nine, 9Now and Sky Sports NZ.\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n4th Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nTeam News\nRoosters: Benaiah Ioelu has joined the interchange bench after Connor Watson's late bid for clearance to line up in the grand final was denied. The Roosters had consulted an independent doctor after Watson failed a HIA during the preliminary final and was subject to the 11-day stand down. The match would have been Watson's first ever grand final and his last as a Rooster. Egan Butcher remains in the squad as the reserve in Saturday's 24-hour update.\nRoosters v Knights: Grand Final\nKnights: Harrison Graham has been promoted to the starting side after hooker Phoenix Crossland copped a four-game ban for Dangerous Contact for the hip-drop tackle on Nathan Cleary in the preliminary final. Graham filled the hooking role in Round 26 when Crossland was out with a knee injury. Kyle McCarthy has been added to the bench and Diesel Hagan remains in the squad as the reserve in the 24-hour update and still a chance for a fairytale NRL debut in a grand final.\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Knights is number 2 Dominic Young\nCentre for Roosters is number 3 Billy Smith 3 Centre for Knights is number 3 Dane Gagai\nCentre for Roosters is number 4 Robert Toia 4 Centre for Knights is number 4 Bradman Best\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Roosters is number 9 Reece Robson 9 14 Hooker for Knights is number 14 Harrison Graham\n9 14\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Roosters is number 15 Angus Crichton 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Roosters is numb",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.107724334444445,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "ce63df19e05fada1",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Team Lists NRL Late Mail: Grand Final - Ioelu in for Watson; Graham steps up",
+            "url": "https://www.nrl.com/news/2026/10/01/nrl-late-mail-grand-final---roosters-sweat-on-connor/",
+            "published_at": "2026-10-03T09:40:06+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Grand Final - Ioelu in for Watson; Graham steps up\nYoungster Benaiah Ioelu has been added to the Roosters' six-man interchange bench for Sunday's grand final after Connor Watson was ruled out on Friday.\nWatson suffered a head knock just one minute afte",
+            "body_excerpt": "Presented By\nNRL Late Mail: Grand Final - Ioelu in for Watson; Graham steps up\nYoungster Benaiah Ioelu has been added to the Roosters' six-man interchange bench for Sunday's grand final after Connor Watson was ruled out on Friday.\nWatson suffered a head knock just one minute after coming on to the field in the preliminary final victory over the Dolphins on September 25 and was promptly ruled out of the remainder of the match.\nWith players typically placed into an 11-day stand-down period after a concussion, the Roosters sought clearance from an independent neurologist for Watson to line up in the grand final, which comes nine days after the head knock.\nThe request was denied and 22-year-old Ioelu comes into the 19 in his sixth game of the season and just the 18th of his career.\n\"Ultimately it came down to protocol and we stand by that,\" coach Trent Robinson said.\n\"Connor spoke to the group quite clearly about 'this is about the group' and he passed that on, and then the player who took his spot in the 19, Benaiah spoke about the love for Connor and what it means for his role coming into the team and that's what teams are about.\"\nOfficial late mail, updates and injury news for the 2026 NRL Telstra Premiership Grand Final.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Grand Final\nRoosters v Knights, Sunday 7.30pm AEDT at Accor Stadium\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Knights is number 2 Dominic Young\nCentre for Roosters is number 3 Billy Smith 3 Centre for Knights is number 3 Dane Gagai\nCentre for Roosters is number 4 Robert Toia 4 Centre for Knights is number 4 Bradman Best\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Roosters is number 9 Reece Robson 9 14 Hooker for Knights is number 14 Harrison Graham\n9 14\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Roosters is number 15 Angus Crichton 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Roosters is number 17 Spencer Leniu 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Roosters is number 18 Hugo Savala 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Roosters is number 19 Cody Ramsey 19 Interchange for Knights is number 19 Thomas Cant\n19\nInterchange for Roosters is number 20 Benaiah Ioelu 20 Interchange for Knights is number 20 Kyle McCarthy\n20\nReserves\nReserve for Roosters is number 22 Egan Butcher 22 21 Reserve for Knights is number 21 Diesel Hagan\n22 21\nRoosters Ins\nBenaiah Ioelu\nEgan Butcher\nKnights Ins\nDiesel Hagan\nKyle McCarthy\nRoosters Outs\nConnor Watson\nPhoenix Crossland\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Tyson Brough\nTouch Judge: Phil Henderson\nSenior Review Official: Chris Butler\nLast updated: 10/4/2026 3:28:02 AM\nRoosters: Benaiah Ioelu has joined the six-man bench after Connor Watson's late bid for a clearance to line up in the grand final was denied by an independent neurologist. In his last ever",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 18.193557667777778,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "1275571b5ec87b76",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Feature",
+            "title": "World Cup Kiwis switch paves way for Gagai-Mitchell World Cup re-match",
+            "url": "https://www.nrl.com/news/2026/10/03/kiwis-switch-paves-way-for-gagai-mitchell-world-cup-re-match/",
+            "published_at": "2026-10-03T02:01:17+00:00",
+            "snippet": "Kiwis switch paves way for Gagai-Mitchell World Cup re-match\nDane Gagai V Latrell Mitchell Round 2 could kick start IRL Rugby League World Cup 2026 after the Knights centre was cleared to play for the Kiwis on the eve of the NRL grand final.\nGagai, who is aiming to complete a fai",
+            "body_excerpt": "Kiwis switch paves way for Gagai-Mitchell World Cup re-match\nDane Gagai V Latrell Mitchell Round 2 could kick start IRL Rugby League World Cup 2026 after the Knights centre was cleared to play for the Kiwis on the eve of the NRL grand final.\nGagai, who is aiming to complete a fairytale finish to his career with the Knights in Sunday's premiership decider against Sydney Roosters, has been granted permission to switch his international eligibility from Australia to New Zealand.\nThe 35 year-old, who is set to finish his NRL career at the Broncos, is now in line for a Kiwis call up and his first assignment could be opposite Mitchell in the World Cup opener at Allianz Stadium on October 15.\nThe pair went head-to-head - and toe-to-toe - in an explosive opening match of the NRL finals series which began Newcastle's march to an unlikely grand final appearance after being wooden spooners last season.\nVintage Gagai\nGagai has wound back the clock as the Knights have overcome Mitchell's Rabbitohs, the Warriors in New Zealand and minor premiers Penrith to earn a shot at history against the Roosters.\nAn International Rugby League Appeals Committee approved Gagai's application to change Tier 1 eligibility from Australia to New Zealand.\nGagai qualifies for New Zealand through his mother Tania and has represented his Ngāti Pikiāo heritage by playing for Māori All Stars since 2019.\nHe has previously played for Australia and was a member of the Kangaroos team which won the final of IRL Rugby League World Cup 2017.\nUnder IRL eligibility rules players who represent a Tier 1 nation – Australia, England and New Zealand – are unable to play for another Tier 1 nation. Gagai’s application was initially rejected on those grounds.\nHowever, IRL recently permitted Kalyn Ponga to switch his international allegiances to New Zealand and AJ Brimson to play for England after both had represented Australia at the IRL World Cup Nines in 2019.\nRelated World Cup\nKiwi Kalyn set to light up RLWC2026 after eligibility switch approved\nChanges to State of Origin eligibility rules also enabled Briton Nikora, Casey McLean and Addin Fonua-Blake to play in this year’s series despite not being eligible for Australia as they have represented New Zealand.\nAn IRL Appeals Committee accepted that Gagai, who has played 23 State of Origins for Queensland, had not been afforded the same opportunity.\nGagai has not played for Australia since 2018, and he was not selected in the preliminary 40-man squad for IRL Rugby League World Cup 2026.\nMatch: Australia v New Zealand\nRound 1 - Round 1 - Thursday 15 Oct\nhome Team\nAustralia\naway Team\nNew Zealand\nVenue: Allianz Stadium, Sydney\nMatch broadcasters:\nChannel 7\nIRL Chair Troy Grant said there were \"special circumstances\" in Gagai's case.\nHe said ARLC Executive Chairman Peter V’landys and Kangaroos coach Kevin Walters supported Gagai’s application.\n“Dane hasn’t played for Australia for eight years and we didn’t want him to be disadvantaged compared to other players with recent rule changes,\" Grant said.\n“Dane wrote to us and Peter V’landys was very supportive. He felt there should be a bit of an amnesty period because we didn’t want one player disadvantaged over another, given that Dane wasn’t in the Kangaroos squad and it has been so long since he has played at international level. Kevin Walters was supportive too.\n“Dane didn’t have the same option as other players who can play State of Origin and represent their heritage.\n“It was felt that there were special circumstances in his case, so Dane is now available for selection by New Zealand. It is now up to them whether they pick him.”\nDane Gagai leads out the Māori team at the 2025 All Stars match. ©Gregg Porteous/NRL Photos\nThe IRL Appeals Committee also approved an application for Kaiyah Atai to play for New Zealand after representing Cook Islands in World Cup qualifying match in 2024.\nAtai was born in New Zealand but was initially ruled ineligible to play for the Kiwi Ferns as the World C",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 25.84050211222222,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "90daec32bce8b9e4",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Feature",
+            "title": "Finals Mates to rivals: Coaches put friendship aside in battle for glory",
+            "url": "https://www.nrl.com/news/2026/10/03/from-mates-to-rivals-robbo-and-holbrook-put-friendship-aside-in-battle-for-glory/",
+            "published_at": "2026-10-02T20:01:21+00:00",
+            "snippet": "Mates to rivals: Coaches put friendship aside in battle for glory\nTrent Robinson didn't hesitate to pick up the phone in Justin Holbrook's darkest hour.\nIt's late 2023 and the rugby league world had just been blindsided by the news the Titans had sacked Holbrook and replaced him ",
+            "body_excerpt": "Mates to rivals: Coaches put friendship aside in battle for glory\nTrent Robinson didn't hesitate to pick up the phone in Justin Holbrook's darkest hour.\nIt's late 2023 and the rugby league world had just been blindsided by the news the Titans had sacked Holbrook and replaced him with Des Hasler.\nRobinson was searching for an assistant and knew exactly what he was getting from a man who had previously served on his coaching staff before a successful stint in charge of St Helens that culminated in a Super League premiership.\nHolbrook jumped at the chance to link up with his former mentor and quickly built one of the best attacking sides in the NRL.\nGrand Final emotions after 12-man win\n\"It was 2014 when we first hired Justin as an assistant and it was a pretty easy choice to get him back in 2024 when the Titans didn't end as he wanted it to,\" Robinson said.\n\"He's always been a great coach. You look at his success through the junior grades and his demeanour, it's always been a real positive. There's a clear knowledge of footy and a good man in there so it was a pretty easy choice [to hire him].\"\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n4th Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nTwo years on and the close mates are preparing to go head-to-head in Sunday's NRL grand final when the Roosters take on the Knights.\nWhile many figured Holbrook would help turn Newcastle into a premiership contender, the pace of the turnaround has exceeded all expectations.\nAfter finishing last in 2025 with the worst attack in the competition, the coach has unlocked attacking weapons all across the park.\nNewcastle winger Dom Young has scored 23 tries this season, with fellow winger Greg Marzhew crossing for 24 tries, and is among the players who have been coached by both Holbrook and Robinson.\nDom-inating display from Young\nHaving spent 18 months with the Roosters before returning to the Knights midway through last season, the Englishman said the pair have vastly different personalities.\n\"They're very different coaches,\" Young said. \"Justin is a bit more easy-going and a jokester who doesn't take things too seriously. Robbo is a bit more of a serious character.\n\"They're both good coaches and have different styles and ways of getting the best out of their players.\n\"Justin has been massive for us. The way he's brought it all together this year, the style of football we're playing and the way everyone's bought into it. He's been a really good coach for us.\"\nThe differences between the two men were on display at Thursday's Grand Final Press Conference.\nRobinson was steely-eyed and focused on the task at hand. Holbrook was cracking jokes and soaking in the excitement of his first decider as a head coach.\nDifference maker - Kalyn Ponga\n\"I've been this way all year,\" Holbrook said when asked about his jovial mood. \"It's no different to the start of the finals series. We've been confident we could play well and win every week and we've faced some different challenges.\n\"I'm so happy for the playing group and how hard they've worked. We've earned our way to Sunday and I'm not going to change the way I am or the playing group.\"\nBeneath the playful exterior lies a hard underbelly that has demanded excellence from his players.\nA former Knight who was also part of the Roosters squad during their 2002 premiership season, Holbrook has placed an emphasis on ensuring his team reflects the hard-working nature of the community they represent.\nAttacking football is encouraged but a defensive resolve is non-negotiable. It's a characteristic that has shone through in epic finals victories over the Warriors and Panthers, Newcastle reduced to 12-men in last week's win over Penrith.\nGiven the attacking weapons the Roosters boast, the Knights know Sunday's match will be won through defence rather than a high-scoring shootout.\nVeteran Tyson Frizell said that message ha",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 31.83939100111111,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_mentions_both",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "896891d32632d817",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Feature",
+            "title": "Team Lists NRL Team Lists: Grand Final",
+            "url": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
+            "published_at": "2026-09-29T10:04:10+00:00",
+            "snippet": "Presented By\nNRL Team Lists: Grand Final\nOfficial team lists, updates and injury news for the 2026 NRL Telstra Premiership Grand Final.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Knights, Sunday 7.30pm AEDT at Accor Stadium\nMatch: Roosters v Knights\nGrand Fina",
+            "body_excerpt": "Presented By\nNRL Team Lists: Grand Final\nOfficial team lists, updates and injury news for the 2026 NRL Telstra Premiership Grand Final.\nCasualty Ward: All the injury news\nJudiciary latest\nRoosters v Knights, Sunday 7.30pm AEDT at Accor Stadium\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Knights is number 2 Dominic Young\nCentre for Roosters is number 3 Billy Smith 3 Centre for Knights is number 3 Dane Gagai\nCentre for Roosters is number 4 Robert Toia 4 Centre for Knights is number 4 Bradman Best\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Roosters is number 9 Reece Robson 9 14 Hooker for Knights is number 14 Harrison Graham\n9 14\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Roosters is number 15 Angus Crichton 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Roosters is number 17 Spencer Leniu 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Roosters is number 18 Hugo Savala 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Roosters is number 19 Cody Ramsey 19 Interchange for Knights is number 19 Thomas Cant\n19\nInterchange for Roosters is number 20 Benaiah Ioelu 20 Interchange for Knights is number 20 Kyle McCarthy\n20\nReserves\nReserve for Roosters is number 22 Egan Butcher 22 21 Reserve for Knights is number 21 Diesel Hagan\n22 21\nRoosters Ins\nBenaiah Ioelu\nEgan Butcher\nKnights Ins\nDiesel Hagan\nKyle McCarthy\nRoosters Outs\nConnor Watson\nPhoenix Crossland\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Tyson Brough\nTouch Judge: Phil Henderson\nSenior Review Official: Chris Butler\nLast updated: 10/4/2026 3:28:02 AM\nRoosters: No changes for the Roosters from the squad that rolled the Dolphins to progress to the club's first decider in seven years. Utility Connor Watson failed a HIA at Suncorp Stadium last Friday night but will visit an independent neurologist on Thursday in a bid to be cleared for the decider. Watson has been named on bench. Benaiah Oelu, Tommy Talau and Egan Butcher round out the extended squad.\nKnights: Hooker Phoenix Crossland has been banned for four games for the hip drop tackle that left Nathan Cleary with a fractured leg. Crossland pleaded guilty to Dangerous Contact and fronted the judiciary on Tuesday night to learn his fate. Harrison Graham is set to start the grand final at hooker in Crossland's absence with one of the reserves joining the interchange - Diesel Hagan, Kyle McCarthy or Elijah Salesa Leaumoana.\nDon't miss a moment of the 2026 NRL decider on Nine, 9Now and Sky Sports NZ.\nRelated /\nRoosters v Knights: Watson ruled out; Graham rises for Phoenix\nFinals\nMates to rivals: Coaches put friendship aside in battle for glory\nGraham steps up as Watson falls short in bid to prove GF fitness\nMatch Preview\nRoosters v Knights: Grand Final\nGrand Final week launches with new tradition",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 113.79244655666666,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "971e613d780f29a6",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Breaking",
+            "title": "Team Lists NRL Late Mail: Preliminary Finals - Cogger starts, Cleary benched",
+            "url": "https://www.nrl.com/news/2026/09/24/nrl-late-mail-preliminary-finals---walker-100-per-cent-for-return/",
+            "published_at": "2026-09-27T05:42:11+00:00",
+            "snippet": "Presented By\nNRL Late Mail: Preliminary Finals - Cogger starts, Cleary benched\nPanthers superstar Nathan Cleary has been shifted to the interchange bench for Sunday's preliminary final against the Knights.\nCleary has been battling a foot injury he suffered in week one of the fina",
+            "body_excerpt": "Presented By\nNRL Late Mail: Preliminary Finals - Cogger starts, Cleary benched\nPanthers superstar Nathan Cleary has been shifted to the interchange bench for Sunday's preliminary final against the Knights.\nCleary has been battling a foot injury he suffered in week one of the finals and will be kept out of the early exchanges at Accor Stadium.\nIn his return from a three-game suspension, Jack Cogger comes into the starting side at halfback.\nSee all the late mail, official team news and updates for Week 3 of the 2026 NRL Telstra Premiership Finals Series.\nCasualty Ward: All the injury news\nJudiciary latest\nNRL Late Mail: Preliminary Finals\nPanthers v Knights, Sunday 4.00pm at Accor Stadium\nMatch: Panthers v Knights\nFinals Week 3 - Finals Week 3 - Sunday 27 Sep\nhome Team\nPanthers\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Panthers is number 1 Dylan Edwards 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Panthers is number 2 Thomas Jenkins 2 Winger for Knights is number 2 Dominic Young\nCentre for Panthers is number 3 Blaize Talagi 3 Centre for Knights is number 3 Dane Gagai\nCentre for Panthers is number 4 Casey McLean 4 Centre for Knights is number 4 Bradman Best\nWinger for Panthers is number 5 Brian To'o 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Panthers is number 6 Jack Cole 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Panthers is number 14 Jack Cogger 14 7 Halfback for Knights is number 7 Sandon Smith\n14 7\nForwards\nProp for Panthers is number 8 Moses Leota 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Panthers is number 9 Mitch Kenny 9 Hooker for Knights is number 9 Phoenix Crossland\nProp for Panthers is number 16 Liam Henry 16 10 Prop for Knights is number 10 Cody Hopwood\n16 10\n2nd Row for Panthers is number 12 Liam Martin 12 11 2nd Row for Knights is number 11 Jermaine McEwen\n12 11\n2nd Row for Panthers is number 15 Scott Sorensen 15 12 2nd Row for Knights is number 12 Francis Manuleleua\n15 12\nLock for Panthers is number 13 Isaah Yeo 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Panthers is number 7 Nathan Cleary 7 14 Interchange for Knights is number 14 Harrison Graham\n7 14\nInterchange for Panthers is number 10 Lindsay Smith 10 15 Interchange for Knights is number 15 Lachlan Crouch\n10 15\nInterchange for Panthers is number 11 Isaiah Papali'i 11 16 Interchange for Knights is number 16 Pasami Saulo\n11 16\nInterchange for Panthers is number 17 Billy Phillips 17 Interchange for Knights is number 17 Dylan Lucas\n17\nReplacement for Panthers is number 18 Luke Garner 18\n18\nReserve for Panthers is number 21 Freddy Lussick 21 18 Reserve for Knights is number 18 Fletcher Hunt\n21 18\n19 Reserve for Knights is number 19 Thomas Cant\n19\nMatch Officials\nReferee: Gerard Sutton\nTouch Judge: Matt Noyen\nTouch Judge: Daniel Luttringer\nSenior Review Official: Chris Butler\nLast updated: 9/27/2026 12:06:12 PM\nPanthers: A huge call by coach Ivan Cleary on game day with Jack Cogger promoted to the starting side and Nathan Cleary coming off the bench. Liam Henry and Scott Sorensen will also start the game with Lindsay Smith and Isaiah Papali'i going to the bench. A couple of minor changes in Saturday's 24-hour update with Freddy Lussick coming onto the six-man bench in place of Billy Scott. Nathan Cleary has worked around the clock on rehab after suffering the injury in the win over the Roosters in week one. \"He'll be ready,\" coach Ivan Cleary declared on Saturday morning. Cogger is back from a three-game suspension and straight into the hot seat in the starting side.\nKnights: The Knights are 1-19 with no late changes. Coach Justin Holbrook goes with the same 19-man squad that stunned the Warriors at Eden Park to progress to their first preliminary final since 2013. Back-rower Dylan Lucas got through 14 minutes in his comeback from a fractured ankle and has again been named on the bench, although a late call-up to the starting side could be on the cards. The Knig",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 166.15883544555555,
+            "relevance_score": 5.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_official_roundup",
+              "injury_or_team_list"
+            ]
+          },
+          {
+            "id": "67b4d318855877ec",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Team List | Grand Final v Knights - Sydney Roosters",
+            "url": "https://www.roosters.com.au/news/2026/10/03/nrl-team-list--grand-final-v-knights/",
+            "published_at": "2026-10-03T09:30:00+00:00",
+            "snippet": "24 Hour Team List | Grand Final v Knights\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Grand Final clash against the Knights at Accor Stadium.\nConnor Watson comes out of the Squad, with Beniah Ioelu being elevated to interchange.\nTommy Talau drops off t",
+            "body_excerpt": "24 Hour Team List | Grand Final v Knights\nCoach Trent Robinson has trimmed his squad 24 hours ahead of tomorrow's Grand Final clash against the Knights at Accor Stadium.\nConnor Watson comes out of the Squad, with Beniah Ioelu being elevated to interchange.\nTommy Talau drops off the Reserves list.\nOriginally published 29/9/2026\nRoosters Name Side for 2026 NRL Grand Final\nThe Sydney Roosters have named their squad for the 2026 NRL Telstra Premiership Grand Final, taking on the Newcastle Knights at Accor Stadium this Sunday 4 October at 7:30pm.\nCaptain James Tedesco will lead the side from fullback, with Daniel Tupou and Mark Nawaqanitawase on the wings and Billy Smith and Robert Toia lining up in the centres.\nDaly Cherry-Evans and Sam Walker have been named in the halves at five-eighth and halfback respectively, while Reece Robson starts at hooker.\nUp front, Naufahu Whyte and Lindsay Collins have been named at prop, with Salesi Foketi and Siua Wong in the second row and Victor Radley at lock.\nThe interchange features Connor Watson, Angus Crichton, Nat Butcher and Spencer Leniu, with Hugo Savala, Cody Ramsey, Benaiah Ioelu, Tommy Talau and Egan Butcher named among the reserves.\nRelated\nGAME DAY HUB\nThe Roosters and Knights will meet on rugby league's biggest stage, with the 2026 NRL Grand Final kicking off at 7:30pm this Sunday at Accor Stadium.\nView the team list here:\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Knights is number 2 Dominic Young\nCentre for Roosters is number 3 Billy Smith 3 Centre for Knights is number 3 Dane Gagai\nCentre for Roosters is number 4 Robert Toia 4 Centre for Knights is number 4 Bradman Best\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Roosters is number 9 Reece Robson 9 14 Hooker for Knights is number 14 Harrison Graham\n9 14\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Roosters is number 15 Angus Crichton 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Roosters is number 17 Spencer Leniu 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Roosters is number 18 Hugo Savala 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Roosters is number 19 Cody Ramsey 19 Interchange for Knights is number 19 Thomas Cant\n19\nInterchange for Roosters is number 20 Benaiah Ioelu 20 Interchange for Knights is number 20 Kyle McCarthy\n20\nReserves\nReserve for Roosters is number 22 Egan Butcher 22 21 Reserve for Knights is number 21 Diesel Hagan\n22 21\nRoosters Ins\nBenaiah Ioelu\nEgan Butcher\nKnights Ins\nDiesel Hagan\nKyle McCarthy\nRoosters Outs\nConnor Watson\nPhoenix Crossland\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Tyson Brough\nTouch Judge: Phil Henderson\nSenior Review Official: Chris Butler\nLast updated: 10/4/2026 3:28:02 AM\nGrand Final tickets may be exhausted, but there are still plenty of ways to be part of the action!\nJoin fellow Roosters fans at our Official Watch Party at Easts Bondi Juncti",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.36189100111111,
+            "relevance_score": 3.5,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "injury_or_team_list",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "5357c03e969a3be6",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Best NRL Grand Final 2026 Betting Sites, Odds and Tips for Sydney Roosters vs Newcastle Knights - Bookies.com",
+            "url": "https://bookies.com/au/news/nrl-grand-final-betting-odds-sites-tips-2026-sydney-roosters-vs-newcastle-knights-tomorrow",
+            "published_at": "2026-10-03T07:20:14+00:00",
+            "snippet": "Best NRL Grand Final 2026 Betting Sites, Odds and Tips for Sydney Roosters vs Newcastle Knights &nbsp;&nbsp; Bookies.com",
+            "body_excerpt": "Best NRL Grand Final 2026 Betting Sites, Odds and Tips for Sydney Roosters vs Newcastle Knights\nT&C's Apply, 18+, Please Gamble Responsibly.\nIt all comes down to Sunday night as Sydney Roosters and Newcastle Knights do battle for immortality in the NRL Grand Final at Accor Stadium, Sydney.\nThe competition has largely been dominated by Penrith Panthers in recent years but their bid to retain the crown they won four times in a row between 2021 and 2024 was ended in stunning fashion by the Knights.\nDespite losing Phoenix Crossland to an early red card in the Preliminary Final, Newcastle - who finished seventh on the NRL Ladder - showed stunning resolve to recover from 14-6 down and reach a first Grand Final since 2001.\nTheir opponents on Sunday night will be Sydney Roosters, who are no strangers to the Grand Final after winning it in 2018 and 2019. Trent Robinson's men finished fourth on the NRL Ladder and earned their spot in Sunday's showpiece with a thrilling 36-20 victory over the Dolphins.\nAs ever with the Grand Final, Australian betting sites have an exciting range of markets for the night of action. Read on to find the top betting sites in Australia for all your NRL bets.\nNRL BEtting Site\nWhy Sign Up?\n🏉 bet365 NRL Betting\nThe World's Favourite Betting Company\n🏉 Betfair NRL Betting\nBetfair SP Beat The Best Tote By 11.9% Last Spring\n🏉 Unibet NRL Betting\nCheck The Unibet Vault To See All Your Rewards In One Place\nNRL Grand Final 2026 Betting Odds\nFew would have predicted a Roosters vs Knights Grand Final way back in February, or even in August considering both teams ended the regular season with a string of defeats.\nHowever, both earned their spot in the Grand Final with impressive Finals performances and it's sure to be an exciting evening of footy on Sunday. Roosters are comfortable favourites but the Knights will be buoyed by their wins over the Panthers and New Zealand Warriors. We know how unpredictable finals like this can be, so it's all to play for.\nSydney Roosters vs Newcastle Knights Grand Final Odds\n🏉 Roosters - 1.44 with bet365\n🏉 Knights - 2.95 with Unibet\nBet365 NRL Grand Final Betting\nbet365 is one of the biggest sports betting sites not just in Australia, but in the world. Given that, it's no surprise the site has some of the best NRL betting markets around with player props, 10 minute markets and even same-game multis for those who love to combine various selections into a single wager.\nThere are also a range of futures markets usually available outside of the regular Grand Final Winner, including top tryscorer and top 4 finish.\nBetfair Rugby League Betting\nBetfair is unique in Australia as this is the only betting site in the country that operates as a betting exchange, rather than as a fixed-odds betting site like the other options on this page. A betting exchange allows you to place bets on the Grand Final as usual, but it also allows you to lay them, which effectively turns you into the bookmaker.\nUnibet NRL Grand Final Markets\nAnother betting site with operations all over the world, Unibet is active in Australia and puts its all into NRL betting with competitive markets and some great options for NRL Grand Final betting. Each game has around 100 markets to choose from, many of which can be put into Same Game Multis or you can choose one of the Same Game Combos to save some time.\n18+. T&C Apply\nHow to Bet on the Grand Final in Australia\nAfter you've decided which NRL betting site, or sites, you want to use, the next step is simply signing up. Click on one of the links on this page to go to your preference and follow the steps on the landing page.\nRegister by entering the relevant personal details such as name, date of birth and address, then choose a payment method and deposit to start wagering on NRL. Finally, navigate your way to the rugby league section of the betting site and click on the Grand Final.\nRugby League Betting Apps\nThe great thing about NRL betting sites is that there are always betting app",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 20.524668778888888,
+            "relevance_score": 3.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "contextual_factor"
+            ]
+          },
+          {
+            "id": "d94c62042fb5eaa0",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Sydney Roosters vs Newcastle Knights: NRL Grand Final preview and prediction - Zero Tackle",
+            "url": "https://www.zerotackle.com/sydney-roosters-vs-newcastle-knights-nrl-grand-final-preview-and-prediction-238660/",
+            "published_at": "2026-10-04T03:22:30+00:00",
+            "snippet": "Sydney Roosters vs Newcastle Knights: NRL Grand Final preview and prediction &nbsp;&nbsp; Zero Tackle",
+            "body_excerpt": "The Sydney Roosters enter their first grand final for seven years as red-hot favourites against a Newcastle Knights side who have already caused three upsets to make the decider.\nIt's a grand final that will be historic either way.\nThe Roosters are either going to break the 50-point curse, or the Knights are going to be the first team in the NRL era to win it all from outside the top four.\nThe finals series has been something of a roller-coaster for both of these sides, and for the first time in years, the two teams who won their qualifying finals and booked a week off in between that and the grand final qualifier, are out.\nThe Roosters come into the decider as a side who can put points up in a hurry, but with big questions around their discipline and defensive consistency.\nTheir run at times this season hasn't resembled that of a side who are going to win the competition, but they have found some real resolve on the run in, and Trent Robinson's side, complete now with Sam Walker back last week in record time from a syndesmosis injury, fired on all cylinders as they put away the Dolphins .\nThe trip to Brisbane saw the Roosters dominate from start to finish, and win an extra two days in recovery than the Knights, who had to play against the generation's best team in the Penrith Panthers on Sunday afternoon at Homebush.\nBut that has summed up the Knights' finals campaign.\nGrit, determination, a backs to the wall attitude.\nThat was really never more present than last Sunday as they put together a 46-minute masterclass with 12-men to come from behind and beat the Panthers.\nIt's why, even as they enter as heavy outsiders for the decider, they can't be written off. Ultimately, the Knights have bought in to what Newcastle is all about, and Justin Holbrook's side have more than enough attacking fizz to do a job, with Kalyn Ponga and Sandon Smith , who has been a revelation since shuffling to halfback, leading the way.\nIt's actually tough to predict what kind of grand final this will be, with the pace of the game up, both teams able to throw it around and score points, but also with the ability to get into a grind if need be.\nTeam news\nSydney Roosters 1. James Tedesco 2. Daniel Tupou 3. Billy Smith 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 15. Angus Crichton 16. Nat Butcher 17. Spencer Leniu 18. Hugo Savala 19. Cody Ramsey 20. Benaiah Ioelu 22. Egan Butcher\nConnor Watson has failed to clear a concussion so will miss the grand final.\nBenaiah Ioelu has been added to the interchange bench, with Egan Butcher remaining the 20th man when teams were cut 24 hours out from kick-off.\nNo other changes from the preliminary final for the tri-colours, with Spencer Leniu and Cody Ramsey on the bench after not getting onto the field against the Dolphins last weekend.\nBRISBANE, AUSTRALIA - MAY 02: Spencer Leniu of the Roosters reacts during the round nine NRL match between the Sydney Roosters and Dolphins at Suncorp Stadium on May 02, 2025, in Brisbane, Australia. (Photo by Hannah Peters/Getty Images)\nNewcastle Knights 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 14. Harrison Graham 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 15. Lachlan Crouch 16. Pasami Saulo 17. Dylan Lucas 18. Fletcher Hunt 19. Thomas Cant 20. Kyle McCarthy 21. Diesel Hagan\nThe Knights are obviously without Phoenix Crossland . He has been suspended over the devastating hip drop tackle on Nathan Cleary last weekend.\nThat means Harrison Graham has been named to start, although the speculation is that Thomas Cant will actually start. Diesel Hagan is also in the wider squad, while Kyle McCarthy is the named new face on the interchange bench.\nHistory\nOverall record: Played 64, Roosters 41, Knights 21, Drawn 2 Record in finals: Played 6, R",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 0.4868910011111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "30e06889865bbb59",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL Grand Final ultimate guide: Start time and everything else you need to know - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-grand-final-2026-start-time-kickoff-and-full-schedule-for-sydney-roosters-v-newcastle-knights-how-to-watch-entertainment-betting-odds/news-story/a2d4c96da83c8ba112f95afaa1b5a786",
+            "published_at": "2026-10-04T02:42:05+00:00",
+            "snippet": "NRL Grand Final ultimate guide: Start time and everything else you need to know &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "NRL grand final 2026: Start time and full schedule for Sydney Roosters v Newcastle Knights\nThe 2026 NRL Grand Final is here, with the Newcastle Knights and Sydney Roosters battling it out for premiership glory at Accor Stadium on Sunday.\nThe Roosters took care of business against the Dolphins in their preliminary final, before the Knights’ fairytale run continued with a stunning win over the Panthers .\nGet the expert take on NRL Grand Final Day with FOX LEAGUE’s extensive coverage, plus full and mini replays available post-game on Kayo Sports | New to Kayo? Join now and get your first month for just $1 .\nHere, foxsports.com.au looks at everything you need to know ahead of the NRL decider including the full schedule, odds and weather forecast — and you can follow the game live here .\nMORE NRL NEWS\nFrom a Macca’s owner to king of $635m empire: Where 2001 Knights GF team is now\nMeet the Knights teen who may create 90-year GF history...and could have easily been a Rooster\nWHO IS IN THE NRL GRAND FINAL?\nThe Newcastle Knights and Sydney Roosters will face off for the 2026 premiership.\nThe Knights are the second team in 90 years to make the Grand Final after being wooden spooners the year before, after the Roosters (2009/10).\nThey can also become the second team to ever go from wooden spoon to premiers, a feat only achieved by Western Suburbs (1933/34).\nIt is their first Grand Final appearance since 2001, as they eye their third premiership (1997, 2001).\nThe Knights join the Cowboys (2017), Bulldogs (2014), Warriors (2011), Roosters (2010) and Eels (2009) in making the Grand Final from outside the top four.\nBut none of them won the premiership, with only the Broncos (fifth in 1993) and Bulldogs (sixth in 1995) managing it previously.\nThe Roosters are seeking their first premiership since 2019, and their 16th ever to move into outright second on the all-time table.\nIt’s their 31st Grand Final appearance.\nThe Roosters have won 20 of their past 23 games against the Knights including their last six, and both meetings this year (38-24 and 23-22).\nIf the Roosters win they’ll break the 50-point curse as the first NRL team to win the premiership in the same season they conceded 50 or more points in a match, though they did it while mass resting players.\nJames Tedesco and Kalyn Ponga will battle it out in the Grand Final on Sunday evening. Source: News Corp Australia\nWHEN IS THE NRL GRAND FINAL?\nThe 2026 NRL grand final will take place at Accor Stadium on Sunday October 4 from 7.30pm AEDT.\nNSW/VIC - 7:30pm\nQLD - 6:30pm\nSA - 7pm\nWA - 4:30pm\nNT - 6pm\nHOW TO WATCH\nThe NRL Grand Final will be shown live on Channel 9, with foxsports.com.au providing rolling coverage across the day .\nFox League will also provide expert analysis during the build-up and a full replay with its own commentary immediately after the final siren.\nTEAMS\nRoosters\nGrand Final team: 1. James Tedesco 2. Daniel Tupou 3. Billy Smith 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 15. Angus Crichton 16. Nat Butcher 17. Spencer Leniu 18. Hugo Savala 19. Cody Ramsey 20. Benaiah Ioelu 22. Egan Butcher\nKnights\nGrand Final team: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 14. Harrison Graham 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 15. Lachlan Crouch 16. Pasami Saulo 17. Dylan Lucas 18. Fletcher Hunt 19. Thomas Cant 20. Kyle McCarthy 21 Diesel Hagan\nWEATHER FORECAST\nQuite often Grand Final day turns out to be one of the hotter days of the year, but this time around a top of 25 degrees is expected, per the Bureau of Meteorology.\nFortunately there isn’t any rain anticipated for Sunday either. It looks like it will be a dry, fast track for the decider.\nGRAND FINAL DAY SCHEDULE\nAll times AEDT\n1pm – Gates open at Accor Stadium\n1.20pm – State C",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.160502112222222,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "0e80fd3b9bbbf2cd",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Newcastle Knights’ tale burns bright but Sydney Roosters are built just for NRL’s grand occasion | Jack Snape - The Guardian",
+            "url": "https://www.theguardian.com/sport/blog/2026/oct/04/nrl-grand-final-2026-newcastle-knights-tale-sydney-roosters-preview",
+            "published_at": "2026-10-04T02:18:35+00:00",
+            "snippet": "Newcastle Knights’ tale burns bright but Sydney Roosters are built just for NRL’s grand occasion | Jack Snape &nbsp;&nbsp; The Guardian",
+            "body_excerpt": "Newcastle Knights captain Kalyn Ponga and his Sydney Roosters counterpart James Tedesco pose for a photograph with the Provan-Summons trophy before the 2026 NRL grand final at Accor Stadium. Photograph: Dan Himbrechts/AAP\nKnights’ tale burns bright but Roosters are built just for NRL’s grand occasion\nNo matter how brilliant Sydney might prove to be on Sunday night, the 2026 grand final will be remembered for Newcastle’s presence in the decider\nG rudging favourite the Sydney Roosters meet rugby league’s forgotten child the Newcastle Knights in the NRL grand final on Sunday night. The recipe is delicious, its concoction somehow spiritual: the effect of the combined crossings of every finger in the Hunter Valley, urging just one more win in the Knights’ improbable run to the decider.\nWhatever the result, and no matter how brilliant the Roosters might prove to be, the occasion will be remembered for the Knights’ presence. They are, of course, outsiders against the formidable tricolours . The underdogs finished seventh, and the finals have already delivered them three upsets against the Rabbitohs, the Warriors and the Panthers. This Knights’ tale gleams more brightly one year after their wooden spoon.\nSickly sweet and yet of substance, Newcastle’s story keeps giving . The resurrection of coach Justin Holbrook after his assassination on the Gold Coast. Of “better than Lego” , and the demolition of the big penis .\nBack then, they were not only the likable battlers from a regional city down on its luck. Andrew Johns and co represented all that was good in the working-class game by rejecting the advances of News Corp’s Super League. Darren Albert’s late try in the 1997 ARL premiership was thus both an on-field triumph and a middle finger upturned towards the breakaway competition and their Hunter Mariners. The Knights then backed it up in 2001 in the modern NRL: a just reward for a team broadly adored, even if by then Matty Johns had moved on.\nThe TV personality’s prominence in rugby league circles over the past two decades has been the inverse of Knights’ success. Two and a half decades of mediocrity have made mythical those heady but brief Newcastle glories. The club’s broader irrelevance in the intervening period serves as a reminder that opportunities like this do not come around often.\nKnights fans greet their team at Martin Place in Sydney. Photograph: Ayush Kumar/Getty Images\nGenerational? Sunday’s contest is the very definition. The Knights’ first grand final in 25 years is too long ago for Fletcher Sharpe to know what it really means. The five-eighth, 22 years old and the next great playmaker from the Johns’ home town of Cessnock, has to hear about those great Knights teams from his parents, or from much-loved VHS tapes transcoded to now grainy YouTube . A long time coming? Ask Tyson Frizell. No player has waited longer than his 305 NRL games to play their first grand final.\nThis sudden premiership opportunity feels fragile for those who remember 2001, but many – like young backrowers Jermaine McEwen and Francis Manuleleua, and prop Cody Hopwood – play without the weight of expectation. As fans’ hearts lurch from beat to beat, and “Joey” Johns breaks down in tears, the Knights under Holbrook have proven calm and confident, having knocked off the Warriors in Auckland and now the Panthers with a man down. Behind the quick thinking of half Sandon Smith and his tap against Penrith, and the fearlessness of fullback Kalyn Ponga – epitomised by his destruction of Moses Leota last week – the Knights are fitting partners in Sunday’s dance.\nThe Roosters, however, are built just for this occasion . The recruitment of veteran half Daly-Cherry Evans, together with the late-career revival of James Tedesco, have aligned perfectly with the emergence of centre Robert Toia and prop Naufahu Whyte, now ripened after a few seasons and both named in the Dally M team of the season.\nMark Nawaqanitawase trains before his last game with the Sydney Roos",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 1.5521687788888887,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "1918059bb59ccbb9",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals Jess surges to career-best try tally in a season to savour",
+            "url": "https://www.nrl.com/news/2026/10/04/jess-surges-to-career-best-try-tally-in-a-season-to-savour/",
+            "published_at": "2026-10-03T21:01:21+00:00",
+            "snippet": "Jess surges to career-best try tally in a season to savour\nMoving up to the top of the NRLW tryscoring list is simply a measure of how much Jess Sergis is enjoying her football this year.\nWith 10 tries in her past six games and 17 overall for the season she has two more than Dall",
+            "body_excerpt": "Jess surges to career-best try tally in a season to savour\nMoving up to the top of the NRLW tryscoring list is simply a measure of how much Jess Sergis is enjoying her football this year.\nWith 10 tries in her past six games and 17 overall for the season she has two more than Dally M winner and Broncos fullback Tamika Upton, who she meets in Sunday's grand final.\nIt is also the first time in her nine-year NRLW career that Sergis has cracked double-digits.\nHer next highest number of tries in a season was last year with eight.\nSo how did the Roosters centre double that with the same amount of games?\n“It definitely helps having Tarryn Aiken inside of me and having her back (after ACL injury),” Sergis told NRL.com.\n“Not only does she bring success to the whole team, she means a lot to us on the right edge with her shape and passing.\nSuper Sergis\n“But otherwise I’m just backing my ability – I’m having so much fun this year.”\nStats prove opposition teams aren’t in for a good time coming up against her - 52 tackle breaks, 14 line breaks, and nine try assists alongside her 17 tries in 12 matches.\nHer speed in full flight is one thing but Sergis is certainly never one to give up on the play.\nShe never took her eyes off a Jocelyn Kelleher kick in last week’s preliminary final, which Raiders winger Isabelle Waterman let bounce only to find Sergis swooping it up and scoring.\nJess Sergis and Tommy Talau hit the red carpet at the Dally Ms.\nNo niggling injuries like her knee and foot in past years have returned to haunt her either.\n“I had a goal this year to play every game and stay on the field,” Sergis said.\n“Earlier I’ve had some stop-starts but I sat down with our strength and conditioning coach and said I wanted to be there for my team every week.\n“I’ve done that for the last two years now. I take a lot more time with my prep and recovery now to get the best out of my body.\n“And everyone here gives 110 per cent every training session, every match.\n“They are a great group of girls who are very competitive, very talented and back each other.”\nSergis’ home life is also flourishing with partner and fellow outside back with the Roosters, Tommy Talau.\n“Exactly right – we each know what the other needs because we’re both footballers,\" she said.\nJessica Sergis sizzles again\n“When he came over from Manly we actually manifested that we’d both be in a grand final this year.\n“He’s not in the 19 but I know he’s just stoked to be a part of it all because he’s never been in a grand final week.\n\"He’s also very happy for me and always very supportive of me too.”\nMatch: Roosters v Broncos\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n1st Position\naway Team\nBroncos\n3rd Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nRoosters v Broncos: Fressard good to go; No changes for Prince\nTeam Lists\nNRLW Late Mail: Grand Final - Roosters-Broncos sides confirmed\nFinals\nThe little voice on her shoulder keeps Rima going in tough times\nFressard racing the clock as Roosters chase grand final redemption\nBaxter's family affair for last game in the NRLW",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 6.839391001111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "ae4d39781026e321",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Feature",
+            "title": "How a journey deep underground set Knights on path to NRL grand final",
+            "url": "https://www.nrl.com/news/2026/10/04/how-a-journey-deep-underground-set-knights-on-path-to-nrl-grand-final/",
+            "published_at": "2026-10-03T19:01:21+00:00",
+            "snippet": "How a journey deep underground set Knights on path to NRL grand final\n“It’s a hard-working area and you want to see that in your rugby league team, that’ll never change.”\nThat was Justin Holbrook outlining his vision for the Knights during his introductory press conference as coa",
+            "body_excerpt": "How a journey deep underground set Knights on path to NRL grand final\n“It’s a hard-working area and you want to see that in your rugby league team, that’ll never change.”\nThat was Justin Holbrook outlining his vision for the Knights during his introductory press conference as coach last September.\nA former Newcastle halfback who served as Andrew Johns’ backup and played alongside Danny Buderus, Matt Gidley and Robbie O’Davis, Holbrook has made it his mission to reconnect the team to its community.\nWords, however, can ring hollow without tangible action.\nHolbrook: \"A big part of our fanbase is people who work in the mines\"\nOn January 13, Holbrook’s 50th birthday, the Knights showed through actions how they plan to represent the Hunter.\nThe coach took the playing group down the Myuna Colliery mine to see firsthand how the region’s people live and work.\nIt was an eye-opening experience for the squad and the day the first steps were taken on a path that will culminate in Sunday’s grand final.\n“It was pretty surreal,” veteran Tyson Frizell told NRL.com. “Mining is in the DNA of this town. Everyone wants to have a connection to their town and what better way than to go down there and genuinely understand what people go through and what they do for a living.\n“Their days are spent with no technology, no social media and the enjoyment they get on a Monday morning is talking about how the Knights went on the weekend. To see that and hear it from the guys down there was a cool experience.”\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n4th Position\naway Team\nKnights\n7th Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nGiven they finished last year with the wooden spoon, few expected the Knights to be playing in a grand final just 12 months after Holbrook’s arrival.\nThe coach, however, was always confident of what this team could achieve and carries that same belief into Sunday’s decider against the Roosters at a sold-out Accor Stadium.\nFrom that first trip down the mine shaft, the Knights have slowly built a wave of fan support that will reach a crescendo this weekend.\nGrand Final emotions after 12-man win\nMore than 12,000 fans turned out for Wednesday’s open training session, thousands more will make the two-hour trip down the M1 to Accor Stadium and 25,000 supporters will pack into McDonald Jones Stadium to watch their team on the big screen.\nIt’s been impossible to avoid grand final fever across the Hunter throughout the past week, from the mines to the dairy farms and everywhere in between.\n“Going down the mines was a real eye-opener,” forward Mat Croker, who grew up on a dairy farm, said. “We speak a lot about how this town has a mining culture and these blokes save up their money all week to come to a Knights game.\n“Once we went down there, it drew a real connection for a lot of the boys. We’ve brought it up a fair bit this year. How we can make these people proud. These are people that have tougher lives than we’ve got as footy players.\n“It’s our responsibility to make sure they have a good week by going out and performing well. A lot of them are having much better weeks now and I bet they are underground now talking about the grand final on Sunday.”\nBeyond connecting with the community, the Knights have also made a concerted effort to rebuild their junior pathways.\nDirector of football Chris James was brought in with a mission to establish a pipeline between the region’s fertile nursery of juniors all the way through to the NRL team.\nIt’s a path Croker followed as a teenager, the Nabiac product captaining the Knights Harold Matthews and SG Ball teams as a teenager before progressing through Jersey Flegg, NSW Cup and eventually making his NRL debut in 2021.\nDifference maker - Kalyn Ponga\nFor the past few years, however, Nabiac and the wider Taree region fell under the Bulldogs control. That has now changed, with large swaths of northern NSW back in the Knights h",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 8.839391001111112,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news"
+            ]
+          },
+          {
+            "id": "1cd45b2cc00d07d7",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "‘No stone unturned’: Star speaks after meeting with NRL seals GF heartbreak — Early Mail - Fox Sports",
+            "url": "https://www.foxsports.com.au/nrl/nrl-premiership/nrl-2026-grand-final-early-mail-teams-ins-and-outs-will-connor-watson-play-diesel-hagan-phoenix-crossland-suspension-news-updates-reaction/news-story/bdce6d0f92e2d89ee6cfe5b93fed547b",
+            "published_at": "2026-10-03T11:46:13+00:00",
+            "snippet": "‘No stone unturned’: Star speaks after meeting with NRL seals GF heartbreak — Early Mail &nbsp;&nbsp; Fox Sports",
+            "body_excerpt": "Roosters dealt massive blow; Knights junior ‘in the frame’ for 90-year first — GF Early Mail\nThe Sydney Roosters have been dealt a disastrous blow on the eve of this year’s grand final with star utility Connor Watson ruled out of Sunday’s match.\nSuffering a Category 1 HIA in last week’s match against the Dolphins, the Roosters were unsuccessful in having it overturned by the NRL meaning he has to be stood down for a mandatory 11 days.\nWatson and the Roosters medicos reportedly met with NRL officials at Moore Park on Friday morning for roughly 20 minutes before a verdict was handed down that it would be too big of an ask to have Watson cleared, despite their belief he was progressing well.\nGet the expert take on NRL Grand Final Day with FOX LEAGUE’s extensive coverage, plus full and mini replays available post-game on Kayo Sports | New to Kayo? Join now and get your first month for just $1.\nAs a result, the Roosters decided not to seek an exemption.\nWatson was understandably heartbroken to become the first player to miss a Grand Final since the mandatory stand down period was introduced.\n“I just want to thank the club and the Roosters medical staff for leaving no stone unturned,” Watson said.\n“I had a really good week of testing and test results but unfortunately I didn’t meet the criteria for an exemption. I am obviously gutted but I have full belief in the boys and can’t wait to watch them get the job done on Saturday.”\nMeanwhile, the suspension of Knights hooker Phoenix Crossland has opened the door for an extremely rare 90-year first potentially occurring in this Sunday’s decider .\nRead on for all of the Grand Final Early Mail!\nSUNDAY OCTOBER 4\nSydney Roosters vs. Newcastle Knights at Accor Stadium, @ 7.30pm\nRoosters: 1. James Tedesco 2. Daniel Tupou 3. Billy Smith 4. Robert Toia 5. Mark Nawaqanitawase 6. Daly Cherry-Evans 7. Sam Walker 8. Naufahu Whyte 9. Reece Robson 10. Lindsay Collins 11. Salesi Foketi 12. Siua Wong 13. Victor Radley 15. Angus Crichton 16. Nat Butcher 17. Spencer Leniu 18. Hugo Savala 19. Cody Ramsey 20. Benaiah Ioelu 22. Egan Butcher\nPlayers cut: 14. Connor Watson 21. Tommy Talau\nEarly Mail: Roosters utility Connor Watson met with an independent doctor on Thursday morning but failed to have his Category 1 HIA overturned by the NRL. It comes after Watson was said to have recovered well from the head knock he received against the Dolphins last Friday night but whether he played depended on the opinion of the NRL’s independent neurologist. “He had an appointment this morning that went well and he has another one this afternoon and we’ll get a ruling on that either tonight or tomorrow. He’s either in or he’s out so it’s pretty simply on our end. He deserves to play we want him to play,” Robinson said. Back up hooker Benaiah Ioelu is in the frame for a call up to the game day squad while the versatile Hugo Savala is also an option as well. When asked for his ‘plan B’ if Watson can’t go, Robinson indicated Ioelu is a live chance. “Ah Plan B... I don't think it will take much to work out what Plan B is but we’ve got some really good hookers in our... Benaiah Ioelu has played some great footy for us this year and brings a lot of energy to us as well, so he will come into consideration,” the Roosters coach said.﻿\nConnor Watson looks on at Roosters training on Monday. Source: News Corp Australia\nKnights: 1. Kalyn Ponga 2. Dominic Young 3. Dane Gagai 4. Bradman Best 5. Greg Marzhew 6. Fletcher Sharpe 7. Sandon Smith 8. Tyson Frizell 14. Harrison Graham 10. Cody Hopwood 11. Jermaine McEwen 12. Francis Manuleleua 13. Mathew Croker 15. Lachlan Crouch 16. Pasami Saulo 17. Dylan Lucas 18. Fletcher Hunt 19. Thomas Cant 20. Kyle McCarthy 21. Diesel Hagan\nPlayers cut: 9. Phoenix Crossland 22. Elijah Leaumoana\nEarly Mail: Phoenix Crossland copped a four-match suspension for his ugly hip drop tackle on Nathan Cleary and will miss the grand final. According to coach Justin Holbrook, Harrison Graham is poised to replace Cros",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 16.091613223333333,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "98a5e16069dfe216",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "24 Hour Update | Grand Final - Newcastle Knights",
+            "url": "https://www.newcastleknights.com.au/news/2026/09/29/nrl-team-list--grand-final/",
+            "published_at": "2026-10-03T09:31:22+00:00",
+            "snippet": "Presented By\n24 Hour Update | Grand Final\nnib Newcastle Knights Head Coach Justin Holbrook has reduced his squad for tomorrow night's Grand Final against the Sydney Roosters at Accor Stadium.\nElijah Salesa-Leaumoana comes out of the team this week.\nThe remainder of the squad rema",
+            "body_excerpt": "Presented By\n24 Hour Update | Grand Final\nnib Newcastle Knights Head Coach Justin Holbrook has reduced his squad for tomorrow night's Grand Final against the Sydney Roosters at Accor Stadium.\nElijah Salesa-Leaumoana comes out of the team this week.\nThe remainder of the squad remains unchanged, with Phoenix Crossland coming out of the side on Tuesday night after accepting a suspension.\nOriginally published Tuesday, September 29, 2026:\nnib Newcastle Knights Head Coach Justin Holbrook has named his 22-man squad for Sunday night's Grand Final against the Sydney Roosters at Accor Stadium.\nHolbrook has confirmed the team will be close to unchanged from the one which defeated the Penrith Panthers 22-14 at the same venue last weekend.\nPhoenix Crossland has been named at hooker, however the No.9 will face the NRL judiciary this evening after being referred for a hip drop on Nathan Cleary last week.\nDiesel Hagan has been added into the 22-man squad, taking Toby Winter's place amongst the reserves list for the Decider.\nThe remainder of the squad is unchanged.\nSee the squad below:\nMatch: Roosters v Knights\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\naway Team\nKnights\nTeam Lists\nBacks\nFullback for Roosters is number 1 James Tedesco 1 Fullback for Knights is number 1 Kalyn Ponga\nWinger for Roosters is number 2 Daniel Tupou 2 Winger for Knights is number 2 Dominic Young\nCentre for Roosters is number 3 Billy Smith 3 Centre for Knights is number 3 Dane Gagai\nCentre for Roosters is number 4 Robert Toia 4 Centre for Knights is number 4 Bradman Best\nWinger for Roosters is number 5 Mark Nawaqanitawase 5 Winger for Knights is number 5 Greg Marzhew\nFive-Eighth for Roosters is number 6 Daly Cherry-Evans 6 Five-Eighth for Knights is number 6 Fletcher Sharpe\nHalfback for Roosters is number 7 Sam Walker 7 Halfback for Knights is number 7 Sandon Smith\nForwards\nProp for Roosters is number 8 Naufahu Whyte 8 Prop for Knights is number 8 Tyson Frizell\nHooker for Roosters is number 9 Reece Robson 9 14 Hooker for Knights is number 14 Harrison Graham\n9 14\nProp for Roosters is number 10 Lindsay Collins 10 Prop for Knights is number 10 Cody Hopwood\n10\n2nd Row for Roosters is number 11 Salesi Foketi 11 2nd Row for Knights is number 11 Jermaine McEwen\n11\n2nd Row for Roosters is number 12 Siua Wong 12 2nd Row for Knights is number 12 Francis Manuleleua\n12\nLock for Roosters is number 13 Victor Radley 13 Lock for Knights is number 13 Mat Croker\n13\nInterchange\nInterchange for Roosters is number 15 Angus Crichton 15 Interchange for Knights is number 15 Lachlan Crouch\n15\nInterchange for Roosters is number 16 Nat Butcher 16 Interchange for Knights is number 16 Pasami Saulo\n16\nInterchange for Roosters is number 17 Spencer Leniu 17 Interchange for Knights is number 17 Dylan Lucas\n17\nInterchange for Roosters is number 18 Hugo Savala 18 Interchange for Knights is number 18 Fletcher Hunt\n18\nInterchange for Roosters is number 19 Cody Ramsey 19 Interchange for Knights is number 19 Thomas Cant\n19\nInterchange for Roosters is number 20 Benaiah Ioelu 20 Interchange for Knights is number 20 Kyle McCarthy\n20\nReserves\nReserve for Roosters is number 22 Egan Butcher 22 21 Reserve for Knights is number 21 Diesel Hagan\n22 21\nRoosters Ins\nBenaiah Ioelu\nEgan Butcher\nKnights Ins\nDiesel Hagan\nKyle McCarthy\nRoosters Outs\nConnor Watson\nPhoenix Crossland\nMatch Officials\nReferee: Adam Gee\nTouch Judge: Tyson Brough\nTouch Judge: Phil Henderson\nSenior Review Official: Chris Butler\nLast updated: 10/4/2026 3:28:02 AM\nThe nib Newcastle Knights would like to thank our proud Club 17 partners for bringing you this week's team list:\nJersey 1 presented by:\nHoneywell Capital\nJersey 2 presented by:\nPalmerbet\nJersey 3 presented by:\nEast Coast Building & Pest Services\nJersey 4 presented by:\nHunter Imaging\nJersey 5 presented by:\nHunter City Motor Group\nJersey 6 presented by:\nGreg Tapp Printing\nJersey 7 presented by:\nEtch Couriers\nJersey 8 presented by:\nPrime Edge Caravans\nJersey 9 presented by:\nNE",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 18.339113223333335,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "51e5eaeb757337b1",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "Roosters vs Knights Prediction & NRL Grand Final 2026 Betting Preview - Betfred Insights",
+            "url": "https://insights.betfred.com/rugby-league/roosters-vs-knights-prediction-betting-tips-sunday-4-october-2026/",
+            "published_at": "2026-10-03T06:00:24+00:00",
+            "snippet": "Roosters vs Knights Prediction & NRL Grand Final 2026 Betting Preview &nbsp;&nbsp; Betfred Insights",
+            "body_excerpt": "Roosters vs Knights Prediction: 11/4 try double in Newcastle Grand Final glory\n| Saturday 3rd October 2026, 7:00\nSaturday 3rd October 2026, 7:00\nThe Newcastle Knights look to complete one of the great modern rugby league stories on Sunday when they go in search of a first NRL Grand Final win in 25 years against the Sydney Roosters at Accor Stadium (6:30pm local, 9:30am BST, Sky Sports+ & Sky Sports Mix).\nJustin Holbrook’s first season in charge in the Hunter Region has seen the Knights transform from wooden spoon winners in 2025 to Grand Finalists just 12 months later. Can they emulate a 92-year-old record on Sunday? Below are my Roosters vs Knights predictions, Betfred’s match odds and the latest team news.\nRoosters vs Knights Betting Tips\nMatch Winner (80 minutes) - Knights @ 2/1\nMark Nawaqanitawase & Greg Marzhew Both to Score a Try @ 11/4\n*odds correct at time of publishing\nSports Welcome Offer\nNew customers only. Register, deposit with a Debit Card, and place a first bet of £10+ at Evens (2.0)+ on Sports, to be settled within 7 days, to get £30 in Sports Free Bets and £20 in Acca Free Bets within 24 hours of settlement. 7-day expiry. Eligibility & payment exclusions apply. T&Cs Apply.\nRoosters vs Knights Odds\nEasts are the 4/9 favourites after their commanding road wins over the Sharks and Dolphins in back-to-back knockout fixtures since a Week 1 loss to the Panthers. Betfred’s price implies a 69.2% probability of success.\nThe Knights are 2/1 to follow up their stunning 12-man comeback win over the Panthers with a historic GF victory, and it’s 16/1 for the 2026 showpiece to become the first in 11 years to go to golden-point extra-time.\nBetfred is offering a host of Pick Your Punt options, and there’s some Price Boosts available too including 11/4 (from 9/4) about a Kalyn Ponga anytime try and 4/1 for Sam Walker to pick up the Clive Churchill Medal for the Man of the Match. That was previously 7/2.\nTeam News\nTrent Robinson looks unlikely to be tempted into any changes after the 36-20 win over the Dolphins at Suncorp last week.\nHaving welcomed back half-back Sam Walker for the Preliminary Final victory, the three-time competition winner will be tempted to run out the same 17 again given the completeness of the performance that got them this far.\nHis only potential issue is on the bench, where Connor Watson will have to get the clearance of an independent specialist before being allowed to play after a failed HIA last Friday.\nRugby League Odds\nThe Knights, who will look to emulate the 1934 Western Suburbs by responding to a wooden spoon finish with a Grand Final win, have one obvious piece of team news. That is the loss of hooker Phoenix Crossland to a four-match ban after his ankle-breaking hip-drop challenge on Nathan Cleary in the Preliminary Finals.\nCrossland joins Jacob Saifiti in the naughty corner, with the big prop forward still serving a five-game ban for a forceful shoulder charge on the Warriors’ Luke Laulilii.\nHarrison Graham looks set to start at nine, with Fletcher Hunt and Thomas Cant again named in the initial 19. Kyle McCathy looks to be the extra name in the matchday squad.\nNewcastle’s incredible journey to this point didn’t start three weeks ago in the first of their three away victories in the Finals.\nNine rounds from the end of the regular season, they were sat in the top four as one of the form sides in the comp. For a team coming off a last-placed finish it was a phenomenal effort.\nMany thought they’d blown their chance to compete in the play-offs by losing five of their last eight and slipping down the seeds, but those three wins over Souths, the Warriors and – miraculously – the Panthers, shouldn’t have come as a complete surprise.\nI feel as though I’ve said every week over the past month that I love what the Knights do but can’t see them pulling off another astonishing result.\nAt this point, and with the amount of emotion riding with them, it would almost be a shock if they didn’t bring home the ult",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 21.855224334444443,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          },
+          {
+            "id": "0df92e0e3cec2b54",
+            "source_tier": "official",
+            "channel": "nrl_news",
+            "category": "Updated",
+            "title": "Finals The little voice on her shoulder keeps Rima going in tough times",
+            "url": "https://www.nrl.com/news/2026/10/03/the-little-voice-on-her-shoulder-keeps-rima-going-in-tough-times/",
+            "published_at": "2026-10-02T23:01:22+00:00",
+            "snippet": "The little voice on her shoulder keeps Rima going in tough times\nWhen the lungs are starting to burn and the legs feel a little heavy, prop Rima Butler can hear one clear voice across the Roosters defensive line.\n“It’s usually Olivia Kernick, who I can hear for the whole time I’m",
+            "body_excerpt": "The little voice on her shoulder keeps Rima going in tough times\nWhen the lungs are starting to burn and the legs feel a little heavy, prop Rima Butler can hear one clear voice across the Roosters defensive line.\n“It’s usually Olivia Kernick, who I can hear for the whole time I’m on the field,” Butler told NRL.com.\n“She’s always saying, ‘Come on Rima’, ‘Let’s go Rima’ and I’m like ‘Yep, yep, I got you Kernick’.”\nDon’t be mistaken. Butler loves the sound of her award-winning lock in her ears – she’s also heard it a lot more of late.\nButler, 28, made her Jillaroos debut in last year’s Pacific Championships and then her NSW Origin debut this year – Kernick was right beside her for those games too.\nAnd Butler is grateful she can lean on and learn from the 2024 Dally M Player of the Year and the 2025 Nellie Doherty Medal winner.\nRima Butler Try\nThe Sydney Roosters will be depending on both women to help them topple defending premiers Broncos in Sunday’s NRLW grand final.\n“She’s moving us around in the field, telling us where to get to,” Butler said.\n“Obviously it is a washing machine out there at times – and you’re just trying to be where you’re supposed to and Olivia does a lot of that organising.\n“Cheeky (hooker Keeley Nizza) does a bit too but Olivia is the mainstay of our middle, holding it together for us there.\nFairytale finish within Elliott's sight\n“And why shouldn’t she be? She’s got the runs on the board... she’s incredible.”\nAnother pulling her weight in the forwards is newcomer Sariah Paki, who has been turning heads on the Roosters left edge after arriving from Rugby Sevens.\nThe 24-year-old has played every game this year, scored six tries, made 10 line breaks and 23 tackle breaks.\n“I think my footwork from rugby union has helped me, so coming into contact here I try to be that light on my feet as well,” she said.\n“But I’m learning heaps from people like Rima and Olivia... just how hard they work.\n“They’re all so eager to be the best teammates, the best forward pack. I love how resilient they are.”\nButler said with younger players maturing from the Roosters pathways, or coming across from rugby like Paki, she feels she has to keep proving herself despite having earned an Australian and Origin jersey.\n“A hundred per cent it’s still competitive within the club because we’ve got so many players pushing for spots,\" she said.\nKernick claims the 2025 Nellie Doherty Medal\n“I enjoy it because girls like Sariah remind me I have to be better.\n“Sariah has been incredible and she’s had to learn so many different rules and techniques.\n“Being a great athlete I think the transition for her has been relatively easy because she has a lot of skills.\n“She works hard and is always open to learning.”\nMatch: Roosters v Broncos\nGrand Final - Grand Final - Sunday 4 Oct\nhome Team\nRoosters\n1st Position\naway Team\nBroncos\n3rd Position\nVenue: Accor Stadium, Sydney\nMatch broadcasters:\nNine Network\nNine Now\nKayo\nFoxtel\nRelated /\nRoosters v Broncos: Fressard good to go; No changes for Prince\nTeam Lists\nNRLW Late Mail: Grand Final - Roosters-Broncos sides confirmed\nFinals\nJess surges to career-best try tally in a season to savour\nFressard racing the clock as Roosters chase grand final redemption\nBaxter's family affair for last game in the NRLW",
+            "reliability": "high",
+            "guidance": null,
+            "age_hours": 28.839113223333335,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "nrl_club_news",
+              "promoted_after_body_fetch"
+            ]
+          },
+          {
+            "id": "d4581507977f87b3",
+            "source_tier": "search_discovery",
+            "channel": "google_news_rss",
+            "category": null,
+            "title": "NRL 2026 grand final: where the Sydney Roosters v Newcastle Knights decider will be won and lost | Angus Fontaine - The Guardian",
+            "url": "https://www.theguardian.com/sport/blog/2026/oct/02/nrl-2026-grand-final-sydney-roosters-vs-newcastle-knights-decider-won-lost",
+            "published_at": "2026-10-02T06:15:00+00:00",
+            "snippet": "NRL 2026 grand final: where the Sydney Roosters v Newcastle Knights decider will be won and lost | Angus Fontaine &nbsp;&nbsp; The Guardian",
+            "body_excerpt": "Talismanic fullbacks Kalyn Ponga and James Tedesco can be gamechangers in the 2026 NRL grand final between the Sydney Roosters and Newcastle Knights. Composite: Getty Images/AAP\nNRL 2026 grand final: where the Roosters v Knights decider will be won and lost\nIt looks to be Sydney’s party, but riding a wave of form and belief Newcastle are primed to crash it with unstoppable force on Sunday\nA fter 210 games, 17,000 minutes and more than 10,000 points, it all comes down to the 2026 NRL grand final. One decider. Two desperate teams. The Roosters, a star-studded outfit with four premierships in 25 years and speed, power and tactical brilliance across the park. And the Knights, 25 years without a title and coming off a wooden spoon last year, yet riding an irresistible wave built on blue-collar courage and underdog characters.\nThe paths to the grand final\nThe Roosters are hot favourites to win a 16th premiership after compiling a 16-8 win-loss record to finish fourth. Yet, in the final round, they were thrashed 20-50 by their arch-rivals South Sydney and no side has won the NRL title after such a belting. They even dropped their first final to Penrith 12-19 before rebounding to smash the Sharks 46-10 to make the prelim where they flogged the Dolphins 36-20 at Suncorp.\nBradman Best embodies the mood after the Knights’ stunning preliminary final win over the Panthers. Photograph: Dan Himbrechts/AAP\nNewcastle have taken the long way around, finishing with a 14-10 win-loss ledger and scraping into the finals in seventh spot. No team has won the title from there before but the Knights ambushed the Rabbitohs 20-10 at Allianz to make it to the second week, then upset the Warriors 12-10 at Eden Park before a last week’s heroics against the Panthers, defending with 12 men for 44 minutes to triumph 22-14.\nThe form guide\nThe emotion of three consecutive boilovers in enemy territory may have drained the Knights. But their form and belief – and the support of the 70,000 Novacastrians expected at Accor Stadium on Sunday – could build them into an unstoppable force. By comparison, the Roosters have cruised into the decider and had an extra day’s rest. It’s their 13th finals campaign in Trent Robinson’s 14 years in charge. They’re calm.\nThey also have the Knights’ measure, having beaten them in their last six contests and 20 of the past 23. In April, the Chooks won 38-24 despite being 12-24 down at half-time. A five-try second-half blitz led by a double to Mark Nawaqanitawase kept the Knights scoreless for the final 40 minutes. The July rematch was four tries apiece before Daly Cherry-Evans potted a field goal in the 77th minute to steal it 23-22.\nThe Knights 2025 season was a shocker. They won just six games and collected the wooden spoon. This year, under the cool hand of Justin Holbrook, Newcastle have flipped the fairytale script , averaging 25 points scored and 23 leaked in games this season with captain Kalyn Ponga in the form of his life.\nThe gamechangers\nCherry-Evans won a premiership in his rookie season with Manly in 2011, but last year dumped the Sea Eagles for the Tricolours to chase another title a record 15 seasons after his first. This will be the 37-year-old’s final NRL game before shipping out to Hull. He will be hoping to echo the feats of another Queensland pivot Cooper Cronk, who led the Roosters to glory in 2018-19.\nMark Nawaqanitawase’s Roosters teammates flock to him after a try in the preliminary final. Photograph: Matt Roberts/Getty Images\nIn just 46 appearances, Nawaqanitawase has turned himself into the most electric winger in the game, scoring 45 tries, many befitting the all-time highlights reel. This is his last NRL game before rejoining rugby union. The Roosters will be counting on his golden run rolling on, but Knights flyer Dominic Young , an equally brilliant aerial exponent and try-scorer, has the talent to steal his thunder.\nafter newsletter promotion\nPonga , the nine-season Knights talisman, leads from the back,",
+            "reliability": "medium",
+            "guidance": null,
+            "age_hours": 45.61189100111111,
+            "relevance_score": 2.0,
+            "keep_reasons": [
+              "in_time_window",
+              "mentions_fixture_team",
+              "mentions_both_teams"
+            ]
+          }
+        ],
+        "queries_run": [
+          "Roosters NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Knights NRL injury OR \"late mail\" OR \"team list\" round 31",
+          "Roosters vs Knights NRL round 31 preview",
+          "Roosters Knights NRL odds OR price OR favourite",
+          "Roosters Knights NRL finals race OR ladder stakes",
+          "Roosters Knights NRL",
+          "Roosters NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Knights NRL injury OR sidelined OR suspension OR judiciary OR \"team list\" OR \"late mail\"",
+          "Roosters Knights NRL preview OR form OR motivation OR derby OR \"must win\" OR bye",
+          "NRL round 31 Roosters OR Knights"
+        ],
+        "filter_summary": {
+          "dropped_stale": 60,
+          "dropped_wrong_round": 1,
+          "dropped_noise": 14,
+          "dropped_irrelevant": 15,
+          "kept": 21,
+          "deferred_pending_body": 67,
+          "promoted_after_body": 10,
+          "dropped_duplicate_url": 1,
+          "dropped_no_body": 3
+        }
+      },
+      "error": null
+    },
+    {
+      "call_id": "3bc90e2c6e34",
+      "tool_name": "predict_match",
+      "started_at": "2026-10-04T03:51:42.772984+00:00",
+      "finished_at": "2026-10-04T03:53:22.514340+00:00",
+      "duration_ms": 99741,
+      "request": {
+        "home_team": "Roosters",
+        "away_team": "Knights",
+        "venue": "Accor Stadium",
+        "kickoff": "2026-10-04T19:30:00+11:00",
+        "weather": "Fine"
+      },
+      "response": {
+        "prediction": "Home Win",
+        "probability": 0.7064,
+        "home_win_probability": 0.7064,
+        "shap_explanations": {
+          "positive_drivers": [
+            "Bradley-Terry strength advantage (+0.56 log-strength) — contribution 0.180 (21% of total)",
+            "Ladder points differential per game (+3.7 points) — contribution 0.137 (16% of total)",
+            "Pythagorean form (last 10) (+13% expected-win gap) — contribution 0.091 (11% of total)",
+            "Elo rating advantage (+60 points) — contribution 0.059 (7% of total)",
+            "5-game form: effective tackle pct (+2.72) — contribution 0.031 (4% of total)"
+          ],
+          "negative_drivers": [
+            "3-game form: errors (-2.67) — contribution 0.029 (3% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "Away travel to venue (120 km) — contribution 0.027 (3% of total)",
+            "5-game form: post contact metres (+78.20) — contribution 0.015 (2% of total); CONFLICT: the raw value on its own favours the home side — the model still nets it toward away here",
+            "5-game workload: top3 tackle share (+0.02) — contribution 0.015 (2% of total)",
+            "5-game form: possession pct (-0.20) — contribution 0.014 (2% of total)"
+          ],
+          "attribution_balance": {
+            "total_toward_home": 0.693,
+            "total_toward_away": 0.1639,
+            "net": 0.5291,
+            "leans": "home",
+            "note": "Summed SHAP over all features. Equal-length driver lists do not mean equal weight; compare these totals."
+          },
+          "value_contribution_conflicts": [
+            "3-game form: errors (-2.67)",
+            "5-game form: post contact metres (+78.20)"
+          ]
+        },
+        "fixture": {
+          "home_team": "Roosters",
+          "away_team": "Knights",
+          "venue": "Accor Stadium",
+          "kickoff": "2026-10-04T19:30:00+11:00",
+          "weather": "Fine"
+        }
+      },
+      "error": null
+    }
+  ]
+}

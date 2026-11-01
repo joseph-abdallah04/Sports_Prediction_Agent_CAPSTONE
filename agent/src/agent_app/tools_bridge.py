@@ -1,4 +1,4 @@
-"""In-process fact-tool bridge (same entrypoints as MCP gateway tools)."""
+"""In-process fact-tool bridge (direct Python calls into the fact tools)."""
 
 from __future__ import annotations
 

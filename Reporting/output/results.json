@@ -1,0 +1,2988 @@
+{
+ "checks": {
+  "lake_mismatches": [],
+  "not_in_lake": [
+   [
+    31,
+    "Roosters",
+    "Knights"
+   ]
+  ],
+  "workbook_vs_log_mismatches": [],
+  "missing_run_records": [
+   [
+    "new",
+    [
+     27,
+     "Warriors",
+     "Sea Eagles"
+    ]
+   ],
+   [
+    "new",
+    [
+     27,
+     "Dragons",
+     "Eels"
+    ]
+   ]
+  ]
+ },
+ "after_kickoff_runs": [
+  {
+   "round": 23,
+   "home": "Storm",
+   "away": "Sea Eagles",
+   "system": "old",
+   "predicted_at_local": "2026-08-08T15:06:13.670214+10:00",
+   "kickoff_local": "2026-08-08T15:00:00+10:00"
+  },
+  {
+   "round": 27,
+   "home": "Panthers",
+   "away": "Wests Tigers",
+   "system": "new",
+   "predicted_at_local": "2026-09-06T16:09:42.490829+10:00",
+   "kickoff_local": "2026-09-06T16:05:00+10:00"
+  }
+ ],
+ "failed_runs": [
+  {
+   "run_id": "20260919T022217Z-044a725d",
+   "round": 29,
+   "home": "Roosters",
+   "away": "Sharks"
+  }
+ ],
+ "base_rates": {
+  "home_wins": 22,
+  "matches": 49,
+  "home_wins_regular": 18,
+  "home_wins_finals": 4,
+  "home_wins_r23_25": 9,
+  "draws": 0,
+  "one_point_games": [
+   [
+    25,
+    "Roosters",
+    "Wests Tigers",
+    "Tigers win 24-25"
+   ],
+   [
+    27,
+    "Warriors",
+    "Sea Eagles",
+    "Warriors win 31-30"
+   ],
+   [
+    31,
+    "Roosters",
+    "Knights",
+    "Roosters win 19-18"
+   ]
+  ],
+  "all_systems_same_side_in_finals": true
+ },
+ "window": {
+  "agent": {
+   "system": "agent",
+   "n": 49,
+   "correct": 31,
+   "accuracy": 0.6326530612244898,
+   "accuracy_ci": [
+    0.49266811386889864,
+    0.7533501747521878
+   ],
+   "brier": 0.2398775510204082,
+   "brier_ci": [
+    0.19300127551020405,
+    0.2892491836734694
+   ],
+   "log_loss": 0.6774426844301737,
+   "brier_skill_vs_coin": 0.04048979591836721,
+   "auc": 0.6750841750841751
+  },
+  "old": {
+   "system": "old",
+   "n": 33,
+   "correct": 19,
+   "accuracy": 0.5757575757575758,
+   "accuracy_ci": [
+    0.4080697369146003,
+    0.7276464100497011
+   ],
+   "brier": 0.2672242424242424,
+   "brier_ci": [
+    0.20391962121212123,
+    0.33482136363636356
+   ],
+   "log_loss": 0.7383485349778017,
+   "brier_skill_vs_coin": -0.06889696969696968,
+   "auc": 0.6076923076923078
+  },
+  "new": {
+   "system": "new",
+   "n": 25,
+   "correct": 16,
+   "accuracy": 0.64,
+   "accuracy_ci": [
+    0.44518154601046633,
+    0.7975234356826436
+   ],
+   "brier": 0.224712,
+   "brier_ci": [
+    0.16974709999999998,
+    0.28354979999999985
+   ],
+   "log_loss": 0.6422786609937939,
+   "brier_skill_vs_coin": 0.10115200000000002,
+   "auc": 0.7532051282051283
+  },
+  "model": {
+   "system": "model",
+   "n": 47,
+   "correct": 26,
+   "accuracy": 0.5531914893617021,
+   "accuracy_ci": [
+    0.41245213738758246,
+    0.685892525250887
+   ],
+   "brier": 0.26336003361702126,
+   "brier_ci": [
+    0.20930654889361702,
+    0.3197007348031915
+   ],
+   "log_loss": 0.7266565933420861,
+   "brier_skill_vs_coin": -0.05344013446808504,
+   "auc": 0.650925925925926
+  },
+  "gemini": {
+   "system": "gemini",
+   "n": 49,
+   "correct": 30,
+   "accuracy": 0.6122448979591837,
+   "accuracy_ci": [
+    0.4724574648805242,
+    0.735711856260395
+   ],
+   "brier": 0.2418408163265306,
+   "brier_ci": [
+    0.19722010204081633,
+    0.2882900510204081
+   ],
+   "log_loss": 0.6787601927825979,
+   "brier_skill_vs_coin": 0.03263673469387762,
+   "auc": 0.6481481481481481
+  },
+  "statsinsider": {
+   "system": "statsinsider",
+   "n": 49,
+   "correct": 27,
+   "accuracy": 0.5510204081632653,
+   "accuracy_ci": [
+    0.41314866799678107,
+    0.6814737507036366
+   ],
+   "brier": 0.2645265306122449,
+   "brier_ci": [
+    0.1984387755102041,
+    0.3317166836734693
+   ],
+   "log_loss": 0.7334311004640165,
+   "brier_skill_vs_coin": -0.058106122448979614,
+   "auc": 0.6632996632996634
+  },
+  "home": {
+   "system": "home",
+   "n": 49,
+   "correct": 22,
+   "accuracy": 0.4489795918367347,
+   "accuracy_ci": [
+    0.3185262492963633,
+    0.5868513320032188
+   ]
+  }
+ },
+ "phases": {
+  "r23_25": {
+   "old": {
+    "system": "old",
+    "n": 24,
+    "correct": 15,
+    "accuracy": 0.625,
+    "accuracy_ci": [
+     0.42709619037907065,
+     0.7884086656636855
+    ],
+    "brier": 0.255675,
+    "brier_ci": [
+     0.1828821875,
+     0.33394187500000005
+    ],
+    "log_loss": 0.714071875509736,
+    "brier_skill_vs_coin": -0.022699999999999942,
+    "auc": 0.6259259259259259
+   },
+   "model": {
+    "system": "model",
+    "n": 24,
+    "correct": 14,
+    "accuracy": 0.5833333333333334,
+    "accuracy_ci": [
+     0.3883433764938864,
+     0.7553265275346177
+    ],
+    "brier": 0.2702266729166667,
+    "brier_ci": [
+     0.19463425182291666,
+     0.3516038581979167
+    ],
+    "log_loss": 0.7455509541714198,
+    "brier_skill_vs_coin": -0.08090669166666675,
+    "auc": 0.6481481481481481
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 24,
+    "correct": 15,
+    "accuracy": 0.625,
+    "accuracy_ci": [
+     0.42709619037907065,
+     0.7884086656636855
+    ],
+    "brier": 0.2537291666666666,
+    "brier_ci": [
+     0.19174135416666668,
+     0.3213694791666664
+    ],
+    "log_loss": 0.7084307328565149,
+    "brier_skill_vs_coin": -0.014916666666666467,
+    "auc": 0.6
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 24,
+    "correct": 12,
+    "accuracy": 0.5,
+    "accuracy_ci": [
+     0.31427131627763083,
+     0.6857286837223692
+    ],
+    "brier": 0.2848625,
+    "brier_ci": [
+     0.19131770833333336,
+     0.3824042708333333
+    ],
+    "log_loss": 0.783663564578629,
+    "brier_skill_vs_coin": -0.13945000000000007,
+    "auc": 0.5962962962962963
+   },
+   "home": {
+    "system": "home",
+    "n": 24,
+    "correct": 9,
+    "accuracy": 0.375,
+    "accuracy_ci": [
+     0.21159133433631458,
+     0.5729038096209293
+    ]
+   }
+  },
+  "r26_27": {
+   "new": {
+    "system": "new",
+    "n": 16,
+    "correct": 12,
+    "accuracy": 0.75,
+    "accuracy_ci": [
+     0.5050123107060135,
+     0.8981809801576265
+    ],
+    "brier": 0.1903125,
+    "brier_ci": [
+     0.13804984375,
+     0.24858187499999998
+    ],
+    "log_loss": 0.5667697129972551,
+    "brier_skill_vs_coin": 0.23875000000000002,
+    "auc": 0.8015873015873016
+   },
+   "model": {
+    "system": "model",
+    "n": 14,
+    "correct": 8,
+    "accuracy": 0.5714285714285714,
+    "accuracy_ci": [
+     0.3259026690286936,
+     0.7861949006959948
+    ],
+    "brier": 0.22698456285714289,
+    "brier_ci": [
+     0.13745249821428573,
+     0.3203267516249999
+    ],
+    "log_loss": 0.638343018649065,
+    "brier_skill_vs_coin": 0.09206174857142846,
+    "auc": 0.7755102040816326
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 16,
+    "correct": 11,
+    "accuracy": 0.6875,
+    "accuracy_ci": [
+     0.4440393186673406,
+     0.8583556494803894
+    ],
+    "brier": 0.18946249999999998,
+    "brier_ci": [
+     0.11883078124999999,
+     0.2672068749999999
+    ],
+    "log_loss": 0.5616513023258844,
+    "brier_skill_vs_coin": 0.2421500000000001,
+    "auc": 0.8333333333333334
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 16,
+    "correct": 11,
+    "accuracy": 0.6875,
+    "accuracy_ci": [
+     0.4440393186673406,
+     0.8583556494803894
+    ],
+    "brier": 0.19652500000000003,
+    "brier_ci": [
+     0.09983734375000003,
+     0.305975
+    ],
+    "log_loss": 0.5744311288125469,
+    "brier_skill_vs_coin": 0.21389999999999987,
+    "auc": 0.7857142857142858
+   },
+   "home": {
+    "system": "home",
+    "n": 16,
+    "correct": 9,
+    "accuracy": 0.5625,
+    "accuracy_ci": [
+     0.33178195606776517,
+     0.7690163666481448
+    ]
+   }
+  },
+  "regular": {
+   "agent": {
+    "system": "agent",
+    "n": 40,
+    "correct": 27,
+    "accuracy": 0.675,
+    "accuracy_ci": [
+     0.52017458088898,
+     0.7991568303733828
+    ],
+    "brier": 0.22953,
+    "brier_ci": [
+     0.17987943750000002,
+     0.28265256250000004
+    ],
+    "log_loss": 0.6551510105047437,
+    "brier_skill_vs_coin": 0.08187999999999995,
+    "auc": 0.6818181818181819
+   },
+   "model": {
+    "system": "model",
+    "n": 38,
+    "correct": 22,
+    "accuracy": 0.5789473684210527,
+    "accuracy_ci": [
+     0.42192070613127325,
+     0.7214772518818047
+    ],
+    "brier": 0.25429536921052626,
+    "brier_ci": [
+     0.19455043915131578,
+     0.31643409609210527
+    ],
+    "log_loss": 0.7060532937158155,
+    "brier_skill_vs_coin": -0.017181476842105026,
+    "auc": 0.6775568181818182
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 40,
+    "correct": 26,
+    "accuracy": 0.65,
+    "accuracy_ci": [
+     0.4950559699353738,
+     0.7786566682895086
+    ],
+    "brier": 0.22802249999999996,
+    "brier_ci": [
+     0.1793223125,
+     0.2808400625
+    ],
+    "log_loss": 0.6497189606442627,
+    "brier_skill_vs_coin": 0.08791000000000015,
+    "auc": 0.6906565656565656
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 40,
+    "correct": 23,
+    "accuracy": 0.575,
+    "accuracy_ci": [
+     0.42194800436059987,
+     0.7149083147518411
+    ],
+    "brier": 0.24952749999999999,
+    "brier_ci": [
+     0.17972731249999999,
+     0.3234061249999999
+    ],
+    "log_loss": 0.6999705902721962,
+    "brier_skill_vs_coin": 0.0018900000000000583,
+    "auc": 0.6856060606060606
+   },
+   "home": {
+    "system": "home",
+    "n": 40,
+    "correct": 18,
+    "accuracy": 0.45,
+    "accuracy_ci": [
+     0.30705075280944694,
+     0.6017117011155924
+    ]
+   }
+  },
+  "finals": {
+   "old": {
+    "system": "old",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "brier": 0.2980222222222222,
+    "brier_ci": [
+     0.18167388888888888,
+     0.4236111111111111
+    ],
+    "log_loss": 0.8030862935593105,
+    "brier_skill_vs_coin": -0.19208888888888875,
+    "auc": 0.6
+   },
+   "new": {
+    "system": "new",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "brier": 0.28586666666666666,
+    "brier_ci": [
+     0.17286666666666667,
+     0.4051666666666667
+    ],
+    "log_loss": 0.7765167907654181,
+    "brier_skill_vs_coin": -0.14346666666666663,
+    "auc": 0.8
+   },
+   "model": {
+    "system": "model",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "brier": 0.3016330611111111,
+    "brier_ci": [
+     0.17621854555555555,
+     0.4358134724722217
+    ],
+    "log_loss": 0.8136483028752294,
+    "brier_skill_vs_coin": -0.2065322444444444,
+    "auc": 0.55
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "brier": 0.3032555555555556,
+    "brier_ci": [
+     0.20670777777777777,
+     0.40182388888888876
+    ],
+    "log_loss": 0.8078323356196426,
+    "brier_skill_vs_coin": -0.21302222222222245,
+    "auc": 0.275
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "brier": 0.3311888888888889,
+    "brier_ci": [
+     0.17603194444444448,
+     0.48372222222222216
+    ],
+    "log_loss": 0.8821444790943288,
+    "brier_skill_vs_coin": -0.3247555555555557,
+    "auc": 0.5249999999999999
+   },
+   "home": {
+    "system": "home",
+    "n": 9,
+    "correct": 4,
+    "accuracy": 0.4444444444444444,
+    "accuracy_ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ]
+   }
+  }
+ },
+ "own_matches": {
+  "agent": {
+   "agent": {
+    "system": "agent",
+    "n": 49,
+    "correct": 31,
+    "accuracy": 0.6326530612244898,
+    "accuracy_ci": [
+     0.49266811386889864,
+     0.7533501747521878
+    ],
+    "brier": 0.2398775510204082,
+    "brier_ci": [
+     0.1945611224489796,
+     0.2900617857142857
+    ],
+    "log_loss": 0.6774426844301737,
+    "brier_skill_vs_coin": 0.04048979591836721,
+    "auc": 0.6750841750841751
+   },
+   "model": {
+    "system": "model",
+    "n": 47,
+    "correct": 26,
+    "accuracy": 0.5531914893617021,
+    "accuracy_ci": [
+     0.41245213738758246,
+     0.685892525250887
+    ],
+    "brier": 0.26336003361702126,
+    "brier_ci": [
+     0.20981126814893616,
+     0.3202475061276596
+    ],
+    "log_loss": 0.7266565933420861,
+    "brier_skill_vs_coin": -0.05344013446808504,
+    "auc": 0.650925925925926
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 49,
+    "correct": 30,
+    "accuracy": 0.6122448979591837,
+    "accuracy_ci": [
+     0.4724574648805242,
+     0.735711856260395
+    ],
+    "brier": 0.2418408163265306,
+    "brier_ci": [
+     0.19740816326530616,
+     0.2879428571428571
+    ],
+    "log_loss": 0.6787601927825979,
+    "brier_skill_vs_coin": 0.03263673469387762,
+    "auc": 0.6481481481481481
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 49,
+    "correct": 27,
+    "accuracy": 0.5510204081632653,
+    "accuracy_ci": [
+     0.41314866799678107,
+     0.6814737507036366
+    ],
+    "brier": 0.2645265306122449,
+    "brier_ci": [
+     0.19970984693877547,
+     0.33149653061224477
+    ],
+    "log_loss": 0.7334311004640165,
+    "brier_skill_vs_coin": -0.058106122448979614,
+    "auc": 0.6632996632996634
+   },
+   "home": {
+    "system": "home",
+    "n": 49,
+    "correct": 22,
+    "accuracy": 0.4489795918367347,
+    "accuracy_ci": [
+     0.3185262492963633,
+     0.5868513320032188
+    ]
+   }
+  },
+  "old": {
+   "old": {
+    "system": "old",
+    "n": 33,
+    "correct": 19,
+    "accuracy": 0.5757575757575758,
+    "accuracy_ci": [
+     0.4080697369146003,
+     0.7276464100497011
+    ],
+    "brier": 0.2672242424242424,
+    "brier_ci": [
+     0.20337507575757574,
+     0.3342499999999999
+    ],
+    "log_loss": 0.7383485349778017,
+    "brier_skill_vs_coin": -0.06889696969696968,
+    "auc": 0.6076923076923078
+   },
+   "model": {
+    "system": "model",
+    "n": 33,
+    "correct": 18,
+    "accuracy": 0.5454545454545454,
+    "accuracy_ci": [
+     0.3798565794374957,
+     0.701573108741085
+    ],
+    "brier": 0.27879205151515146,
+    "brier_ci": [
+     0.21335351418939394,
+     0.3467128330303031
+    ],
+    "log_loss": 0.7641229583633677,
+    "brier_skill_vs_coin": -0.11516820606060585,
+    "auc": 0.6096153846153847
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 33,
+    "correct": 19,
+    "accuracy": 0.5757575757575758,
+    "accuracy_ci": [
+     0.4080697369146003,
+     0.7276464100497011
+    ],
+    "brier": 0.26723636363636366,
+    "brier_ci": [
+     0.21345681818181816,
+     0.3244353030303028
+    ],
+    "log_loss": 0.7355402608828224,
+    "brier_skill_vs_coin": -0.06894545454545464,
+    "auc": 0.5615384615384615
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 33,
+    "correct": 16,
+    "accuracy": 0.48484848484848486,
+    "accuracy_ci": [
+     0.32503781646924224,
+     0.6478189541378976
+    ],
+    "brier": 0.29749696969696965,
+    "brier_ci": [
+     0.21696333333333337,
+     0.3792642424242424
+    ],
+    "log_loss": 0.8105219958101835,
+    "brier_skill_vs_coin": -0.1899878787878786,
+    "auc": 0.5884615384615385
+   },
+   "home": {
+    "system": "home",
+    "n": 33,
+    "correct": 13,
+    "accuracy": 0.3939393939393939,
+    "accuracy_ci": [
+     0.24682882231508207,
+     0.5631685719348962
+    ]
+   }
+  },
+  "new": {
+   "new": {
+    "system": "new",
+    "n": 25,
+    "correct": 16,
+    "accuracy": 0.64,
+    "accuracy_ci": [
+     0.44518154601046633,
+     0.7975234356826436
+    ],
+    "brier": 0.224712,
+    "brier_ci": [
+     0.17003169999999998,
+     0.28352439999999995
+    ],
+    "log_loss": 0.6422786609937939,
+    "brier_skill_vs_coin": 0.10115200000000002,
+    "auc": 0.7532051282051283
+   },
+   "model": {
+    "system": "model",
+    "n": 23,
+    "correct": 12,
+    "accuracy": 0.5217391304347826,
+    "accuracy_ci": [
+     0.3296242986421849,
+     0.7076313046005427
+    ],
+    "brier": 0.25619484478260873,
+    "brier_ci": [
+     0.18086089459782606,
+     0.3362126813152173
+    ],
+    "log_loss": 0.7069407385636509,
+    "brier_skill_vs_coin": -0.02477937913043493,
+    "auc": 0.6893939393939393
+   },
+   "gemini": {
+    "system": "gemini",
+    "n": 25,
+    "correct": 15,
+    "accuracy": 0.6,
+    "accuracy_ci": [
+     0.40739127785127344,
+     0.7659694233580909
+    ],
+    "brier": 0.23042800000000002,
+    "brier_ci": [
+     0.1694319,
+     0.2952776999999998
+    ],
+    "log_loss": 0.6502764743116373,
+    "brier_skill_vs_coin": 0.07828799999999991,
+    "auc": 0.6698717948717949
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 25,
+    "correct": 15,
+    "accuracy": 0.6,
+    "accuracy_ci": [
+     0.40739127785127344,
+     0.7659694233580909
+    ],
+    "brier": 0.24500400000000003,
+    "brier_ci": [
+     0.1557918,
+     0.3371291999999999
+    ],
+    "log_loss": 0.6852079349139883,
+    "brier_skill_vs_coin": 0.01998399999999989,
+    "auc": 0.7051282051282052
+   },
+   "home": {
+    "system": "home",
+    "n": 25,
+    "correct": 13,
+    "accuracy": 0.52,
+    "accuracy_ci": [
+     0.334982179531473,
+     0.6996899607103998
+    ]
+   }
+  }
+ },
+ "per_round": [
+  {
+   "round": 23,
+   "label": "Round 23",
+   "n": 8,
+   "agent": [
+    6,
+    8
+   ],
+   "agent_brier": 0.20956249999999998,
+   "old": [
+    6,
+    8
+   ],
+   "old_brier": 0.20956249999999998,
+   "new": null,
+   "model": [
+    5,
+    8
+   ],
+   "model_brier": 0.217288205,
+   "gemini": [
+    6,
+    8
+   ],
+   "gemini_brier": 0.220175,
+   "statsinsider": [
+    4,
+    8
+   ],
+   "statsinsider_brier": 0.2755875,
+   "home": [
+    6,
+    8
+   ]
+  },
+  {
+   "round": 24,
+   "label": "Round 24",
+   "n": 8,
+   "agent": [
+    4,
+    8
+   ],
+   "agent_brier": 0.2730625,
+   "old": [
+    4,
+    8
+   ],
+   "old_brier": 0.2730625,
+   "new": null,
+   "model": [
+    4,
+    8
+   ],
+   "model_brier": 0.31586921749999997,
+   "gemini": [
+    5,
+    8
+   ],
+   "gemini_brier": 0.2399,
+   "statsinsider": [
+    3,
+    8
+   ],
+   "statsinsider_brier": 0.3054,
+   "home": [
+    2,
+    8
+   ]
+  },
+  {
+   "round": 25,
+   "label": "Round 25",
+   "n": 8,
+   "agent": [
+    5,
+    8
+   ],
+   "agent_brier": 0.2844,
+   "old": [
+    5,
+    8
+   ],
+   "old_brier": 0.2844,
+   "new": null,
+   "model": [
+    5,
+    8
+   ],
+   "model_brier": 0.27752259625,
+   "gemini": [
+    4,
+    8
+   ],
+   "gemini_brier": 0.3011125,
+   "statsinsider": [
+    5,
+    8
+   ],
+   "statsinsider_brier": 0.2736,
+   "home": [
+    1,
+    8
+   ]
+  },
+  {
+   "round": 26,
+   "label": "Round 26",
+   "n": 8,
+   "agent": [
+    6,
+    8
+   ],
+   "agent_brier": 0.18585000000000002,
+   "old": null,
+   "new": [
+    6,
+    8
+   ],
+   "new_brier": 0.18585000000000002,
+   "model": [
+    6,
+    8
+   ],
+   "model_brier": 0.1734939,
+   "gemini": [
+    6,
+    8
+   ],
+   "gemini_brier": 0.1940375,
+   "statsinsider": [
+    6,
+    8
+   ],
+   "statsinsider_brier": 0.17769999999999997,
+   "home": [
+    5,
+    8
+   ]
+  },
+  {
+   "round": 27,
+   "label": "Round 27",
+   "n": 8,
+   "agent": [
+    6,
+    8
+   ],
+   "agent_brier": 0.19477500000000003,
+   "old": null,
+   "new": [
+    6,
+    8
+   ],
+   "new_brier": 0.19477500000000003,
+   "model": [
+    2,
+    6
+   ],
+   "model_brier": 0.2983054466666667,
+   "gemini": [
+    5,
+    8
+   ],
+   "gemini_brier": 0.1848875,
+   "statsinsider": [
+    5,
+    8
+   ],
+   "statsinsider_brier": 0.21535,
+   "home": [
+    4,
+    8
+   ]
+  },
+  {
+   "round": 28,
+   "label": "Finals week 1",
+   "n": 4,
+   "agent": [
+    2,
+    4
+   ],
+   "agent_brier": 0.22254999999999997,
+   "old": [
+    2,
+    4
+   ],
+   "old_brier": 0.23022499999999999,
+   "new": [
+    2,
+    4
+   ],
+   "new_brier": 0.22254999999999997,
+   "model": [
+    2,
+    4
+   ],
+   "model_brier": 0.21178765500000002,
+   "gemini": [
+    2,
+    4
+   ],
+   "gemini_brier": 0.2698,
+   "statsinsider": [
+    2,
+    4
+   ],
+   "statsinsider_brier": 0.28295000000000003,
+   "home": [
+    2,
+    4
+   ]
+  },
+  {
+   "round": 29,
+   "label": "Finals week 2",
+   "n": 2,
+   "agent": [
+    1,
+    2
+   ],
+   "agent_brier": 0.26065,
+   "old": [
+    1,
+    2
+   ],
+   "old_brier": 0.3314,
+   "new": [
+    1,
+    2
+   ],
+   "new_brier": 0.26065,
+   "model": [
+    1,
+    2
+   ],
+   "model_brier": 0.354952,
+   "gemini": [
+    1,
+    2
+   ],
+   "gemini_brier": 0.30050000000000004,
+   "statsinsider": [
+    1,
+    2
+   ],
+   "statsinsider_brier": 0.3386,
+   "home": [
+    1,
+    2
+   ]
+  },
+  {
+   "round": 30,
+   "label": "Preliminary finals",
+   "n": 2,
+   "agent": [
+    0,
+    2
+   ],
+   "agent_brier": 0.5122000000000001,
+   "old": [
+    0,
+    2
+   ],
+   "old_brier": 0.5042500000000001,
+   "new": [
+    0,
+    2
+   ],
+   "new_brier": 0.5122000000000001,
+   "model": [
+    0,
+    2
+   ],
+   "model_brier": 0.535720985,
+   "gemini": [
+    0,
+    2
+   ],
+   "gemini_brier": 0.44049999999999995,
+   "statsinsider": [
+    0,
+    2
+   ],
+   "statsinsider_brier": 0.53465,
+   "home": [
+    0,
+    2
+   ]
+  },
+  {
+   "round": 31,
+   "label": "Grand final",
+   "n": 1,
+   "agent": [
+    1,
+    1
+   ],
+   "agent_brier": 0.1369,
+   "old": [
+    1,
+    1
+   ],
+   "old_brier": 0.09000000000000002,
+   "new": [
+    1,
+    1
+   ],
+   "new_brier": 0.1369,
+   "model": [
+    1,
+    1
+   ],
+   "model_brier": 0.08620095999999998,
+   "gemini": [
+    1,
+    1
+   ],
+   "gemini_brier": 0.16810000000000003,
+   "statsinsider": [
+    1,
+    1
+   ],
+   "statsinsider_brier": 0.10239999999999996,
+   "home": [
+    1,
+    1
+   ]
+  }
+ ],
+ "paired_window": [
+  {
+   "a": "agent",
+   "b": "gemini",
+   "n": 49,
+   "a_correct": 31,
+   "b_correct": 30,
+   "a_only": 3,
+   "b_only": 2,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.2398775510204082,
+   "brier_b": 0.2418408163265306,
+   "brier_diff": -0.0019632653061224417,
+   "brier_diff_ci": [
+    -0.02415714285714285,
+    0.021846938775510215
+   ],
+   "brier_perm_p": 0.87005
+  },
+  {
+   "a": "agent",
+   "b": "statsinsider",
+   "n": 49,
+   "a_correct": 31,
+   "b_correct": 27,
+   "a_only": 4,
+   "b_only": 0,
+   "mcnemar_p": 0.125,
+   "brier_a": 0.2398775510204082,
+   "brier_b": 0.2645265306122449,
+   "brier_diff": -0.02464897959183673,
+   "brier_diff_ci": [
+    -0.054614438775510206,
+    0.0031064285714285495
+   ],
+   "brier_perm_p": 0.10055
+  },
+  {
+   "a": "agent",
+   "b": "model",
+   "n": 47,
+   "a_correct": 29,
+   "b_correct": 26,
+   "a_only": 4,
+   "b_only": 1,
+   "mcnemar_p": 0.375,
+   "brier_a": 0.24202340425531918,
+   "brier_b": 0.26336003361702126,
+   "brier_diff": -0.021336629361702133,
+   "brier_diff_ci": [
+    -0.04626578605319149,
+    0.0010249188829787135
+   ],
+   "brier_perm_p": 0.0851
+  },
+  {
+   "a": "agent",
+   "b": "home",
+   "n": 49,
+   "a_correct": 31,
+   "b_correct": 22,
+   "a_only": 12,
+   "b_only": 3,
+   "mcnemar_p": 0.03515625
+  },
+  {
+   "a": "gemini",
+   "b": "statsinsider",
+   "n": 49,
+   "a_correct": 30,
+   "b_correct": 27,
+   "a_only": 4,
+   "b_only": 1,
+   "mcnemar_p": 0.375,
+   "brier_a": 0.2418408163265306,
+   "brier_b": 0.2645265306122449,
+   "brier_diff": -0.022685714285714288,
+   "brier_diff_ci": [
+    -0.052898367346938764,
+    0.007210408163265297
+   ],
+   "brier_perm_p": 0.14695
+  },
+  {
+   "a": "model",
+   "b": "statsinsider",
+   "n": 47,
+   "a_correct": 26,
+   "b_correct": 26,
+   "a_only": 3,
+   "b_only": 3,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.26336003361702126,
+   "brier_b": 0.2656872340425532,
+   "brier_diff": -0.002327200425531905,
+   "brier_diff_ci": [
+    -0.03365665967021276,
+    0.029842772085106377
+   ],
+   "brier_perm_p": 0.89085
+  },
+  {
+   "a": "gemini",
+   "b": "home",
+   "n": 49,
+   "a_correct": 30,
+   "b_correct": 22,
+   "a_only": 13,
+   "b_only": 5,
+   "mcnemar_p": 0.09625244140625
+  }
+ ],
+ "paired_old": [
+  {
+   "a": "old",
+   "b": "gemini",
+   "n": 33,
+   "a_correct": 19,
+   "b_correct": 19,
+   "a_only": 2,
+   "b_only": 2,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.2672242424242424,
+   "brier_b": 0.26723636363636366,
+   "brier_diff": -1.212121212120574e-05,
+   "brier_diff_ci": [
+    -0.02704242424242424,
+    0.029924242424242416
+   ],
+   "brier_perm_p": 0.9995
+  },
+  {
+   "a": "old",
+   "b": "statsinsider",
+   "n": 33,
+   "a_correct": 19,
+   "b_correct": 16,
+   "a_only": 3,
+   "b_only": 0,
+   "mcnemar_p": 0.25,
+   "brier_a": 0.2672242424242424,
+   "brier_b": 0.29749696969696965,
+   "brier_diff": -0.030272727272727264,
+   "brier_diff_ci": [
+    -0.0620092424242424,
+    -0.0016786363636363717
+   ],
+   "brier_perm_p": 0.05965
+  },
+  {
+   "a": "old",
+   "b": "model",
+   "n": 33,
+   "a_correct": 19,
+   "b_correct": 18,
+   "a_only": 2,
+   "b_only": 1,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.2672242424242424,
+   "brier_b": 0.27879205151515146,
+   "brier_diff": -0.011567809090909096,
+   "brier_diff_ci": [
+    -0.029935002537878785,
+    0.005841396628787869
+   ],
+   "brier_perm_p": 0.2248
+  },
+  {
+   "a": "old",
+   "b": "home",
+   "n": 33,
+   "a_correct": 19,
+   "b_correct": 13,
+   "a_only": 8,
+   "b_only": 2,
+   "mcnemar_p": 0.109375
+  }
+ ],
+ "paired_new": [
+  {
+   "a": "new",
+   "b": "gemini",
+   "n": 25,
+   "a_correct": 16,
+   "b_correct": 15,
+   "a_only": 1,
+   "b_only": 0,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.224712,
+   "brier_b": 0.23042800000000002,
+   "brier_diff": -0.005715999999999992,
+   "brier_diff_ci": [
+    -0.034196,
+    0.021140399999999993
+   ],
+   "brier_perm_p": 0.7068
+  },
+  {
+   "a": "new",
+   "b": "statsinsider",
+   "n": 25,
+   "a_correct": 16,
+   "b_correct": 15,
+   "a_only": 1,
+   "b_only": 0,
+   "mcnemar_p": 1.0,
+   "brier_a": 0.224712,
+   "brier_b": 0.24500400000000003,
+   "brier_diff": -0.020292000000000004,
+   "brier_diff_ci": [
+    -0.0664612,
+    0.02290609999999981
+   ],
+   "brier_perm_p": 0.38445
+  },
+  {
+   "a": "new",
+   "b": "model",
+   "n": 23,
+   "a_correct": 14,
+   "b_correct": 12,
+   "a_only": 2,
+   "b_only": 0,
+   "mcnemar_p": 0.5,
+   "brier_a": 0.22777826086956524,
+   "brier_b": 0.25619484478260873,
+   "brier_diff": -0.028416583913043473,
+   "brier_diff_ci": [
+    -0.07215810511956523,
+    0.010176463249999972
+   ],
+   "brier_perm_p": 0.21805
+  },
+  {
+   "a": "new",
+   "b": "home",
+   "n": 25,
+   "a_correct": 16,
+   "b_correct": 13,
+   "a_only": 4,
+   "b_only": 1,
+   "mcnemar_p": 0.375
+  }
+ ],
+ "paired_finals_new_vs_old": {
+  "a": "new",
+  "b": "old",
+  "n": 9,
+  "a_correct": 4,
+  "b_correct": 4,
+  "a_only": 0,
+  "b_only": 0,
+  "mcnemar_p": 1.0,
+  "brier_a": 0.28586666666666666,
+  "brier_b": 0.2980222222222222,
+  "brier_diff": -0.012155555555555558,
+  "brier_diff_ci": [
+   -0.04696666666666665,
+   0.013522222222222208
+  ],
+  "brier_perm_p": 0.63705
+ },
+ "sensitivity": {
+  "all_recorded_47": {
+   "n": 47,
+   "summary": {
+    "agent": {
+     "system": "agent",
+     "n": 47,
+     "correct": 29,
+     "accuracy": 0.6170212765957447,
+     "accuracy_ci": [
+      0.47426308443976317,
+      0.7420951733648692
+     ],
+     "brier": 0.24202340425531918,
+     "brier_ci": [
+      0.19357648936170213,
+      0.2933330851063829
+     ],
+     "log_loss": 0.681960156614494,
+     "brier_skill_vs_coin": 0.03190638297872328,
+     "auc": 0.6962962962962963
+    },
+    "model": {
+     "system": "model",
+     "n": 47,
+     "correct": 26,
+     "accuracy": 0.5531914893617021,
+     "accuracy_ci": [
+      0.41245213738758246,
+      0.685892525250887
+     ],
+     "brier": 0.26336003361702126,
+     "brier_ci": [
+      0.21030051140425532,
+      0.32124889073936164
+     ],
+     "log_loss": 0.7266565933420861,
+     "brier_skill_vs_coin": -0.05344013446808504,
+     "auc": 0.650925925925926
+    },
+    "gemini": {
+     "system": "gemini",
+     "n": 47,
+     "correct": 29,
+     "accuracy": 0.6170212765957447,
+     "accuracy_ci": [
+      0.47426308443976317,
+      0.7420951733648692
+     ],
+     "brier": 0.24254680851063837,
+     "brier_ci": [
+      0.19632425531914893,
+      0.2901613297872339
+     ],
+     "log_loss": 0.6804678477925855,
+     "brier_skill_vs_coin": 0.02981276595744653,
+     "auc": 0.6537037037037037
+    },
+    "statsinsider": {
+     "system": "statsinsider",
+     "n": 47,
+     "correct": 26,
+     "accuracy": 0.5531914893617021,
+     "accuracy_ci": [
+      0.41245213738758246,
+      0.685892525250887
+     ],
+     "brier": 0.2656872340425532,
+     "brier_ci": [
+      0.1991826595744681,
+      0.335047074468085
+     ],
+     "log_loss": 0.7373427215121366,
+     "brier_skill_vs_coin": -0.06274893617021271,
+     "auc": 0.6657407407407407
+    },
+    "home": {
+     "system": "home",
+     "n": 47,
+     "correct": 20,
+     "accuracy": 0.425531914893617,
+     "accuracy_ci": [
+      0.2951341600182584,
+      0.5671833122878847
+     ]
+    }
+   },
+   "paired": [
+    {
+     "a": "agent",
+     "b": "gemini",
+     "n": 47,
+     "a_correct": 29,
+     "b_correct": 29,
+     "a_only": 2,
+     "b_only": 2,
+     "mcnemar_p": 1.0,
+     "brier_a": 0.24202340425531918,
+     "brier_b": 0.24254680851063837,
+     "brier_diff": -0.0005234042553191439,
+     "brier_diff_ci": [
+      -0.022127765957446806,
+      0.022844893617021265
+     ],
+     "brier_perm_p": 0.96845
+    },
+    {
+     "a": "agent",
+     "b": "statsinsider",
+     "n": 47,
+     "a_correct": 29,
+     "b_correct": 26,
+     "a_only": 3,
+     "b_only": 0,
+     "mcnemar_p": 0.25,
+     "brier_a": 0.24202340425531918,
+     "brier_b": 0.2656872340425532,
+     "brier_diff": -0.02366382978723404,
+     "brier_diff_ci": [
+      -0.051621542553191485,
+      0.002534574468085074
+     ],
+     "brier_perm_p": 0.09615
+    },
+    {
+     "a": "agent",
+     "b": "model",
+     "n": 47,
+     "a_correct": 29,
+     "b_correct": 26,
+     "a_only": 4,
+     "b_only": 1,
+     "mcnemar_p": 0.375,
+     "brier_a": 0.24202340425531918,
+     "brier_b": 0.26336003361702126,
+     "brier_diff": -0.021336629361702133,
+     "brier_diff_ci": [
+      -0.045942061021276584,
+      0.0005344973776595516
+     ],
+     "brier_perm_p": 0.0886
+    }
+   ]
+  },
+  "recorded_pre_kickoff_45": {
+   "n": 45,
+   "summary": {
+    "agent": {
+     "system": "agent",
+     "n": 45,
+     "correct": 27,
+     "accuracy": 0.6,
+     "accuracy_ci": [
+      0.4545159420914473,
+      0.7297532055204246
+     ],
+     "brier": 0.24795111111111115,
+     "brier_ci": [
+      0.19828800000000005,
+      0.2997182777777777
+     ],
+     "log_loss": 0.6953679445334187,
+     "brier_skill_vs_coin": 0.0081955555555554,
+     "auc": 0.6934156378600823
+    },
+    "model": {
+     "system": "model",
+     "n": 45,
+     "correct": 24,
+     "accuracy": 0.5333333333333333,
+     "accuracy_ci": [
+      0.3907720886241046,
+      0.6706509605798527
+     ],
+     "brier": 0.2699781824444444,
+     "brier_ci": [
+      0.21539456329444442,
+      0.3282586627777777
+     ],
+     "log_loss": 0.7414825928665931,
+     "brier_skill_vs_coin": -0.07991272977777752,
+     "auc": 0.6471193415637859
+    },
+    "gemini": {
+     "system": "gemini",
+     "n": 45,
+     "correct": 27,
+     "accuracy": 0.6,
+     "accuracy_ci": [
+      0.4545159420914473,
+      0.7297532055204246
+     ],
+     "brier": 0.2484555555555556,
+     "brier_ci": [
+      0.2009287777777778,
+      0.29737211111111106
+     ],
+     "log_loss": 0.69395148808564,
+     "brier_skill_vs_coin": 0.0061777777777776155,
+     "auc": 0.6440329218106996
+    },
+    "statsinsider": {
+     "system": "statsinsider",
+     "n": 45,
+     "correct": 25,
+     "accuracy": 0.5555555555555556,
+     "accuracy_ci": [
+      0.4117588341636533,
+      0.6906129145096089
+     ],
+     "brier": 0.26970666666666665,
+     "brier_ci": [
+      0.20256233333333334,
+      0.34020977777777767
+     ],
+     "log_loss": 0.7474840989695803,
+     "brier_skill_vs_coin": -0.0788266666666666,
+     "auc": 0.6635802469135803
+    },
+    "home": {
+     "system": "home",
+     "n": 45,
+     "correct": 18,
+     "accuracy": 0.4,
+     "accuracy_ci": [
+      0.27024679447957545,
+      0.5454840579085527
+     ]
+    }
+   },
+   "paired": [
+    {
+     "a": "agent",
+     "b": "gemini",
+     "n": 45,
+     "a_correct": 27,
+     "b_correct": 27,
+     "a_only": 2,
+     "b_only": 2,
+     "mcnemar_p": 1.0,
+     "brier_a": 0.24795111111111115,
+     "brier_b": 0.2484555555555556,
+     "brier_diff": -0.0005044444444444407,
+     "brier_diff_ci": [
+      -0.02290022222222222,
+      0.023695666666666677
+     ],
+     "brier_perm_p": 0.9668
+    },
+    {
+     "a": "agent",
+     "b": "statsinsider",
+     "n": 45,
+     "a_correct": 27,
+     "b_correct": 25,
+     "a_only": 2,
+     "b_only": 0,
+     "mcnemar_p": 0.5,
+     "brier_a": 0.24795111111111115,
+     "brier_b": 0.26970666666666665,
+     "brier_diff": -0.02175555555555555,
+     "brier_diff_ci": [
+      -0.050633500000000005,
+      0.00495116666666667
+     ],
+     "brier_perm_p": 0.1361
+    },
+    {
+     "a": "agent",
+     "b": "model",
+     "n": 45,
+     "a_correct": 27,
+     "b_correct": 24,
+     "a_only": 4,
+     "b_only": 1,
+     "mcnemar_p": 0.375,
+     "brier_a": 0.24795111111111115,
+     "brier_b": 0.2699781824444444,
+     "brier_diff": -0.02202707133333334,
+     "brier_diff_ci": [
+      -0.047824479344444455,
+      0.0011903013444444347
+     ],
+     "brier_perm_p": 0.0892
+    }
+   ]
+  }
+ },
+ "calibration": {
+  "agent": {
+   "system": "agent",
+   "n": 49,
+   "mean_conf": 0.6579591836734694,
+   "hit_rate": 0.6326530612244898,
+   "gap": 0.025306122448979562,
+   "mean_conf_hits": 0.6564516129032256,
+   "mean_conf_misses": 0.6605555555555555,
+   "mean_p_home": 0.5742857142857142,
+   "actual_home_rate": 0.4489795918367347,
+   "picked_home": 34,
+   "bands": {
+    "0.55-0.65": {
+     "n": 24,
+     "mean_conf": 0.5979166666666668,
+     "hit_rate": 0.5833333333333334
+    },
+    "0.65-0.75": {
+     "n": 21,
+     "mean_conf": 0.6995238095238095,
+     "hit_rate": 0.7142857142857143
+    },
+    "0.75+": {
+     "n": 4,
+     "mean_conf": 0.8,
+     "hit_rate": 0.5
+    }
+   }
+  },
+  "old": {
+   "system": "old",
+   "n": 33,
+   "mean_conf": 0.6715151515151515,
+   "hit_rate": 0.5757575757575758,
+   "gap": 0.09575757575757571,
+   "mean_conf_hits": 0.6636842105263158,
+   "mean_conf_misses": 0.6821428571428569,
+   "mean_p_home": 0.5806060606060606,
+   "actual_home_rate": 0.3939393939393939,
+   "picked_home": 23,
+   "bands": {
+    "0.55-0.65": {
+     "n": 13,
+     "mean_conf": 0.596153846153846,
+     "hit_rate": 0.5384615384615384
+    },
+    "0.65-0.75": {
+     "n": 17,
+     "mean_conf": 0.708235294117647,
+     "hit_rate": 0.6470588235294118
+    },
+    "0.75+": {
+     "n": 3,
+     "mean_conf": 0.79,
+     "hit_rate": 0.3333333333333333
+    }
+   }
+  },
+  "new": {
+   "system": "new",
+   "n": 25,
+   "mean_conf": 0.6439999999999999,
+   "hit_rate": 0.64,
+   "gap": 0.0039999999999998925,
+   "mean_conf_hits": 0.651875,
+   "mean_conf_misses": 0.6299999999999999,
+   "mean_p_home": 0.6000000000000001,
+   "actual_home_rate": 0.52,
+   "picked_home": 20,
+   "bands": {
+    "0.55-0.65": {
+     "n": 15,
+     "mean_conf": 0.6026666666666667,
+     "hit_rate": 0.5333333333333333
+    },
+    "0.65-0.75": {
+     "n": 8,
+     "mean_conf": 0.6799999999999999,
+     "hit_rate": 0.875
+    },
+    "0.75+": {
+     "n": 2,
+     "mean_conf": 0.81,
+     "hit_rate": 0.5
+    }
+   }
+  },
+  "model": {
+   "system": "model",
+   "n": 47,
+   "mean_conf": 0.6756340425531915,
+   "hit_rate": 0.5531914893617021,
+   "gap": 0.12244255319148933,
+   "mean_conf_hits": 0.6812807692307691,
+   "mean_conf_misses": 0.6686428571428573,
+   "mean_p_home": 0.5956553191489361,
+   "actual_home_rate": 0.425531914893617,
+   "picked_home": 35,
+   "bands": {
+    "0.50-0.55": {
+     "n": 4,
+     "mean_conf": 0.524225,
+     "hit_rate": 0.5
+    },
+    "0.55-0.65": {
+     "n": 13,
+     "mean_conf": 0.5937076923076923,
+     "hit_rate": 0.5384615384615384
+    },
+    "0.65-0.75": {
+     "n": 21,
+     "mean_conf": 0.706552380952381,
+     "hit_rate": 0.5714285714285714
+    },
+    "0.75+": {
+     "n": 9,
+     "mean_conf": 0.7891222222222223,
+     "hit_rate": 0.5555555555555556
+    }
+   }
+  },
+  "gemini": {
+   "system": "gemini",
+   "n": 49,
+   "mean_conf": 0.6542857142857144,
+   "hit_rate": 0.6122448979591837,
+   "gap": 0.04204081632653067,
+   "mean_conf_hits": 0.656,
+   "mean_conf_misses": 0.6515789473684211,
+   "mean_p_home": 0.5530612244897959,
+   "actual_home_rate": 0.4489795918367347,
+   "picked_home": 31,
+   "bands": {
+    "0.55-0.65": {
+     "n": 24,
+     "mean_conf": 0.5975,
+     "hit_rate": 0.625
+    },
+    "0.65-0.75": {
+     "n": 21,
+     "mean_conf": 0.6914285714285715,
+     "hit_rate": 0.5714285714285714
+    },
+    "0.75+": {
+     "n": 4,
+     "mean_conf": 0.8,
+     "hit_rate": 0.75
+    }
+   }
+  },
+  "statsinsider": {
+   "system": "statsinsider",
+   "n": 49,
+   "mean_conf": 0.730204081632653,
+   "hit_rate": 0.5510204081632653,
+   "gap": 0.1791836734693878,
+   "mean_conf_hits": 0.7496296296296298,
+   "mean_conf_misses": 0.7063636363636363,
+   "mean_p_home": 0.5844897959183674,
+   "actual_home_rate": 0.4489795918367347,
+   "picked_home": 32,
+   "bands": {
+    "0.55-0.65": {
+     "n": 10,
+     "mean_conf": 0.6129999999999999,
+     "hit_rate": 0.3
+    },
+    "0.65-0.75": {
+     "n": 14,
+     "mean_conf": 0.6928571428571428,
+     "hit_rate": 0.5714285714285714
+    },
+    "0.75+": {
+     "n": 25,
+     "mean_conf": 0.7979999999999999,
+     "hit_rate": 0.64
+    }
+   }
+  }
+ },
+ "finals_paired_confidence": [
+  {
+   "round": 28,
+   "home": "Rabbitohs",
+   "away": "Knights",
+   "pick": "Rabbitohs",
+   "old": 0.6,
+   "new": 0.61,
+   "winner": "Knights",
+   "old_brier": 0.36,
+   "new_brier": 0.3721
+  },
+  {
+   "round": 28,
+   "home": "Warriors",
+   "away": "Dolphins",
+   "pick": "Warriors",
+   "old": 0.6,
+   "new": 0.59,
+   "winner": "Dolphins",
+   "old_brier": 0.36,
+   "new_brier": 0.34809999999999997
+  },
+  {
+   "round": 28,
+   "home": "Sharks",
+   "away": "Cowboys",
+   "pick": "Sharks",
+   "old": 0.72,
+   "new": 0.74,
+   "winner": "Sharks",
+   "old_brier": 0.07840000000000001,
+   "new_brier": 0.06760000000000001
+  },
+  {
+   "round": 28,
+   "home": "Panthers",
+   "away": "Roosters",
+   "pick": "Panthers",
+   "old": 0.65,
+   "new": 0.68,
+   "winner": "Panthers",
+   "old_brier": 0.12249999999999998,
+   "new_brier": 0.10239999999999996
+  },
+  {
+   "round": 29,
+   "home": "Roosters",
+   "away": "Sharks",
+   "pick": "Roosters",
+   "old": 0.62,
+   "new": 0.63,
+   "winner": "Roosters",
+   "old_brier": 0.1444,
+   "new_brier": 0.1369
+  },
+  {
+   "round": 29,
+   "home": "Warriors",
+   "away": "Knights",
+   "pick": "Warriors",
+   "old": 0.72,
+   "new": 0.62,
+   "winner": "Knights",
+   "old_brier": 0.5184,
+   "new_brier": 0.3844
+  },
+  {
+   "round": 30,
+   "home": "Dolphins",
+   "away": "Roosters",
+   "pick": "Dolphins",
+   "old": 0.62,
+   "new": 0.62,
+   "winner": "Roosters",
+   "old_brier": 0.3844,
+   "new_brier": 0.3844
+  },
+  {
+   "round": 30,
+   "home": "Panthers",
+   "away": "Knights",
+   "pick": "Panthers",
+   "old": 0.79,
+   "new": 0.8,
+   "winner": "Knights",
+   "old_brier": 0.6241000000000001,
+   "new_brier": 0.6400000000000001
+  },
+  {
+   "round": 31,
+   "home": "Roosters",
+   "away": "Knights",
+   "pick": "Roosters",
+   "old": 0.7,
+   "new": 0.63,
+   "winner": "Roosters",
+   "old_brier": 0.09000000000000002,
+   "new_brier": 0.1369
+  }
+ ],
+ "gemini_by_version": {
+  "3.6": {
+   "rounds": [
+    23,
+    24
+   ],
+   "gemini": {
+    "system": "gemini",
+    "n": 16,
+    "correct": 11,
+    "accuracy": 0.6875,
+    "accuracy_ci": [
+     0.4440393186673406,
+     0.8583556494803894
+    ],
+    "brier": 0.2300375,
+    "brier_ci": [
+     0.16900984375,
+     0.2987448437499999
+    ],
+    "log_loss": 0.6543120389740361,
+    "brier_skill_vs_coin": 0.07984999999999998,
+    "auc": 0.625
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 16,
+    "correct": 7,
+    "accuracy": 0.4375,
+    "accuracy_ci": [
+     0.2309836333518552,
+     0.6682180439322347
+    ],
+    "brier": 0.29049375,
+    "brier_ci": [
+     0.18844921874999998,
+     0.39731265624999995
+    ],
+    "log_loss": 0.7893101485448355,
+    "brier_skill_vs_coin": -0.16197499999999998,
+    "auc": 0.515625
+   }
+  },
+  "3.7": {
+   "rounds": [
+    25,
+    26
+   ],
+   "gemini": {
+    "system": "gemini",
+    "n": 16,
+    "correct": 10,
+    "accuracy": 0.625,
+    "accuracy_ci": [
+     0.3864064709793481,
+     0.815190174452472
+    ],
+    "brier": 0.247575,
+    "brier_ci": [
+     0.16347374999999997,
+     0.34383203124999984
+    ],
+    "log_loss": 0.6983378670147811,
+    "brier_skill_vs_coin": 0.009700000000000042,
+    "auc": 0.6583333333333333
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 16,
+    "correct": 11,
+    "accuracy": 0.6875,
+    "accuracy_ci": [
+     0.4440393186673406,
+     0.8583556494803894
+    ],
+    "brier": 0.22565000000000002,
+    "brier_ci": [
+     0.11292421875,
+     0.3543818749999999
+    ],
+    "log_loss": 0.6544138006670173,
+    "brier_skill_vs_coin": 0.09739999999999993,
+    "auc": 0.75
+   }
+  },
+  "3.8": {
+   "rounds": [
+    27,
+    28,
+    29,
+    30,
+    31
+   ],
+   "gemini": {
+    "system": "gemini",
+    "n": 17,
+    "correct": 9,
+    "accuracy": 0.5294117647058824,
+    "accuracy_ci": [
+     0.30962897311549487,
+     0.738351988039119
+    ],
+    "brier": 0.2475529411764706,
+    "brier_ci": [
+     0.16926397058823525,
+     0.32760602941176464
+    ],
+    "log_loss": 0.6833441735603657,
+    "brier_skill_vs_coin": 0.009788235294117653,
+    "auc": 0.6041666666666667
+   },
+   "statsinsider": {
+    "system": "statsinsider",
+    "n": 17,
+    "correct": 9,
+    "accuracy": 0.5294117647058824,
+    "accuracy_ci": [
+     0.30962897311549487,
+     0.738351988039119
+    ],
+    "brier": 0.27667647058823536,
+    "brier_ci": [
+     0.1665461764705882,
+     0.3916313235294116
+    ],
+    "log_loss": 0.7552082785498331,
+    "brier_skill_vs_coin": -0.10670588235294143,
+    "auc": 0.6666666666666666
+   }
+  }
+ },
+ "gemini_claims": {
+  "claims": 46,
+  "matched": 46,
+  "unmatched": []
+ },
+ "process": {
+  "old_r23_25": {
+   "n": 24,
+   "same_side_as_model": 21,
+   "copied_model_to_2dp": 7,
+   "within_002_of_model": 11,
+   "checklist_pass": 24,
+   "audit_pass": 1,
+   "recalibrated": 23,
+   "pick_changed": 0,
+   "confidence_changed": 0,
+   "confidence_changes": [],
+   "refine_triggered": 0,
+   "gate_passed": 24,
+   "stance": {
+    "None": 24
+   },
+   "loss_reason_specific": {
+    "None": 24
+   },
+   "disagreements": [
+    {
+     "round": 23,
+     "home": "Titans",
+     "away": "Cowboys",
+     "pick": "Cowboys",
+     "confidence": 0.58,
+     "model_p_home": 0.5063,
+     "winner": "Cowboys",
+     "won": true
+    },
+    {
+     "round": 23,
+     "home": "Warriors",
+     "away": "Panthers",
+     "pick": "Panthers",
+     "confidence": 0.6,
+     "model_p_home": 0.5301,
+     "winner": "Warriors",
+     "won": false
+    },
+    {
+     "round": 23,
+     "home": "Raiders",
+     "away": "Knights",
+     "pick": "Knights",
+     "confidence": 0.6,
+     "model_p_home": 0.5491,
+     "winner": "Knights",
+     "won": true
+    }
+   ],
+   "mean_abs_gap_to_model": 0.04127083333333331,
+   "wall_minutes_mean": 11.129513888888889,
+   "wall_minutes_max": 13.925,
+   "research_items_range": [
+    15,
+    21
+   ],
+   "finished_after_kickoff": 1,
+   "finished_under_one_hour": 2
+  },
+  "old_finals": {
+   "n": 9,
+   "same_side_as_model": 9,
+   "copied_model_to_2dp": 1,
+   "within_002_of_model": 5,
+   "checklist_pass": 9,
+   "audit_pass": 0,
+   "recalibrated": 9,
+   "pick_changed": 0,
+   "confidence_changed": 1,
+   "confidence_changes": [
+    {
+     "round": 28,
+     "home": "Panthers",
+     "away": "Roosters",
+     "before": 0.68,
+     "after": 0.65
+    }
+   ],
+   "refine_triggered": 0,
+   "gate_passed": 9,
+   "stance": {
+    "None": 9
+   },
+   "loss_reason_specific": {
+    "None": 9
+   },
+   "disagreements": [],
+   "mean_abs_gap_to_model": 0.021833333333333347,
+   "wall_minutes_mean": 12.626666666666665,
+   "wall_minutes_max": 23.901666666666664,
+   "research_items_range": [
+    17,
+    21
+   ],
+   "finished_after_kickoff": 0,
+   "finished_under_one_hour": 0
+  },
+  "old_all": {
+   "n": 33,
+   "same_side_as_model": 30,
+   "copied_model_to_2dp": 8,
+   "within_002_of_model": 16,
+   "checklist_pass": 33,
+   "audit_pass": 1,
+   "recalibrated": 32,
+   "pick_changed": 0,
+   "confidence_changed": 1,
+   "confidence_changes": [
+    {
+     "round": 28,
+     "home": "Panthers",
+     "away": "Roosters",
+     "before": 0.68,
+     "after": 0.65
+    }
+   ],
+   "refine_triggered": 0,
+   "gate_passed": 33,
+   "stance": {
+    "None": 33
+   },
+   "loss_reason_specific": {
+    "None": 33
+   },
+   "disagreements": [
+    {
+     "round": 23,
+     "home": "Titans",
+     "away": "Cowboys",
+     "pick": "Cowboys",
+     "confidence": 0.58,
+     "model_p_home": 0.5063,
+     "winner": "Cowboys",
+     "won": true
+    },
+    {
+     "round": 23,
+     "home": "Warriors",
+     "away": "Panthers",
+     "pick": "Panthers",
+     "confidence": 0.6,
+     "model_p_home": 0.5301,
+     "winner": "Warriors",
+     "won": false
+    },
+    {
+     "round": 23,
+     "home": "Raiders",
+     "away": "Knights",
+     "pick": "Knights",
+     "confidence": 0.6,
+     "model_p_home": 0.5491,
+     "winner": "Knights",
+     "won": true
+    }
+   ],
+   "mean_abs_gap_to_model": 0.035969696969696964,
+   "wall_minutes_mean": 11.537828282828285,
+   "wall_minutes_max": 23.901666666666664,
+   "research_items_range": [
+    15,
+    21
+   ],
+   "finished_after_kickoff": 1,
+   "finished_under_one_hour": 2
+  },
+  "new_r26_27": {
+   "n": 14,
+   "same_side_as_model": 12,
+   "copied_model_to_2dp": 4,
+   "within_002_of_model": 4,
+   "checklist_pass": 8,
+   "audit_pass": 3,
+   "recalibrated": 6,
+   "pick_changed": 0,
+   "confidence_changed": 6,
+   "confidence_changes": [
+    {
+     "round": 26,
+     "home": "Titans",
+     "away": "Rabbitohs",
+     "before": 0.68,
+     "after": 0.62
+    },
+    {
+     "round": 26,
+     "home": "Eels",
+     "away": "Sharks",
+     "before": 0.7,
+     "after": 0.62
+    },
+    {
+     "round": 27,
+     "home": "Bulldogs",
+     "away": "Broncos",
+     "before": 0.69,
+     "after": 0.65
+    },
+    {
+     "round": 27,
+     "home": "Titans",
+     "away": "Dolphins",
+     "before": 0.68,
+     "after": 0.62
+    },
+    {
+     "round": 27,
+     "home": "Rabbitohs",
+     "away": "Roosters",
+     "before": 0.75,
+     "after": 0.7
+    },
+    {
+     "round": 27,
+     "home": "Sharks",
+     "away": "Storm",
+     "before": 0.65,
+     "after": 0.58
+    }
+   ],
+   "refine_triggered": 0,
+   "gate_passed": 14,
+   "stance": {
+    "confirms": 7,
+    "conflicts": 6,
+    "mixed": 1
+   },
+   "loss_reason_specific": {
+    "True": 10,
+    "False": 4
+   },
+   "disagreements": [
+    {
+     "round": 27,
+     "home": "Rabbitohs",
+     "away": "Roosters",
+     "pick": "Rabbitohs",
+     "confidence": 0.7,
+     "model_p_home": 0.3634,
+     "winner": "Rabbitohs",
+     "won": true
+    },
+    {
+     "round": 27,
+     "home": "Sharks",
+     "away": "Storm",
+     "pick": "Storm",
+     "confidence": 0.58,
+     "model_p_home": 0.6743,
+     "winner": "Storm",
+     "won": true
+    }
+   ],
+   "mean_abs_gap_to_model": 0.08802857142857143,
+   "wall_minutes_mean": 10.596428571428572,
+   "wall_minutes_max": 13.168333333333333,
+   "research_items_range": [
+    15,
+    21
+   ],
+   "finished_after_kickoff": 1,
+   "finished_under_one_hour": 2
+  },
+  "new_finals": {
+   "n": 9,
+   "same_side_as_model": 9,
+   "copied_model_to_2dp": 2,
+   "within_002_of_model": 3,
+   "checklist_pass": 8,
+   "audit_pass": 2,
+   "recalibrated": 3,
+   "pick_changed": 0,
+   "confidence_changed": 1,
+   "confidence_changes": [
+    {
+     "round": 29,
+     "home": "Warriors",
+     "away": "Knights",
+     "before": 0.68,
+     "after": 0.62
+    }
+   ],
+   "refine_triggered": 0,
+   "gate_passed": 9,
+   "stance": {
+    "confirms": 6,
+    "mixed": 1,
+    "conflicts": 2
+   },
+   "loss_reason_specific": {
+    "True": 7,
+    "False": 2
+   },
+   "disagreements": [],
+   "mean_abs_gap_to_model": 0.042522222222222225,
+   "wall_minutes_mean": 11.927037037037037,
+   "wall_minutes_max": 25.628333333333334,
+   "research_items_range": [
+    17,
+    22
+   ],
+   "finished_after_kickoff": 0,
+   "finished_under_one_hour": 0
+  },
+  "new_all": {
+   "n": 23,
+   "same_side_as_model": 21,
+   "copied_model_to_2dp": 6,
+   "within_002_of_model": 7,
+   "checklist_pass": 16,
+   "audit_pass": 5,
+   "recalibrated": 9,
+   "pick_changed": 0,
+   "confidence_changed": 7,
+   "confidence_changes": [
+    {
+     "round": 26,
+     "home": "Titans",
+     "away": "Rabbitohs",
+     "before": 0.68,
+     "after": 0.62
+    },
+    {
+     "round": 26,
+     "home": "Eels",
+     "away": "Sharks",
+     "before": 0.7,
+     "after": 0.62
+    },
+    {
+     "round": 27,
+     "home": "Bulldogs",
+     "away": "Broncos",
+     "before": 0.69,
+     "after": 0.65
+    },
+    {
+     "round": 27,
+     "home": "Titans",
+     "away": "Dolphins",
+     "before": 0.68,
+     "after": 0.62
+    },
+    {
+     "round": 27,
+     "home": "Rabbitohs",
+     "away": "Roosters",
+     "before": 0.75,
+     "after": 0.7
+    },
+    {
+     "round": 27,
+     "home": "Sharks",
+     "away": "Storm",
+     "before": 0.65,
+     "after": 0.58
+    },
+    {
+     "round": 29,
+     "home": "Warriors",
+     "away": "Knights",
+     "before": 0.68,
+     "after": 0.62
+    }
+   ],
+   "refine_triggered": 0,
+   "gate_passed": 23,
+   "stance": {
+    "confirms": 13,
+    "conflicts": 8,
+    "mixed": 2
+   },
+   "loss_reason_specific": {
+    "True": 17,
+    "False": 6
+   },
+   "disagreements": [
+    {
+     "round": 27,
+     "home": "Rabbitohs",
+     "away": "Roosters",
+     "pick": "Rabbitohs",
+     "confidence": 0.7,
+     "model_p_home": 0.3634,
+     "winner": "Rabbitohs",
+     "won": true
+    },
+    {
+     "round": 27,
+     "home": "Sharks",
+     "away": "Storm",
+     "pick": "Storm",
+     "confidence": 0.58,
+     "model_p_home": 0.6743,
+     "winner": "Storm",
+     "won": true
+    }
+   ],
+   "mean_abs_gap_to_model": 0.07022173913043478,
+   "wall_minutes_mean": 11.117101449275363,
+   "wall_minutes_max": 25.628333333333334,
+   "research_items_range": [
+    15,
+    22
+   ],
+   "finished_after_kickoff": 1,
+   "finished_under_one_hour": 2
+  }
+ },
+ "verifier_effect": {
+  "old": {
+   "n": 33,
+   "brier_before": 0.2666151515151515,
+   "brier_after": 0.2672242424242424,
+   "change": 0.0006090909090908925
+  },
+  "new": {
+   "n": 23,
+   "brier_before": 0.2309,
+   "brier_after": 0.22777826086956524,
+   "change": -0.0031217391304347586
+  }
+ },
+ "new_rule_compliance": {
+  "summary": {
+   "confirms": {
+    "n": 13,
+    "at_or_below_prior": 9,
+    "above_prior": [
+     {
+      "round": 28,
+      "home": "Rabbitohs",
+      "away": "Knights",
+      "stance": "confirms",
+      "flipped": false,
+      "confidence": 0.61,
+      "model_p_pick": 0.5624,
+      "change_from_prior": 0.048
+     },
+     {
+      "round": 28,
+      "home": "Panthers",
+      "away": "Roosters",
+      "stance": "confirms",
+      "flipped": false,
+      "confidence": 0.68,
+      "model_p_pick": 0.6361,
+      "change_from_prior": 0.044
+     },
+     {
+      "round": 29,
+      "home": "Roosters",
+      "away": "Sharks",
+      "stance": "confirms",
+      "flipped": false,
+      "confidence": 0.63,
+      "model_p_pick": 0.62,
+      "change_from_prior": 0.01
+     }
+    ],
+    "flips": 1
+   },
+   "conflicts": {
+    "n": 8,
+    "at_or_below_prior": 7,
+    "above_prior": [],
+    "flips": 1
+   },
+   "mixed": {
+    "n": 2,
+    "at_or_below_prior": 2,
+    "above_prior": [],
+    "flips": 0
+   }
+  },
+  "rows": [
+   {
+    "round": 26,
+    "home": "Broncos",
+    "away": "Storm",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.61,
+    "model_p_pick": 0.6108,
+    "change_from_prior": -0.001
+   },
+   {
+    "round": 26,
+    "home": "Sea Eagles",
+    "away": "Dragons",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.65,
+    "model_p_pick": 0.7499,
+    "change_from_prior": -0.1
+   },
+   {
+    "round": 26,
+    "home": "Panthers",
+    "away": "Bulldogs",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.65,
+    "model_p_pick": 0.7197,
+    "change_from_prior": -0.07
+   },
+   {
+    "round": 26,
+    "home": "Titans",
+    "away": "Rabbitohs",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.62,
+    "model_p_pick": 0.6669,
+    "change_from_prior": -0.047
+   },
+   {
+    "round": 26,
+    "home": "Roosters",
+    "away": "Dolphins",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.6,
+    "model_p_pick": 0.603,
+    "change_from_prior": -0.003
+   },
+   {
+    "round": 26,
+    "home": "Cowboys",
+    "away": "Wests Tigers",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.72,
+    "model_p_pick": 0.723,
+    "change_from_prior": -0.003
+   },
+   {
+    "round": 26,
+    "home": "Warriors",
+    "away": "Knights",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.65,
+    "model_p_pick": 0.7642,
+    "change_from_prior": -0.114
+   },
+   {
+    "round": 26,
+    "home": "Eels",
+    "away": "Sharks",
+    "stance": "mixed",
+    "flipped": false,
+    "confidence": 0.62,
+    "model_p_pick": 0.6989,
+    "change_from_prior": -0.079
+   },
+   {
+    "round": 27,
+    "home": "Bulldogs",
+    "away": "Broncos",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.65,
+    "model_p_pick": 0.6905,
+    "change_from_prior": -0.04
+   },
+   {
+    "round": 27,
+    "home": "Titans",
+    "away": "Dolphins",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.62,
+    "model_p_pick": 0.7594,
+    "change_from_prior": -0.139
+   },
+   {
+    "round": 27,
+    "home": "Rabbitohs",
+    "away": "Roosters",
+    "stance": "confirms",
+    "flipped": true,
+    "confidence": 0.7,
+    "model_p_pick": 0.3634,
+    "change_from_prior": 0.337
+   },
+   {
+    "round": 27,
+    "home": "Cowboys",
+    "away": "Raiders",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.56,
+    "model_p_pick": 0.6011,
+    "change_from_prior": -0.041
+   },
+   {
+    "round": 27,
+    "home": "Sharks",
+    "away": "Storm",
+    "stance": "conflicts",
+    "flipped": true,
+    "confidence": 0.58,
+    "model_p_pick": 0.3257,
+    "change_from_prior": 0.254
+   },
+   {
+    "round": 27,
+    "home": "Panthers",
+    "away": "Wests Tigers",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.82,
+    "model_p_pick": 0.8159,
+    "change_from_prior": 0.004
+   },
+   {
+    "round": 28,
+    "home": "Rabbitohs",
+    "away": "Knights",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.61,
+    "model_p_pick": 0.5624,
+    "change_from_prior": 0.048
+   },
+   {
+    "round": 28,
+    "home": "Warriors",
+    "away": "Dolphins",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.59,
+    "model_p_pick": 0.5858,
+    "change_from_prior": 0.004
+   },
+   {
+    "round": 28,
+    "home": "Sharks",
+    "away": "Cowboys",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.74,
+    "model_p_pick": 0.7649,
+    "change_from_prior": -0.025
+   },
+   {
+    "round": 28,
+    "home": "Panthers",
+    "away": "Roosters",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.68,
+    "model_p_pick": 0.6361,
+    "change_from_prior": 0.044
+   },
+   {
+    "round": 29,
+    "home": "Roosters",
+    "away": "Sharks",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.63,
+    "model_p_pick": 0.62,
+    "change_from_prior": 0.01
+   },
+   {
+    "round": 29,
+    "home": "Warriors",
+    "away": "Knights",
+    "stance": "mixed",
+    "flipped": false,
+    "confidence": 0.62,
+    "model_p_pick": 0.752,
+    "change_from_prior": -0.132
+   },
+   {
+    "round": 30,
+    "home": "Dolphins",
+    "away": "Roosters",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.62,
+    "model_p_pick": 0.6606,
+    "change_from_prior": -0.041
+   },
+   {
+    "round": 30,
+    "home": "Panthers",
+    "away": "Knights",
+    "stance": "confirms",
+    "flipped": false,
+    "confidence": 0.8,
+    "model_p_pick": 0.7969,
+    "change_from_prior": 0.003
+   },
+   {
+    "round": 31,
+    "home": "Roosters",
+    "away": "Knights",
+    "stance": "conflicts",
+    "flipped": false,
+    "confidence": 0.63,
+    "model_p_pick": 0.7064,
+    "change_from_prior": -0.076
+   }
+  ]
+ },
+ "fixture_details_vs_official": [],
+ "fixture_details_checked": 54,
+ "model_probability_identical_across_systems_in_finals": true,
+ "llm_identity": [
+  [
+   "ollama",
+   "gemma4:31b-mlx"
+  ]
+ ],
+ "manual_columns_empty": true,
+ "stale_data_forecasts": {
+  "old": [
+   {
+    "round": 24,
+    "home": "Panthers",
+    "away": "Roosters",
+    "run_id": "20260813T044820Z-c5568e72",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 24,
+    "home": "Sea Eagles",
+    "away": "Dolphins",
+    "run_id": "20260814T012715Z-b5649b42",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 24,
+    "home": "Bulldogs",
+    "away": "Rabbitohs",
+    "run_id": "20260814T013835Z-4368793d",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 24,
+    "home": "Sharks",
+    "away": "Raiders",
+    "run_id": "20260815T043801Z-73529dbb",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 24,
+    "home": "Eels",
+    "away": "Cowboys",
+    "run_id": "20260815T044822Z-a99ec147",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 24,
+    "home": "Broncos",
+    "away": "Warriors",
+    "run_id": "20260815T051954Z-7040bd6a",
+    "matches_needed": 172,
+    "matches_in_lake": 164
+   },
+   {
+    "round": 28,
+    "home": "Rabbitohs",
+    "away": "Knights",
+    "run_id": "20260911T072556Z-65d3bde8",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Warriors",
+    "away": "Dolphins",
+    "run_id": "20260911T211252Z-7ce081d8",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Sharks",
+    "away": "Cowboys",
+    "run_id": "20260911T213251Z-7f3ddb01",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Panthers",
+    "away": "Roosters",
+    "run_id": "20260913T023425Z-e85b222e",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   }
+  ],
+  "new": [
+   {
+    "round": 28,
+    "home": "Rabbitohs",
+    "away": "Knights",
+    "run_id": "20260911T071308Z-eb7348f7",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Warriors",
+    "away": "Dolphins",
+    "run_id": "20260911T212350Z-edcd2c29",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Sharks",
+    "away": "Cowboys",
+    "run_id": "20260911T214349Z-f734a0b1",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   },
+   {
+    "round": 28,
+    "home": "Panthers",
+    "away": "Roosters",
+    "run_id": "20260913T024545Z-3961c051",
+    "matches_needed": 204,
+    "matches_in_lake": 196
+   }
+  ]
+ },
+ "holdout": {
+  "metrics": {
+   "log_loss": 0.6514351166445608,
+   "brier": 0.22952060739166918,
+   "auc": 0.6528701863532936,
+   "accuracy": 0.6223404255319149
+  },
+  "always_home_accuracy": 0.5664893617021277,
+  "base_rate_log_loss": 0.6842937692471559
+ },
+ "power": [
+  {
+   "discordant": 0.1,
+   "gap": 0.05,
+   "matches": 312
+  },
+  {
+   "discordant": 0.1,
+   "gap": 0.08,
+   "matches": 121
+  },
+  {
+   "discordant": 0.15,
+   "gap": 0.05,
+   "matches": 469
+  },
+  {
+   "discordant": 0.15,
+   "gap": 0.08,
+   "matches": 182
+  }
+ ]
+}

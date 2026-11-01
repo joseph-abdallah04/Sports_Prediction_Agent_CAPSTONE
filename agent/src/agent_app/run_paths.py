@@ -3,17 +3,11 @@
 Output is organised so a human can find a run without opening anything:
 
     agent_runs/
-      README.md                                  what all of this is
       fixtures/
         2026-R23_Titans-v-Cowboys/               one folder per fixture
           20260803T093203Z/                      one folder per run of it
             ledger.json                          complete, unabridged record
             summary.md                           the same run, readable
-      rounds/
-        2026-R23/
-          predictions.json                       written BEFORE kickoff
-          scored.json                            written AFTER the games
-          summary.md                             the scorecard, readable
 
 Fixture first, then run time, because the question people actually ask is
 "what did it say about this game, and did that change between runs".
@@ -74,8 +68,3 @@ def fixture_run_dir(
     # and is enough to disambiguate inside a fixture folder.
     stamp = run_id.split("-", 1)[0] if "-" in run_id else run_id
     return Path(runs_root) / "fixtures" / label / stamp
-
-
-def round_dir(runs_root: Path, season: int, round_number: int) -> Path:
-    """Directory for a whole-round prediction and its scorecard."""
-    return Path(runs_root) / "rounds" / f"{season}-R{round_number}"

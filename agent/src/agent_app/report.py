@@ -284,59 +284,6 @@ def _render_audit_checks(audit: dict[str, Any]) -> list[str]:
     return lines
 
 
-def render_round_summary(report: dict[str, Any]) -> str:
-    """Markdown scorecard for a scored round."""
-    season = report.get("season")
-    round_number = report.get("round_number")
-    lines = [
-        f"# Season {season}, round {round_number} — scorecard",
-        "",
-        f"Scored {report.get('n_scored')} fixtures "
-        f"({report.get('n_pending')} not finished, "
-        f"{report.get('n_draws_excluded')} draws excluded). "
-        f"Scored at {report.get('scored_at')}.",
-        "",
-        "| Predictor | n | Accuracy | Brier | Log loss |",
-        "| --- | ---: | ---: | ---: | ---: |",
-    ]
-    for name in ("agent", "math"):
-        metrics = report.get(name) or {}
-        if metrics.get("n"):
-            lines.append(
-                f"| {name} | {metrics['n']} | {metrics['accuracy']:.3f} | "
-                f"{metrics['brier']:.4f} | {metrics['log_loss']:.4f} |"
-            )
-    home_rate = report.get("home_win_rate") or 0.0
-    lines += [
-        f"| always back the home team | {report.get('n_scored')} | {home_rate:.3f} | — | — |",
-        "",
-        "Lower is better for Brier and log loss. Predictions were written "
-        "before kickoff and scored from a separate command, so they cannot "
-        "have been back-fitted.",
-        "",
-        "## Fixtures",
-        "",
-        "| Fixture | Actual | Agent | Hit | Model P(home) |",
-        "| --- | --- | --- | :-: | ---: |",
-    ]
-    for row in report.get("fixtures") or []:
-        agent_prob = row.get("agent_home_prob")
-        math_prob = row.get("math_home_prob")
-        if agent_prob is None:
-            agent_cell, hit = "—", "—"
-        else:
-            side = "home" if agent_prob >= 0.5 else "away"
-            agent_cell = f"{side} {max(agent_prob, 1 - agent_prob):.2f}"
-            hit = "yes" if side == row.get("actual_winner") else "no"
-        lines.append(
-            f"| {row.get('home_team')} v {row.get('away_team')} "
-            f"| {row.get('actual_score')} | {agent_cell} | {hit} "
-            f"| {f'{math_prob:.2f}' if isinstance(math_prob, (int, float)) else '—'} |"
-        )
-    lines.append("")
-    return "\n".join(lines)
-
-
 def render_thinking(ledger: dict[str, Any]) -> str:
     """Markdown of the model's real scratchpad for each LLM step.
 

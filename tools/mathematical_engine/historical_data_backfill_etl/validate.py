@@ -1,7 +1,7 @@
 """Validates the raw data lake after a backfill run.
 
 Checks every saved match file for the structures the feature engineering
-phase (Overview.md Phase 2) depends on:
+phase depends on:
   - match.stats.groups   (team telemetry: possession, attack, defence...)
   - match.timeline       (momentum/fatigue parsing via gameSeconds)
   - match.homeTeam/awayTeam players + score (labels and roster workload)
